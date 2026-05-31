@@ -1,0 +1,336 @@
+/* ==========================================================================
+   QUIETFORGE — Design System v1.0
+   Terminal / developer-tool aesthetic. Dark-first. Mono. One sharp accent.
+   Inspired by Hermes-Agent (amber) + OpenCode (minimal mono).
+   --------------------------------------------------------------------------
+   USAGE FOR AGENTS:
+   - Link this file: <link rel="stylesheet" href="quietforge.css">
+   - Use design tokens (CSS variables) — never hardcode colors/spacing.
+   - Components are class-based and self-contained.
+   - All styles are inline-safe for sandboxed preview (no external fonts/CDN).
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- *
+ * 1. DESIGN TOKENS                                                 *
+ * ---------------------------------------------------------------- */
+:root {
+  /* --- Color: warm-black base (Hermes DNA) --- */
+  --qf-bg:            #0e0c0a;   /* page background (warm near-black) */
+  --qf-bg-raised:     #15120e;   /* panels, cards */
+  --qf-bg-inset:      #1c1813;   /* inputs, code, inset blocks */
+  --qf-border:        #2a241c;   /* default thin borders */
+  --qf-border-bright: #3a3226;   /* hover / emphasised borders */
+
+  /* --- Text --- */
+  --qf-text:          #e9e2d4;   /* primary text (warm off-white) */
+  --qf-text-dim:      #9a907e;   /* secondary / meta */
+  --qf-text-faint:    #645c4e;   /* hints, captions, disabled */
+
+  /* --- Accent: amber/forge (the one sharp color) --- */
+  --qf-accent:        #e8a33d;   /* primary accent (amber) */
+  --qf-accent-soft:   #b8842f;   /* pressed / darker accent */
+  --qf-accent-glow:   rgba(232,163,61,0.14); /* subtle glow / tint */
+
+  /* --- Functional accents (used sparingly) --- */
+  --qf-ok:            #6fae6f;   /* success / "approved" */
+  --qf-info:          #5a9bd4;   /* info / secondary links (OpenCode blue) */
+  --qf-warn:          #d98f4a;
+
+  /* --- Typography --- */
+  --qf-mono: "JetBrains Mono", "SF Mono", "Cascadia Code", "Fira Code",
+             ui-monospace, "Menlo", "Consolas", monospace;
+  --qf-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --qf-fs-xs:   0.75rem;   /* 12px  meta / captions */
+  --qf-fs-sm:   0.875rem;  /* 14px  body small */
+  --qf-fs-base: 1rem;      /* 16px  body */
+  --qf-fs-lg:   1.25rem;   /* 20px  lead */
+  --qf-fs-xl:   1.75rem;   /* 28px  h3 */
+  --qf-fs-2xl:  2.5rem;    /* 40px  h2 */
+  --qf-fs-3xl:  3.5rem;    /* 56px  h1 */
+
+  --qf-lh-tight: 1.15;
+  --qf-lh-body:  1.65;
+
+  /* --- Spacing scale (8px base) --- */
+  --qf-sp-1: 0.25rem;
+  --qf-sp-2: 0.5rem;
+  --qf-sp-3: 0.75rem;
+  --qf-sp-4: 1rem;
+  --qf-sp-6: 1.5rem;
+  --qf-sp-8: 2rem;
+  --qf-sp-12: 3rem;
+  --qf-sp-16: 4rem;
+  --qf-sp-24: 6rem;
+
+  /* --- Structure --- */
+  --qf-radius: 2px;        /* near-zero, terminal-sharp */
+  --qf-border-w: 1px;
+  --qf-maxw: 1080px;       /* content max width */
+  --qf-maxw-narrow: 720px; /* prose width */
+
+  --qf-transition: 120ms ease;
+}
+
+/* ---------------------------------------------------------------- *
+ * 2. RESET / BASE                                                  *
+ * ---------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--qf-bg);
+  color: var(--qf-text);
+  font-family: var(--qf-mono);
+  font-size: var(--qf-fs-base);
+  line-height: var(--qf-lh-body);
+  font-feature-settings: "liga" 0; /* terminal feel: no fancy ligatures */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Optional faint scanline/grid texture — comment out if too much */
+body.qf-grid {
+  background-image:
+    linear-gradient(var(--qf-bg-raised) 1px, transparent 1px),
+    linear-gradient(90deg, var(--qf-bg-raised) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+h1, h2, h3, h4 { line-height: var(--qf-lh-tight); font-weight: 700; margin: 0 0 var(--qf-sp-4); }
+h1 { font-size: var(--qf-fs-3xl); letter-spacing: -0.02em; }
+h2 { font-size: var(--qf-fs-2xl); letter-spacing: -0.01em; }
+h3 { font-size: var(--qf-fs-xl); }
+p  { margin: 0 0 var(--qf-sp-4); max-width: var(--qf-maxw-narrow); }
+
+a { color: var(--qf-accent); text-decoration: none; transition: color var(--qf-transition); }
+a:hover { color: var(--qf-text); text-decoration: underline; text-underline-offset: 3px; }
+
+::selection { background: var(--qf-accent); color: var(--qf-bg); }
+
+/* ---------------------------------------------------------------- *
+ * 3. LAYOUT HELPERS                                                *
+ * ---------------------------------------------------------------- */
+.qf-container { max-width: var(--qf-maxw); margin: 0 auto; padding: 0 var(--qf-sp-6); }
+.qf-narrow    { max-width: var(--qf-maxw-narrow); margin: 0 auto; padding: 0 var(--qf-sp-6); }
+.qf-section   { padding: var(--qf-sp-24) 0; }
+.qf-section--tight { padding: var(--qf-sp-12) 0; }
+
+.qf-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--qf-sp-6); }
+.qf-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--qf-sp-6); }
+.qf-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--qf-sp-4); }
+@media (max-width: 820px) {
+  .qf-grid-2, .qf-grid-3, .qf-grid-4 { grid-template-columns: 1fr; }
+  h1 { font-size: 2.25rem; } h2 { font-size: 1.75rem; }
+}
+
+/* ---------------------------------------------------------------- *
+ * 4. TYPOGRAPHY UTILITIES                                          *
+ * ---------------------------------------------------------------- */
+.qf-eyebrow {
+  font-size: var(--qf-fs-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--qf-accent);
+  margin-bottom: var(--qf-sp-3);
+  display: inline-block;
+}
+.qf-eyebrow::before { content: "// "; color: var(--qf-text-faint); }
+
+.qf-lead   { font-size: var(--qf-fs-lg); color: var(--qf-text-dim); }
+.qf-dim    { color: var(--qf-text-dim); }
+.qf-faint  { color: var(--qf-text-faint); }
+.qf-accent { color: var(--qf-accent); }
+.qf-mono   { font-family: var(--qf-mono); }
+
+/* Terminal-style prompt prefix for hints */
+.qf-hint {
+  font-size: var(--qf-fs-sm);
+  color: var(--qf-text-faint);
+}
+.qf-hint::before { content: "→ "; color: var(--qf-accent); }
+
+/* ---------------------------------------------------------------- *
+ * 5. HEADER / NAV                                                  *
+ * ---------------------------------------------------------------- */
+.qf-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(14,12,10,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: var(--qf-border-w) solid var(--qf-border);
+}
+.qf-header__inner {
+  max-width: var(--qf-maxw); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--qf-sp-3) var(--qf-sp-6);
+}
+.qf-logo {
+  font-weight: 700; letter-spacing: 0.04em; color: var(--qf-text);
+  font-size: var(--qf-fs-base);
+}
+.qf-logo::before { content: "▍"; color: var(--qf-accent); margin-right: 0.4em; }
+.qf-nav { display: flex; gap: var(--qf-sp-6); align-items: center; }
+.qf-nav a { color: var(--qf-text-dim); font-size: var(--qf-fs-sm); }
+.qf-nav a:hover { color: var(--qf-text); text-decoration: none; }
+@media (max-width: 820px) { .qf-nav { display: none; } }
+
+/* ---------------------------------------------------------------- *
+ * 6. BUTTONS                                                       *
+ * ---------------------------------------------------------------- */
+.qf-btn {
+  display: inline-flex; align-items: center; gap: var(--qf-sp-2);
+  font-family: var(--qf-mono); font-size: var(--qf-fs-sm); font-weight: 600;
+  padding: var(--qf-sp-3) var(--qf-sp-6);
+  border: var(--qf-border-w) solid var(--qf-accent);
+  border-radius: var(--qf-radius);
+  background: var(--qf-accent); color: var(--qf-bg);
+  cursor: pointer; transition: all var(--qf-transition);
+  text-decoration: none;
+}
+.qf-btn:hover { background: var(--qf-accent-soft); border-color: var(--qf-accent-soft); color: var(--qf-bg); text-decoration: none; }
+.qf-btn::after { content: "→"; }
+
+.qf-btn--ghost {
+  background: transparent; color: var(--qf-accent);
+}
+.qf-btn--ghost:hover { background: var(--qf-accent-glow); color: var(--qf-accent); }
+
+.qf-btn--link {
+  background: transparent; border-color: transparent; color: var(--qf-text-dim);
+  padding-left: 0; padding-right: 0;
+}
+.qf-btn--link:hover { color: var(--qf-text); background: transparent; }
+
+/* ---------------------------------------------------------------- *
+ * 7. PANEL / CARD (boxed, terminal-style)                          *
+ * ---------------------------------------------------------------- */
+.qf-panel {
+  background: var(--qf-bg-raised);
+  border: var(--qf-border-w) solid var(--qf-border);
+  border-radius: var(--qf-radius);
+  padding: var(--qf-sp-6);
+  transition: border-color var(--qf-transition);
+}
+.qf-panel:hover { border-color: var(--qf-border-bright); }
+
+/* Panel with a terminal title bar */
+.qf-panel--titled { padding: 0; overflow: hidden; }
+.qf-panel__bar {
+  display: flex; align-items: center; gap: var(--qf-sp-2);
+  padding: var(--qf-sp-2) var(--qf-sp-4);
+  background: var(--qf-bg-inset);
+  border-bottom: var(--qf-border-w) solid var(--qf-border);
+  font-size: var(--qf-fs-xs); color: var(--qf-text-dim);
+}
+.qf-panel__bar .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--qf-border-bright); }
+.qf-panel__bar .dot--accent { background: var(--qf-accent); }
+.qf-panel__body { padding: var(--qf-sp-6); }
+
+/* Spearhead emphasis (asymmetry) */
+.qf-panel--spearhead {
+  border-color: var(--qf-accent);
+  box-shadow: 0 0 0 1px var(--qf-accent-glow), 0 0 40px var(--qf-accent-glow);
+}
+
+/* Card title + meta */
+.qf-card__title { font-size: var(--qf-fs-lg); margin-bottom: var(--qf-sp-2); }
+.qf-card__meta  { font-size: var(--qf-fs-xs); color: var(--qf-text-faint); }
+
+/* ---------------------------------------------------------------- *
+ * 8. LISTS (terminal-style bullets)                                *
+ * ---------------------------------------------------------------- */
+.qf-list { list-style: none; padding: 0; margin: 0; }
+.qf-list li {
+  position: relative; padding-left: 1.5em; margin-bottom: var(--qf-sp-2);
+  color: var(--qf-text-dim);
+}
+.qf-list li::before { content: "▸"; position: absolute; left: 0; color: var(--qf-accent); }
+
+.qf-list--check li::before { content: "✓"; color: var(--qf-ok); }
+.qf-list--steps { counter-reset: step; }
+.qf-list--steps li { padding-left: 2.2em; }
+.qf-list--steps li::before {
+  counter-increment: step; content: counter(step, decimal-leading-zero);
+  color: var(--qf-accent); font-weight: 700;
+}
+
+/* ---------------------------------------------------------------- *
+ * 9. CODE / TERMINAL BLOCK                                         *
+ * ---------------------------------------------------------------- */
+.qf-code {
+  background: var(--qf-bg-inset);
+  border: var(--qf-border-w) solid var(--qf-border);
+  border-left: 2px solid var(--qf-accent);
+  border-radius: var(--qf-radius);
+  padding: var(--qf-sp-4) var(--qf-sp-6);
+  font-family: var(--qf-mono); font-size: var(--qf-fs-sm);
+  color: var(--qf-text-dim); overflow-x: auto; white-space: pre;
+}
+.qf-code .prompt { color: var(--qf-accent); }
+.qf-code .ok     { color: var(--qf-ok); }
+
+kbd.qf-kbd {
+  font-family: var(--qf-mono); font-size: var(--qf-fs-xs);
+  background: var(--qf-bg-inset); border: var(--qf-border-w) solid var(--qf-border-bright);
+  border-radius: var(--qf-radius); padding: 1px 6px; color: var(--qf-text-dim);
+}
+
+/* ---------------------------------------------------------------- *
+ * 10. PRICE TABLE / TIER                                           *
+ * ---------------------------------------------------------------- */
+.qf-tier { display: flex; flex-direction: column; height: 100%; }
+.qf-tier__name { font-size: var(--qf-fs-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--qf-text-dim); }
+.qf-tier__price { font-size: var(--qf-fs-2xl); color: var(--qf-text); margin: var(--qf-sp-2) 0; }
+.qf-tier__price span { font-size: var(--qf-fs-sm); color: var(--qf-text-faint); }
+.qf-tier--featured { border-color: var(--qf-accent); }
+.qf-badge {
+  display: inline-block; font-size: var(--qf-fs-xs); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--qf-bg); background: var(--qf-accent);
+  padding: 1px 8px; border-radius: var(--qf-radius); margin-bottom: var(--qf-sp-2);
+}
+
+/* ---------------------------------------------------------------- *
+ * 11. STATUS BAR (Hermes-style footer strip)                       *
+ * ---------------------------------------------------------------- */
+.qf-statusbar {
+  display: flex; align-items: center; gap: var(--qf-sp-4);
+  font-family: var(--qf-mono); font-size: var(--qf-fs-xs); color: var(--qf-text-faint);
+  background: var(--qf-bg-inset); border-top: var(--qf-border-w) solid var(--qf-border);
+  padding: var(--qf-sp-2) var(--qf-sp-6);
+}
+.qf-statusbar .seg { display: inline-flex; align-items: center; gap: 6px; }
+.qf-statusbar .seg--accent { color: var(--qf-accent); }
+.qf-statusbar .seg::before { content: "●"; font-size: 0.6em; color: var(--qf-border-bright); }
+.qf-statusbar .seg--accent::before { color: var(--qf-accent); }
+
+/* ---------------------------------------------------------------- *
+ * 12. DIVIDERS / RULES                                             *
+ * ---------------------------------------------------------------- */
+.qf-rule { border: 0; border-top: var(--qf-border-w) solid var(--qf-border); margin: var(--qf-sp-12) 0; }
+.qf-rule--ascii { border: 0; color: var(--qf-text-faint); text-align: center; overflow: hidden; }
+.qf-rule--ascii::before { content: "· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·"; letter-spacing: 0.2em; }
+
+/* ---------------------------------------------------------------- *
+ * 13. FOOTER                                                       *
+ * ---------------------------------------------------------------- */
+.qf-footer { border-top: var(--qf-border-w) solid var(--qf-border); padding: var(--qf-sp-12) 0; color: var(--qf-text-dim); font-size: var(--qf-fs-sm); }
+.qf-footer h4 { color: var(--qf-text); font-size: var(--qf-fs-xs); letter-spacing: 0.1em; text-transform: uppercase; }
+.qf-footer a { color: var(--qf-text-dim); }
+.qf-footer a:hover { color: var(--qf-accent); }
+
+/* ---------------------------------------------------------------- *
+ * 14. ACCESSIBILITY / MOTION                                       *
+ * ---------------------------------------------------------------- */
+:focus-visible { outline: 2px solid var(--qf-accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto; } }
+
+/* ---------------------------------------------------------------- *
+ * 15. THEME VARIANT: "OpenCode mono" (cooler, blue accent)         *
+ *     Add class="qf-theme-mono" to <body> to switch DNA.           *
+ * ---------------------------------------------------------------- */
+body.qf-theme-mono {
+  --qf-bg: #0b0b0c; --qf-bg-raised: #121214; --qf-bg-inset: #18181b;
+  --qf-border: #232327; --qf-border-bright: #34343a;
+  --qf-text: #e6e6e8; --qf-text-dim: #8a8a92; --qf-text-faint: #55555d;
+  --qf-accent: #5a9bd4; --qf-accent-soft: #4682b8; --qf-accent-glow: rgba(90,155,212,0.14);
+}

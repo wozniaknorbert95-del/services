@@ -1,27 +1,34 @@
-import Hero from '@/components/Hero';
-import TrustBar from '@/components/TrustBar';
-import PainPoints from '@/components/PainPoints';
-import Solution from '@/components/Solution';
-import HowItWorks from '@/components/HowItWorks';
-import CaseStudies from '@/components/CaseStudies';
-import ProjectShowcase from '@/components/ProjectShowcase';
-import RiskReversal from '@/components/RiskReversal';
-import CTAFinal from '@/components/CTAFinal';
-import Footer from '@/components/Footer';
+import { Metadata } from 'next';
+import HeroSection from '@/components/home/HeroSection';
+import PainGrid from '@/components/home/PainGrid';
+import SpearheadSpotlight from '@/components/home/SpearheadSpotlight';
+import LadderTeaser from '@/components/home/LadderTeaser';
+import WhyThisWorks from '@/components/home/WhyThisWorks';
+import ResultsTeaser from '@/components/home/ResultsTeaser';
+import FinalCtaBand from '@/components/home/FinalCtaBand';
+
+export const metadata: Metadata = {
+  title: 'Quietforge — Done-for-you systems for small business',
+  description:
+    'Modern websites and back-office automation for small businesses. Fewer emails, more clients — systems that run on autopilot. Start with a paid Automation Map.',
+  openGraph: {
+    title: 'Quietforge — Done-for-you systems for small business',
+    description:
+      'Modern websites and back-office automation for small businesses. Fewer emails, more clients — systems that run on autopilot.',
+    images: ['/og/home.png'],
+  },
+};
 
 export default function Home() {
   return (
-    <main className="flex flex-col">
-      <Hero />
-      <TrustBar />
-      <PainPoints />
-      <Solution />
-      <HowItWorks />
-      <CaseStudies />
-      <ProjectShowcase />
-      <RiskReversal />
-      <CTAFinal />
-      <Footer />
-    </main>
+    <>
+      <HeroSection />
+      <PainGrid />
+      <SpearheadSpotlight />
+      <LadderTeaser />
+      <WhyThisWorks />
+      <ResultsTeaser />
+      <FinalCtaBand />
+    </>
   );
 }

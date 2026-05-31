@@ -1,0 +1,828 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Quietforge Portfolio Rebuild — Master Todo",
+  "version": "2.0.0",
+  "updated": "2026-05-31",
+  "source_docs": [
+    "Tak to ma być/Home — Copy & Wireframe (Filar 2).md",
+    "Tak to ma być/Inbox Killer — Copy & Wireframe (Filar 2).md",
+    "Tak to ma być/Ladder Pages — Copy & Wireframe (Filar 2).md",
+    "Tak to ma być/Pricing & Managed Automation — Copy & Wireframe (Filar 2).md",
+    "Tak to ma być/Trust & Conversion Pages — Copy & Wireframe (Filar 2).md",
+    "Tak to ma być/Mapa Strony Filar 2.md",
+    "Tak to ma być/Strategia Filar 2.md"
+  ],
+  "design_tokens": "src/app/globals.css",
+  "build_gate": "npm run build && npm run typecheck",
+  "static_export": true,
+  "phases": [
+    {
+      "id": "phase-0",
+      "name": "Foundation & Shared Infrastructure",
+      "sessions": 1,
+      "priority": "highest",
+      "depends_on": [],
+      "tasks": [
+        {
+          "id": "P0.0",
+          "title": "Pre-flight audit — read current codebase + strategy docs",
+          "type": "research",
+          "description": "Read all existing components, layout, pages, and all 7 Filar 2 strategy documents to understand current state.",
+          "effort": "30min",
+          "dod": [
+            "All 7 source docs read and understood",
+            "Existing component inventory complete",
+            "Current brand references (FlexGrafik) identified for replacement"
+          ]
+        },
+        {
+          "id": "P0.1",
+          "title": "Brand migration — layout.tsx metadata & globals.css",
+          "type": "code",
+          "description": "Update root layout metadata, title template, OG, Twitter, JSON-LD schema from FlexGrafik → Quietforge. Verify accent colours in globals.css fit Quietforge identity.",
+          "files": [
+            "src/app/layout.tsx",
+            "src/app/globals.css"
+          ],
+          "dod": [
+            "Title template shows '... | Quietforge'",
+            "OG image URL points to /og/home.png",
+            "JSON-LD WebSite name is Quietforge",
+            "Twitter card brand is Quietforge",
+            "All CSS vars unchanged unless identity requires accent shift",
+            "`npm run build` passes",
+            "`npm run typecheck` passes"
+          ]
+        },
+        {
+          "id": "P0.2",
+          "title": "Create shared Header component",
+          "type": "code",
+          "description": "Sticky header with: [BRAND] logo, Solutions▾ dropdown (4 modules + Managed Automation), How It Works, Results, Pricing, About, Blog links. Persistent 'Book Automation Map →' CTA button (contrast variant). Mobile hamburger menu. Follows Filar 2 sitemap §1 menu structure.",
+          "files": [
+            "src/components/Header.tsx"
+          ],
+          "dod": [
+            "Sticky on scroll",
+            "Desktop: full horizontal menu with Solutions dropdown",
+            "Mobile: hamburger with full overlay/accordion menu",
+            "'Book Automation Map →' CTA visible on all breakpoints",
+            "Dropdown has 5 items (Inbox Killer, Web Upgrade, Sales Funnel, Lead Magnet, Managed Automation)",
+            "All links use Next.js `Link` component",
+            "Uses CSS vars from globals.css — no hardcoded colors",
+            "`prefers-reduced-motion` respected",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P0.3",
+          "title": "Create shared Footer component",
+          "type": "code",
+          "description": "Mini-sitemap (4 columns: brand, solutions, company, get started), repeated CTA Discovery, contact email, one-way Pillar 3 bridge link. Matches Filar 2 sitemap footer spec.",
+          "files": [
+            "src/components/Footer.tsx"
+          ],
+          "dod": [
+            "4-column layout on desktop, stacked on mobile",
+            "Column 1: [BRAND] + tagline from source doc",
+            "Column 2: Solutions list (5 items, all linked)",
+            "Column 3: Company links (How It Works, Results, Pricing, About, Blog)",
+            "Column 4: 'Book your Automation Map →' CTA + email + optional Telegram",
+            "Bottom line: 'Building something bigger? →' links to Pillar 3 (one-way, external)",
+            "Copyright with current year + Quietforge",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P0.4",
+          "title": "Extend existing UI primitives",
+          "type": "code",
+          "description": "Extend Button.tsx (withArrow prop, size='xl'), Card.tsx (hover, interactive variants). Keep existing Section.tsx and Badge.tsx unchanged.",
+          "files": [
+            "src/components/ui/Button.tsx",
+            "src/components/ui/Card.tsx"
+          ],
+          "dod": [
+            "Button supports `withArrow` prop → adds arrow icon after children",
+            "Button supports `size='xl'` (px-10 py-5 text-lg)",
+            "Card supports `hover` variant (border highlight on hover)",
+            "Card supports `interactive` variant (cursor-pointer + hover lift)",
+            "Backward compatible — existing usages not broken",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P0.5",
+          "title": "Create new UI primitives",
+          "type": "code",
+          "description": "Eyebrow.tsx (section label), IconTile.tsx (icon+text tile), ProcessStep.tsx (numbered step), PricingCard.tsx (tiered pricing), FaqItem.tsx (collapsible FAQ). All dark-theme, CSS-var-based, mobile-first.",
+          "files": [
+            "src/components/ui/Eyebrow.tsx",
+            "src/components/ui/IconTile.tsx",
+            "src/components/ui/ProcessStep.tsx",
+            "src/components/ui/PricingCard.tsx",
+            "src/components/ui/FaqItem.tsx"
+          ],
+          "dod": [
+            "Each component accepts `className` prop for extending",
+            "Each component uses CSS vars — no hardcoded colors",
+            "Eyebrow: renders accent-colored label above section headings",
+            "IconTile: props for icon, title, description, optional href",
+            "ProcessStep: props for number, title, description, icon, isActive",
+            "PricingCard: props for tier name, price, currency, period, features[], ctaLabel, ctaHref, highlighted boolean",
+            "FaqItem: collapsible with smooth open/close animation, respects reduced-motion",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P0.6",
+          "title": "Create lib utilities (motion.ts, constants.ts)",
+          "type": "code",
+          "description": "Extract shared Framer Motion variants into lib/motion.ts. Create lib/constants.ts with site config, routes map, nav items, social links, pricing constants.",
+          "files": [
+            "src/lib/motion.ts",
+            "src/lib/constants.ts"
+          ],
+          "dod": [
+            "motion.ts exports: fadeIn, slideUp, staggerContainer, scaleIn variants",
+            "Constants exported for all 12+ routes as single source of truth",
+            "Pricing constants match Pricing doc € values exactly",
+            "Navigation items match sitemap structure exactly",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P0.7",
+          "title": "Create error/loading/not-found boundaries",
+          "type": "code",
+          "description": "Root error.tsx (UI error boundary with retry), not-found.tsx (404 with CTA back to home), loading.tsx (skeleton). All consistent with Quietforge dark-theme design.",
+          "files": [
+            "src/app/error.tsx",
+            "src/app/not-found.tsx",
+            "src/app/loading.tsx"
+          ],
+          "dod": [
+            "error.tsx catches rendering errors, shows friendly message + retry button",
+            "not-found.tsx shows 404 graphic + 'Back to home' link + Discovery CTA",
+            "loading.tsx shows minimal skeleton matching page structure",
+            "All dark-theme consistent with globals.css",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P0.8",
+          "title": "Delete superseded old components",
+          "type": "code",
+          "description": "Remove components that won't be used in new architecture: TrustBar.tsx, Solution.tsx, ProjectShowcase.tsx, RiskReversal.tsx, CTASection.tsx, Products.tsx, Trust.tsx.",
+          "files": [
+            "src/components/TrustBar.tsx",
+            "src/components/Solution.tsx",
+            "src/components/ProjectShowcase.tsx",
+            "src/components/RiskReversal.tsx",
+            "src/components/CTASection.tsx",
+            "src/components/Products.tsx",
+            "src/components/Trust.tsx"
+          ],
+          "dod": [
+            "7 files deleted from filesystem",
+            "No remaining imports reference these files",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P0.9",
+          "title": "Phase 0 build gate + handoff",
+          "type": "qa",
+          "description": "Final build + typecheck + write session handoff.",
+          "dod": [
+            "`npm run build` passes with zero errors",
+            "`npm run typecheck` passes with zero errors",
+            "Handoff doc written to docs/handoffs/YYYY-MM-DD-phase-0-foundation.md",
+            "brand (Quietforge) visible in layout.tsx metadata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase-1",
+      "name": "Home Page (Deep Rebuild)",
+      "sessions": 2,
+      "priority": "highest",
+      "depends_on": ["phase-0"],
+      "tasks": [
+        {
+          "id": "P1.1",
+          "title": "Create Home Hero section component",
+          "type": "code",
+          "description": "Hero section with outcome-led H1 from source doc, subhead, primary CTA (Book Automation Map →), secondary link (See what we fix), micro-trust line, calm dashboard placeholder visual.",
+          "source": "Tak to ma być/Home — Copy & Wireframe (Filar 2).md §A",
+          "files": [
+            "src/components/home/HeroSection.tsx"
+          ],
+          "dod": [
+            "H1: 'Your website and back-office, running on autopilot.' (exact from source)",
+            "Subhead matches source doc verbatim",
+            "Primary CTA: 'Book your Automation Map →' links to /book-discovery",
+            "Secondary link: 'See what we fix' links to /solutions",
+            "Micro-trust line: '✓ Built on a live, battle-tested system — not a template.'",
+            "Visual area (right side) uses placeholder SVG or Lucide composition",
+            "Framer Motion fade-in animation on mount",
+            "Mobile-first responsive",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P1.2",
+          "title": "Create Home Pain Grid section component",
+          "type": "code",
+          "description": "4-tile grid (Inbox chaos, Old site, Manual quotes, No leads). Each tile: icon, pain 1-liner, 'See the fix →' link to corresponding solution. Copy from source doc.",
+          "source": "Tak to ma być/Home — Copy & Wireframe (Filar 2).md §B",
+          "files": [
+            "src/components/home/PainGrid.tsx"
+          ],
+          "dod": [
+            "Eyebrow: 'Sound familiar?'",
+            "4 tiles with EXACT copy from source doc",
+            "Each tile has icon + 1-liner pain + 'See the fix →' link",
+            "Tile 1 → /solutions/inbox-killer",
+            "Tile 2 → /solutions/web-upgrade",
+            "Tile 3 → /solutions/sales-funnel",
+            "Tile 4 → /solutions/lead-magnet-game",
+            "2×2 grid on desktop, stacked on mobile",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P1.3",
+          "title": "Create Home Spearhead Spotlight component",
+          "type": "code",
+          "description": "Asymmetric larger section for Inbox Killer (the spearhead). Eyebrow 'Start here', H2, 3 outcome bullets, CTA. Copy from source doc.",
+          "source": "Tak to ma być/Home — Copy & Wireframe (Filar 2).md §C",
+          "files": [
+            "src/components/home/SpearheadSpotlight.tsx"
+          ],
+          "dod": [
+            "Eyebrow: 'Start here'",
+            "H2: 'Inbox Killer — the system that gives you your mornings back.'",
+            "Lead line matches source doc",
+            "3 outcome bullets (hours back, no lost leads, full control)",
+            "CTA: 'See how Inbox Killer works →' links to /solutions/inbox-killer",
+            "Asymmetric layout (larger than ladder cards below)",
+            "Visual: inbox→sorted lanes placeholder",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P1.4",
+          "title": "Create Home Ladder Teaser component",
+          "type": "code",
+          "description": "3-card row for Web Upgrade, Sales Funnel, Lead Magnet. Framed as 'next steps', not equal options. Copy from source doc.",
+          "source": "Tak to ma być/Home — Copy & Wireframe (Filar 2).md §D",
+          "files": [
+            "src/components/home/LadderTeaser.tsx"
+          ],
+          "dod": [
+            "Eyebrow: 'Once your inbox is calm — grow from here.'",
+            "3 cards with EXACT copy from source doc",
+            "Each card: title + 1-liner + 'Learn more →' link",
+            "Closing line: 'Not sure where to start? → Book your Automation Map →'",
+            "3-column on desktop, stacked on mobile",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P1.5",
+          "title": "Create Home Why This Works component",
+          "type": "code",
+          "description": "3 pillars: Built on a live system, Delivered by AI workforce, You stay in control. Moat section from source doc.",
+          "source": "Tak to ma być/Home — Copy & Wireframe (Filar 2).md §E",
+          "files": [
+            "src/components/home/WhyThisWorks.tsx"
+          ],
+          "dod": [
+            "H2: 'Why this works'",
+            "3 pillars with EXACT copy from source doc",
+            "Pillar 1: 'Built on a live system, not a template.'",
+            "Pillar 2: 'Delivered by an AI workforce.'",
+            "Pillar 3: 'You stay in control.'",
+            "3-column grid on desktop, stacked on mobile",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P1.6",
+          "title": "Create Home Results Teaser component",
+          "type": "code",
+          "description": "2 mini case studies with [X] placeholder metrics. Copy from source doc. MUST use honest placeholders — no fabricated numbers.",
+          "source": "Tak to ma być/Home — Copy & Wireframe (Filar 2).md §F",
+          "files": [
+            "src/components/home/ResultsTeaser.tsx"
+          ],
+          "dod": [
+            "H2: 'What changes'",
+            "Case 1: inbox chaos → control with '[X] hours saved per week'",
+            "Case 2: old site → new system with '[X]% more enquiries'",
+            "CTA: 'See all results →' links to /results",
+            "Placeholder metrics use [X] — never fabricated numbers",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P1.7",
+          "title": "Create Home Final CTA Band component",
+          "type": "code",
+          "description": "Final CTA section selling the paid Automation Map with risk reversal.",
+          "source": "Tak to ma być/Home — Copy & Wireframe (Filar 2).md §G",
+          "files": [
+            "src/components/home/FinalCtaBand.tsx"
+          ],
+          "dod": [
+            "H2: 'Start with clarity, not a sales pitch.'",
+            "Body text matches source doc exactly",
+            "CTA: 'Book your Automation Map →' links to /book-discovery",
+            "Background band treatment (full-width, subtle surface contrast)",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P1.8",
+          "title": "Compose Home page.tsx and add OG image",
+          "type": "code",
+          "description": "Compose page.tsx from all 7 section components. Add Metadata export. Create OG image. Delete old page components.",
+          "files": [
+            "src/app/page.tsx",
+            "public/og/home.svg"
+          ],
+          "dod": [
+            "page.tsx renders all 7 sections in correct order (Hero→Pain→Spearhead→Ladder→Why→Results→CTA)",
+            "Metadata export: title 'Quietforge — Done-for-you systems for small business', description, OG, Twitter",
+            "OG image at /public/og/home.svg (1200×630) with Quietforge branding",
+            "Old page.tsx content fully replaced",
+            "Old components (Hero.tsx, PainPoints.tsx, HowItWorks.tsx, CaseStudies.tsx, CTAFinal.tsx) deleted",
+            "`npm run build` passes",
+            "`npm run typecheck` passes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase-2",
+      "name": "Solutions Hub + Inbox Killer",
+      "sessions": 2,
+      "priority": "high",
+      "depends_on": ["phase-0"],
+      "tasks": [
+        {
+          "id": "P2.1",
+          "title": "Create /solutions hub page",
+          "type": "code",
+          "description": "Solutions hub with ladder layout: STEP 1 (Inbox Killer, largest box), STEP 2 (3 smaller boxes), KEEP IT RUNNING (Managed Automation banner). Copy from Mapa Strony §3.0.",
+          "files": [
+            "src/app/solutions/page.tsx"
+          ],
+          "dod": [
+            "Intro: 'A few sharp, productized systems — not a hundred services.'",
+            "STEP 1: Inbox Killer ★ — largest box, 'start here' badge",
+            "STEP 2: Web Upgrade, Sales Funnel, Lead Magnet — equal smaller boxes",
+            "KEEP IT RUNNING: Managed Automation banner at bottom",
+            "Each box: who / what it does / outcome / 'Learn more →'",
+            "Metadata exported (title, description, OG)",
+            "OG image at /public/og/solutions.svg",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P2.2",
+          "title": "Create /solutions/inbox-killer page",
+          "type": "code",
+          "description": "Full spearhead product page. Copy from 'Inbox Killer — Copy & Wireframe (Filar 2).md'. Sections: Hero, Problem, How It Works (5 steps), What You Get, Control & Safety, Setup + MRR seed, Under the Hood (optional), FAQ, Final CTA.",
+          "source": "Tak to ma być/Inbox Killer — Copy & Wireframe (Filar 2).md",
+          "files": [
+            "src/app/solutions/inbox-killer/page.tsx",
+            "public/og/inbox-killer.svg"
+          ],
+          "dod": [
+            "All 9 sections present in correct order (Hero→Problem→HowItWorks→WhatYouGet→Control→Setup→UnderTheHood→FAQ→FinalCTA)",
+            "Hero H1: 'Inbox Killer — get your mornings back.' (exact from source)",
+            "Primary CTA: 'Book your Automation Map →'",
+            "All copy matches source doc verbatim",
+            "Metadata exported",
+            "OG image at /public/og/solutions-inbox-killer.svg",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P2.3",
+          "title": "Set up redirect for old /inbox-killer URL",
+          "type": "code",
+          "description": "Add redirect in next.config.ts (or Vercel config) so /inbox-killer → /solutions/inbox-killer. Keep old /digital-modernization as 410 or redirect.",
+          "files": [
+            "next.config.ts"
+          ],
+          "dod": [
+            "/inbox-killer redirects (301) to /solutions/inbox-killer",
+            "/digital-modernization redirects (301) to /solutions/web-upgrade (or returns 410)",
+            "Build passes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase-3",
+      "name": "Ladder Pages",
+      "sessions": 2,
+      "priority": "high",
+      "depends_on": ["phase-2"],
+      "tasks": [
+        {
+          "id": "P3.1",
+          "title": "Create /solutions/web-upgrade page",
+          "type": "code",
+          "description": "Web Upgrade ladder page. Copy from Ladder Pages doc §1. Shared template: Hero → Problem → What It Includes → What You Get → Setup + MRR → FAQ → Final CTA.",
+          "source": "Tak to ma być/Ladder Pages — Copy & Wireframe (Filar 2).md §1",
+          "files": [
+            "src/app/solutions/web-upgrade/page.tsx",
+            "public/og/web-upgrade.svg"
+          ],
+          "dod": [
+            "Eyebrow: 'Ladder · grow from here'",
+            "H1: 'A website that finally earns its keep.' (exact from source)",
+            "All sections match source doc content",
+            "Setup price: 'from €1,800' (from Pricing SSoT)",
+            "Managed Automation link: 'from €99/mo'",
+            "Metadata + OG image",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P3.2",
+          "title": "Create /solutions/sales-funnel page",
+          "type": "code",
+          "description": "Sales Funnel ladder page. Copy from Ladder Pages doc §2.",
+          "source": "Tak to ma być/Ladder Pages — Copy & Wireframe (Filar 2).md §2",
+          "files": [
+            "src/app/solutions/sales-funnel/page.tsx",
+            "public/og/sales-funnel.svg"
+          ],
+          "dod": [
+            "H1: 'Quotes, bookings and qualifying — handled.' (exact from source)",
+            "All sections match source doc content",
+            "Setup price: 'from €2,400' (from Pricing SSoT)",
+            "Metadata + OG image",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P3.3",
+          "title": "Create /solutions/lead-magnet-game page",
+          "type": "code",
+          "description": "Lead Magnet Game ladder page. Copy from Ladder Pages doc §3.",
+          "source": "Tak to ma być/Ladder Pages — Copy & Wireframe (Filar 2).md §3",
+          "files": [
+            "src/app/solutions/lead-magnet-game/page.tsx",
+            "public/og/lead-magnet-game.svg"
+          ],
+          "dod": [
+            "H1: 'A game that collects leads while they play.' (exact from source)",
+            "All sections match source doc content",
+            "Setup price: 'from €2,200' (from Pricing SSoT)",
+            "Metadata + OG image",
+            "Build passes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase-4",
+      "name": "Conversion & Trust Pages",
+      "sessions": 2,
+      "priority": "high",
+      "depends_on": ["phase-3"],
+      "tasks": [
+        {
+          "id": "P4.1",
+          "title": "Create /solutions/managed-automation page",
+          "type": "code",
+          "description": "MRR core page. Copy from Pricing doc §B. 3 tiers: Care €99/mo, Manage €349/mo, Partner €890/mo. Positioning: 'Your AI worker that never sleeps — kept healthy.'",
+          "source": "Tak to ma być/Pricing & Managed Automation — Copy & Wireframe (Filar 2).md §B",
+          "files": [
+            "src/app/solutions/managed-automation/page.tsx",
+            "public/og/managed-automation.svg"
+          ],
+          "dod": [
+            "H1: 'Your AI worker that never sleeps — kept healthy.'",
+            "3 tiers displayed: Care €99/mo, Manage €349/mo, Partner €890/mo",
+            "Each tier: name, price, feature list, CTA",
+            "'Why retainer, not support hours' copy from source",
+            "CTA links to /pricing or /book-discovery",
+            "Metadata + OG image",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P4.2",
+          "title": "Create /pricing page",
+          "type": "code",
+          "description": "Pricing page with The Path visual (Map→Build→Run). Copy from Pricing doc §A. Discovery €290, setup tiers, MRR tiers, value defence section, pricing FAQ.",
+          "source": "Tak to ma być/Pricing & Managed Automation — Copy & Wireframe (Filar 2).md §A",
+          "files": [
+            "src/app/pricing/page.tsx",
+            "public/og/pricing.svg"
+          ],
+          "dod": [
+            "H1: 'Clear pricing. No surprises.'",
+            "The Path visual: ① MAP (€290) → ② BUILD (from €1,200) → ③ RUN (from €99/mo)",
+            "Step 1: Automation Map €290 with 'credited toward project' callout",
+            "Step 2: Table with Inbox Killer (€1,200), Web Upgrade (€1,800), Sales Funnel (€2,400), Lead Magnet (€2,200), bundles",
+            "Step 3: Managed Automation tiers with prices",
+            "'Why it's priced this way' section matches source",
+            "Pricing FAQ from source",
+            "All prices match Pricing doc §0 SSoT EXACTLY",
+            "Metadata + OG image",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P4.3",
+          "title": "Create /how-it-works page",
+          "type": "code",
+          "description": "Process page: 3 steps (Discovery→Build→Run), HITL highlight, timeline, FAQ. Copy from Trust & Conversion Pages doc §1.",
+          "source": "Tak to ma być/Trust & Conversion Pages — Copy & Wireframe (Filar 2).md §1",
+          "files": [
+            "src/app/how-it-works/page.tsx",
+            "public/og/how-it-works.svg"
+          ],
+          "dod": [
+            "H1: 'Three clear steps. No surprises.'",
+            "Step 1: Automation Map — €290, credited, 'Why paid?' answer",
+            "Step 2: Build — productized, fast, fixed price",
+            "Step 3: Run — Managed Automation, from €99/mo",
+            "HITL control block present",
+            "Timeline visual (Day 0 → Go-live → Ongoing)",
+            "FAQ from source",
+            "Metadata + OG image",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P4.4",
+          "title": "Create /results page",
+          "type": "code",
+          "description": "Use cases page: 4 case studies (Problem→System→Wynik) with [X] placeholder metrics. Copy from Mapa Strony §5. HONEST placeholders only.",
+          "source": "Tak to ma być/Mapa Strony Filar 2.md §5",
+          "files": [
+            "src/app/results/page.tsx",
+            "public/og/results.svg"
+          ],
+          "dod": [
+            "4 use cases: Inbox chaos, Site 2012→2026, Manual quotes, Dead landing→game",
+            "Each case: Problem → System → Result + 1 metric",
+            "All metrics use [X] placeholder — NO fabricated numbers",
+            "CTA band → /book-discovery",
+            "Metadata + OG image",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P4.5",
+          "title": "Create /about page",
+          "type": "code",
+          "description": "About page: who, what makes this different (AI-workforce moat, branding+UX+automation, HITL), why it matters, bridge to Pillar 3. Copy from Trust & Conversion Pages doc §2.",
+          "source": "Tak to ma być/Trust & Conversion Pages — Copy & Wireframe (Filar 2).md §2",
+          "files": [
+            "src/app/about/page.tsx",
+            "public/og/about.svg"
+          ],
+          "dod": [
+            "Hero block: who + one-line stance",
+            "My story: branding → systems",
+            "3 moat pillars: AI-workforce, branding+UX+automation, HITL",
+            "Why it matters for you section",
+            "Bridge to Pillar 3: ONE-WAY link only (external, to portfolio.flexgrafik.nl)",
+            "Metadata + OG image",
+            "Build passes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase-5",
+      "name": "Blog + Book Discovery (Payment Integration)",
+      "sessions": 2,
+      "priority": "high",
+      "depends_on": ["phase-4"],
+      "config_changes": [
+        "Add @next/mdx to package.json dependencies",
+        "Update next.config.ts for MDX support",
+        "Add mollie/node-sdk to package.json dependencies"
+      ],
+      "tasks": [
+        {
+          "id": "P5.1",
+          "title": "Configure MDX for blog",
+          "type": "config",
+          "description": "Install @next/mdx, configure next.config.ts for MDX support. Create blog layout with shared header/footer.",
+          "files": [
+            "next.config.ts",
+            "package.json",
+            "src/app/blog/layout.tsx"
+          ],
+          "dod": [
+            "@next/mdx added to dependencies",
+            "next.config.ts configured with MDX plugin",
+            "Blog layout wraps posts with shared Header/Footer",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P5.2",
+          "title": "Create blog listing page /blog",
+          "type": "code",
+          "description": "Blog index page with post listing (title, excerpt, date, category, link). Categories: Digital Transformation, Automation, Under the Hood, Insights.",
+          "files": [
+            "src/app/blog/page.tsx"
+          ],
+          "dod": [
+            "Intro line from source doc",
+            "Lists all published posts with title, 2-3 sentence excerpt, date, category",
+            "Each post links to /blog/[slug]",
+            "Each category filterable or visibly tagged",
+            "Metadata + OG image",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P5.3",
+          "title": "Create blog post template /blog/[slug]",
+          "type": "code",
+          "description": "Dynamic blog post route with generateStaticParams. MDX content rendering. Each post ends with CTA → Book Discovery.",
+          "files": [
+            "src/app/blog/[slug]/page.tsx"
+          ],
+          "dod": [
+            "generateStaticParams reads from blog posts directory",
+            "MDX content renders correctly with typography styling",
+            "Each post has unique Metadata (title, description, OG)",
+            "OG image per post at /public/og/blog/[slug].svg",
+            "CTA band at bottom: 'Book your Automation Map →'",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P5.4",
+          "title": "Write 2-3 seed blog posts",
+          "type": "content",
+          "description": "Write 2-3 MDX blog posts on relevant topics. One on automation for SMB, one on digital transformation, one optional 'under the hood'.",
+          "files": [
+            "src/app/blog/posts/*.mdx"
+          ],
+          "dod": [
+            "2-3 posts in MDX format",
+            "Each post has frontmatter: title, date, category, excerpt, ogImage",
+            "Each post ends with CTA → Book Discovery",
+            "Posts are substantive (300-800 words), not filler",
+            "Build passes"
+          ]
+        },
+        {
+          "id": "P5.5",
+          "title": "Create /book-discovery page with payment form",
+          "type": "code",
+          "description": "Paid Discovery checkout page. Form: name, company, email, biggest pain (checkboxes + text), URL. Payment via Mollie (client-side Payment Link approach for static export).",
+          "source": "Tak to ma być/Trust & Conversion Pages — Copy & Wireframe (Filar 2).md §3",
+          "files": [
+            "src/app/book-discovery/page.tsx",
+            "src/app/book-discovery/BookDiscoveryForm.tsx",
+            "src/lib/mollie.ts",
+            "public/og/book-discovery.svg"
+          ],
+          "dod": [
+            "Page copy matches source doc exactly",
+            "Form fields: name, company, email, biggest pain (checkboxes + free text), URL",
+            "Calendar slot selection (Calendly embed or link)",
+            "Mollie payment flow: form → create payment link → redirect → confirmation",
+            "If Mollie API key missing: graceful fallback with email contact",
+            "Guarantee copy from source doc",
+            "Metadata + OG image",
+            "Build passes"
+          ],
+          "env_vars": [
+            "MOLLIE_API_KEY (required for payment flow)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase-6",
+      "name": "QA, SEO & Deploy Gate",
+      "sessions": 1,
+      "priority": "highest",
+      "depends_on": ["phase-5"],
+      "tasks": [
+        {
+          "id": "P6.1",
+          "title": "OG image audit — verify all routes have unique OG images",
+          "type": "qa",
+          "description": "Verify every route (12+) has a 1200×630 OG image in /public/og/. Create any missing images.",
+          "files": [
+            "public/og/*.svg"
+          ],
+          "dod": [
+            "Every route listed in route map has OG image",
+            "OG images are 1200×630 SVG or PNG",
+            "Each image has Quietforge branding",
+            "No missing OG images"
+          ]
+        },
+        {
+          "id": "P6.2",
+          "title": "Regenerate sitemap.xml",
+          "type": "code",
+          "description": "Update sitemap.xml with all 12+ routes, correct lastmod, priority hierarchy.",
+          "files": [
+            "public/sitemap.xml"
+          ],
+          "dod": [
+            "All routes included with correct URLs",
+            "Priority: Home 1.0, spearhead pages 0.9, ladder 0.8, trust pages 0.7, blog 0.6, legal 0.3",
+            "lastmod dates set to current date",
+            "No dead/redirected URLs in sitemap",
+            "Valid XML syntax"
+          ]
+        },
+        {
+          "id": "P6.3",
+          "title": "Meta audit — every page exports Metadata",
+          "type": "qa",
+          "description": "Check every page.tsx and layout.tsx exports correct Metadata: title, description, OG, alternates.",
+          "dod": [
+            "All 12+ route page.tsx files export Metadata",
+            "Each has unique title and description",
+            "Each has OG title + description matching page content",
+            "No missing metadata exports"
+          ]
+        },
+        {
+          "id": "P6.4",
+          "title": "Lighthouse audit",
+          "type": "qa",
+          "description": "Run Lighthouse on all main routes. Meet targets.",
+          "dod": [
+            "Performance ≥ 90",
+            "Accessibility ≥ 95",
+            "Best Practices ≥ 95",
+            "SEO ≥ 95",
+            "Mobile viewport: no horizontal scroll, readable fonts",
+            "Tap targets ≥ 44px"
+          ]
+        },
+        {
+          "id": "P6.5",
+          "title": "Responsive + accessibility smoke test",
+          "type": "qa",
+          "description": "Manual check: mobile nav, section padding, typography scaling, heading hierarchy, focus states, prefers-reduced-motion.",
+          "dod": [
+            "Mobile nav hamburger works and links navigate correctly",
+            "Section padding consistent across breakpoints",
+            "Typography scales correctly (no overflow)",
+            "Semantic heading hierarchy (h1→h2→h3) on every page",
+            "Focus states visible on all interactive elements",
+            "prefers-reduced-motion reduces/removes animations"
+          ]
+        },
+        {
+          "id": "P6.6",
+          "title": "Broken link check",
+          "type": "qa",
+          "description": "Run `npm run audit:links` or manual check of all main CTA flows.",
+          "dod": [
+            "Zero 404 errors on internal links",
+            "All CTA flows complete (Home→Book Discovery path works)",
+            "External links open in new tab with rel=noopener noreferrer"
+          ]
+        },
+        {
+          "id": "P6.7",
+          "title": "Final build gate + handoff",
+          "type": "qa",
+          "description": "Final build, typecheck, and write comprehensive handoff documenting architecture, new routes, Mollie integration notes, decisions made.",
+          "dod": [
+            "`npm run build` passes with zero errors and zero warnings",
+            "`npm run typecheck` passes with zero errors",
+            "Handoff doc written to docs/handoffs/YYYY-MM-DD-quietforge-rebuild.md",
+            "Handoff includes: route map, component architecture, payment integration notes, env vars required, pending decisions"
+          ]
+        }
+      ]
+    }
+  ],
+  "meta_notes": {
+    "static_export_impact": "This project uses output:'export'. This blocks API routes. Mollie payment must use client-side Payment Links or separate Vercel Functions, NOT /api/mollie/route.ts as originally planned.",
+    "zzpackage_mollie_finding": "zzpackage uses WooCommerce PHP Mollie plugin — NO reusable Node.js patterns. Must build fresh Mollie integration from Node SDK.",
+    "content_ready": "All page copy is already written in 'Tak to ma być/' directory. DO NOT rewrite — use verbatim.",
+    "price_ssot": "Final prices in Pricing doc §0. Use across ALL pages: Discovery €290, Inbox Killer from €1,200, etc.",
+    "old_urls": "Must redirect /inbox-killer and /digital-modernization to new paths to preserve SEO.",
+    "honest_metrics": "Results page must use [X] placeholders — do NOT fabricate numbers per Strategy §9 discipline.",
+    "one_way_pillar3": "Bridge to Pillar 3 must be one-way only (About page + Footer). Never in primary CTA flow."
+  }
+}

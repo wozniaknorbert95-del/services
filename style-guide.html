@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quietforge — Design System & Style Guide</title>
+<link rel="stylesheet" href="quietforge.css">
+</head>
+<body class="qf-grid">
+
+<!-- ============ HEADER ============ -->
+<header class="qf-header">
+  <div class="qf-header__inner">
+    <span class="qf-logo">quietforge</span>
+    <nav class="qf-nav">
+      <a href="#">Solutions</a>
+      <a href="#">How It Works</a>
+      <a href="#">Pricing</a>
+      <a href="#">About</a>
+      <a href="#" class="qf-btn">Book Automation Map</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO (live implementation) ============ -->
+<section class="qf-section">
+  <div class="qf-container">
+    <div class="qf-grid-2" style="align-items:center; gap:var(--qf-sp-12);">
+      <div>
+        <span class="qf-eyebrow">Done-for-you systems for small business</span>
+        <h1>Your website and back-office, <span class="qf-accent">running on autopilot.</span></h1>
+        <p class="qf-lead">Done-for-you digital systems for small businesses — fewer emails, more clients, and no more apologising for an outdated site.</p>
+        <div style="display:flex; gap:var(--qf-sp-4); align-items:center; margin:var(--qf-sp-6) 0;">
+          <a href="#" class="qf-btn">Book your Automation Map</a>
+          <a href="#" class="qf-btn--link">See what we fix →</a>
+        </div>
+        <p class="qf-hint">Built on a live, battle-tested system — not a template.</p>
+      </div>
+      <!-- terminal panel mock as hero visual -->
+      <div class="qf-panel qf-panel--titled">
+        <div class="qf-panel__bar">
+          <span class="dot dot--accent"></span><span class="dot"></span><span class="dot"></span>
+          <span style="margin-left:auto;">inbox-killer · live</span>
+        </div>
+        <div class="qf-panel__body">
+          <pre class="qf-code"><span class="prompt">$</span> inbox.scan --folders inbox,leads
+<span class="ok">✓</span> 142 messages read
+<span class="ok">✓</span> sorted → lead(18) client(34) invoice(9) noise(81)
+<span class="ok">✓</span> 18 drafts ready · <span class="prompt">awaiting your approval</span>
+<span class="prompt">$</span> _</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="qf-statusbar" style="margin-top:var(--qf-sp-12);">
+    <span class="seg seg--accent">quietforge v1.0</span>
+    <span class="seg">5 systems</span>
+    <span class="seg">human-in-the-loop</span>
+    <span class="seg" style="margin-left:auto;">ctx — ready</span>
+  </div>
+</section>
+
+<hr class="qf-rule--ascii">
+
+<!-- ============ STYLE GUIDE BODY ============ -->
+<section class="qf-section--tight">
+  <div class="qf-container">
+    <span class="qf-eyebrow">Reference</span>
+    <h2>Design System — components</h2>
+    <p class="qf-dim">Everything below is built from <code class="qf-mono qf-accent">quietforge.css</code>. Agents: copy the patterns, use the classes, never hardcode tokens.</p>
+
+    <!-- COLORS -->
+    <h3 style="margin-top:var(--qf-sp-12)">01 · Color tokens</h3>
+    <div class="qf-grid-4">
+      <div class="qf-panel"><div style="height:40px;background:var(--qf-bg);border:1px solid var(--qf-border)"></div><p class="qf-card__meta" style="margin-top:8px">--qf-bg</p></div>
+      <div class="qf-panel"><div style="height:40px;background:var(--qf-bg-raised);border:1px solid var(--qf-border)"></div><p class="qf-card__meta" style="margin-top:8px">--qf-bg-raised</p></div>
+      <div class="qf-panel"><div style="height:40px;background:var(--qf-accent)"></div><p class="qf-card__meta" style="margin-top:8px">--qf-accent</p></div>
+      <div class="qf-panel"><div style="height:40px;background:var(--qf-ok)"></div><p class="qf-card__meta" style="margin-top:8px">--qf-ok (approved)</p></div>
+    </div>
+
+    <!-- TYPOGRAPHY -->
+    <h3 style="margin-top:var(--qf-sp-12)">02 · Typography</h3>
+    <div class="qf-panel">
+      <span class="qf-eyebrow">Eyebrow label</span>
+      <h1 style="font-size:var(--qf-fs-2xl)">Heading one</h1>
+      <h3>Heading three</h3>
+      <p class="qf-lead">Lead paragraph — used for subheads and intros.</p>
+      <p>Body text in monospace. Calm, confident, terminal-grade. <a href="#">Inline link</a> and <span class="qf-dim">dimmed meta</span> and <span class="qf-faint">faint hint</span>.</p>
+      <p class="qf-hint">Hint line with prompt prefix.</p>
+    </div>
+
+    <!-- BUTTONS -->
+    <h3 style="margin-top:var(--qf-sp-12)">03 · Buttons</h3>
+    <div class="qf-panel" style="display:flex; gap:var(--qf-sp-4); flex-wrap:wrap; align-items:center;">
+      <a href="#" class="qf-btn">Primary CTA</a>
+      <a href="#" class="qf-btn qf-btn--ghost">Ghost</a>
+      <a href="#" class="qf-btn--link">Text link →</a>
+      <kbd class="qf-kbd">⌘K</kbd>
+    </div>
+
+    <!-- PANELS -->
+    <h3 style="margin-top:var(--qf-sp-12)">04 · Panels & cards</h3>
+    <div class="qf-grid-3">
+      <div class="qf-panel">
+        <p class="qf-card__title">Standard panel</p>
+        <p class="qf-dim">Thin border, sharp corners, hover-bright.</p>
+      </div>
+      <div class="qf-panel qf-panel--spearhead">
+        <span class="qf-badge">Spearhead</span>
+        <p class="qf-card__title">Emphasised panel</p>
+        <p class="qf-dim">Accent border + glow for the spearhead product.</p>
+      </div>
+      <div class="qf-panel qf-panel--titled">
+        <div class="qf-panel__bar"><span class="dot dot--accent"></span><span class="dot"></span><span>titled.panel</span></div>
+        <div class="qf-panel__body"><p class="qf-dim">Terminal title-bar variant.</p></div>
+      </div>
+    </div>
+
+    <!-- LISTS -->
+    <h3 style="margin-top:var(--qf-sp-12)">05 · Lists</h3>
+    <div class="qf-grid-3">
+      <div class="qf-panel">
+        <p class="qf-card__meta">qf-list</p>
+        <ul class="qf-list"><li>Sorts your inbox</li><li>Prioritises leads</li><li>Drafts replies</li></ul>
+      </div>
+      <div class="qf-panel">
+        <p class="qf-card__meta">qf-list--check</p>
+        <ul class="qf-list qf-list--check"><li>Hours back weekly</li><li>No lost leads</li><li>You approve sends</li></ul>
+      </div>
+      <div class="qf-panel">
+        <p class="qf-card__meta">qf-list--steps</p>
+        <ul class="qf-list qf-list--steps"><li>Reads</li><li>Sorts</li><li>You approve</li></ul>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <h3 style="margin-top:var(--qf-sp-12)">06 · Pricing tiers</h3>
+    <div class="qf-grid-3">
+      <div class="qf-panel qf-tier">
+        <span class="qf-tier__name">Care</span>
+        <div class="qf-tier__price">€99<span>/mo</span></div>
+        <ul class="qf-list qf-list--check"><li>Monitoring</li><li>Minor fixes</li><li>Monthly report</li></ul>
+      </div>
+      <div class="qf-panel qf-tier qf-tier--featured">
+        <span class="qf-badge">Most popular</span>
+        <span class="qf-tier__name">Manage</span>
+        <div class="qf-tier__price">€349<span>/mo</span></div>
+        <ul class="qf-list qf-list--check"><li>Active tuning</li><li>Priority support</li><li>Enhancements</li></ul>
+      </div>
+      <div class="qf-panel qf-tier">
+        <span class="qf-tier__name">Partner</span>
+        <div class="qf-tier__price">€890<span>/mo</span></div>
+        <ul class="qf-list qf-list--check"><li>Drift monitoring</li><li>New automations</li><li>Advisory</li></ul>
+      </div>
+    </div>
+
+    <!-- CODE -->
+    <h3 style="margin-top:var(--qf-sp-12)">07 · Code / terminal block</h3>
+    <pre class="qf-code"><span class="prompt">$</span> quietforge build inbox-killer
+<span class="ok">✓</span> module adapted to your data
+<span class="ok">✓</span> live in days, not months</pre>
+
+  </div>
+</section>
+
+<!-- ============ THEME SWITCH NOTE ============ -->
+<section class="qf-section--tight">
+  <div class="qf-narrow">
+    <div class="qf-panel">
+      <p class="qf-card__title qf-accent">Two themes, one system</p>
+      <p class="qf-dim">Default = <strong>amber/forge</strong> (Hermes DNA). Add <code class="qf-mono">class="qf-theme-mono"</code> to <code class="qf-mono">&lt;body&gt;</code> for the cooler <strong>OpenCode blue</strong> variant. Same components, different accent. Try both, pick one for launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="qf-footer">
+  <div class="qf-container">
+    <div class="qf-grid-4">
+      <div>
+        <span class="qf-logo">quietforge</span>
+        <p class="qf-faint" style="margin-top:var(--qf-sp-3)">Systems that run your small business — quietly, in the background.</p>
+      </div>
+      <div><h4>Solutions</h4><p><a href="#">Inbox Killer</a><br><a href="#">Web Upgrade</a><br><a href="#">Sales Funnel</a><br><a href="#">Lead Magnet</a><br><a href="#">Managed Automation</a></p></div>
+      <div><h4>Company</h4><p><a href="#">How It Works</a><br><a href="#">Pricing</a><br><a href="#">About</a><br><a href="#">Results</a></p></div>
+      <div><h4>Get started</h4><p><a href="#" class="qf-accent">Book your Automation Map →</a><br><a href="#">Email</a><br><span class="qf-faint">Building something bigger? → Pillar 3</span></p></div>
+    </div>
+  </div>
+</footer>
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a044c5914ab7b234',t:'MTc4MDIxNzg1Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
