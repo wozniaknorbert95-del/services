@@ -12,7 +12,7 @@ Opis zadania od Dowódcy.
 
 ## Do
 1. Wczytaj `brain.md` (SSoT projektu — stack, deploy rules, guardrails).
-2. Wczytaj `portfolio/AGENTS.md` (globalne zasady ekosystemu).
+2. Wczytaj `AGENTS.md` (globalne zasady ekosystemu).
 3. Sprawdź `package.json` — zależności i skrypty.
 4. Oceń aktualny branch (`git branch --show-current`).
 5. Wyciągnij GŁÓWNE OGRANICZENIA z brain.md §7 (Guardrails).

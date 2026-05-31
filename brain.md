@@ -10,7 +10,7 @@
 |---|---|
 | **Domena** | `services.flexgrafik.nl` |
 | **Subdomena** | Tak — osobny asset od `portfolio.flexgrafik.nl` |
-| **Repo** | `portfolio/services/` (monorepo) |
+| **Repo** | `wozniaknorbert95-del/services` (standalone) |
 | **Linked Vercel** | `wozniaknorbert95-dels-projects/flexgrafik-services` |
 | **Rol** | B2B SMB Automation Landing System — konwersja ZZP/SMB na leady |
 | **Język** | Angielski (wszystkie B2B assets) |
