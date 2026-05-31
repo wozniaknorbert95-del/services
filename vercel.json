@@ -7,7 +7,7 @@
     },
     {
       "source": "/digital-modernization/",
-      "destination": "/solutions/",
+      "destination": "/solutions/web-upgrade/",
       "permanent": true
     }
   ]
