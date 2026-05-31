@@ -1,49 +1,58 @@
-# Next Session Prompt — Phase 2
+# Next Session Prompt — Phase 4
 
-> **Start here.** Build passes. Deploy pushed to Vercel. Continue from plan v2 + todo.json.
+> **Start here.** Build passes. Deploy on Vercel. Continue from plan v2 + todo.json.
 
 ## ✅ State (2026-05-31)
 
-- **Phases done:** 0 (Foundation) + 1 (Home) — both build-clean
-- **Deploy:** `55d002b` on `master` → Vercel CD triggered
+- **Phases done:** 0 (Foundation) + 1 (Home) + 2 (Solutions + Inbox Killer) + 3 (3 Ladder pages) — all build-clean
+- **Latest deploy:** `ea36c31` on `master` → Vercel CD
 - **Brand:** Quietforge · **Stack:** Next.js 16.2.6, React 19, Tailwind v4, Framer Motion
+- **Routes live (12):** Home, Solutions hub, Inbox Killer, Web Upgrade, Sales Funnel, Lead Magnet Game, Legal + 2 legacy redirects
 
 ## 🗺️ Architecture (memorise)
 
-- **Tokens:** `globals.css` — `--qf-bg #0e0c0a`, `--qf-accent #e8a33d`, `--qf-text #e9e2d4`
+- **Tokens:** `globals.css` — CSS custom properties
 - **Layout:** `layout.tsx` wraps `<Header />` + `<main>` + `<Footer />` on every route
-- **Primitives:** `src/components/ui/` — Button, Card, Section, Badge, Eyebrow, IconTile, ProcessStep, PricingCard, FaqItem
-- **Lib:** `constants.ts` (ROUTES, PRICING), `motion.ts` (fadeIn, staggerContainer), `utils.ts` (cn)
+- **Primitives:** `src/components/ui/` — Button, Card, Section, Eyebrow, FaqItem, ProcessStepHorizontal, PricingCard
+- **Lib:** `constants.ts` (ROUTES, PRICING), `motion.ts`, `utils.ts` (cn)
 - **Copy source:** `Tak to ma być/*.md` — **paste verbatim, never invent**
 
-## 🎯 Next: Phase 2 — Solutions Hub + Inbox Killer
+## 🎯 Next: Phase 4 — Conversion & Trust Pages
 
-**Goal:** create `/solutions/` (hub) and `/solutions/inbox-killer/` (spearhead). Redirect old `/inbox-killer/`.
+**Goal:** 5 pages that close the conversion loop.
 
-### Tasks in order
+### Pages in order (2–3 sessions)
 
-1. **Create `/solutions/page.tsx`** — ladder layout:
-   - STEP 1: Inbox Killer (`.qf-panel--spearhead`, largest)
-   - STEP 2: Web Upgrade, Sales Funnel, Lead Magnet (3 smaller `.qf-panel`)
-   - KEEP IT RUNNING: Managed Automation banner
-   - Copy from `Mapa Strony Filar 2.md` §3.0
-   - Metadata + OG image `/public/og/solutions.svg`
+1. **`/solutions/managed-automation`** — MRR core
+   - 3 tiers: Care €99/mo · Manage €349/mo · Partner €890/mo
+   - Copy from `Pricing & Managed Automation.md` §B
+   - OG: `/public/og/managed-automation.svg`
 
-2. **Create `/solutions/inbox-killer/page.tsx`** — spearhead:
-   - Sections: Hero → Problem → How It Works (5 steps) → What You Get → Control & Safety → Setup + MRR seed → FAQ → Final CTA
-   - Copy from `Inbox Killer — Copy & Wireframe (Filar 2).md`
-   - Metadata + OG image `/public/og/solutions-inbox-killer.svg`
+2. **`/pricing`** — The Path visual
+   - Step 1: Map (€290) → Step 2: Build (from €1,200) → Step 3: Run (from €99/mo)
+   - Copy from `Pricing & Managed Automation.md` §A
+   - OG: `/public/og/pricing.svg`
 
-3. **Redirects in `next.config.ts`:**
-   - `/inbox-killer/` → `/solutions/inbox-killer/` (301)
-   - `/digital-modernization/` → `/solutions/web-upgrade/` (301)
+3. **`/how-it-works`** — Process page
+   - 3 steps: Discovery → Build → Run, HITL highlight, timeline, FAQ
+   - Copy from `Trust & Conversion Pages.md` §1
+   - OG: `/public/og/how-it-works.svg`
 
-4. **Build gate:** `npm run build` + `npm run typecheck` must pass
-5. **Handoff:** `docs/handoffs/2026-05-31-phase-2-solutions.md`
+4. **`/results`** — Use cases
+   - 4 patterns: Problem → System → Result + [X] placeholder
+   - Copy from `Mapa Strony Filar 2.md` §5
+   - OG: `/public/og/results.svg`
+
+5. **`/about`** — Why me / moat / bridge to Pillar 3
+   - Copy from `Trust & Conversion Pages.md` §2
+   - OG: `/public/og/about.svg`
+
+**Build gate:** `npm run build` + `npm run typecheck` must pass per page.
+**Sitemap:** update after every new route.
 
 ## ⚠️ Rules
 
-1. One component per session — no mega-diffs
+1. One page per commit — no mega-diffs
 2. TypeScript strict — zero `any`
 3. Tailwind utility-first — no inline styles
 4. Dark theme default — CSS vars from `globals.css`
@@ -54,13 +63,13 @@
 
 ## 📚 Read before coding
 
-1. `docs/plans/quietforge-rebuild-plan-v2.md` — §Phase 2
-2. `todo.json` — phase-2 tasks
-3. `Tak to ma być/Mapa Strony Filar 2.md` — §3.0, §3.1
-4. `Tak to ma być/Inbox Killer — Copy & Wireframe (Filar 2).md`
-5. `DESIGN-SYSTEM.md` — visual rules
-6. `src/lib/constants.ts` — routes & pricing
+1. `docs/plans/quietforge-rebuild-plan-v2.md` — §Phase 4
+2. `todo.json` — phase-4 tasks
+3. `Tak to ma być/Pricing & Managed Automation — Copy & Wireframe (Filar 2).md` — §A, §B
+4. `Tak to ma być/Trust & Conversion Pages — Copy & Wireframe (Filar 2).md` — §1, §2
+5. `Tak to ma być/Mapa Strony Filar 2.md` — §5 (Results)
+6. `src/lib/constants.ts` — pricing SSoT
 
 ---
 
-> **Begin: verify `npm run build` passes locally, then implement task 1.**
+> **Begin: verify `npm run build` passes locally, then implement `/solutions/managed-automation`.**
