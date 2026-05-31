@@ -1,0 +1,227 @@
+import type { Metadata } from 'next';
+import Section from '@/components/ui/Section';
+import Eyebrow from '@/components/ui/Eyebrow';
+import Card from '@/components/ui/Card';
+import Button from '@/components/ui/Button';
+import FaqItem from '@/components/ui/FaqItem';
+import { ROUTES, PRICING } from '@/lib/constants';
+
+/* ── metadata ── */
+export const metadata: Metadata = {
+  title: 'How it works — three clear steps | Quietforge',
+  description:
+    'A calm, transparent process: a paid Automation Map, a fast productized build, and optional monthly care. Live in days, not months. Book your Automation Map.',
+  openGraph: {
+    title: 'How it works — three clear steps | Quietforge',
+    description:
+      'A calm, transparent process: a paid Automation Map, a fast productized build, and optional monthly care. Live in days, not months.',
+    url: 'https://services.flexgrafik.nl/how-it-works',
+    images: [
+      {
+        url: '/og/how-it-works.svg',
+        width: 1200,
+        height: 630,
+        alt: 'How it works — three clear steps',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How it works — three clear steps | Quietforge',
+    description: 'A calm, transparent process. Live in days, not months.',
+    images: ['/og/how-it-works.svg'],
+  },
+};
+
+/* ── data ── */
+const FAQS = [
+  {
+    question: 'Do I need any technical knowledge?',
+    answer: 'No. You bring the business; I bring the system.',
+  },
+  {
+    question: 'What do you need from me?',
+    answer: 'A short conversation, access to the relevant tools, and your approval at key points.',
+  },
+  {
+    question: 'What if I only want Step 1?',
+    answer: "That's fine — the Automation Map stands on its own, and it's yours to keep.",
+  },
+];
+
+const TIMELINE = [
+  { day: 'Day 0', label: 'Automation Map', note: 'paid, credited' },
+  { day: 'Day 1–3', label: 'Scope locked', note: 'fixed quote' },
+  { day: 'Day 3–14', label: 'Build, test, refine', note: '' },
+  { day: 'Go-live', label: 'Handover + training', note: '' },
+  { day: 'Ongoing', label: 'Managed Automation', note: 'optional' },
+];
+
+/* ── page ── */
+export default function HowItWorksPage() {
+  return (
+    <>
+      {/* ═══════════════════════════════════════════════════════════
+          § A — HERO
+         ═══════════════════════════════════════════════════════════ */}
+      <Section padding="large">
+        <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
+          Three clear steps. No surprises.
+        </h1>
+        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
+          From first conversation to a system that runs itself — transparent, fast, and with you in
+          control the whole way.
+        </p>
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg">
+          Book your Automation Map
+        </Button>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          § B — STEP 1
+         ═══════════════════════════════════════════════════════════ */}
+      <Section background="surface" padding="large">
+        <Eyebrow>Step 1</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-6">
+          We find what&apos;s actually costing you — the Automation Map.
+        </h2>
+        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-6">
+          A focused 60–90 minute working session and a written roadmap. We map your processes —
+          sales, enquiries, email, orders — and pinpoint your two or three biggest time-and-money
+          leaks, each with a clear ROI.
+        </p>
+        <ul className="space-y-2 max-w-2xl mb-6">
+          {[
+            'A written Automation Map you keep.',
+            'A recommended first step, with the numbers behind it.',
+            `€${PRICING.discovery} — credited toward your project.`,
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-3 text-[var(--qf-text-dim)]">
+              <span className="text-[var(--qf-ok)] mt-0.5 shrink-0">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="text-sm text-[var(--qf-text-faint)] italic max-w-2xl">
+          Why paid? Because it&apos;s real strategic work — and it means we both start serious.
+        </p>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          § C — STEP 2
+         ═══════════════════════════════════════════════════════════ */}
+      <Section padding="large">
+        <Eyebrow>Step 2</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-6">
+          We build it — fast, because it&apos;s already proven.
+        </h2>
+        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-6">
+          Your system is adapted from modules that already run a live business, not coded from zero.
+          That&apos;s why builds take days, not months. We configure it to your data, your voice and your
+          tools, test it, and hand it over working.
+        </p>
+        <ul className="space-y-2 max-w-2xl">
+          {[
+            'Productized, not experimental.',
+            'Fixed price, set after the Map — never billed by the hour.',
+            'Built and tested before it touches your customers.',
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-3 text-[var(--qf-text-dim)]">
+              <span className="text-[var(--qf-ok)] mt-0.5 shrink-0">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          § D — STEP 3
+         ═══════════════════════════════════════════════════════════ */}
+      <Section background="surface" padding="large">
+        <Eyebrow>Step 3</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-6">
+          We keep it sharp — for as long as it&apos;s useful.
+        </h2>
+        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
+          Software isn&apos;t &quot;set and forget&quot;. With optional Managed Automation, your system stays
+          monitored, tuned and improving as your business changes.{' '}
+          <span className="text-[var(--qf-text)]">From €{PRICING.care}/mo, cancel anytime.</span>
+        </p>
+        <Button href={ROUTES.managedAutomation} variant="secondary" withArrow>
+          See Managed Automation
+        </Button>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          § E — CONTROL BLOCK (HITL)
+         ═══════════════════════════════════════════════════════════ */}
+      <Section padding="large">
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-6">
+          You&apos;re in control at every step
+        </h2>
+        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)]">
+          Human-in-the-loop is built into everything I deliver: nothing sends, publishes or deploys
+          without your approval. You always see what&apos;s happening, and why.
+        </p>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          § F — TIMELINE
+         ═══════════════════════════════════════════════════════════ */}
+      <Section background="surface" padding="large">
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
+          What the timeline really looks like
+        </h2>
+        <div className="flex flex-col gap-4 max-w-3xl">
+          {TIMELINE.map((item, i) => (
+            <div key={item.day} className="flex items-start gap-4">
+              <div className="flex flex-col items-center shrink-0">
+                <div className="w-3 h-3 rounded-full bg-[var(--qf-accent)]" />
+                {i < TIMELINE.length - 1 && (
+                  <div className="w-px h-full bg-[var(--qf-border)] my-1" />
+                )}
+              </div>
+              <div className="pb-6">
+                <span className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-accent)] font-semibold">
+                  {item.day}
+                </span>
+                <div className="text-[var(--qf-text)] font-semibold mt-0.5">{item.label}</div>
+                {item.note && <div className="text-sm text-[var(--qf-text-faint)]">{item.note}</div>}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="text-[var(--qf-text-faint)] text-sm italic max-w-2xl mt-2">
+          Most engagements go live within two weeks. No six-month projects, no IT department required.
+        </p>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          § G — FAQ
+         ═══════════════════════════════════════════════════════════ */}
+      <Section padding="large">
+        <Eyebrow>FAQ</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
+          Questions, answered.
+        </h2>
+        <div className="space-y-4 max-w-3xl">
+          {FAQS.map((faq) => (
+            <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
+          ))}
+        </div>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          § H — FINAL CTA
+         ═══════════════════════════════════════════════════════════ */}
+      <Section background="surface" padding="large">
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
+          Start with clarity — Step 1 is the Automation Map.
+        </h2>
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg">
+          Book your Automation Map
+        </Button>
+      </Section>
+    </>
+  );
+}
