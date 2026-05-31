@@ -1,0 +1,96 @@
+import Link from 'next/link';
+import Section from '@/components/ui/Section';
+import Button from '@/components/ui/Button';
+import { ROUTES } from '@/lib/constants';
+
+interface Post {
+  slug: string;
+  title: string;
+  date: string;
+  category: string;
+  excerpt: string;
+}
+
+const POSTS: Post[] = [
+  {
+    slug: 'automation-for-small-business',
+    title: 'Automation for small business — where to start',
+    date: '2026-05-28',
+    category: 'Automation',
+    excerpt:
+      'Most small businesses drown in email, manual quotes and outdated websites. Here is a calm, practical way to think about automation without buying into hype.',
+  },
+  {
+    slug: 'digital-transformation-without-the-jargon',
+    title: 'Digital transformation without the jargon',
+    date: '2026-05-21',
+    category: 'Digital Transformation',
+    excerpt:
+      'Digital transformation is not a six-month project with a consultant army. It is one system at a time, each one paying for the next.',
+  },
+  {
+    slug: 'under-the-hood-how-inbox-killer-works',
+    title: 'Under the hood: how Inbox Killer actually works',
+    date: '2026-05-14',
+    category: 'Under the Hood',
+    excerpt:
+      'A look at the human-in-the-loop architecture behind Inbox Killer: classify, plan, draft, approve — and why nothing sends without your sign-off.',
+  },
+];
+
+export default function BlogPage() {
+  return (
+    <>
+      <Section padding="large">
+        <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6">
+          Practical notes on systems & automation.
+        </h1>
+        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)]">
+          Short, honest writing on digital transformation for small business. No buzzwords.
+        </p>
+      </Section>
+
+      <div className="space-y-8 pb-16">
+        {POSTS.map((post) => (
+          <article
+            key={post.slug}
+            className="border-b border-[var(--qf-border)] pb-8 last:border-0"
+          >
+            <div className="flex flex-wrap items-center gap-3 mb-3">
+              <span className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-accent)] font-semibold">
+                {post.category}
+              </span>
+              <span className="text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">
+                {post.date}
+              </span>
+            </div>
+            <h2 className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)] mb-3">
+              <Link
+                href={`/blog/${post.slug}/`}
+                className="hover:text-[var(--qf-accent)] transition-colors"
+              >
+                {post.title}
+              </Link>
+            </h2>
+            <p className="text-[var(--qf-text-dim)] mb-4">{post.excerpt}</p>
+            <Link
+              href={`/blog/${post.slug}/`}
+              className="inline-flex items-center gap-1 text-[var(--qf-accent)] text-sm font-semibold hover:text-[var(--qf-text)] transition-colors"
+            >
+              Read more →
+            </Link>
+          </article>
+        ))}
+      </div>
+
+      <div className="border-t border-[var(--qf-border)] pt-12 pb-8">
+        <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-4">
+          Ready to find your biggest time leak?
+        </h3>
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg">
+          Book your Automation Map
+        </Button>
+      </div>
+    </>
+  );
+}
