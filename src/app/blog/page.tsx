@@ -1,7 +1,32 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Section from '@/components/ui/Section';
 import Button from '@/components/ui/Button';
 import { ROUTES } from '@/lib/constants';
+
+export const metadata: Metadata = {
+  title: 'Blog — practical notes on systems & automation',
+  description:
+    'Short, honest writing on digital transformation for small business. No buzzwords.',
+  openGraph: {
+    title: 'Blog — practical notes on systems & automation | Quietforge',
+    description: 'Short, honest writing on digital transformation for small business.',
+    images: [
+      {
+        url: '/og/blog.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Blog — practical notes on systems & automation',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog — practical notes on systems & automation | Quietforge',
+    description: 'Short, honest writing on digital transformation for small business.',
+    images: ['/og/blog.svg'],
+  },
+};
 
 interface Post {
   slug: string;

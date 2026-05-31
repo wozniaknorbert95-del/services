@@ -4,13 +4,27 @@ import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
 export const metadata: Metadata = {
-  title: 'Inbox Killer — AI Lead Qualification | FlexGrafik Digital',
+  title: 'Inbox Killer — AI Lead Qualification | Quietforge',
   description:
     'AI reads your inbox, classifies hot leads, drafts replies, and archives noise. €497 setup + €147/mo. Live in 48 hours.',
   openGraph: {
-    title: 'Inbox Killer — AI Lead Qualification',
+    title: 'Inbox Killer — AI Lead Qualification | Quietforge',
     description: 'Your inbox is 80% noise. We surface the 20% that pays. Live in 48 hours.',
     url: 'https://services.flexgrafik.nl/inbox-killer',
+    images: [
+      {
+        url: '/og/inbox-killer.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Inbox Killer — AI Lead Qualification',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Inbox Killer — AI Lead Qualification | Quietforge',
+    description: 'Your inbox is 80% noise. We surface the 20% that pays. Live in 48 hours.',
+    images: ['/og/inbox-killer.svg'],
   },
 };
 
@@ -45,31 +59,31 @@ export default function InboxKillerPage() {
         <div className="mx-auto max-w-3xl">
           <a
             href="/"
-            className="mb-8 inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-accent)]"
+            className="mb-8 inline-flex items-center gap-2 text-sm text-[var(--qf-text-faint)] transition-colors hover:text-[var(--qf-accent)]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
           </a>
 
-          <div className="mb-4 inline-flex rounded-md bg-[var(--color-accent-dim)] px-2.5 py-1 text-xs font-mono font-medium text-[var(--color-accent)]">
+          <div className="mb-4 inline-flex rounded-md bg-[var(--qf-accent)]/10 px-2.5 py-1 text-xs font-mono font-medium text-[var(--qf-accent)]">
             Flagship Product
           </div>
 
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--qf-text)] sm:text-5xl">
             Inbox Killer
           </h1>
-          <p className="mt-4 text-xl text-[var(--color-text-secondary)]">
+          <p className="mt-4 text-xl text-[var(--qf-text-dim)]">
             AI lead qualification that replaces your VA — at a fraction of the cost.
           </p>
 
           <div className="mt-8 flex flex-wrap items-baseline gap-3">
-            <span className="text-4xl font-bold text-[var(--color-text-primary)]">€497</span>
-            <span className="text-[var(--color-text-muted)]">setup</span>
-            <span className="text-[var(--color-text-muted)]">+</span>
-            <span className="text-4xl font-bold text-[var(--color-text-primary)]">€147</span>
-            <span className="text-[var(--color-text-muted)]">/mo</span>
+            <span className="text-4xl font-bold text-[var(--qf-text)]">€497</span>
+            <span className="text-[var(--qf-text-faint)]">setup</span>
+            <span className="text-[var(--qf-text-faint)]">+</span>
+            <span className="text-4xl font-bold text-[var(--qf-text)]">€147</span>
+            <span className="text-[var(--qf-text-faint)]">/mo</span>
           </div>
-          <p className="mt-2 text-sm text-[var(--color-amber)]">
+          <p className="mt-2 text-sm text-[var(--qf-warn)]">
             First 5 clients: month 1 free. Cancel anytime.
           </p>
 
@@ -88,14 +102,14 @@ export default function InboxKillerPage() {
         </div>
       </section>
 
-      <section className="border-t border-[var(--color-border)] bg-[var(--color-bg-surface)] px-6 py-16">
+      <section className="border-t border-[var(--qf-border)] bg-[var(--qf-bg-raised)] px-6 py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">What you get</h2>
+          <h2 className="text-2xl font-bold text-[var(--qf-text)]">What you get</h2>
           <div className="mt-6 space-y-4">
             {features.map((f) => (
               <div key={f} className="flex items-start gap-3">
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-green)]" />
-                <span className="text-[var(--color-text-secondary)]">{f}</span>
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--qf-ok)]" />
+                <span className="text-[var(--qf-text-dim)]">{f}</span>
               </div>
             ))}
           </div>
@@ -104,26 +118,26 @@ export default function InboxKillerPage() {
 
       <section className="px-6 py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">
+          <h2 className="text-2xl font-bold text-[var(--qf-text)]">
             Frequently asked questions
           </h2>
           <div className="mt-6 space-y-6">
             {faqs.map((faq) => (
               <div key={faq.q}>
-                <h3 className="font-semibold text-[var(--color-text-primary)]">{faq.q}</h3>
-                <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{faq.a}</p>
+                <h3 className="font-semibold text-[var(--qf-text)]">{faq.q}</h3>
+                <p className="mt-1 text-sm text-[var(--qf-text-dim)]">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-[var(--color-border)] bg-[var(--color-bg-surface)] px-6 py-16">
+      <section className="border-t border-[var(--qf-border)] bg-[var(--qf-bg-raised)] px-6 py-16">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">
+          <h2 className="text-2xl font-bold text-[var(--qf-text)]">
             Ready to reclaim your inbox?
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-[var(--color-text-secondary)]">
+          <p className="mx-auto mt-4 max-w-lg text-[var(--qf-text-dim)]">
             Book a free 20-minute demo. We will show you exactly what your inbox is costing you.
           </p>
           <div className="mt-8">

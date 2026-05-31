@@ -51,6 +51,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: meta.excerpt,
       type: 'article',
       publishedTime: meta.date,
+      images: [
+        {
+          url: '/og/blog.svg',
+          width: 1200,
+          height: 630,
+          alt: meta.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.excerpt,
+      images: ['/og/blog.svg'],
     },
   };
 }

@@ -72,6 +72,7 @@
   --color-accent-glow: var(--qf-accent-soft);
   --color-accent-dim: var(--qf-accent-glow);
   --color-green: var(--qf-ok);
+  --color-green-dim: rgba(111, 174, 111, 0.1);
   --color-amber: var(--qf-accent);
   --font-mono: var(--qf-mono);
   --font-sans: var(--qf-sans);

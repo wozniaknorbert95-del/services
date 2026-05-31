@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       'Modern websites and back-office automation for small businesses. Fewer emails, more clients — systems that run on autopilot.',
     images: [
       {
-        url: '/og/home.png',
+        url: '/og/home.svg',
         width: 1200,
         height: 630,
         alt: 'Quietforge — Done-for-you systems for small business',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: 'Quietforge — Done-for-you systems for small business',
     description: 'Systems that run your small business — quietly, in the background.',
     creator: '@flexgrafik',
-    images: ['/og/home.png'],
+    images: ['/og/home.svg'],
   },
   robots: {
     index: true,

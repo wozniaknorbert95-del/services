@@ -15,7 +15,20 @@ export const metadata: Metadata = {
     title: 'Quietforge — Done-for-you systems for small business',
     description:
       'Modern websites and back-office automation for small businesses. Fewer emails, more clients — systems that run on autopilot.',
-    images: ['/og/home.png'],
+    images: [
+      {
+        url: '/og/home.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Quietforge — Done-for-you systems for small business',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Quietforge — Done-for-you systems for small business',
+    description: 'Systems that run your small business — quietly, in the background.',
+    images: ['/og/home.svg'],
   },
 };
 
