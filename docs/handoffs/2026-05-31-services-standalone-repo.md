@@ -100,6 +100,26 @@ npx vercel dist --prod --yes
 
 Rozważ usunięcie/przeniesienie handoffów dotyczących services z `portfolio/docs/handoffs/` — porządek w repo portfolio.
 
+## Deploy Status
+
+| Data | Status |
+|---|---|
+| 2026-05-31 10:05 | GitHub Actions workflow wyzwolony (3x fail — stary CLI) |
+| 2026-05-31 10:18 | Poprawka workflow: `vercel@latest` CLI zamiast action |
+| 2026-05-31 10:20 | Deploy lokalny przez `npx vercel --prod --yes` |
+| **Wynik** | ✅ **PASS** — deploy do `flexgrafik-services` udany |
+
+### URL po deploy
+- **Production**: `https://flexgrafik-services-1qepjjslb-wozniaknorbert95-dels-projects.vercel.app`
+- **Custom domain**: `https://services.flexgrafik.nl` (SSL w trakcie propagacji, ~2-5 min)
+
+### Problemy napotkane i rozwiązania
+| Problem | Przyczyna | Rozwiązanie |
+|---|---|---|
+| GitHub Actions deploy fail | `amondnet/vercel-action@v25` używa CLI 25.1.0 (wymagany 47.2.2+) | Zmieniono na `npm install -g vercel@latest` + `npx vercel` |
+| Workflow hang (>5 min) | Nieznany — prawdopodobnie zawieszenie w oczekiwaniu na input | Anulowano, deploy lokalny |
+| Deploy `dist` jako nowy projekt | `npx vercel dist` traktuje folder jako osobny projekt | Użyto `npx vercel --prod --yes --cwd .` z roota |
+
 ---
 
-*Session ended: 2026-05-31 | services build: PASS (7/7) | portfolio build: PASS (47/47)*
+*Session ended: 2026-05-31 | services build: PASS (7/7) | portfolio build: PASS (47/47) | Deploy: PASS*
