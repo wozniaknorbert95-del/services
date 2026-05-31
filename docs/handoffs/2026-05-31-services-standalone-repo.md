@@ -58,16 +58,47 @@ Rozdzielenie `services.flexgrafik.nl` z monorepo `portfolio/services/` do osobne
 - **portfolio**: clean, bez services/, build PASS
 - **DNS**: `services.flexgrafik.nl` wymaga A record → `76.76.21.21` (bez zmian)
 
-## Next Steps
+## Next Steps — Vercel Relink (wymaga 1 kliknięcia w dashboard)
 
-1. **Vercel Dashboard**: Zmień Git repo dla projektu `flexgrafik-services`
-   - Idź do: https://vercel.com/wozniaknorbert95-dels-projects/flexgrafik-services/settings/git
-   - Disconnect obecne repo (`portfolio`)
-   - Connect nowe repo: `wozniaknorbert95-del/services`
-   - Ustaw Root Directory: `/` (puste, nie `services/`)
-   - Branch: `master`
-2. **Verify deploy**: Push commit do nowego repo i sprawdź czy Vercel auto-deploy działa
-3. **Portfolio**: Rozważ usunięcie/przeniesienie handoffów dotyczących services z `portfolio/docs/handoffs/` (opcjonalne — porządek)
+### Opcja A: Native Vercel Git Integration (zalecana)
+1. Wejdź: `https://vercel.com/wozniaknorbert95-dels-projects/flexgrafik-services/settings/git`
+2. Kliknij **Disconnect** przy obecnym repo
+3. Kliknij **Connect Git Repository** → wybierz `wozniaknorbert95-del/services`
+4. Ustaw **Root Directory** na `/` (puste, nie `services/`)
+5. **Branch**: `master`
+6. Kliknij **Save**
+7. Gotowe — push do `master` będzie auto-deployował
+
+### Opcja B: GitHub Actions (alternatywa z pełną kontrolą)
+Jeśli Opcja A nie działa lub chcesz mieć CI w repo:
+
+1. Utwórz **Classic Token** w Vercel:
+   - `https://vercel.com/account/tokens` → **Create Token** (scope: full)
+2. Dodaj secrety w nowym repo GitHub:
+   - `https://github.com/wozniaknorbert95-del/services/settings/secrets/actions`
+   - `VERCEL_TOKEN` = token z kroku 1
+   - `VERCEL_ORG_ID` = `team_prFKpJ6EFrmUrTUq4jdRHZpC`
+   - `VERCEL_PROJECT_ID` = `prj_xoNzN664qm7ppE4qqd3ldxVPwtoP`
+3. Workflow `.github/workflows/deploy.yml` już istnieje w repo
+4. Push do `master` → GitHub Actions zbuduje i deployuje automatycznie
+
+### Opcja C: Ręczny deploy z lokalnego CLI
+```bash
+cd C:\Users\FlexGrafik\FlexGrafik\github\services
+npm run build
+npx vercel dist --prod --yes
+```
+
+## Blockers
+
+| Bloker | Rozwiązanie |
+|---|---|
+| Vercel Git connection wskazuje stare repo | **Opcja A, B lub C** powyżej |
+| Brak classic Vercel token dla API | Opcja A (dashboard) lub Opcja B (token) |
+
+## Portfolio Cleanup (opcjonalne)
+
+Rozważ usunięcie/przeniesienie handoffów dotyczących services z `portfolio/docs/handoffs/` — porządek w repo portfolio.
 
 ---
 
