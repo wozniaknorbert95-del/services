@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 interface ButtonProps {
@@ -58,9 +59,9 @@ export default function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes} target={target} rel={rel}>
+      <Link href={href} className={classes} target={target} rel={rel}>
         {content}
-      </a>
+      </Link>
     );
   }
 

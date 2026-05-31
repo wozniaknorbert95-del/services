@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/inbox-killer/",
+      "destination": "/solutions/inbox-killer/",
+      "permanent": true
+    },
+    {
+      "source": "/digital-modernization/",
+      "destination": "/solutions/",
+      "permanent": true
+    }
+  ]
+}
