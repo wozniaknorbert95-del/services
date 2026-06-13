@@ -21,9 +21,9 @@ export const ROUTES = {
 } as const;
 
 export const ARTEFACTS = {
-  automationMapSample: '/artefacts/automation-map-sample.md',
-  dataSafetyPlaybook: '/artefacts/data-safety-playbook.md',
-  maintenanceHandover: '/artefacts/maintenance-handover.md',
+  automationMapSample: '/artefacts/automation-map-sample.pdf',
+  dataSafetyPlaybook: '/artefacts/data-safety-playbook.pdf',
+  maintenanceHandover: '/artefacts/maintenance-handover.pdf',
 } as const;
 
 export const NAV_ITEMS = [

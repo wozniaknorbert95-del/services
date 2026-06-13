@@ -23,9 +23,9 @@ Website ─► visitors arrive ─► no clear action ─► they leave
 ### Top leaks found
 | # | Leak | Impact (estimate) | Severity |
 |---|---|---|---|
-| 1 | Email triage by hand | ~ [X] h/week | High |
-| 2 | Manual quotes | ~ [X] h/week | High |
-| 3 | No lead capture on site | [X] lost enquiries/month | Medium |
+| 1 | Email triage by hand | ~ [your estimate] h/week | High |
+| 2 | Manual quotes | ~ [your estimate] h/week | High |
+| 3 | No lead capture on site | [your estimate] lost enquiries/month | Medium |
 
 ---
 
@@ -46,7 +46,7 @@ Site  ─► [Web upgrade] clear CTA → lead captured → tracked
 
 ### Recommended first step
 **[Inbox Killer]** — highest leak, fastest payback.
-Estimated effort: [X] · Indicative range: [€X–€X] · The Automation Map fee is credited toward it.
+Estimated effort: [your estimate] · Indicative range: [€range on request] · The Automation Map fee is credited toward it.
 
 ### What you keep regardless
 This document + the diagram. No obligation to continue.

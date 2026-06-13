@@ -97,10 +97,10 @@ export default function HowIWork() {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ ...fadeIn.transition, delay: index * 0.05 }}
             >
-              <Card className="flex flex-col gap-[var(--qf-sp-4)] sm:flex-row sm:items-start">
+              <Card className="flex flex-col gap-[var(--qf-sp-4)] sm:flex-row sm:items-start overflow-hidden">
                 <span
                   aria-hidden="true"
-                  className="shrink-0 font-mono text-xl font-bold text-[var(--qf-accent)]"
+                  className="shrink-0 font-mono text-xl font-bold text-[var(--qf-accent)] sm:pt-1"
                 >
                   {phase.number}
                 </span>

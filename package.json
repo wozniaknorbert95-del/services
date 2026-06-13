@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
+    "generate:artefacts": "node scripts/generate-artefact-pdfs.mjs",
     "audit:links": "npx broken-link-checker https://services.flexgrafik.nl --ordered"
   },
   "dependencies": {
@@ -29,6 +30,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "md-to-pdf": "^5.2.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -16,12 +16,13 @@ export default function HeroSection() {
             transition={{ ...fadeIn.transition, duration: 0.6 }}
           >
             <h1 className="mb-[var(--qf-sp-4)]">
-              Your website and back-office,{' '}
-              <span className="text-[var(--qf-accent)]">running on autopilot.</span>
+              Systems that code, check and{' '}
+              <span className="text-[var(--qf-accent)]">maintain themselves.</span>
             </h1>
             <p className="text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">
-              Done-for-you digital systems for small businesses — fewer emails, more clients,
-              and no more apologising for an outdated site.
+              I&apos;m Norbert — an AI Systems Architect for NL small businesses. I map how
+              your work really flows, design intelligent automation, and keep you in the loop
+              on every send.
             </p>
             <div className="mt-[var(--qf-sp-6)] flex flex-wrap items-center gap-[var(--qf-sp-4)]">
               <a
@@ -31,10 +32,10 @@ export default function HeroSection() {
                 Book your Automation Map <span aria-hidden="true">→</span>
               </a>
               <a
-                href={ROUTES.solutions}
+                href="#how-i-work"
                 className="text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-text)]"
               >
-                See what we fix →
+                See how I work →
               </a>
             </div>
             <p className="mt-[var(--qf-sp-4)] text-[var(--qf-fs-sm)] text-[var(--qf-text-faint)]">

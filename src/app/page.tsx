@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: '/og/home.svg',
         width: 1200,
         height: 630,
-        alt: 'Quietforge — Done-for-you systems for small business',
+        alt: 'Quietforge — AI Systems Architect for small business',
       },
     ],
   },
