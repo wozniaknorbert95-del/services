@@ -4,6 +4,9 @@ import PainGrid from '@/components/home/PainGrid';
 import SpearheadSpotlight from '@/components/home/SpearheadSpotlight';
 import LadderTeaser from '@/components/home/LadderTeaser';
 import WhyThisWorks from '@/components/home/WhyThisWorks';
+import AboutArchitect from '@/components/home/AboutArchitect';
+import HowIWork from '@/components/home/HowIWork';
+import TrustSafety from '@/components/home/TrustSafety';
 import ResultsTeaser from '@/components/home/ResultsTeaser';
 import FinalCtaBand from '@/components/home/FinalCtaBand';
 
@@ -40,6 +43,9 @@ export default function Home() {
       <SpearheadSpotlight />
       <LadderTeaser />
       <WhyThisWorks />
+      <AboutArchitect />
+      <HowIWork />
+      <TrustSafety />
       <ResultsTeaser />
       <FinalCtaBand />
     </>
