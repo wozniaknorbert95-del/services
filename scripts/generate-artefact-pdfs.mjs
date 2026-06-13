@@ -14,6 +14,8 @@ const targets = [
   ]},
   { dir: join(root, 'public', 'gratka'), files: [
     'inbox-killer-before-after.md',
+    'orchestrator-agent-card-sample.md',
+    'orchestrator-workflow-map.md',
   ]},
 ];
 

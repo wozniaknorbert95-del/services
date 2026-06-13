@@ -23,6 +23,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     measurement: 'Estimate ~ a few hours/week — confirmed per client.',
   },
   {
+    slug: 'agent-orchestrator',
     number: '02',
     title: 'A multi-agent orchestrator',
     meta: 'Agent engine · production',

@@ -8,6 +8,34 @@ import { ROUTES } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { CASE_STUDIES } from '@/lib/case-studies';
 
+interface CaseGratkaLink {
+  label: string;
+  href: string;
+}
+
+interface CaseExtras {
+  detailHref: string;
+  gratkaLinks: CaseGratkaLink[];
+}
+
+const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
+  'inbox-killer': {
+    detailHref: ROUTES.resultsInboxKiller,
+    gratkaLinks: [
+      { label: 'Download flow diagram (SVG)', href: GRATKA.inboxKillerFlowSvg },
+      { label: 'Download before/after (PDF)', href: GRATKA.inboxKillerBeforeAfterPdf },
+    ],
+  },
+  'agent-orchestrator': {
+    detailHref: ROUTES.resultsAgentOrchestrator,
+    gratkaLinks: [
+      { label: 'Architecture diagram (SVG)', href: GRATKA.orchestratorArchitectureSvg },
+      { label: 'Agent card sample (PDF)', href: GRATKA.orchestratorAgentCardPdf },
+      { label: 'Workflow map (PDF)', href: GRATKA.orchestratorWorkflowMapPdf },
+    ],
+  },
+};
+
 /* ── metadata ── */
 export const metadata: Metadata = {
   title: 'Results — what changes | Quietforge',
@@ -35,13 +63,6 @@ export const metadata: Metadata = {
   },
 };
 
-function caseDetailHref(slug: string | undefined): string | undefined {
-  if (slug === 'inbox-killer') {
-    return ROUTES.resultsInboxKiller;
-  }
-  return undefined;
-}
-
 /* ── page ── */
 export default function ResultsPage() {
   return (
@@ -61,7 +82,7 @@ export default function ResultsPage() {
       <Section background="surface" padding="large">
         <div className="grid gap-[var(--qf-sp-6)] md:grid-cols-2">
           {CASE_STUDIES.map((c) => {
-            const detailHref = caseDetailHref(c.slug);
+            const extras = c.slug ? CASE_EXTRAS[c.slug] : undefined;
 
             return (
               <Card key={c.number} className="flex h-full flex-col p-6 md:p-8">
@@ -85,28 +106,24 @@ export default function ResultsPage() {
                   Measurement: {c.measurement}
                 </p>
 
-                {detailHref && (
+                {extras && (
                   <div className="mt-auto space-y-2 border-t border-[var(--qf-border)] pt-4 text-sm">
                     <Link
-                      href={detailHref}
+                      href={extras.detailHref}
                       className="block text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
                     >
                       Read full case study →
                     </Link>
-                    <Link
-                      href={GRATKA.inboxKillerFlowSvg}
-                      download
-                      className="block text-[var(--qf-info)] hover:text-[var(--qf-text)]"
-                    >
-                      Download flow diagram (SVG) ↓
-                    </Link>
-                    <Link
-                      href={GRATKA.inboxKillerBeforeAfterPdf}
-                      download
-                      className="block text-[var(--qf-info)] hover:text-[var(--qf-text)]"
-                    >
-                      Download before/after (PDF) ↓
-                    </Link>
+                    {extras.gratkaLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        download
+                        className="block text-[var(--qf-info)] hover:text-[var(--qf-text)]"
+                      >
+                        {link.label} ↓
+                      </Link>
+                    ))}
                   </div>
                 )}
               </Card>

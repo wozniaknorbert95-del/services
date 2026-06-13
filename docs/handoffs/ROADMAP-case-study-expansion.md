@@ -1,6 +1,6 @@
 # Roadmap — Case Study Expansion (sales gratka per client)
 
-> **Status:** CS-1 complete (2026-06-13). CS-2 next.  
+> **Status:** CS-1 + CS-2 complete (2026-06-13). CS-3 next.  
 > **Owner decision:** 1 case study = 1 sesja OpenCode/Cursor (Reguła 1-1-1).  
 > **Cel:** Każdy przykład z `/results` rozbudowany jako materiał, który klient może przekazać wewnętrznie (accountant, partner, developer) — sprzedażowo, faktowo, bez zmyślonych liczb.
 
@@ -67,9 +67,9 @@
 - `jadzia-core` (VPS stack — no secrets in repo)
 
 ### DoD
-- [ ] Diagram + agent card sample downloadable
-- [ ] Zero client names, zero fake uptime %
-- [ ] CTA on every PDF footer
+- [x] Diagram + agent card sample downloadable
+- [x] Zero client names, zero fake uptime %
+- [x] CTA on every PDF footer
 
 ---
 
@@ -125,7 +125,8 @@
 ```
 Session N+1: Portfolio 100% (Hero + OG + PDF + polish)  ← NEXT
 Session CS-1: Inbox Killer gratka  ← DONE 2026-06-13
-Session CS-2: Orchestrator gratka
+Session CS-2: Orchestrator gratka  ← DONE 2026-06-13
+Session CS-3: Wizard gratka
 Session CS-3: Wizard gratka
 Session CS-4: Advisory firm gratka (after KFA milestones if possible)
 ```
