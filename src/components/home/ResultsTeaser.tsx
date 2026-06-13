@@ -13,6 +13,7 @@ const CASES = [
     summary:
       'An agent classifies mixed email, drafts replies, and queues everything for your approval.',
     measurement: 'Estimate ~ a few hours/week — confirmed per client.',
+    caseHref: ROUTES.resultsInboxKiller,
   },
   {
     icon: Workflow,
@@ -64,10 +65,18 @@ export default function ResultsTeaser() {
                 {c.title}
               </h3>
               <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
-              <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.summary}</p>
-              <p className="font-mono text-xs text-[var(--qf-text-faint)]">
-                Measurement: {c.measurement}
-              </p>
+          <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.summary}</p>
+          <p className="mb-4 font-mono text-xs text-[var(--qf-text-faint)]">
+            Measurement: {c.measurement}
+          </p>
+          {c.caseHref && (
+            <a
+              href={c.caseHref}
+              className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+            >
+              Read case study →
+            </a>
+          )}
             </motion.div>
           ))}
         </motion.div>

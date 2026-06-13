@@ -1,6 +1,6 @@
 # Roadmap — Case Study Expansion (sales gratka per client)
 
-> **Status:** Planned — NOT this session.  
+> **Status:** CS-1 complete (2026-06-13). CS-2 next.  
 > **Owner decision:** 1 case study = 1 sesja OpenCode/Cursor (Reguła 1-1-1).  
 > **Cel:** Każdy przykład z `/results` rozbudowany jako materiał, który klient może przekazać wewnętrznie (accountant, partner, developer) — sprzedażowo, faktowo, bez zmyślonych liczb.
 
@@ -41,10 +41,10 @@
 - Link from case card → „Download flow diagram"
 
 ### DoD
-- [ ] Downloadable asset, no `[X]`
-- [ ] Links from `/results` case 01
-- [ ] CTA → book-discovery
-- [ ] `npm run build` pass
+- [x] Downloadable asset, no `[X]`
+- [x] Links from `/results` case 01
+- [x] CTA → book-discovery
+- [x] `npm run build` pass
 
 ---
 
@@ -124,7 +124,7 @@
 
 ```
 Session N+1: Portfolio 100% (Hero + OG + PDF + polish)  ← NEXT
-Session CS-1: Inbox Killer gratka
+Session CS-1: Inbox Killer gratka  ← DONE 2026-06-13
 Session CS-2: Orchestrator gratka
 Session CS-3: Wizard gratka
 Session CS-4: Advisory firm gratka (after KFA milestones if possible)

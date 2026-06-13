@@ -14,6 +14,7 @@ export const ROUTES = {
   pricing: '/pricing/',
   howItWorks: '/how-it-works/',
   results: '/results/',
+  resultsInboxKiller: '/results/inbox-killer/',
   about: '/about/',
   blog: '/blog/',
   bookDiscovery: '/book-discovery/',

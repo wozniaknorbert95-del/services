@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
 import { ROUTES } from '@/lib/constants';
+import { GRATKA } from '@/lib/gratka';
+import { CASE_STUDIES } from '@/lib/case-studies';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
@@ -20,7 +23,7 @@ export const metadata: Metadata = {
         url: '/og/results.svg',
         width: 1200,
         height: 630,
-        alt: 'Results — what changes',
+        alt: 'Results — Real systems, already running',
       },
     ],
   },
@@ -32,62 +35,12 @@ export const metadata: Metadata = {
   },
 };
 
-/* ── data ── */
-interface CaseStudy {
-  number: string;
-  title: string;
-  meta: string;
-  context: string;
-  system: string;
-  real: string;
-  measurement: string;
+function caseDetailHref(slug: string | undefined): string | undefined {
+  if (slug === 'inbox-killer') {
+    return ROUTES.resultsInboxKiller;
+  }
+  return undefined;
 }
-
-const CASES: CaseStudy[] = [
-  {
-    number: '01',
-    title: 'The self-running back-office',
-    meta: 'Inbox Killer · live',
-    context:
-      'A small NL service business drowning in mixed email — leads, invoices, noise in one pile.',
-    system:
-      'An agent that reads the inbox, classifies (lead / client / invoice / noise) and drafts replies. classify → plan → diff → approve. Nothing sends without approval.',
-    real: 'Live mailbox, 100+ messages/scan, human-in-the-loop on every send.',
-    measurement: 'Estimate ~ a few hours/week — confirmed per client.',
-  },
-  {
-    number: '02',
-    title: 'A multi-agent orchestrator',
-    meta: 'Agent engine · production',
-    context:
-      'Coordinating a whole business — orders, content, CRM — without spreadsheets everywhere.',
-    system:
-      'A FastAPI + LangGraph engine on a VPS, governed by a single source of truth, agent cards and fixed rules (planner → coder → tester → review).',
-    real: 'Production engine, SSoT architecture, guardrails, 12-step workflow.',
-    measurement: 'Process proof — architecture diagram on request.',
-  },
-  {
-    number: '03',
-    title: 'Self-service quote & onboarding',
-    meta: 'Sales Funnel Engine',
-    context: 'The same "what do you charge?" questions answered by hand, all day.',
-    system:
-      'A 7-step configurator with open pricing and payment — qualifies, quotes and books without a phone call.',
-    real: 'Working funnel — pick options → upload logo → see price → pay.',
-    measurement: 'Fewer manual quote emails (to be quantified).',
-  },
-  {
-    number: '04',
-    title: 'Modernisation + AI assistant for an advisory firm',
-    meta: 'Web Upgrade + assistant · anonymised',
-    context:
-      'A Rotterdam accounting office with a strong offer but an outdated site and no lead capture.',
-    system:
-      'Site modernisation + a lead-qualifying AI assistant (qualification only, no tax advice) + a human-approved content engine, with a signed data-processing agreement.',
-    real: 'Full scope designed, security & AVG layer specified, staged delivery.',
-    measurement: 'In delivery — outcomes reported once live.',
-  },
-];
 
 /* ── page ── */
 export default function ResultsPage() {
@@ -107,29 +60,58 @@ export default function ResultsPage() {
 
       <Section background="surface" padding="large">
         <div className="grid gap-[var(--qf-sp-6)] md:grid-cols-2">
-          {CASES.map((c) => (
-            <Card key={c.number} className="h-full p-6 md:p-8">
-              <span className="mb-2 block font-mono text-sm text-[var(--qf-info)]">
-                {c.number}
-              </span>
-              <h2 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
-                {c.title}
-              </h2>
-              <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
-              <p className="mb-3 max-w-none text-sm text-[var(--qf-text-dim)]">
-                <strong className="text-[var(--qf-text)]">Context:</strong> {c.context}
-              </p>
-              <p className="mb-3 max-w-none text-sm text-[var(--qf-text-dim)]">
-                <strong className="text-[var(--qf-text)]">System:</strong> {c.system}
-              </p>
-              <p className="mb-3 max-w-none border-l-2 border-[var(--qf-accent)] pl-3 text-sm text-[var(--qf-text)]">
-                <strong>Real:</strong> {c.real}
-              </p>
-              <p className="max-w-none font-mono text-xs text-[var(--qf-text-faint)]">
-                Measurement: {c.measurement}
-              </p>
-            </Card>
-          ))}
+          {CASE_STUDIES.map((c) => {
+            const detailHref = caseDetailHref(c.slug);
+
+            return (
+              <Card key={c.number} className="flex h-full flex-col p-6 md:p-8">
+                <span className="mb-2 block font-mono text-sm text-[var(--qf-info)]">
+                  {c.number}
+                </span>
+                <h2 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+                  {c.title}
+                </h2>
+                <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
+                <p className="mb-3 max-w-none text-sm text-[var(--qf-text-dim)]">
+                  <strong className="text-[var(--qf-text)]">Context:</strong> {c.context}
+                </p>
+                <p className="mb-3 max-w-none text-sm text-[var(--qf-text-dim)]">
+                  <strong className="text-[var(--qf-text)]">System:</strong> {c.system}
+                </p>
+                <p className="mb-3 max-w-none border-l-2 border-[var(--qf-accent)] pl-3 text-sm text-[var(--qf-text)]">
+                  <strong>Real:</strong> {c.real}
+                </p>
+                <p className="mb-6 max-w-none font-mono text-xs text-[var(--qf-text-faint)]">
+                  Measurement: {c.measurement}
+                </p>
+
+                {detailHref && (
+                  <div className="mt-auto space-y-2 border-t border-[var(--qf-border)] pt-4 text-sm">
+                    <Link
+                      href={detailHref}
+                      className="block text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+                    >
+                      Read full case study →
+                    </Link>
+                    <Link
+                      href={GRATKA.inboxKillerFlowSvg}
+                      download
+                      className="block text-[var(--qf-info)] hover:text-[var(--qf-text)]"
+                    >
+                      Download flow diagram (SVG) ↓
+                    </Link>
+                    <Link
+                      href={GRATKA.inboxKillerBeforeAfterPdf}
+                      download
+                      className="block text-[var(--qf-info)] hover:text-[var(--qf-text)]"
+                    >
+                      Download before/after (PDF) ↓
+                    </Link>
+                  </div>
+                )}
+              </Card>
+            );
+          })}
         </div>
       </Section>
 
