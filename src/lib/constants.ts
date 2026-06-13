@@ -20,6 +20,12 @@ export const ROUTES = {
   legal: '/legal/',
 } as const;
 
+export const ARTEFACTS = {
+  automationMapSample: '/artefacts/automation-map-sample.md',
+  dataSafetyPlaybook: '/artefacts/data-safety-playbook.md',
+  maintenanceHandover: '/artefacts/maintenance-handover.md',
+} as const;
+
 export const NAV_ITEMS = [
   { label: 'Solutions', href: ROUTES.solutions, hasDropdown: true },
   { label: 'How It Works', href: ROUTES.howItWorks },
