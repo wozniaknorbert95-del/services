@@ -2,17 +2,18 @@ import type { Metadata } from 'next';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import Eyebrow from '@/components/ui/Eyebrow';
 import { ROUTES } from '@/lib/constants';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
   title: 'Results — what changes | Quietforge',
   description:
-    'Real patterns: inbox chaos to control, old sites to converters, manual quotes to automated pipelines. See what a system actually does.',
+    'Real systems already running: inbox automation, multi-agent orchestration, self-service quoting, and advisory firm modernisation. Process-proof case studies.',
   openGraph: {
     title: 'Results — what changes | Quietforge',
     description:
-      'Real patterns: inbox chaos to control, old sites to converters, manual quotes to automated pipelines.',
+      'Real systems already running inside a live business ecosystem. Names withheld; architecture is real.',
     url: 'https://services.flexgrafik.nl/results',
     images: [
       {
@@ -26,36 +27,65 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Results — what changes | Quietforge',
-    description: 'Real patterns from chaos to control.',
+    description: 'Real systems, already running — process-proof case studies.',
     images: ['/og/results.svg'],
   },
 };
 
 /* ── data ── */
-const CASES = [
+interface CaseStudy {
+  number: string;
+  title: string;
+  meta: string;
+  context: string;
+  system: string;
+  real: string;
+  measurement: string;
+}
+
+const CASES: CaseStudy[] = [
   {
-    problem: 'Inbox chaos — leads buried under newsletters, invoices and spam.',
-    system: 'Inbox Killer',
-    result: 'Every enquiry caught, sorted and queued for reply. Hours back, every week.',
-    metric: '[X] hours saved per week · [X]% fewer lost leads',
+    number: '01',
+    title: 'The self-running back-office',
+    meta: 'Inbox Killer · live',
+    context:
+      'A small NL service business drowning in mixed email — leads, invoices, noise in one pile.',
+    system:
+      'An agent that reads the inbox, classifies (lead / client / invoice / noise) and drafts replies. classify → plan → diff → approve. Nothing sends without approval.',
+    real: 'Live mailbox, 100+ messages/scan, human-in-the-loop on every send.',
+    measurement: 'Estimate ~ a few hours/week — confirmed per client.',
   },
   {
-    problem: 'A site that looks like 2012 and converts like it too.',
-    system: 'Conversion Web Upgrade',
-    result: 'A fast, mobile-first site with lead capture built in — one that earns its keep.',
-    metric: '[X]% more enquiries · fewer manual “what do you charge?” emails',
+    number: '02',
+    title: 'A multi-agent orchestrator',
+    meta: 'Agent engine · production',
+    context:
+      'Coordinating a whole business — orders, content, CRM — without spreadsheets everywhere.',
+    system:
+      'A FastAPI + LangGraph engine on a VPS, governed by a single source of truth, agent cards and fixed rules (planner → coder → tester → review).',
+    real: 'Production engine, SSoT architecture, guardrails, 12-step workflow.',
+    measurement: 'Process proof — architecture diagram on request.',
   },
   {
-    problem: 'Manual quotes eating half your day, every day.',
-    system: 'Sales Funnel Engine',
-    result: 'A structured configurator that qualifies, quotes and books — without you typing the same reply again.',
-    metric: 'Structured pipeline · fewer “how much is it?” messages',
+    number: '03',
+    title: 'Self-service quote & onboarding',
+    meta: 'Sales Funnel Engine',
+    context: 'The same "what do you charge?" questions answered by hand, all day.',
+    system:
+      'A 7-step configurator with open pricing and payment — qualifies, quotes and books without a phone call.',
+    real: 'Working funnel — pick options → upload logo → see price → pay.',
+    measurement: 'Fewer manual quote emails (to be quantified).',
   },
   {
-    problem: 'Traffic but no leads — a landing page that visitors bounce off.',
-    system: 'Lead Magnet Game',
-    result: 'A branded mini-game that collects leads while they play — an asset worth sharing.',
-    metric: '[X]% more contacts · longer time on site',
+    number: '04',
+    title: 'Modernisation + AI assistant for an advisory firm',
+    meta: 'Web Upgrade + assistant · anonymised',
+    context:
+      'A Rotterdam accounting office with a strong offer but an outdated site and no lead capture.',
+    system:
+      'Site modernisation + a lead-qualifying AI assistant (qualification only, no tax advice) + a human-approved content engine, with a signed data-processing agreement.',
+    real: 'Full scope designed, security & AVG layer specified, staged delivery.',
+    measurement: 'In delivery — outcomes reported once live.',
   },
 ];
 
@@ -63,72 +93,53 @@ const CASES = [
 export default function ResultsPage() {
   return (
     <>
-      {/* ═══════════════════════════════════════════════════════════
-          § A — HERO
-         ═══════════════════════════════════════════════════════════ */}
       <Section padding="large">
+        <Eyebrow>Proof</Eyebrow>
         <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
-          What changes.
+          Real systems, already running.
         </h1>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)]">
-          Every project starts with a pain: chaos, time, a site that doesn&apos;t sell. Here&apos;s what
-          happens when the right system replaces it.
+          These aren&apos;t slides — they&apos;re systems built and operating inside a live business
+          ecosystem. Names are withheld; the architecture is real. As client engagements report hard
+          numbers, they&apos;ll appear here in place of the estimates.
         </p>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          § B — USE CASES
-         ═══════════════════════════════════════════════════════════ */}
       <Section background="surface" padding="large">
-        <div className="space-y-8 max-w-4xl">
-          {CASES.map((c, i) => (
-            <Card key={c.system} className="p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--qf-bg-inset)] text-[var(--qf-accent)] text-sm font-bold">
-                  {i + 1}
-                </span>
-                <span className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-text-dim)] font-semibold">
-                  {c.system}
-                </span>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                <div>
-                  <div className="text-[var(--qf-fs-xs)] uppercase tracking-[0.08em] text-[var(--qf-warn)] mb-1">
-                    Problem
-                  </div>
-                  <p className="text-[var(--qf-text)]">{c.problem}</p>
-                </div>
-                <div>
-                  <div className="text-[var(--qf-fs-xs)] uppercase tracking-[0.08em] text-[var(--qf-accent)] mb-1">
-                    System
-                  </div>
-                  <p className="text-[var(--qf-text)] font-semibold">{c.system}</p>
-                </div>
-                <div>
-                  <div className="text-[var(--qf-fs-xs)] uppercase tracking-[0.08em] text-[var(--qf-ok)] mb-1">
-                    Result
-                  </div>
-                  <p className="text-[var(--qf-text)]">{c.result}</p>
-                </div>
-              </div>
-              <div className="rounded-sm bg-[var(--qf-bg-inset)] px-4 py-3 text-sm text-[var(--qf-text-faint)] font-mono">
-                {c.metric}
-              </div>
+        <div className="grid gap-[var(--qf-sp-6)] md:grid-cols-2">
+          {CASES.map((c) => (
+            <Card key={c.number} className="h-full p-6 md:p-8">
+              <span className="mb-2 block font-mono text-sm text-[var(--qf-info)]">
+                {c.number}
+              </span>
+              <h2 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+                {c.title}
+              </h2>
+              <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
+              <p className="mb-3 max-w-none text-sm text-[var(--qf-text-dim)]">
+                <strong className="text-[var(--qf-text)]">Context:</strong> {c.context}
+              </p>
+              <p className="mb-3 max-w-none text-sm text-[var(--qf-text-dim)]">
+                <strong className="text-[var(--qf-text)]">System:</strong> {c.system}
+              </p>
+              <p className="mb-3 max-w-none border-l-2 border-[var(--qf-accent)] pl-3 text-sm text-[var(--qf-text)]">
+                <strong>Real:</strong> {c.real}
+              </p>
+              <p className="max-w-none font-mono text-xs text-[var(--qf-text-faint)]">
+                Measurement: {c.measurement}
+              </p>
             </Card>
           ))}
         </div>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          § C — FINAL CTA
-         ═══════════════════════════════════════════════════════════ */}
       <Section padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
           Let&apos;s find what&apos;s worth automating in your business.
         </h2>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
-          Start with a paid Automation Map. In 60–90 minutes we&apos;ll pinpoint your biggest leaks and
-          show you the ROI — before you commit to anything bigger.
+          Start with a paid Automation Map. In 60–90 minutes we&apos;ll pinpoint your biggest leaks
+          and show you the ROI — before you commit to anything bigger.
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
           Book your Automation Map

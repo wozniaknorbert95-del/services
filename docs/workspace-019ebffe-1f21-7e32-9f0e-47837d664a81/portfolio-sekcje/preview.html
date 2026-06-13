@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preview — Quietforge new sections</title>
+<style>
+  :root{
+    --qf-bg:#0a0b0d; --qf-bg2:#0e1013; --qf-surface:#14161b; --qf-surface2:#1a1d23;
+    --qf-border:#23272f; --qf-text:#e9edf2; --qf-muted:#98a0ad; --qf-accent:#5eead4;
+    --qf-accent2:#7aa2ff; --qf-radius:14px; --qf-maxw:1080px;
+    --qf-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#070809;color:var(--qf-text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .qf-section{background:var(--qf-bg);padding:80px 20px;}
+  .qf-section.qf-alt{background:var(--qf-bg2);}
+  .qf-wrap{max-width:var(--qf-maxw);margin:0 auto;}
+  .qf-eyebrow{font-family:var(--qf-mono);font-size:.8rem;color:var(--qf-accent);letter-spacing:.04em;display:block;margin-bottom:14px;}
+  .qf-h2{font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.12;font-weight:800;margin:0 0 16px;letter-spacing:-.01em;}
+  .qf-h3{font-size:1.2rem;font-weight:700;margin:0 0 10px;}
+  .qf-lead{color:var(--qf-muted);font-size:1.08rem;line-height:1.65;max-width:68ch;margin:0 0 44px;}
+  .qf-lead b{color:var(--qf-text);}
+  .qf-body{color:var(--qf-muted);line-height:1.7;}
+  .qf-grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+  .qf-card{background:var(--qf-surface);border:1px solid var(--qf-border);border-radius:var(--qf-radius);padding:24px;transition:.2s;}
+  .qf-card:hover{border-color:var(--qf-accent);transform:translateY(-2px);}
+  .qf-card h3{font-size:1.08rem;margin:0 0 8px;}
+  .qf-card p{color:var(--qf-muted);line-height:1.6;margin:0;font-size:.96rem;}
+  .qf-kicker{font-family:var(--qf-mono);color:var(--qf-accent2);font-size:.85rem;}
+  .qf-split{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;margin-top:40px;align-items:start;}
+  .qf-chips{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .qf-chips li{background:var(--qf-surface);border:1px solid var(--qf-border);border-radius:10px;padding:13px 16px;color:var(--qf-muted);font-size:.92rem;line-height:1.5;}
+  .qf-chips li b{color:var(--qf-text);}
+  .qf-cta{display:inline-block;margin-top:36px;background:var(--qf-accent);color:#04150f;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:11px;font-size:.96rem;}
+  .qf-cta:hover{filter:brightness(1.07);}
+  .qf-forwhom{font-family:var(--qf-mono);color:var(--qf-accent2);font-size:.85rem;margin:-30px 0 36px;}
+  .qf-note{margin-top:30px;font-size:.88rem;color:var(--qf-muted);border-left:2px solid var(--qf-border);padding-left:15px;line-height:1.6;}
+  /* steps */
+  .qf-steps{list-style:none;margin:0;padding:0;display:grid;gap:16px;}
+  .qf-step{display:flex;gap:18px;background:var(--qf-surface);border:1px solid var(--qf-border);border-radius:var(--qf-radius);padding:22px 24px;}
+  .qf-step-no{font-family:var(--qf-mono);font-size:1.2rem;color:var(--qf-accent);font-weight:700;flex:0 0 auto;}
+  .qf-step h3{font-size:1.12rem;margin:0 0 6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .qf-step p{color:var(--qf-muted);line-height:1.6;margin:0 0 6px;font-size:.96rem;}
+  .qf-tag{font-family:var(--qf-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--qf-accent2);border:1px solid var(--qf-border);border-radius:999px;padding:2px 9px;}
+  .qf-deliver{color:var(--qf-accent)!important;font-family:var(--qf-mono);font-size:.82rem!important;}
+  /* cases */
+  .qf-cases{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+  .qf-case{background:var(--qf-surface);border:1px solid var(--qf-border);border-radius:var(--qf-radius);padding:24px;position:relative;}
+  .qf-case-no{font-family:var(--qf-mono);color:var(--qf-accent2);font-size:.85rem;}
+  .qf-case h3{font-size:1.15rem;margin:6px 0 4px;}
+  .qf-case-meta{font-family:var(--qf-mono);color:var(--qf-accent);font-size:.78rem;margin:0 0 14px;}
+  .qf-case p{color:var(--qf-muted);line-height:1.55;font-size:.92rem;margin:0 0 10px;}
+  .qf-case p b{color:var(--qf-text);}
+  .qf-real{color:var(--qf-text)!important;border-left:2px solid var(--qf-accent);padding-left:10px;font-size:.88rem!important;}
+  .qf-measure{font-family:var(--qf-mono);font-size:.78rem!important;color:var(--qf-muted)!important;}
+  .qf-cta-row{margin-top:36px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+  .qf-cta-row p{margin:0;color:var(--qf-muted);}
+  /* preview-only */
+  .pv-bar{position:sticky;top:0;z-index:50;background:#050607;color:#cfd4dd;padding:12px 20px;font-size:.82rem;border-bottom:1px solid #1a1d23;text-align:center;}
+  .pv-bar b{color:var(--qf-accent);}
+  .pv-marker{max-width:var(--qf-maxw);margin:0 auto;padding:13px 20px;font-family:var(--qf-mono);font-size:.78rem;color:var(--qf-accent2);background:linear-gradient(90deg,rgba(122,162,255,.14),transparent);border-left:3px solid var(--qf-accent2);}
+  .pv-existing{background:#060708;color:#465062;padding:34px 20px;text-align:center;font-style:italic;border-bottom:1px dashed #15181d;}
+  @media (max-width:720px){.qf-split{grid-template-columns:1fr;}}
+  @media (max-width:560px){.qf-section{padding:56px 16px;}}
+</style>
+</head>
+<body>
+  <div class="pv-bar">PREVIEW · blue rails = <b>NEW sections to add</b> · grey blocks = existing Quietforge sections</div>
+
+  <div class="pv-existing">… (existing) HERO → "Sound familiar?" → Inbox Killer → "Grow from here" → Why this works …</div>
+
+  <!-- ===== SECTION 1: ABOUT ===== -->
+  <div class="pv-marker">⬛ NEW · Section 1 — About (after "Why this works")</div>
+  <section class="qf-section" id="about">
+    <div class="qf-wrap">
+      <span class="qf-eyebrow">// Who's behind Quietforge</span>
+      <h2 class="qf-h2">I design systems that code, check and maintain themselves.</h2>
+      <p class="qf-lead">I'm <b>Norbert</b> — an <b>AI Systems Architect</b>. My edge isn't writing
+        code by hand all day; it's designing intelligent systems that build, verify and keep
+        themselves running, with a human in the loop so nothing ever breaks your business. I see
+        the whole system, spot the risks and the hidden debt, design the workflow your AI agents
+        follow — and turn chaos into something that actually runs.</p>
+      <div class="qf-grid">
+        <article class="qf-card"><span class="qf-kicker">01</span><h3>See the whole system</h3><p>I map how your work really flows before touching anything, so automation fits the business instead of fighting it.</p></article>
+        <article class="qf-card"><span class="qf-kicker">02</span><h3>Own the risk</h3><p>I look for what can break, leak or drift, and design guardrails around it. Safety is part of the architecture, not an afterthought.</p></article>
+        <article class="qf-card"><span class="qf-kicker">03</span><h3>Design for AI agents</h3><p>I build the rules, context and review gates that let AI do the heavy lifting reliably — not a demo that falls over in week two.</p></article>
+      </div>
+      <div class="qf-split">
+        <div>
+          <h3 class="qf-h3">Background &amp; approach</h3>
+          <p class="qf-body">I came up through practice, not theory — a dozen real jobs across
+            different industries before this. That's why I can talk to a plumber and a lawyer in
+            the same afternoon and design a system that fits how they actually work. For the last
+            few years I've built production systems that combine AI, automation and human review —
+            including a live multi-agent ecosystem that runs a real business end to end.
+            Quietforge is that same engine, packaged for businesses your size.</p>
+        </div>
+        <ul class="qf-chips">
+          <li><b>Minimal disruption</b> — build alongside your mess first, replace only when proven.</li>
+          <li><b>No lock-in</b> — tools you already trust (Workspace, Notion, Make/Zapier, a VPS).</li>
+          <li><b>Transparent architecture</b> — every project ships a diagram + plain description.</li>
+          <li><b>Human in the loop</b> — nothing sends, publishes or deploys without your approval.</li>
+        </ul>
+      </div>
+      <a class="qf-cta" href="/book-discovery/">Book your Automation Map →</a>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: HOW I WORK ===== -->
+  <div class="pv-marker">⬛ NEW · Section 2 — How I work</div>
+  <section class="qf-section qf-alt" id="how-i-work">
+    <div class="qf-wrap">
+      <span class="qf-eyebrow">// How I work</span>
+      <h2 class="qf-h2">A method, not a magic trick.</h2>
+      <p class="qf-lead">Every project runs through the same workflow my own systems use
+        internally — the same one that runs a live multi-agent business. You always know what's
+        happening, what comes next, and where your approval is required.</p>
+      <ol class="qf-steps">
+        <li class="qf-step"><span class="qf-step-no">01</span><div><h3>Map <span class="qf-tag">paid first step</span></h3><p>We find your two or three biggest time-and-money leaks, score the ROI, and agree the first system to build. You keep the document either way.</p><p class="qf-deliver">Deliverable: Automation Map + prioritised plan.</p></div></li>
+        <li class="qf-step"><span class="qf-step-no">02</span><div><h3>Architect</h3><p>I draw the target architecture: which agent does what, where data flows, where the human approves, what gets logged — plain language plus a diagram you could hand to anyone.</p><p class="qf-deliver">Deliverable: architecture diagram + spec.</p></div></li>
+        <li class="qf-step"><span class="qf-step-no">03</span><div><h3>Build with an AI workforce</h3><p>The system is assembled by AI agents I orchestrate — planner → coder → tester → review — against fixed rules. That's why it's faster and leaner than billable hours.</p><p class="qf-deliver">Deliverable: working system in a test environment.</p></div></li>
+        <li class="qf-step"><span class="qf-step-no">04</span><div><h3>Verify <span class="qf-tag">human-in-the-loop</span></h3><p>Nothing goes live until it's tested on real scenarios and you've signed off. Approval gates are built into the system itself, not bolted on.</p><p class="qf-deliver">Deliverable: tested system + sign-off.</p></div></li>
+        <li class="qf-step"><span class="qf-step-no">05</span><div><h3>Hand over &amp; maintain <span class="qf-tag">no lock-in</span></h3><p>Every system ships with a README and a short walkthrough. Take it in-house, or keep me on a light monthly plan — your choice, no dependency by design.</p><p class="qf-deliver">Deliverable: README + handover + optional maintenance.</p></div></li>
+      </ol>
+      <p class="qf-note">This is the same workflow — single source of truth, agent cards, fixed
+        rules — that runs my own production ecosystem. Not a process invented for the brochure.</p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: TRUST & SAFETY ===== -->
+  <div class="pv-marker">⬛ NEW · Section 3 — Trust &amp; Safety</div>
+  <section class="qf-section" id="trust-safety">
+    <div class="qf-wrap">
+      <span class="qf-eyebrow">// Risk &amp; safety</span>
+      <h2 class="qf-h2">Built to be safe for a small business.</h2>
+      <p class="qf-lead">AI in your business should reduce risk, not add it. Safety isn't a feature
+        I bolt on at the end — it's part of the architecture from day one.</p>
+      <p class="qf-forwhom">For ZZP &amp; small businesses in NL — services, e-commerce, advisory.</p>
+      <div class="qf-grid">
+        <article class="qf-card"><h3>Human-in-the-loop by design</h3><p>Nothing sends, publishes or deploys without your approval. The system proposes; you decide.</p></article>
+        <article class="qf-card"><h3>Service accounts, not your passwords</h3><p>Access goes through dedicated accounts with scoped permissions. No passwords over WhatsApp, ever.</p></article>
+        <article class="qf-card"><h3>Start on a test inbox</h3><p>We can run first on a separate test address (e.g. test@yourdomain.nl) before touching anything live.</p></article>
+        <article class="qf-card"><h3>EU data, scoped access</h3><p>Hosting and data stay in the EU. Access is limited to you and me, and revoked cleanly after handover.</p></article>
+        <article class="qf-card"><h3>Logged &amp; auditable</h3><p>Who did what, when. Logs are available on request so any review or audit is straightforward.</p></article>
+        <article class="qf-card"><h3>No lock-in</h3><p>Built on tools you already own. You get the README and can hand it to any developer — this is never a trap.</p></article>
+      </div>
+      <p class="qf-note">Want the detail? Ask for the one-page „How we keep your data safe" playbook —
+        yours to forward to anyone, no strings.</p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4: CASE STUDIES ===== -->
+  <div class="pv-marker">⬛ NEW · Section 4 — Case studies (replaces empty [X] on /results)</div>
+  <section class="qf-section qf-alt" id="case-studies">
+    <div class="qf-wrap">
+      <span class="qf-eyebrow">// Proof</span>
+      <h2 class="qf-h2">Real systems, already running.</h2>
+      <p class="qf-lead">These aren't slides — they're systems built and operating inside a live
+        business ecosystem. Names are withheld; the architecture is real. As client engagements
+        report hard numbers, they'll appear here in place of the estimates.</p>
+      <div class="qf-cases">
+        <article class="qf-case"><span class="qf-case-no">01</span><h3>The self-running back-office</h3><p class="qf-case-meta">Inbox Killer · live</p><p><b>Context:</b> A small NL service business drowning in mixed email — leads, invoices, noise in one pile.</p><p><b>System:</b> An agent that reads the inbox, classifies (lead / client / invoice / noise) and drafts replies. Nothing sends without approval.</p><p class="qf-real">Real: live mailbox, 100+ messages/scan, human-in-the-loop on every send.</p><p class="qf-measure">Measurement: estimate ~ a few hours/week — confirmed per client.</p></article>
+        <article class="qf-case"><span class="qf-case-no">02</span><h3>A multi-agent orchestrator</h3><p class="qf-case-meta">Agent engine · production</p><p><b>Context:</b> Coordinating a whole business — orders, content, CRM — without spreadsheets everywhere.</p><p><b>System:</b> A FastAPI + LangGraph engine on a VPS, governed by a single source of truth, agent cards and fixed rules (planner → coder → tester → review).</p><p class="qf-real">Real: production engine, SSoT architecture, guardrails, 12-step workflow.</p><p class="qf-measure">Measurement: process proof — architecture diagram on request.</p></article>
+        <article class="qf-case"><span class="qf-case-no">03</span><h3>Self-service quote &amp; onboarding</h3><p class="qf-case-meta">Sales Funnel Engine</p><p><b>Context:</b> The same „what do you charge?" questions answered by hand, all day.</p><p><b>System:</b> A 7-step configurator with open pricing and payment — qualifies, quotes and books without a phone call.</p><p class="qf-real">Real: working funnel — pick options → upload logo → see price → pay.</p><p class="qf-measure">Measurement: fewer manual quote emails (to be quantified).</p></article>
+        <article class="qf-case"><span class="qf-case-no">04</span><h3>Modernisation + AI assistant for an advisory firm</h3><p class="qf-case-meta">Web Upgrade + assistant · anonymised</p><p><b>Context:</b> A Rotterdam accounting office with a strong offer but an outdated site and no lead capture.</p><p><b>System:</b> Site modernisation + a lead-qualifying AI assistant (qualification only, no tax advice) + a human-approved content engine, with a signed data-processing agreement.</p><p class="qf-real">Real: full scope designed, security &amp; AVG layer specified, staged delivery.</p><p class="qf-measure">Measurement: in delivery — outcomes reported once live.</p></article>
+      </div>
+      <div class="qf-cta-row">
+        <p>Let's find what's worth automating in your business.</p>
+        <a class="qf-cta" href="/book-discovery/">Book your Automation Map →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="pv-existing">… (existing) Automation Map CTA / footer …</div>
+</body>
+</html>

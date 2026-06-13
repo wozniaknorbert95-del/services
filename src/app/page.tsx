@@ -4,17 +4,20 @@ import PainGrid from '@/components/home/PainGrid';
 import SpearheadSpotlight from '@/components/home/SpearheadSpotlight';
 import LadderTeaser from '@/components/home/LadderTeaser';
 import WhyThisWorks from '@/components/home/WhyThisWorks';
+import AboutArchitect from '@/components/home/AboutArchitect';
+import HowIWork from '@/components/home/HowIWork';
+import TrustSafety from '@/components/home/TrustSafety';
 import ResultsTeaser from '@/components/home/ResultsTeaser';
 import FinalCtaBand from '@/components/home/FinalCtaBand';
 
 export const metadata: Metadata = {
-  title: 'Quietforge — Done-for-you systems for small business',
+  title: 'Quietforge — AI Systems Architect for small business',
   description:
-    'Modern websites and back-office automation for small businesses. Fewer emails, more clients — systems that run on autopilot. Start with a paid Automation Map.',
+    'Norbert designs intelligent systems that build, verify and maintain themselves — with a human in the loop. Start with a paid Automation Map.',
   openGraph: {
-    title: 'Quietforge — Done-for-you systems for small business',
+    title: 'Quietforge — AI Systems Architect for small business',
     description:
-      'Modern websites and back-office automation for small businesses. Fewer emails, more clients — systems that run on autopilot.',
+      'Intelligent automation and modern systems for NL small businesses. Process-first delivery with human approval gates.',
     images: [
       {
         url: '/og/home.svg',
@@ -26,8 +29,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Quietforge — Done-for-you systems for small business',
-    description: 'Systems that run your small business — quietly, in the background.',
+    title: 'Quietforge — AI Systems Architect for small business',
+    description: 'Systems that code, check and maintain themselves — with you in control.',
     images: ['/og/home.svg'],
   },
 };
@@ -40,6 +43,9 @@ export default function Home() {
       <SpearheadSpotlight />
       <LadderTeaser />
       <WhyThisWorks />
+      <AboutArchitect />
+      <HowIWork />
+      <TrustSafety />
       <ResultsTeaser />
       <FinalCtaBand />
     </>
