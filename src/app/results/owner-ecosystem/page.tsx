@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import Section from '@/components/ui/Section';
+import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
@@ -111,12 +111,11 @@ export default function OwnerEcosystemPage() {
           a developer, partner or accountant.
         </p>
         <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-4">
-          <Image
+          <GratkaDiagram
             src={GRATKA.ownerEcosystemMapSvg}
             alt="Full owner ecosystem architecture with governance, Flex-VCMS, applications, Agent OS, services and Inbox Killer"
             width={1200}
             height={1100}
-            className="h-auto w-full min-w-[640px]"
           />
         </div>
       </Section>

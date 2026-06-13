@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import Section from '@/components/ui/Section';
+import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
@@ -138,12 +138,11 @@ export default function InboxKillerCaseStudyPage() {
           the approval gate is the architecture, not a setting.
         </p>
         <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-4">
-          <Image
+          <GratkaDiagram
             src={GRATKA.inboxKillerFlowSvg}
             alt="Inbox Killer flow diagram: read, classify, sort into lanes, draft reply, human approval gate, then send"
             width={1200}
             height={720}
-            className="h-auto w-full min-w-[640px]"
             priority
           />
         </div>

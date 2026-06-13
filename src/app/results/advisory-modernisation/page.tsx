@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import Section from '@/components/ui/Section';
+import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
@@ -229,12 +229,11 @@ export default function AdvisoryModernisationCaseStudyPage() {
           Download the timeline for a printable version to share internally.
         </p>
         <div className="mb-8 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-4">
-          <Image
+          <GratkaDiagram
             src={GRATKA.advisoryDeliveryTimelineSvg}
             alt="Staged delivery timeline: six phases with sign-off gates for advisory firm modernisation including web upgrade, qualification assistant and AVG layer"
             width={1200}
             height={820}
-            className="h-auto w-full min-w-[640px]"
           />
         </div>
         <div className="grid gap-[var(--qf-sp-4)] sm:grid-cols-2">

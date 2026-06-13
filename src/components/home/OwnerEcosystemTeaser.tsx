@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
@@ -8,6 +7,7 @@ import { ROUTES } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Button from '@/components/ui/Button';
+import GratkaDiagram from '@/components/ui/GratkaDiagram';
 
 export default function OwnerEcosystemTeaser() {
   const motionCfg = useMotion();
@@ -52,7 +52,7 @@ export default function OwnerEcosystemTeaser() {
             </div>
           </div>
           <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-3">
-            <Image
+            <GratkaDiagram
               src={GRATKA.ownerEcosystemMapSvg}
               alt="Owner ecosystem diagram: governance, VCMS supervision, applications, Agent OS, Quietforge and Inbox Killer"
               width={600}

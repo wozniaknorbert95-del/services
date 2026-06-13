@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import Section from '@/components/ui/Section';
+import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
@@ -165,12 +165,11 @@ export default function AgentOrchestratorCaseStudyPage() {
           {study.system}
         </p>
         <div className="mb-8 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-4">
-          <Image
+          <GratkaDiagram
             src={GRATKA.orchestratorArchitectureSvg}
             alt="Multi-agent orchestrator architecture: single source of truth, directive orchestration and execution layers on VPS with human approval gate"
             width={1200}
             height={800}
-            className="h-auto w-full min-w-[640px]"
           />
         </div>
         <div className="grid gap-[var(--qf-sp-4)] md:grid-cols-3">

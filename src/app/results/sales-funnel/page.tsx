@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import Section from '@/components/ui/Section';
+import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
@@ -157,12 +157,11 @@ export default function SalesFunnelCaseStudyPage() {
           per product rules, these elements are never removed or bypassed.
         </p>
         <div className="mb-8 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-4">
-          <Image
+          <GratkaDiagram
             src={GRATKA.salesFunnelJourneySvg}
             alt="Self-service configurator journey: welcome, seven configuration steps with progress bar and sticky cart, then checkout with open pricing"
             width={1200}
             height={900}
-            className="h-auto w-full min-w-[640px]"
           />
         </div>
         <div className="grid gap-[var(--qf-sp-4)]">
