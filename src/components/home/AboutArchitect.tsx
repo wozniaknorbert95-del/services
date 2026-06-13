@@ -1,8 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer } from '@/lib/motion';
-import { ROUTES } from '@/lib/constants';
+import { ARTEFACTS, ROUTES } from '@/lib/constants';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -28,7 +29,14 @@ const CAPABILITIES = [
   },
 ] as const;
 
-const PRINCIPLES = [
+interface Principle {
+  label: string;
+  detail: string;
+  artefactHref?: string;
+  artefactLabel?: string;
+}
+
+const PRINCIPLES: Principle[] = [
   {
     label: 'Minimal disruption',
     detail: 'build alongside your mess first, replace only when proven.',
@@ -40,12 +48,14 @@ const PRINCIPLES = [
   {
     label: 'Transparent architecture',
     detail: 'every project ships a diagram + plain-language description.',
+    artefactHref: ARTEFACTS.automationMapSample,
+    artefactLabel: 'See sample',
   },
   {
     label: 'Human in the loop',
     detail: 'nothing sends, publishes or deploys without your approval.',
   },
-] as const;
+];
 
 export default function AboutArchitect() {
   return (
@@ -125,6 +135,18 @@ export default function AboutArchitect() {
                   <span className="text-sm text-[var(--qf-text-dim)]">
                     <strong className="text-[var(--qf-text)]">{principle.label}</strong> —{' '}
                     {principle.detail}
+                    {principle.artefactHref && principle.artefactLabel && (
+                      <>
+                        {' '}
+                        <Link
+                          href={principle.artefactHref}
+                          download
+                          className="text-[var(--qf-info)] hover:text-[var(--qf-text)]"
+                        >
+                          ({principle.artefactLabel} ↓)
+                        </Link>
+                      </>
+                    )}
                   </span>
                 </Card>
               </li>

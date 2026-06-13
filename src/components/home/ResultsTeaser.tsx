@@ -3,30 +3,36 @@
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer } from '@/lib/motion';
 import { ROUTES } from '@/lib/constants';
-import { Mail, Monitor } from 'lucide-react';
+import { Mail, Workflow } from 'lucide-react';
 
 const CASES = [
   {
     icon: Mail,
-    title: 'From inbox chaos to control',
-    before: 'hours a day lost to email.',
-    after: 'a sorted inbox and drafted replies.',
-    metric: '[X] hours saved per week',
+    title: 'The self-running back-office',
+    meta: 'Inbox Killer · live',
+    summary:
+      'An agent classifies mixed email, drafts replies, and queues everything for your approval.',
+    measurement: 'Estimate ~ a few hours/week — confirmed per client.',
   },
   {
-    icon: Monitor,
-    title: 'From a 2012 site to a 2026 system',
-    before: 'a site that did nothing.',
-    after: 'clear actions and tracked enquiries.',
-    metric: '[X]% more enquiries',
+    icon: Workflow,
+    title: 'Self-service quote & onboarding',
+    meta: 'Sales Funnel Engine',
+    summary:
+      'A 7-step configurator qualifies, quotes and books — without you typing the same reply again.',
+    measurement: 'Fewer manual quote emails (to be quantified).',
   },
 ];
 
 export default function ResultsTeaser() {
   return (
-    <section className="py-[var(--qf-sp-24)]">
+    <section
+      aria-labelledby="results-teaser-title"
+      className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)]"
+    >
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.h2
+          id="results-teaser-title"
           initial={fadeIn.initial}
           whileInView={fadeIn.animate}
           viewport={{ once: true, margin: '-80px' }}
@@ -52,24 +58,16 @@ export default function ResultsTeaser() {
               <c.icon
                 className="mb-4 h-6 w-6 text-[var(--qf-accent)]"
                 strokeWidth={1.5}
+                aria-hidden="true"
               />
-              <h3 className="mb-4 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+              <h3 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
                 {c.title}
               </h3>
-              <div className="space-y-2 text-sm">
-                <p className="text-[var(--qf-text-faint)]">
-                  Before: {c.before}
-                </p>
-                <p className="text-[var(--qf-text-dim)]">
-                  After: {c.after}
-                </p>
-                <p className="text-[var(--qf-accent)]">
-                  ▸ {c.metric}{' '}
-                  <span className="text-[var(--qf-text-faint)]">
-                    (insert after first delivery)
-                  </span>
-                </p>
-              </div>
+              <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
+              <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.summary}</p>
+              <p className="font-mono text-xs text-[var(--qf-text-faint)]">
+                Measurement: {c.measurement}
+              </p>
             </motion.div>
           ))}
         </motion.div>
