@@ -59,7 +59,20 @@ None — copy verbatim from `portfolio-sekcje/` unless noted in Context Map. Hom
 2. **PDF export** — artefacts are markdown downloads; branded PDFs for forwarding
 3. **Hard metrics** — swap Measurement lines when first client deliveries report numbers
 4. **OG image** — `home.svg` still says old positioning; update in polish session?
-5. **Owner review** — merge PR #1 after Vercel preview sign-off
+5. ~~**Owner review** — merge PR #1 after Vercel preview sign-off~~ **DONE 2026-06-13**
+
+---
+
+## Deploy record
+
+| Field | Value |
+|---|---|
+| Merge | PR #1 → `master` @ `8d6322e` |
+| Deploy | Vercel CD auto on push — GitHub status `success` |
+| Production URL | `https://services.flexgrafik.nl` |
+| Preview URL | `https://flexgrafik-services.vercel.app` |
+
+**Next session prep:** `docs/handoffs/NEXT-SESSION-PROMPT.md` + `docs/handoffs/ROADMAP-case-study-expansion.md`
 
 ---
 

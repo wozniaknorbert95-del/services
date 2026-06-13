@@ -1,69 +1,121 @@
-# Next Session Prompt — Phase 6 QA + OG Audit
+# Next Session Prompt — Portfolio 100% Closure (Polish + Artefacts)
 
-> **Start here.** Build passes. Deploy live on Vercel. All Phases 0–5 complete.
-
-## ✅ State (2026-05-31)
-
-- **Phases done:** 0 (Foundation) + 1 (Home) + 2 (Solutions + Inbox Killer) + 3 (Ladder) + 4 (Trust/Conversion) + 5 (Blog + Book Discovery) — all build-clean
-- **Latest deploy:** `ef94785` on `master` → `https://flexgrafik-services.vercel.app/`
-- **Brand:** Quietforge · **Stack:** Next.js 16.2.6, React 19, Tailwind v4, @next/mdx
-- **Routes live (22):** Home, Solutions hub, 5 solution pages, Pricing, How It Works, Results, About, Blog (listing + 3 posts), Book Discovery, Legal, 2 redirects
-
-## 🗺️ Architecture (memorise)
-
-- **Tokens:** `globals.css` — CSS custom properties
-- **Layout:** `layout.tsx` wraps `<Header />` + `<main>` + `<Footer />`
-- **Primitives:** `src/components/ui/` — Button, Card, Section, Eyebrow, FaqItem, PricingCard, WaitlistForm
-- **Lib:** `constants.ts` (ROUTES, PRICING, NAV_ITEMS), `motion.ts`, `utils.ts` (cn)
-- **Blog:** `@next/mdx` + `mdx-components.tsx` + `src/app/blog/posts/*.mdx`
-- **Deploy:** Vercel native Next.js (no static export), `.next/` build output
-
-## 🎯 Next: Phase 6 — QA, SEO & Deploy Gate
-
-**Goal:** Wszystkie 22 strony mają pełne Metadata + OG image. Zero broken links. Lighthouse green.
-
-### Tasks in order (1 session)
-
-1. **OG Image Audit (P6.1)** — 10 stron bez OG image
-   - Brakujące: `/blog`, `/blog/[slug]`, `/solutions`, `/solutions/*` (4), `/legal`, `/digital-modernization`, `/inbox-killer`
-   - Stworzyć SVG 1200×630 per strona, dodać do `metadata.openGraph.images`
-
-2. **Meta Audit (P6.3)** — zweryfikować każda strona
-   - `title`, `description`, `openGraph`, `twitter` na każdej route
-   - Unikalne tytuły — nie duplikaty
-
-3. **Sitemap Verification (P6.2)** — upewnić się że wszystkie 22 route są w `sitemap.xml`
-   - Priority hierarchy: Home 1.0, Book Discovery 0.9, spearhead 0.9, trust 0.8, blog 0.6, legal 0.3
-
-4. **Broken Link Check (P6.6)** — `npm run audit:links` lub manual check
-   - Wszystkie CTA flow działają (Home → Book Discovery)
-   - External links mają `target="_blank" rel="noopener noreferrer"`
-
-**Build gate:** `npm run build` + `npm run typecheck` must pass.
-**Commit:** jeden zbiorczy `feat: OG images + meta audit for all routes`.
-
-## ⚠️ Rules
-
-1. TypeScript strict — zero `any`
-2. Tailwind utility-first — no inline styles
-3. Every route needs `Metadata` export + unique OG image
-4. OG images: 1200×630 SVG, Quietforge branded, consistent style
-5. Build must pass before commit
-
-## 📚 Read before coding
-
-1. `docs/handoffs/2026-05-31-phase-5-complete-deploy-fixed.md` — stan + blockers
-2. `todo.json` — phase-6 tasks (P6.1–P6.7)
-3. `src/lib/constants.ts` — ROUTES (source of truth dla wszystkich URL)
-4. Istniejące OG w `public/og/` — kopiuj pattern (home.svg, pricing.svg itd.)
-
-## 🔴 Blockers (tylko użytkownik może rozwiązać)
-
-| Bloker | Co potrzeba |
-|---|---|
-| `services.flexgrafik.nl` DNS | Rekord A `76.76.21.21` w panelu Cyber-Folks dla subdomeny `services` |
-| Mollie payment | `MOLLIE_API_KEY` do `.env.local` + GitHub secrets |
+> **Start here.** Repositioning merged to `master` (2026-06-13). Deploy live via Vercel CD.
+> **This session goal:** domknąć pozostałe ~5% z briefu repositioning — NIE rozbudowa case studies (to osobne sesje).
 
 ---
 
-> **Begin: verify `npm run build` passes locally, then run OG audit — stwórz brakujące SVG i podpin je do metadata na każdej stronie bez OG.**
+## Stan po merge (dziś)
+
+| Element | Status |
+|---|---|
+| About — AI Systems Architect | Live |
+| How I work (5 faz) | Live |
+| Trust & Safety (6 kart) | Live |
+| `/results` — 4 case studies, zero `[X]` | Live |
+| Artefakty `.md` + linki | Live |
+| Hero repositioning | **Otwarte** |
+| OG `home.svg` + alt | **Otwarte** |
+| PDF artefakty (branded A4) | **Otwarte** |
+| Visual polish (spacing, mobile timeline) | **Otwarte** |
+
+**Merge:** PR #1 → `master` @ `8d6322e`  
+**Deploy:** Vercel CD — status `success`  
+**Handoff:** `docs/handoffs/2026-06-13-portfolio-repositioning-ai-architect.md`
+
+---
+
+## Cel sesji: 100% closure (1 moduł)
+
+Jedna sesja = jeden moduł. Scope **ściśle** poniżej — bez case study expansion.
+
+### Task A — Hero repositioning (priorytet 1)
+
+**Problem:** Górny fold nadal mówi „Done-for-you" / „See what we fix" — pierwsze wrażenie = freelancer, dopiero niżej Norbert.
+
+**Pliki:** `src/components/home/HeroSection.tsx`, ewentualnie `HeroSection` metadata w `page.tsx`
+
+**Copy direction (nie wymyślać faktów):**
+- H1: systems architect angle, nie „autopilot generic"
+- Sub: named voice lub bezpośrednie „I design…" — spójne z `AboutArchitect`
+- Secondary CTA: „See how I work" → `#how-i-work` zamiast „See what we fix"
+- Zachować terminal panel + status bar (sygnał systemowca)
+
+**DoD:** Hero + About brzmią jak jedna osoba, jedna pozycja.
+
+---
+
+### Task B — OG image + meta alignment (priorytet 2)
+
+**Problem:** `page.tsx` metadata = „AI Systems Architect", ale `home.svg` alt nadal „Done-for-you systems".
+
+**Pliki:** `public/og/home.svg`, `src/app/page.tsx` (openGraph alt)
+
+**DoD:** Social preview = nowe positioning. Opcjonalnie `results.svg` — „Real systems, already running".
+
+---
+
+### Task C — PDF artefakty (priorytet 3)
+
+**Problem:** Klient dostaje `.md` — nie „enterprise forwardable" PDF.
+
+**Pliki:** `public/artefacts/*.pdf` (nowe), update `ARTEFACTS` w `constants.ts`
+
+**Approach:**
+- Export z istniejących `.md` — dark/mono header lub clean light A4
+- Spójny header: Norbert · AI Systems Architect · Quietforge · contact
+- Linki na stronie → `.pdf` (fallback `.md` opcjonalnie)
+
+**DoD:** 3 PDFy downloadowalne, branded, bez `[X]` w sample (zamienić na „[your estimate]" lub example ranges).
+
+---
+
+### Task D — Visual polish pass (priorytet 4, jeśli czas)
+
+**Scope minimalny:**
+- `HowIWork` timeline — mobile 360px, brak horizontal scroll
+- Hover/focus states na kartach About/Trust
+- Spacing między sekcjami — spójność `qf-alt` bands
+
+**DoD:** Responsive 360/768/1280, axe Critical/Serious = 0, build pass.
+
+---
+
+## Poza scope tej sesji (kolejne sesje — gratka sprzedażowa)
+
+Każdy case study = **osobna sesja** (Reguła 1-1-1). Przygotowane pod rozbudowę:
+
+| Sesja | Case | Docelowa „gratka" | Źródło prawdy |
+|---|---|---|---|
+| CS-1 | Inbox Killer | Mini landing / downloadable „Inbox audit checklist" + diagram flow | `blog/under-the-hood-how-inbox-killer-works`, live spearhead |
+| CS-2 | Multi-agent orchestrator | Architecture one-pager (anonim.) + „agent card" sample | `jadzia-core`, `agents.md`, `workflow-manual.md` |
+| CS-3 | Sales Funnel / Wizard | „Configurator ROI" sheet + 7-step screenshot flow | `zzpackage.flexgrafik.nl`, `global-rules.md` §1.3 |
+| CS-4 | Advisory firm (KFA) | „Web + AI assistant scope" (anonim.) + AVG layer summary | KFA engagement, anonymised |
+
+**Zasada:** zero fabricated metrics. Każda gratka = process-proof + CTA → `/book-discovery/`.
+
+Szczegóły: `docs/handoffs/ROADMAP-case-study-expansion.md`
+
+---
+
+## Build gate
+
+```bash
+npm run typecheck
+npm run build
+```
+
+Commit style: `feat: hero repositioning`, `feat: branded PDF artefacts`, etc. — osobne commity per task.
+
+---
+
+## Read before coding
+
+1. `docs/handoffs/2026-06-13-portfolio-repositioning-ai-architect.md`
+2. `docs/workspace-.../portfolio-sekcje/IMPLEMENTATION-PLAN.generated.md` — Out of scope section
+3. `src/components/home/AboutArchitect.tsx` — voice reference
+4. `src/app/globals.css` — tokens only, no parallel CSS
+
+---
+
+> **Begin:** `git checkout master && git pull` → Task A (Hero) → build → commit → Task B → …
