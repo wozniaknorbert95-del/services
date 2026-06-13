@@ -4,6 +4,7 @@ import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
+import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import { ROUTES } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { CASE_STUDIES } from '@/lib/case-studies';
@@ -15,12 +16,17 @@ interface CaseGratkaLink {
 
 interface CaseExtras {
   detailHref: string;
+  diagramSrc: string;
+  diagramAlt: string;
   gratkaLinks: CaseGratkaLink[];
 }
 
 const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
   'inbox-killer': {
     detailHref: ROUTES.resultsInboxKiller,
+    diagramSrc: GRATKA.inboxKillerFlowSvg,
+    diagramAlt:
+      'Inbox Killer flow diagram: read, classify, sort into lanes, draft reply, human approval gate, then send',
     gratkaLinks: [
       { label: 'Download flow diagram (SVG)', href: GRATKA.inboxKillerFlowSvg },
       { label: 'Download before/after (PDF)', href: GRATKA.inboxKillerBeforeAfterPdf },
@@ -28,6 +34,9 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
   },
   'agent-orchestrator': {
     detailHref: ROUTES.resultsAgentOrchestrator,
+    diagramSrc: GRATKA.orchestratorArchitectureSvg,
+    diagramAlt:
+      'Multi-agent orchestrator architecture: single source of truth, directive orchestration and execution layers',
     gratkaLinks: [
       { label: 'Architecture diagram (SVG)', href: GRATKA.orchestratorArchitectureSvg },
       { label: 'Agent card sample (PDF)', href: GRATKA.orchestratorAgentCardPdf },
@@ -36,6 +45,9 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
   },
   'sales-funnel': {
     detailHref: ROUTES.resultsSalesFunnel,
+    diagramSrc: GRATKA.salesFunnelJourneySvg,
+    diagramAlt:
+      'Self-service configurator journey: welcome, seven configuration steps, then checkout',
     gratkaLinks: [
       { label: 'Configurator journey (SVG)', href: GRATKA.salesFunnelJourneySvg },
       { label: 'Journey map (PDF)', href: GRATKA.salesFunnelJourneyPdf },
@@ -44,6 +56,9 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
   },
   'advisory-modernisation': {
     detailHref: ROUTES.resultsAdvisoryModernisation,
+    diagramSrc: GRATKA.advisoryDeliveryTimelineSvg,
+    diagramAlt:
+      'Staged delivery timeline: six phases with sign-off gates for advisory firm modernisation',
     gratkaLinks: [
       { label: 'Scope summary (PDF)', href: GRATKA.advisoryScopeSummaryPdf },
       { label: 'AVG / data layer (PDF)', href: GRATKA.advisoryAvgLayerPdf },
@@ -108,6 +123,15 @@ export default function ResultsPage() {
             All four case studies connect to modules in a live stack — VCMS supervision, Agent OS
             execution, wizard commerce, portal assistant and inbox automation. See how they cooperate.
           </p>
+          <div className="mb-6 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-3">
+            <GratkaDiagram
+              src={GRATKA.ownerEcosystemMapSvg}
+              alt="Owner ecosystem diagram: governance, VCMS, applications, Agent OS, Quietforge and Inbox Killer"
+              width={1200}
+              height={1100}
+              className="h-auto w-full min-w-[480px]"
+            />
+          </div>
           <div className="flex flex-wrap gap-4">
             <Link
               href={ROUTES.resultsOwnerEcosystem}
@@ -154,7 +178,17 @@ export default function ResultsPage() {
                 </p>
 
                 {extras && (
-                  <div className="mt-auto space-y-2 border-t border-[var(--qf-border)] pt-4 text-sm">
+                  <>
+                    <div className="mb-4 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-2">
+                      <GratkaDiagram
+                        src={extras.diagramSrc}
+                        alt={extras.diagramAlt}
+                        width={1200}
+                        height={720}
+                        className="h-auto w-full min-w-[280px]"
+                      />
+                    </div>
+                    <div className="mt-auto space-y-2 border-t border-[var(--qf-border)] pt-4 text-sm">
                     <Link
                       href={extras.detailHref}
                       className="block text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
@@ -171,7 +205,8 @@ export default function ResultsPage() {
                         {link.label} ↓
                       </Link>
                     ))}
-                  </div>
+                    </div>
+                  </>
                 )}
               </Card>
             );
