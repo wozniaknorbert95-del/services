@@ -46,6 +46,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     measurement: 'Fewer manual quote emails (to be quantified).',
   },
   {
+    slug: 'advisory-modernisation',
     number: '04',
     title: 'Modernisation + AI assistant for an advisory firm',
     meta: 'Web Upgrade + assistant · anonymised',

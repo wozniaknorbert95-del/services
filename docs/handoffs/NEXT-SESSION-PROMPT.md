@@ -1,6 +1,6 @@
-# Next Session Prompt — CS-4 Advisory gratka
+# Next Session Prompt — Case study expansion DONE
 
-> **Start here.** CS-1 + CS-2 + CS-3 complete.
+> **Start here.** CS-1 through CS-4 complete. Roadmap closed.
 
 ---
 
@@ -8,41 +8,30 @@
 
 | Session | Status |
 |---|---|
-| CS-1 Inbox Killer | Done — `/results/inbox-killer/` |
-| CS-2 Orchestrator | Done — `/results/agent-orchestrator/` |
-| CS-3 Sales Funnel | Done — `/results/sales-funnel/` |
-| CS-4 Advisory (KFA) | **Next** |
+| CS-1 Inbox Killer | Done |
+| CS-2 Orchestrator | Done |
+| CS-3 Sales Funnel | Done |
+| CS-4 Advisory | Done |
 
-**Handoff:** `docs/handoffs/2026-06-13-cs3-sales-funnel-gratka.md`
-
----
-
-## Cel CS-4: Advisory firm modernisation (anonymised)
-
-From `ROADMAP-case-study-expansion.md` § Case 04.
-
-### Deliverables
-
-1. Page `/results/advisory-modernisation/` (slug in `case-studies.ts`)
-2. **Scope summary (anonim.)** — PDF 2-page
-3. **AVG / data-processing layer** — 1-page PDF summary
-4. **Staged delivery timeline** — visual SVG + optional PDF
-5. Wire card 04 on `/results`
-
-### Source of truth
-
-- Case 04 in `case-studies.ts` — „Rotterdam accounting office" only
-- Mirror `TrustSafety` + `data-safety-playbook.md`
-- Status honest: **in delivery** until live
-
-### DoD
-
-- [ ] No KFA identifier anywhere
-- [ ] „Qualification only, no tax advice" prominent
-- [ ] No fake launch dates
-- [ ] CTA → book-discovery
-- [ ] Build + handoff
+**Handoff:** `docs/handoffs/2026-06-13-cs4-advisory-modernisation-gratka.md`
 
 ---
 
-> **Begin:** Read case 04 + TrustSafety → implement page + gratka → build.
+## Co dalej (propozycje)
+
+1. **CS-04 live update** — gdy KFA przejdzie go-live: zamień „in delivery" na realne outcomes (bez nazwy klienta)
+2. **ResultsTeaser** — opcjonalnie dodaj case 03 + 04 na home (teraz tylko 01 + 03)
+3. **Portfolio polish** — OG audit wszystkich `/results/*`, mobile sweep
+4. **Blog** — artykuł „qualification-only AI for advisory firms" (opcjonalny)
+
+---
+
+## Zasady na przyszłość
+
+- Zero KFA w public assets — zawsze „Rotterdam accounting office"
+- Zero fake metrics — outcomes dopiero po go-live
+- Każda aktualizacja case study = osobna sesja (1-1-1)
+
+---
+
+> **Begin:** Wybierz z listy powyżej lub nowy moduł z VCMS backlog.

@@ -18,6 +18,9 @@ const targets = [
     'orchestrator-workflow-map.md',
     'sales-funnel-journey-map.md',
     'sales-funnel-roi-framing.md',
+    'advisory-scope-summary.md',
+    'advisory-avg-layer.md',
+    'advisory-delivery-timeline.md',
   ]},
 ];
 

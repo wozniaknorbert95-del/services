@@ -17,6 +17,7 @@ export const ROUTES = {
   resultsInboxKiller: '/results/inbox-killer/',
   resultsAgentOrchestrator: '/results/agent-orchestrator/',
   resultsSalesFunnel: '/results/sales-funnel/',
+  resultsAdvisoryModernisation: '/results/advisory-modernisation/',
   about: '/about/',
   blog: '/blog/',
   bookDiscovery: '/book-discovery/',

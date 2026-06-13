@@ -7,4 +7,8 @@ export const GRATKA = {
   salesFunnelJourneySvg: '/gratka/sales-funnel-journey.svg',
   salesFunnelJourneyPdf: '/gratka/sales-funnel-journey-map.pdf',
   salesFunnelRoiPdf: '/gratka/sales-funnel-roi-framing.pdf',
+  advisoryScopeSummaryPdf: '/gratka/advisory-scope-summary.pdf',
+  advisoryAvgLayerPdf: '/gratka/advisory-avg-layer.pdf',
+  advisoryDeliveryTimelineSvg: '/gratka/advisory-delivery-timeline.svg',
+  advisoryDeliveryTimelinePdf: '/gratka/advisory-delivery-timeline.pdf',
 } as const;

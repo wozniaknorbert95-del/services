@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0e0c0a"/>
+  <rect x="100" y="200" width="1000" height="2" fill="#e8a33d" opacity="0.3"/>
+  <text x="600" y="250" font-family="JetBrains Mono, monospace" font-size="44" font-weight="700" fill="#e9e2d4" text-anchor="middle">Advisory modernisation</text>
+  <text x="600" y="320" font-family="JetBrains Mono, monospace" font-size="26" font-weight="400" fill="#9a907e" text-anchor="middle">Case study · in delivery · anonymised</text>
+  <text x="600" y="380" font-family="JetBrains Mono, monospace" font-size="16" fill="#d98f4a" text-anchor="middle">qualification only  no tax advice</text>
+  <text x="600" y="420" font-family="JetBrains Mono, monospace" font-size="16" fill="#e8a33d" text-anchor="middle">web · assistant · content · AVG</text>
+</svg>

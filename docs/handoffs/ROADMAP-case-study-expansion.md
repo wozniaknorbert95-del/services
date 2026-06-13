@@ -1,6 +1,6 @@
 # Roadmap — Case Study Expansion (sales gratka per client)
 
-> **Status:** CS-1 + CS-2 + CS-3 complete (2026-06-13). CS-4 next.  
+> **Status:** Case study expansion COMPLETE (CS-1–CS-4, 2026-06-13).  
 > **Owner decision:** 1 case study = 1 sesja OpenCode/Cursor (Reguła 1-1-1).  
 > **Cel:** Każdy przykład z `/results` rozbudowany jako materiał, który klient może przekazać wewnętrznie (accountant, partner, developer) — sprzedażowo, faktowo, bez zmyślonych liczb.
 
@@ -114,9 +114,9 @@
 - Mirror `TrustSafety` + `data-safety-playbook.md`
 
 ### DoD
-- [ ] „Rotterdam accounting office" only — no KFA identifier
-- [ ] „Qualification only, no tax advice" prominent
-- [ ] Status honest: in delivery until live
+- [x] „Rotterdam accounting office" only — no KFA identifier
+- [x] „Qualification only, no tax advice" prominent
+- [x] Status honest: in delivery until live
 
 ---
 
@@ -127,7 +127,7 @@ Session N+1: Portfolio 100% (Hero + OG + PDF + polish)  ← NEXT
 Session CS-1: Inbox Killer gratka  ← DONE 2026-06-13
 Session CS-2: Orchestrator gratka  ← DONE 2026-06-13
 Session CS-3: Wizard gratka  ← DONE 2026-06-13
-Session CS-4: Advisory firm gratka (after KFA milestones if possible)
+Session CS-4: Advisory firm gratka  ← DONE 2026-06-13
 ```
 
 **Why this order:** CS-1 is live proof (strongest sales). CS-4 last — outcomes still in delivery.

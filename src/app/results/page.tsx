@@ -42,6 +42,15 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
       { label: 'ROI framing sheet (PDF)', href: GRATKA.salesFunnelRoiPdf },
     ],
   },
+  'advisory-modernisation': {
+    detailHref: ROUTES.resultsAdvisoryModernisation,
+    gratkaLinks: [
+      { label: 'Scope summary (PDF)', href: GRATKA.advisoryScopeSummaryPdf },
+      { label: 'AVG / data layer (PDF)', href: GRATKA.advisoryAvgLayerPdf },
+      { label: 'Delivery timeline (SVG)', href: GRATKA.advisoryDeliveryTimelineSvg },
+      { label: 'Delivery timeline (PDF)', href: GRATKA.advisoryDeliveryTimelinePdf },
+    ],
+  },
 };
 
 /* ── metadata ── */
