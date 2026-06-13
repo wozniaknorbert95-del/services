@@ -17,25 +17,25 @@
   </defs>
 
   <rect class="bg" width="1200" height="800"/>
-  <text x="600" y="44" class="text" text-anchor="middle" font-size="20">Multi-agent orchestrator  architecture (anonymised)</text>
-  <text x="600" y="72" class="sub" text-anchor="middle">FastAPI + LangGraph on VPS · single source of truth · fixed agent contracts</text>
+  <text x="600" y="44" class="text" text-anchor="middle" font-size="20">Multi-agent orchestrator  â€”  architecture (anonymised)</text>
+  <text x="600" y="72" class="sub" text-anchor="middle">FastAPI + LangGraph on VPS ï¿½ single source of truth ï¿½ fixed agent contracts</text>
 
   <!-- SSoT -->
   <rect x="420" y="100" width="360" height="64" rx="4" class="box"/>
   <text x="600" y="128" class="text" text-anchor="middle" font-size="15">Single source of truth</text>
-  <text x="600" y="150" class="sub" text-anchor="middle">rules · schemas · agent cards · brain docs</text>
+  <text x="600" y="150" class="sub" text-anchor="middle">rules ï¿½ schemas ï¿½ agent cards ï¿½ brain docs</text>
 
   <!-- Directive layer -->
   <rect x="80" y="210" width="1040" height="100" rx="4" class="layer"/>
   <text x="100" y="238" class="accent" font-family="JetBrains Mono, monospace" font-size="13">DIRECTIVE</text>
-  <text x="600" y="262" class="text" text-anchor="middle" font-size="15">Strategist  what to build &amp; why</text>
-  <text x="600" y="286" class="sub" text-anchor="middle">strategy · margin guardrails · scope approval</text>
+  <text x="600" y="262" class="text" text-anchor="middle" font-size="15">Strategist  â€”  what to build &amp; why</text>
+  <text x="600" y="286" class="sub" text-anchor="middle">strategy ï¿½ margin guardrails ï¿½ scope approval</text>
 
   <!-- Orchestration layer -->
   <rect x="80" y="340" width="1040" height="100" rx="4" class="layer"/>
   <text x="100" y="368" class="accent" font-family="JetBrains Mono, monospace" font-size="13">ORCHESTRATION</text>
-  <text x="600" y="392" class="text" text-anchor="middle" font-size="15">Planner  task decomposition &amp; context packets</text>
-  <text x="600" y="416" class="sub" text-anchor="middle">implementation plan · which agent gets what · least privilege</text>
+  <text x="600" y="392" class="text" text-anchor="middle" font-size="15">Planner  â€”  task decomposition &amp; context packets</text>
+  <text x="600" y="416" class="sub" text-anchor="middle">implementation plan ï¿½ which agent gets what ï¿½ least privilege</text>
 
   <!-- Execution layer -->
   <rect x="80" y="470" width="1040" height="120" rx="4" class="layer"/>
@@ -51,12 +51,12 @@
 
   <!-- VPS -->
   <rect x="200" y="630" width="800" height="72" rx="4" class="box"/>
-  <text x="600" y="662" class="text" text-anchor="middle" font-size="15">VPS runtime  FastAPI + LangGraph engine</text>
-  <text x="600" y="684" class="sub" text-anchor="middle">EU-hosted · logged actions · scoped service accounts</text>
+  <text x="600" y="662" class="text" text-anchor="middle" font-size="15">VPS runtime  â€”  FastAPI + LangGraph engine</text>
+  <text x="600" y="684" class="sub" text-anchor="middle">EU-hosted ï¿½ logged actions ï¿½ scoped service accounts</text>
 
   <!-- HITL gate -->
   <rect x="380" y="720" width="440" height="56" rx="4" class="gate"/>
-  <text x="600" y="752" class="text" text-anchor="middle" font-size="14" fill="#e8a33d">Ô Human approval before production deploy</text>
+  <text x="600" y="752" class="text" text-anchor="middle" font-size="14" fill="#e8a33d">ï¿½ Human approval before production deploy</text>
 
   <!-- Arrows -->
   <line x1="600" y1="164" x2="600" y2="208" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
@@ -65,5 +65,5 @@
   <line x1="600" y1="590" x2="600" y2="628" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="600" y1="702" x2="600" y2="718" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <text x="600" y="790" class="sub" text-anchor="middle">Norbert · AI Systems Architect · Quietforge · process proof  diagram on request</text>
+  <text x="600" y="790" class="sub" text-anchor="middle">Norbert ï¿½ AI Systems Architect ï¿½ Quietforge ï¿½ process proof  â€”  diagram on request</text>
 </svg>

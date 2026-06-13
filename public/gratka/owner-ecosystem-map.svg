@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1100" viewBox="0 0 1200 1100" role="img" aria-labelledby="title desc">
-  <title id="title">FlexGrafik owner ecosystem  8 repos, 1 system</title>
+  <title id="title">FlexGrafik owner ecosystem  â€”  8 repos, 1 system</title>
   <desc id="desc">Layered architecture: governance, products, VCMS orchestration, applications, AI execution, B2B sales and inbox automation.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
@@ -18,8 +18,8 @@
   </defs>
 
   <rect class="bg" width="1200" height="1100"/>
-  <text x="600" y="40" class="text" text-anchor="middle" font-size="18">Owner ecosystem  8 repos, 1 system</text>
-  <text x="600" y="64" class="sub" text-anchor="middle">Live stack behind Quietforge · process proof · no fabricated metrics</text>
+  <text x="600" y="40" class="text" text-anchor="middle" font-size="18">Owner ecosystem  â€”  8 repos, 1 system</text>
+  <text x="600" y="64" class="sub" text-anchor="middle">Live stack behind Quietforge ï¿½ process proof ï¿½ no fabricated metrics</text>
 
   <!-- Layer labels -->
   <text x="60" y="100" class="label">GOVERNANCE</text>
@@ -28,17 +28,17 @@
   <!-- Row 1 -->
   <rect x="60" y="110" width="280" height="72" rx="4" class="box"/>
   <text x="200" y="136" class="text" text-anchor="middle" font-size="12">flexgrafik-meta</text>
-  <text x="200" y="156" class="sub" text-anchor="middle">constitution · global rules · agents</text>
+  <text x="200" y="156" class="sub" text-anchor="middle">constitution ï¿½ global rules ï¿½ agents</text>
   <text x="200" y="172" class="sub" text-anchor="middle">SSoT for how the system runs</text>
 
   <rect x="360" y="110" width="240" height="72" rx="4" class="box"/>
   <text x="480" y="136" class="text" text-anchor="middle" font-size="12">WorkFlow</text>
-  <text x="480" y="156" class="sub" text-anchor="middle">program office · backlog</text>
+  <text x="480" y="156" class="sub" text-anchor="middle">program office ï¿½ backlog</text>
   <text x="480" y="172" class="sub" text-anchor="middle">daily ops start here</text>
 
   <rect x="640" y="110" width="500" height="72" rx="4" class="box"/>
   <text x="890" y="136" class="text" text-anchor="middle" font-size="12">zzpackage.flexgrafik.nl</text>
-  <text x="890" y="156" class="sub" text-anchor="middle">7-step wizard · open pricing · order form</text>
+  <text x="890" y="156" class="sub" text-anchor="middle">7-step wizard ï¿½ open pricing ï¿½ order form</text>
   <text x="890" y="172" class="sub" text-anchor="middle">configure calmly or hand off to designers</text>
 
   <!-- Arrows to VCMS -->
@@ -49,9 +49,9 @@
   <!-- VCMS hub -->
   <text x="60" y="228" class="label">ORCHESTRATION &amp; SUPERVISION</text>
   <rect x="120" y="240" width="960" height="88" rx="4" class="hub"/>
-  <text x="600" y="268" class="text" text-anchor="middle" font-size="14">Flex-VCMS  ecosystem orchestrator</text>
-  <text x="600" y="290" class="sub" text-anchor="middle">vcms-scan.js · repos.yaml · conflict detection · LLM gateway · SSoT sync</text>
-  <text x="600" y="310" class="sub" text-anchor="middle">supervises all repos  conflicts: 0 is the target every scan</text>
+  <text x="600" y="268" class="text" text-anchor="middle" font-size="14">Flex-VCMS  â€”  ecosystem orchestrator</text>
+  <text x="600" y="290" class="sub" text-anchor="middle">vcms-scan.js ï¿½ repos.yaml ï¿½ conflict detection ï¿½ LLM gateway ï¿½ SSoT sync</text>
+  <text x="600" y="310" class="sub" text-anchor="middle">supervises all repos  â€”  conflicts: 0 is the target every scan</text>
 
   <line x1="600" y1="328" x2="600" y2="360" class="edge" marker-end="url(#arrow)"/>
 
@@ -60,19 +60,19 @@
 
   <rect x="60" y="368" width="340" height="88" rx="4" class="box"/>
   <text x="230" y="396" class="text" text-anchor="middle" font-size="12">flexgrafik.nl</text>
-  <text x="230" y="416" class="sub" text-anchor="middle">brand portal · trust layer</text>
-  <text x="230" y="432" class="sub" text-anchor="middle">chat assistant · routes to wizard &amp; game</text>
+  <text x="230" y="416" class="sub" text-anchor="middle">brand portal ï¿½ trust layer</text>
+  <text x="230" y="432" class="sub" text-anchor="middle">chat assistant ï¿½ routes to wizard &amp; game</text>
   <text x="230" y="448" class="sub" text-anchor="middle">entry point for the ecosystem</text>
 
   <rect x="430" y="368" width="340" height="88" rx="4" class="box"/>
   <text x="600" y="396" class="text" text-anchor="middle" font-size="12">app.flexgrafik.nl</text>
-  <text x="600" y="416" class="sub" text-anchor="middle">lead magnet game · coupons</text>
-  <text x="600" y="432" class="sub" text-anchor="middle">skill-based engagement ’ wizard</text>
+  <text x="600" y="416" class="sub" text-anchor="middle">lead magnet game ï¿½ coupons</text>
+  <text x="600" y="432" class="sub" text-anchor="middle">skill-based engagement ï¿½ wizard</text>
 
   <rect x="800" y="368" width="340" height="88" rx="4" class="box"/>
   <text x="970" y="396" class="text" text-anchor="middle" font-size="12">jadzia-core</text>
-  <text x="970" y="416" class="sub" text-anchor="middle">AI backend · automation engine</text>
-  <text x="970" y="432" class="sub" text-anchor="middle">orders · ops · jadzia.db</text>
+  <text x="970" y="416" class="sub" text-anchor="middle">AI backend ï¿½ automation engine</text>
+  <text x="970" y="432" class="sub" text-anchor="middle">orders ï¿½ ops ï¿½ jadzia.db</text>
   <text x="970" y="448" class="sub" text-anchor="middle">modules improved in agent loop</text>
 
   <!-- Flow arrows between apps -->
@@ -88,10 +88,10 @@
   <!-- Agent OS -->
   <text x="60" y="484" class="label">AI EXECUTION</text>
   <rect x="200" y="496" width="800" height="100" rx="4" class="hub"/>
-  <text x="600" y="524" class="text" text-anchor="middle" font-size="14">Agent OS  LangGraph orchestration</text>
-  <text x="600" y="546" class="sub" text-anchor="middle">Planner ’ Coder ’ Tester ’ Review ’ Summarizer</text>
-  <text x="600" y="564" class="sub" text-anchor="middle">human-in-the-loop before deploy · one module per session</text>
-  <text x="600" y="582" class="sub" text-anchor="middle">Agent OS UI  Mission Control dashboard (:3000)</text>
+  <text x="600" y="524" class="text" text-anchor="middle" font-size="14">Agent OS  â€”  LangGraph orchestration</text>
+  <text x="600" y="546" class="sub" text-anchor="middle">Planner ï¿½ Coder ï¿½ Tester ï¿½ Review ï¿½ Summarizer</text>
+  <text x="600" y="564" class="sub" text-anchor="middle">human-in-the-loop before deploy ï¿½ one module per session</text>
+  <text x="600" y="582" class="sub" text-anchor="middle">Agent OS UI  â€”  Mission Control dashboard (:3000)</text>
 
   <!-- VCMS supervises -->
   <line x1="1080" y1="284" x2="1000" y2="546" class="edge" stroke-dasharray="5 4"/>
@@ -104,15 +104,15 @@
 
   <rect x="120" y="640" width="420" height="88" rx="4" class="box"/>
   <text x="330" y="668" class="text" text-anchor="middle" font-size="12">services.flexgrafik.nl</text>
-  <text x="330" y="688" class="sub" text-anchor="middle">Quietforge  B2B SMB automation sales</text>
-  <text x="330" y="704" class="sub" text-anchor="middle">Automation Map · case studies · book-discovery</text>
+  <text x="330" y="688" class="sub" text-anchor="middle">Quietforge  â€”  B2B SMB automation sales</text>
+  <text x="330" y="704" class="sub" text-anchor="middle">Automation Map ï¿½ case studies ï¿½ book-discovery</text>
   <text x="330" y="720" class="sub" text-anchor="middle">patterns from this stack, scaled to your business</text>
 
   <rect x="660" y="640" width="420" height="88" rx="4" class="box"/>
   <text x="870" y="668" class="text" text-anchor="middle" font-size="12">Inbox Killer</text>
-  <text x="870" y="688" class="sub" text-anchor="middle">live back-office · classify ’ plan ’ diff ’ approve</text>
-  <text x="870" y="704" class="sub" text-anchor="middle">100+ messages/scan · human approval every send</text>
-  <text x="870" y="720" class="sub" text-anchor="middle">process proof  strongest live case study</text>
+  <text x="870" y="688" class="sub" text-anchor="middle">live back-office ï¿½ classify ï¿½ plan ï¿½ diff ï¿½ approve</text>
+  <text x="870" y="704" class="sub" text-anchor="middle">100+ messages/scan ï¿½ human approval every send</text>
+  <text x="870" y="720" class="sub" text-anchor="middle">process proof  â€”  strongest live case study</text>
 
   <line x1="540" y1="684" x2="660" y2="684" class="edge" marker-end="url(#arrow)"/>
   <text x="600" y="676" class="sub" font-size="9">same architect</text>
@@ -120,11 +120,11 @@
   <!-- Data flow summary -->
   <rect x="120" y="760" width="960" height="120" rx="4" class="layer"/>
   <text x="600" y="788" class="text" text-anchor="middle" font-size="13">Typical flow (simplified)</text>
-  <text x="600" y="812" class="sub" text-anchor="middle">Visitor ’ flexgrafik.nl (assistant) ’ wizard or game ’ order in jadzia.db</text>
-  <text x="600" y="832" class="sub" text-anchor="middle">’ Agent OS builds &amp; tests module changes ’ VCMS scan confirms no conflicts</text>
-  <text x="600" y="852" class="sub" text-anchor="middle">’ human approves deploy · Inbox Killer handles operational email in parallel</text>
-  <text x="600" y="872" class="sub" text-anchor="middle">B2B client path: services.flexgrafik.nl ’ Automation Map ’ same delivery workflow</text>
+  <text x="600" y="812" class="sub" text-anchor="middle">Visitor ï¿½ flexgrafik.nl (assistant) ï¿½ wizard or game ï¿½ order in jadzia.db</text>
+  <text x="600" y="832" class="sub" text-anchor="middle">ï¿½ Agent OS builds &amp; tests module changes ï¿½ VCMS scan confirms no conflicts</text>
+  <text x="600" y="852" class="sub" text-anchor="middle">ï¿½ human approves deploy ï¿½ Inbox Killer handles operational email in parallel</text>
+  <text x="600" y="872" class="sub" text-anchor="middle">B2B client path: services.flexgrafik.nl ï¿½ Automation Map ï¿½ same delivery workflow</text>
 
-  <text x="600" y="930" class="sub" text-anchor="middle">Forward this diagram internally · no client names · no uptime % claimed</text>
-  <text x="600" y="952" class="sub" text-anchor="middle">Norbert  AI Systems Architect · Quietforge · services.flexgrafik.nl/book-discovery/</text>
+  <text x="600" y="930" class="sub" text-anchor="middle">Forward this diagram internally ï¿½ no client names ï¿½ no uptime % claimed</text>
+  <text x="600" y="952" class="sub" text-anchor="middle">Norbert  â€”  AI Systems Architect ï¿½ Quietforge ï¿½ services.flexgrafik.nl/book-discovery/</text>
 </svg>

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Inbox Killer  email flow with human approval</title>
+  <title id="title">Inbox Killer  â€”  email flow with human approval</title>
   <desc id="desc">Diagram showing mixed inbox input, classification lanes, draft replies, and a human approval gate before send.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
@@ -19,13 +19,13 @@
   </defs>
 
   <rect class="bg" width="1200" height="720"/>
-  <text x="600" y="48" class="text" text-anchor="middle" font-size="22">Inbox Killer  what happens to your email</text>
-  <text x="600" y="76" class="sub" text-anchor="middle">classify ’ plan ’ diff ’ approve · nothing sends without you</text>
+  <text x="600" y="48" class="text" text-anchor="middle" font-size="22">Inbox Killer  â€”  what happens to your email</text>
+  <text x="600" y="76" class="sub" text-anchor="middle">classify ï¿½ plan ï¿½ diff ï¿½ approve ï¿½ nothing sends without you</text>
 
   <!-- Input -->
   <rect x="80" y="130" width="220" height="72" rx="4" class="box"/>
   <text x="190" y="162" class="text" text-anchor="middle" font-size="16">Mixed inbox</text>
-  <text x="190" y="186" class="sub" text-anchor="middle">leads · clients · invoices · noise</text>
+  <text x="190" y="186" class="sub" text-anchor="middle">leads ï¿½ clients ï¿½ invoices ï¿½ noise</text>
 
   <!-- Read -->
   <rect x="380" y="130" width="160" height="72" rx="4" class="box"/>
@@ -49,7 +49,7 @@
   <rect x="600" y="280" width="200" height="56" rx="4" class="lane"/>
   <text x="700" y="314" class="sub" text-anchor="middle">Invoice lane</text>
   <rect x="840" y="280" width="200" height="56" rx="4" class="lane"/>
-  <text x="940" y="314" class="sub" text-anchor="middle">Noise ’ archive</text>
+  <text x="940" y="314" class="sub" text-anchor="middle">Noise ï¿½ archive</text>
 
   <line x1="710" y1="202" x2="710" y2="250" stroke="#e8a33d" stroke-width="2"/>
   <line x1="710" y1="250" x2="220" y2="250" stroke="#e8a33d" stroke-width="2"/>
@@ -61,14 +61,14 @@
   <!-- Draft -->
   <rect x="360" y="400" width="200" height="64" rx="4" class="box"/>
   <text x="460" y="432" class="text" text-anchor="middle" font-size="16">Draft reply</text>
-  <text x="460" y="454" class="sub" text-anchor="middle">your voice · your context</text>
+  <text x="460" y="454" class="sub" text-anchor="middle">your voice ï¿½ your context</text>
 
   <line x1="460" y1="336" x2="460" y2="398" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
 
   <!-- HITL Gate -->
   <rect x="320" y="520" width="280" height="88" rx="4" class="gate"/>
-  <text x="460" y="554" class="text" text-anchor="middle" font-size="18" fill="#e8a33d">Ô YOUR APPROVAL</text>
-  <text x="460" y="582" class="sub" text-anchor="middle">edit · send · or delete  system never acts alone</text>
+  <text x="460" y="554" class="text" text-anchor="middle" font-size="18" fill="#e8a33d">ï¿½ YOUR APPROVAL</text>
+  <text x="460" y="582" class="sub" text-anchor="middle">edit ï¿½ send ï¿½ or delete  â€”  system never acts alone</text>
 
   <line x1="460" y1="464" x2="460" y2="518" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
 
@@ -79,5 +79,5 @@
   <line x1="460" y1="608" x2="460" y2="638" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
 
   <!-- Footer -->
-  <text x="600" y="710" class="sub" text-anchor="middle">Norbert · AI Systems Architect · Quietforge · hello@flexgrafik.nl</text>
+  <text x="600" y="710" class="sub" text-anchor="middle">Norbert ï¿½ AI Systems Architect ï¿½ Quietforge ï¿½ hello@flexgrafik.nl</text>
 </svg>

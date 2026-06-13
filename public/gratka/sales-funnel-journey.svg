@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
-  <title id="title">Self-service configurator journey  seven steps plus checkout</title>
+  <title id="title">Self-service configurator journey  â€”  seven steps plus checkout</title>
   <desc id="desc">Client journey map showing welcome, seven configuration categories with progress bar and sticky cart, then open pricing and checkout.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
@@ -20,22 +20,22 @@
   </defs>
 
   <rect class="bg" width="1200" height="900"/>
-  <text x="600" y="44" class="text" text-anchor="middle" font-size="20">Self-service configurator  what your client sees</text>
-  <text x="600" y="72" class="sub" text-anchor="middle">7 configuration steps · progress bar · sticky cart · open pricing at checkout</text>
+  <text x="600" y="44" class="text" text-anchor="middle" font-size="20">Self-service configurator  â€”  what your client sees</text>
+  <text x="600" y="72" class="sub" text-anchor="middle">7 configuration steps ï¿½ progress bar ï¿½ sticky cart ï¿½ open pricing at checkout</text>
 
   <!-- Progress + cart chrome -->
   <rect x="80" y="100" width="1040" height="12" rx="6" class="bar"/>
   <rect x="80" y="100" width="520" height="12" rx="6" class="barfill"/>
-  <text x="80" y="132" class="sub">Progress bar  visible on every step</text>
+  <text x="80" y="132" class="sub">Progress bar  â€”  visible on every step</text>
 
   <rect x="900" y="118" width="220" height="48" rx="4" class="cart"/>
   <text x="1010" y="142" class="text" text-anchor="middle" font-size="12">Sticky cart</text>
-  <text x="1010" y="158" class="sub" text-anchor="middle">running total · always visible</text>
+  <text x="1010" y="158" class="sub" text-anchor="middle">running total ï¿½ always visible</text>
 
   <!-- Welcome -->
   <rect x="80" y="190" width="200" height="56" rx="4" class="box"/>
   <text x="180" y="216" class="text" text-anchor="middle" font-size="13">Welcome</text>
-  <text x="180" y="234" class="sub" text-anchor="middle">orient · scope</text>
+  <text x="180" y="234" class="sub" text-anchor="middle">orient ï¿½ scope</text>
 
   <line x1="280" y1="218" x2="320" y2="218" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
 
@@ -61,7 +61,7 @@
   <rect x="860" y="300" width="260" height="72" rx="4" class="step"/>
   <text x="872" y="322" class="num">04</text>
   <text x="900" y="322" class="text" font-size="13">First impression</text>
-  <text x="900" y="342" class="sub">print · physical presence</text>
+  <text x="900" y="342" class="sub">print ï¿½ physical presence</text>
 
   <line x1="200" y1="372" x2="200" y2="400" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="460" y1="372" x2="460" y2="400" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
@@ -88,15 +88,15 @@
   <!-- Checkout -->
   <rect x="420" y="540" width="360" height="88" rx="4" class="checkout"/>
   <text x="600" y="572" class="text" text-anchor="middle" font-size="15">Summary &amp; checkout</text>
-  <text x="600" y="594" class="sub" text-anchor="middle">open pricing · upload assets · pay or book</text>
+  <text x="600" y="594" class="sub" text-anchor="middle">open pricing ï¿½ upload assets ï¿½ pay or book</text>
   <text x="600" y="612" class="sub" text-anchor="middle">no phone call required to get a number</text>
 
   <!-- Backend -->
   <line x1="600" y1="628" x2="600" y2="670" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
   <rect x="300" y="680" width="600" height="72" rx="4" class="box"/>
   <text x="600" y="708" class="text" text-anchor="middle" font-size="14">Your inbox / CRM / sheet</text>
-  <text x="600" y="730" class="sub" text-anchor="middle">structured lead · clean data · no back-and-forth</text>
+  <text x="600" y="730" class="sub" text-anchor="middle">structured lead ï¿½ clean data ï¿½ no back-and-forth</text>
 
-  <text x="600" y="820" class="sub" text-anchor="middle">Live production wizard in owner ecosystem · step names verified against source · no conversion rates claimed</text>
-  <text x="600" y="848" class="sub" text-anchor="middle">Norbert  AI Systems Architect · Quietforge · services.flexgrafik.nl/book-discovery/</text>
+  <text x="600" y="820" class="sub" text-anchor="middle">Live production wizard in owner ecosystem ï¿½ step names verified against source ï¿½ no conversion rates claimed</text>
+  <text x="600" y="848" class="sub" text-anchor="middle">Norbert  â€”  AI Systems Architect ï¿½ Quietforge ï¿½ services.flexgrafik.nl/book-discovery/</text>
 </svg>
