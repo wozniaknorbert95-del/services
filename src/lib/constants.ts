@@ -18,6 +18,7 @@ export const ROUTES = {
   resultsAgentOrchestrator: '/results/agent-orchestrator/',
   resultsSalesFunnel: '/results/sales-funnel/',
   resultsAdvisoryModernisation: '/results/advisory-modernisation/',
+  resultsOwnerEcosystem: '/results/owner-ecosystem/',
   about: '/about/',
   blog: '/blog/',
   bookDiscovery: '/book-discovery/',

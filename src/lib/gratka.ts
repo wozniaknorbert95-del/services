@@ -11,4 +11,6 @@ export const GRATKA = {
   advisoryAvgLayerPdf: '/gratka/advisory-avg-layer.pdf',
   advisoryDeliveryTimelineSvg: '/gratka/advisory-delivery-timeline.svg',
   advisoryDeliveryTimelinePdf: '/gratka/advisory-delivery-timeline.pdf',
+  ownerEcosystemMapSvg: '/gratka/owner-ecosystem-map.svg',
+  ownerEcosystemMapPdf: '/gratka/owner-ecosystem-map.pdf',
 } as const;

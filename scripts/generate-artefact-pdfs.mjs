@@ -21,6 +21,7 @@ const targets = [
     'advisory-scope-summary.md',
     'advisory-avg-layer.md',
     'advisory-delivery-timeline.md',
+    'owner-ecosystem-map.md',
   ]},
 ];
 

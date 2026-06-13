@@ -97,6 +97,36 @@ export default function ResultsPage() {
       </Section>
 
       <Section background="surface" padding="large">
+        <Card className="border-[var(--qf-accent)] p-6 md:p-8">
+          <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+            Owner ecosystem
+          </p>
+          <h2 className="mb-3 text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
+            8 repos, 1 supervised system
+          </h2>
+          <p className="mb-6 max-w-none text-sm text-[var(--qf-text-dim)]">
+            All four case studies connect to modules in a live stack — VCMS supervision, Agent OS
+            execution, wizard commerce, portal assistant and inbox automation. See how they cooperate.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href={ROUTES.resultsOwnerEcosystem}
+              className="text-sm font-semibold text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+            >
+              Full ecosystem map →
+            </Link>
+            <Link
+              href={GRATKA.ownerEcosystemMapPdf}
+              download
+              className="text-sm text-[var(--qf-info)] hover:text-[var(--qf-text)]"
+            >
+              Download PDF ↓
+            </Link>
+          </div>
+        </Card>
+      </Section>
+
+      <Section background="surface" padding="large">
         <div className="grid gap-[var(--qf-sp-6)] md:grid-cols-2">
           {CASE_STUDIES.map((c) => {
             const extras = c.slug ? CASE_EXTRAS[c.slug] : undefined;

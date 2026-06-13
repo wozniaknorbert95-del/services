@@ -119,6 +119,9 @@ export default function AgentOrchestratorCaseStudyPage() {
           <Button href={GRATKA.orchestratorWorkflowMapPdf} target="_blank" rel="noopener noreferrer" variant="secondary">
             Workflow map (PDF) ↓
           </Button>
+          <Button href={ROUTES.resultsOwnerEcosystem} variant="ghost">
+            Full owner ecosystem map →
+          </Button>
         </div>
       </Section>
 
