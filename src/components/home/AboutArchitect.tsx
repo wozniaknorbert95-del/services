@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer } from '@/lib/motion';
+import { useMotion } from '@/lib/useMotion';
 import { ARTEFACTS, ROUTES } from '@/lib/constants';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
@@ -58,6 +58,9 @@ const PRINCIPLES: Principle[] = [
 ];
 
 export default function AboutArchitect() {
+  const motionCfg = useMotion();
+  const fade = motionCfg.fadeIn();
+
   return (
     <section
       id="about"
@@ -66,10 +69,10 @@ export default function AboutArchitect() {
     >
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.div
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={fadeIn.transition}
+          transition={fade.transition}
         >
           <Eyebrow>Who&apos;s behind Quietforge</Eyebrow>
           <h2 id="about-title" className="mb-[var(--qf-sp-4)]">
@@ -87,14 +90,14 @@ export default function AboutArchitect() {
         </motion.div>
 
         <motion.div
-          variants={staggerContainer}
+          variants={motionCfg.staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-80px' }}
           className="mb-[var(--qf-sp-12)] grid gap-[var(--qf-sp-6)] sm:grid-cols-2 lg:grid-cols-3"
         >
           {CAPABILITIES.map((item) => (
-            <motion.div key={item.title} variants={fadeIn}>
+            <motion.div key={item.title} variants={motionCfg.childFade}>
               <Card hover className="h-full">
                 <span className="mb-3 block font-mono text-sm text-[var(--qf-info)]">
                   {item.number}
@@ -109,10 +112,10 @@ export default function AboutArchitect() {
         </motion.div>
 
         <motion.div
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={fadeIn.transition}
+          transition={fade.transition}
           className="grid gap-[var(--qf-sp-8)] lg:grid-cols-[1.3fr_1fr]"
         >
           <div>
@@ -155,10 +158,10 @@ export default function AboutArchitect() {
         </motion.div>
 
         <motion.div
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ ...fadeIn.transition, delay: 0.1 }}
+          transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.1 }).transition}
           className="mt-[var(--qf-sp-12)]"
         >
           <Button href={ROUTES.bookDiscovery} withArrow size="lg">

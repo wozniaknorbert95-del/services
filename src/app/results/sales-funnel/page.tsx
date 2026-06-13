@@ -5,7 +5,7 @@ import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES, EXTERNAL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 
@@ -106,7 +106,14 @@ export default function SalesFunnelCaseStudyPage() {
           <Button href={GRATKA.salesFunnelRoiPdf} target="_blank" rel="noopener noreferrer" variant="secondary">
             ROI framing sheet (PDF) ↓
           </Button>
+          <Button href={EXTERNAL.zzpackageWizard} target="_blank" rel="noopener noreferrer" variant="ghost">
+            See the live wizard →
+          </Button>
         </div>
+        <p className="mt-4 max-w-none text-sm text-[var(--qf-text-faint)]">
+          Live wizard in the owner ecosystem (NL). Opens zzpackage.flexgrafik.nl — a working
+          7-step configurator, not a mockup.
+        </p>
       </Section>
 
       <Section background="surface" padding="large">

@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer } from '@/lib/motion';
+import { useMotion } from '@/lib/useMotion';
 import { ROUTES } from '@/lib/constants';
-import { Mail, Workflow } from 'lucide-react';
+import { Building2, GitBranch, Mail, Workflow } from 'lucide-react';
 
 const CASES = [
   {
@@ -16,6 +16,15 @@ const CASES = [
     caseHref: ROUTES.resultsInboxKiller,
   },
   {
+    icon: GitBranch,
+    title: 'A multi-agent orchestrator',
+    meta: 'Agent engine · production',
+    summary:
+      'FastAPI + LangGraph on a VPS — single source of truth, agent cards and human approval gates.',
+    measurement: 'Process proof — architecture diagram on request.',
+    caseHref: ROUTES.resultsAgentOrchestrator,
+  },
+  {
     icon: Workflow,
     title: 'Self-service quote & onboarding',
     meta: 'Sales Funnel Engine',
@@ -24,9 +33,21 @@ const CASES = [
     measurement: 'Fewer manual quote emails (to be quantified).',
     caseHref: ROUTES.resultsSalesFunnel,
   },
+  {
+    icon: Building2,
+    title: 'Modernisation + AI assistant for an advisory firm',
+    meta: 'Web Upgrade + assistant · anonymised',
+    summary:
+      'Site upgrade + qualification-only assistant + human-approved content — AVG layer specified.',
+    measurement: 'In delivery — outcomes reported once live.',
+    caseHref: ROUTES.resultsAdvisoryModernisation,
+  },
 ];
 
 export default function ResultsTeaser() {
+  const motionCfg = useMotion();
+  const fade = motionCfg.fadeIn();
+
   return (
     <section
       aria-labelledby="results-teaser-title"
@@ -35,17 +56,17 @@ export default function ResultsTeaser() {
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.h2
           id="results-teaser-title"
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={fadeIn.transition}
+          transition={fade.transition}
           className="mb-[var(--qf-sp-12)]"
         >
           What changes
         </motion.h2>
 
         <motion.div
-          variants={staggerContainer}
+          variants={motionCfg.staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-80px' }}
@@ -54,7 +75,7 @@ export default function ResultsTeaser() {
           {CASES.map((c) => (
             <motion.div
               key={c.title}
-              variants={fadeIn}
+              variants={motionCfg.childFade}
               className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6"
             >
               <c.icon
@@ -66,27 +87,25 @@ export default function ResultsTeaser() {
                 {c.title}
               </h3>
               <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
-          <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.summary}</p>
-          <p className="mb-4 font-mono text-xs text-[var(--qf-text-faint)]">
-            Measurement: {c.measurement}
-          </p>
-          {c.caseHref && (
-            <a
-              href={c.caseHref}
-              className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
-            >
-              Read case study →
-            </a>
-          )}
+              <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.summary}</p>
+              <p className="mb-4 font-mono text-xs text-[var(--qf-text-faint)]">
+                Measurement: {c.measurement}
+              </p>
+              <a
+                href={c.caseHref}
+                className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+              >
+                Read case study →
+              </a>
             </motion.div>
           ))}
         </motion.div>
 
         <motion.div
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ ...fadeIn.transition, delay: 0.2 }}
+          transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.2 }).transition}
           className="mt-[var(--qf-sp-8)] text-center"
         >
           <a

@@ -141,10 +141,10 @@ HERO → Pain → Inbox Killer → Ladder → Why this works →
 
 ## 7. Global Definition of Done
 
-- [ ] All 4 sections in README §3 order on home + /results reworked
-- [ ] Existing design system only — no parallel CSS
-- [ ] Every claim backed or downgraded per Context Map
-- [ ] No client names; English first-person Norbert voice
-- [ ] 3 artefacts linked from matching sections
-- [ ] Responsive 360/768/1280; semantic headings; build + typecheck pass
-- [ ] PR on preview branch — no auto-merge
+- [x] All 4 sections in README §3 order on home + /results reworked
+- [x] Existing design system only — no parallel CSS
+- [x] Every claim backed or downgraded per Context Map
+- [x] No client names; English first-person Norbert voice
+- [x] 3 artefacts linked from matching sections
+- [x] Responsive 360/768/1280; semantic headings; build + typecheck pass
+- [x] PR on preview branch — merged to master 2026-06-13

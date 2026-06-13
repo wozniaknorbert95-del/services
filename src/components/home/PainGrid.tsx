@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer } from '@/lib/motion';
+import { useMotion } from '@/lib/useMotion';
 import { ROUTES } from '@/lib/constants';
 import { Mail, Monitor, Quote, Users } from 'lucide-react';
 import Eyebrow from '@/components/ui/Eyebrow';
@@ -38,20 +38,23 @@ const PAINS = [
 ];
 
 export default function PainGrid() {
+  const motionCfg = useMotion();
+  const fade = motionCfg.fadeIn();
+
   return (
     <section className="py-[var(--qf-sp-24)]">
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.div
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={fadeIn.transition}
+          transition={fade.transition}
         >
           <Eyebrow>Sound familiar?</Eyebrow>
         </motion.div>
 
         <motion.div
-          variants={staggerContainer}
+          variants={motionCfg.staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-80px' }}
@@ -61,7 +64,7 @@ export default function PainGrid() {
             <motion.a
               key={pain.title}
               href={pain.href}
-              variants={fadeIn}
+              variants={motionCfg.childFade}
               className="group block rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6 transition-colors duration-[var(--qf-transition)] hover:border-[var(--qf-border-bright)]"
             >
               <pain.icon

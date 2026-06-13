@@ -1,4 +1,10 @@
-export const fadeIn = {
+export type MotionPreset = {
+  initial: { opacity: number; y?: number; x?: number; scale?: number };
+  animate: { opacity: number; y?: number; x?: number; scale?: number };
+  transition: { duration: number; ease?: 'easeOut' };
+};
+
+export const fadeIn: MotionPreset = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.4, ease: 'easeOut' as const },

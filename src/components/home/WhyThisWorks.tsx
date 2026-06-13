@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer } from '@/lib/motion';
+import { useMotion } from '@/lib/useMotion';
 import { Server, Bot, ShieldCheck } from 'lucide-react';
 
 const PILLARS = [
@@ -26,21 +26,24 @@ const PILLARS = [
 ];
 
 export default function WhyThisWorks() {
+  const motionCfg = useMotion();
+  const fade = motionCfg.fadeIn();
+
   return (
     <section className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)]">
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.h2
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={fadeIn.transition}
+          transition={fade.transition}
           className="mb-[var(--qf-sp-12)]"
         >
           Why this works
         </motion.h2>
 
         <motion.div
-          variants={staggerContainer}
+          variants={motionCfg.staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-80px' }}
@@ -49,7 +52,7 @@ export default function WhyThisWorks() {
           {PILLARS.map((pillar) => (
             <motion.div
               key={pillar.title}
-              variants={fadeIn}
+              variants={motionCfg.childFade}
               className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6"
             >
               <pillar.icon

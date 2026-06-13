@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer } from '@/lib/motion';
+import { useMotion } from '@/lib/useMotion';
 import { ARTEFACTS } from '@/lib/constants';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
@@ -41,6 +41,9 @@ const SAFETY_CARDS = [
 ] as const;
 
 export default function TrustSafety() {
+  const motionCfg = useMotion();
+  const fade = motionCfg.fadeIn();
+
   return (
     <section
       id="trust-safety"
@@ -49,10 +52,10 @@ export default function TrustSafety() {
     >
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.div
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={fadeIn.transition}
+          transition={fade.transition}
         >
           <Eyebrow>Risk &amp; safety</Eyebrow>
           <h2 id="trust-safety-title" className="mb-[var(--qf-sp-4)]">
@@ -68,14 +71,14 @@ export default function TrustSafety() {
         </motion.div>
 
         <motion.div
-          variants={staggerContainer}
+          variants={motionCfg.staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-80px' }}
           className="grid gap-[var(--qf-sp-6)] sm:grid-cols-2 lg:grid-cols-3"
         >
           {SAFETY_CARDS.map((card) => (
-            <motion.div key={card.title} variants={fadeIn}>
+            <motion.div key={card.title} variants={motionCfg.childFade}>
               <Card hover className="h-full">
                 <h3 className="mb-2 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
                   {card.title}
@@ -87,10 +90,10 @@ export default function TrustSafety() {
         </motion.div>
 
         <motion.p
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ ...fadeIn.transition, delay: 0.15 }}
+          transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.15 }).transition}
           className="mt-[var(--qf-sp-8)] max-w-none border-l-2 border-[var(--qf-border)] pl-4 text-sm text-[var(--qf-text-dim)]"
         >
           Want the detail?{' '}

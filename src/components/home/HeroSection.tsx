@@ -1,19 +1,23 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeIn } from '@/lib/motion';
+import { useMotion } from '@/lib/useMotion';
 import { ROUTES } from '@/lib/constants';
 
 export default function HeroSection() {
+  const motionCfg = useMotion();
+  const fade = motionCfg.fadeIn({ duration: 0.6 });
+  const slide = motionCfg.slideFromRight({ delay: motionCfg.prefersReduced ? 0 : 0.2, duration: 0.6 });
+
   return (
     <section className="py-[var(--qf-sp-24)]">
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <div className="grid items-center gap-[var(--qf-sp-12)] lg:grid-cols-2">
           {/* Left: copy */}
           <motion.div
-            initial={fadeIn.initial}
-            animate={fadeIn.animate}
-            transition={{ ...fadeIn.transition, duration: 0.6 }}
+            initial={fade.initial}
+            animate={fade.animate}
+            transition={fade.transition}
           >
             <h1 className="mb-[var(--qf-sp-4)]">
               Systems that code, check and{' '}
@@ -46,9 +50,9 @@ export default function HeroSection() {
 
           {/* Right: terminal panel mock */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+            initial={slide.initial}
+            animate={slide.animate}
+            transition={slide.transition}
           >
             <div className="overflow-hidden rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)]">
               {/* Title bar */}

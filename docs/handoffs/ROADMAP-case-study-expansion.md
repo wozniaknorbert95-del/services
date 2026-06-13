@@ -123,7 +123,9 @@
 ## Recommended session order
 
 ```
-Session N+1: Portfolio 100% (Hero + OG + PDF + polish)  ← NEXT
+Session N+1: Portfolio 100% (Hero + OG + PDF + polish)  ← DONE 2026-06-13
+Session FIX: Audit remediation (About, teaser, motion, docs)  ← DONE 2026-06-13
+Session E-1: Owner ecosystem diagram (source: portfolio repo)  ← NEXT
 Session CS-1: Inbox Killer gratka  ← DONE 2026-06-13
 Session CS-2: Orchestrator gratka  ← DONE 2026-06-13
 Session CS-3: Wizard gratka  ← DONE 2026-06-13

@@ -2,18 +2,20 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { fadeIn } from '@/lib/motion';
+import { useMotion } from '@/lib/useMotion';
 import { ARTEFACTS, ROUTES } from '@/lib/constants';
 
 export default function FinalCtaBand() {
+  const fade = useMotion().fadeIn();
+
   return (
     <section className="border-t border-[var(--qf-border)] bg-[var(--qf-bg-raised)] py-[var(--qf-sp-24)]">
       <div className="mx-auto max-w-[var(--qf-maxw-narrow)] px-[var(--qf-sp-6)] text-center">
         <motion.div
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={fadeIn.transition}
+          transition={fade.transition}
         >
           <h2 className="mb-[var(--qf-sp-4)]">
             Start with clarity, not a sales pitch.

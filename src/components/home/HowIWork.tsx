@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { fadeIn } from '@/lib/motion';
+import { useMotion } from '@/lib/useMotion';
 import { ARTEFACTS } from '@/lib/constants';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
@@ -64,6 +64,9 @@ const PHASES: Phase[] = [
 ];
 
 export default function HowIWork() {
+  const motionCfg = useMotion();
+  const fade = motionCfg.fadeIn();
+
   return (
     <section
       id="how-i-work"
@@ -72,10 +75,10 @@ export default function HowIWork() {
     >
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.div
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={fadeIn.transition}
+          transition={fade.transition}
         >
           <Eyebrow>How I work</Eyebrow>
           <h2 id="how-i-work-title" className="mb-[var(--qf-sp-4)]">
@@ -92,10 +95,10 @@ export default function HowIWork() {
           {PHASES.map((phase, index) => (
             <motion.li
               key={phase.number}
-              initial={fadeIn.initial}
-              whileInView={fadeIn.animate}
+              initial={fade.initial}
+              whileInView={fade.animate}
               viewport={{ once: true, margin: '-80px' }}
-              transition={{ ...fadeIn.transition, delay: index * 0.05 }}
+              transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : index * 0.05 }).transition}
             >
               <Card className="flex flex-col gap-[var(--qf-sp-4)] sm:flex-row sm:items-start overflow-hidden">
                 <span
@@ -139,10 +142,10 @@ export default function HowIWork() {
         </ol>
 
         <motion.p
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ ...fadeIn.transition, delay: 0.2 }}
+          transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.2 }).transition}
           className="mt-[var(--qf-sp-8)] max-w-none border-l-2 border-[var(--qf-border)] pl-4 text-sm text-[var(--qf-text-dim)]"
         >
           This is the same workflow — single source of truth, agent cards, fixed rules — that

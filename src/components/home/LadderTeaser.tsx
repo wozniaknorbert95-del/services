@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer } from '@/lib/motion';
+import { useMotion } from '@/lib/useMotion';
 import { ROUTES } from '@/lib/constants';
 import Eyebrow from '@/components/ui/Eyebrow';
 import { Monitor, Route, Gamepad2 } from 'lucide-react';
@@ -31,20 +31,23 @@ const LADDER = [
 ];
 
 export default function LadderTeaser() {
+  const motionCfg = useMotion();
+  const fade = motionCfg.fadeIn();
+
   return (
     <section className="py-[var(--qf-sp-24)]">
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.div
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={fadeIn.transition}
+          transition={fade.transition}
         >
           <Eyebrow>Once your inbox is calm — grow from here</Eyebrow>
         </motion.div>
 
         <motion.div
-          variants={staggerContainer}
+          variants={motionCfg.staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-80px' }}
@@ -54,7 +57,7 @@ export default function LadderTeaser() {
             <motion.a
               key={item.title}
               href={item.href}
-              variants={fadeIn}
+              variants={motionCfg.childFade}
               className="group block rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6 transition-colors duration-[var(--qf-transition)] hover:border-[var(--qf-border-bright)]"
             >
               <item.icon
@@ -75,10 +78,10 @@ export default function LadderTeaser() {
         </motion.div>
 
         <motion.div
-          initial={fadeIn.initial}
-          whileInView={fadeIn.animate}
+          initial={fade.initial}
+          whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ ...fadeIn.transition, delay: 0.3 }}
+          transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.3 }).transition}
           className="mt-[var(--qf-sp-8)] text-center"
         >
           <p className="mx-auto max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">

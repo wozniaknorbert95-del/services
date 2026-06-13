@@ -24,6 +24,11 @@ export const ROUTES = {
   legal: '/legal/',
 } as const;
 
+/** Owner ecosystem — external live demos */
+export const EXTERNAL = {
+  zzpackageWizard: 'https://zzpackage.flexgrafik.nl/',
+} as const;
+
 export const ARTEFACTS = {
   automationMapSample: '/artefacts/automation-map-sample.pdf',
   dataSafetyPlaybook: '/artefacts/data-safety-playbook.pdf',

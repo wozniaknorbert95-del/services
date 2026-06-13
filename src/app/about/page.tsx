@@ -6,27 +6,27 @@ import { ROUTES } from '@/lib/constants';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
-  title: 'About — enterprise-grade systems for small business | Quietforge',
+  title: 'About — AI Systems Architect | Quietforge',
   description:
-    'I build small-business systems that run in the background — delivered by an AI workforce, with you in control. Enterprise-grade work at a small-business price.',
+    'Norbert Wozniak — AI Systems Architect for NL small businesses. I design intelligent systems that build, verify and maintain themselves, with you in the loop.',
   openGraph: {
-    title: 'About — enterprise-grade systems for small business | Quietforge',
+    title: 'About — AI Systems Architect | Quietforge',
     description:
-      'I build small-business systems that run in the background — delivered by an AI workforce, with you in control.',
+      'Systems that code, check and maintain themselves — built on a live owner ecosystem, not theory.',
     url: 'https://services.flexgrafik.nl/about',
     images: [
       {
         url: '/og/about.svg',
         width: 1200,
         height: 630,
-        alt: 'About — enterprise-grade systems for small business',
+        alt: 'About — Norbert, AI Systems Architect',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About — enterprise-grade systems for small business | Quietforge',
-    description: 'Enterprise-grade work at a small-business price.',
+    title: 'About — AI Systems Architect | Quietforge',
+    description: 'Intelligent automation with human approval gates — process-first delivery.',
     images: ['/og/about.svg'],
   },
 };
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const MOAT_PILLARS = [
   {
     title: 'I build my own AI workforce.',
-    body: "Most of the delivery runs on systems I built — not on billable hours. That's why I'm faster, leaner, and can offer enterprise-grade work at a small-business price.",
+    body: "Most of the delivery runs on systems I built — not on billable hours. That's why I'm faster, leaner, and can deliver architect-level work at a small-business price.",
   },
   {
     title: 'Branding, UX and automation under one roof.',
@@ -63,11 +63,12 @@ export default function AboutPage() {
          ═══════════════════════════════════════════════════════════ */}
       <Section padding="large">
         <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
-          Enterprise-grade systems, built for a business your size.
+          AI Systems Architect for businesses that need systems, not slides.
         </h1>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
-          I&apos;m Norbert Wozniak — I build small-business systems that run quietly in the
-          background, so owners get their time back and their business keeps moving without them.
+          I&apos;m Norbert Wozniak — I design intelligent systems that build, verify and maintain
+          themselves, with you in the loop on every critical step. Everything here is proven on a live
+          operation before it reaches a client.
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
           Book your Automation Map
@@ -116,9 +117,9 @@ export default function AboutPage() {
           Why this matters for you
         </h2>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)]">
-          You get the kind of architecture usually reserved for big budgets — delivered in a package a
-          small business actually understands, at a price that makes sense, with full control over
-          what it does.
+          You get the kind of architecture usually reserved for big budgets — designed around how your
+          work really flows, at a price a small business understands, with full control over what the
+          system does.
         </p>
       </Section>
 

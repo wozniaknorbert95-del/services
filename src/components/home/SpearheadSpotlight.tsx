@@ -1,12 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeIn } from '@/lib/motion';
+import { useMotion } from '@/lib/useMotion';
 import { ROUTES } from '@/lib/constants';
 import Eyebrow from '@/components/ui/Eyebrow';
 import { Inbox } from 'lucide-react';
 
 export default function SpearheadSpotlight() {
+  const motionCfg = useMotion();
+  const fade = motionCfg.fadeIn();
+  const slide = motionCfg.slideFromRight();
+
   return (
     <section className="py-[var(--qf-sp-24)]">
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
@@ -14,10 +18,10 @@ export default function SpearheadSpotlight() {
           {/* Left: copy (3 cols) */}
           <motion.div
             className="lg:col-span-3"
-            initial={fadeIn.initial}
-            whileInView={fadeIn.animate}
+            initial={fade.initial}
+            whileInView={fade.animate}
             viewport={{ once: true, margin: '-80px' }}
-            transition={fadeIn.transition}
+            transition={fade.transition}
           >
             <Eyebrow>Start here</Eyebrow>
             <h2 className="mb-[var(--qf-sp-4)]">
@@ -58,10 +62,10 @@ export default function SpearheadSpotlight() {
           {/* Right: visual (2 cols) */}
           <motion.div
             className="lg:col-span-2"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={slide.initial}
+            whileInView={slide.animate}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={slide.transition}
           >
             <div className="rounded-[var(--qf-radius)] border border-[var(--qf-accent)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-6)] shadow-[0_0_0_1px_var(--qf-accent-glow),0_0_40px_var(--qf-accent-glow)]">
               <div className="mb-4 flex items-center gap-[var(--qf-sp-3)]">
