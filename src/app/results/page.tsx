@@ -34,6 +34,14 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
       { label: 'Workflow map (PDF)', href: GRATKA.orchestratorWorkflowMapPdf },
     ],
   },
+  'sales-funnel': {
+    detailHref: ROUTES.resultsSalesFunnel,
+    gratkaLinks: [
+      { label: 'Configurator journey (SVG)', href: GRATKA.salesFunnelJourneySvg },
+      { label: 'Journey map (PDF)', href: GRATKA.salesFunnelJourneyPdf },
+      { label: 'ROI framing sheet (PDF)', href: GRATKA.salesFunnelRoiPdf },
+    ],
+  },
 };
 
 /* ── metadata ── */

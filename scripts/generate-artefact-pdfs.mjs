@@ -16,6 +16,8 @@ const targets = [
     'inbox-killer-before-after.md',
     'orchestrator-agent-card-sample.md',
     'orchestrator-workflow-map.md',
+    'sales-funnel-journey-map.md',
+    'sales-funnel-roi-framing.md',
   ]},
 ];
 

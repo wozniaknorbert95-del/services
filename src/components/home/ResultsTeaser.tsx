@@ -22,6 +22,7 @@ const CASES = [
     summary:
       'A 7-step configurator qualifies, quotes and books — without you typing the same reply again.',
     measurement: 'Fewer manual quote emails (to be quantified).',
+    caseHref: ROUTES.resultsSalesFunnel,
   },
 ];
 

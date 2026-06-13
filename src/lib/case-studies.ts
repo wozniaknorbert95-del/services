@@ -35,6 +35,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     measurement: 'Process proof — architecture diagram on request.',
   },
   {
+    slug: 'sales-funnel',
     number: '03',
     title: 'Self-service quote & onboarding',
     meta: 'Sales Funnel Engine',
