@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Legal & Privacy | Quietforge',
+  title: 'Legal & Privacy',
   description:
     'Privacy policy, terms of service, and GDPR compliance for Quietforge.',
   openGraph: {
-    title: 'Legal & Privacy | Quietforge',
+    title: 'Legal & Privacy',
     description: 'Privacy policy, terms of service, and GDPR compliance.',
     images: [
       {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Legal & Privacy | Quietforge',
+    title: 'Legal & Privacy',
     description: 'Privacy policy, terms of service, and GDPR compliance.',
     images: ['/og/legal.svg'],
   },

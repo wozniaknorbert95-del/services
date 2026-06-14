@@ -4,11 +4,11 @@ import Card from '@/components/ui/Card';
 import WaitlistForm from '@/components/WaitlistForm';
 
 export const metadata: Metadata = {
-  title: 'Digital Modernization — Coming Soon | Quietforge',
+  title: 'Digital Modernization — Coming Soon',
   description:
     'Website and e-commerce modernization for ZZP and small businesses. Join the waitlist.',
   openGraph: {
-    title: 'Digital Modernization — Coming Soon | Quietforge',
+    title: 'Digital Modernization — Coming Soon',
     description: 'Website and e-commerce modernization. Join the waitlist.',
     url: 'https://services.flexgrafik.nl/digital-modernization',
     images: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Digital Modernization — Coming Soon | Quietforge',
+    title: 'Digital Modernization — Coming Soon',
     description: 'Website and e-commerce modernization. Join the waitlist.',
     images: ['/og/modernization.svg'],
   },

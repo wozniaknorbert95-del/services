@@ -8,6 +8,7 @@ import { GRATKA } from '@/lib/gratka';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Button from '@/components/ui/Button';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';
+import VideoSlot from '@/components/ui/VideoSlot';
 
 export default function OwnerEcosystemTeaser() {
   const motionCfg = useMotion();
@@ -60,6 +61,15 @@ export default function OwnerEcosystemTeaser() {
               className="h-auto w-full min-w-[320px]"
             />
           </div>
+        </motion.div>
+        <motion.div
+          initial={fade.initial}
+          whileInView={fade.animate}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={fade.transition}
+          className="mt-[var(--qf-sp-12)]"
+        >
+          <VideoSlot videoKey="ecosystem" />
         </motion.div>
       </div>
     </section>

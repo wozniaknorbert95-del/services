@@ -41,7 +41,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const meta = POST_META[slug];
-  if (!meta) return { title: 'Post not found | Quietforge' };
+  if (!meta) return { title: 'Post not found' };
 
   return {
     title: `${meta.title} | Quietforge Blog`,

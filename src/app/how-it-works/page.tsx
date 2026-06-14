@@ -8,11 +8,11 @@ import { ROUTES, PRICING } from '@/lib/constants';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
-  title: 'How it works — three clear steps | Quietforge',
+  title: 'How it works — three clear steps',
   description:
     'A calm, transparent process: a paid Automation Map, a fast productized build, and optional monthly care. Live in days, not months. Book your Automation Map.',
   openGraph: {
-    title: 'How it works — three clear steps | Quietforge',
+    title: 'How it works — three clear steps',
     description:
       'A calm, transparent process: a paid Automation Map, a fast productized build, and optional monthly care. Live in days, not months.',
     url: 'https://services.flexgrafik.nl/how-it-works',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'How it works — three clear steps | Quietforge',
+    title: 'How it works — three clear steps',
     description: 'A calm, transparent process. Live in days, not months.',
     images: ['/og/how-it-works.svg'],
   },

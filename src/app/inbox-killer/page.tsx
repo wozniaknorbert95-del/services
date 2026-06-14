@@ -4,11 +4,11 @@ import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
 export const metadata: Metadata = {
-  title: 'Inbox Killer — AI Lead Qualification | Quietforge',
+  title: 'Inbox Killer — AI Lead Qualification',
   description:
     'AI reads your inbox, classifies hot leads, drafts replies, and archives noise. €497 setup + €147/mo. Live in 48 hours.',
   openGraph: {
-    title: 'Inbox Killer — AI Lead Qualification | Quietforge',
+    title: 'Inbox Killer — AI Lead Qualification',
     description: 'Your inbox is 80% noise. We surface the 20% that pays. Live in 48 hours.',
     url: 'https://services.flexgrafik.nl/inbox-killer',
     images: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Inbox Killer — AI Lead Qualification | Quietforge',
+    title: 'Inbox Killer — AI Lead Qualification',
     description: 'Your inbox is 80% noise. We surface the 20% that pays. Live in 48 hours.',
     images: ['/og/inbox-killer.svg'],
   },

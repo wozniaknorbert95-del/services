@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
-import { ARTEFACTS } from '@/lib/constants';
+import { ROUTES } from '@/lib/constants';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 
@@ -14,16 +14,6 @@ const SAFETY_CARDS = [
       'Nothing sends, publishes or deploys without your approval. The system proposes; you decide.',
   },
   {
-    title: 'Service accounts, not your passwords',
-    description:
-      'Access goes through dedicated accounts with scoped permissions. No passwords over WhatsApp, ever.',
-  },
-  {
-    title: 'Start on a test inbox',
-    description:
-      'We can run first on a separate test address (e.g. test@yourdomain.nl) before touching anything live.',
-  },
-  {
     title: 'EU data, scoped access',
     description:
       'Hosting and data stay in the EU. Access is limited to you and me, and revoked cleanly after handover.',
@@ -32,11 +22,6 @@ const SAFETY_CARDS = [
     title: 'Logged & auditable',
     description:
       'Who did what, when. Logs are available on request so any review or audit is straightforward.',
-  },
-  {
-    title: 'No lock-in',
-    description:
-      'Built on tools you already own. You get the README and can hand it to any developer — this is never a trap.',
   },
 ] as const;
 
@@ -57,16 +42,15 @@ export default function TrustSafety() {
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
         >
-          <Eyebrow>Risk &amp; safety</Eyebrow>
+          <Eyebrow>Safe enough to hand your inbox to</Eyebrow>
           <h2 id="trust-safety-title" className="mb-[var(--qf-sp-4)]">
             Built to be safe for a small business.
           </h2>
           <p className="mb-[var(--qf-sp-4)] max-w-[var(--qf-maxw-narrow)] text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">
-            AI in your business should reduce risk, not add it. Safety isn&apos;t a feature I bolt
-            on at the end — it&apos;s part of the architecture from day one.
+            AI in a real business should reduce risk, not add it. Every system is built to survive a small business owner&apos;s worst week — and a regulator&apos;s question.
           </p>
           <p className="mb-[var(--qf-sp-12)] font-mono text-sm text-[var(--qf-info)]">
-            For ZZP &amp; small businesses in NL — services, e-commerce, advisory.
+            For ZZP &amp; small businesses in NL — services, e-commerce, advisory, regulated.
           </p>
         </motion.div>
 
@@ -89,23 +73,20 @@ export default function TrustSafety() {
           ))}
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={fade.initial}
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.15 }).transition}
-          className="mt-[var(--qf-sp-8)] max-w-none border-l-2 border-[var(--qf-border)] pl-4 text-sm text-[var(--qf-text-dim)]"
+          className="mt-[var(--qf-sp-8)] text-center"
         >
-          Want the detail?{' '}
           <Link
-            href={ARTEFACTS.dataSafetyPlaybook}
-            download
-            className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+            href={ROUTES.trust}
+            className="inline-flex items-center gap-[var(--qf-sp-2)] text-[var(--qf-accent)] transition-colors hover:text-[var(--qf-text)]"
           >
-            Download the one-page &ldquo;How we keep your data safe&rdquo; playbook
-          </Link>{' '}
-          — yours to forward to anyone, no strings.
-        </motion.p>
+            See full Trust &amp; Safety details →
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

@@ -8,11 +8,11 @@ import { ROUTES, PRICING } from '@/lib/constants';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
-  title: 'Managed Automation — your systems, kept sharp | Quietforge',
+  title: 'Managed Automation — your systems, kept sharp',
   description:
     'Keep your automations healthy and improving. Monitoring, tuning and optimisation from €99/mo. Human-in-the-loop, no lock-in, cancel anytime.',
   openGraph: {
-    title: 'Managed Automation — your systems, kept sharp | Quietforge',
+    title: 'Managed Automation — your systems, kept sharp',
     description:
       'Keep your automations healthy and improving. Monitoring, tuning and optimisation from €99/mo. Human-in-the-loop, no lock-in, cancel anytime.',
     url: 'https://services.flexgrafik.nl/solutions/managed-automation',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Managed Automation — your systems, kept sharp | Quietforge',
+    title: 'Managed Automation — your systems, kept sharp',
     description:
       'Keep your automations healthy and improving. Monitoring, tuning and optimisation from €99/mo.',
     images: ['/og/managed-automation.svg'],

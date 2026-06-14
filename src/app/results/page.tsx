@@ -70,11 +70,11 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
 
 /* ── metadata ── */
 export const metadata: Metadata = {
-  title: 'Results — what changes | Quietforge',
+  title: 'Results — what changes',
   description:
     'Real systems already running: inbox automation, multi-agent orchestration, self-service quoting, and advisory firm modernisation. Process-proof case studies.',
   openGraph: {
-    title: 'Results — what changes | Quietforge',
+    title: 'Results — what changes',
     description:
       'Real systems already running inside a live business ecosystem. Names withheld; architecture is real.',
     url: 'https://services.flexgrafik.nl/results',
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Results — what changes | Quietforge',
+    title: 'Results — what changes',
     description: 'Real systems, already running — process-proof case studies.',
     images: ['/og/results.svg'],
   },

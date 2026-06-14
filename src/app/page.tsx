@@ -9,6 +9,8 @@ import OwnerEcosystemTeaser from '@/components/home/OwnerEcosystemTeaser';
 import HowIWork from '@/components/home/HowIWork';
 import TrustSafety from '@/components/home/TrustSafety';
 import ResultsTeaser from '@/components/home/ResultsTeaser';
+import BehindTheScenes from '@/components/home/BehindTheScenes';
+import SystemMetrics from '@/components/home/SystemMetrics';
 import FinalCtaBand from '@/components/home/FinalCtaBand';
 
 export const metadata: Metadata = {
@@ -46,9 +48,11 @@ export default function Home() {
       <WhyThisWorks />
       <AboutArchitect />
       <OwnerEcosystemTeaser />
+      <SystemMetrics />
       <HowIWork />
       <TrustSafety />
       <ResultsTeaser />
+      <BehindTheScenes />
       <FinalCtaBand />
     </>
   );

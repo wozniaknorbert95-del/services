@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog — practical notes on automation & digital transformation | Quietforge',
+  title: 'Blog — practical notes on automation & digital transformation',
   description:
     'Short, practical notes on digital transformation and automation for small business. Systems that run quietly in the background.',
 };

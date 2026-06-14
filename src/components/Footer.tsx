@@ -13,6 +13,8 @@ const COMPANY_LINKS = [
   { label: 'How It Works', href: ROUTES.howItWorks },
   { label: 'Results', href: ROUTES.results },
   { label: 'Pricing', href: ROUTES.pricing },
+  { label: 'Trust & Safety', href: ROUTES.trust },
+  { label: 'The Founder\'s System', href: ROUTES.founder },
   { label: 'About', href: ROUTES.about },
   { label: 'Blog', href: ROUTES.blog },
 ];
@@ -93,7 +95,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[var(--qf-accent)]"
             >
-              Explore full multi-agent systems → Pillar 3
+              See how the full system works → Pillar 3
             </a>
           </p>
           <p className="text-[var(--qf-text-faint)]">

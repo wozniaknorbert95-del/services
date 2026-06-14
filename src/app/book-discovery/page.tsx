@@ -6,11 +6,11 @@ import BookDiscoveryForm from './BookDiscoveryForm';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
-  title: `Book your Automation Map — €${PRICING.discovery}, credited | Quietforge`,
+  title: `Book your Automation Map — €${PRICING.discovery}, credited`,
   description:
     'Book a paid Automation Map: 60–90 minutes to find your biggest time and money leaks, with ROI and a recommended first step. Fee credited toward your project. Remote.',
   openGraph: {
-    title: `Book your Automation Map — €${PRICING.discovery}, credited | Quietforge`,
+    title: `Book your Automation Map — €${PRICING.discovery}, credited`,
     description:
       'Book a paid Automation Map: 60–90 minutes to find your biggest time and money leaks, with ROI and a recommended first step.',
     url: 'https://services.flexgrafik.nl/book-discovery',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Book your Automation Map — €${PRICING.discovery}, credited | Quietforge`,
+    title: `Book your Automation Map — €${PRICING.discovery}, credited`,
     description: '60–90 minutes to find your biggest leaks. Fee credited toward your project.',
     images: ['/og/book-discovery.svg'],
   },

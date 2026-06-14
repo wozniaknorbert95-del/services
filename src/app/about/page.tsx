@@ -6,11 +6,11 @@ import { ROUTES } from '@/lib/constants';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
-  title: 'About — AI Systems Architect | Quietforge',
+  title: 'About — AI Systems Architect',
   description:
     'Norbert Wozniak — AI Systems Architect for NL small businesses. I design intelligent systems that build, verify and maintain themselves, with you in the loop.',
   openGraph: {
-    title: 'About — AI Systems Architect | Quietforge',
+    title: 'About — AI Systems Architect',
     description:
       'Systems that code, check and maintain themselves — built on a live owner ecosystem, not theory.',
     url: 'https://services.flexgrafik.nl/about',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About — AI Systems Architect | Quietforge',
+    title: 'About — AI Systems Architect',
     description: 'Intelligent automation with human approval gates — process-first delivery.',
     images: ['/og/about.svg'],
   },
@@ -157,7 +157,7 @@ export default function AboutPage() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-[var(--qf-accent)] text-sm font-semibold hover:text-[var(--qf-text)] transition-colors"
         >
-          Explore Pillar 3 →
+          See how the full system works →
         </a>
       </Section>
 

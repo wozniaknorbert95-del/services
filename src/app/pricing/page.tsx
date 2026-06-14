@@ -1,18 +1,19 @@
 import type { Metadata } from 'next';
+import { pricing } from '@/content/proof';
 import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import FaqItem from '@/components/ui/FaqItem';
-import { ROUTES, PRICING } from '@/lib/constants';
+import { ROUTES } from '@/lib/constants';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
-  title: 'Pricing — clear, no surprises | Quietforge',
+  title: 'Pricing — clear, no surprises',
   description:
     'Transparent pricing for small-business systems. Start with a €290 Automation Map (credited toward your project). Builds from €1,200. Managed plans from €99/mo. No lock-in.',
   openGraph: {
-    title: 'Pricing — clear, no surprises | Quietforge',
+    title: 'Pricing — clear, no surprises',
     description:
       'Transparent pricing for small-business systems. Start with a €290 Automation Map (credited toward your project). Builds from €1,200. Managed plans from €99/mo.',
     url: 'https://services.flexgrafik.nl/pricing',
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pricing — clear, no surprises | Quietforge',
+    title: 'Pricing — clear, no surprises',
     description:
       'Transparent pricing for small-business systems. Start with a €290 Automation Map.',
     images: ['/og/pricing.svg'],
@@ -36,16 +37,13 @@ export const metadata: Metadata = {
 
 /* ── data ── */
 const SETUP_TIERS = [
-  { name: 'Inbox Killer', desc: 'Email that sorts, prioritises & drafts', price: `€${PRICING.inboxKiller.from.toLocaleString()}`, star: true },
-  { name: 'Conversion Web Upgrade', desc: 'A fast site that captures and converts', price: `€${PRICING.webUpgrade.from.toLocaleString()}` },
-  { name: 'Lead Magnet Game', desc: 'A branded quiz/game that collects leads', price: `€${PRICING.leadMagnetGame.from.toLocaleString()}` },
-  { name: 'Sales Funnel Engine', desc: 'A step-by-step flow that quotes & books', price: `€${PRICING.salesFunnel.from.toLocaleString()}` },
+  { name: 'Automation Map', desc: 'A focused working session plus a written roadmap.', price: pricing.discovery.price, note: pricing.discovery.note, timeline: '60–90 min session' },
+  { name: 'Single System Build', desc: 'One module live + handover', price: pricing.singleSystem.from !== null ? `from ${pricing.singleSystem.from}` : '[FILL]', note: 'quoted after Map', timeline: pricing.singleSystem.timeline !== null ? pricing.singleSystem.timeline : '[FILL]' },
+  { name: 'Ecosystem / Multi-System', desc: '2–3 modules + Agent OS + AVG/HITL', price: pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : '[FILL]', note: 'quoted after Map', timeline: pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : '[FILL]' },
 ];
 
 const MRR_TIERS = [
-  { name: 'Care', for: 'Keep it healthy & monitored', price: `€${PRICING.care}/mo` },
-  { name: 'Manage', for: 'Actively tuned & improved', price: `€${PRICING.manage}/mo` },
-  { name: 'Partner', for: 'Your ongoing AI operations', price: `€${PRICING.partner}/mo` },
+  { name: 'Maintenance', for: 'Keep it healthy & monitored', price: pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : '[FILL]' },
 ];
 
 const FAQS = [
@@ -83,11 +81,10 @@ export default function PricingPage() {
           Clear pricing. No surprises.
         </h1>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
-          Start small, prove the value, then scale. Every engagement begins with a paid Automation
-          Map — and its fee comes off your first project.
+          Start with a paid Automation Map. Then choose a build that fits the size of the problem — not the size of a retainer.
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map — €290
+          Book your Automation Map
         </Button>
       </Section>
 
@@ -98,7 +95,7 @@ export default function PricingPage() {
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-10">
           How working together is priced
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           <Card className="p-6">
             <div className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-accent)] mb-2">
               ① Map
@@ -108,21 +105,35 @@ export default function PricingPage() {
               A focused working session plus a written roadmap.
             </p>
             <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-              €{PRICING.discovery}
+              {pricing.discovery.price}
             </div>
             <p className="text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">credited toward project</p>
           </Card>
 
           <Card className="p-6">
             <div className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-accent)] mb-2">
-              ② Build
+              ② Build (Single)
             </div>
-            <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-2">One-time setup</h3>
+            <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-2">Single System Build</h3>
             <p className="text-[var(--qf-text-dim)] text-sm mb-4">
-              Productised systems, fixed price.
+              One module live + handover.
             </p>
             <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-              from €{PRICING.inboxKiller.from.toLocaleString()}
+              {pricing.singleSystem.from !== null ? `from ${pricing.singleSystem.from}` : '[FILL]'}
+            </div>
+            <p className="text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">quoted after Map</p>
+          </Card>
+
+          <Card className="p-6">
+            <div className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-accent)] mb-2">
+              ② Build (Ecosystem)
+            </div>
+            <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-2">Multi-System</h3>
+            <p className="text-[var(--qf-text-dim)] text-sm mb-4">
+              2–3 modules + Agent OS + AVG/HITL.
+            </p>
+            <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
+              {pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : '[FILL]'}
             </div>
             <p className="text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">quoted after Map</p>
           </Card>
@@ -131,12 +142,12 @@ export default function PricingPage() {
             <div className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-accent)] mb-2">
               ③ Run
             </div>
-            <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-2">Managed Automation</h3>
+            <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-2">Maintenance</h3>
             <p className="text-[var(--qf-text-dim)] text-sm mb-4">
-              Keep it sharp, month after month.
+              Keep it healthy & monitored.
             </p>
             <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-              from €{PRICING.care}/mo
+              {pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : '[FILL]'}
             </div>
             <p className="text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">cancel anytime</p>
           </Card>
@@ -152,7 +163,7 @@ export default function PricingPage() {
       <Section padding="large">
         <Eyebrow>Step 1</Eyebrow>
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-6">
-          Automation Map · <span className="text-[var(--qf-accent)]">€{PRICING.discovery}</span>
+          Automation Map · <span className="text-[var(--qf-accent)]">{pricing.discovery.price}</span>
         </h2>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-6">
           A focused 60–90 minute working session plus a written roadmap. We find your two or three
@@ -204,7 +215,7 @@ export default function PricingPage() {
               {SETUP_TIERS.map((tier) => (
                 <tr key={tier.name} className="border-b border-[var(--qf-border)]">
                   <td className="py-4 pr-4 font-semibold text-[var(--qf-text)]">
-                    {tier.name} {tier.star && <span className="text-[var(--qf-accent)]">★</span>}
+                    {tier.name} {('star' in tier && Boolean((tier as any).star)) && <span className="text-[var(--qf-accent)]">★</span>}
                   </td>
                   <td className="py-4 pr-4 text-[var(--qf-text-dim)] text-sm">{tier.desc}</td>
                   <td className="py-4 pr-4 text-[var(--qf-text)] font-bold text-right">{tier.price}</td>
@@ -217,22 +228,20 @@ export default function PricingPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mb-6">
           <Card className="p-6">
             <span className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-text-dim)] block mb-2">
-              Bundle
+              Timeline
             </span>
-            <h4 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-1">Growth</h4>
-            <p className="text-sm text-[var(--qf-text-dim)] mb-3">Any 2 systems</p>
-            <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-              from €{PRICING.bundleGrowth.from.toLocaleString()}
+            <h4 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-1">Single System Build</h4>
+            <div className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-accent)]">
+              {pricing.singleSystem.timeline !== null ? pricing.singleSystem.timeline : '[FILL]'}
             </div>
           </Card>
           <Card className="p-6">
             <span className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-text-dim)] block mb-2">
-              Bundle
+              Timeline
             </span>
-            <h4 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-1">Pro</h4>
-            <p className="text-sm text-[var(--qf-text-dim)] mb-3">Any 3 systems</p>
-            <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-              from €{PRICING.bundlePro.from.toLocaleString()}
+            <h4 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-1">Multi-System</h4>
+            <div className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-accent)]">
+              {pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : '[FILL]'}
             </div>
           </Card>
         </div>
@@ -340,7 +349,7 @@ export default function PricingPage() {
          ═══════════════════════════════════════════════════════════ */}
       <Section background="surface" padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
-          Start with €{PRICING.discovery} and total clarity.
+          Start with {pricing.discovery.price} and total clarity.
         </h2>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
           No big commitment, no guesswork. Book your Automation Map, see the ROI, and decide

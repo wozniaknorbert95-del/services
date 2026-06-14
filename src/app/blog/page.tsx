@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     'Short, honest writing on digital transformation for small business. No buzzwords.',
   openGraph: {
-    title: 'Blog — practical notes on systems & automation | Quietforge',
+    title: 'Blog — practical notes on systems & automation',
     description: 'Short, honest writing on digital transformation for small business.',
     images: [
       {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog — practical notes on systems & automation | Quietforge',
+    title: 'Blog — practical notes on systems & automation',
     description: 'Short, honest writing on digital transformation for small business.',
     images: ['/og/blog.svg'],
   },

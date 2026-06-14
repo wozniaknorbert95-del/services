@@ -45,11 +45,11 @@ const MODULES: EcosystemModule[] = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Owner ecosystem — 8 repos, 1 system | Quietforge',
+  title: 'Owner ecosystem — 8 repos, 1 system',
   description:
     'The live multi-repo stack behind Quietforge: VCMS supervision, Agent OS execution, wizard commerce, portal assistant and Inbox Killer. Process-proof architecture map.',
   openGraph: {
-    title: 'Owner ecosystem — 8 repos, 1 system | Quietforge',
+    title: 'Owner ecosystem — 8 repos, 1 system',
     description:
       'Governance · VCMS · jadzia · Agent OS · wizard · portal — the system the architect runs before selling automation.',
     url: 'https://services.flexgrafik.nl/results/owner-ecosystem',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Owner ecosystem — 8 repos, 1 system | Quietforge',
+    title: 'Owner ecosystem — 8 repos, 1 system',
     description: 'Live stack behind the AI Systems Architect — forward internally.',
     images: ['/og/results-owner-ecosystem.svg'],
   },

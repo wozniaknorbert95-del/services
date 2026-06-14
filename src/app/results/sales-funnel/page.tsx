@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Section from '@/components/ui/Section';
-import GratkaDiagram from '@/components/ui/GratkaDiagram';
-import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import Eyebrow from '@/components/ui/Eyebrow';
+import Card from '@/components/ui/Card';
+import Section from '@/components/ui/Section';
 import { ROUTES, EXTERNAL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
+import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
 
 const SLUG = 'sales-funnel';
 
@@ -45,11 +44,11 @@ const ROI_ROWS = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Case study — Self-service quote & onboarding | Quietforge',
+  title: 'Case study — Self-service quote & onboarding',
   description:
     'How a 7-step configurator with open pricing qualifies, quotes and books without manual email ping-pong. Process-proof case study with downloadable journey map.',
   openGraph: {
-    title: 'Case study — Self-service quote & onboarding | Quietforge',
+    title: 'Case study — Self-service quote & onboarding',
     description:
       '7-step configurator · progress bar · sticky cart · open pricing at checkout. Live production proof.',
     url: 'https://services.flexgrafik.nl/results/sales-funnel',
@@ -64,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Case study — Self-service quote & onboarding | Quietforge',
+    title: 'Case study — Self-service quote & onboarding',
     description: 'Qualify · configure · price · pay — without typing the same reply again.',
     images: ['/og/results-sales-funnel.svg'],
   },
@@ -77,175 +76,77 @@ export default function SalesFunnelCaseStudyPage() {
     return null;
   }
 
-  return (
+  const downloadButtons = (
     <>
-      <Section padding="large">
-        <Link
-          href={ROUTES.results}
-          className="mb-6 inline-block text-sm text-[var(--qf-text-dim)] hover:text-[var(--qf-accent)]"
-        >
-          ← All results
-        </Link>
-        <Eyebrow>Case study {study.number} · production pattern</Eyebrow>
-        <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-4 max-w-3xl">
-          {study.title}
-        </h1>
-        <p className="mb-2 font-mono text-sm text-[var(--qf-accent)]">{study.meta}</p>
-        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)]">
-          {study.context} This case study describes a live production wizard in the owner ecosystem —
-          step names verified against source code, described generically so you can forward the
-          downloads internally.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-4">
-          <Button href={GRATKA.salesFunnelJourneySvg} target="_blank" rel="noopener noreferrer" variant="secondary">
-            Journey diagram (SVG) ↓
-          </Button>
-          <Button href={GRATKA.salesFunnelJourneyPdf} target="_blank" rel="noopener noreferrer" variant="secondary">
-            Journey map (PDF) ↓
-          </Button>
-          <Button href={GRATKA.salesFunnelRoiPdf} target="_blank" rel="noopener noreferrer" variant="secondary">
-            ROI framing sheet (PDF) ↓
-          </Button>
-          <Button href={EXTERNAL.zzpackageWizard} target="_blank" rel="noopener noreferrer" variant="ghost">
-            See the live wizard →
-          </Button>
-        </div>
-        <p className="mt-4 max-w-none text-sm text-[var(--qf-text-faint)]">
-          Live wizard in the owner ecosystem (NL). Opens zzpackage.flexgrafik.nl — a working
-          7-step configurator, not a mockup.
-        </p>
-      </Section>
+      <Button href={GRATKA.salesFunnelJourneySvg} target="_blank" rel="noopener noreferrer" variant="secondary">
+        Journey diagram (SVG) ↓
+      </Button>
+      <Button href={GRATKA.salesFunnelJourneyPdf} target="_blank" rel="noopener noreferrer" variant="secondary">
+        Journey map (PDF) ↓
+      </Button>
+      <Button href={GRATKA.salesFunnelRoiPdf} target="_blank" rel="noopener noreferrer" variant="secondary">
+        ROI framing sheet (PDF) ↓
+      </Button>
+      <Button href={EXTERNAL.zzpackageWizard} target="_blank" rel="noopener noreferrer" variant="ghost">
+        See the live wizard →
+      </Button>
+    </>
+  );
 
-      <Section background="surface" padding="large">
-        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
-          Before vs after
-        </h2>
-        <div className="grid gap-[var(--qf-sp-6)] md:grid-cols-2">
-          <Card className="border-[var(--qf-warn)] p-6">
-            <p className="mb-4 font-mono text-xs uppercase tracking-wider text-[var(--qf-warn)]">
-              Before — manual quoting
-            </p>
-            <ul className="m-0 list-none space-y-3 p-0">
-              {BEFORE_ITEMS.map((item) => (
-                <li key={item} className="text-sm text-[var(--qf-text-dim)]">
-                  <span className="text-[var(--qf-warn)]">✕</span> {item}
-                </li>
-              ))}
-            </ul>
-          </Card>
-          <Card className="border-[var(--qf-ok)] p-6">
-            <p className="mb-4 font-mono text-xs uppercase tracking-wider text-[var(--qf-ok)]">
-              After — self-service funnel
-            </p>
-            <ul className="m-0 list-none space-y-3 p-0">
-              {AFTER_ITEMS.map((item) => (
-                <li key={item} className="text-sm text-[var(--qf-text-dim)]">
-                  <span className="text-[var(--qf-ok)]">✓</span> {item}
-                </li>
-              ))}
-            </ul>
-          </Card>
-        </div>
-      </Section>
-
-      <Section padding="large">
-        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
-          Configurator journey — 7 steps + checkout
-        </h2>
-        <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+  return (
+    <CaseStudyLayout
+      study={study}
+      problemBefore={BEFORE_ITEMS}
+      problemAfter={AFTER_ITEMS}
+      architectureDiagramSvgUrl={GRATKA.salesFunnelJourneySvg}
+      architectureDiagramAlt="Self-service configurator journey: welcome, seven configuration steps with progress bar and sticky cart, then checkout with open pricing"
+      architectureDescription={
+        <p>
           {study.system} Progress bar and sticky cart stay visible on every configuration step —
           per product rules, these elements are never removed or bypassed.
         </p>
-        <div className="mb-8 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-4">
-          <GratkaDiagram
-            src={GRATKA.salesFunnelJourneySvg}
-            alt="Self-service configurator journey: welcome, seven configuration steps with progress bar and sticky cart, then checkout with open pricing"
-            width={1200}
-            height={900}
-          />
-        </div>
-        <div className="grid gap-[var(--qf-sp-4)]">
-          {JOURNEY_STEPS.map((step) => (
-            <Card
-              key={step.step}
-              className={step.highlight ? 'border-[var(--qf-accent)] bg-[var(--qf-accent-glow)]' : ''}
-            >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
-                <span className="shrink-0 font-mono text-lg font-bold text-[var(--qf-accent)]">
-                  {step.step}
-                </span>
-                <div className="min-w-0">
-                  <h3 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
-                    {step.title}
-                  </h3>
-                  <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{step.detail}</p>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      <Section background="surface" padding="large">
-        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
-          ROI framing — qualitative only
-        </h2>
-        <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
-          No invented conversion rates or € saved. This is an honest process comparison you can use
-          internally to decide whether a configurator is the right first build.
-        </p>
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[560px] border-collapse text-left text-sm">
-            <thead>
-              <tr className="border-b border-[var(--qf-border)]">
-                <th className="py-3 pr-4 font-mono text-xs uppercase tracking-wider text-[var(--qf-warn)]">
-                  Manual quote
-                </th>
-                <th className="py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-ok)]">
-                  Self-service funnel
-                </th>
+      }
+      buildModules={JOURNEY_STEPS}
+      buildDescription={<p>Configurator journey — 7 steps + checkout.</p>}
+      stack={['Next.js', 'React', 'Tailwind', 'Stripe', 'Webhook integration']}
+      manifestKey="salesFunnel"
+      videoKey="wizard"
+      screenKey="wizardCheckout"
+      downloadButtons={downloadButtons}
+    >
+      <h2 className="mt-8 text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
+        ROI framing — qualitative only
+      </h2>
+      <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+        No invented conversion rates or € saved. This is an honest process comparison you can use
+        internally to decide whether a configurator is the right first build.
+      </p>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+          <thead>
+            <tr className="border-b border-[var(--qf-border)]">
+              <th className="py-3 pr-4 font-mono text-xs uppercase tracking-wider text-[var(--qf-warn)]">
+                Manual quote
+              </th>
+              <th className="py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-ok)]">
+                Self-service funnel
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {ROI_ROWS.map((row) => (
+              <tr key={row.manual} className="border-b border-[var(--qf-border)]">
+                <td className="py-3 pr-4 text-[var(--qf-text-dim)]">{row.manual}</td>
+                <td className="py-3 text-[var(--qf-text-dim)]">{row.selfService}</td>
               </tr>
-            </thead>
-            <tbody>
-              {ROI_ROWS.map((row) => (
-                <tr key={row.manual} className="border-b border-[var(--qf-border)]">
-                  <td className="py-3 pr-4 text-[var(--qf-text-dim)]">{row.manual}</td>
-                  <td className="py-3 text-[var(--qf-text-dim)]">{row.selfService}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-6 max-w-none text-sm text-[var(--qf-text-faint)]">
-          Download the full framing sheet (PDF) for a printable version to share with a partner or
-          accountant.
-        </p>
-      </Section>
-
-      <Section padding="large">
-        <Card className="p-6 md:p-8">
-          <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-            What&apos;s real
-          </p>
-          <p className="mb-4 max-w-none text-[var(--qf-text)]">{study.real}</p>
-          <p className="max-w-none font-mono text-sm text-[var(--qf-text-faint)]">
-            Measurement: {study.measurement}
-          </p>
-        </Card>
-      </Section>
-
-      <Section background="surface" padding="large">
-        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
-          Want a funnel shaped around your offer?
-        </h2>
-        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
-          Start with a paid Automation Map. We&apos;ll map your quoting leaks and recommend whether
-          a 7-step configurator — or something lighter — is the right first system.
-        </p>
-        <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
-        </Button>
-      </Section>
-    </>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-6 max-w-none text-sm text-[var(--qf-text-faint)]">
+        Download the full framing sheet (PDF) for a printable version to share with a partner or
+        accountant.
+      </p>
+    </CaseStudyLayout>
   );
 }
