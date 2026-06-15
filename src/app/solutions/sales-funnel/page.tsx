@@ -2,7 +2,7 @@ import SolutionLayout from '@/components/solutions/SolutionLayout';
 import { ROUTES } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Sales Funnel Engine — quotes & bookings on autopilot | Quietforge',
+  title: 'Sales Funnel Engine — quotes & bookings on autopilot',
 };
 
 export default function SalesFunnelPage() {

@@ -7,7 +7,7 @@ import { ROUTES } from '@/lib/constants';
 import VideoSlot from '@/components/ui/VideoSlot';
 
 export const metadata: Metadata = {
-  title: "The Founder's System | Quietforge",
+  title: "The Founder's System",
   description: 'Built for real use, not pitch decks. Why I built my own system to run my business, and why I install the exact same architecture for other small businesses.',
 };
 

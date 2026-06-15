@@ -11,6 +11,7 @@ import TrustSafety from '@/components/home/TrustSafety';
 import ResultsTeaser from '@/components/home/ResultsTeaser';
 import BehindTheScenes from '@/components/home/BehindTheScenes';
 import SystemMetrics from '@/components/home/SystemMetrics';
+import PricingSection from '@/components/sections/Pricing';
 import FinalCtaBand from '@/components/home/FinalCtaBand';
 
 export const metadata: Metadata = {
@@ -53,6 +54,7 @@ export default function Home() {
       <TrustSafety />
       <ResultsTeaser />
       <BehindTheScenes />
+      <PricingSection />
       <FinalCtaBand />
     </>
   );

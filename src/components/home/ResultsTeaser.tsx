@@ -5,14 +5,16 @@ import { useMotion } from '@/lib/useMotion';
 import { ROUTES } from '@/lib/constants';
 import { Building2, GitBranch, Mail, Workflow } from 'lucide-react';
 
+import { caseMeasurements } from '@/content/proof';
+
 const CASES = [
   {
     icon: Mail,
     title: 'The self-running back-office',
     meta: 'Inbox Killer · live',
     summary:
-      'An agent classifies mixed email, drafts replies, and queues everything for your approval.',
-    measurement: 'Estimate ~ a few hours/week — confirmed per client.',
+      'An agent deploys and manages systems directly via Telegram commands, editing code remotely with SSH.',
+    measurementKey: 'inboxKiller' as const,
     caseHref: ROUTES.resultsInboxKiller,
   },
   {
@@ -21,7 +23,7 @@ const CASES = [
     meta: 'Agent engine · production',
     summary:
       'FastAPI + LangGraph on a VPS — single source of truth, agent cards and human approval gates.',
-    measurement: 'Process proof — architecture diagram on request.',
+    measurementKey: 'agentOs' as const,
     caseHref: ROUTES.resultsAgentOrchestrator,
   },
   {
@@ -30,7 +32,7 @@ const CASES = [
     meta: 'Sales Funnel Engine',
     summary:
       'A 7-step configurator qualifies, quotes and books — without you typing the same reply again.',
-    measurement: 'Fewer manual quote emails (to be quantified).',
+    measurementKey: 'salesFunnel' as const,
     caseHref: ROUTES.resultsSalesFunnel,
   },
   {
@@ -39,7 +41,7 @@ const CASES = [
     meta: 'Web Upgrade + assistant · anonymised',
     summary:
       'Site upgrade + qualification-only assistant + human-approved content — AVG layer specified.',
-    measurement: 'In delivery — outcomes reported once live.',
+    measurementKey: 'advisory' as const,
     caseHref: ROUTES.resultsAdvisoryModernisation,
   },
 ];
@@ -89,7 +91,7 @@ export default function ResultsTeaser() {
               <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
               <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.summary}</p>
               <p className="mb-4 font-mono text-xs text-[var(--qf-text-faint)]">
-                Measurement: {c.measurement}
+                Measurement: {caseMeasurements[c.measurementKey]?.value || '[FILL: measurement]'}
               </p>
               <a
                 href={c.caseHref}

@@ -6,7 +6,7 @@ export interface CaseStudy {
   context: string;
   system: string;
   real: string;
-  measurement: string;
+  measurement?: string;
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -16,11 +16,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'The self-running back-office',
     meta: 'Inbox Killer · live',
     context:
-      'A small NL service business drowning in mixed email — leads, invoices, noise in one pile.',
+      'A small NL service business needing reliable deployments and instant codebase hotfixes without a PC.',
     system:
-      'An agent that reads the inbox, classifies (lead / client / invoice / noise) and drafts replies. classify → plan → diff → approve. Nothing sends without approval.',
+      'An agent that receives commands via Telegram, plans edits, modifies files remotely via SSH, and asks for final approval before restarting the service.',
     real: 'Live mailbox, 100+ messages/scan, human-in-the-loop on every send.',
-    measurement: 'Estimate ~ a few hours/week — confirmed per client.',
   },
   {
     slug: 'agent-orchestrator',
@@ -32,7 +31,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     system:
       'A FastAPI + LangGraph engine on a VPS, governed by a single source of truth, agent cards and fixed rules (planner → coder → tester → review).',
     real: 'Production engine, SSoT architecture, guardrails, 12-step workflow.',
-    measurement: 'Process proof — architecture diagram on request.',
   },
   {
     slug: 'sales-funnel',
@@ -43,7 +41,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     system:
       'A 7-step configurator with open pricing and payment — qualifies, quotes and books without a phone call.',
     real: 'Working funnel — pick options → upload logo → see price → pay.',
-    measurement: 'Fewer manual quote emails (to be quantified).',
   },
   {
     slug: 'advisory-modernisation',
@@ -55,7 +52,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     system:
       'Site modernisation + a lead-qualifying AI assistant (qualification only, no tax advice) + a human-approved content engine, with a signed data-processing agreement.',
     real: 'Full scope designed, security & AVG layer specified, staged delivery.',
-    measurement: 'In delivery — outcomes reported once live.',
   },
 ];
 

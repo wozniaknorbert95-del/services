@@ -11,12 +11,15 @@ export default function SystemMetrics() {
   const metricCards = [
     { label: 'Repos / modules', value: metrics.repos },
     { label: 'Systems Live', value: metrics.systemsLive },
-    { label: 'Inbox throughput', value: metrics.msgsPerScan },
     { label: 'Wizard steps', value: metrics.wizardSteps },
-    { label: 'Dynamic fields', value: metrics.dynamicFields },
+    { label: 'Dynamic SKUs', value: metrics.skus },
+    { label: 'Game levels', value: metrics.gameLevels },
     { label: 'Workflow steps', value: metrics.workflowSteps },
+    { label: 'Agent nodes', value: metrics.agentNodes },
+    { label: 'Inbox throughput', value: metrics.msgsPerScan },
     { label: 'Integrations', value: metrics.integrations },
     { label: 'Hosting', value: metrics.hosting },
+    { label: 'Deployment', value: metrics.deployment },
   ];
 
   return (

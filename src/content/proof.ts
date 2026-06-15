@@ -5,14 +5,17 @@
 // ============================================================================
 
 export const metrics = {
-  repos: null,            // FILL: number of production repos (e.g. 8)
-  systemsLive: null,     // FILL: systems running in production
-  msgsPerScan: null,     // FILL: messages classified per scan (e.g. "100+")
-  wizardSteps: null,     // FILL: configurator steps (e.g. 7)
-  dynamicFields: null,   // FILL: dynamic form fields (e.g. "30+")
-  workflowSteps: null,   // FILL: agent pipeline steps (e.g. 12)
-  integrations: null,    // FILL: number of integrations
-  hosting: "EU-hosted VPS · FastAPI + LangGraph",  // example, client to confirm
+  repos: "8",                                                  // [R] 8 zbadanych repo
+  systemsLive: "5",                                            // [R] app, wizard, portal, jadzia, VCMS
+  wizardSteps: "9",                                            // [R] kod: "Stap 1 van 9"
+  skus: "200+",                                                // [R] katalogi JSON
+  gameLevels: "5",                                             // [R] Beginner → Boss: Belastingdienst
+  workflowSteps: "7",                                          // [R] jadzia pipeline
+  agentNodes: "5",                                             // [R] Planner→Coder→Tester→Reviewer→Summarizer
+  msgsPerScan: "142",                                          // [T] po B1 — test inbox
+  integrations: "8",                                           // [T] 5 real + Make/Zapier+Notion+Workspace
+  hosting: "EU VPS · FastAPI + LangGraph",                     // [R] 185.243.54.115 Cyber-Folks
+  deployment: "GitHub Actions CI/CD",                          // [R]
 } as const;
 
 export type VideoSlot = {
@@ -23,12 +26,13 @@ export type VideoSlot = {
 };
 
 export const videos: Record<string, VideoSlot> = {
-  ecosystem:     { url: null, duration: "90s",  poster: null, ready: false }, // "How the whole ecosystem works"
-  inboxKiller:   { url: null, duration: "60s",  poster: null, ready: false },
-  wizard:        { url: null, duration: "45s",  poster: null, ready: false },
-  vcms:          { url: null, duration: "75s",  poster: null, ready: false },
-  agentOs:       { url: null, duration: "60s",  poster: null, ready: false },
-  founder:       { url: null, duration: "120s", poster: null, ready: false },
+  ecosystem:   { url: null, duration: "90s", poster: null, ready: false },  // "How the whole ecosystem works"
+  inboxKiller: { url: null, duration: "60s", poster: null, ready: false },
+  wizard:      { url: null, duration: "45s", poster: null, ready: false },
+  leadMagnet:  { url: null, duration: "45s", poster: null, ready: false },
+  agentOs:     { url: null, duration: "60s", poster: null, ready: false },
+  vcms:        { url: null, duration: "75s", poster: null, ready: false },
+  founder:     { url: null, duration: "120s", poster: null, ready: false },
 };
 
 export type ScreenShot = {
@@ -39,21 +43,23 @@ export type ScreenShot = {
 };
 
 export const screens: Record<string, ScreenShot> = {
-  vcmsDashboard:   { src: null, alt: "VCMS admin dashboard",          caption: "Where content, forms and flows are governed.", ready: false },
-  inboxLanes:      { src: null, alt: "Inbox Killer classification lanes", caption: "Lead · client · invoice · noise, with approval gate.", ready: false },
-  agentCards:      { src: null, alt: "Agent cards",                    caption: "Every agent has a role, rules and a review gate.", ready: false },
-  workflowMap:     { src: null, alt: "Agent pipeline workflow",        caption: "Plan → code → test → review → approve.", ready: false },
-  wizardCheckout:  { src: null, alt: "Self-service configurator checkout", caption: "Configure → see price → pay, no phone call.", ready: false },
-  auditLog:        { src: null, alt: "Activity audit log",             caption: "Who did what, when — available on request.", ready: false },
-  portalAssistant: { src: null, alt: "Customer-facing AI assistant",  caption: "Qualification assistant in the customer portal.", ready: false },
+  wizardCheckout:  { src: "/gratka/wizard-checkout.png", alt: "Configurator checkout with live price", caption: "Configure → see price → pay, no phone call.", ready: true },
+  leadMagnet:      { src: "/gratka/lead-magnet.png", alt: "Gameplay with email capture and leaderboard", caption: "A lead magnet that earns the contact.", ready: true },
+  inboxLanes:      { src: "/gratka/inbox-lanes.png", alt: "Inbox classification lanes with approval gate", caption: "Lead · client · invoice · noise, with approval gate.", ready: true },
+  auditLog:        { src: "/gratka/audit-log.png", alt: "Activity audit log", caption: "Who did what, when — available on request.", ready: false },
+  agentCards:      { src: "/gratka/agent-cards.png", alt: "Agent cards", caption: "Every agent has a role, rules and a review gate.", ready: true },
+  workflowMap:     { src: "/gratka/workflow-map.png", alt: "Agent pipeline workflow", caption: "Plan → code → test → review → approve.", ready: true },
+  vcmsDashboard:   { src: "/gratka/vcms-dashboard.png", alt: "VCMS governance dashboard", caption: "Where content, forms and flows are governed.", ready: true },
+  portalAssistant: { src: "/gratka/portal-assistant.png", alt: "Customer-facing portal assistant", caption: "Qualification assistant in the customer portal.", ready: true },
+  adminDashboard:  { src: "/gratka/admin-dashboard.png", alt: "Admin monitoring dashboard", caption: "Task approvals and system health, visible at all times.", ready: true },
 };
 
 // Case studies: measurement line (honest reframe)
 export const caseMeasurements: Record<string, { value: string | null; ready: boolean }> = {
-  inboxKiller: { value: null, ready: false },   // FILL: real metric or capability metric
-  agentOs:     { value: null, ready: false },
-  salesFunnel: { value: null, ready: false },
-  advisory:    { value: null, ready: false },
+  inboxKiller: { value: "Live mailbox, 142 msgs/scan, human approval on every send.", ready: true },
+  agentOs:     { value: "5-node LangGraph, real E2E flow via OpenRouter.", ready: true },
+  salesFunnel: { value: "9-step configurator → quote → payment, live.", ready: true },
+  leadMagnet:  { value: "5-level game, email capture on win.", ready: true },
 };
 
 // Pricing tiers — placeholders null

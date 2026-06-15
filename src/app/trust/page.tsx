@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ARTEFACTS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Trust & Safety | Quietforge',
+  title: 'Trust & Safety',
   description: 'AI in a real business should reduce risk, not add it. Every system is built to survive a small business owner\'s worst week — and a regulator\'s question.',
 };
 

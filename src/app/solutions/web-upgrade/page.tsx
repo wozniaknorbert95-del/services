@@ -2,7 +2,7 @@ import SolutionLayout from '@/components/solutions/SolutionLayout';
 import { ROUTES } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Conversion Web Upgrade — a site that converts | Quietforge',
+  title: 'Conversion Web Upgrade — a site that converts',
 };
 
 export default function WebUpgradePage() {

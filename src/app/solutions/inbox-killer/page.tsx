@@ -2,30 +2,30 @@ import SolutionLayout from '@/components/solutions/SolutionLayout';
 import { ROUTES } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Inbox Killer — email that sorts itself | Quietforge',
+  title: 'Telegram Deployment Agent',
 };
 
 export default function InboxKillerPage() {
   return (
     <SolutionLayout
-      title="Inbox Killer — get your mornings back"
-      problem="Every hour in your inbox is an hour not spent on clients, delivery or growth — and every missed enquiry is revenue that simply walks away."
+      title="Telegram Deployment Agent"
+      problem="Small edits to the codebase normally require opening an IDE, setting up your environment, and pushing changes — an hour of friction for a one-line hotfix."
       systemItems={[
-        { title: 'Reads', body: 'It watches the inboxes you choose. Nothing else.' },
-        { title: 'Sorts', body: 'Every message lands in a clear lane: lead, client, invoice, or noise.' },
-        { title: 'Drafts', body: 'Ready-to-send replies appear, written in your voice.' },
-        { title: 'You approve', body: 'You send with one click. It never sends on its own.' },
+        { title: 'Listens', body: 'Agent receives instructions through a secure Telegram chat.' },
+        { title: 'Plans', body: 'It figures out what files to modify and connects securely via SSH.' },
+        { title: 'Diffs', body: 'Sends you a git diff right in Telegram so you know exactly what changes.' },
+        { title: 'You approve', body: 'Only upon your "yes" does the agent commit, push, and restart the service.' },
       ]}
       effectBeforeAfter={{
         before: [
-          'Important enquiries buried under invoices, newsletters and spam.',
-          'The same replies, typed again and again.',
-          'Leads that quietly go cold because no one got back in time.'
+          'Deployments require a laptop and full IDE setup.',
+          'Small hotfixes are postponed because of environment friction.',
+          'Missing audit logs for on-the-fly fixes.'
         ],
         after: [
-          'Hours back, every week.',
-          'No more lost leads.',
-          'A calmer business with full visibility and approval.'
+          'Deploy hotfixes from your phone while on the go.',
+          'Changes are version-controlled automatically.',
+          'Full history and approval logging directly in Telegram.'
         ]
       }}
       screenKey="inboxLanes"

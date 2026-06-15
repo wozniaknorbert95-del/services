@@ -2,7 +2,7 @@ import SolutionLayout from '@/components/solutions/SolutionLayout';
 import { ROUTES } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Lead Magnet Game — turn visitors into leads | Quietforge',
+  title: 'Lead Magnet Game — turn visitors into leads',
 };
 
 export default function LeadMagnetGamePage() {
