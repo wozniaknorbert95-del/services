@@ -27,7 +27,7 @@ export default function PricingSection() {
     },
     {
       name: 'Maintenance',
-      price: pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : '[FILL]',
+      price: pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : 'Quoted after Map',
       timeline: 'Monthly',
       includes: ['Active tuning', 'Health monitoring', 'Priority support'],
       note: pricing.maintenance.note,

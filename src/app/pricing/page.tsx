@@ -38,12 +38,12 @@ export const metadata: Metadata = {
 /* ── data ── */
 const SETUP_TIERS = [
   { name: 'Automation Map', desc: 'A focused working session plus a written roadmap.', price: pricing.discovery.price, note: pricing.discovery.note, timeline: '60–90 min session' },
-  { name: 'Single System Build', desc: 'One module live + handover', price: pricing.singleSystem.from !== null ? `from ${pricing.singleSystem.from}` : '[FILL]', note: 'quoted after Map', timeline: pricing.singleSystem.timeline !== null ? pricing.singleSystem.timeline : '[FILL]' },
-  { name: 'Ecosystem / Multi-System', desc: '2–3 modules + Agent OS + AVG/HITL', price: pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : '[FILL]', note: 'quoted after Map', timeline: pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : '[FILL]' },
+  { name: 'Single System Build', desc: 'One module live + handover', price: pricing.singleSystem.from !== null ? `from ${pricing.singleSystem.from}` : 'Quoted', note: 'after Map', timeline: pricing.singleSystem.timeline !== null ? pricing.singleSystem.timeline : 'Varies' },
+  { name: 'Ecosystem / Multi-System', desc: '2–3 modules + Agent OS + AVG/HITL', price: pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : 'Quoted', note: 'after Map', timeline: pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : 'Varies' },
 ];
 
 const MRR_TIERS = [
-  { name: 'Maintenance', for: 'Keep it healthy & monitored', price: pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : '[FILL]' },
+  { name: 'Maintenance', for: 'Keep it healthy & monitored', price: pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : 'Quoted' },
 ];
 
 const FAQS = [
@@ -119,7 +119,7 @@ export default function PricingPage() {
               One module live + handover.
             </p>
             <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-              {pricing.singleSystem.from !== null ? `from ${pricing.singleSystem.from}` : '[FILL]'}
+              {pricing.singleSystem.from !== null ? `from ${pricing.singleSystem.from}` : 'Quoted after Map'}
             </div>
             <p className="text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">quoted after Map</p>
           </Card>
@@ -133,7 +133,7 @@ export default function PricingPage() {
               2–3 modules + Agent OS + AVG/HITL.
             </p>
             <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-              {pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : '[FILL]'}
+              {pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : 'Quoted after Map'}
             </div>
             <p className="text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">quoted after Map</p>
           </Card>
@@ -147,7 +147,7 @@ export default function PricingPage() {
               Keep it healthy & monitored.
             </p>
             <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-              {pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : '[FILL]'}
+              {pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : 'Quoted monthly'}
             </div>
             <p className="text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">cancel anytime</p>
           </Card>
@@ -232,7 +232,7 @@ export default function PricingPage() {
             </span>
             <h4 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-1">Single System Build</h4>
             <div className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-accent)]">
-              {pricing.singleSystem.timeline !== null ? pricing.singleSystem.timeline : '[FILL]'}
+              {pricing.singleSystem.timeline !== null ? pricing.singleSystem.timeline : 'Varies by scope'}
             </div>
           </Card>
           <Card className="p-6">
@@ -241,7 +241,7 @@ export default function PricingPage() {
             </span>
             <h4 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-1">Multi-System</h4>
             <div className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-accent)]">
-              {pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : '[FILL]'}
+              {pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : 'Varies by scope'}
             </div>
           </Card>
         </div>
