@@ -25,13 +25,33 @@ export type VideoSlot = {
   ready: boolean;            // false until client fills url
 };
 
+export type FeatureClaimStatus = 'PROVEN' | 'DEMO' | 'PLANNED';
+
+/** Honest VCMS feature labels for portfolio — sync with flex-vcms/docs/VCMS_SALES_REPORT.md */
+export const vcmsFeatureStatus: Record<string, { label: string; status: FeatureClaimStatus }> = {
+  scan:           { label: 'Repo & content scan', status: 'PROVEN' },
+  conflicts:      { label: 'Conflict detection + severity', status: 'PROVEN' },
+  ssot:           { label: 'SSoT registry', status: 'PROVEN' },
+  auditLog:       { label: 'Governance audit JSONL', status: 'DEMO' },
+  koda:           { label: 'KODA read-only assistant', status: 'DEMO' },
+  hitl:           { label: 'Human approval gate', status: 'DEMO' },
+  healthScore:    { label: 'SSoT health score', status: 'PLANNED' },
+};
+
+/**
+ * VCMS demo video — upload instructions (Dowódca):
+ * 1. Source (local, gitignored): flex-vcms/docs/demo/final-portfolio-demo.mp4 (~69s)
+ *    Generate: cd flex-vcms && npm run demo:all
+ * 2. Upload to Loom / Vimeo / YouTube (unlisted)
+ * 3. Set url + ready: true below (optional poster: /gratka/vcms-demo-poster.jpg)
+ */
 export const videos: Record<string, VideoSlot> = {
   ecosystem:   { url: null, duration: "90s", poster: null, ready: false },  // "How the whole ecosystem works"
   inboxKiller: { url: null, duration: "60s", poster: null, ready: false },
   wizard:      { url: null, duration: "45s", poster: null, ready: false },
   leadMagnet:  { url: null, duration: "45s", poster: null, ready: false },
   agentOs:     { url: null, duration: "60s", poster: null, ready: false },
-  vcms:        { url: null, duration: "75s", poster: null, ready: false }, // Fill after Loom — see flex-vcms/docs/VCMS_DEMO_SCRIPT.md
+  vcms:        { url: "/gratka/vcms-demo.mp4", duration: "69s", poster: null, ready: true }, // Self-hosted from flex-vcms/docs/demo/final-portfolio-demo.mp4
   founder:     { url: null, duration: "120s", poster: null, ready: false },
 };
 
@@ -46,7 +66,7 @@ export const screens: Record<string, ScreenShot> = {
   wizardCheckout:  { src: "/gratka/wizard-checkout.png", alt: "Configurator checkout with live price", caption: "Configure → see price → pay, no phone call.", ready: true },
   leadMagnet:      { src: "/gratka/lead-magnet.png", alt: "Gameplay with email capture and leaderboard", caption: "A lead magnet that earns the contact.", ready: true },
   inboxLanes:      { src: "/gratka/inbox-lanes.png", alt: "Inbox classification lanes with approval gate", caption: "Lead · client · invoice · noise, with approval gate.", ready: true },
-  auditLog:        { src: "/gratka/audit-log.png", alt: "Activity audit log", caption: "Who did what, when — available on request.", ready: false },
+  auditLog:        { src: "/gratka/audit-log.png", alt: "VCMS governance action log", caption: "Scan events from governance-audit.jsonl — DEMO: local trail; handoffs + prod ops on request.", ready: true },
   agentCards:      { src: "/gratka/agent-cards.png", alt: "Agent cards", caption: "Every agent has a role, rules and a review gate.", ready: true },
   workflowMap:     { src: "/gratka/workflow-map.png", alt: "Agent pipeline workflow", caption: "Plan → code → test → review → approve.", ready: true },
   vcmsDashboard:   { src: "/gratka/vcms-dashboard.png", alt: "VCMS governance dashboard", caption: "Scan status, 8-repo coverage and review pointers — governance command center (live).", ready: true },

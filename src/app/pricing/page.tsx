@@ -311,8 +311,8 @@ export default function PricingPage() {
               body: 'Pricing reflects the time and money the system saves you — not how long it takes to build.',
             },
             {
-              title: 'Enterprise-grade, small-business price.',
-              body: 'My systems do the heavy lifting, so you get architecture usually reserved for big budgets, at a fraction of the cost.',
+              title: 'Architecture built for control, priced for SMB.',
+              body: 'Governance, scan gates and human review — patterns usually reserved for large ops teams, without enterprise theatre.',
             },
             {
               title: 'Proven before it reaches you.',

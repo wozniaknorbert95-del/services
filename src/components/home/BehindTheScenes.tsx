@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
-import { screens, videos } from '@/content/proof';
+import { screens, videos, vcmsFeatureStatus } from '@/content/proof';
 import VideoSlot from '@/components/ui/VideoSlot';
 import Image from 'next/image';
 
@@ -28,6 +28,7 @@ export default function BehindTheScenes() {
   const activeScreens = [
     screens.vcmsDashboard,
     screens.conflictReport,
+    screens.auditLog,
     screens.agentCards,
     screens.workflowMap,
   ].filter((s) => s.ready && s.src);
@@ -74,6 +75,28 @@ export default function BehindTheScenes() {
         <p className="mb-[var(--qf-sp-8)] text-center text-sm font-medium text-[var(--qf-accent)]">
           The system proposes; a human approves what ships.
         </p>
+
+        <ul className="mx-auto mb-[var(--qf-sp-8)] flex max-w-3xl flex-wrap justify-center gap-2">
+          {Object.values(vcmsFeatureStatus).map((f) => (
+            <li
+              key={f.label}
+              className="rounded-full border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-[var(--qf-text-dim)]"
+            >
+              {f.label}{' '}
+              <span
+                className={
+                  f.status === 'PROVEN'
+                    ? 'text-emerald-500'
+                    : f.status === 'DEMO'
+                      ? 'text-amber-500'
+                      : 'text-[var(--qf-text-faint)]'
+                }
+              >
+                {f.status}
+              </span>
+            </li>
+          ))}
+        </ul>
 
         {showVcmsVideo && (
           <motion.div
