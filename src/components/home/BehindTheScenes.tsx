@@ -2,9 +2,24 @@
 
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
-import { screens } from '@/content/proof';
+import { screens, videos } from '@/content/proof';
 import VideoSlot from '@/components/ui/VideoSlot';
 import Image from 'next/image';
+
+const OUTCOMES = [
+  {
+    title: 'Fewer surprises before deploy',
+    detail: 'Conflicts across repos are visible before they become client-facing bugs.',
+  },
+  {
+    title: 'Faster changes with control',
+    detail: 'AI can draft and refactor — review gates in Agent OS decide what ships.',
+  },
+  {
+    title: 'Cleaner handover',
+    detail: 'Scan reports, repo map and session handoffs — not trapped in one inbox.',
+  },
+];
 
 export default function BehindTheScenes() {
   const motionCfg = useMotion();
@@ -14,8 +29,9 @@ export default function BehindTheScenes() {
     screens.vcmsDashboard,
     screens.agentCards,
     screens.workflowMap,
-    screens.auditLog,
-  ];
+  ].filter((s) => s.ready && s.src);
+
+  const showVcmsVideo = videos.vcms?.ready && videos.vcms?.url;
 
   return (
     <section className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)] bg-[var(--qf-bg)]">
@@ -32,19 +48,43 @@ export default function BehindTheScenes() {
             Most agencies show you a website.
           </h2>
           <p className="mx-auto mt-[var(--qf-sp-4)] max-w-2xl text-[var(--qf-text-dim)]">
-            Here&apos;s the system that runs behind it — the layer that decides why this is a business system, not a page.
+            Here&apos;s the governance layer behind it — VCMS scans repos and sources of truth before changes reach production.
           </p>
         </motion.div>
 
-        <motion.div
+        <motion.ul
           initial={fade.initial}
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
-          className="mb-[var(--qf-sp-16)]"
+          className="mx-auto mb-[var(--qf-sp-12)] grid max-w-3xl gap-[var(--qf-sp-4)] text-left md:grid-cols-3"
         >
-          <VideoSlot videoKey="vcms" />
-        </motion.div>
+          {OUTCOMES.map((o) => (
+            <li
+              key={o.title}
+              className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-4)]"
+            >
+              <p className="text-sm font-semibold text-[var(--qf-text)]">{o.title}</p>
+              <p className="mt-1 text-xs text-[var(--qf-text-dim)]">{o.detail}</p>
+            </li>
+          ))}
+        </motion.ul>
+
+        <p className="mb-[var(--qf-sp-8)] text-center text-sm font-medium text-[var(--qf-accent)]">
+          The system proposes; a human approves what ships.
+        </p>
+
+        {showVcmsVideo && (
+          <motion.div
+            initial={fade.initial}
+            whileInView={fade.animate}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={fade.transition}
+            className="mb-[var(--qf-sp-16)]"
+          >
+            <VideoSlot videoKey="vcms" />
+          </motion.div>
+        )}
 
         <motion.div
           variants={motionCfg.staggerContainer}
@@ -56,21 +96,13 @@ export default function BehindTheScenes() {
           {activeScreens.map((screen, idx) => (
             <motion.div key={idx} variants={motionCfg.childFade} className="flex flex-col gap-4">
               <div className="aspect-[16/10] w-full overflow-hidden rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)]">
-                {screen.ready && screen.src ? (
-                  <Image
-                    src={screen.src}
-                    alt={screen.alt}
-                    width={800}
-                    height={500}
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center p-4 text-center">
-                    <span className="font-mono text-sm text-[var(--qf-text-faint)]">
-                      [FILL: Screen — {screen.alt}]
-                    </span>
-                  </div>
-                )}
+                <Image
+                  src={screen.src!}
+                  alt={screen.alt}
+                  width={800}
+                  height={500}
+                  className="h-full w-full object-cover"
+                />
               </div>
               <div>
                 <p className="font-mono text-xs text-[var(--qf-accent)]">{screen.alt}</p>
@@ -79,6 +111,10 @@ export default function BehindTheScenes() {
             </motion.div>
           ))}
         </motion.div>
+
+        <p className="mt-[var(--qf-sp-10)] text-center text-xs text-[var(--qf-text-faint)]">
+          Live in owner ecosystem. Selected modules are production; some supervision features are internal and improving. No fabricated metrics.
+        </p>
       </div>
     </section>
   );

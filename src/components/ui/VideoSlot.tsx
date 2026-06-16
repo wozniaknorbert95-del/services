@@ -18,18 +18,7 @@ export default function VideoSlot({ videoKey }: VideoSlotProps) {
   }
 
   if (!video.ready || !video.url) {
-    return (
-      <div className="flex aspect-video w-full flex-col items-center justify-center rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-surface)]">
-        <span className="font-mono text-sm text-[var(--qf-text-faint)]">
-          [FILL: {videoKey} video — {video.duration}]
-        </span>
-        {video.poster && (
-          <span className="mt-2 font-mono text-xs text-[var(--qf-text-faint)]">
-            Poster: {video.poster}
-          </span>
-        )}
-      </div>
-    );
+    return null;
   }
 
   return (

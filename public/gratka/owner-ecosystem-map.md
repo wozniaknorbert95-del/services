@@ -28,7 +28,7 @@ Norbert runs a real multi-repo ecosystem before selling automation to clients. T
 ### Orchestration & supervision
 | Module | Role |
 |---|---|
-| **Flex-VCMS** | Ecosystem orchestrator — `vcms-scan.js`, `repos.yaml`, conflict detection, LLM gateway, SSoT sync. **Supervises all repos.** |
+| **Flex-VCMS** | Ecosystem orchestrator — `vcms-scan.js`, `repos.yaml`, conflict detection, SSoT registry, session handoffs. **Supervises all repos.** |
 
 ### Applications
 | Module | Role |

@@ -34,6 +34,16 @@ public/
 Źródło prawdy: `src/app/globals.css` — CSS custom properties.
 Nie duplikuj wartości. Importuj z tokenów.
 
+**Globalne Kolory Korzyści (Intent Colors):**
+- `--fx-time` (Czerwony) - Oszczędność czasu
+- `--fx-money` (Zielony) - Przychody / zysk
+- `--fx-order` (Niebieski) - Porządek i systemy
+- `--fx-calm` (Żółty) - Mniej stresu i chaosu
+- `--fx-efficiency` (Fiolet) - Efektywność zespołu
+
+Tailwind v4: dostępne jako klasy np. `text-fx-money`, `bg-fx-time`.
+Akcenty per repo są ładowane via atrybut `data-app="nazwa-repo"` w sekcji `<body>`.
+
 ## Testy
 - `npm run build` — wymagany przed każdym commitem
 - TypeScript: `npm run typecheck`

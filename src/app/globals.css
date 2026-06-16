@@ -1,19 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-fx-time: var(--fx-time);
+  --color-fx-money: var(--fx-money);
+  --color-fx-order: var(--fx-order);
+  --color-fx-calm: var(--fx-calm);
+  --color-fx-efficiency: var(--fx-efficiency);
+}
+
 :root {
   /* --- Quietforge Design System v1.0 --- */
-  /* Color: warm-black base (terminal aesthetic) */
-  --qf-bg:            #0e0c0a;
-  --qf-bg-raised:     #15120e;
-  --qf-bg-inset:      #1c1813;
-  --qf-border:        #2a241c;
-  --qf-border-bright: #3a3226;
+  /* Base layout (terminal aesthetic) */
+  --bg-base: #050608;
+  --bg-elevated: #0b0d12;
+  --bg-muted: #11141b;
+
+  --border-subtle: #252937;
+  --border-strong: #3a3f55;
+
+  --text-main: #e5e7ef;
+  --text-muted: #9ca3c7;
+  --text-soft: #6b7280;
+  --text-danger: #f97373;
+
+  /* Shared utility colors (legenda korzyści) */
+  --fx-time: #ef4444;       /* czerwony – oszczędza czas */
+  --fx-money: #22c55e;      /* zielony – zarabia więcej */
+  --fx-order: #4f46e5;      /* niebieski – porządek/systemy */
+  --fx-calm: #facc15;       /* żółty – mniej stresu */
+  --fx-efficiency: #a855f7; /* fiolet – efektywność */
+
+  /* Legacy & Quietforge tokens */
+  --qf-bg:            var(--bg-base);
+  --qf-bg-raised:     var(--bg-elevated);
+  --qf-bg-inset:      var(--bg-muted);
+  --qf-border:        var(--border-subtle);
+  --qf-border-bright: var(--border-strong);
 
   /* Text */
-  --qf-text:          #e9e2d4;
-  --qf-text-dim:      #9a907e;
-  --qf-text-faint:    #645c4e;
+  --qf-text:          var(--text-main);
+  --qf-text-dim:      var(--text-muted);
+  --qf-text-faint:    var(--text-soft);
 
   /* Accent: amber/forge */
   --qf-accent:        #e8a33d;
@@ -97,11 +125,94 @@ body {
   margin: 0;
   background: var(--qf-bg);
   color: var(--qf-text);
-  font-family: var(--qf-mono);
+  font-family: var(--qf-sans);
   font-size: var(--qf-fs-base);
   line-height: var(--qf-lh-body);
   font-feature-settings: "liga" 0;
   -webkit-font-smoothing: antialiased;
+}
+
+code, pre, .mono {
+  font-family: var(--qf-mono);
+  font-size: 0.95rem;
+}
+
+.panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+}
+
+.panel-header {
+  font-family: var(--qf-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.btn {
+  border-radius: 6px;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-subtle);
+  background: linear-gradient(to bottom, #11141b, #050608);
+  color: var(--text-main);
+  transition: border-color var(--qf-transition);
+}
+
+.btn:hover {
+  border-color: var(--border-strong);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-family: var(--qf-mono);
+}
+
+/* flex-vcms theme */
+body[data-app="flex-vcms"] {
+  --accent-primary: #8b5cf6;   /* fiolet (governance, meta) */
+  --accent-secondary: #4c1d95; /* głębszy fiolet na obrysy / tła sekcji */
+}
+
+body[data-app="flex-vcms"] .panel--governance {
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent-secondary) 35%, transparent);
+}
+
+body[data-app="flex-vcms"] .panel-header {
+  color: var(--accent-primary);
+}
+
+body[data-app="flex-vcms"] .led {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  border: 1px solid #111827;
+}
+
+body[data-app="flex-vcms"] .led--healthy {
+  background-color: var(--fx-money);
+}
+
+body[data-app="flex-vcms"] .led--stale {
+  background-color: var(--fx-calm);
+}
+
+body[data-app="flex-vcms"] .led--missing {
+  background-color: var(--fx-time);
+}
+
+/* services.flexgrafik.nl theme */
+body[data-app="services"] {
+  --accent-primary: #e8a33d;   /* bursztyn/forge */
+  --accent-secondary: #b8842f; 
 }
 
 h1, h2, h3, h4 {

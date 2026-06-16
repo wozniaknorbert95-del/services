@@ -31,7 +31,7 @@ export const videos: Record<string, VideoSlot> = {
   wizard:      { url: null, duration: "45s", poster: null, ready: false },
   leadMagnet:  { url: null, duration: "45s", poster: null, ready: false },
   agentOs:     { url: null, duration: "60s", poster: null, ready: false },
-  vcms:        { url: null, duration: "75s", poster: null, ready: false },
+  vcms:        { url: null, duration: "75s", poster: null, ready: false }, // Fill after Loom — see flex-vcms/docs/VCMS_DEMO_SCRIPT.md
   founder:     { url: null, duration: "120s", poster: null, ready: false },
 };
 
@@ -49,7 +49,7 @@ export const screens: Record<string, ScreenShot> = {
   auditLog:        { src: "/gratka/audit-log.png", alt: "Activity audit log", caption: "Who did what, when — available on request.", ready: false },
   agentCards:      { src: "/gratka/agent-cards.png", alt: "Agent cards", caption: "Every agent has a role, rules and a review gate.", ready: true },
   workflowMap:     { src: "/gratka/workflow-map.png", alt: "Agent pipeline workflow", caption: "Plan → code → test → review → approve.", ready: true },
-  vcmsDashboard:   { src: "/gratka/vcms-dashboard.png", alt: "VCMS governance dashboard", caption: "Where content, forms and flows are governed.", ready: true },
+  vcmsDashboard:   { src: "/gratka/vcms-dashboard.png", alt: "VCMS governance dashboard", caption: "Ecosystem scan status, 8-repo coverage and conflict report — governance orchestrator.", ready: true },
   portalAssistant: { src: "/gratka/portal-assistant.png", alt: "Customer-facing portal assistant", caption: "Qualification assistant in the customer portal.", ready: true },
   adminDashboard:  { src: "/gratka/admin-dashboard.png", alt: "Admin monitoring dashboard", caption: "Task approvals and system health, visible at all times.", ready: true },
 };

@@ -131,7 +131,8 @@
 ### ✅ AGENT — ZROBIONE (kod + manifest)
 - [x] `caseMeasurements` → wszystkie `ready: true` (tekst z kodu, nie fantazja)
 - [x] `metrics` → wypełnione z `docs/13_DANE_PER_REPO_GOTOWE.md`
-- [x] Komponenty Fazy 2/3: `SystemMetrics`, `BehindTheScenes`, `VideoSlot`, `PricingSection` na home
+- [x] Komponenty Fazy 2/3: `IntentRouter`, `SystemMetrics`, `BehindTheScenes`, `VideoSlot`, `PricingSection` na home
+- [x] Globalne Style i Tokeny: Unifikacja `globals.css` (Intent Colors + data-app accents)
 - [x] Build produkcyjny przechodzi (`npm run build`)
 
 ### ⏳ DOWÓDCA

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import HeroSection from '@/components/home/HeroSection';
+import IntentRouter from '@/components/home/IntentRouter';
 import PainGrid from '@/components/home/PainGrid';
 import SpearheadSpotlight from '@/components/home/SpearheadSpotlight';
 import LadderTeaser from '@/components/home/LadderTeaser';
@@ -43,6 +44,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <IntentRouter />
       <PainGrid />
       <SpearheadSpotlight />
       <LadderTeaser />

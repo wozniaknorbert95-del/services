@@ -35,7 +35,7 @@ const MODULES: EcosystemModule[] = [
   { layer: 'Governance', name: 'flexgrafik-meta', detail: 'Constitution — rules, agents, master plan' },
   { layer: 'Governance', name: 'WorkFlow', detail: 'Program office — backlog & daily ops' },
   { layer: 'Products', name: 'zzpackage', detail: 'Wizard + order form — configure or delegate' },
-  { layer: 'Supervision', name: 'Flex-VCMS', detail: 'Scan · conflicts · SSoT sync · LLM gateway', highlight: true },
+  { layer: 'Supervision', name: 'Flex-VCMS', detail: 'Scan · conflicts · SSoT registry · handoffs', highlight: true },
   { layer: 'Applications', name: 'flexgrafik.nl', detail: 'Portal + chat assistant — entry point' },
   { layer: 'Applications', name: 'app.flexgrafik.nl', detail: 'Lead magnet game → wizard' },
   { layer: 'Applications', name: 'jadzia-core', detail: 'AI backend · orders · module loop' },

@@ -83,7 +83,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[var(--qf-bg)] text-[var(--qf-text)]">
+      <body data-app="services" className="min-h-full flex flex-col bg-[var(--qf-bg)] text-[var(--qf-text)]">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

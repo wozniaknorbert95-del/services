@@ -50,7 +50,7 @@
   <text x="60" y="228" class="label">ORCHESTRATION &amp; SUPERVISION</text>
   <rect x="120" y="240" width="960" height="88" rx="4" class="hub"/>
   <text x="600" y="268" class="text" text-anchor="middle" font-size="14">Flex-VCMS  —  ecosystem orchestrator</text>
-  <text x="600" y="290" class="sub" text-anchor="middle">vcms-scan.js · repos.yaml · conflict detection · LLM gateway · SSoT sync</text>
+  <text x="600" y="290" class="sub" text-anchor="middle">vcms-scan.js · repos.yaml · conflict detection · SSoT registry · handoffs</text>
   <text x="600" y="310" class="sub" text-anchor="middle">supervises all repos  —  conflicts: 0 is the target every scan</text>
 
   <line x1="600" y1="328" x2="600" y2="360" class="edge" marker-end="url(#arrow)"/>
