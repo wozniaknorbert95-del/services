@@ -34,10 +34,24 @@ export default function OwnerEcosystemTeaser() {
               The system I run on — before I sell it.
             </h2>
             <p className="mb-[var(--qf-sp-6)] max-w-[var(--qf-maxw-narrow)] text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">
-              Eight repos, one supervised ecosystem: portal, wizard, game, AI backend, agent
-              orchestration and inbox automation. Case studies on this site map to real modules —
-              not theory.
+              Eight repos, one supervised ecosystem. VCMS governs the codebase, Agent OS executes, and human approval gates protect the output.
             </p>
+            
+            <ul className="mb-[var(--qf-sp-8)] space-y-[var(--qf-sp-3)] text-sm text-[var(--qf-text-dim)] list-none pl-0">
+              <li className="flex items-start">
+                <span className="text-[var(--qf-ok)] mr-2 shrink-0">✓</span>
+                <span><strong>Fewer surprises before deploy</strong> — conflicts visible before client-facing bugs.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[var(--qf-ok)] mr-2 shrink-0">✓</span>
+                <span><strong>Faster changes with control</strong> — AI drafts; review gates decide what ships.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[var(--qf-ok)] mr-2 shrink-0">✓</span>
+                <span><strong>Cleaner handover</strong> — rules, sources and logs documented, not in one inbox.</span>
+              </li>
+            </ul>
+
             <div className="flex flex-wrap gap-4">
               <Button href={ROUTES.resultsOwnerEcosystem} withArrow>
                 See the ecosystem map

@@ -86,7 +86,7 @@ export const caseMeasurements: Record<string, { value: string | null; ready: boo
 // Pricing tiers — placeholders null
 export const pricing = {
   discovery: { price: "€290", note: "Credited toward your project." },  // known, keep
-  singleSystem: { from: null, timeline: null, includes: null },   // FILL
-  ecosystem:    { from: null, timeline: null, includes: null },   // FILL
-  maintenance:  { from: null, perMonth: true, note: "No lock-in." },   // FILL
+  singleSystem: { from: "€1.490", timeline: "2-3 weeks", includes: "1 Custom Module (e.g. Inbox Killer or CRM sync)" },
+  ecosystem:    { from: "€3.490", timeline: "4-6 weeks", includes: "VCMS scan & governance" },
+  maintenance:  { from: "€290", perMonth: true, note: "No lock-in." },
 };

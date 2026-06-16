@@ -15,15 +15,15 @@ export default function PricingSection() {
     },
     {
       name: 'Single System Build',
-      price: pricing.singleSystem.from !== null ? `from ${pricing.singleSystem.from}` : '[FILL]',
-      timeline: pricing.singleSystem.timeline !== null ? pricing.singleSystem.timeline : '[FILL]',
-      includes: pricing.singleSystem.includes !== null ? [pricing.singleSystem.includes, 'Setup & integration', 'Handover'] : ['[FILL]', '[FILL]'],
+      price: pricing.singleSystem.from !== null ? `from ${pricing.singleSystem.from}` : 'Quoted after Map',
+      timeline: pricing.singleSystem.timeline !== null ? pricing.singleSystem.timeline : 'Varies by scope',
+      includes: pricing.singleSystem.includes !== null ? [pricing.singleSystem.includes, 'Setup & integration', 'Handover'] : ['Custom implementation', 'Setup & integration', 'Handover'],
     },
     {
       name: 'Ecosystem Build',
-      price: pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : '[FILL]',
-      timeline: pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : '[FILL]',
-      includes: pricing.ecosystem.includes !== null ? [pricing.ecosystem.includes, 'Agent OS setup', 'AVG/HITL layer'] : ['[FILL]', '[FILL]'],
+      price: pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : 'Quoted after Map',
+      timeline: pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : 'Varies by scope',
+      includes: pricing.ecosystem.includes !== null ? [pricing.ecosystem.includes, 'Agent OS setup', 'AVG/HITL layer'] : ['Multi-module setup', 'Agent OS setup', 'AVG/HITL layer'],
     },
     {
       name: 'Maintenance',

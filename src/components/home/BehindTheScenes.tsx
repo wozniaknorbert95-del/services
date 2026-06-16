@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
 import { screens, videos, vcmsFeatureStatus } from '@/content/proof';
+import { ROUTES } from '@/lib/constants';
+import Link from 'next/link';
 import VideoSlot from '@/components/ui/VideoSlot';
 import Image from 'next/image';
 
@@ -139,6 +141,21 @@ export default function BehindTheScenes() {
         <p className="mt-[var(--qf-sp-10)] text-center text-xs text-[var(--qf-text-faint)]">
           Live in owner ecosystem. Selected modules are production; some supervision features are internal and improving. No fabricated metrics.
         </p>
+
+        <motion.div
+          initial={fade.initial}
+          whileInView={fade.animate}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={fade.transition}
+          className="mt-[var(--qf-sp-12)] text-center"
+        >
+          <Link
+            href={ROUTES.resultsOwnerEcosystem}
+            className="inline-flex items-center gap-[var(--qf-sp-2)] text-[var(--qf-accent)] transition-colors hover:text-[var(--qf-text)]"
+          >
+            See full Owner Ecosystem case study →
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

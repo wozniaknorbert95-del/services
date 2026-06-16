@@ -170,7 +170,7 @@ export default function IntentRouter() {
               <p className="text-sm text-[var(--text-muted)] mb-6 flex-grow">{module.effect}</p>
               
               <div className="flex items-center justify-between mt-auto pt-4 border-t border-[var(--border-subtle)]">
-                <div className="flex gap-1.5">
+                  <div className="flex gap-1.5">
                   {module.intents.map(i => {
                     const colorVar = INTENTS.find(x => x.id === i)?.varName;
                     return (
