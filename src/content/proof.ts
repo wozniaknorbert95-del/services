@@ -49,7 +49,8 @@ export const screens: Record<string, ScreenShot> = {
   auditLog:        { src: "/gratka/audit-log.png", alt: "Activity audit log", caption: "Who did what, when — available on request.", ready: false },
   agentCards:      { src: "/gratka/agent-cards.png", alt: "Agent cards", caption: "Every agent has a role, rules and a review gate.", ready: true },
   workflowMap:     { src: "/gratka/workflow-map.png", alt: "Agent pipeline workflow", caption: "Plan → code → test → review → approve.", ready: true },
-  vcmsDashboard:   { src: "/gratka/vcms-dashboard.png", alt: "VCMS governance dashboard", caption: "Ecosystem scan status, 8-repo coverage and conflict report — governance orchestrator.", ready: true },
+  vcmsDashboard:   { src: "/gratka/vcms-dashboard.png", alt: "VCMS governance dashboard", caption: "Scan status, 8-repo coverage and review pointers — governance command center (live).", ready: true },
+  conflictReport:  { src: "/gratka/conflict-report.svg", alt: "VCMS conflict report (demo fixture)", caption: "Example SSoT mismatch flagged before deploy — DEMO fixture; live scan target is Conflicts: 0.", ready: true },
   portalAssistant: { src: "/gratka/portal-assistant.png", alt: "Customer-facing portal assistant", caption: "Qualification assistant in the customer portal.", ready: true },
   adminDashboard:  { src: "/gratka/admin-dashboard.png", alt: "Admin monitoring dashboard", caption: "Task approvals and system health, visible at all times.", ready: true },
 };

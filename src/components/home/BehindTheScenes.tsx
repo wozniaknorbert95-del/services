@@ -27,6 +27,7 @@ export default function BehindTheScenes() {
 
   const activeScreens = [
     screens.vcmsDashboard,
+    screens.conflictReport,
     screens.agentCards,
     screens.workflowMap,
   ].filter((s) => s.ready && s.src);
@@ -45,10 +46,10 @@ export default function BehindTheScenes() {
         >
           <span className="qf-eyebrow">// Behind the scenes</span>
           <h2 className="mt-[var(--qf-sp-4)] text-[var(--qf-fs-2xl)] font-bold">
-            Most agencies show you a website.
+            The governance layer behind the system.
           </h2>
           <p className="mx-auto mt-[var(--qf-sp-4)] max-w-2xl text-[var(--qf-text-dim)]">
-            Here&apos;s the governance layer behind it — VCMS scans repos and sources of truth before changes reach production.
+            VCMS scans content, repos and agent rules before changes reach production — so your business does not depend on memory, screenshots or one developer&apos;s inbox.
           </p>
         </motion.div>
 

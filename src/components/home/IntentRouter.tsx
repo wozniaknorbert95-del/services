@@ -66,10 +66,10 @@ const MODULES: ModuleInfo[] = [
   },
   {
     id: 'm5',
-    name: 'VCMS (Command Center)',
-    effect: 'Jeden dashboard do zarządzania wszystkim i podejmowania decyzji.',
+    name: 'VCMS (Governance Layer)',
+    effect: 'Skan 8 repo, konflikty SSoT i handoffy — warstwa nadzoru przed deployem.',
     intents: ['order', 'calm'],
-    link: '#',
+    link: '/results/owner-ecosystem',
   },
   {
     id: 'm6',
