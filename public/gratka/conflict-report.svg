@@ -8,7 +8,7 @@
   <rect width="800" height="500" fill="url(#bg)"/>
   <rect x="24" y="24" width="752" height="452" rx="8" fill="#0b0d12" stroke="#4c1d95" stroke-width="1"/>
   <text x="48" y="64" fill="#8b5cf6" font-family="ui-monospace, monospace" font-size="12" letter-spacing="2">// VCMS SCAN REPORT</text>
-  <text x="48" y="96" fill="#e5e7ef" font-family="system-ui, sans-serif" font-size="22" font-weight="600">DUPLICATE_TODO  demo fixture</text>
+  <text x="48" y="96" fill="#e5e7ef" font-family="system-ui, sans-serif" font-size="22" font-weight="600">DUPLICATE_TODO — demo fixture</text>
   <rect x="520" y="72" width="120" height="28" rx="14" fill="rgba(250,204,21,0.12)" stroke="rgba(250,204,21,0.35)"/>
   <text x="580" y="91" fill="#facc15" font-family="ui-monospace, monospace" font-size="11" text-anchor="middle">DEMO</text>
   <text x="48" y="132" fill="#9ca3c7" font-family="system-ui, sans-serif" font-size="13">Live ecosystem: Conflicts 0 · This shows what VCMS flags when SSoT drifts.</text>
@@ -16,15 +16,15 @@
   <text x="48" y="188" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">task_id</text>
   <text x="200" y="188" fill="#e5e7ef" font-family="ui-monospace, monospace" font-size="13">WIZ-042</text>
   <text x="48" y="220" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">repo_a</text>
-  <text x="200" y="220" fill="#e5e7ef" font-family="ui-monospace, monospace" font-size="13">zzpackage  IN_PROGRESS</text>
+  <text x="200" y="220" fill="#e5e7ef" font-family="ui-monospace, monospace" font-size="13">zzpackage — IN_PROGRESS</text>
   <text x="48" y="252" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">repo_b</text>
-  <text x="200" y="252" fill="#e5e7ef" font-family="ui-monospace, monospace" font-size="13">flexgrafik-nl  DONE</text>
+  <text x="200" y="252" fill="#e5e7ef" font-family="ui-monospace, monospace" font-size="13">flexgrafik-nl — DONE</text>
   <text x="48" y="284" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">severity</text>
   <circle cx="212" cy="278" r="5" fill="#ef4444"/>
   <text x="228" y="284" fill="#ef4444" font-family="ui-monospace, monospace" font-size="13">blocking (planned)</text>
   <rect x="48" y="308" width="704" height="108" rx="8" fill="#11141b" stroke="#252937"/>
   <text x="64" y="336" fill="#8b5cf6" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Recommendation</text>
   <text x="64" y="362" fill="#9ca3c7" font-family="system-ui, sans-serif" font-size="13">Align status in canonical todo.json; re-run npm run scan.</text>
-  <text x="64" y="388" fill="#9ca3c7" font-family="system-ui, sans-serif" font-size="13">Caught before deploy  not after production.</text>
+  <text x="64" y="388" fill="#9ca3c7" font-family="system-ui, sans-serif" font-size="13">Caught before deploy — not after production.</text>
   <text x="48" y="456" fill="#6b7280" font-family="ui-monospace, monospace" font-size="10">flex-vcms/docs/demo/conflict-example.md · synthetic fixture</text>
 </svg>

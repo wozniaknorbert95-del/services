@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 const SETUP_TIERS = [
   { name: 'Automation Map', desc: 'A focused working session plus a written roadmap.', price: pricing.discovery.price, note: pricing.discovery.note, timeline: '60–90 min session' },
   { name: 'Single System Build', desc: 'One module live + handover', price: pricing.singleSystem.from !== null ? `from ${pricing.singleSystem.from}` : 'Quoted', note: 'after Map', timeline: pricing.singleSystem.timeline !== null ? pricing.singleSystem.timeline : 'Varies' },
-  { name: 'Ecosystem / Multi-System', desc: '2–3 modules + Agent OS + AVG/HITL', price: pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : 'Quoted', note: 'after Map', timeline: pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : 'Varies' },
+  { name: 'Ecosystem / Multi-System', desc: pricing.ecosystem.summary, price: pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : 'Quoted', note: 'after Map', timeline: pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : 'Varies' },
 ];
 
 const MRR_TIERS = [
@@ -130,7 +130,7 @@ export default function PricingPage() {
             </div>
             <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-2">Multi-System</h3>
             <p className="text-[var(--qf-text-dim)] text-sm mb-4">
-              2–3 modules + Agent OS + AVG/HITL.
+              {pricing.ecosystem.summary}
             </p>
             <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
               {pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : 'Quoted after Map'}

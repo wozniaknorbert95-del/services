@@ -127,7 +127,7 @@ export default function BehindTheScenes() {
                   alt={screen.alt}
                   width={800}
                   height={500}
-                  className="h-full w-full object-cover"
+                  className={`h-full w-full ${screen.src?.endsWith('.svg') ? 'object-contain p-3' : 'object-cover'}`}
                 />
               </div>
               <div>
