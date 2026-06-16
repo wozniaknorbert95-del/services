@@ -90,9 +90,11 @@ export default function ResultsTeaser() {
               </h3>
               <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
               <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.summary}</p>
-              <p className="mb-4 font-mono text-xs text-[var(--qf-text-faint)]">
-                Measurement: {caseMeasurements[c.measurementKey]?.value || '[FILL: measurement]'}
-              </p>
+              {caseMeasurements[c.measurementKey]?.ready && caseMeasurements[c.measurementKey]?.value ? (
+                <p className="mb-4 font-mono text-xs text-[var(--qf-text-faint)]">
+                  Measurement: {caseMeasurements[c.measurementKey].value}
+                </p>
+              ) : null}
               <a
                 href={c.caseHref}
                 className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"

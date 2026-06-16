@@ -52,7 +52,7 @@ export default function SystemMetrics() {
               className="flex flex-col rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-4)]"
             >
               <span className="mb-[var(--qf-sp-2)] text-[var(--qf-fs-2xl)] font-bold text-[var(--qf-text)]">
-                {card.value !== null ? card.value : <span className="text-[var(--qf-text-faint)]">[FILL]</span>}
+                {card.value ?? '—'}
               </span>
               <span className="font-mono text-xs text-[var(--qf-accent)]">
                 {card.label}

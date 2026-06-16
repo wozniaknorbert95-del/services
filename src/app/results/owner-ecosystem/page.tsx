@@ -7,6 +7,7 @@ import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
 import { ROUTES } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
+import { vcmsFeatureStatus } from '@/content/proof';
 
 const FLOW_STEPS = [
   { step: '01', title: 'Entry', detail: 'flexgrafik.nl — portal + chat assistant routes visitors to the right path.' },
@@ -42,6 +43,21 @@ const MODULES: EcosystemModule[] = [
   { layer: 'Execution', name: 'Agent OS', detail: 'Planner → coder → tester → review', highlight: true },
   { layer: 'Client', name: 'services.flexgrafik.nl', detail: 'Quietforge B2B — this site' },
   { layer: 'Back-office', name: 'Inbox Killer', detail: 'Live email agent — HITL on every send' },
+];
+
+const VCMS_WHY = [
+  {
+    title: 'Governance before deploy',
+    detail: 'VCMS scans all repos, agent rules and handoffs before changes reach production — not after a client reports a bug.',
+  },
+  {
+    title: 'Conflicts visible early',
+    detail: 'SSoT mismatches and duplicate tasks surface in scan reports. Live target: Conflicts 0 on every scan.',
+  },
+  {
+    title: 'Human approval stays separate',
+    detail: 'VCMS supervises the codebase; Agent OS runs the build pipeline. Review gates decide what ships — VCMS does not auto-deploy.',
+  },
 ];
 
 export const metadata: Metadata = {
@@ -162,6 +178,53 @@ export default function OwnerEcosystemPage() {
             </Card>
           ))}
         </div>
+      </Section>
+
+      <Section padding="large">
+        <Eyebrow>Supervision layer</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
+          Why VCMS matters
+        </h2>
+        <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)]">
+          VCMS is the governance layer behind this ecosystem — not a CMS panel. It scans content,
+          repos and agent rules so your operation does not depend on memory, screenshots or one
+          developer&apos;s inbox.
+        </p>
+        <div className="mb-8 grid gap-[var(--qf-sp-4)] md:grid-cols-3">
+          {VCMS_WHY.map((item) => (
+            <Card key={item.title} className="p-5">
+              <h3 className="mb-2 font-bold text-[var(--qf-text)]">{item.title}</h3>
+              <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{item.detail}</p>
+            </Card>
+          ))}
+        </div>
+        <ul className="mb-8 flex flex-wrap gap-2">
+          {Object.values(vcmsFeatureStatus).map((f) => (
+            <li
+              key={f.label}
+              className="rounded-full border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-[var(--qf-text-dim)]"
+            >
+              {f.label}{' '}
+              <span
+                className={
+                  f.status === 'PROVEN'
+                    ? 'text-emerald-500'
+                    : f.status === 'DEMO'
+                      ? 'text-amber-500'
+                      : 'text-[var(--qf-text-faint)]'
+                }
+              >
+                {f.status}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <Link
+          href={`${ROUTES.home}#governance`}
+          className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+        >
+          See governance proof on the homepage →
+        </Link>
       </Section>
 
       <Section padding="large">

@@ -81,6 +81,7 @@ export const caseMeasurements: Record<string, { value: string | null; ready: boo
   agentOs:     { value: "5-node LangGraph, real E2E flow via OpenRouter.", ready: true },
   salesFunnel: { value: "9-step configurator → quote → payment, live.", ready: true },
   leadMagnet:  { value: "5-level game, email capture on win.", ready: true },
+  advisory:    { value: "6-phase delivery, AVG layer specified · anonymised · in delivery.", ready: true },
 };
 
 // Pricing tiers — placeholders null
