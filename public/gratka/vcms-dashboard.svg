@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="VCMS governance dashboard  8 repos, conflicts zero">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="VCMS governance dashboard  â€”  8 repos, conflicts zero">
   <defs>
     <linearGradient id="dash-bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0f1118"/>
@@ -36,26 +36,26 @@
   <!-- repo health -->
   <text x="40" y="178" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1">CONNECT HEALTH</text>
   <rect x="40" y="188" width="460" height="248" rx="8" fill="#11141b" stroke="#252937"/>
-  <text x="56" y="218" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">Ï flexgrafik-meta · conflicts: 0</text>
-  <text x="56" y="244" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">Ï flex-vcms · conflicts: 0</text>
-  <text x="56" y="270" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">Ï zzpackage · conflicts: 0</text>
-  <text x="56" y="296" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">Ï jadzia-core · conflicts: 0</text>
-  <text x="56" y="322" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">Ï agent-os · conflicts: 0</text>
-  <text x="56" y="348" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">Ï services · conflicts: 0</text>
-  <text x="56" y="374" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">Ï flexgrafik.nl · conflicts: 0</text>
-  <text x="56" y="400" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">Ï app.flexgrafik.nl · conflicts: 0</text>
+  <text x="56" y="218" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">ï¿½ flexgrafik-meta ï¿½ conflicts: 0</text>
+  <text x="56" y="244" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">ï¿½ flex-vcms ï¿½ conflicts: 0</text>
+  <text x="56" y="270" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">ï¿½ zzpackage ï¿½ conflicts: 0</text>
+  <text x="56" y="296" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">ï¿½ jadzia-core ï¿½ conflicts: 0</text>
+  <text x="56" y="322" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">ï¿½ agent-os ï¿½ conflicts: 0</text>
+  <text x="56" y="348" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">ï¿½ services ï¿½ conflicts: 0</text>
+  <text x="56" y="374" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">ï¿½ flexgrafik.nl ï¿½ conflicts: 0</text>
+  <text x="56" y="400" fill="#22c55e" font-family="ui-monospace, monospace" font-size="12">ï¿½ app.flexgrafik.nl ï¿½ conflicts: 0</text>
 
   <!-- quick scans -->
   <text x="520" y="178" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1">QUICK SCANS</text>
   <rect x="520" y="188" width="240" height="248" rx="8" fill="#11141b" stroke="#252937"/>
   <text x="536" y="218" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">npm run scan</text>
-  <text x="536" y="242" fill="#22c55e" font-family="ui-monospace, monospace" font-size="11"> Conflicts: 0</text>
+  <text x="536" y="242" fill="#22c55e" font-family="ui-monospace, monospace" font-size="11">âœ“ Conflicts: 0</text>
   <text x="536" y="272" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">SSoT registry</text>
-  <text x="536" y="296" fill="#22c55e" font-family="ui-monospace, monospace" font-size="11"> 8 repos mapped</text>
+  <text x="536" y="296" fill="#22c55e" font-family="ui-monospace, monospace" font-size="11">âœ“ 8 repos mapped</text>
   <text x="536" y="326" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">Handoff check</text>
-  <text x="536" y="350" fill="#22c55e" font-family="ui-monospace, monospace" font-size="11"> docs/handoffs current</text>
+  <text x="536" y="350" fill="#22c55e" font-family="ui-monospace, monospace" font-size="11">âœ“ docs/handoffs current</text>
   <text x="536" y="380" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">Review gate</text>
-  <text x="536" y="404" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11">Ë Agent OS HITL</text>
+  <text x="536" y="404" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11">ï¿½ Agent OS HITL</text>
 
-  <text x="40" y="468" fill="#6b7280" font-family="ui-monospace, monospace" font-size="10">Live scan target: Conflicts 0 · 8-repo coverage · governance command center</text>
+  <text x="40" y="468" fill="#6b7280" font-family="ui-monospace, monospace" font-size="10">Live scan target: Conflicts 0 ï¿½ 8-repo coverage ï¿½ governance command center</text>
 </svg>
