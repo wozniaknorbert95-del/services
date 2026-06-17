@@ -8,7 +8,7 @@ import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import VideoSlot from '@/components/ui/VideoSlot';
-import Image from 'next/image';
+import ProofScreenImage from '@/components/ui/ProofScreenImage';
 import { ROUTES } from '@/lib/constants';
 import { caseMeasurements, screens, videos } from '@/content/proof';
 
@@ -181,12 +181,11 @@ export default function CaseStudyLayout({
           <div className="flex flex-col gap-4">
             <div className="aspect-[16/10] w-full overflow-hidden rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)]">
               {screen && screen.ready && screen.src ? (
-                <Image
+                <ProofScreenImage
                   src={screen.src}
                   alt={screen.alt}
                   width={800}
                   height={500}
-                  className="h-full w-full object-cover"
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center p-4 text-center">

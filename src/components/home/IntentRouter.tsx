@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -11,13 +11,30 @@ import {
 } from '@/content/ecosystem';
 import { ROUTES } from '@/lib/constants';
 import IntentBadges from '@/components/ui/IntentBadges';
+import ModulePreviewThumb from '@/components/ui/ModulePreviewThumb';
+
+/** When filtering by order — surface governance (VCMS) first. */
+const ORDER_INTENT_MODULE_IDS = ['m5', 'm1', 'm7', 'm8'] as const;
+
+function sortModulesForIntent(modules: typeof ECOSYSTEM_MODULES, intent: IntentId) {
+  if (intent !== 'order') return [...modules];
+
+  return [...modules].sort((a, b) => {
+    const ai = ORDER_INTENT_MODULE_IDS.indexOf(a.id as (typeof ORDER_INTENT_MODULE_IDS)[number]);
+    const bi = ORDER_INTENT_MODULE_IDS.indexOf(b.id as (typeof ORDER_INTENT_MODULE_IDS)[number]);
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+  });
+}
 
 export default function IntentRouter() {
   const [activeIntent, setActiveIntent] = useState<IntentId | null>(null);
 
-  const filteredModules = activeIntent
-    ? ECOSYSTEM_MODULES.filter((m) => m.intents.includes(activeIntent))
-    : ECOSYSTEM_MODULES;
+  const filteredModules = useMemo(() => {
+    const base = activeIntent
+      ? ECOSYSTEM_MODULES.filter((m) => m.intents.includes(activeIntent))
+      : [...ECOSYSTEM_MODULES];
+    return activeIntent ? sortModulesForIntent(base, activeIntent) : base;
+  }, [activeIntent]);
 
   const recommended = filteredModules[0];
 
@@ -48,6 +65,7 @@ export default function IntentRouter() {
             <button
               key={intent.id}
               type="button"
+              aria-pressed={isActive}
               onClick={() => setActiveIntent(isActive ? null : intent.id)}
               className={`
                 relative px-6 py-4 rounded-xl border text-sm sm:text-base font-medium transition-all duration-300
@@ -81,6 +99,13 @@ export default function IntentRouter() {
         ))}
       </div>
 
+      {activeIntent && (
+        <p className="text-center text-sm font-mono text-[var(--text-muted)]">
+          {filteredModules.length} system{filteredModules.length === 1 ? '' : 's'} match your goal
+          {filteredModules.some((m) => m.id === 'm5') ? ' — including VCMS governance' : ''}
+        </p>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <AnimatePresence mode="popLayout">
           {filteredModules.map((module) => (
@@ -91,20 +116,24 @@ export default function IntentRouter() {
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.25 }}
               key={module.id}
-              className="panel flex flex-col p-6 group hover:border-[var(--border-strong)] transition-colors"
             >
-              <h3 className="text-lg font-bold mb-2 flex-grow-0">{module.name}</h3>
-              <p className="text-sm text-[var(--text-muted)] mb-6 flex-grow">{module.effect}</p>
+              <Link
+                href={module.route}
+                className="panel flex flex-col p-6 group hover:border-[var(--border-strong)] transition-colors h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--qf-accent)] rounded-[inherit]"
+              >
+                <ModulePreviewThumb screenKey={module.screenKey} />
+                <h3 className="text-lg font-bold mb-2 flex-grow-0 group-hover:text-[var(--qf-accent)] transition-colors">
+                  {module.name}
+                </h3>
+                <p className="text-sm text-[var(--text-muted)] mb-6 flex-grow">{module.effect}</p>
 
-              <div className="flex items-center justify-between mt-auto pt-4 border-t border-[var(--border-subtle)]">
-                <IntentBadges intents={[...module.intents]} />
-                <Link
-                  href={module.route}
-                  className="text-xs font-mono text-[var(--qf-accent)] hover:underline"
-                >
-                  Details →
-                </Link>
-              </div>
+                <div className="flex items-center justify-between mt-auto pt-4 border-t border-[var(--border-subtle)]">
+                  <IntentBadges intents={[...module.intents]} />
+                  <span className="text-xs font-mono text-[var(--qf-accent)] group-hover:underline">
+                    Details →
+                  </span>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </AnimatePresence>

@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
-import Link from 'next/link';
-import { ARTEFACTS } from '@/lib/constants';
+import ProofScreenImage from '@/components/ui/ProofScreenImage';
+import { ARTEFACTS, ROUTES } from '@/lib/constants';
+import { screens } from '@/content/proof';
 
 export const metadata: Metadata = {
   title: 'Trust & Safety',
@@ -20,6 +22,8 @@ export default function TrustPage() {
     { title: 'AVG / DPA', detail: 'Verwerkersovereenkomst and data layer specified before any live processing begins.' },
     { title: 'No lock-in', detail: 'Built on tools you already own. You get the README and can hand it to any developer — this is never a trap.' },
   ];
+
+  const adminScreen = screens.adminDashboard;
 
   return (
     <>
@@ -48,6 +52,38 @@ export default function TrustPage() {
           ))}
         </div>
       </Section>
+
+      {adminScreen.ready && adminScreen.src && (
+        <Section padding="large">
+          <Eyebrow>Observability</Eyebrow>
+          <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
+            See what the system is doing
+          </h2>
+          <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+            Task approvals and system health stay visible — part of the agent-os-ui governance layer in the owner ecosystem.
+          </p>
+          <Card className="max-w-3xl overflow-hidden p-0">
+            <div className="aspect-[16/10] w-full overflow-hidden border-b border-[var(--qf-border)] bg-[var(--qf-bg-inset)]">
+              <ProofScreenImage
+                src={adminScreen.src}
+                alt={adminScreen.alt}
+                width={960}
+                height={600}
+              />
+            </div>
+            <div className="p-6">
+              <p className="font-mono text-xs text-[var(--qf-accent)]">{adminScreen.alt}</p>
+              <p className="mt-2 text-sm text-[var(--qf-text-dim)]">{adminScreen.caption}</p>
+              <Link
+                href={ROUTES.managedAutomation}
+                className="mt-4 inline-block text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+              >
+                Managed Automation →
+              </Link>
+            </div>
+          </Card>
+        </Section>
+      )}
 
       <Section padding="large">
         <div className="max-w-2xl border-l-2 border-[var(--qf-border)] pl-4">

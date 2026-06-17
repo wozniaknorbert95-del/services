@@ -191,7 +191,7 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
     name: 'VCMS (Governance Layer)',
     effect: 'Scans 8 repos, SSoT conflicts and handoffs — supervision before deploy.',
     intents: ['order', 'calm'],
-    route: ROUTES.resultsOwnerEcosystem,
+    route: ROUTES.resultsOwnerEcosystemWhyVcms,
     repoKey: 'flex-vcms',
     screenKey: 'vcmsDashboard',
     videoKey: 'vcms',
@@ -276,7 +276,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     role: 'Governance layer',
     intents: ['order', 'calm'],
     screenKey: 'vcmsDashboard',
-    proofRoute: ROUTES.resultsOwnerEcosystem,
+    proofRoute: ROUTES.resultsOwnerEcosystemWhyVcms,
     flagship: true,
   },
   {

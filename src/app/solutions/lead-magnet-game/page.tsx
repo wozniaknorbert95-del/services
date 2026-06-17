@@ -28,8 +28,8 @@ export default function LeadMagnetGamePage() {
           'Something to talk about — a memorable, shareable asset.'
         ]
       }}
-      screenKey="wizardCheckout"
-      caseStudyHref={ROUTES.resultsSalesFunnel}
+      screenKey="leadMagnet"
+      caseStudyHref={ROUTES.resultsLeadMagnet}
       priceKey="singleSystem"
     />
   );

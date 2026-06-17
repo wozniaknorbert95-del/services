@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     'small business automation',
     'inbox automation',
     'website automation',
-    'done-for-you systems',
+    'conversion systems',
     'digital transformation',
     'SMB automation',
     'lead qualification',

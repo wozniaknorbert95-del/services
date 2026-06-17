@@ -11,6 +11,20 @@ const nextConfig: NextConfig = {
   },
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  async redirects() {
+    return [
+      {
+        source: '/digital-modernization',
+        destination: '/solutions/web-upgrade/',
+        permanent: true,
+      },
+      {
+        source: '/digital-modernization/',
+        destination: '/solutions/web-upgrade/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({});

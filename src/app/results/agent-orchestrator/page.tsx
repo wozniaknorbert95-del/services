@@ -3,10 +3,12 @@ import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import Section from '@/components/ui/Section';
+import ProofScreenImage from '@/components/ui/ProofScreenImage';
 import { ROUTES } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
+import { screens } from '@/content/proof';
 
 const SLUG = 'agent-orchestrator';
 
@@ -148,6 +150,29 @@ export default function AgentOrchestratorCaseStudyPage() {
       screenKey="agentCards"
       downloadButtons={downloadButtons}
     >
+      {screens.workflowMap.ready && screens.workflowMap.src && (
+        <>
+          <h2 className="mt-8 text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
+            Workflow map
+          </h2>
+          <p className="mb-6 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+            Planner → coder → tester → review — each step has a contract before anything ships.
+          </p>
+          <Card className="mb-10 max-w-3xl overflow-hidden p-0">
+            <div className="aspect-[16/10] w-full overflow-hidden bg-[var(--qf-bg-inset)]">
+              <ProofScreenImage
+                src={screens.workflowMap.src}
+                alt={screens.workflowMap.alt}
+                width={960}
+                height={600}
+              />
+            </div>
+            <p className="p-4 font-mono text-xs text-[var(--qf-accent)]">
+              {screens.workflowMap.caption}
+            </p>
+          </Card>
+        </>
+      )}
       <h2 className="mt-8 text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
         Agent cards — sample contracts
       </h2>

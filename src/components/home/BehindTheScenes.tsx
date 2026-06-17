@@ -6,7 +6,9 @@ import { screens, videos, vcmsFeatureStatus } from '@/content/proof';
 import { ROUTES } from '@/lib/constants';
 import Link from 'next/link';
 import VideoSlot from '@/components/ui/VideoSlot';
-import Image from 'next/image';
+import ProofScreenImage from '@/components/ui/ProofScreenImage';
+
+import type { ScreenKey } from '@/content/ecosystem';
 
 const OUTCOMES = [
   {
@@ -27,13 +29,10 @@ export default function BehindTheScenes() {
   const motionCfg = useMotion();
   const fade = motionCfg.fadeIn();
 
-  const activeScreens = [
-    screens.vcmsDashboard,
-    screens.conflictReport,
-    screens.auditLog,
-    screens.agentCards,
-    screens.workflowMap,
-  ].filter((s) => s.ready && s.src);
+  const VCMS_SCREEN_KEYS: ScreenKey[] = ['vcmsDashboard', 'conflictReport', 'auditLog'];
+  const activeScreens = VCMS_SCREEN_KEYS.map((key) => screens[key]).filter(
+    (s) => s.ready && s.src,
+  );
 
   const showVcmsVideo = videos.vcms?.ready && videos.vcms?.url;
 
@@ -126,12 +125,11 @@ export default function BehindTheScenes() {
           {activeScreens.map((screen, idx) => (
             <motion.div key={idx} variants={motionCfg.childFade} className="flex flex-col gap-4">
               <div className="aspect-[16/10] w-full overflow-hidden rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)]">
-                <Image
+                <ProofScreenImage
                   src={screen.src!}
                   alt={screen.alt}
                   width={800}
                   height={500}
-                  className={`h-full w-full ${screen.src?.endsWith('.svg') ? 'object-contain p-3' : 'object-cover'}`}
                 />
               </div>
               <div>
@@ -154,7 +152,7 @@ export default function BehindTheScenes() {
           className="mt-[var(--qf-sp-12)] text-center"
         >
           <Link
-            href={ROUTES.resultsOwnerEcosystem}
+            href={ROUTES.resultsOwnerEcosystemWhyVcms}
             className="inline-flex items-center gap-[var(--qf-sp-2)] text-[var(--qf-accent)] transition-colors hover:text-[var(--qf-text)]"
           >
             See full Owner Ecosystem case study →

@@ -5,12 +5,13 @@ import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES, ARTEFACTS } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { vcmsFeatureStatus } from '@/content/proof';
 import { ECOSYSTEM_REPOS } from '@/content/ecosystem';
 import { CASE_STUDIES } from '@/lib/case-studies';
 import IntentBadges from '@/components/ui/IntentBadges';
+import ModulePreviewThumb from '@/components/ui/ModulePreviewThumb';
 
 const FLOW_STEPS = [
   { step: '01', title: 'Entry', detail: 'flexgrafik.nl — portal + chat assistant routes visitors to the right path.' },
@@ -131,15 +132,38 @@ export default function OwnerEcosystemPage() {
                 {repo.number} · {repo.role}
               </p>
               <h3 className="mb-2 font-bold text-[var(--qf-text)]">{repo.repoKey}</h3>
+              <ModulePreviewThumb screenKey={repo.screenKey} size="sm" />
               <div className="mb-3">
                 <IntentBadges intents={[...repo.intents]} />
               </div>
-              <Link
-                href={repo.proofRoute}
-                className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
-              >
-                See proof →
-              </Link>
+              {repo.repoKey === 'flexgrafik-meta' ? (
+                <>
+                  <p className="mb-3 text-sm text-[var(--qf-text-dim)]">
+                    Method / Automation Map — the paid first step.
+                  </p>
+                  <Link
+                    href={ARTEFACTS.automationMapSample}
+                    download
+                    className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+                  >
+                    Automation Map sample ↓
+                  </Link>
+                </>
+              ) : repo.repoKey === 'flex-vcms' ? (
+                <Link
+                  href={ROUTES.resultsOwnerEcosystemWhyVcms}
+                  className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+                >
+                  Governance layer proof ↓
+                </Link>
+              ) : (
+                <Link
+                  href={repo.proofRoute}
+                  className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+                >
+                  See proof →
+                </Link>
+              )}
             </Card>
           ))}
         </div>
@@ -169,7 +193,7 @@ export default function OwnerEcosystemPage() {
         </div>
       </Section>
 
-      <Section padding="large">
+      <Section padding="large" id="why-vcms" className="scroll-mt-24">
         <Eyebrow>Supervision layer</Eyebrow>
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
           Why VCMS matters
