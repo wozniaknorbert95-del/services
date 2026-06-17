@@ -1,12 +1,18 @@
+import { ROUTES } from '@/lib/constants';
+import type { CaseMeasurementKey, IntentId } from '@/content/ecosystem';
+
 export interface CaseStudy {
-  slug?: string;
+  slug: string;
   number: string;
   title: string;
   meta: string;
   context: string;
   system: string;
   real: string;
-  measurement?: string;
+  measurement: string;
+  intents: IntentId[];
+  manifestKey: CaseMeasurementKey;
+  detailHref: string;
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -16,10 +22,14 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'The self-running back-office',
     meta: 'Inbox Killer · live',
     context:
-      'A small NL service business needing reliable deployments and instant codebase hotfixes without a PC.',
+      'Deployed in my own NL print-business ecosystem (2+ years in production). Same architecture I deploy for clients — not theory.',
     system:
-      'An agent that receives commands via Telegram, plans edits, modifies files remotely via SSH, and asks for final approval before restarting the service.',
-    real: 'Live mailbox, 100+ messages/scan, human-in-the-loop on every send.',
+      'An agent that reads folders, sorts by intent, drafts replies, and stops at a human approval gate before anything sends.',
+    real: 'Live mailbox, 142 msgs/scan, human-in-the-loop on every send.',
+    measurement: 'Live mailbox, 142 msgs/scan, human approval on every send.',
+    intents: ['time', 'calm'],
+    manifestKey: 'inboxKiller',
+    detailHref: ROUTES.resultsInboxKiller,
   },
   {
     slug: 'agent-orchestrator',
@@ -27,31 +37,73 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'A multi-agent orchestrator',
     meta: 'Agent engine · production',
     context:
-      'Coordinating a whole business — orders, content, CRM — without spreadsheets everywhere.',
+      'My own multi-repo business stack — orders, content, CRM — without spreadsheets everywhere.',
     system:
       'A FastAPI + LangGraph engine on a VPS, governed by a single source of truth, agent cards and fixed rules (planner → coder → tester → review).',
-    real: 'Production engine, SSoT architecture, guardrails, 12-step workflow.',
+    real: 'Production engine, SSoT architecture, guardrails, 7-step workflow.',
+    measurement: '5-node LangGraph, real E2E flow via OpenRouter.',
+    intents: ['time', 'efficiency'],
+    manifestKey: 'agentOs',
+    detailHref: ROUTES.resultsAgentOrchestrator,
   },
   {
     slug: 'sales-funnel',
     number: '03',
     title: 'Self-service quote & onboarding',
     meta: 'Sales Funnel Engine',
-    context: 'The same "what do you charge?" questions answered by hand, all day.',
+    context: 'My own sales funnel — the same "what do you charge?" questions, answered by the system.',
     system:
-      'A 7-step configurator with open pricing and payment — qualifies, quotes and books without a phone call.',
+      'A 9-step configurator with open pricing and payment — qualifies, quotes and books without a phone call.',
     real: 'Working funnel — pick options → upload logo → see price → pay.',
+    measurement: '9-step configurator → quote → payment, live.',
+    intents: ['money', 'efficiency'],
+    manifestKey: 'salesFunnel',
+    detailHref: ROUTES.resultsSalesFunnel,
+  },
+  {
+    slug: 'lead-magnet',
+    number: '04',
+    title: 'A game that earns the contact',
+    meta: 'Lead Magnet · live',
+    context:
+      'Traffic with no conversion — visitors bounce without leaving details. Built on my own Canvas game engine.',
+    system:
+      'Five-level branded game: register → play → win → email capture on victory — not a static form.',
+    real: '5-level game, email capture on win, leaderboard on production.',
+    measurement: '5-level game, email capture on win.',
+    intents: ['money'],
+    manifestKey: 'leadMagnet',
+    detailHref: ROUTES.resultsLeadMagnet,
   },
   {
     slug: 'advisory-modernisation',
-    number: '04',
+    number: '05',
     title: 'Modernisation + AI assistant for an advisory firm',
     meta: 'Web Upgrade + assistant · anonymised',
     context:
-      'A Rotterdam accounting office with a strong offer but an outdated site and no lead capture.',
+      'Scope designed for advisory-firm modernisation (anonymised reference brief) — same delivery patterns as my live stack.',
     system:
       'Site modernisation + a lead-qualifying AI assistant (qualification only, no tax advice) + a human-approved content engine, with a signed data-processing agreement.',
     real: 'Full scope designed, security & AVG layer specified, staged delivery.',
+    measurement: '6-phase delivery, AVG layer specified · anonymised · in delivery.',
+    intents: ['money', 'order'],
+    manifestKey: 'advisory',
+    detailHref: ROUTES.resultsAdvisoryModernisation,
+  },
+  {
+    slug: 'owner-ecosystem',
+    number: '06',
+    title: 'Eight repos, one supervised system',
+    meta: 'Owner ecosystem · governance',
+    context:
+      'A multi-repo business stack without a governance layer drifts — conflicts, duplicate truth, deploy surprises.',
+    system:
+      'VCMS scans all repos, detects SSoT conflicts, and enforces handoffs before changes reach production.',
+    real: '8 repos governed · Conflicts: 0 target · live scan pipeline.',
+    measurement: '8-repo scan status with conflict detection before deploy.',
+    intents: ['order', 'calm'],
+    manifestKey: 'ownerEcosystem',
+    detailHref: ROUTES.resultsOwnerEcosystem,
   },
 ];
 

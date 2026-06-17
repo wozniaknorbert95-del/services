@@ -1,6 +1,25 @@
 # Brain — services.flexgrafik.nl
 
-## Canonicka pamięć projektu | v1.0 | 2026-05-30
+## Canonicka pamięć projektu | v1.1 | 2026-06-17
+
+---
+
+## 0) STRATEGY CANON (v2 — read first)
+
+**Marketing, conversion, and UX decisions are owned by `docs/strategy/`, not this file.**
+
+| Document | Path |
+|----------|------|
+| Index + read order | `docs/strategy/README.md` |
+| Marketing & positioning | `docs/strategy/marketing-strategy.md` |
+| User flow, nav, qualification | `docs/strategy/conversion-pipeline.md` |
+| UI hierarchy & motion | `docs/strategy/ui-ux-principles.md` |
+
+**Positioning (v2):** Conversion Systems Architect — systems that qualify leads and reduce admin, not "web designer".
+
+**Primary funnel:** Home → Hard proof (results / VCMS) → Qualification (wizard / book-discovery) → Strategy call.
+
+Sections §2 (single-product goal) and §5 (flat IA) below are **historical** — superseded by strategy v2 where they conflict. Tech stack, guardrails, deploy, and tokens in this file remain binding.
 
 ---
 
@@ -12,7 +31,8 @@
 | **Subdomena** | Tak — osobny asset od `portfolio.flexgrafik.nl` |
 | **Repo** | `wozniaknorbert95-del/services` (standalone) |
 | **Linked Vercel** | `wozniaknorbert95-dels-projects/flexgrafik-services` |
-| **Rol** | B2B SMB Automation Landing System — konwersja ZZP/SMB na leady |
+| **Rol** | B2B SMB Conversion Systems Portfolio — konwersja ZZP/SMB na zakwalifikowane leady |
+| **Positioning** | Conversion Systems Architect (see `docs/strategy/marketing-strategy.md`) |
 | **Język** | Angielski (wszystkie B2B assets) |
 | **Audience** | ZZP, małe BV, profesjonalne usługi (księgowi, konsultanci) |
 
@@ -20,13 +40,15 @@
 
 ## 2) CEL
 
-Sprzedaż jednego produktu: **Inbox Killer** (AI Lead Qualification).
+> **Superseded for copy/IA by `docs/strategy/`** — kept for historical context.
 
-- €497 setup + €147/mo
-- Deploy w 48h
-- Klient podłącza tylko email (Gmail/Outlook) — reszta jest automatyczna
+Portfolio sprzedaży systemów konwersji dla SMB. Flagship entry: **Inbox Killer** + product ladder (Sales Funnel, Web Upgrade, Managed Automation).
 
-**Nie sprzedajemy:** stron WWW, e-commerce, marketingu. To przyjdzie po unfrozeniu (14 dni).
+- Discovery: Automation Map (paid session)
+- Project floors: see `src/lib/constants.ts` → `PRICING`
+- Wizard (qualification): `https://zzpackage.flexgrafik.nl/`
+
+**Canonical commercial + funnel rules:** `docs/strategy/conversion-pipeline.md`
 
 ---
 
@@ -56,16 +78,13 @@ Sprzedaż jednego produktu: **Inbox Killer** (AI Lead Qualification).
 
 ---
 
-## 5) ARCHITEKTURA INFORMACJI (Flat)
+## 5) ARCHITEKTURA INFORMACJI
 
-```
-/                        → Hero LP (one product: Inbox Killer)
-/inbox-killer/           → Deep-dive product page
-/digital-modernization/  → Placeholder "coming soon" + waitlist
-/legal/                  → Privacy + Terms (GDPR)
-```
+> **Canonical sitemap, nav, home section order:** `docs/strategy/conversion-pipeline.md` §6
 
-**Zasada:** Każda strona to osobny lejek. Brak nawigacji na `/inbox-killer/` — tylko logo + "Back to home".
+**Live routes (summary):** `/` · `/solutions/*` · `/results/*` · `/how-it-works/` · `/pricing/` · `/book-discovery/` · `/founder/` · `/about/` · `/trust/` · `/legal/`
+
+**Zasada:** Każda route ma jeden funnel job. Nowe strony = OG + sitemap + handoff z odwołaniem do strategy canon.
 
 ---
 
@@ -98,13 +117,17 @@ Sprzedaż jednego produktu: **Inbox Killer** (AI Lead Qualification).
 
 1. **`npm run build` musi przejść przed każdym commitem.** Zero wyjątków.
 2. **TypeScript strict — zero `any`.** `npx tsc --noEmit` jako dodatkowa weryfikacja.
-3. **One product na stronie głównej.** Inbox Killer. Nie dwa, nie trzy. Jedna CTA above the fold.
+3. **One primary CTA above the fold** — cold traffic: See systems; warm: Book or WhatsApp — see strategy canon.
 4. **Animacje respektują `prefers-reduced-motion`.** Framer Motion wyłączone, transition: none.
 5. **Mobile-first responsive.** Wszystkie sekcje stackują pionowo. Tap targets ≥ 44px.
 6. **Zero sekretów w repo.** Klucze, tokeny, hasła w `.env.local` (`.gitignore`).
-7. **Deploy: Vercel auto na push do `main`.** Wyjątek od Zasady 11 — to marketing asset, nie produkcyjna infra.
-8. **OG image dla każdej nowej route.** 1200×630 SVG lub PNG w `public/og/`.
-9. **Sitemap + robots.txt** aktualizowane przy każdej nowej stronie.
+7. **Deploy: Vercel auto na push do `master`.** Wyjątek od Zasady 11 — marketing asset.
+8. **OG image dla każdej nowej route.** 1200×630 via `scripts/generate-og.mjs` template.
+9. **Sitemap** regeneruje się on build (`scripts/generate-sitemap.mjs`).
+10. **Continuity rule:** Każdy wdrożony system ma documented handoff (diagram + runbook) w VCMS. Norbert unavailable 2 weeks → system runs without intervention for ~80% cases.
+11. **WhatsApp AVG:** Explicit opt-in przed pierwszą wiadomością. Retention max 90 dni. Right-to-delete webhook do VCMS. Privacy policy update przed launch agenta.
+12. **Build fail = PR blocked.** Build pass z env warning = OK dev; **blokuje deploy prod** jeśli brakuje wymaganego env (np. `NEXT_PUBLIC_WHATSAPP_URL`).
+13. **Images:** WebP preferred; screenshots max 1600px width; lazy below fold. SVG inline only if &lt;5KB.
 
 ---
 
@@ -162,6 +185,7 @@ lighthouse https://services.flexgrafik.nl --output=json --chrome-flags="--headle
 | Lighthouse Accessibility | ≥ 95 |
 | Lighthouse Best Practices | ≥ 95 |
 | Lighthouse SEO | ≥ 95 |
+| **CI gate** | `npm run lighthouse:ci` — blocks merge if Accessibility &lt;95 or Performance &lt;85; blocks release if Best Practices or SEO &lt;95 |
 | Mobile viewport | No horizontal scroll, readable fonts |
 | Tap targets | ≥ 44px |
 | One CTA above fold | "Book Free Demo" widoczny bez scrolla |
@@ -174,11 +198,15 @@ lighthouse https://services.flexgrafik.nl --output=json --chrome-flags="--headle
 
 | Dokument | Ścieżka |
 |---|---|
-| Strategia B2B | `portfolio/docs/strategy/B2B-SMB-AUTOMATION-STRATEGY-EN.md` |
-| Portfolio AGENTS.md | `portfolio/AGENTS.md` |
-| Design tokens | `services/src/app/globals.css` |
-| Handoffi | `portfolio/docs/handoffs/2026-05-30-*.md` |
-| Strategia architektury | `portfolio/docs/opencode-prompts/plan architektury i optymalizacji.md` |
+| **Strategy canon (v2)** | `docs/strategy/README.md` → marketing · conversion · ui-ux |
+| Marketing & positioning | `docs/strategy/marketing-strategy.md` |
+| Conversion & user flow | `docs/strategy/conversion-pipeline.md` |
+| UI/UX principles | `docs/strategy/ui-ux-principles.md` |
+| Design system (visual) | `DESIGN-SYSTEM.md` · `quietforge.css` |
+| Design tokens (code) | `src/app/globals.css` |
+| Routes & pricing constants | `src/lib/constants.ts` |
+| Handoffi | `docs/handoffs/YYYY-MM-DD-*.md` |
+| Cross-repo B2B strategy (ref) | `portfolio/docs/strategy/B2B-SMB-AUTOMATION-STRATEGY-EN.md` |
 
 ---
 
@@ -207,7 +235,7 @@ Aktualny backlog: `services/todo.json` (do utworzenia) lub GitHub Issues.
 ### ❌ DON'T
 - Tech jargon w copy SMB-facing (nie "LangGraph", nie "LLM pipeline").
 - Portfolio/enterprise content na tej domenie.
-- Więcej niż jeden produkt na stronie głównej.
+- Feature-dump copy bez Problem → System → Effect (see marketing-strategy.md).
 - Stock photos — używaj placeholderów lub screenshotów z realnych projektów.
 - Inline styles — zawsze Tailwind + CSS vars.
 - Commit bez `npm run build`.
@@ -243,4 +271,4 @@ Aktualny backlog: `services/todo.json` (do utworzenia) lub GitHub Issues.
 
 ---
 
-*Last updated: 2026-05-30 | Owner: Norbert Wozniak | Next review: 2026-06-06 (po spotkaniu KFA)*
+*Last updated: 2026-06-17 | Owner: Norbert Wozniak | Next review: after enterprise polish sprint (implementation phase)*

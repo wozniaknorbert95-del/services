@@ -1,74 +1,80 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useMotion } from '@/lib/useMotion';
+import { HERO, POSITIONING } from '@/content/conversion-copy';
+import { metrics } from '@/content/proof';
 import { ROUTES } from '@/lib/constants';
 
 export default function HeroSection() {
   const motionCfg = useMotion();
   const fade = motionCfg.fadeIn({ duration: 0.6 });
-  const slide = motionCfg.slideFromRight({ delay: motionCfg.prefersReduced ? 0 : 0.2, duration: 0.6 });
+  const slide = motionCfg.slideFromRight({
+    delay: motionCfg.prefersReduced ? 0 : 0.2,
+    duration: 0.6,
+  });
 
   return (
-    <section className="py-[var(--qf-sp-24)]">
+    <section data-home-section="hero" className="py-[var(--qf-sp-24)]">
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <div className="grid items-center gap-[var(--qf-sp-12)] lg:grid-cols-2">
-          {/* Left: copy */}
           <motion.div
             initial={fade.initial}
             animate={fade.animate}
             transition={fade.transition}
           >
-            <h1 className="mb-[var(--qf-sp-4)]">
-              Systems that code, check and{' '}
-              <span className="text-[var(--qf-accent)]">maintain themselves.</span>
-            </h1>
-            <p className="text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">
-              I&apos;m Norbert — an AI Systems Architect for NL small businesses. I map how
-              your work really flows, design intelligent automation, and keep you in the loop
-              on every send.
+            <p className="mb-[var(--qf-sp-3)] text-[var(--qf-fs-sm)] text-[var(--qf-text-faint)]">
+              {POSITIONING.antiPositioning}
             </p>
+            <p className="mb-[var(--qf-sp-2)] font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+              {POSITIONING.label}
+            </p>
+            <h1 className="mb-[var(--qf-sp-4)]">{HERO.headline}</h1>
+            <p className="text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">{HERO.subline}</p>
             <div className="mt-[var(--qf-sp-6)] flex flex-wrap items-center gap-[var(--qf-sp-4)]">
-              <a
+              <Link
                 href={ROUTES.bookDiscovery}
                 className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:bg-[var(--qf-accent-soft)] hover:border-[var(--qf-accent-soft)]"
               >
-                Book your Automation Map <span aria-hidden="true">→</span>
-              </a>
-              <a
-                href="#how-i-work"
+                {HERO.primaryCta} <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href={HERO.secondaryHref}
                 className="text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-text)]"
               >
-                See how I work →
-              </a>
+                {HERO.secondaryCta} →
+              </Link>
             </div>
             <p className="mt-[var(--qf-sp-4)] text-[var(--qf-fs-sm)] text-[var(--qf-text-faint)]">
               <span className="text-[var(--qf-accent)]">→ </span>
-              Built on a live, battle-tested system — not a template.
+              {HERO.proofLine}
+            </p>
+            <p className="mt-[var(--qf-sp-2)] text-[var(--qf-fs-sm)] text-[var(--qf-text-faint)]">
+              {HERO.microTrust}
             </p>
           </motion.div>
 
-          {/* Right: terminal panel mock */}
           <motion.div
             initial={slide.initial}
             animate={slide.animate}
             transition={slide.transition}
           >
             <div className="overflow-hidden rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)]">
-              {/* Title bar */}
               <div className="flex items-center gap-[var(--qf-sp-2)] border-b border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-[var(--qf-sp-4)] py-[var(--qf-sp-2)] text-[var(--qf-fs-xs)] text-[var(--qf-text-dim)]">
                 <span className="h-2 w-2 rounded-full bg-[var(--qf-accent)]" />
                 <span className="h-2 w-2 rounded-full bg-[var(--qf-border-bright)]" />
                 <span className="h-2 w-2 rounded-full bg-[var(--qf-border-bright)]" />
-                <span className="ml-auto">inbox-killer · live</span>
+                <span className="ml-auto">conversion-pipeline · live</span>
               </div>
-              {/* Body */}
               <div className="p-[var(--qf-sp-6)]">
                 <pre className="overflow-x-auto whitespace-pre font-[family-name:var(--qf-mono)] text-[var(--qf-fs-sm)] text-[var(--qf-text-dim)]">
-                  <span className="text-[var(--qf-accent)]">$</span> inbox.scan --folders inbox,leads
-                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> 142 messages read
-                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> sorted → lead(18) client(34) invoice(9) noise(81)
-                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> 18 drafts ready · <span className="text-[var(--qf-accent)]">awaiting your approval</span>
+                  <span className="text-[var(--qf-accent)]">$</span> lead.qualify --wizard zzpackage
+                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> {metrics.wizardSteps} steps ·{' '}
+                  {metrics.skus} SKUs
+                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> scored → hot(3) warm(8) nurture(11)
+                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> brief ready ·{' '}
+                  <span className="text-[var(--qf-accent)]">awaiting your approval</span>
                   {'\n'}<span className="text-[var(--qf-accent)]">$</span> _
                 </pre>
               </div>
@@ -76,19 +82,19 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Status bar */}
-        <div className="mt-[var(--qf-sp-12)] flex flex-wrap items-center gap-[var(--qf-sp-4)] border-t border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-[var(--qf-sp-6)] py-[var(--qf-sp-2)] text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">
+        <div className="qf-statusbar mt-[var(--qf-sp-12)] flex flex-wrap items-center gap-[var(--qf-sp-4)] border-t border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-[var(--qf-sp-6)] py-[var(--qf-sp-2)] text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">
           <span className="inline-flex items-center gap-1.5 text-[var(--qf-accent)]">
-            <span className="text-[0.6em]">●</span> quietforge v1.0
+            <span className="text-[0.6em]">●</span> {metrics.repos} repos
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="text-[0.6em] text-[var(--qf-border-bright)]">●</span> 5 systems
+            <span className="text-[0.6em] text-[var(--qf-border-bright)]">●</span>{' '}
+            {metrics.systemsLive} systems live
           </span>
           <span className="inline-flex items-center gap-1.5">
             <span className="text-[0.6em] text-[var(--qf-border-bright)]">●</span> human-in-the-loop
           </span>
           <span className="ml-auto inline-flex items-center gap-1.5">
-            <span className="text-[0.6em] text-[var(--qf-border-bright)]">●</span> ctx — ready
+            <span className="text-[0.6em] text-[var(--qf-border-bright)]">●</span> EU-hosted
           </span>
         </div>
       </div>

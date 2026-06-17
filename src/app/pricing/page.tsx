@@ -5,7 +5,7 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import FaqItem from '@/components/ui/FaqItem';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES, PRODUCT_TIER_RANGES } from '@/lib/constants';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
@@ -80,12 +80,60 @@ export default function PricingPage() {
         <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
           Clear pricing. No surprises.
         </h1>
-        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
+        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-4">
           Start with a paid Automation Map. Then choose a build that fits the size of the problem — not the size of a retainer.
+        </p>
+        <p className="text-[var(--qf-text-dim)] text-sm max-w-[var(--qf-maxw-narrow)] mb-8">
+          Budget below €1,200? Start with the Automation Map to scope before committing.{' '}
+          <a href="/artefacts/automation-map-sample.pdf" className="text-[var(--qf-accent)] hover:underline">
+            Download sample Map
+          </a>{' '}
+          · Under €199?{' '}
+          <a href="/artefacts/automation-map-sample.pdf" className="text-[var(--qf-accent)] hover:underline">
+            Free lead guide (PDF)
+          </a>
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
           Book your Automation Map
         </Button>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          § B2 — PRODUCT TIERS (ranges)
+         ═══════════════════════════════════════════════════════════ */}
+      <Section background="surface" padding="large">
+        <Eyebrow>Build tiers</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
+          Starting ranges per system
+        </h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse max-w-3xl">
+            <thead>
+              <tr className="border-b border-[var(--qf-border)]">
+                <th className="py-3 pr-4 text-[var(--qf-fs-xs)] uppercase tracking-wider text-[var(--qf-text-dim)]">
+                  System
+                </th>
+                <th className="py-3 pr-4 text-[var(--qf-fs-xs)] uppercase tracking-wider text-[var(--qf-text-dim)] text-right">
+                  Range
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {PRODUCT_TIER_RANGES.map((tier) => (
+                <tr key={tier.name} className="border-b border-[var(--qf-border)]">
+                  <td className="py-4 pr-4 font-semibold text-[var(--qf-text)]">{tier.name}</td>
+                  <td className="py-4 pr-4 text-right font-mono text-[var(--qf-text)]">
+                    €{tier.from.toLocaleString('en-NL')}–€{tier.to.toLocaleString('en-NL')}
+                    {tier.name === 'Managed Automation' ? '/mo' : ''}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 text-sm text-[var(--qf-text-faint)] max-w-2xl">
+          Final quote fixed after your Automation Map — priced to outcome, not hourly billing.
+        </p>
       </Section>
 
       {/* ═══════════════════════════════════════════════════════════

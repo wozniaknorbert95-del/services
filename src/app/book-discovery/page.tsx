@@ -42,9 +42,13 @@ export default function BookDiscoveryPage() {
         <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
           Start with a paid Automation Map — €{PRICING.discovery}.
         </h1>
-        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
+        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-4">
           In 60–90 minutes we find your two or three biggest time-and-money leaks, calculate the
           ROI, and recommend the right first step. The fee is credited toward your project.
+        </p>
+        <p className="text-[var(--qf-text-dim)] text-sm max-w-[var(--qf-maxw-narrow)] mb-8 border-l-2 border-[var(--qf-accent)] pl-4">
+          Already downloaded the Automation Map sample? Mention it when you book — skip the basics,
+          go straight to scoping.
         </p>
       </Section>
 

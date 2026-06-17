@@ -3,6 +3,15 @@ export const SITE_URL = 'https://services.flexgrafik.nl';
 export const EMAIL = 'hello@flexgrafik.nl';
 export const CREATOR = 'Norbert Wozniak';
 
+/** WhatsApp discovery — set NEXT_PUBLIC_WHATSAPP_URL in .env.local for production */
+export const WHATSAPP = {
+  url:
+    process.env.NEXT_PUBLIC_WHATSAPP_URL ??
+    'https://wa.me/31600000000?text=Hi%20Norbert%2C%20I%27d%20like%20to%20explore%20conversion%20systems%20for%20my%20business.',
+  label: 'Chat on WhatsApp',
+  offlineFallback: `mailto:${EMAIL}?subject=WhatsApp%20unavailable`,
+} as const;
+
 export const ROUTES = {
   home: '/',
   solutions: '/solutions/',
@@ -20,11 +29,14 @@ export const ROUTES = {
   resultsSalesFunnel: '/results/sales-funnel/',
   resultsAdvisoryModernisation: '/results/advisory-modernisation/',
   resultsOwnerEcosystem: '/results/owner-ecosystem/',
+  resultsLeadMagnet: '/results/lead-magnet/',
+  resultsWhatsappPilot: '/results/whatsapp-discovery-pilot/',
   about: '/about/',
   founder: '/founder/',
   blog: '/blog/',
   bookDiscovery: '/book-discovery/',
   legal: '/legal/',
+  leadMagnet: '/artefacts/automation-map-sample.pdf',
 } as const;
 
 /** Owner ecosystem — external live demos */
@@ -38,32 +50,24 @@ export const ARTEFACTS = {
   maintenanceHandover: '/artefacts/maintenance-handover.pdf',
 } as const;
 
-export const NAV_ITEMS = [
-  { label: 'Solutions', href: ROUTES.solutions, hasDropdown: true },
-  { label: 'How It Works', href: ROUTES.howItWorks },
-  { label: 'Results', href: ROUTES.results },
-  { label: 'Pricing', href: ROUTES.pricing },
-  { label: 'About', href: ROUTES.about },
-  { label: 'Blog', href: ROUTES.blog },
-];
-
-export const SOLUTION_DROPDOWN = [
-  { label: 'Inbox Killer', href: ROUTES.inboxKiller, badge: 'Start here' },
-  { label: 'Web Upgrade', href: ROUTES.webUpgrade },
-  { label: 'Sales Funnel', href: ROUTES.salesFunnel },
-  { label: 'Lead Magnet Game', href: ROUTES.leadMagnetGame },
-  { label: 'Managed Automation', href: ROUTES.managedAutomation, badge: 'MRR' },
-];
 
 export const PRICING = {
   discovery: 290,
-  inboxKiller: { from: 1200 },
-  webUpgrade: { from: 1800 },
-  salesFunnel: { from: 2400 },
-  leadMagnetGame: { from: 2200 },
-  bundleGrowth: { from: 3900 },
-  bundlePro: { from: 6500 },
+  inboxKiller: { from: 1200, to: 4800 },
+  webUpgrade: { from: 1800, to: 5500 },
+  salesFunnel: { from: 2400, to: 6500 },
+  leadMagnetGame: { from: 2200, to: 4500 },
+  bundleGrowth: { from: 3900, to: 7500 },
+  bundlePro: { from: 6500, to: 12000 },
   care: 99,
   manage: 349,
   partner: 890,
+  budgetQualificationFloor: 1200,
 } as const;
+
+export const PRODUCT_TIER_RANGES = [
+  { name: 'Inbox Killer', from: PRICING.inboxKiller.from, to: PRICING.inboxKiller.to },
+  { name: 'Sales Funnel', from: PRICING.salesFunnel.from, to: PRICING.salesFunnel.to },
+  { name: 'Web Upgrade', from: PRICING.webUpgrade.from, to: PRICING.webUpgrade.to },
+  { name: 'Managed Automation', from: PRICING.manage, to: PRICING.partner },
+] as const;

@@ -1,47 +1,34 @@
 import Link from 'next/link';
-import { ROUTES } from '@/lib/constants';
-
-const SOLUTION_LINKS = [
-  { label: 'Inbox Killer', href: ROUTES.inboxKiller },
-  { label: 'Web Upgrade', href: ROUTES.webUpgrade },
-  { label: 'Sales Funnel', href: ROUTES.salesFunnel },
-  { label: 'Lead Magnet', href: ROUTES.leadMagnetGame },
-  { label: 'Managed Automation', href: ROUTES.managedAutomation },
-];
-
-const COMPANY_LINKS = [
-  { label: 'How It Works', href: ROUTES.howItWorks },
-  { label: 'Results', href: ROUTES.results },
-  { label: 'Pricing', href: ROUTES.pricing },
-  { label: 'Trust & Safety', href: ROUTES.trust },
-  { label: 'The Founder\'s System', href: ROUTES.founder },
-  { label: 'About', href: ROUTES.about },
-  { label: 'Blog', href: ROUTES.blog },
-];
+import { EMAIL, WHATSAPP } from '@/lib/constants';
+import {
+  FOOTER_SOLUTIONS,
+  FOOTER_COMPANY,
+  FOOTER_ARTEFACTS,
+  FOOTER_LEGAL,
+  HEADER_CTA,
+} from '@/lib/navigation';
+import { FOOTER, POSITIONING } from '@/content/conversion-copy';
 
 export default function Footer() {
   return (
     <footer className="border-t border-[var(--qf-border)] bg-[var(--qf-bg)] py-[var(--qf-sp-12)] text-[var(--qf-text-dim)] text-[var(--qf-fs-sm)]">
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <div className="grid gap-[var(--qf-sp-8)] sm:grid-cols-2 lg:grid-cols-4">
-          {/* Col 1: Brand */}
           <div>
             <span className="flex items-center text-[var(--qf-text)] font-bold tracking-[0.04em]">
               <span className="mr-[0.4em] text-[var(--qf-accent)]">▍</span>
               quietforge
             </span>
-            <p className="mt-[var(--qf-sp-3)] text-[var(--qf-text-faint)]">
-              Systems that run your small business — quietly, in the background.
-            </p>
+            <p className="mt-1 font-mono text-xs text-[var(--qf-accent)]">{POSITIONING.label}</p>
+            <p className="mt-[var(--qf-sp-3)] text-[var(--qf-text-faint)]">{FOOTER.tagline}</p>
           </div>
 
-          {/* Col 2: Solutions */}
           <div>
             <h4 className="mb-[var(--qf-sp-4)] text-[var(--qf-text)] text-[var(--qf-fs-xs)] uppercase tracking-[0.1em]">
-              Solutions
+              {FOOTER.columnSolutions}
             </h4>
             <ul className="space-y-2">
-              {SOLUTION_LINKS.map((link) => (
+              {FOOTER_SOLUTIONS.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="hover:text-[var(--qf-accent)]">
                     {link.label}
@@ -51,13 +38,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Company */}
           <div>
             <h4 className="mb-[var(--qf-sp-4)] text-[var(--qf-text)] text-[var(--qf-fs-xs)] uppercase tracking-[0.1em]">
-              Company
+              {FOOTER.columnCompany}
             </h4>
             <ul className="space-y-2">
-              {COMPANY_LINKS.map((link) => (
+              {FOOTER_COMPANY.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="hover:text-[var(--qf-accent)]">
                     {link.label}
@@ -67,35 +53,64 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Get started */}
           <div>
             <h4 className="mb-[var(--qf-sp-4)] text-[var(--qf-text)] text-[var(--qf-fs-xs)] uppercase tracking-[0.1em]">
-              Get started
+              {FOOTER.columnGetStarted}
             </h4>
             <p className="mb-2">
-              <Link href={ROUTES.bookDiscovery} className="text-[var(--qf-accent)]">
-                Book your Automation Map →
+              <Link href={HEADER_CTA.href} className="text-[var(--qf-accent)]">
+                {HEADER_CTA.label} →
               </Link>
             </p>
             <p className="mb-2">
-              <a href="mailto:hello@flexgrafik.nl" className="hover:text-[var(--qf-accent)]">
-                hello@flexgrafik.nl
+              <a href={`mailto:${EMAIL}`} className="hover:text-[var(--qf-accent)]">
+                {EMAIL}
+              </a>
+            </p>
+            <p>
+              <a
+                href={WHATSAPP.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--qf-accent)]"
+              >
+                {WHATSAPP.label}
               </a>
             </p>
           </div>
         </div>
 
-        {/* Bottom line */}
-        <div className="mt-[var(--qf-sp-8)] border-t border-[var(--qf-border)] pt-[var(--qf-sp-4)] flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-[var(--qf-sp-8)] flex flex-wrap gap-x-6 gap-y-2 border-t border-[var(--qf-border)] pt-[var(--qf-sp-6)]">
+          <span className="w-full text-[var(--qf-text)] text-[var(--qf-fs-xs)] uppercase tracking-[0.1em]">
+            {FOOTER.columnResources}
+          </span>
+          {FOOTER_LEGAL.map((link) => (
+            <Link key={link.label} href={link.href} className="hover:text-[var(--qf-accent)]">
+              {link.label}
+            </Link>
+          ))}
+          {FOOTER_ARTEFACTS.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              download
+              className="hover:text-[var(--qf-accent)]"
+            >
+              {link.label} ↓
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-[var(--qf-sp-4)] flex flex-col gap-2 border-t border-[var(--qf-border)] pt-[var(--qf-sp-4)] sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[var(--qf-text-faint)]">
-            Building something bigger?{' '}
+            {FOOTER.portfolioPrompt}{' '}
             <a
-              href="https://portfolio.flexgrafik.nl"
+              href={FOOTER.portfolioHref}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[var(--qf-accent)]"
             >
-              See how the full system works → Pillar 3
+              {FOOTER.portfolioLink}
             </a>
           </p>
           <p className="text-[var(--qf-text-faint)]">

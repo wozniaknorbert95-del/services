@@ -9,6 +9,7 @@ interface SectionProps {
   id?: string;
   background?: 'default' | 'surface';
   padding?: 'default' | 'large';
+  'data-home-section'?: string;
 }
 
 export default function Section({
@@ -17,6 +18,7 @@ export default function Section({
   id,
   background = 'default',
   padding = 'default',
+  'data-home-section': dataHomeSection,
 }: SectionProps) {
   const prefersReduced = useReducedMotion() ?? false;
   const sectionClass = cn(
@@ -28,7 +30,7 @@ export default function Section({
 
   if (prefersReduced) {
     return (
-      <section id={id} className={sectionClass}>
+      <section id={id} data-home-section={dataHomeSection} className={sectionClass}>
         <div className="mx-auto max-w-6xl px-6 sm:px-8">{children}</div>
       </section>
     );
@@ -37,6 +39,7 @@ export default function Section({
   return (
     <motion.section
       id={id}
+      data-home-section={dataHomeSection}
       initial={{ opacity: 1, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.12 }}

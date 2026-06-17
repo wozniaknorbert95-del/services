@@ -70,6 +70,7 @@ export default function HowIWork() {
   return (
     <section
       id="how-i-work"
+      data-home-section="how-i-work"
       aria-labelledby="how-i-work-title"
       className="border-t border-[var(--qf-border)] bg-[var(--qf-bg-raised)] py-[var(--qf-sp-24)]"
     >

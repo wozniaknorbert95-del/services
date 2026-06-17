@@ -9,7 +9,7 @@ export default function FinalCtaBand() {
   const fade = useMotion().fadeIn();
 
   return (
-    <section className="border-t border-[var(--qf-border)] bg-[var(--qf-bg-raised)] py-[var(--qf-sp-24)]">
+    <section data-home-section="final-cta" className="border-t border-[var(--qf-border)] bg-[var(--qf-bg-raised)] py-[var(--qf-sp-24)]">
       <div className="mx-auto max-w-[var(--qf-maxw-narrow)] px-[var(--qf-sp-6)] text-center">
         <motion.div
           initial={fade.initial}

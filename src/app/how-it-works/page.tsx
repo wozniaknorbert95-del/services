@@ -197,6 +197,30 @@ export default function HowItWorksPage() {
       </Section>
 
       {/* ═══════════════════════════════════════════════════════════
+          § F2 — AFTER DELIVERY
+         ═══════════════════════════════════════════════════════════ */}
+      <Section background="surface" padding="large">
+        <Eyebrow>After delivery</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-6">
+          What happens next
+        </h2>
+        <ul className="max-w-2xl space-y-3 text-[var(--qf-text-dim)]">
+          <li className="flex gap-3">
+            <span className="text-[var(--qf-ok)]">✓</span>
+            Ongoing optimization as your business changes — not a one-off handoff and goodbye.
+          </li>
+          <li className="flex gap-3">
+            <span className="text-[var(--qf-ok)]">✓</span>
+            Managed Automation tier for monitoring, fixes, and small improvements monthly.
+          </li>
+          <li className="flex gap-3">
+            <span className="text-[var(--qf-ok)]">✓</span>
+            Quarterly review of metrics and funnel performance when you want a structured check-in.
+          </li>
+        </ul>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════
           § G — FAQ
          ═══════════════════════════════════════════════════════════ */}
       <Section padding="large">

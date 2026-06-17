@@ -32,6 +32,7 @@ export default function TrustSafety() {
   return (
     <section
       id="trust-safety"
+      data-home-section="trust-safety"
       aria-labelledby="trust-safety-title"
       className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)]"
     >

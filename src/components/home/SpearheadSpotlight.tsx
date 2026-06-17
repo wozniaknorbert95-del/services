@@ -12,7 +12,7 @@ export default function SpearheadSpotlight() {
   const slide = motionCfg.slideFromRight();
 
   return (
-    <section className="py-[var(--qf-sp-24)]">
+    <section data-home-section="spearhead" className="py-[var(--qf-sp-24)]">
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <div className="grid items-center gap-[var(--qf-sp-12)] lg:grid-cols-5">
           {/* Left: copy (3 cols) */}

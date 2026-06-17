@@ -8,6 +8,9 @@ import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import { ROUTES } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { CASE_STUDIES } from '@/lib/case-studies';
+import FieldReports from '@/components/results/FieldReports';
+import SystemMetrics from '@/components/home/SystemMetrics';
+import IntentBadges from '@/components/ui/IntentBadges';
 
 interface CaseGratkaLink {
   label: string;
@@ -15,7 +18,6 @@ interface CaseGratkaLink {
 }
 
 interface CaseExtras {
-  detailHref: string;
   diagramSrc: string;
   diagramAlt: string;
   gratkaLinks: CaseGratkaLink[];
@@ -23,7 +25,6 @@ interface CaseExtras {
 
 const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
   'inbox-killer': {
-    detailHref: ROUTES.resultsInboxKiller,
     diagramSrc: GRATKA.inboxKillerFlowSvg,
     diagramAlt:
       'Inbox Killer flow diagram: read, classify, sort into lanes, draft reply, human approval gate, then send',
@@ -33,7 +34,6 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
     ],
   },
   'agent-orchestrator': {
-    detailHref: ROUTES.resultsAgentOrchestrator,
     diagramSrc: GRATKA.orchestratorArchitectureSvg,
     diagramAlt:
       'Multi-agent orchestrator architecture: single source of truth, directive orchestration and execution layers',
@@ -44,7 +44,6 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
     ],
   },
   'sales-funnel': {
-    detailHref: ROUTES.resultsSalesFunnel,
     diagramSrc: GRATKA.salesFunnelJourneySvg,
     diagramAlt:
       'Self-service configurator journey: welcome, seven configuration steps, then checkout',
@@ -55,7 +54,6 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
     ],
   },
   'advisory-modernisation': {
-    detailHref: ROUTES.resultsAdvisoryModernisation,
     diagramSrc: GRATKA.advisoryDeliveryTimelineSvg,
     diagramAlt:
       'Staged delivery timeline: six phases with sign-off gates for advisory firm modernisation',
@@ -64,6 +62,18 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
       { label: 'AVG / data layer (PDF)', href: GRATKA.advisoryAvgLayerPdf },
       { label: 'Delivery timeline (SVG)', href: GRATKA.advisoryDeliveryTimelineSvg },
       { label: 'Delivery timeline (PDF)', href: GRATKA.advisoryDeliveryTimelinePdf },
+    ],
+  },
+  'lead-magnet': {
+    diagramSrc: '/gratka/lead-magnet.png',
+    diagramAlt: 'Lead magnet gameplay with email capture and leaderboard',
+    gratkaLinks: [],
+  },
+  'owner-ecosystem': {
+    diagramSrc: GRATKA.ownerEcosystemMapSvg,
+    diagramAlt: 'Owner ecosystem diagram: eight repos, one supervised system',
+    gratkaLinks: [
+      { label: 'Download ecosystem map (PDF)', href: GRATKA.ownerEcosystemMapPdf },
     ],
   },
 };
@@ -105,9 +115,8 @@ export default function ResultsPage() {
           Real systems, already running.
         </h1>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)]">
-          These aren&apos;t slides — they&apos;re systems built and operating inside a live business
-          ecosystem. Names are withheld; the architecture is real. As client engagements report hard
-          numbers, they&apos;ll appear here in place of the estimates.
+          Deployed in production in my own ecosystem (2+ years running). Same architecture I deploy
+          for clients — not theory. Names are withheld where anonymised; the stack is real.
         </p>
       </Section>
 
@@ -120,7 +129,7 @@ export default function ResultsPage() {
             8 repos, 1 supervised system
           </h2>
           <p className="mb-6 max-w-none text-sm text-[var(--qf-text-dim)]">
-            All four case studies connect to modules in a live stack — VCMS supervision, Agent OS
+            All six case studies connect to modules in a live stack — VCMS supervision, Agent OS
             execution, wizard commerce, portal assistant and inbox automation. See how they cooperate.
           </p>
           <div className="mb-6 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-3">
@@ -164,6 +173,9 @@ export default function ResultsPage() {
                   {c.title}
                 </h2>
                 <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
+                <div className="mb-4">
+                  <IntentBadges intents={[...c.intents]} />
+                </div>
                 <p className="mb-3 max-w-none text-sm text-[var(--qf-text-dim)]">
                   <strong className="text-[var(--qf-text)]">Context:</strong> {c.context}
                 </p>
@@ -190,7 +202,7 @@ export default function ResultsPage() {
                     </div>
                     <div className="mt-auto space-y-2 border-t border-[var(--qf-border)] pt-4 text-sm">
                     <Link
-                      href={extras.detailHref}
+                      href={c.detailHref}
                       className="block text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
                     >
                       Read full case study →
@@ -213,6 +225,10 @@ export default function ResultsPage() {
           })}
         </div>
       </Section>
+
+      <FieldReports />
+
+      <SystemMetrics />
 
       <Section padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">

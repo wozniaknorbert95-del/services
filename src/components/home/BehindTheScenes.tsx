@@ -38,7 +38,11 @@ export default function BehindTheScenes() {
   const showVcmsVideo = videos.vcms?.ready && videos.vcms?.url;
 
   return (
-    <section id="governance" className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)] bg-[var(--qf-bg)]">
+    <section
+      id="governance"
+      data-home-section="behind-the-scenes"
+      className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)] bg-[var(--qf-bg)]"
+    >
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.div
           initial={fade.initial}

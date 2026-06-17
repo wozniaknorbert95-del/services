@@ -1,8 +1,12 @@
 // ============================================================================
-// PROOF MANIFEST — single source of truth for all client-fillable proof.
-// Cursor: build all proof components to READ from this file. Do NOT hardcode.
-// Client: fill every `null` with real data at the end. Every number must be TRUE.
+// PROOF MANIFEST — metrics, screens, videos, case measurements, pricing.
+// Module/repo/intent map: src/content/ecosystem.ts
+// Copy strings: src/content/conversion-copy.ts
+// Binding layout: docs/strategy/site-map.md
+// Videos: fill LAST — never show [FILL] placeholders on home.
 // ============================================================================
+
+import type { CaseMeasurementKey, ScreenKey, VideoKey } from '@/content/ecosystem';
 
 export const metrics = {
   repos: "8",                                                  // [R] 8 zbadanych repo
@@ -45,7 +49,7 @@ export const vcmsFeatureStatus: Record<string, { label: string; status: FeatureC
  * 2. Upload to Loom / Vimeo / YouTube (unlisted)
  * 3. Set url + ready: true below (optional poster: /gratka/vcms-demo-poster.jpg)
  */
-export const videos: Record<string, VideoSlot> = {
+export const videos: Record<VideoKey, VideoSlot> = {
   ecosystem:   { url: null, duration: "90s", poster: null, ready: false },  // "How the whole ecosystem works"
   inboxKiller: { url: null, duration: "60s", poster: null, ready: false },
   wizard:      { url: null, duration: "45s", poster: null, ready: false },
@@ -62,7 +66,7 @@ export type ScreenShot = {
   ready: boolean;
 };
 
-export const screens: Record<string, ScreenShot> = {
+export const screens: Record<ScreenKey, ScreenShot> = {
   wizardCheckout:  { src: "/gratka/wizard-checkout.png", alt: "Configurator checkout with live price", caption: "Configure → see price → pay, no phone call.", ready: true },
   leadMagnet:      { src: "/gratka/lead-magnet.png", alt: "Gameplay with email capture and leaderboard", caption: "A lead magnet that earns the contact.", ready: true },
   inboxLanes:      { src: "/gratka/inbox-lanes.png", alt: "Inbox classification lanes with approval gate", caption: "Lead · client · invoice · noise, with approval gate.", ready: true },
@@ -76,12 +80,16 @@ export const screens: Record<string, ScreenShot> = {
 };
 
 // Case studies: measurement line (honest reframe)
-export const caseMeasurements: Record<string, { value: string | null; ready: boolean }> = {
+export const caseMeasurements: Record<
+  CaseMeasurementKey,
+  { value: string | null; ready: boolean }
+> = {
   inboxKiller: { value: "Live mailbox, 142 msgs/scan, human approval on every send.", ready: true },
   agentOs:     { value: "5-node LangGraph, real E2E flow via OpenRouter.", ready: true },
   salesFunnel: { value: "9-step configurator → quote → payment, live.", ready: true },
   leadMagnet:  { value: "5-level game, email capture on win.", ready: true },
   advisory:    { value: "6-phase delivery, AVG layer specified · anonymised · in delivery.", ready: true },
+  ownerEcosystem: { value: "8-repo scan status with conflict detection before deploy.", ready: true },
 };
 
 // Pricing tiers — placeholders null

@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
     unoptimized: true,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Policy: prefer WebP/AVIF sources in markup; screenshots max 1600px; lazy below fold
+    formats: ['image/avif', 'image/webp'],
   },
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],

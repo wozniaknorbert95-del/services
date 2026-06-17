@@ -1,7 +1,7 @@
 'use client';
 
 import { useReducedMotion } from 'framer-motion';
-import { fadeIn, slideUp, scaleIn, staggerContainer, type MotionPreset } from '@/lib/motion';
+import { heroEntrance, fadeIn, slideUp, scaleIn, staggerContainer, type MotionPreset } from '@/lib/motion';
 
 export const motionStatic = {
   initial: { opacity: 1, y: 0, x: 0, scale: 1 },
@@ -25,6 +25,7 @@ export function useMotion() {
 
   return {
     prefersReduced,
+    heroEntrance: (overrides?: Record<string, unknown>) => resolve(heroEntrance, overrides),
     fadeIn: (overrides?: Record<string, unknown>) => resolve(fadeIn, overrides),
     slideUp: (overrides?: Record<string, unknown>) => resolve(slideUp, overrides),
     scaleIn: (overrides?: Record<string, unknown>) => resolve(scaleIn, overrides),

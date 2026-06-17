@@ -1,6 +1,7 @@
 # Quietforge — Design System Guide (for agents building the site)
 
 > **Read this before touching any page.** This is the single source of truth for how the Pillar 2 site looks and feels.
+> **Strategy (copy, funnel, section order):** `docs/strategy/` — read before changing content or IA.
 > Files: `quietforge.css` (the system) · `style-guide.html` (living reference, open in browser) · this guide (rules).
 > Aesthetic: **terminal / developer-tool** — inspired by Hermes-Agent (amber) + OpenCode (minimal mono).
 
@@ -54,6 +55,26 @@ Dark-first, monospace, **one sharp accent color** (amber `--qf-accent`), thin 1p
 | `.qf-rule` / `--ascii` | Section dividers. |
 | `.qf-header` / `.qf-nav` / `.qf-footer` | Chrome. |
 
+### Icons (Lucide React)
+
+- Library: Lucide React only
+- Stroke: 1.5px
+- Size: 16px inline, 24px section headers
+- Color: `--qf-text-dim` default; `--qf-accent` on hover/active
+
+### `.qf-statusbar` spec
+
+- Mono uppercase labels, `--qf-text-faint`
+- Vertical separators: 1px `--qf-border`
+- Live indicator: `--qf-accent` dot
+
+### Metrics grid spec
+
+- 3–4 columns max on desktop
+- Number: `--qf-fs-2xl` mono bold
+- Label: `--qf-fs-xs` uppercase accent
+- Optional outcome line below label (`--qf-text-dim`)
+
 ---
 
 ## 5. Page-build recipe (apply the copy docs to this system)
@@ -63,7 +84,7 @@ For each page, the agent should:
 2. Lead every section with `.qf-eyebrow` + `<h2>` (from the copy doc).
 3. Hero: H1 with the accent span on the key phrase + `.qf-lead` + `.qf-btn` + `.qf-hint`. Pair with a `.qf-panel--titled` containing a `.qf-code` terminal mock as the visual.
 4. Product outcomes → `.qf-list--check`. Process → `.qf-list--steps`.
-5. **Inbox Killer card always `.qf-panel--spearhead`**; ladder cards = plain `.qf-panel`. (Enforces the hierarchy so clients don't get lost.)
+5. **Inbox Killer = spearhead** on `/`, `/pricing/`, `/book-discovery/`. On `/solutions/*` — featured tier for that page may use `--spearhead` (not always Inbox Killer).
 6. Pricing → `.qf-tier`, middle plan `.qf-tier--featured` + `.qf-badge "Most popular"`.
 7. End every page with a single `.qf-btn` → Book Automation Map. No competing CTAs.
 8. Footer = shared component (copy from style-guide).
@@ -74,9 +95,11 @@ For each page, the agent should:
 
 ## 6. Theme switch (give the client a choice)
 
-- **Default (amber/forge):** ship as-is. Matches "Quietforge" + Hermes energy.
-- **OpenCode blue:** add `class="qf-theme-mono"` to `<body>`. Cooler, more neutral, blue accent.
-- Same markup, same classes — only the accent + grays change. **Pick ONE for launch** (recommend amber: it's more distinctive and on-brand for "forge").
+- **Launch default: amber only.** Ship `quietforge.css` as-is — matches Quietforge + Hermes energy.
+- **OpenCode blue:** `class="qf-theme-mono"` on `<body>` — future opt-in, not MVP.
+- **Light mode:** post-MVP toggle per ui-ux-principles.md §2.
+
+**Decision locked:** MVP = amber dark. No dual-theme at launch.
 
 ---
 

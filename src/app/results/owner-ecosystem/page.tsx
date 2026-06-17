@@ -8,6 +8,9 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import { ROUTES } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { vcmsFeatureStatus } from '@/content/proof';
+import { ECOSYSTEM_REPOS } from '@/content/ecosystem';
+import { CASE_STUDIES } from '@/lib/case-studies';
+import IntentBadges from '@/components/ui/IntentBadges';
 
 const FLOW_STEPS = [
   { step: '01', title: 'Entry', detail: 'flexgrafik.nl — portal + chat assistant routes visitors to the right path.' },
@@ -18,32 +21,10 @@ const FLOW_STEPS = [
   { step: '06', title: 'Supervision', detail: 'Flex-VCMS — scan all repos, detect conflicts, enforce SSoT. Governance layer.', highlight: true },
 ];
 
-const CASE_MAP = [
-  { case: '01 Inbox Killer', maps: 'Back-office — live email, HITL on every send' },
-  { case: '02 Orchestrator', maps: 'Agent OS + jadzia + VCMS supervision' },
-  { case: '03 Sales Funnel', maps: 'zzpackage wizard & order form pattern' },
-  { case: '04 Advisory', maps: 'Client engagement layer (anonymised, in delivery)' },
-];
-
-interface EcosystemModule {
-  layer: string;
-  name: string;
-  detail: string;
-  highlight?: boolean;
-}
-
-const MODULES: EcosystemModule[] = [
-  { layer: 'Governance', name: 'flexgrafik-meta', detail: 'Constitution — rules, agents, master plan' },
-  { layer: 'Governance', name: 'WorkFlow', detail: 'Program office — backlog & daily ops' },
-  { layer: 'Products', name: 'zzpackage', detail: 'Wizard + order form — configure or delegate' },
-  { layer: 'Supervision', name: 'Flex-VCMS', detail: 'Scan · conflicts · SSoT registry · handoffs', highlight: true },
-  { layer: 'Applications', name: 'flexgrafik.nl', detail: 'Portal + chat assistant — entry point' },
-  { layer: 'Applications', name: 'app.flexgrafik.nl', detail: 'Lead magnet game → wizard' },
-  { layer: 'Applications', name: 'jadzia-core', detail: 'AI backend · orders · module loop' },
-  { layer: 'Execution', name: 'Agent OS', detail: 'Planner → coder → tester → review', highlight: true },
-  { layer: 'Client', name: 'services.flexgrafik.nl', detail: 'Quietforge B2B — this site' },
-  { layer: 'Back-office', name: 'Inbox Killer', detail: 'Live email agent — HITL on every send' },
-];
+const CASE_MAP = CASE_STUDIES.map((c) => ({
+  case: `${c.number} ${c.title}`,
+  maps: c.system,
+}));
 
 const VCMS_WHY = [
   {
@@ -81,7 +62,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Owner ecosystem — 8 repos, 1 system',
-    description: 'Live stack behind the AI Systems Architect — forward internally.',
+    description: 'Live stack behind the Conversion Systems Architect — process proof.',
     images: ['/og/results-owner-ecosystem.svg'],
   },
 };
@@ -138,19 +119,27 @@ export default function OwnerEcosystemPage() {
 
       <Section padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
-          Modules at a glance
+          Eight repos at a glance
         </h2>
         <div className="grid gap-[var(--qf-sp-4)] sm:grid-cols-2">
-          {MODULES.map((mod) => (
+          {ECOSYSTEM_REPOS.map((repo) => (
             <Card
-              key={mod.name}
-              className={mod.highlight ? 'border-[var(--qf-accent)] bg-[var(--qf-accent-glow)] p-5' : 'p-5'}
+              key={repo.repoKey}
+              className={repo.flagship ? 'border-[var(--qf-accent)] bg-[var(--qf-accent-glow)] p-5' : 'p-5'}
             >
               <p className="mb-1 font-mono text-xs uppercase tracking-wider text-[var(--qf-info)]">
-                {mod.layer}
+                {repo.number} · {repo.role}
               </p>
-              <h3 className="mb-1 font-bold text-[var(--qf-text)]">{mod.name}</h3>
-              <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{mod.detail}</p>
+              <h3 className="mb-2 font-bold text-[var(--qf-text)]">{repo.repoKey}</h3>
+              <div className="mb-3">
+                <IntentBadges intents={[...repo.intents]} />
+              </div>
+              <Link
+                href={repo.proofRoute}
+                className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+              >
+                See proof →
+              </Link>
             </Card>
           ))}
         </div>
@@ -254,26 +243,13 @@ export default function OwnerEcosystemPage() {
           </table>
         </div>
         <ul className="mt-8 flex flex-wrap gap-4 text-sm">
-          <li>
-            <Link href={ROUTES.resultsInboxKiller} className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
-              Case 01 →
-            </Link>
-          </li>
-          <li>
-            <Link href={ROUTES.resultsAgentOrchestrator} className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
-              Case 02 →
-            </Link>
-          </li>
-          <li>
-            <Link href={ROUTES.resultsSalesFunnel} className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
-              Case 03 →
-            </Link>
-          </li>
-          <li>
-            <Link href={ROUTES.resultsAdvisoryModernisation} className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
-              Case 04 →
-            </Link>
-          </li>
+          {CASE_STUDIES.map((c) => (
+            <li key={c.slug}>
+              <Link href={c.detailHref} className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
+                Case {c.number} →
+              </Link>
+            </li>
+          ))}
         </ul>
       </Section>
 

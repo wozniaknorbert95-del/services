@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { CREATOR, EMAIL, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://services.flexgrafik.nl'),
   title: {
-    default: 'Quietforge — Done-for-you systems for small business',
+    default: 'Quietforge — Conversion Systems Architect',
     template: '%s | Quietforge',
   },
   description:
-    'Modern websites and back-office automation for small businesses. Fewer emails, more clients — systems that run on autopilot. Start with a paid Automation Map.',
+    'Conversion systems that qualify leads and reduce admin for NL small businesses. Human-in-the-loop. Start with a paid Automation Map.',
   keywords: [
     'small business automation',
     'inbox automation',
@@ -27,22 +28,23 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://services.flexgrafik.nl',
     siteName: 'Quietforge',
-    title: 'Quietforge — Done-for-you systems for small business',
+    title: 'Quietforge — Conversion Systems Architect',
     description:
-      'Modern websites and back-office automation for small businesses. Fewer emails, more clients — systems that run on autopilot.',
+      'Conversion systems that qualify leads and reduce admin for NL small businesses. Human-in-the-loop. Start with a paid Automation Map.',
     images: [
       {
         url: '/og/home.svg',
         width: 1200,
         height: 630,
-        alt: 'Quietforge — Done-for-you systems for small business',
+        alt: 'Quietforge — Conversion Systems Architect',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Quietforge — Done-for-you systems for small business',
-    description: 'Systems that run your small business — quietly, in the background.',
+    title: 'Quietforge — Conversion Systems Architect',
+    description:
+      'Conversion systems that qualify leads and reduce admin for NL small businesses. Human-in-the-loop.',
     creator: '@flexgrafik',
     images: ['/og/home.svg'],
   },
@@ -61,19 +63,32 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Quietforge",
-    url: "https://services.flexgrafik.nl",
-    description:
-      "Done-for-you digital systems for small businesses — modern websites and back-office automation.",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://services.flexgrafik.nl/?q={search_term_string}",
-      "query-input": "required name=search_term_string",
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: SITE_URL,
+      description:
+        "Conversion systems for small businesses — lead qualification, automation, and custom VCMS.",
     },
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+      email: EMAIL,
+      founder: { "@type": "Person", name: CREATOR },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: CREATOR,
+      jobTitle: "Conversion Systems Architect",
+      url: SITE_URL,
+      worksFor: { "@type": "Organization", name: SITE_NAME },
+    },
+  ];
 
   return (
     <html lang="en" className="h-full antialiased">

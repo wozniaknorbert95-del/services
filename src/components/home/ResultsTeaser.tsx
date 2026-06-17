@@ -1,50 +1,12 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
 import { ROUTES } from '@/lib/constants';
-import { Building2, GitBranch, Mail, Workflow } from 'lucide-react';
-
+import { CASE_STUDIES } from '@/lib/case-studies';
 import { caseMeasurements } from '@/content/proof';
-
-const CASES = [
-  {
-    icon: Mail,
-    title: 'The self-running back-office',
-    meta: 'Inbox Killer · live',
-    summary:
-      'An agent deploys and manages systems directly via Telegram commands, editing code remotely with SSH.',
-    measurementKey: 'inboxKiller' as const,
-    caseHref: ROUTES.resultsInboxKiller,
-  },
-  {
-    icon: GitBranch,
-    title: 'A multi-agent orchestrator',
-    meta: 'Agent engine · production',
-    summary:
-      'FastAPI + LangGraph on a VPS — single source of truth, agent cards and human approval gates.',
-    measurementKey: 'agentOs' as const,
-    caseHref: ROUTES.resultsAgentOrchestrator,
-  },
-  {
-    icon: Workflow,
-    title: 'Self-service quote & onboarding',
-    meta: 'Sales Funnel Engine',
-    summary:
-      'A 7-step configurator qualifies, quotes and books — without you typing the same reply again.',
-    measurementKey: 'salesFunnel' as const,
-    caseHref: ROUTES.resultsSalesFunnel,
-  },
-  {
-    icon: Building2,
-    title: 'Modernisation + AI assistant for an advisory firm',
-    meta: 'Web Upgrade + assistant · anonymised',
-    summary:
-      'Site upgrade + qualification-only assistant + human-approved content — AVG layer specified.',
-    measurementKey: 'advisory' as const,
-    caseHref: ROUTES.resultsAdvisoryModernisation,
-  },
-];
+import IntentBadges from '@/components/ui/IntentBadges';
 
 export default function ResultsTeaser() {
   const motionCfg = useMotion();
@@ -52,6 +14,7 @@ export default function ResultsTeaser() {
 
   return (
     <section
+      data-home-section="results-teaser"
       aria-labelledby="results-teaser-title"
       className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)]"
     >
@@ -74,35 +37,36 @@ export default function ResultsTeaser() {
           viewport={{ once: true, margin: '-80px' }}
           className="grid gap-[var(--qf-sp-6)] lg:grid-cols-2"
         >
-          {CASES.map((c) => (
-            <motion.div
-              key={c.title}
-              variants={motionCfg.childFade}
-              className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6"
-            >
-              <c.icon
-                className="mb-4 h-6 w-6 text-[var(--qf-accent)]"
-                strokeWidth={1.5}
-                aria-hidden="true"
-              />
-              <h3 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
-                {c.title}
-              </h3>
-              <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
-              <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.summary}</p>
-              {caseMeasurements[c.measurementKey]?.ready && caseMeasurements[c.measurementKey]?.value ? (
-                <p className="mb-4 font-mono text-xs text-[var(--qf-text-faint)]">
-                  Measurement: {caseMeasurements[c.measurementKey].value}
-                </p>
-              ) : null}
-              <a
-                href={c.caseHref}
-                className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+          {CASE_STUDIES.map((c) => {
+            const measurement = caseMeasurements[c.manifestKey];
+
+            return (
+              <motion.div
+                key={c.slug}
+                variants={motionCfg.childFade}
+                className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6"
               >
-                Read case study →
-              </a>
-            </motion.div>
-          ))}
+                <div className="mb-3">
+                  <IntentBadges intents={[...c.intents]} />
+                </div>
+                <h3 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+                  {c.title}
+                </h3>
+                <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
+                <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.system}</p>
+                <p className="mb-4 font-mono text-xs text-[var(--qf-text-faint)]">
+                  Measurement:{' '}
+                  {measurement?.ready && measurement.value ? measurement.value : c.measurement}
+                </p>
+                <Link
+                  href={c.detailHref}
+                  className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+                >
+                  Read case study →
+                </Link>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <motion.div
@@ -112,12 +76,12 @@ export default function ResultsTeaser() {
           transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.2 }).transition}
           className="mt-[var(--qf-sp-8)] text-center"
         >
-          <a
+          <Link
             href={ROUTES.results}
             className="inline-flex items-center gap-[var(--qf-sp-2)] text-[var(--qf-accent)] transition-colors hover:text-[var(--qf-text)]"
           >
             See all results →
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

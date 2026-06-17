@@ -2,28 +2,18 @@
 
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
-import { metrics } from '@/content/proof';
+import { METRIC_DISPLAY_CARDS, SYSTEM_METRICS_COPY, getMetricValue } from '@/content/metrics-display';
+import { getIntentMeta } from '@/content/ecosystem';
 
 export default function SystemMetrics() {
   const motionCfg = useMotion();
   const fade = motionCfg.fadeIn();
 
-  const metricCards = [
-    { label: 'Repos / modules', value: metrics.repos },
-    { label: 'Systems Live', value: metrics.systemsLive },
-    { label: 'Wizard steps', value: metrics.wizardSteps },
-    { label: 'Dynamic SKUs', value: metrics.skus },
-    { label: 'Game levels', value: metrics.gameLevels },
-    { label: 'Workflow steps', value: metrics.workflowSteps },
-    { label: 'Agent nodes', value: metrics.agentNodes },
-    { label: 'Inbox throughput', value: metrics.msgsPerScan },
-    { label: 'Integrations', value: metrics.integrations },
-    { label: 'Hosting', value: metrics.hosting },
-    { label: 'Deployment', value: metrics.deployment },
-  ];
-
   return (
-    <section className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)]">
+    <section
+      data-home-section="system-metrics"
+      className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)]"
+    >
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.div
           initial={fade.initial}
@@ -32,9 +22,9 @@ export default function SystemMetrics() {
           transition={fade.transition}
           className="mb-[var(--qf-sp-12)]"
         >
-          <span className="qf-eyebrow">// The system, in numbers</span>
+          <span className="qf-eyebrow">{SYSTEM_METRICS_COPY.eyebrow}</span>
           <p className="mt-[var(--qf-sp-4)] max-w-2xl text-[var(--qf-text-dim)]">
-            Eight production repos. One supervised ecosystem. Built from scratch — running a real business today, not a pitch deck.
+            {SYSTEM_METRICS_COPY.lead}
           </p>
         </motion.div>
 
@@ -43,22 +33,26 @@ export default function SystemMetrics() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid grid-cols-2 gap-[var(--qf-sp-4)] md:grid-cols-4"
+          className="grid grid-cols-1 gap-[var(--qf-sp-4)] sm:grid-cols-2 md:grid-cols-3"
         >
-          {metricCards.map((card, idx) => (
-            <motion.div
-              key={idx}
-              variants={motionCfg.childFade}
-              className="flex flex-col rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-4)]"
-            >
-              <span className="mb-[var(--qf-sp-2)] text-[var(--qf-fs-2xl)] font-bold text-[var(--qf-text)]">
-                {card.value ?? '—'}
-              </span>
-              <span className="font-mono text-xs text-[var(--qf-accent)]">
-                {card.label}
-              </span>
-            </motion.div>
-          ))}
+          {METRIC_DISPLAY_CARDS.map((card) => {
+            const intent = getIntentMeta(card.intent);
+            return (
+              <motion.div
+                key={card.metricKey}
+                variants={motionCfg.childFade}
+                className="flex flex-col rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-4)]"
+              >
+                <span className="mb-[var(--qf-sp-2)] font-mono text-[var(--qf-fs-2xl)] font-bold text-[var(--qf-text)]">
+                  {getMetricValue(card.metricKey)}
+                </span>
+                <span className={`font-mono text-xs uppercase ${intent.textClass}`}>
+                  {card.label}
+                </span>
+                <span className="mt-2 text-xs text-[var(--qf-text-dim)]">{card.outcome}</span>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

@@ -35,7 +35,7 @@ export default function PricingSection() {
   ];
 
   return (
-    <Section background="surface" padding="large">
+    <Section background="surface" padding="large" data-home-section="pricing">
       <div className="mb-[var(--qf-sp-12)] text-center">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-[var(--qf-sp-4)]">
           Start with a paid Automation Map.

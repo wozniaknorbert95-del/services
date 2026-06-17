@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { EMAIL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Legal & Privacy',
@@ -51,9 +52,15 @@ export default function LegalPage() {
                 your data.
               </p>
               <p>
+                <strong className="text-[var(--qf-text)]">WhatsApp discovery agent:</strong>{' '}
+                By starting a chat you explicitly opt in to qualification questions. Messages are
+                retained for up to 90 days for follow-up. You may request deletion at any time via{' '}
+                {EMAIL}.
+              </p>
+              <p>
                 <strong className="text-[var(--qf-text)]">Your rights:</strong>{' '}
-                Under GDPR, you have the right to access, correct, or delete your data. Contact
-                us at hello@flexgrafik.nl.
+                Under GDPR/AVG, you have the right to access, correct, or delete your data. Contact
+                us at {EMAIL}.
               </p>
             </div>
           </section>

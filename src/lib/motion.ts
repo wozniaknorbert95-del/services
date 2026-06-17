@@ -5,7 +5,14 @@ export type MotionPreset = {
 };
 
 export const fadeIn: MotionPreset = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: 'easeOut' as const },
+};
+
+/** Hero entrance: fade + 8px slide-up, 400ms */
+export const heroEntrance: MotionPreset = {
+  initial: { opacity: 0, y: 8 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.4, ease: 'easeOut' as const },
 };
