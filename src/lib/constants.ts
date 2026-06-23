@@ -12,6 +12,16 @@ export const WHATSAPP = {
   offlineFallback: `mailto:${EMAIL}?subject=WhatsApp%20unavailable`,
 } as const;
 
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/norbert-wozniak-172b76367';
+export const FLEXGRAFIK_URL = 'https://flexgrafik.nl';
+
+/** External social / connect links — footer, about, JSON-LD sameAs */
+export const SOCIAL_LINKS = [
+  { label: 'LinkedIn profile', href: LINKEDIN_URL, icon: 'linkedin' as const },
+  { label: 'FlexGrafik — live proof', href: FLEXGRAFIK_URL, icon: 'globe' as const },
+  { label: WHATSAPP.label, href: WHATSAPP.url, icon: 'whatsapp' as const },
+] as const;
+
 export const ROUTES = {
   home: '/',
   solutions: '/solutions/',

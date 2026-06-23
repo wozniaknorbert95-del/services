@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { EMAIL, WHATSAPP } from '@/lib/constants';
+import SocialLinks from '@/components/ui/SocialLinks';
 import {
   FOOTER_SOLUTIONS,
   FOOTER_COMPANY,
@@ -21,6 +22,7 @@ export default function Footer() {
             </span>
             <p className="mt-1 font-mono text-xs text-[var(--qf-accent)]">{POSITIONING.label}</p>
             <p className="mt-[var(--qf-sp-3)] text-[var(--qf-text-faint)]">{FOOTER.tagline}</p>
+            <SocialLinks className="mt-[var(--qf-sp-4)]" />
           </div>
 
           <div>
@@ -90,14 +92,14 @@ export default function Footer() {
             </Link>
           ))}
           {FOOTER_ARTEFACTS.map((link) => (
-            <Link
+            <a
               key={link.label}
               href={link.href}
               download
               className="hover:text-[var(--qf-accent)]"
             >
               {link.label} ↓
-            </Link>
+            </a>
           ))}
         </div>
 

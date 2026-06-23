@@ -46,7 +46,7 @@ export const FOOTER_SOLUTIONS: readonly NavLink[] = [
 
 export const FOOTER_COMPANY: readonly NavLink[] = [
   { label: 'How It Works', href: ROUTES.howItWorks },
-  { label: 'Results', href: ROUTES.results },
+  { label: 'Systems & results', href: ROUTES.results },
   { label: 'Pricing', href: ROUTES.pricing },
   { label: 'Trust & Safety', href: ROUTES.trust },
   { label: 'About', href: ROUTES.about },

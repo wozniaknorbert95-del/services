@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import SocialLinks from '@/components/ui/SocialLinks';
 import { ROUTES } from '@/lib/constants';
 import { ABOUT, CTAS, POSITIONING } from '@/content/conversion-copy';
 
@@ -44,6 +45,7 @@ export default function AboutPage() {
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
           {CTAS.bookAutomationMap}
         </Button>
+        <SocialLinks showLabels className="mt-[var(--qf-sp-6)]" />
       </Section>
 
       <Section background="surface" padding="large">

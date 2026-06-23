@@ -34,7 +34,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "^16.2.9",
+    "lighthouse": "^13.4.0",
     "md-to-pdf": "^5.2.5",
+    "playwright": "^1.61.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

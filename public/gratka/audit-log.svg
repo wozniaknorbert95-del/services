@@ -16,7 +16,7 @@
   <text x="690" y="49" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="10" text-anchor="middle">DEMO</text>
 
   <text x="40" y="88" fill="#8b5cf6" font-family="ui-monospace, monospace" font-size="11">// VCMS governance action log</text>
-  <text x="40" y="112" fill="#6b7280" font-family="system-ui, sans-serif" font-size="12">Append-only trail  —  scan events, handoffs and review pointers (sample fixture).</text>
+  <text x="40" y="112" fill="#6b7280" font-family="system-ui, sans-serif" font-size="12">Append-only trail - scan events, handoffs and review pointers (sample fixture).</text>
 
   <rect x="40" y="132" width="720" height="300" rx="8" fill="#050608" stroke="#252937"/>
   <text x="56" y="162" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">{"ts":"2026-06-16T09:14:02Z","event":"scan.complete","repos":8,"conflicts":0}</text>
@@ -28,7 +28,7 @@
   <text x="56" y="306" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">{"ts":"2026-06-16T09:14:08Z","event":"deploy.blocked","reason":"HITL approval pending"}</text>
   <text x="56" y="330" fill="#9ca3c7" font-family="ui-monospace, monospace" font-size="11">{"ts":"2026-06-16T09:14:09Z","event":"scan.scheduled","trigger":"manual","operator":"owner"}</text>
   <text x="56" y="354" fill="#22c55e" font-family="ui-monospace, monospace" font-size="11">{"ts":"2026-06-16T09:14:10Z","event":"audit.append","file":"governance-audit.jsonl"}</text>
-  <text x="56" y="396" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11">_ tail -f governance-audit.jsonl � DEMO fixture</text>
+  <text x="56" y="396" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="11">_ tail -f governance-audit.jsonl | DEMO fixture</text>
 
-  <text x="40" y="468" fill="#6b7280" font-family="ui-monospace, monospace" font-size="10">DEMO: local trail sample � production handoffs + ops logs on request</text>
+  <text x="40" y="468" fill="#6b7280" font-family="ui-monospace, monospace" font-size="10">DEMO: local trail sample | production handoffs + ops logs on request</text>
 </svg>

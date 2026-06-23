@@ -255,7 +255,9 @@ Scoring implementation lives in wizard/WhatsApp backend — **site copy must not
 4. Lead Magnet Game
 5. Managed Automation — `MRR` badge
 
-**Footer:** Solutions links + legal + artefacts; repeat single L3. Data source: `src/lib/navigation.ts`.
+**VCMS proof placement:** Governance layer — not a product SKU. Lives under **Systems** (`/results/`) → owner-ecosystem case study → `#why-vcms`. Do not list VCMS in Solutions dropdown or footer company column.
+
+**Footer:** Solutions links + legal + artefacts; repeat single L3. Company column: **Systems & results** → `/results/`. Data source: `src/lib/navigation.ts`.
 
 ### Global chrome (binding)
 

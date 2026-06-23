@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CREATOR, EMAIL, SITE_NAME, SITE_URL } from "@/lib/constants";
+import { CREATOR, EMAIL, FLEXGRAFIK_URL, LINKEDIN_URL, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://services.flexgrafik.nl'),
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     'SMB automation',
     'lead qualification',
   ],
-  authors: [{ name: 'Norbert Wozniak', url: 'https://portfolio.flexgrafik.nl' }],
+  authors: [{ name: 'Norbert Wozniak', url: 'https://services.flexgrafik.nl/founder/' }],
   creator: 'Norbert Wozniak',
   openGraph: {
     type: 'website',
@@ -79,14 +79,22 @@ export default function RootLayout({
       url: SITE_URL,
       email: EMAIL,
       founder: { "@type": "Person", name: CREATOR },
+      sameAs: [
+        LINKEDIN_URL,
+        FLEXGRAFIK_URL,
+      ],
     },
     {
       "@context": "https://schema.org",
       "@type": "Person",
       name: CREATOR,
       jobTitle: "Conversion Systems Architect",
-      url: SITE_URL,
+      url: `${SITE_URL}/founder/`,
       worksFor: { "@type": "Organization", name: SITE_NAME },
+      sameAs: [
+        LINKEDIN_URL,
+        FLEXGRAFIK_URL,
+      ],
     },
   ];
 

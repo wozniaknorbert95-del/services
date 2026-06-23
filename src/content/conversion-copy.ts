@@ -12,8 +12,9 @@ export const HERO = {
   headline: 'Conversion systems that qualify leads, automate bookings and reduce admin work.',
   subline:
     'Built with custom workflows, AI assistants and automation logic — with you in the loop on every send.',
-  proofLine: '6 systems built • Custom VCMS • AI-integrated workflows',
-  microTrust: 'Built on a live, battle-tested ecosystem — not a template.',
+  proofLine: 'FlexGrafik live ops • 8-repo ecosystem • VCMS governance',
+  microTrust:
+    'Quietforge deploys the same architecture that runs FLEXGRAFIK — my registered company, not a demo.',
   primaryCta: 'Book your Automation Map',
   secondaryCta: 'See the systems',
   secondaryHref: '/results/',
@@ -76,9 +77,9 @@ export const ABOUT = {
   heroTitle: 'Conversion Systems Architect for businesses that need systems, not slides.',
   heroIntro:
     "I'm Norbert Wozniak — I design conversion systems that qualify leads, automate bookings and reduce admin work, with you in the loop on every critical step. Everything here is proven on a live operation before it reaches a client.",
-  storyTitle: 'From branding to systems — on a real business, not in theory',
+  storyTitle: 'FLEXGRAFIK is the proof — Quietforge is how I deploy it for you',
   storyBody:
-    'I started in branding and print, then spent the last two years building a full digital ecosystem to run my own business: a sales wizard, a custom-built game, an automation engine, and the orchestration that ties it together. Everything I offer here has already proven itself on a live operation before it ever reaches a client.',
+    'FLEXGRAFIK is my Netherlands-registered print and design company — and the live operating environment where I built and run this entire stack: multi-agent orchestration, VCMS governance, a 200+ SKU self-service wizard, inbox automation, and a lead-generation game. It is not a demo or a case study mock-up — it is the business that pays the bills while the software runs it. Quietforge is the consulting arm: I deploy the same architecture for Dutch ZZP and SME owners, with human-in-the-loop on every critical step.',
   moatTitle: 'What makes this different',
   moatPillars: [
     {
