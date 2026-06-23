@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useMotion } from '@/lib/useMotion';
 import { HERO, POSITIONING } from '@/content/conversion-copy';
 import { metrics } from '@/content/proof';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES, WHATSAPP } from '@/lib/constants';
 
 export default function HeroSection() {
   const motionCfg = useMotion();
@@ -32,19 +32,35 @@ export default function HeroSection() {
             </p>
             <h1 className="mb-[var(--qf-sp-4)]">{HERO.headline}</h1>
             <p className="text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">{HERO.subline}</p>
-            <div className="mt-[var(--qf-sp-6)] flex flex-wrap items-center gap-[var(--qf-sp-4)]">
+            <div className="mt-[var(--qf-sp-6)] flex flex-wrap items-center gap-[var(--qf-sp-3)]">
               <Link
                 href={ROUTES.bookDiscovery}
                 className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:bg-[var(--qf-accent-soft)] hover:border-[var(--qf-accent-soft)]"
               >
                 {HERO.primaryCta} <span aria-hidden="true">→</span>
               </Link>
+              <a
+                href={WHATSAPP.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center border border-[var(--qf-border)] px-6 py-3 text-sm font-semibold text-[var(--qf-text)] transition-colors hover:border-[var(--qf-accent)] hover:text-[var(--qf-accent)]"
+              >
+                {HERO.whatsappCta}
+              </a>
               <Link
                 href={HERO.secondaryHref}
                 className="text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-text)]"
               >
                 {HERO.secondaryCta} →
               </Link>
+              <a
+                href={HERO.wizardHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-[var(--qf-text-faint)] transition-colors hover:text-[var(--qf-accent)]"
+              >
+                {HERO.wizardCta} →
+              </a>
             </div>
             <p className="mt-[var(--qf-sp-4)] text-[var(--qf-fs-sm)] text-[var(--qf-text-faint)]">
               <span className="text-[var(--qf-accent)]">→ </span>

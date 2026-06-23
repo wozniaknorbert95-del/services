@@ -1,19 +1,19 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Inbox Killer — email that sorts itself',
+  title: 'Inbox Killer — Lead Qualification System',
   description:
-    'Stop losing hours and leads in your inbox. Inbox Killer sorts, prioritises and drafts your replies — you approve every send. Built for small businesses. Book a paid Automation Map.',
+    'Your inbox sorted, drafted, and gated. Inbox Killer classifies intent, drafts replies, and waits for your approval before anything sends.',
   openGraph: {
-    title: 'Inbox Killer — email that sorts itself',
+    title: 'Inbox Killer — Lead Qualification System | Quietforge',
     description:
-      'Stop losing hours and leads in your inbox. Inbox Killer sorts, prioritises and drafts your replies — you approve every send.',
+      'Lead qualification system: classify lanes, draft replies, human approval on every send.',
     images: ['/og/solutions-inbox-killer.svg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Inbox Killer — email that sorts itself',
-    description: 'Stop losing hours and leads in your inbox.',
+    title: 'Inbox Killer — Lead Qualification System',
+    description: 'Your inbox sorted, drafted, and gated.',
     images: ['/og/solutions-inbox-killer.svg'],
   },
 };

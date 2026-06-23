@@ -80,7 +80,7 @@ export default function SpearheadSpotlight() {
               <div className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-4">
                 <pre className="overflow-x-auto whitespace-pre font-[family-name:var(--qf-mono)] text-[var(--qf-fs-sm)] text-[var(--qf-text-dim)]">
                   <span className="text-[var(--qf-accent)]">$</span> inbox.status
-                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> classify → plan → diff → approve
+                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> read → classify → draft → approve
                   {'\n'}<span className="text-[var(--qf-ok)]">✓</span> HITL active: nothing sends alone
                   {'\n'}<span className="text-[var(--qf-accent)]">$</span> _
                 </pre>

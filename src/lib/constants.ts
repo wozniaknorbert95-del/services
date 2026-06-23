@@ -3,11 +3,11 @@ export const SITE_URL = 'https://services.flexgrafik.nl';
 export const EMAIL = 'hello@flexgrafik.nl';
 export const CREATOR = 'Norbert Wozniak';
 
-/** WhatsApp discovery — set NEXT_PUBLIC_WHATSAPP_URL in .env.local for production */
+/** WhatsApp discovery — override via NEXT_PUBLIC_WHATSAPP_URL in Vercel if needed */
 export const WHATSAPP = {
   url:
     process.env.NEXT_PUBLIC_WHATSAPP_URL ??
-    'https://wa.me/31600000000?text=Hi%20Norbert%2C%20I%27d%20like%20to%20explore%20conversion%20systems%20for%20my%20business.',
+    'https://wa.me/31687286151?text=Hi%20Norbert%2C%20I%27d%20like%20to%20explore%20conversion%20systems%20for%20my%20business.',
   label: 'Chat on WhatsApp',
   offlineFallback: `mailto:${EMAIL}?subject=WhatsApp%20unavailable`,
 } as const;

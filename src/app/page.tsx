@@ -13,6 +13,7 @@ import WhyThisWorks from '@/components/home/WhyThisWorks';
 import TrustSafety from '@/components/home/TrustSafety';
 import Pricing from '@/components/sections/Pricing';
 import FinalCtaBand from '@/components/home/FinalCtaBand';
+import StickyCta from '@/components/layout/StickyCta';
 
 export const metadata: Metadata = {
   title: 'Conversion Systems Architect for small business',
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
 /** Home section order: docs/strategy/site-map.md §2 */
 export default function Home() {
   return (
-    <>
+    <div className="pb-20 lg:pb-0">
       <HeroSection />
       <SystemArchitecture />
       <IntentRouter />
@@ -57,6 +58,7 @@ export default function Home() {
       <TrustSafety />
       <Pricing />
       <FinalCtaBand />
-    </>
+      <StickyCta />
+    </div>
   );
 }

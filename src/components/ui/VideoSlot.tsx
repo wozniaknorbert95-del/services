@@ -1,38 +1,85 @@
 import { videos } from '@/content/proof';
+import ProofEmptyState from '@/components/ui/ProofEmptyState';
 
 interface VideoSlotProps {
   videoKey: keyof typeof videos;
+  /** When true, renders nothing if video is not ready (no placeholder). */
+  hideWhenEmpty?: boolean;
+  emptyTitle?: string;
+  emptyDescription?: string;
+  emptyCtaLabel?: string;
+  emptyCtaHref?: string;
 }
 
-export default function VideoSlot({ videoKey }: VideoSlotProps) {
+const DEFAULT_EMPTY: Record<
+  keyof typeof videos,
+  { title: string; description: string }
+> = {
+  ecosystem: {
+    title: 'Ecosystem walkthrough',
+    description: 'A full-stack tour is in production. Explore the architecture map and live case studies meanwhile.',
+  },
+  inboxKiller: {
+    title: 'Inbox Killer walkthrough',
+    description: 'Screen recording is in production. The classification lanes screenshot and flow diagram show how it works today.',
+  },
+  wizard: {
+    title: 'Wizard demo',
+    description: 'Live demo at zzpackage.flexgrafik.nl — configure, price, and pay without a phone call.',
+  },
+  leadMagnet: {
+    title: 'Lead magnet game',
+    description: 'Play the live game on app.flexgrafik.nl or read the case study for capture flow proof.',
+  },
+  agentOs: {
+    title: 'Agent orchestrator',
+    description: 'Architecture diagram and agent cards in the case study document the live VPS engine.',
+  },
+  vcms: {
+    title: 'VCMS governance',
+    description: 'Governance dashboard and conflict scan proof are on the owner ecosystem case study.',
+  },
+  founder: {
+    title: 'Founder walkthrough',
+    description: 'Video is in production. Read how FLEXGRAFIK runs this stack in production on the About and Results pages.',
+  },
+};
+
+export default function VideoSlot({
+  videoKey,
+  hideWhenEmpty = false,
+  emptyTitle,
+  emptyDescription,
+  emptyCtaLabel,
+  emptyCtaHref,
+}: VideoSlotProps) {
   const video = videos[videoKey];
 
   if (!video) {
     return (
-      <div className="flex aspect-video w-full items-center justify-center rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-6">
-        <span className="text-center font-mono text-sm text-[var(--qf-text-faint)]">
-          [ERROR: Invalid video key: {videoKey}]
-        </span>
-      </div>
+      <ProofEmptyState
+        eyebrow="// Media"
+        title="Media unavailable"
+        description={`Unknown video key: ${videoKey}`}
+        aspect="video"
+      />
     );
   }
 
   if (!video.ready || !video.url) {
+    if (hideWhenEmpty) {
+      return null;
+    }
+    const defaults = DEFAULT_EMPTY[videoKey];
     return (
-      <div
-        className="flex aspect-video w-full flex-col items-center justify-center rounded-[var(--qf-radius)] border border-dashed border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-6 text-center"
-        role="img"
-        aria-label={`Video placeholder: ${videoKey}`}
-      >
-        <span className="font-mono text-sm text-[var(--qf-text-dim)]">
-          [FILL: {videoKey} video — {video.duration}]
-        </span>
-        {video.poster ? (
-          <span className="mt-2 font-mono text-xs text-[var(--qf-text-faint)]">
-            poster: {video.poster}
-          </span>
-        ) : null}
-      </div>
+      <ProofEmptyState
+        eyebrow="// Video"
+        title={emptyTitle ?? defaults.title}
+        description={emptyDescription ?? defaults.description}
+        ctaLabel={emptyCtaLabel}
+        ctaHref={emptyCtaHref}
+        aspect="video"
+      />
     );
   }
 

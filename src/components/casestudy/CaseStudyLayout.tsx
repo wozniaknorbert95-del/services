@@ -8,12 +8,13 @@ import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import VideoSlot from '@/components/ui/VideoSlot';
-import ProofScreenImage from '@/components/ui/ProofScreenImage';
+import ProofScreenSlot from '@/components/ui/ProofScreenSlot';
 import { ROUTES } from '@/lib/constants';
 import { caseMeasurements, screens, videos } from '@/content/proof';
+import type { CaseStudy } from '@/lib/case-studies';
 
 interface CaseStudyLayoutProps {
-  study: any;
+  study: CaseStudy;
   problemBefore: string[];
   problemAfter: string[];
   architectureDiagramSvgUrl: string;
@@ -50,7 +51,6 @@ export default function CaseStudyLayout({
 
   return (
     <>
-      {/* 1. Context / Problem */}
       <Section padding="large">
         <Link
           href={ROUTES.results}
@@ -58,7 +58,9 @@ export default function CaseStudyLayout({
         >
           ← All results
         </Link>
-        <Eyebrow>Case study {study.number} · {study.meta}</Eyebrow>
+        <Eyebrow>
+          Case study {study.number} · {study.meta}
+        </Eyebrow>
         <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-4 max-w-3xl">
           {study.title}
         </h1>
@@ -67,11 +69,7 @@ export default function CaseStudyLayout({
           {study.context}
         </p>
 
-        {downloadButtons && (
-          <div className="mt-8 flex flex-wrap gap-4">
-            {downloadButtons}
-          </div>
-        )}
+        {downloadButtons ? <div className="mt-8 flex flex-wrap gap-4">{downloadButtons}</div> : null}
 
         <div className="mt-12 grid gap-[var(--qf-sp-6)] md:grid-cols-2">
           <Card className="border-[var(--qf-warn)] p-6">
@@ -101,11 +99,8 @@ export default function CaseStudyLayout({
         </div>
       </Section>
 
-      {/* 2. Architecture */}
       <Section background="surface" padding="large">
-        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
-          Architecture
-        </h2>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">Architecture</h2>
         <div className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
           {architectureDescription}
         </div>
@@ -121,14 +116,9 @@ export default function CaseStudyLayout({
         </div>
       </Section>
 
-      {/* 3. Build */}
       <Section padding="large">
-        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
-          The Build
-        </h2>
-        <div className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
-          {buildDescription}
-        </div>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">The Build</h2>
+        <div className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">{buildDescription}</div>
         <div className="grid gap-[var(--qf-sp-4)]">
           {buildModules.map((item, idx) => (
             <Card
@@ -140,25 +130,19 @@ export default function CaseStudyLayout({
                   {item.step || item.number || String(idx + 1).padStart(2, '0')}
                 </span>
                 <div className="min-w-0">
-                  <h3 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
-                    {item.title}
-                  </h3>
+                  <h3 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">{item.title}</h3>
                   <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{item.detail}</p>
                 </div>
               </div>
             </Card>
           ))}
         </div>
-        
-        {/* Additional custom sections from children */}
-        {children && <div className="mt-8">{children}</div>}
+
+        {children ? <div className="mt-8">{children}</div> : null}
       </Section>
 
-      {/* 5. Stack */}
       <Section background="surface" padding="large">
-        <h2 className="text-[var(--qf-fs-xl)] font-bold tracking-tight mb-6">
-          Stack
-        </h2>
+        <h2 className="text-[var(--qf-fs-xl)] font-bold tracking-tight mb-6">Stack</h2>
         <div className="flex flex-wrap gap-3">
           {stack.map((tech) => (
             <span
@@ -171,76 +155,44 @@ export default function CaseStudyLayout({
         </div>
       </Section>
 
-      {/* 6. Proof (Screen + Video) */}
       <Section padding="large">
-        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
-          Proof
-        </h2>
-        <div className="grid gap-[var(--qf-sp-8)] md:grid-cols-2">
-          {/* Screen slot */}
-          <div className="flex flex-col gap-4">
-            <div className="aspect-[16/10] w-full overflow-hidden rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)]">
-              {screen && screen.ready && screen.src ? (
-                <ProofScreenImage
-                  src={screen.src}
-                  alt={screen.alt}
-                  width={800}
-                  height={500}
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center p-4 text-center">
-                  <span className="font-mono text-sm text-[var(--qf-text-faint)]">
-                    [FILL: Screen — {screen?.alt || screenKey}]
-                  </span>
-                </div>
-              )}
-            </div>
-            <div>
-              <p className="font-mono text-xs text-[var(--qf-accent)]">{screen?.alt}</p>
-              <p className="mt-1 text-sm text-[var(--qf-text-dim)]">{screen?.caption}</p>
-            </div>
-          </div>
-          
-          {/* Video slot */}
-          <div className="flex flex-col gap-4">
-            {videoKey ? (
-              <VideoSlot videoKey={videoKey} />
-            ) : (
-              <div className="flex aspect-video w-full flex-col items-center justify-center rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-surface)]">
-                <span className="font-mono text-sm text-[var(--qf-text-faint)]">
-                  [FILL: video slot — no key assigned]
-                </span>
-              </div>
-            )}
-          </div>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">Proof</h2>
+        <div className={`grid gap-[var(--qf-sp-8)] ${videoKey ? 'md:grid-cols-2' : ''}`}>
+          <ProofScreenSlot screen={screen} screenKey={screenKey} />
+          {videoKey ? (
+            <VideoSlot
+              videoKey={videoKey}
+              emptyCtaHref={ROUTES.bookDiscovery}
+              emptyCtaLabel="Book Automation Map"
+            />
+          ) : null}
         </div>
       </Section>
 
-      {/* 4 & 7. Result & Measurement line */}
       <Section background="surface" padding="large">
         <Card className="p-6 md:p-8">
           <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
             Measurement
           </p>
           <div className="max-w-none text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
-            {measurement && measurement.ready && measurement.value !== null ? (
+            {measurement?.ready && measurement.value ? (
               measurement.value
             ) : (
-              <span className="text-[var(--qf-text-faint)]">[FILL: result metric or capability]</span>
+              <span className="text-[var(--qf-text-dim)] font-normal text-base">
+                Process proof in architecture diagrams and downloadable artefacts above.
+              </span>
             )}
           </div>
         </Card>
       </Section>
 
-      {/* Final CTA for every case study */}
       <Section padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
           Could this work for your business?
         </h2>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
-          Start with a paid Automation Map. In 60–90 minutes we map your exact setup, score the
-          ROI, and recommend whether this is the right first system — before you commit
-          to anything bigger.
+          Start with a paid Automation Map. In 60–90 minutes we map your exact setup, score the ROI, and
+          recommend whether this is the right first system — before you commit to anything bigger.
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
           Book your Automation Map

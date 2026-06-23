@@ -7,49 +7,70 @@ import Button from '@/components/ui/Button';
 const SLUG = 'inbox-killer';
 
 const BEFORE_ITEMS = [
-  'Manual SSH access required for every small hotfix',
-  'Codebase changes trackable only via git logs later',
-  'Slow feedback loop between client requests and code updates',
-  'Deployments require a full PC and IDE setup',
+  'Manual inbox triage every morning — leads mixed with newsletters and noise',
+  'Reply drafting started from scratch for every thread',
+  'No consistent lanes for lead vs client vs invoice mail',
+  'Risk of auto-send tools firing without owner review',
 ];
 
 const AFTER_ITEMS = [
-  'Deployments triggered via simple Telegram commands',
-  'Codebase modifications handled autonomously over SSH',
-  'Full diff preview presented in chat for immediate approval',
-  'Nothing executes without explicit human confirmation',
+  'Mailbox scanned on schedule — 142 messages classified per run in production',
+  'Lead, client, invoice, and noise lanes with priority surfacing',
+  'Draft replies ready for edit and approval before send',
+  'Human approval gate on every outbound — architecture, not a toggle',
 ];
 
 const FLOW_STEPS = [
-  { step: '01', title: 'Command', detail: 'Agent receives instructions directly via a secure Telegram chat.' },
-  { step: '02', title: 'Plan', detail: 'Agent plans necessary codebase changes and environment updates.' },
-  { step: '03', title: 'Diff', detail: 'Generates a git diff and sends it back to Telegram for review.' },
-  { step: '04', title: 'Approve', detail: 'Wait for human "YES" command before any permanent modifications.' },
-  { step: '05', title: 'Deploy', detail: 'Agent commits, pushes, and restarts services autonomously.', highlight: true },
+  {
+    step: '01',
+    title: 'Read',
+    detail: 'Agent connects via secure OAuth and polls the mailbox on a defined schedule.',
+  },
+  {
+    step: '02',
+    title: 'Classify',
+    detail: 'Each message is sorted into lead, client, invoice, or noise lanes with scoring.',
+  },
+  {
+    step: '03',
+    title: 'Draft',
+    detail: 'AI drafts replies in your tone. You edit or discard — drafts never auto-send.',
+  },
+  {
+    step: '04',
+    title: 'Approve',
+    detail: 'Outbound mail waits at a human gate. Nothing leaves without your explicit OK.',
+  },
+  {
+    step: '05',
+    title: 'Send',
+    detail: 'Approved replies send and log to the audit trail. Overrides train the lanes.',
+    highlight: true,
+  },
 ];
 
 export const metadata: Metadata = {
-  title: 'Case study — Telegram Deployment Agent',
+  title: 'Case study — Inbox Killer',
   description:
-    'How a live Telegram agent accepts commands, modifies code via SSH, and waits for your approval. Process-proof case study with downloadable flow diagram.',
+    'How a live inbox agent reads mail, classifies intent into lanes, drafts replies, and stops at a human approval gate. Process-proof case study with downloadable flow diagram.',
   openGraph: {
-    title: 'Case study — Telegram Deployment Agent',
+    title: 'Case study — Inbox Killer',
     description:
-      'command → plan → diff → approve. A self-running devops pipeline with human-in-the-loop on every deploy.',
+      'read → classify → draft → approve → send. Live mailbox proof with human-in-the-loop on every outbound.',
     url: 'https://services.flexgrafik.nl/results/inbox-killer',
     images: [
       {
         url: '/og/results-inbox-killer.svg',
         width: 1200,
         height: 630,
-        alt: 'Case study — Deployment flow',
+        alt: 'Case study — Inbox Killer classification flow',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Case study — Telegram Deployment Agent',
-    description: 'Process-proof deployment automation with human approval gates.',
+    title: 'Case study — Inbox Killer',
+    description: 'Inbox classification and reply drafting with human approval gates.',
     images: ['/og/results-inbox-killer.svg'],
   },
 };
@@ -78,16 +99,16 @@ export default function InboxKillerCaseStudyPage() {
       problemBefore={BEFORE_ITEMS}
       problemAfter={AFTER_ITEMS}
       architectureDiagramSvgUrl={GRATKA.inboxKillerFlowSvg}
-      architectureDiagramAlt="Inbox Killer flow diagram: command via Telegram, plan edits, generate diff, await human approval, deploy via SSH"
+      architectureDiagramAlt="Inbox Killer flow: read mailbox, classify into lanes, draft reply, await human approval, send"
       architectureDescription={
         <p>
-          One page you can forward: what happens from a Telegram message to a production deployment. No auto-send —
-          the approval gate is the architecture, not a setting.
+          One page you can forward: what happens from a new email to an approved send. The approval gate is the
+          architecture — not an optional safety setting you might forget to enable.
         </p>
       }
       buildModules={FLOW_STEPS}
-      buildDescription={<p>Five steps under the hood.</p>}
-      stack={['Make.com', 'OpenAI API', 'Gmail/Outlook integration', 'Webhook routing']}
+      buildDescription={<p>Five steps under the hood — the same flow running in FLEXGRAFIK production mail.</p>}
+      stack={['Gmail / Microsoft 365 OAuth', 'Make.com', 'OpenAI API', 'Webhook routing', 'Human approval gate']}
       manifestKey="inboxKiller"
       videoKey="inboxKiller"
       screenKey="inboxLanes"

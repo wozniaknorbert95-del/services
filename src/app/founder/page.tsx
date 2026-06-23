@@ -39,7 +39,11 @@ export default function FounderPage() {
         </p>
 
         <div className="mb-16 max-w-4xl">
-          <VideoSlot videoKey="founder" />
+          <VideoSlot
+            videoKey="founder"
+            emptyCtaHref={ROUTES.results}
+            emptyCtaLabel="See live results"
+          />
         </div>
       </Section>
 

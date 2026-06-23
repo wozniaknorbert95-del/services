@@ -18,6 +18,9 @@ export const HERO = {
   primaryCta: 'Book your Automation Map',
   secondaryCta: 'See the systems',
   secondaryHref: '/results/',
+  wizardCta: 'Try the wizard (2 min)',
+  wizardHref: 'https://zzpackage.flexgrafik.nl/',
+  whatsappCta: 'Chat on WhatsApp',
 } as const;
 
 export const WHY_THIS_WORKS_PILLARS = [
