@@ -3,11 +3,12 @@
 **Date:** 2026-06-23  
 **Repo:** services.flexgrafik.nl  
 **Plan:** Home Page Optimization — Architect's Cockpit (all sprints A–C)  
-**Build:** `npm run build` ✅
+**Build:** `npm run build` ✅  
+**Sprint D:** complete (intent persistence, cursor blink, pipeline handoff)
 
 ## Summary
 
-Full home optimization per audit `docs/audits/2026-06-23/home-page-audit.md`. Section order unchanged (site-map §2 LOCKED). Visual weight, design system compliance, and conversion mechanics improved.
+Full home optimization per audit `docs/audits/2026-06-23/home-page-audit.md`. Section order unchanged (site-map §2 LOCKED). Visual weight, design system compliance, and conversion mechanics improved. Sprint D adds cross-section intent filtering and cockpit micro-polish.
 
 ## Sprint A — Design system integrity
 
@@ -53,9 +54,17 @@ Full home optimization per audit `docs/audits/2026-06-23/home-page-audit.md`. Se
 4. Results — 3 cards + "Ready? Book…" link
 5. Desktop — section progress rail left
 6. Mobile — top progress bar under nav
+7. IntentRouter — pick "Save time" → Results/Pain/Metrics highlight matching cards
+8. Hero terminal — cursor blinks (unless reduced-motion)
+9. Pipeline — steps 03–04 accent border + modules handoff label
 
-## Next (Sprint D — optional)
+## Sprint D — Cross-section cockpit polish
 
-- Intent persistence across sections (router → results highlight)
-- Hero terminal cursor blink
-- Pipeline steps 3–4 accent highlight
+| Task | File | Change |
+|------|------|--------|
+| D1 | `home-intent.tsx` (new) | `HomeIntentProvider` + `useHomeIntent` + sessionStorage persistence |
+| D2 | `intent-highlight.ts` (new) | `intentHighlightClass`, `sortByIntentMatch` helpers |
+| D3 | `IntentRouter.tsx`, `ResultsTeaser.tsx`, `PainGrid.tsx`, `SystemMetrics.tsx` | Intent filter propagates — match highlight, non-match dim, sort matches first |
+| D4 | `HeroSection.tsx`, `globals.css` | Terminal cursor blink (`qf-cursor-blink`), respects reduced-motion |
+| D5 | `SystemArchitecture.tsx` | Steps 03–04 (Wizard + AI) accent border + `// modules underneath ↓` handoff |
+| D6 | `page.tsx` | `HomeIntentProvider` wraps home stack |

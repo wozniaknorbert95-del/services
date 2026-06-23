@@ -1,13 +1,22 @@
 'use client';
 
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
 import { METRIC_DISPLAY_CARDS, SYSTEM_METRICS_COPY, getMetricValue } from '@/content/metrics-display';
 import { getIntentMeta } from '@/content/ecosystem';
+import { useHomeIntent } from '@/lib/home-intent';
+import { intentHighlightClass, itemMatchesIntent, sortByIntentMatch } from '@/lib/intent-highlight';
 
 export default function SystemMetrics() {
   const motionCfg = useMotion();
   const fade = motionCfg.fadeIn();
+  const { activeIntent, isFiltering } = useHomeIntent();
+
+  const metricCards = useMemo(
+    () => sortByIntentMatch(METRIC_DISPLAY_CARDS, activeIntent),
+    [activeIntent]
+  );
 
   return (
     <section
@@ -34,13 +43,15 @@ export default function SystemMetrics() {
           viewport={{ once: true, margin: '-80px' }}
           className="grid grid-cols-1 gap-[var(--qf-sp-4)] sm:grid-cols-2"
         >
-          {METRIC_DISPLAY_CARDS.map((card) => {
+          {metricCards.map((card) => {
             const intent = getIntentMeta(card.intent);
+            const matches = itemMatchesIntent(card, activeIntent);
+
             return (
               <motion.div
                 key={card.metricKey}
                 variants={motionCfg.childFade}
-                className="flex flex-col rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-4)]"
+                className={`flex flex-col rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-4)] transition-opacity duration-[var(--qf-transition)] ${intentHighlightClass(matches, isFiltering)}`}
               >
                 <span className="mb-[var(--qf-sp-2)] text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
                   {card.outcome}

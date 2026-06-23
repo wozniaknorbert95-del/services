@@ -2,22 +2,34 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useMemo } from 'react';
 import { useMotion } from '@/lib/useMotion';
 import { ROUTES } from '@/lib/constants';
 import { CTAS } from '@/content/conversion-copy';
 import { CASE_STUDIES } from '@/lib/case-studies';
 import { caseMeasurements } from '@/content/proof';
+import { getIntentMeta } from '@/content/ecosystem';
+import { useHomeIntent, matchesHomeIntent } from '@/lib/home-intent';
+import { intentHighlightClass, sortByIntentMatch } from '@/lib/intent-highlight';
 import IntentBadges from '@/components/ui/IntentBadges';
 
 const FEATURED_SLUGS = ['inbox-killer', 'agent-orchestrator', 'sales-funnel'] as const;
 
-const FEATURED_CASE_STUDIES = CASE_STUDIES.filter((c) =>
-  FEATURED_SLUGS.includes(c.slug as (typeof FEATURED_SLUGS)[number])
-);
-
 export default function ResultsTeaser() {
   const motionCfg = useMotion();
   const fade = motionCfg.fadeIn();
+  const { activeIntent, isFiltering } = useHomeIntent();
+
+  const featuredCaseStudies = useMemo(() => {
+    const curated = CASE_STUDIES.filter((c) =>
+      FEATURED_SLUGS.includes(c.slug as (typeof FEATURED_SLUGS)[number])
+    );
+    return sortByIntentMatch(curated, activeIntent);
+  }, [activeIntent]);
+
+  const filterLabel = activeIntent
+    ? `Matched to "${getIntentMeta(activeIntent).label}"`
+    : null;
 
   return (
     <section
@@ -37,6 +49,11 @@ export default function ResultsTeaser() {
           <h2 id="results-teaser-title" className="mt-[var(--qf-sp-4)]">
             What changes
           </h2>
+          {filterLabel ? (
+            <p className="mt-[var(--qf-sp-2)] font-mono text-xs text-[var(--qf-accent)]">
+              // {filterLabel}
+            </p>
+          ) : null}
         </motion.div>
 
         <motion.div
@@ -46,14 +63,15 @@ export default function ResultsTeaser() {
           viewport={{ once: true, margin: '-80px' }}
           className="grid gap-[var(--qf-sp-6)] lg:grid-cols-3"
         >
-          {FEATURED_CASE_STUDIES.map((c) => {
+          {featuredCaseStudies.map((c) => {
             const measurement = caseMeasurements[c.manifestKey];
+            const matches = matchesHomeIntent(c.intents, activeIntent);
 
             return (
               <motion.div
                 key={c.slug}
                 variants={motionCfg.childFade}
-                className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6"
+                className={`rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6 transition-opacity duration-[var(--qf-transition)] ${intentHighlightClass(matches, isFiltering)}`}
               >
                 <div className="mb-3">
                   <IntentBadges intents={[...c.intents]} />

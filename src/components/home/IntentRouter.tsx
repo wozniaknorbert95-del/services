@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -10,6 +10,7 @@ import {
   type IntentId,
 } from '@/content/ecosystem';
 import { ROUTES } from '@/lib/constants';
+import { useHomeIntent } from '@/lib/home-intent';
 import IntentBadges from '@/components/ui/IntentBadges';
 import ModulePreviewThumb from '@/components/ui/ModulePreviewThumb';
 import Button from '@/components/ui/Button';
@@ -28,7 +29,7 @@ function sortModulesForIntent(modules: typeof ECOSYSTEM_MODULES, intent: IntentI
 }
 
 export default function IntentRouter() {
-  const [activeIntent, setActiveIntent] = useState<IntentId | null>(null);
+  const { activeIntent, setActiveIntent } = useHomeIntent();
 
   const filteredModules = useMemo(() => {
     const base = activeIntent
@@ -81,6 +82,7 @@ export default function IntentRouter() {
                     : undefined
                 }
               >
+                {isActive ? '✓ ' : ''}
                 {intent.label}
               </button>
             );

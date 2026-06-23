@@ -77,7 +77,8 @@ export default function HeroSection() {
                   {'\n'}<span className="text-[var(--qf-ok)]">✓</span> scored → hot(3) warm(8) nurture(11)
                   {'\n'}<span className="text-[var(--qf-ok)]">✓</span> brief ready ·{' '}
                   <span className="text-[var(--qf-accent)]">awaiting your approval</span>
-                  {'\n'}<span className="text-[var(--qf-accent)]">$</span> _
+                  {'\n'}<span className="text-[var(--qf-accent)]">$</span>{' '}
+                  <span className="qf-cursor-blink text-[var(--qf-accent)]">_</span>
                 </pre>
               </div>
             </div>

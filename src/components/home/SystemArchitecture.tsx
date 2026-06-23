@@ -49,10 +49,15 @@ export default function SystemArchitecture() {
           transition={{ ...fade.transition, delay: motionCfg.prefersReduced ? 0 : 0.1 }}
           className="mt-[var(--qf-sp-12)] flex flex-col gap-0 md:flex-row md:flex-wrap md:items-stretch"
         >
-          {FLOW_STEPS.map((step, index) => (
+          {FLOW_STEPS.map((step, index) => {
+            const isHandoffStep = index === 2 || index === 3;
+
+            return (
             <li
               key={step.label}
-              className="relative flex flex-1 min-w-[140px] flex-col border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-4)] md:border-r-0 md:last:border-r"
+              className={`relative flex flex-1 min-w-[140px] flex-col border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-4)] md:border-r-0 md:last:border-r ${
+                isHandoffStep ? 'qf-pipeline-handoff' : ''
+              }`}
             >
               <span className="font-mono text-[var(--qf-fs-xs)] text-[var(--qf-accent)]">
                 {String(index + 1).padStart(2, '0')}
@@ -70,10 +75,15 @@ export default function SystemArchitecture() {
                 </span>
               )}
             </li>
-          ))}
+            );
+          })}
         </motion.ol>
 
-        <p className="qf-hint mt-[var(--qf-sp-8)]">
+        <p className="mt-[var(--qf-sp-6)] font-mono text-xs text-[var(--qf-accent)]">
+          // modules underneath ↓
+        </p>
+
+        <p className="qf-hint mt-[var(--qf-sp-4)]">
           Same architecture deployed in my own ecosystem — running in production, not a slide deck.
         </p>
       </div>

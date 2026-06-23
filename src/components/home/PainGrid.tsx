@@ -1,10 +1,12 @@
 'use client';
 
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Monitor, Quote, Users } from 'lucide-react';
 import { useMotion } from '@/lib/useMotion';
-import { PAIN_GRID } from '@/content/ecosystem';
-import { getIntentMeta } from '@/content/ecosystem';
+import { PAIN_GRID, getIntentMeta } from '@/content/ecosystem';
+import { useHomeIntent, matchesHomeIntent } from '@/lib/home-intent';
+import { intentHighlightClass, sortByIntentMatch } from '@/lib/intent-highlight';
 import Eyebrow from '@/components/ui/Eyebrow';
 import IntentBadges from '@/components/ui/IntentBadges';
 
@@ -18,6 +20,12 @@ const PAIN_ICONS = {
 export default function PainGrid() {
   const motionCfg = useMotion();
   const fade = motionCfg.fadeIn();
+  const { activeIntent, isFiltering } = useHomeIntent();
+
+  const pains = useMemo(
+    () => sortByIntentMatch(PAIN_GRID, activeIntent),
+    [activeIntent]
+  );
 
   return (
     <section data-home-section="pain-grid" className="py-[var(--qf-sp-16)]">
@@ -40,17 +48,18 @@ export default function PainGrid() {
           viewport={{ once: true, margin: '-80px' }}
           className="grid gap-[var(--qf-sp-4)] sm:grid-cols-2 lg:grid-cols-4"
         >
-          {PAIN_GRID.map((pain) => {
+          {pains.map((pain) => {
             const Icon = PAIN_ICONS[pain.id as keyof typeof PAIN_ICONS] ?? Mail;
             const primaryIntent = pain.intents[0];
             const accent = getIntentMeta(primaryIntent);
+            const matches = matchesHomeIntent(pain.intents, activeIntent);
 
             return (
               <motion.a
                 key={pain.id}
                 href={pain.href}
                 variants={motionCfg.childFade}
-                className="group block rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6 transition-colors duration-[var(--qf-transition)] hover:border-[var(--qf-border-bright)]"
+                className={`group block rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6 transition-opacity duration-[var(--qf-transition)] hover:border-[var(--qf-border-bright)] ${intentHighlightClass(matches, isFiltering)}`}
                 style={{ borderLeftWidth: '3px', borderLeftColor: accent.cssVar }}
               >
                 <Icon
