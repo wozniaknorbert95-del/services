@@ -20,15 +20,17 @@ export default function PainGrid() {
   const fade = motionCfg.fadeIn();
 
   return (
-    <section data-home-section="pain-grid" className="py-[var(--qf-sp-24)]">
+    <section data-home-section="pain-grid" className="py-[var(--qf-sp-16)]">
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <motion.div
           initial={fade.initial}
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
+          className="mb-[var(--qf-sp-8)]"
         >
-          <Eyebrow>Sound familiar?</Eyebrow>
+          <Eyebrow>diagnostics</Eyebrow>
+          <h2 className="mb-[var(--qf-sp-2)]">Where the leaks are.</h2>
         </motion.div>
 
         <motion.div
@@ -62,8 +64,11 @@ export default function PainGrid() {
                 <h3 className="mb-2 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
                   {pain.title}
                 </h3>
-                <p className="mb-4 text-[var(--qf-text-dim)] text-sm">{pain.description}</p>
-                <span className="inline-flex items-center text-sm transition-colors" style={{ color: accent.cssVar }}>
+                <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{pain.description}</p>
+                <span
+                  className="inline-flex items-center text-sm transition-colors"
+                  style={{ color: accent.cssVar }}
+                >
                   See the fix →
                 </span>
               </motion.a>

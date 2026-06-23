@@ -22,7 +22,7 @@ export default function SystemArchitecture() {
     <section
       id="system-architecture"
       data-home-section="system-architecture"
-      className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)]"
+      className="border-t border-[var(--qf-border)] py-[var(--qf-sp-16)]"
       aria-labelledby="system-architecture-heading"
     >
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
@@ -32,7 +32,7 @@ export default function SystemArchitecture() {
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
         >
-          <span className="qf-eyebrow">// System architecture</span>
+          <span className="qf-eyebrow">// pipeline</span>
           <h2 id="system-architecture-heading" className="mt-[var(--qf-sp-4)]">
             One pipeline from first visit to signed client.
           </h2>

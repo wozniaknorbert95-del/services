@@ -23,9 +23,8 @@ export default function SystemMetrics() {
           className="mb-[var(--qf-sp-12)]"
         >
           <span className="qf-eyebrow">{SYSTEM_METRICS_COPY.eyebrow}</span>
-          <p className="mt-[var(--qf-sp-4)] max-w-2xl text-[var(--qf-text-dim)]">
-            {SYSTEM_METRICS_COPY.lead}
-          </p>
+          <h2 className="mt-[var(--qf-sp-4)]">The system, in numbers.</h2>
+          <p className="qf-lead mt-[var(--qf-sp-4)] max-w-2xl">{SYSTEM_METRICS_COPY.lead}</p>
         </motion.div>
 
         <motion.div
@@ -33,7 +32,7 @@ export default function SystemMetrics() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid grid-cols-1 gap-[var(--qf-sp-4)] sm:grid-cols-2 md:grid-cols-3"
+          className="grid grid-cols-1 gap-[var(--qf-sp-4)] sm:grid-cols-2"
         >
           {METRIC_DISPLAY_CARDS.map((card) => {
             const intent = getIntentMeta(card.intent);
@@ -43,13 +42,12 @@ export default function SystemMetrics() {
                 variants={motionCfg.childFade}
                 className="flex flex-col rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-4)]"
               >
-                <span className="mb-[var(--qf-sp-2)] font-mono text-[var(--qf-fs-2xl)] font-bold text-[var(--qf-text)]">
-                  {getMetricValue(card.metricKey)}
+                <span className="mb-[var(--qf-sp-2)] text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+                  {card.outcome}
                 </span>
                 <span className={`font-mono text-xs uppercase ${intent.textClass}`}>
-                  {card.label}
+                  {getMetricValue(card.metricKey)} · {card.label}
                 </span>
-                <span className="mt-2 text-xs text-[var(--qf-text-dim)]">{card.outcome}</span>
               </motion.div>
             );
           })}

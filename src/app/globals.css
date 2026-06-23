@@ -138,9 +138,9 @@ code, pre, .mono {
 }
 
 .panel {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
+  background: var(--qf-bg-raised);
+  border: 1px solid var(--qf-border);
+  border-radius: var(--qf-radius);
 }
 
 .panel-header {
@@ -152,17 +152,17 @@ code, pre, .mono {
 }
 
 .btn {
-  border-radius: 6px;
+  border-radius: var(--qf-radius);
   padding: 0.45rem 0.8rem;
   font-size: 0.9rem;
-  border: 1px solid var(--border-subtle);
-  background: linear-gradient(to bottom, #11141b, #050608);
-  color: var(--text-main);
+  border: 1px solid var(--qf-border);
+  background: var(--qf-bg-raised);
+  color: var(--qf-text);
   transition: border-color var(--qf-transition);
 }
 
 .btn:hover {
-  border-color: var(--border-strong);
+  border-color: var(--qf-border-bright);
 }
 
 .badge {

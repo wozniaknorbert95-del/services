@@ -23,7 +23,7 @@ export default function SpearheadSpotlight() {
             viewport={{ once: true, margin: '-80px' }}
             transition={fade.transition}
           >
-            <Eyebrow>Start here</Eyebrow>
+            <Eyebrow>spearhead</Eyebrow>
             <h2 className="mb-[var(--qf-sp-4)]">
               Inbox Killer —{' '}
               <span className="text-[var(--qf-accent)]">

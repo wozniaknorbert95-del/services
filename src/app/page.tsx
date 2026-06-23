@@ -9,11 +9,11 @@ import SystemMetrics from '@/components/home/SystemMetrics';
 import ResultsTeaser from '@/components/home/ResultsTeaser';
 import BehindTheScenes from '@/components/home/BehindTheScenes';
 import HowIWork from '@/components/home/HowIWork';
-import WhyThisWorks from '@/components/home/WhyThisWorks';
-import TrustSafety from '@/components/home/TrustSafety';
+import TrustAndObjections from '@/components/home/TrustAndObjections';
 import Pricing from '@/components/sections/Pricing';
 import FinalCtaBand from '@/components/home/FinalCtaBand';
 import StickyCta from '@/components/layout/StickyCta';
+import SectionProgress from '@/components/layout/SectionProgress';
 
 export const metadata: Metadata = {
   title: 'Conversion Systems Architect for small business',
@@ -44,6 +44,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="pb-20 lg:pb-0">
+      <SectionProgress />
       <HeroSection />
       <SystemArchitecture />
       <IntentRouter />
@@ -54,8 +55,7 @@ export default function Home() {
       <ResultsTeaser />
       <BehindTheScenes />
       <HowIWork />
-      <WhyThisWorks />
-      <TrustSafety />
+      <TrustAndObjections />
       <Pricing />
       <FinalCtaBand />
       <StickyCta />

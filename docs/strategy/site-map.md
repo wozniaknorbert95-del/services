@@ -33,10 +33,11 @@
 | 8 | Results teaser | `ResultsTeaser` | BLOK 3, 12 | Problem → System → Effect cards |
 | 9 | Behind the scenes | `BehindTheScenes` | BLOK 6 | VCMS + screens from manifest |
 | 10 | How I work | `HowIWork` | REPO 7 | Map → Hand over |
-| 11 | Why this works | `WhyThisWorks` | BLOK 8 | 4 named objections |
-| 12 | Trust | `TrustSafety` | BLOK 6 | HITL, EU, AVG |
-| 13 | Pricing | `sections/Pricing` | BLOK 13 | 4 tiers + L3 |
-| 14 | Final CTA | `FinalCtaBand` | BLOK 13 | Single L3 close |
+| 11 | Trust & objections | `TrustAndObjections` | BLOK 6, 8 | HITL/EU/AVG cards + 4 named objections (`data-home-section`: `trust-safety`, `why-this-works`) |
+| 12 | Pricing | `sections/Pricing` | BLOK 13 | 4 tiers + L3 |
+| 13 | Final CTA | `FinalCtaBand` | BLOK 13 | Single L3 close |
+
+**Chrome (not numbered sections):** `SectionProgress` (left rail + mobile scroll bar), `StickyCta` (mobile).
 
 ### Forbidden on home (until explicit decision)
 

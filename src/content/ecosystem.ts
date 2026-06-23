@@ -51,8 +51,7 @@ export const HOME_SECTION_MARKERS: Record<(typeof HOME_SECTIONS)[number], string
   ResultsTeaser: 'results-teaser',
   BehindTheScenes: 'behind-the-scenes',
   HowIWork: 'how-i-work',
-  WhyThisWorks: 'why-this-works',
-  TrustSafety: 'trust-safety',
+  TrustAndObjections: 'trust-safety',
   Pricing: 'pricing',
   FinalCtaBand: 'final-cta',
 };
@@ -128,8 +127,7 @@ export const HOME_SECTIONS = [
   'ResultsTeaser',
   'BehindTheScenes',
   'HowIWork',
-  'WhyThisWorks',
-  'TrustSafety',
+  'TrustAndObjections',
   'Pricing',
   'FinalCtaBand',
 ] as const;

@@ -20,38 +20,26 @@ export const METRIC_DISPLAY_CARDS: readonly MetricDisplayCard[] = [
   {
     metricKey: 'wizardSteps',
     label: 'Wizard steps',
-    outcome: 'Qualifies a lead in-session — not days of email ping-pong',
+    outcome: 'Qualifies a lead in-session',
     intent: 'time',
-  },
-  {
-    metricKey: 'skus',
-    label: 'Dynamic SKUs',
-    outcome: 'Full product context — fewer back-and-forth quotes',
-    intent: 'order',
   },
   {
     metricKey: 'workflowSteps',
     label: 'Workflow steps',
-    outcome: 'Repeat tasks routed through a fixed pipeline with review gates',
+    outcome: 'Repeat tasks through a fixed pipeline',
     intent: 'efficiency',
   },
   {
     metricKey: 'systemsLive',
     label: 'Systems live',
-    outcome: 'One supervised ecosystem — not five disconnected tools',
+    outcome: 'One supervised ecosystem',
     intent: 'order',
   },
   {
     metricKey: 'msgsPerScan',
     label: 'Inbox throughput',
-    outcome: 'Every batch sorted before you open the inbox',
+    outcome: 'Every batch sorted before you open your inbox',
     intent: 'time',
-  },
-  {
-    metricKey: 'repos',
-    label: 'Production repos',
-    outcome: 'Governance layer scans the full stack before deploy',
-    intent: 'order',
   },
 ] as const;
 
@@ -61,6 +49,6 @@ export function getMetricValue(key: MetricKey): string {
 }
 
 export const SYSTEM_METRICS_COPY = {
-  eyebrow: '// The system, in numbers',
-  lead: 'Feature counts with outcome translations — what they mean for your business, not just for developers.',
+  eyebrow: '// metrics',
+  lead: 'What the numbers mean for your business — not just for developers.',
 } as const;

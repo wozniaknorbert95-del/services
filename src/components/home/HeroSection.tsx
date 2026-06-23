@@ -35,7 +35,7 @@ export default function HeroSection() {
             <div className="mt-[var(--qf-sp-6)] flex flex-wrap items-center gap-[var(--qf-sp-3)]">
               <Link
                 href={ROUTES.bookDiscovery}
-                className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:bg-[var(--qf-accent-soft)] hover:border-[var(--qf-accent-soft)]"
+                className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:border-[var(--qf-accent-soft)] hover:bg-[var(--qf-accent-soft)]"
               >
                 {HERO.primaryCta} <span aria-hidden="true">→</span>
               </Link>
@@ -47,22 +47,8 @@ export default function HeroSection() {
               >
                 {HERO.whatsappCta}
               </a>
-              <Link
-                href={HERO.secondaryHref}
-                className="text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-text)]"
-              >
-                {HERO.secondaryCta} →
-              </Link>
-              <a
-                href={HERO.wizardHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-[var(--qf-text-faint)] transition-colors hover:text-[var(--qf-accent)]"
-              >
-                {HERO.wizardCta} →
-              </a>
             </div>
-            <p className="mt-[var(--qf-sp-4)] text-[var(--qf-fs-sm)] text-[var(--qf-text-faint)]">
+            <p className="mt-[var(--qf-sp-4)] text-[var(--qf-fs-sm)] text-[var(--qf-text-dim)]">
               <span className="text-[var(--qf-accent)]">→ </span>
               {HERO.proofLine}
             </p>
@@ -109,6 +95,20 @@ export default function HeroSection() {
           <span className="inline-flex items-center gap-1.5">
             <span className="text-[0.6em] text-[var(--qf-border-bright)]">●</span> human-in-the-loop
           </span>
+          <Link
+            href={HERO.secondaryHref}
+            className="inline-flex items-center gap-1.5 text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-accent)]"
+          >
+            {HERO.secondaryCta} →
+          </Link>
+          <a
+            href={HERO.wizardHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-accent)]"
+          >
+            {HERO.wizardCta} →
+          </a>
           <span className="ml-auto inline-flex items-center gap-1.5">
             <span className="text-[0.6em] text-[var(--qf-border-bright)]">●</span> EU-hosted
           </span>

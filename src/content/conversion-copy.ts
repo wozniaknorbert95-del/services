@@ -20,7 +20,7 @@ export const HERO = {
   secondaryHref: '/results/',
   wizardCta: 'Try the wizard (2 min)',
   wizardHref: 'https://zzpackage.flexgrafik.nl/',
-  whatsappCta: 'Chat on WhatsApp',
+  whatsappCta: 'Quick question? WhatsApp',
 } as const;
 
 export const WHY_THIS_WORKS_PILLARS = [

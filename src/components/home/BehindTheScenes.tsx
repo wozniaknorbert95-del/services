@@ -48,13 +48,13 @@ export default function BehindTheScenes() {
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
-          className="mb-[var(--qf-sp-12)] text-center"
+          className="mb-[var(--qf-sp-12)]"
         >
-          <span className="qf-eyebrow">// Behind the scenes</span>
+          <span className="qf-eyebrow">// governance</span>
           <h2 className="mt-[var(--qf-sp-4)] text-[var(--qf-fs-2xl)] font-bold">
             The governance layer behind the system.
           </h2>
-          <p className="mx-auto mt-[var(--qf-sp-4)] max-w-2xl text-[var(--qf-text-dim)]">
+          <p className="mt-[var(--qf-sp-4)] max-w-2xl text-[var(--qf-text-dim)]">
             VCMS scans content, repos and agent rules before changes reach production — so your business does not depend on memory, screenshots or one developer&apos;s inbox.
           </p>
         </motion.div>

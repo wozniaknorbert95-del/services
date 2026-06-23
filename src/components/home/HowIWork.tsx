@@ -81,7 +81,7 @@ export default function HowIWork() {
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
         >
-          <Eyebrow>How I work</Eyebrow>
+          <Eyebrow>workflow</Eyebrow>
           <h2 id="how-i-work-title" className="mb-[var(--qf-sp-4)]">
             A method, not a magic trick.
           </h2>

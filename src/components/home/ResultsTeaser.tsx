@@ -4,9 +4,16 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
 import { ROUTES } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 import { CASE_STUDIES } from '@/lib/case-studies';
 import { caseMeasurements } from '@/content/proof';
 import IntentBadges from '@/components/ui/IntentBadges';
+
+const FEATURED_SLUGS = ['inbox-killer', 'agent-orchestrator', 'sales-funnel'] as const;
+
+const FEATURED_CASE_STUDIES = CASE_STUDIES.filter((c) =>
+  FEATURED_SLUGS.includes(c.slug as (typeof FEATURED_SLUGS)[number])
+);
 
 export default function ResultsTeaser() {
   const motionCfg = useMotion();
@@ -19,25 +26,27 @@ export default function ResultsTeaser() {
       className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)]"
     >
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
-        <motion.h2
-          id="results-teaser-title"
+        <motion.div
           initial={fade.initial}
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
           className="mb-[var(--qf-sp-12)]"
         >
-          What changes
-        </motion.h2>
+          <span className="qf-eyebrow">// results</span>
+          <h2 id="results-teaser-title" className="mt-[var(--qf-sp-4)]">
+            What changes
+          </h2>
+        </motion.div>
 
         <motion.div
           variants={motionCfg.staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-[var(--qf-sp-6)] lg:grid-cols-2"
+          className="grid gap-[var(--qf-sp-6)] lg:grid-cols-3"
         >
-          {CASE_STUDIES.map((c) => {
+          {FEATURED_CASE_STUDIES.map((c) => {
             const measurement = caseMeasurements[c.manifestKey];
 
             return (
@@ -54,8 +63,7 @@ export default function ResultsTeaser() {
                 </h3>
                 <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
                 <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.system}</p>
-                <p className="mb-4 font-mono text-xs text-[var(--qf-text-faint)]">
-                  Measurement:{' '}
+                <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">
                   {measurement?.ready && measurement.value ? measurement.value : c.measurement}
                 </p>
                 <Link
@@ -74,7 +82,7 @@ export default function ResultsTeaser() {
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.2 }).transition}
-          className="mt-[var(--qf-sp-8)] text-center"
+          className="mt-[var(--qf-sp-8)] space-y-4 text-center"
         >
           <Link
             href={ROUTES.results}
@@ -82,6 +90,14 @@ export default function ResultsTeaser() {
           >
             See all results →
           </Link>
+          <p>
+            <Link
+              href={ROUTES.bookDiscovery}
+              className="text-sm font-semibold text-[var(--qf-accent)] transition-colors hover:text-[var(--qf-text)]"
+            >
+              Ready? {CTAS.bookAutomationMap} →
+            </Link>
+          </p>
         </motion.div>
       </div>
     </section>
