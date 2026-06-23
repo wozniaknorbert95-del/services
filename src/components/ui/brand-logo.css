@@ -1,0 +1,15 @@
+.qf-brand-logo {
+  display: block;
+  height: 2.25rem;
+  width: auto;
+}
+
+.qf-brand-logo--footer {
+  height: 2.75rem;
+}
+
+.qf-brand-logo-link {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}

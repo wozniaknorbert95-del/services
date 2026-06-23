@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ROUTES } from '@/lib/constants';
 import { HEADER_NAV, SOLUTIONS_NAV, HEADER_CTA } from '@/lib/navigation';
+import BrandLogo from '@/components/ui/BrandLogo';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 export default function Header() {
@@ -14,10 +15,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--qf-border)] bg-[rgba(14,12,10,0.85)] backdrop-blur-[8px]">
       <div className="mx-auto flex max-w-[var(--qf-maxw)] items-center justify-between px-[var(--qf-sp-6)] py-[var(--qf-sp-3)]">
-        <Link href={ROUTES.home} className="flex items-center text-[var(--qf-text)] font-bold tracking-[0.04em]">
-          <span className="mr-[0.4em] text-[var(--qf-accent)]">▍</span>
-          quietforge
-        </Link>
+        <BrandLogo size="header" />
 
         <nav className="hidden items-center gap-[var(--qf-sp-6)] lg:flex" aria-label="Primary">
           {HEADER_NAV.map((item) => (

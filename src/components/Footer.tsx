@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandLogo from '@/components/ui/BrandLogo';
 import { EMAIL, WHATSAPP } from '@/lib/constants';
 import SocialLinks from '@/components/ui/SocialLinks';
 import {
@@ -16,10 +17,7 @@ export default function Footer() {
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <div className="grid gap-[var(--qf-sp-8)] sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <span className="flex items-center text-[var(--qf-text)] font-bold tracking-[0.04em]">
-              <span className="mr-[0.4em] text-[var(--qf-accent)]">▍</span>
-              quietforge
-            </span>
+            <BrandLogo size="footer" linked={false} />
             <p className="mt-1 font-mono text-xs text-[var(--qf-accent)]">{POSITIONING.label}</p>
             <p className="mt-[var(--qf-sp-3)] text-[var(--qf-text-faint)]">{FOOTER.tagline}</p>
             <SocialLinks className="mt-[var(--qf-sp-4)]" />

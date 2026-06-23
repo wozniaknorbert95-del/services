@@ -1,5 +1,12 @@
 export const SITE_NAME = 'Quietforge';
 export const SITE_URL = 'https://services.flexgrafik.nl';
+
+export const BRAND_LOGO = {
+  src: '/brand/quietforge-logo.png',
+  alt: 'Quietforge — Conversion Systems Architect',
+  width: 1024,
+  height: 1024,
+} as const;
 export const EMAIL = 'hello@flexgrafik.nl';
 export const CREATOR = 'Norbert Wozniak';
 

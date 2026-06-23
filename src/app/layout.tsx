@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CREATOR, EMAIL, FLEXGRAFIK_URL, LINKEDIN_URL, SITE_NAME, SITE_URL } from "@/lib/constants";
+import { BRAND_LOGO, CREATOR, EMAIL, FLEXGRAFIK_URL, LINKEDIN_URL, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://services.flexgrafik.nl'),
@@ -55,6 +55,10 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
     },
+  },
+  icons: {
+    icon: [{ url: BRAND_LOGO.src, type: 'image/png' }],
+    apple: [{ url: BRAND_LOGO.src, type: 'image/png' }],
   },
 };
 
