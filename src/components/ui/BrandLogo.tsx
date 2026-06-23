@@ -1,6 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { BRAND_LOGO, ROUTES } from '@/lib/constants';
+import { BRAND_WORDMARK, ROUTES } from '@/lib/constants';
 import './brand-logo.css';
 
 type BrandLogoProps = {
@@ -9,24 +8,16 @@ type BrandLogoProps = {
 };
 
 export default function BrandLogo({ linked = true, size = 'header' }: BrandLogoProps) {
-  const className = size === 'header' ? 'qf-brand-logo' : 'qf-brand-logo qf-brand-logo--footer';
+  const className =
+    size === 'header' ? 'qf-brand-wordmark' : 'qf-brand-wordmark qf-brand-wordmark--footer';
 
-  const image = (
-    <Image
-      src={BRAND_LOGO.src}
-      alt={BRAND_LOGO.alt}
-      width={BRAND_LOGO.width}
-      height={BRAND_LOGO.height}
-      className={className}
-      priority={size === 'header'}
-    />
-  );
+  const wordmark = <span className={className}>{BRAND_WORDMARK}</span>;
 
-  if (!linked) return image;
+  if (!linked) return wordmark;
 
   return (
-    <Link href={ROUTES.home} className="qf-brand-logo-link">
-      {image}
+    <Link href={ROUTES.home} className="qf-brand-wordmark-link" aria-label="Quietforge home">
+      {wordmark}
     </Link>
   );
 }

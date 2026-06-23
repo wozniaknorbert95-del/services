@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useMotion } from '@/lib/useMotion';
 import { HERO, POSITIONING } from '@/content/conversion-copy';
 import { metrics } from '@/content/proof';
+import BrandWatermark from '@/components/ui/BrandWatermark';
 import { ROUTES, WHATSAPP } from '@/lib/constants';
 
 export default function HeroSection() {
@@ -16,8 +17,9 @@ export default function HeroSection() {
   });
 
   return (
-    <section data-home-section="hero" className="py-[var(--qf-sp-24)]">
-      <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
+    <section data-home-section="hero" className="relative py-[var(--qf-sp-24)]">
+      <BrandWatermark />
+      <div className="relative z-[1] mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <div className="grid items-center gap-[var(--qf-sp-12)] lg:grid-cols-2">
           <motion.div
             initial={fade.initial}

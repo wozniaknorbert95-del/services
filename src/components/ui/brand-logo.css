@@ -1,15 +1,69 @@
-.qf-brand-logo {
-  display: block;
-  height: 2.25rem;
-  width: auto;
+/* Typographic wordmark — header, footer, nav */
+.qf-brand-wordmark {
+  display: inline-block;
+  font-family: var(--qf-mono);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--qf-text);
+  font-size: var(--qf-fs-base);
+  line-height: 1;
 }
 
-.qf-brand-logo--footer {
-  height: 2.75rem;
+.qf-brand-wordmark::before {
+  content: "▍";
+  color: var(--qf-accent);
+  margin-right: 0.35em;
 }
 
-.qf-brand-logo-link {
+.qf-brand-wordmark--footer {
+  font-size: var(--qf-fs-base);
+}
+
+@media (min-width: 820px) {
+  .qf-brand-wordmark:not(.qf-brand-wordmark--footer) {
+    font-size: var(--qf-fs-lg);
+  }
+}
+
+.qf-brand-wordmark-link {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  text-decoration: none;
+  min-height: 2.75rem;
+}
+
+.qf-brand-wordmark-link:hover .qf-brand-wordmark {
+  color: var(--qf-accent);
+}
+
+.qf-brand-wordmark-link:hover {
+  text-decoration: none;
+}
+
+/* Hero decorative watermark — graphic logo at scale */
+.qf-brand-watermark {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.qf-brand-watermark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: max(-2rem, calc((100vw - var(--qf-maxw)) / 2 - 4rem));
+  width: min(42vw, 480px);
+  height: min(42vw, 480px);
+  transform: translateY(-50%);
+  background: url("/brand/quietforge-logo.png") no-repeat center / contain;
+  opacity: 0.04;
+}
+
+@media (max-width: 819px) {
+  .qf-brand-watermark {
+    display: none;
+  }
 }
