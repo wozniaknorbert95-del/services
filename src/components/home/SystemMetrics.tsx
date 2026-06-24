@@ -34,6 +34,7 @@ export default function SystemMetrics() {
           <span className="qf-eyebrow">{SYSTEM_METRICS_COPY.eyebrow}</span>
           <h2 className="mt-[var(--qf-sp-4)]">The system, in numbers.</h2>
           <p className="qf-lead mt-[var(--qf-sp-4)] max-w-2xl">{SYSTEM_METRICS_COPY.lead}</p>
+          <p className="qf-hint mt-[var(--qf-sp-3)]">{SYSTEM_METRICS_COPY.wizardFootnote}</p>
         </motion.div>
 
         <motion.div

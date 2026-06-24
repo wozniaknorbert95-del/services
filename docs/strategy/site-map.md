@@ -25,17 +25,19 @@
 |---|---------|-----------|------------|------------|
 | 1 | Hero | `HeroSection` | BLOK 2 | Who / for whom / outcome / proof line / L3 CTA |
 | 2 | System pipeline | `SystemArchitecture` | BLOK 7, 10 | Visitor → Client education |
-| 3 | Intent router | `IntentRouter` | BLOK 7, 8, 15 | 8 modules + 5 intent colors |
-| 4 | Pain grid | `PainGrid` | BLOK 1 | Pain recognition → solution link |
-| 5 | Spearhead | `SpearheadSpotlight` | Filar 2 | Inbox Killer = start here |
-| 6 | Ecosystem map | `OwnerEcosystemTeaser` | 8 repos | 8 repos · 1 supervised system |
-| 7 | Metrics | `SystemMetrics` | BLOK 8 | Numbers from `proof.ts` + intent colors |
-| 8 | Results teaser | `ResultsTeaser` | BLOK 3, 12 | Problem → System → Effect cards |
-| 9 | Behind the scenes | `BehindTheScenes` | BLOK 6 | VCMS + screens from manifest |
-| 10 | How I work | `HowIWork` | REPO 7 | Map → Hand over |
-| 11 | Trust & objections | `TrustAndObjections` | BLOK 6, 8 | HITL/EU/AVG cards + 4 named objections (`data-home-section`: `trust-safety`, `why-this-works`) |
-| 12 | Pricing | `sections/Pricing` | BLOK 13 | 4 tiers + L3 |
-| 13 | Final CTA | `FinalCtaBand` | BLOK 13 | Single L3 close |
+| 3 | LOS architecture | `LivingSystemTeaser` | LOS canon | Investor bridge — 5 layers, governance-first |
+| 4 | Built vs planned | `BuiltVsPlanned` | AS-IS inventory | Honest LIVE/PARTIAL table — 8 repos |
+| 5 | Intent router | `IntentRouter` | BLOK 7, 8, 15 | 8 modules + 5 intent colors |
+| 6 | Pain grid | `PainGrid` | BLOK 1 | Pain recognition → solution link |
+| 7 | Spearhead | `SpearheadSpotlight` | Filar 2 | Wizard Cash Engine = live proof #1 |
+| 8 | Ecosystem map | `OwnerEcosystemTeaser` | 8 repos | 8 repos · 1 supervised system |
+| 9 | Metrics | `SystemMetrics` | BLOK 8 | Numbers from `proof.ts` + intent colors |
+| 10 | Results teaser | `ResultsTeaser` | BLOK 3, 12 | Problem → System → Effect cards |
+| 11 | Behind the scenes | `BehindTheScenes` | BLOK 6 | VCMS + screens from manifest |
+| 12 | How I work | `HowIWork` | REPO 7 | Map → Hand over |
+| 13 | Trust & objections | `TrustAndObjections` | BLOK 6, 8 | HITL/EU/AVG cards + 4 named objections (`data-home-section`: `trust-safety`, `why-this-works`) |
+| 14 | Pricing | `sections/Pricing` | BLOK 13 | 4 tiers + L3 |
+| 15 | Final CTA | `FinalCtaBand` | BLOK 13 | Single L3 close |
 
 **Chrome (not numbered sections):** `SectionProgress` (left rail + mobile scroll bar), `StickyCta` (mobile).
 
@@ -62,16 +64,16 @@ Data source: `src/content/ecosystem.ts` → `ECOSYSTEM_REPOS`
 
 | # | Repo key | Role | Intent colors | Screen key | Proof route |
 |---|----------|------|---------------|------------|-------------|
-| 1 | zzpackage | Sales funnel engine | money, efficiency | wizardCheckout | `/results/sales-funnel/` |
+| 1 | zzpackage | Wizard Cash Engine ★ | money, efficiency | wizardCheckout | `/results/sales-funnel/` |
 | 2 | app.flexgrafik.nl | Lead magnet game | money | leadMagnet | `/results/lead-magnet/` |
-| 3 | jadzia-core | Inbox Killer ★ spearhead | time, calm | inboxLanes | `/results/inbox-killer/` |
+| 3 | jadzia-core | Chief Operating Intelligence (COI) | time, calm, order | inboxLanes | `/results/inbox-killer/` |
 | 4 | agent-os | Agent workforce | time, efficiency | agentCards | `/results/agent-orchestrator/` |
 | 5 | flex-vcms | Governance ★ | order, calm | vcmsDashboard | `/results/owner-ecosystem/` |
 | 6 | flexgrafik-nl | Portal / web upgrade | money, order | portalAssistant | `/solutions/web-upgrade/` |
 | 7 | flexgrafik-meta | Method / Automation Map | order, money | — | `/how-it-works/` |
 | 8 | agent-os-ui | Observability | order, efficiency | adminDashboard | `/trust/` |
 
-★ = flagship proof (VCMS governance + Inbox Killer spearhead)
+★ = flagship proof (Wizard Cash Engine + VCMS governance)
 
 ---
 

@@ -69,6 +69,29 @@ export const WEBSITE_ONLY_EXCEPTION =
 export const SITE_GOAL =
   'Can this person design and deploy a system that improves my business?';
 
+export const SPEARHEAD = {
+  eyebrow: 'spearhead',
+  headline: 'Wizard Cash Engine —',
+  headlineAccent: 'live checkout proof, not a slide deck.',
+  body:
+    'The self-service configurator runs on Mollie checkout today — 9 UI screens, open pricing, human approval on every deploy. This is the revenue layer I run before selling automation.',
+  bullets: [
+    'Live on zzpackage.flexgrafik.nl — try it in two minutes.',
+    '200+ SKUs, scored leads, calm order form or designer handoff.',
+    'Same stack Quietforge deploys for SMB clients — governed, not templated.',
+  ],
+  primaryCta: 'Try the wizard (2 min)',
+  primaryHref: 'https://zzpackage.flexgrafik.nl/',
+  secondaryCta: 'Inbox Killer — B2B product',
+  secondaryHref: '/solutions/inbox-killer/',
+  terminalCommand: 'wizard.checkout --live zzpackage',
+  terminalLines: [
+    '9 UI screens · 7 business decision stages',
+    'Mollie checkout · open pricing',
+    'HITL active: deploy manual only',
+  ],
+} as const;
+
 export const CTAS = {
   bookAutomationMap: 'Book your Automation Map',
   seeSystems: 'See the systems',

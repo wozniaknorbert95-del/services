@@ -9,18 +9,12 @@ import { ROUTES, ARTEFACTS, SITE_URL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { vcmsFeatureStatus } from '@/content/proof';
 import { ECOSYSTEM_REPOS } from '@/content/ecosystem';
+import { OWNER_FLOW_STEPS, JADZIA_ONE_LINER, PORTAL_CHAT_DISCLAIMER } from '@/content/owner-ecosystem';
+import { READINESS_ROWS } from '@/content/readiness';
+import StatusBadge from '@/components/ui/StatusBadge';
 import { CASE_STUDIES } from '@/lib/case-studies';
 import IntentBadges from '@/components/ui/IntentBadges';
 import ModulePreviewThumb from '@/components/ui/ModulePreviewThumb';
-
-const FLOW_STEPS = [
-  { step: '01', title: 'Entry', detail: 'flexgrafik.nl — portal + chat assistant routes visitors to the right path.' },
-  { step: '02', title: 'Revenue', detail: 'zzpackage wizard — 7 steps, open pricing, calm order form or designer handoff.' },
-  { step: '03', title: 'Leads', detail: 'app.flexgrafik.nl game — coupons and contacts funnel into the wizard.' },
-  { step: '04', title: 'Operations', detail: 'jadzia-core — orders, automation, jadzia.db. Modules refined in agent loop.' },
-  { step: '05', title: 'Execution', detail: 'Agent OS — Planner → Coder → Tester → Reviewer → Summarizer. Human gate before deploy.', highlight: true },
-  { step: '06', title: 'Supervision', detail: 'Flex-VCMS — scan all repos, detect conflicts, enforce SSoT. Governance layer.', highlight: true },
-];
 
 const CASE_MAP = CASE_STUDIES.map((c) => ({
   case: `${c.number} ${c.title}`,
@@ -45,11 +39,11 @@ const VCMS_WHY = [
 export const metadata: Metadata = {
   title: 'Owner ecosystem — 8 repos, 1 system',
   description:
-    'The live multi-repo stack behind Quietforge: VCMS supervision, Agent OS execution, wizard commerce, portal assistant and Inbox Killer. Process-proof architecture map.',
+    'The live multi-repo stack behind Quietforge: VCMS supervision, Agent OS execution, wizard commerce, honest portal chat and COI roadmap. Process-proof architecture map.',
   openGraph: {
     title: 'Owner ecosystem — 8 repos, 1 system',
     description:
-      'Governance · VCMS · jadzia · Agent OS · wizard · portal — the system the architect runs before selling automation.',
+      'Governance · VCMS · Jadzia COI · Agent OS · wizard · portal — honest built vs planned architecture.',
     url: `${SITE_URL}/results/owner-ecosystem`,
     images: [
       {
@@ -131,6 +125,9 @@ export default function OwnerEcosystemPage() {
               <p className="mb-1 font-mono text-xs uppercase tracking-wider text-[var(--qf-info)]">
                 {repo.number} · {repo.role}
               </p>
+              {repo.statusNote ? (
+                <p className="mb-2 text-xs text-[var(--qf-text-faint)]">{repo.statusNote}</p>
+              ) : null}
               <h3 className="mb-2 font-bold text-[var(--qf-text)]">{repo.repoKey}</h3>
               <ModulePreviewThumb screenKey={repo.screenKey} size="sm" />
               <div className="mb-3">
@@ -174,7 +171,7 @@ export default function OwnerEcosystemPage() {
           How it flows
         </h2>
         <div className="grid gap-[var(--qf-sp-4)]">
-          {FLOW_STEPS.map((step) => (
+          {OWNER_FLOW_STEPS.map((step) => (
             <Card
               key={step.step}
               className={step.highlight ? 'border-[var(--qf-accent)] bg-[var(--qf-accent-glow)]' : ''}
@@ -183,9 +180,17 @@ export default function OwnerEcosystemPage() {
                 <span className="shrink-0 font-mono text-lg font-bold text-[var(--qf-accent)]">
                   {step.step}
                 </span>
-                <div>
-                  <h3 className="mb-1 font-bold text-[var(--qf-text)]">{step.title}</h3>
+                <div className="flex-1">
+                  <div className="mb-1 flex flex-wrap items-center gap-2">
+                    <h3 className="font-bold text-[var(--qf-text)]">{step.title}</h3>
+                    <StatusBadge status={step.status} />
+                  </div>
                   <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{step.detail}</p>
+                  {step.plannedNote ? (
+                    <p className="mt-2 text-xs text-[var(--qf-text-faint)]">
+                      PLANNED: {step.plannedNote}
+                    </p>
+                  ) : null}
                 </div>
               </div>
             </Card>
@@ -193,7 +198,58 @@ export default function OwnerEcosystemPage() {
         </div>
       </Section>
 
-      <Section padding="large" id="why-vcms" className="scroll-mt-24">
+      <Section background="surface" padding="large">
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
+          Built vs planned
+        </h2>
+        <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+          Eight repos with honest readiness from production inventory — no revenue or MRR claims.
+        </p>
+        <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)]">
+          <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+            <thead>
+              <tr className="border-b border-[var(--qf-border)] bg-[var(--qf-bg-inset)]">
+                <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+                  Module
+                </th>
+                <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+                  Readiness
+                </th>
+                <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+                  Capability
+                </th>
+                <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+                  Status
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {READINESS_ROWS.map((row) => (
+                <tr key={row.repoKey} className="border-b border-[var(--qf-border)] last:border-0">
+                  <td className="px-4 py-3 font-semibold text-[var(--qf-text)]">{row.module}</td>
+                  <td className="px-4 py-3 font-mono text-[var(--qf-text-dim)]">{row.readiness}</td>
+                  <td className="px-4 py-3 text-[var(--qf-text-dim)]">{row.capability}</td>
+                  <td className="px-4 py-3">
+                    <StatusBadge status={row.status} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Section>
+
+      <Section padding="large">
+        <Card className="p-6">
+          <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+            Portal chat · honest framing
+          </p>
+          <p className="mb-4 max-w-none text-sm text-[var(--qf-text-dim)]">{PORTAL_CHAT_DISCLAIMER}</p>
+          <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{JADZIA_ONE_LINER}</p>
+        </Card>
+      </Section>
+
+      <Section background="surface" padding="large" id="why-vcms" className="scroll-mt-24">
         <Eyebrow>Supervision layer</Eyebrow>
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
           Why VCMS matters

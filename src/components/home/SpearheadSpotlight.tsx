@@ -1,11 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useMotion } from '@/lib/useMotion';
-import { ROUTES } from '@/lib/constants';
+import { SPEARHEAD } from '@/content/conversion-copy';
 import Eyebrow from '@/components/ui/Eyebrow';
-import { Inbox } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 
+/**
+ * Spearhead spotlight — Wizard Cash Engine as primary live proof.
+ * Used in: src/app/page.tsx (home)
+ */
 export default function SpearheadSpotlight() {
   const motionCfg = useMotion();
   const fade = motionCfg.fadeIn();
@@ -15,7 +20,6 @@ export default function SpearheadSpotlight() {
     <section data-home-section="spearhead" className="py-[var(--qf-sp-24)]">
       <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
         <div className="grid items-center gap-[var(--qf-sp-12)] lg:grid-cols-5">
-          {/* Left: copy (3 cols) */}
           <motion.div
             className="lg:col-span-3"
             initial={fade.initial}
@@ -23,43 +27,38 @@ export default function SpearheadSpotlight() {
             viewport={{ once: true, margin: '-80px' }}
             transition={fade.transition}
           >
-            <Eyebrow>spearhead</Eyebrow>
+            <Eyebrow>{SPEARHEAD.eyebrow}</Eyebrow>
             <h2 className="mb-[var(--qf-sp-4)]">
-              Inbox Killer —{' '}
-              <span className="text-[var(--qf-accent)]">
-                the system that gives you your mornings back.
-              </span>
+              {SPEARHEAD.headline}{' '}
+              <span className="text-[var(--qf-accent)]">{SPEARHEAD.headlineAccent}</span>
             </h2>
-            <p className="text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">
-              Your inbox sorts itself, surfaces what matters, and drafts your
-              replies. You stay in charge of every send.
-            </p>
+            <p className="text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">{SPEARHEAD.body}</p>
             <ul className="mt-[var(--qf-sp-6)] space-y-3">
-              {[
-                'Hours back every week — no more digging through clutter.',
-                'No more lost leads — every enquiry is caught and prioritised.',
-                'Full control — nothing sends without your approval.',
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="relative pl-6 text-[var(--qf-text-dim)]"
-                >
+              {SPEARHEAD.bullets.map((item) => (
+                <li key={item} className="relative pl-6 text-[var(--qf-text-dim)]">
                   <span className="absolute left-0 text-[var(--qf-ok)]">✓</span>
                   {item}
                 </li>
               ))}
             </ul>
-            <div className="mt-[var(--qf-sp-6)]">
+            <div className="mt-[var(--qf-sp-6)] flex flex-wrap gap-[var(--qf-sp-3)]">
               <a
-                href={ROUTES.inboxKiller}
-                className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:bg-[var(--qf-accent-soft)] hover:border-[var(--qf-accent-soft)]"
+                href={SPEARHEAD.primaryHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:border-[var(--qf-accent-soft)] hover:bg-[var(--qf-accent-soft)]"
               >
-                See how Inbox Killer works <span aria-hidden="true">→</span>
+                {SPEARHEAD.primaryCta} <span aria-hidden="true">→</span>
               </a>
+              <Link
+                href={SPEARHEAD.secondaryHref}
+                className="inline-flex items-center border border-[var(--qf-border)] px-6 py-3 text-sm font-semibold text-[var(--qf-text)] transition-colors hover:border-[var(--qf-accent)] hover:text-[var(--qf-accent)]"
+              >
+                {SPEARHEAD.secondaryCta}
+              </Link>
             </div>
           </motion.div>
 
-          {/* Right: visual (2 cols) */}
           <motion.div
             className="lg:col-span-2"
             initial={slide.initial}
@@ -67,22 +66,25 @@ export default function SpearheadSpotlight() {
             viewport={{ once: true, margin: '-80px' }}
             transition={slide.transition}
           >
-            <div className="rounded-[var(--qf-radius)] border border-[var(--qf-accent)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-6)] shadow-[0_0_0_1px_var(--qf-accent-glow),0_0_40px_var(--qf-accent-glow)]">
+            <div className="qf-spearhead-card rounded-[var(--qf-radius)] border border-[var(--qf-accent)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-6)]">
               <div className="mb-4 flex items-center gap-[var(--qf-sp-3)]">
-                <Inbox className="h-8 w-8 text-[var(--qf-accent)]" strokeWidth={1.5} />
+                <ShoppingCart className="h-8 w-8 text-[var(--qf-accent)]" strokeWidth={1.5} />
                 <span className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-text-dim)]">
-                  Spearhead
+                  Live proof #1
                 </span>
               </div>
-              <p className="mb-4 text-[var(--qf-text)]">
-                The one system most owners need first.
-              </p>
+              <p className="mb-4 text-[var(--qf-text)]">Wizard Cash Engine — production checkout.</p>
               <div className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-4">
                 <pre className="overflow-x-auto whitespace-pre font-[family-name:var(--qf-mono)] text-[var(--qf-fs-sm)] text-[var(--qf-text-dim)]">
-                  <span className="text-[var(--qf-accent)]">$</span> inbox.status
-                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> read → classify → draft → approve
-                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> HITL active: nothing sends alone
-                  {'\n'}<span className="text-[var(--qf-accent)]">$</span> _
+                  <span className="text-[var(--qf-accent)]">$</span> {SPEARHEAD.terminalCommand}
+                  {'\n'}
+                  {SPEARHEAD.terminalLines.map((line) => (
+                    <span key={line}>
+                      <span className="text-[var(--qf-ok)]">✓</span> {line}
+                      {'\n'}
+                    </span>
+                  ))}
+                  <span className="text-[var(--qf-accent)]">$</span> _
                 </pre>
               </div>
             </div>

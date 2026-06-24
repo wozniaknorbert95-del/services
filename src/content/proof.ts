@@ -11,11 +11,12 @@ import { leadMagnetSalesOneLiner } from '@/content/lead-magnet-case-study';
 
 export const metrics = {
   repos: "8",                                                  // [R] 8 zbadanych repo
-  systemsLive: "5",                                            // [R] app, wizard, portal, jadzia, VCMS
-  wizardSteps: "9",                                            // [R] kod: "Stap 1 van 9"
+  productionTouching: "6",                                     // [R] repos with production deployment
+  wizardSteps: "9",                                            // [R] kod: "Stap 1 van 9" — UI screens
+  wizardBusinessSteps: "7",                                    // [R] business strategy decision stages
+  wizardStepsFootnote: "9 UI screens · 7 business decision stages",
   skus: "200+",                                                // [R] katalogi JSON
   gameLevels: "5",                                             // [R] Beginner → Boss: Belastingdienst
-  workflowSteps: "7",                                          // [R] jadzia pipeline
   agentNodes: "5",                                             // [R] Planner→Coder→Tester→Reviewer→Summarizer
   msgsPerScan: "142",                                          // [T] po B1 — test inbox
   integrations: "8",                                           // [T] 5 real + Make/Zapier+Notion+Workspace
@@ -186,7 +187,7 @@ export const screens: Record<ScreenKey, ScreenShot> = {
   workflowMap:     { src: "/gratka/workflow-map.svg", alt: "Agent OS LangGraph pipeline", caption: "Planner → Coder → Tester → Reviewer → Summarizer — hybrid pipeline with human gate before ship.", ready: true },
   vcmsDashboard:   { src: "/gratka/vcms-dashboard.svg", alt: "VCMS governance dashboard", caption: "8-repo scan status with Conflicts: 0 target — governance command center (live).", ready: true },
   conflictReport:  { src: "/gratka/conflict-report.svg", alt: "VCMS conflict report (demo fixture)", caption: "Example SSoT mismatch flagged before deploy — DEMO fixture; live scan target is Conflicts: 0.", ready: true },
-  portalAssistant: { src: "/gratka/portal-assistant.png", alt: "Customer-facing portal assistant", caption: "Qualification assistant in the customer portal.", ready: true },
+  portalAssistant: { src: "/gratka/portal-assistant.png", alt: "Customer-facing portal assistant", caption: "Supervised sales chat (shared with wizard). Dedicated qualification agent planned.", ready: true },
   adminDashboard:  { src: "/gratka/agent-os-mission-control.png", alt: "Mission Control dashboard — tasks, queue, history and cost tabs", caption: "Mission Control — tasks, queue, history and cost tabs. LIVE on os.flexgrafik.nl.", ready: true },
 };
 

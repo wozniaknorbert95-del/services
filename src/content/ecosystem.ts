@@ -45,6 +45,8 @@ export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
 export const HOME_SECTION_MARKERS: Record<(typeof HOME_SECTIONS)[number], string> = {
   HeroSection: 'hero',
   SystemArchitecture: 'system-architecture',
+  LivingSystemTeaser: 'los-teaser',
+  BuiltVsPlanned: 'built-vs-planned',
   IntentRouter: 'intent-router',
   PainGrid: 'pain-grid',
   SpearheadSpotlight: 'spearhead',
@@ -121,6 +123,8 @@ export function getIntentMeta(id: IntentId) {
 export const HOME_SECTIONS = [
   'HeroSection',
   'SystemArchitecture',
+  'LivingSystemTeaser',
+  'BuiltVsPlanned',
   'IntentRouter',
   'PainGrid',
   'SpearheadSpotlight',
@@ -164,17 +168,18 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
     repoKey: 'zzpackage',
     screenKey: 'wizardCheckout',
     videoKey: 'wizard',
+    spearhead: true,
   },
   {
     id: 'm3',
     name: 'Inbox Killer',
-    effect: 'Handles email and support — with your approval on every send.',
+    effect:
+      'B2B email automation service — supervised drafts with approval on every send. Production today: WP agent and sales chat via jadzia COI.',
     intents: ['time', 'calm'],
     route: ROUTES.resultsInboxKiller,
     repoKey: 'jadzia-core',
     screenKey: 'inboxLanes',
     videoKey: 'inboxKiller',
-    spearhead: true,
   },
   {
     id: 'm4',
@@ -230,6 +235,7 @@ export interface EcosystemRepo {
   number: number;
   repoKey: string;
   role: string;
+  statusNote?: string;
   intents: IntentId[];
   screenKey?: ScreenKey;
   proofRoute: string;
@@ -240,10 +246,11 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 1,
     repoKey: 'zzpackage',
-    role: 'Sales funnel engine',
+    role: 'Wizard Cash Engine',
     intents: ['money', 'efficiency'],
     screenKey: 'wizardCheckout',
     proofRoute: ROUTES.resultsSalesFunnel,
+    flagship: true,
   },
   {
     number: 2,
@@ -256,11 +263,11 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 3,
     repoKey: 'jadzia-core',
-    role: 'Inbox Killer — spearhead',
-    intents: ['time', 'calm'],
+    role: 'Chief Operating Intelligence (COI)',
+    statusNote: 'LIVE: WP agent + sales chat · TO-BE: order/lead/analytics',
+    intents: ['time', 'calm', 'order'],
     screenKey: 'inboxLanes',
     proofRoute: ROUTES.resultsInboxKiller,
-    flagship: true,
   },
   {
     number: 4,

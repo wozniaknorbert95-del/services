@@ -19,19 +19,19 @@ export interface MetricDisplayCard {
 export const METRIC_DISPLAY_CARDS: readonly MetricDisplayCard[] = [
   {
     metricKey: 'wizardSteps',
-    label: 'Wizard steps',
+    label: 'Wizard UI screens',
     outcome: 'Qualifies a lead in-session',
     intent: 'time',
   },
   {
-    metricKey: 'workflowSteps',
-    label: 'Workflow steps',
+    metricKey: 'agentNodes',
+    label: 'Agent OS nodes',
     outcome: 'Repeat tasks through a fixed pipeline',
     intent: 'efficiency',
   },
   {
-    metricKey: 'systemsLive',
-    label: 'Systems live',
+    metricKey: 'productionTouching',
+    label: 'Production-touching repos',
     outcome: 'One supervised ecosystem',
     intent: 'order',
   },
@@ -51,4 +51,5 @@ export function getMetricValue(key: MetricKey): string {
 export const SYSTEM_METRICS_COPY = {
   eyebrow: '// metrics',
   lead: 'What the numbers mean for your business — not just for developers.',
+  wizardFootnote: '9 UI screens · 7 business decision stages',
 } as const;

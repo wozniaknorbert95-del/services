@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import HeroSection from '@/components/home/HeroSection';
 import SystemArchitecture from '@/components/home/SystemArchitecture';
+import LivingSystemTeaser from '@/components/home/LivingSystemTeaser';
+import BuiltVsPlanned from '@/components/home/BuiltVsPlanned';
 import IntentRouter from '@/components/home/IntentRouter';
 import PainGrid from '@/components/home/PainGrid';
 import SpearheadSpotlight from '@/components/home/SpearheadSpotlight';
@@ -49,6 +51,8 @@ export default function Home() {
         <SectionProgress />
         <HeroSection />
         <SystemArchitecture />
+        <LivingSystemTeaser />
+        <BuiltVsPlanned />
         <IntentRouter />
         <PainGrid />
         <SpearheadSpotlight />

@@ -74,9 +74,14 @@ export default function HeroSection() {
               <div className="p-[var(--qf-sp-6)]">
                 <pre className="overflow-x-auto whitespace-pre font-[family-name:var(--qf-mono)] text-[var(--qf-fs-sm)] text-[var(--qf-text-dim)]">
                   <span className="text-[var(--qf-accent)]">$</span> lead.qualify --wizard zzpackage
-                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> {metrics.wizardSteps} steps ·{' '}
+                  {'\n'}
+                  <span className="text-[var(--qf-ok)]">✓</span> {metrics.wizardSteps} UI screens ·{' '}
                   {metrics.skus} SKUs
-                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> scored → hot(3) warm(8) nurture(11)
+                  {'\n'}
+                  <span className="text-[var(--qf-text-faint)]">  </span>
+                  {metrics.wizardStepsFootnote}
+                  {'\n'}
+                  <span className="text-[var(--qf-ok)]">✓</span> scored → hot(3) warm(8) nurture(11)
                   {'\n'}<span className="text-[var(--qf-ok)]">✓</span> brief ready ·{' '}
                   <span className="text-[var(--qf-accent)]">awaiting your approval</span>
                   {'\n'}<span className="text-[var(--qf-accent)]">$</span>{' '}
@@ -93,7 +98,7 @@ export default function HeroSection() {
           </span>
           <span className="inline-flex items-center gap-1.5">
             <span className="text-[0.6em] text-[var(--qf-border-bright)]">●</span>{' '}
-            {metrics.systemsLive} systems live
+            {metrics.productionTouching} production-touching
           </span>
           <span className="inline-flex items-center gap-1.5">
             <span className="text-[0.6em] text-[var(--qf-border-bright)]">●</span> human-in-the-loop
