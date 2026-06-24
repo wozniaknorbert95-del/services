@@ -213,19 +213,21 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
   },
   {
     id: 'm7',
-    name: 'Maintenance & Safety',
-    effect: 'Ongoing care so systems stay healthy — no lock-in.',
-    intents: ['order', 'calm'],
-    route: ROUTES.managedAutomation,
+    name: 'Mission Control',
+    effect:
+      'Tasks, queue, history and cost tabs — observability for the Agent OS pipeline. LIVE on os.flexgrafik.nl.',
+    intents: ['order', 'efficiency'],
+    route: ROUTES.trust,
     repoKey: 'agent-os-ui',
     screenKey: 'adminDashboard',
   },
   {
     id: 'm8',
-    name: 'AI Advisory',
-    effect: 'Founder-level guidance when you modernise operations.',
-    intents: ['efficiency', 'money', 'order'],
-    route: ROUTES.resultsAdvisoryModernisation,
+    name: 'Trust Portal',
+    effect:
+      'flexgrafik.nl brand portal with CTAs. Generic sales chat LIVE; dedicated qualification agent PLANNED.',
+    intents: ['money', 'order'],
+    route: ROUTES.webUpgrade,
     repoKey: 'flexgrafik-nl',
     screenKey: 'portalAssistant',
   },
@@ -289,7 +291,8 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 6,
     repoKey: 'flexgrafik-nl',
-    role: 'Portal / web upgrade',
+    role: 'Trust Portal',
+    statusNote: 'LIVE: generic sales chat · PLANNED: qualification agent',
     intents: ['money', 'order'],
     screenKey: 'portalAssistant',
     proofRoute: ROUTES.webUpgrade,
@@ -304,7 +307,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 8,
     repoKey: 'agent-os-ui',
-    role: 'Observability',
+    role: 'Mission Control',
     intents: ['order', 'efficiency'],
     screenKey: 'adminDashboard',
     proofRoute: ROUTES.trust,

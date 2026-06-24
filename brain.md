@@ -42,7 +42,7 @@ Sections §2 (single-product goal) and §5 (flat IA) below are **historical** �
 
 > **Superseded for copy/IA by `docs/strategy/`** — kept for historical context.
 
-Portfolio sprzedaży systemów konwersji dla SMB. Flagship entry: **Inbox Killer** + product ladder (Sales Funnel, Web Upgrade, Managed Automation).
+Portfolio sprzedaży systemów konwersji dla SMB. Flagship proof: **Wizard Cash Engine** + product ladder (Inbox Killer, Sales Funnel, Web Upgrade).
 
 - Discovery: Automation Map (paid session)
 - Project floors: see `src/lib/constants.ts` → `PRICING`
@@ -54,12 +54,16 @@ Portfolio sprzedaży systemów konwersji dla SMB. Flagship entry: **Inbox Killer
 
 ## 3) AUDIENCJE i SEPARACJA
 
+> **⚠ SUPERSEDED 2026-06-25 — Track 4 rule below is STALE.**  
+> Site now shows governed ecosystem proof (LOS, Built vs Planned, owner-ecosystem map) with B2B framing — not zero-repo zero-jargon.  
+> **Canonical copy/IA:** `docs/strategy/marketing-strategy.md` · **Home order:** `docs/strategy/site-map.md` §2.
+
 | Track | Asset | Audience | Reguła |
 |---|---|---|---|
 | 3 | `portfolio.flexgrafik.nl` | Enterprise AI engineering | **Święty.** Zero ZZP, zero cen, zero packages. |
-| 4 | `services.flexgrafik.nl` | SMB/ZZP automation | **Konwersja.** Zero LangGraph, zero repo, zero technicznego żargonu. |
+| 4 | `quietforge.flexgrafik.nl` (repo `services`) | SMB/ZZP + investor bridge | **Konwersja + honest architecture proof.** SMB buyer path + `/results/owner-ecosystem/` for tech/investor audience. |
 
-**Most:** Historia Norberta Wozniaka ("Zbudowałem systemy dla własnej drukarni...") — ale bez szczegółów technicznych.
+**Most:** Historia Norberta Wozniaka ("Zbudowałem systemy dla własnej drukarni...") — ecosystem proof on request, not jargon on every hero.
 
 ---
 

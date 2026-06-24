@@ -18,42 +18,28 @@ export interface CaseStudy {
   detailHref: string;
 }
 
+/** Display order: owner ecosystem + wizard first (LinkedIn / investor path) */
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    slug: 'inbox-killer',
+    slug: 'owner-ecosystem',
     number: '01',
-    title: 'The self-running back-office',
-    meta: 'Inbox Killer · live',
+    title: 'Eight repos, one supervised system',
+    meta: 'Owner ecosystem · governance',
     context:
-      'Deployed in my own NL print-business ecosystem (2+ years in production). Same architecture I deploy for clients — not theory.',
+      'A multi-repo business stack without a governance layer drifts — conflicts, duplicate truth, deploy surprises.',
     system:
-      'An agent that reads folders, sorts by intent, drafts replies, and stops at a human approval gate before anything sends.',
-    real: 'Live mailbox, 142 msgs/scan, human-in-the-loop on every send.',
-    measurement: 'Live mailbox, 142 msgs/scan, human approval on every send.',
-    intents: ['time', 'calm'],
-    manifestKey: 'inboxKiller',
-    detailHref: ROUTES.resultsInboxKiller,
-  },
-  {
-    slug: 'agent-orchestrator',
-    number: '02',
-    title: agentOsDisplayName,
-    meta: 'Agent OS 2.0 · hybrid · production',
-    context:
-      'My own multi-repo business stack — orders, content, CRM — coordinated by a VPS control plane that runs 24/7 while code execution stays on a supervised local runner.',
-    system:
-      'FastAPI + LangGraph + PostgreSQL on an EU VPS. Hybrid routing via WAITING_RUNNER: orchestration and HITL online; git/code work on the dev PC. Mission Control UI for tasks, queue, history and costs.',
-    real: 'Prod smoke PASS — HITL approve/reject/cancel, Langfuse cost tracking, E2E handoff on disk. Guided demo ready; not a public SaaS.',
-    measurement: caseMeasurements.agentOs.value ?? '',
-    intents: ['time', 'efficiency'],
-    manifestKey: 'agentOs',
-    detailHref: ROUTES.resultsAgentOrchestrator,
+      'VCMS scans all repos, detects SSoT conflicts, and enforces handoffs before changes reach production.',
+    real: '8 repos governed · Conflicts: 0 target · live scan pipeline.',
+    measurement: '8-repo scan status with conflict detection before deploy.',
+    intents: ['order', 'calm'],
+    manifestKey: 'ownerEcosystem',
+    detailHref: ROUTES.resultsOwnerEcosystem,
   },
   {
     slug: 'sales-funnel',
-    number: '03',
+    number: '02',
     title: 'Self-service quote & onboarding',
-    meta: 'Sales Funnel Engine',
+    meta: 'Wizard Cash Engine · live',
     context: 'My own sales funnel — the same "what do you charge?" questions, answered by the system.',
     system:
       'A 9-step configurator with open pricing and payment — qualifies, quotes and books without a phone call.',
@@ -62,6 +48,21 @@ export const CASE_STUDIES: CaseStudy[] = [
     intents: ['money', 'efficiency'],
     manifestKey: 'salesFunnel',
     detailHref: ROUTES.resultsSalesFunnel,
+  },
+  {
+    slug: 'agent-orchestrator',
+    number: '03',
+    title: agentOsDisplayName,
+    meta: 'Agent OS 2.0 · hybrid · production',
+    context:
+      'My own multi-repo business stack coordinated by a VPS control plane that runs 24/7 while code execution stays on a supervised local runner.',
+    system:
+      'FastAPI + LangGraph + PostgreSQL on an EU VPS. Hybrid routing via WAITING_RUNNER: orchestration and HITL online; git/code work on the dev PC. Mission Control UI for tasks, queue, history and costs.',
+    real: 'Prod smoke PASS — HITL approve/reject/cancel, Langfuse cost tracking, E2E handoff on disk. Guided demo ready; not a public SaaS.',
+    measurement: caseMeasurements.agentOs.value ?? '',
+    intents: ['time', 'efficiency'],
+    manifestKey: 'agentOs',
+    detailHref: ROUTES.resultsAgentOrchestrator,
   },
   {
     slug: 'lead-magnet',
@@ -79,8 +80,23 @@ export const CASE_STUDIES: CaseStudy[] = [
     detailHref: ROUTES.resultsLeadMagnet,
   },
   {
-    slug: 'advisory-modernisation',
+    slug: 'inbox-killer',
     number: '05',
+    title: 'The self-running back-office',
+    meta: 'Inbox Killer · B2B product',
+    context:
+      'Deployed in my own NL print-business ecosystem (2+ years in production). Same architecture I deploy for clients — not theory.',
+    system:
+      'An agent that reads folders, sorts by intent, drafts replies, and stops at a human approval gate before anything sends.',
+    real: 'Live mailbox, 142 msgs/scan, human-in-the-loop on every send.',
+    measurement: 'Live mailbox, 142 msgs/scan, human approval on every send.',
+    intents: ['time', 'calm'],
+    manifestKey: 'inboxKiller',
+    detailHref: ROUTES.resultsInboxKiller,
+  },
+  {
+    slug: 'advisory-modernisation',
+    number: '06',
     title: 'Modernisation + AI assistant for an advisory firm',
     meta: 'Web Upgrade + assistant · anonymised',
     context:
@@ -93,23 +109,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     manifestKey: 'advisory',
     detailHref: ROUTES.resultsAdvisoryModernisation,
   },
-  {
-    slug: 'owner-ecosystem',
-    number: '06',
-    title: 'Eight repos, one supervised system',
-    meta: 'Owner ecosystem · governance',
-    context:
-      'A multi-repo business stack without a governance layer drifts — conflicts, duplicate truth, deploy surprises.',
-    system:
-      'VCMS scans all repos, detects SSoT conflicts, and enforces handoffs before changes reach production.',
-    real: '8 repos governed · Conflicts: 0 target · live scan pipeline.',
-    measurement: '8-repo scan status with conflict detection before deploy.',
-    intents: ['order', 'calm'],
-    manifestKey: 'ownerEcosystem',
-    detailHref: ROUTES.resultsOwnerEcosystem,
-  },
 ];
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   return CASE_STUDIES.find((c) => c.slug === slug);
 }
+
+/** Home ResultsTeaser — wizard + ecosystem first */
+export const FEATURED_CASE_SLUGS = [
+  'owner-ecosystem',
+  'sales-funnel',
+  'agent-orchestrator',
+] as const;

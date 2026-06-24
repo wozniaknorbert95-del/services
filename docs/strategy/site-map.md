@@ -69,9 +69,9 @@ Data source: `src/content/ecosystem.ts` → `ECOSYSTEM_REPOS`
 | 3 | jadzia-core | Chief Operating Intelligence (COI) | time, calm, order | inboxLanes | `/results/inbox-killer/` |
 | 4 | agent-os | Agent workforce | time, efficiency | agentCards | `/results/agent-orchestrator/` |
 | 5 | flex-vcms | Governance ★ | order, calm | vcmsDashboard | `/results/owner-ecosystem/` |
-| 6 | flexgrafik-nl | Portal / web upgrade | money, order | portalAssistant | `/solutions/web-upgrade/` |
+| 6 | flexgrafik-nl | Trust Portal | money, order | portalAssistant | `/solutions/web-upgrade/` |
 | 7 | flexgrafik-meta | Method / Automation Map | order, money | — | `/how-it-works/` |
-| 8 | agent-os-ui | Observability | order, efficiency | adminDashboard | `/trust/` |
+| 8 | agent-os-ui | Mission Control | order, efficiency | adminDashboard | `/trust/` |
 
 ★ = flagship proof (Wizard Cash Engine + VCMS governance)
 

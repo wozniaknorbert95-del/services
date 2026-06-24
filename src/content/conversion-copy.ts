@@ -12,7 +12,8 @@ export const HERO = {
   headline: 'Conversion systems that qualify leads, automate bookings and reduce admin work.',
   subline:
     'Built with custom workflows, AI assistants and automation logic — with you in the loop on every send.',
-  proofLine: 'FlexGrafik live ops • 8-repo ecosystem • VCMS governance',
+  proofLine:
+    'Quietforge deploys the same governed stack that runs FlexGrafik — my registered company. Wizard checkout, game leads, portal, Agent OS and VCMS supervision are live; COI automation is on the roadmap with human gates throughout.',
   microTrust:
     'Quietforge deploys the same architecture that runs FLEXGRAFIK — my registered company, not a demo.',
   primaryCta: 'Book your Automation Map',

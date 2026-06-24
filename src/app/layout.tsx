@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s | Quietforge',
   },
   description:
-    'Conversion systems that qualify leads and reduce admin for NL small businesses. Human-in-the-loop. Start with a paid Automation Map.',
+    '8-repo governed ecosystem · Wizard live · honest built vs planned. Conversion systems for NL small businesses — human-in-the-loop throughout.',
   keywords: [
     'small business automation',
     'inbox automation',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'Quietforge',
     title: 'Quietforge — Conversion Systems Architect',
     description:
-      'Conversion systems that qualify leads and reduce admin for NL small businesses. Human-in-the-loop. Start with a paid Automation Map.',
+      '8-repo governed ecosystem · Wizard live checkout · honest built vs planned. VCMS supervision, Agent OS, human gates.',
     images: [
       {
         url: '/og/home.svg',
@@ -43,8 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Quietforge — Conversion Systems Architect',
-    description:
-      'Conversion systems that qualify leads and reduce admin for NL small businesses. Human-in-the-loop.',
+    description: '8-repo governed ecosystem · Wizard live · honest built vs planned.',
     creator: '@flexgrafik',
     images: ['/og/home.svg'],
   },

@@ -11,6 +11,7 @@ import { vcmsFeatureStatus } from '@/content/proof';
 import { ECOSYSTEM_REPOS } from '@/content/ecosystem';
 import { OWNER_FLOW_STEPS, JADZIA_ONE_LINER, PORTAL_CHAT_DISCLAIMER } from '@/content/owner-ecosystem';
 import { READINESS_ROWS } from '@/content/readiness';
+import { INVESTOR_SECTION, LIVE_DEMO_LINKS } from '@/content/live-demos';
 import StatusBadge from '@/components/ui/StatusBadge';
 import { CASE_STUDIES } from '@/lib/case-studies';
 import IntentBadges from '@/components/ui/IntentBadges';
@@ -39,11 +40,11 @@ const VCMS_WHY = [
 export const metadata: Metadata = {
   title: 'Owner ecosystem — 8 repos, 1 system',
   description:
-    'The live multi-repo stack behind Quietforge: VCMS supervision, Agent OS execution, wizard commerce, honest portal chat and COI roadmap. Process-proof architecture map.',
+    '8-repo governed ecosystem · honest built vs planned. VCMS supervision, Jadzia COI roadmap, Agent OS execution, wizard commerce.',
   openGraph: {
     title: 'Owner ecosystem — 8 repos, 1 system',
     description:
-      'Governance · VCMS · Jadzia COI · Agent OS · wizard · portal — honest built vs planned architecture.',
+      'Governance-first architecture map · Wizard live · honest LIVE/PARTIAL/PLANNED labels — the stack behind Quietforge.',
     url: `${SITE_URL}/results/owner-ecosystem`,
     images: [
       {
@@ -247,6 +248,36 @@ export default function OwnerEcosystemPage() {
           <p className="mb-4 max-w-none text-sm text-[var(--qf-text-dim)]">{PORTAL_CHAT_DISCLAIMER}</p>
           <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{JADZIA_ONE_LINER}</p>
         </Card>
+      </Section>
+
+      <Section padding="large">
+        <Eyebrow>{INVESTOR_SECTION.eyebrow}</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
+          {INVESTOR_SECTION.title}
+        </h2>
+        <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)]">
+          {INVESTOR_SECTION.lead}
+        </p>
+        <div className="grid gap-[var(--qf-sp-4)] sm:grid-cols-2">
+          {LIVE_DEMO_LINKS.map((demo) => (
+            <Card key={demo.id} className="p-5">
+              <div className="mb-2 flex flex-wrap items-center gap-2">
+                <h3 className="font-bold text-[var(--qf-text)]">{demo.label}</h3>
+                <StatusBadge status={demo.status} />
+              </div>
+              <p className="mb-3 text-sm text-[var(--qf-text-dim)]">{demo.note}</p>
+              <a
+                href={demo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+              >
+                Open live demo ↗
+              </a>
+            </Card>
+          ))}
+        </div>
+        <p className="mt-6 text-sm text-[var(--qf-text-faint)]">{INVESTOR_SECTION.docsNote}</p>
       </Section>
 
       <Section background="surface" padding="large" id="why-vcms" className="scroll-mt-24">

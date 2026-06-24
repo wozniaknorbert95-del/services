@@ -6,14 +6,14 @@ import { useMemo } from 'react';
 import { useMotion } from '@/lib/useMotion';
 import { ROUTES } from '@/lib/constants';
 import { CTAS } from '@/content/conversion-copy';
-import { CASE_STUDIES } from '@/lib/case-studies';
+import { CASE_STUDIES, FEATURED_CASE_SLUGS } from '@/lib/case-studies';
 import { caseMeasurements } from '@/content/proof';
 import { getIntentMeta } from '@/content/ecosystem';
 import { useHomeIntent, matchesHomeIntent } from '@/lib/home-intent';
 import { intentHighlightClass, sortByIntentMatch } from '@/lib/intent-highlight';
 import IntentBadges from '@/components/ui/IntentBadges';
 
-const FEATURED_SLUGS = ['inbox-killer', 'agent-orchestrator', 'sales-funnel'] as const;
+const FEATURED_SLUGS = FEATURED_CASE_SLUGS;
 
 export default function ResultsTeaser() {
   const motionCfg = useMotion();

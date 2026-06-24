@@ -21,11 +21,11 @@ import { HomeIntentProvider } from '@/lib/home-intent';
 export const metadata: Metadata = {
   title: 'Conversion Systems Architect for small business',
   description:
-    'Conversion systems that qualify leads, automate bookings and reduce admin work — built on a live ecosystem, not templates. Book your Automation Map.',
+    '8-repo governed ecosystem · Wizard live · honest built vs planned. Conversion systems for NL small businesses — human-in-the-loop throughout.',
   openGraph: {
     title: 'Conversion Systems Architect for small business | Quietforge',
     description:
-      'Systems that qualify leads and reduce admin for NL small businesses. Custom workflows, VCMS, human-in-the-loop.',
+      '8-repo governed ecosystem · Wizard live checkout · honest built vs planned. VCMS supervision, Agent OS, human gates.',
     images: [
       {
         url: '/og/home.svg',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Conversion Systems Architect for small business | Quietforge',
-    description: 'Conversion systems built on a live ecosystem — not theory.',
+    description: '8-repo governed ecosystem · Wizard live · honest built vs planned.',
     images: ['/og/home.svg'],
   },
 };
