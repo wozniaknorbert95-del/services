@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title">
+  <title id="title">Agent OS agent cards</title>
+  <style>
+    .bg { fill: #0e0c0a; }
+    .card { fill: #15120e; stroke: #2a241c; stroke-width: 2; }
+    .t { fill: #e9e2d4; font-family: JetBrains Mono, monospace; font-size: 12px; font-weight: 700; }
+    .s { fill: #9a907e; font-family: JetBrains Mono, monospace; font-size: 9px; }
+    .a { fill: #e8a33d; }
+  </style>
+  <rect class="bg" width="960" height="600"/>
+  <text x="480" y="40" class="t" text-anchor="middle" font-size="16">Agent cards  fixed contracts</text>
+  <text x="480" y="62" class="s" text-anchor="middle">LIVE orchestration on VPS · code execution LOCAL on dev PC</text>
+  <g transform="translate(48,90)">
+    <rect x="0" y="0" width="260" height="100" class="card"/><text x="16" y="28" class="a">Planner</text><text x="16" y="48" class="s">SSoT read, task list</text><text x="16" y="68" class="s">’ Implementation plan</text>
+    <rect x="280" y="0" width="260" height="100" class="card"/><text x="296" y="28" class="a">Coder</text><text x="296" y="48" class="s">Target module only</text><text x="296" y="68" class="s">’ Diff ready for review</text>
+    <rect x="560" y="0" width="260" height="100" class="card"/><text x="576" y="28" class="a">Tester</text><text x="576" y="48" class="s">Tests + logs</text><text x="576" y="68" class="s">’ Pass/fail report</text>
+    <rect x="140" y="130" width="260" height="100" class="card"/><text x="156" y="158" class="a">Reviewer</text><text x="156" y="178" class="s">Human gate (HITL)</text><text x="156" y="198" class="s">’ Approve or block</text>
+    <rect x="420" y="130" width="260" height="100" class="card"/><text x="436" y="158" class="a">Summarizer</text><text x="436" y="178" class="s">Handoff + session closure</text><text x="436" y="198" class="s">’ Handoff markdown on disk</text>
+  </g>
+</svg>

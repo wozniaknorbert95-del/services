@@ -1,5 +1,7 @@
 import { ROUTES } from '@/lib/constants';
 import type { CaseMeasurementKey, IntentId } from '@/content/ecosystem';
+import { caseMeasurements } from '@/content/proof';
+import { agentOsDisplayName } from '@/content/agent-os-case-study';
 
 export interface CaseStudy {
   slug: string;
@@ -34,14 +36,14 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'agent-orchestrator',
     number: '02',
-    title: 'A multi-agent orchestrator',
+    title: agentOsDisplayName,
     meta: 'Agent OS 2.0 · hybrid · production',
     context:
       'My own multi-repo business stack — orders, content, CRM — coordinated by a VPS control plane that runs 24/7 while code execution stays on a supervised local runner.',
     system:
       'FastAPI + LangGraph + PostgreSQL on an EU VPS. Hybrid routing via WAITING_RUNNER: orchestration and HITL online; git/code work on the dev PC. Mission Control UI for tasks, queue, history and costs.',
     real: 'Prod smoke PASS — HITL approve/reject/cancel, Langfuse cost tracking, E2E handoff on disk. Guided demo ready; not a public SaaS.',
-    measurement: '5-node LangGraph · hybrid VPS control plane LIVE · prod E2E handoff · Langfuse cost tracking.',
+    measurement: caseMeasurements.agentOs.value ?? '',
     intents: ['time', 'efficiency'],
     manifestKey: 'agentOs',
     detailHref: ROUTES.resultsAgentOrchestrator,

@@ -18,7 +18,7 @@ const FLOW_STEPS = [
   { step: '02', title: 'Revenue', detail: 'zzpackage wizard — 7 steps, open pricing, calm order form or designer handoff.' },
   { step: '03', title: 'Leads', detail: 'app.flexgrafik.nl game — coupons and contacts funnel into the wizard.' },
   { step: '04', title: 'Operations', detail: 'jadzia-core — orders, automation, jadzia.db. Modules refined in agent loop.' },
-  { step: '05', title: 'Execution', detail: 'Agent OS — planner → coder → tester → review. Human gate before deploy.', highlight: true },
+  { step: '05', title: 'Execution', detail: 'Agent OS — Planner → Coder → Tester → Reviewer → Summarizer. Human gate before deploy.', highlight: true },
   { step: '06', title: 'Supervision', detail: 'Flex-VCMS — scan all repos, detect conflicts, enforce SSoT. Governance layer.', highlight: true },
 ];
 

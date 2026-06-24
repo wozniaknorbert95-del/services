@@ -68,6 +68,11 @@ export default function CaseStudyLayout({
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)]">
           {study.context}
         </p>
+        {study.real ? (
+          <p className="mt-4 font-mono text-sm text-[var(--qf-accent)] max-w-[var(--qf-maxw-narrow)]">
+            {study.real}
+          </p>
+        ) : null}
 
         {downloadButtons ? <div className="mt-8 flex flex-wrap gap-4">{downloadButtons}</div> : null}
 

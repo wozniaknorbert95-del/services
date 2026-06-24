@@ -33,13 +33,18 @@ export type FeatureClaimStatus = 'PROVEN' | 'DEMO' | 'PLANNED';
 
 export type AgentOsClaimLabel = 'LIVE' | 'LOCAL-ONLY' | 'NOT OFFERED';
 
-/** Honest Agent OS labels — sync with agent-os/docs/portfolio/AGENT-OS-PORTFOLIO-PACK.yaml */
+/** Honest Agent OS labels — sync with agent-os/docs/portfolio/AGENT-OS-PORTFOLIO-PACK.yaml (12 capabilities) */
 export const agentOsFeatureStatus: Record<string, { label: string; status: AgentOsClaimLabel }> = {
   taskQueue:     { label: 'Task queue + lifecycle', status: 'LIVE' },
   hitl:          { label: 'HITL approve / reject / cancel', status: 'LIVE' },
   hybridRouting: { label: 'Hybrid VPS + local runner', status: 'LIVE' },
   codeExecution: { label: 'Code/git execution', status: 'LOCAL-ONLY' },
   observability: { label: 'Langfuse cost tracking', status: 'LIVE' },
+  mcpGateway:    { label: 'MCP gateway (filesystem/git)', status: 'LIVE' },
+  demoVideo:     { label: 'Demo 60s video', status: 'LIVE' },
+  handoffE2e:    { label: 'Handoff pipeline E2E', status: 'LIVE' },
+  cancelUx:      { label: 'Task cancel UX', status: 'LIVE' },
+  localRunner:   { label: 'Local runner OpenCode', status: 'LOCAL-ONLY' },
   publicSaaS:    { label: 'Public multi-tenant SaaS', status: 'NOT OFFERED' },
   autoDeploy:    { label: 'Auto-deploy to client PROD', status: 'NOT OFFERED' },
 };
@@ -102,8 +107,8 @@ export const screens: Record<ScreenKey, ScreenShot> = {
   leadMagnet:      { src: "/gratka/lead-magnet.png", alt: "Gameplay with email capture and leaderboard", caption: "A lead magnet that earns the contact.", ready: true },
   inboxLanes:      { src: "/gratka/inbox-lanes.png", alt: "Inbox classification lanes with approval gate", caption: "Lead · client · invoice · noise, with approval gate.", ready: true },
   auditLog:        { src: "/gratka/audit-log.svg", alt: "VCMS governance action log", caption: "Scan events from governance-audit.jsonl — DEMO: local trail; handoffs + prod ops on request.", ready: true },
-  agentCards:      { src: "/gratka/agent-cards.png", alt: "Agent cards", caption: "Every agent has a role, rules and a review gate — LIVE on VPS; code execution LOCAL on dev PC.", ready: true },
-  workflowMap:     { src: "/gratka/workflow-map.png", alt: "Agent pipeline workflow", caption: "Plan → code → test → review → approve — hybrid pipeline with human gate before ship.", ready: true },
+  agentCards:      { src: "/gratka/agent-cards.svg", alt: "Agent OS agent cards — five fixed roles", caption: "Every agent has a role, rules and a review gate — LIVE on VPS; code execution LOCAL on dev PC.", ready: true },
+  workflowMap:     { src: "/gratka/workflow-map.svg", alt: "Agent OS LangGraph pipeline", caption: "Planner → Coder → Tester → Reviewer → Summarizer — hybrid pipeline with human gate before ship.", ready: true },
   vcmsDashboard:   { src: "/gratka/vcms-dashboard.svg", alt: "VCMS governance dashboard", caption: "8-repo scan status with Conflicts: 0 target — governance command center (live).", ready: true },
   conflictReport:  { src: "/gratka/conflict-report.svg", alt: "VCMS conflict report (demo fixture)", caption: "Example SSoT mismatch flagged before deploy — DEMO fixture; live scan target is Conflicts: 0.", ready: true },
   portalAssistant: { src: "/gratka/portal-assistant.png", alt: "Customer-facing portal assistant", caption: "Qualification assistant in the customer portal.", ready: true },

@@ -9,6 +9,18 @@ import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
 import {
+  agentOsAfterItems,
+  agentOsArchitectureAlt,
+  agentOsBeforeItems,
+  agentOsCaseMeta,
+  agentOsDeliveryPhases,
+  agentOsPipelineNodes,
+  agentOsStack,
+  agentOsSupervisionNote,
+  agentOsWorkflowMapIntro,
+  AGENT_OS_SLUG,
+} from '@/content/agent-os-case-study';
+import {
   agentOsFeatureStatus,
   agentOsNarrative,
   agentOsPublicUrls,
@@ -17,56 +29,6 @@ import {
   type AgentOsClaimLabel,
 } from '@/content/proof';
 
-const SLUG = 'agent-orchestrator';
-
-const BEFORE_ITEMS = [
-  'Orders, content and CRM scattered across spreadsheets',
-  'Same questions answered in five different tools',
-  'No single place for rules — everyone improvises',
-  'Deploys feel risky because nothing is documented',
-];
-
-const AFTER_ITEMS = [
-  'One orchestrator coordinates work across the business — LIVE on VPS',
-  'Agents run in fixed roles with clear contracts (5-node LangGraph)',
-  'Single source of truth for schemas and rules',
-  'Human approval before anything hits production — no auto-deploy',
-];
-
-const WORKFLOW_PHASES = [
-  { step: '01', title: 'Map', detail: 'Find leaks, score ROI, agree first system. Deliverable: Automation Map.' },
-  { step: '02', title: 'Architect', detail: 'Target diagram + spec — who does what, where data flows.' },
-  { step: '03', title: 'Build', detail: 'AI workforce assembles against fixed rules in test environment.' },
-  { step: '04', title: 'Verify', detail: 'Real scenarios + your sign-off. Gates built into the system.' },
-  { step: '05', title: 'Hand over', detail: 'README, walkthrough, optional care. No lock-in.', highlight: true },
-];
-
-const LAYERS = [
-  {
-    label: 'Directive',
-    title: 'Strategist',
-    detail: 'Decides what to build and why — aligned with scope, margin and guardrails.',
-  },
-  {
-    label: 'Orchestration',
-    title: 'Planner',
-    detail: 'Breaks strategy into tasks and context packets. Least privilege per agent.',
-  },
-  {
-    label: 'Execution',
-    title: 'Specialist nodes',
-    detail: 'Planner → coder → tester → reviewer → summarizer. One module per session.',
-  },
-];
-
-const AGENT_CARDS = [
-  { role: 'Planner', scope: 'SSoT read, task list', output: 'Implementation plan' },
-  { role: 'Coder', scope: 'Target module only', output: 'Diff ready for review' },
-  { role: 'Tester', scope: 'Tests + logs', output: 'Pass/fail report' },
-  { role: 'Reviewer', scope: 'Human gate (HITL)', output: 'Approve or block' },
-  { role: 'Summarizer', scope: 'Handoff + session closure', output: 'Handoff markdown on disk' },
-];
-
 function agentOsStatusClass(status: AgentOsClaimLabel): string {
   if (status === 'LIVE') return 'text-emerald-500';
   if (status === 'LOCAL-ONLY') return 'text-amber-500';
@@ -74,33 +36,31 @@ function agentOsStatusClass(status: AgentOsClaimLabel): string {
 }
 
 export const metadata: Metadata = {
-  title: 'Case study — Multi-agent orchestrator',
-  description:
-    'How a hybrid FastAPI + LangGraph control plane on a VPS coordinates multi-repo work with agent cards, Langfuse observability and human approval gates.',
+  title: agentOsCaseMeta.title,
+  description: agentOsCaseMeta.description,
   openGraph: {
-    title: 'Case study — Multi-agent orchestrator',
-    description:
-      'Production agent engine — planner → coder → tester → reviewer → summarizer. Hybrid VPS + local runner. Process-proof architecture.',
+    title: agentOsCaseMeta.openGraphTitle,
+    description: agentOsCaseMeta.openGraphDescription,
     url: 'https://services.flexgrafik.nl/results/agent-orchestrator',
     images: [
       {
         url: '/og/results-agent-orchestrator.svg',
         width: 1200,
         height: 630,
-        alt: 'Case study — Multi-agent orchestrator',
+        alt: agentOsCaseMeta.ogAlt,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Case study — Multi-agent orchestrator',
-    description: 'SSoT + 5-node LangGraph + HITL gates. Architecture diagram and live Mission Control proof.',
+    title: agentOsCaseMeta.openGraphTitle,
+    description: agentOsCaseMeta.twitterDescription,
     images: ['/og/results-agent-orchestrator.svg'],
   },
 };
 
 export default function AgentOrchestratorCaseStudyPage() {
-  const study = getCaseStudyBySlug(SLUG);
+  const study = getCaseStudyBySlug(AGENT_OS_SLUG);
 
   if (!study) {
     return null;
@@ -126,42 +86,45 @@ export default function AgentOrchestratorCaseStudyPage() {
   return (
     <CaseStudyLayout
       study={study}
-      problemBefore={BEFORE_ITEMS}
-      problemAfter={AFTER_ITEMS}
+      problemBefore={[...agentOsBeforeItems]}
+      problemAfter={[...agentOsAfterItems]}
       architectureDiagramSvgUrl={GRATKA.orchestratorArchitectureSvg}
-      architectureDiagramAlt="Multi-agent orchestrator architecture: single source of truth, directive orchestration and execution layers on VPS with human approval gate"
+      architectureDiagramAlt={agentOsArchitectureAlt}
       architectureDescription={
         <>
           <p className="mb-4">{study.system}</p>
           <p className="mb-4 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)] italic">
             {agentOsNarrative.framing}
           </p>
-          <div className="grid gap-[var(--qf-sp-4)] md:grid-cols-3">
-            {LAYERS.map((layer) => (
-              <Card key={layer.label} className="p-5">
+          <h3 className="mb-4 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+            LangGraph pipeline
+          </h3>
+          <div className="mb-4 grid gap-[var(--qf-sp-4)] md:grid-cols-2 lg:grid-cols-3">
+            {agentOsPipelineNodes.map((node) => (
+              <Card key={node.role} className="p-5">
                 <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-                  {layer.label}
+                  {node.role}
                 </p>
-                <h3 className="mb-2 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
-                  {layer.title}
-                </h3>
-                <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{layer.detail}</p>
+                <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{node.detail}</p>
               </Card>
             ))}
           </div>
+          <p className="max-w-[var(--qf-maxw-narrow)] text-sm text-[var(--qf-text-dim)]">
+            {agentOsSupervisionNote}
+          </p>
         </>
       }
-      buildModules={WORKFLOW_PHASES}
+      buildModules={[...agentOsDeliveryPhases]}
       buildDescription={
         <p>
-          Workflow — 12 steps, 5 client phases. Same five phases on the{' '}
+          Five delivery phases — same as{' '}
           <Link href="/#how-i-work" className="text-[var(--qf-accent)]">
-            home page
-          </Link>
-          — this engine runs them internally on every project.
+            How I work
+          </Link>{' '}
+          on the home page. Client-facing workflow, separate from the LangGraph pipeline above.
         </p>
       }
-      stack={['FastAPI', 'LangGraph', 'PostgreSQL', 'Mission Control', 'EU VPS']}
+      stack={[...agentOsStack]}
       manifestKey="agentOs"
       videoKey="agentOs"
       screenKey="agentCards"
@@ -170,10 +133,10 @@ export default function AgentOrchestratorCaseStudyPage() {
       {screens.workflowMap.ready && screens.workflowMap.src && (
         <>
           <h2 className="mt-8 text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
-            Workflow map
+            Pipeline map
           </h2>
           <p className="mb-6 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
-            Planner → coder → tester → review — each step has a contract before anything ships.
+            {agentOsWorkflowMapIntro}
           </p>
           <Card className="mb-10 max-w-3xl overflow-hidden p-0">
             <div className="aspect-[16/10] w-full overflow-hidden bg-[var(--qf-bg-inset)]">
@@ -222,8 +185,8 @@ export default function AgentOrchestratorCaseStudyPage() {
         Mission Control
       </h2>
       <p className="mb-6 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
-        Tasks, queue, history and cost tabs — observability layer for the orchestrator. Login required
-        for live UI; screenshot from prod smoke.
+        Tasks, queue, history and cost tabs — observability layer for Agent OS. Login required for
+        live UI; screenshot from prod smoke.
       </p>
       <div className="mb-6 max-w-3xl">
         <ProofScreenSlot screen={screens.adminDashboard} screenKey="adminDashboard" />
@@ -253,8 +216,8 @@ export default function AgentOrchestratorCaseStudyPage() {
         Agent cards — sample contracts
       </h2>
       <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
-        Each execution agent has a fixed role. No mega-agent, no scope creep — least privilege
-        by design.
+        Each execution agent has a fixed role. No mega-agent, no scope creep — least privilege by
+        design.
       </p>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[560px] border-collapse text-left text-sm">
@@ -266,7 +229,7 @@ export default function AgentOrchestratorCaseStudyPage() {
             </tr>
           </thead>
           <tbody>
-            {AGENT_CARDS.map((row) => (
+            {agentOsPipelineNodes.map((row) => (
               <tr key={row.role} className="border-b border-[var(--qf-border)]">
                 <td className="py-3 pr-4 font-semibold text-[var(--qf-text)]">{row.role}</td>
                 <td className="py-3 pr-4 text-[var(--qf-text-dim)]">{row.scope}</td>

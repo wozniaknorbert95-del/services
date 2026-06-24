@@ -36,7 +36,7 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
   'agent-orchestrator': {
     diagramSrc: GRATKA.orchestratorArchitectureSvg,
     diagramAlt:
-      'Multi-agent orchestrator architecture: single source of truth, directive orchestration and execution layers',
+      'Agent OS 2.0 hybrid architecture: VPS control plane, 5-node LangGraph pipeline, local runner and human approval gate',
     gratkaLinks: [
       { label: 'Architecture diagram (SVG)', href: GRATKA.orchestratorArchitectureSvg },
       { label: 'Agent card sample (PDF)', href: GRATKA.orchestratorAgentCardPdf },

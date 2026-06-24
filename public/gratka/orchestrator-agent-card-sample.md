@@ -1,6 +1,6 @@
 # Agent card sample (anonymised)
 
-> One-page sample of how execution agents are contracted in a production orchestrator.
+> One-page sample of how execution agents are contracted in Agent OS 2.0.
 > Forward internally — shows roles, boundaries and outputs. No client names.
 
 ---
@@ -10,22 +10,23 @@
 A multi-agent system without contracts drifts fast. Each agent gets:
 - a **single role** (no mega-agent),
 - **least-privilege tools** (only what the task needs),
-- a **clear output** (plan, diff, test report, sign-off request).
+- a **clear output** (plan, diff, test report, sign-off request, handoff).
 
-This sample mirrors a live production engine — names anonymised.
+This sample mirrors the live 5-node LangGraph pipeline — names anonymised.
 
 ---
 
-## Sample cards (execution layer)
+## Sample cards (LangGraph pipeline)
 
 | Agent | Core role | Allowed scope | Typical output |
 |---|---|---|---|
 | **Planner** | Break work into atomic tasks | Read SSoT docs, task list | Implementation plan + file list |
 | **Coder** | Implement one module per session | Target folder only, git diff | Working code in test environment |
 | **Tester** | Verify behaviour & regressions | Test scripts, read logs | Pass/fail report with reproduction steps |
-| **Review** | Human gate (you or architect) | Approve / reject / request changes | Signed-off diff or blocked deploy |
+| **Reviewer** | Human gate (HITL) | Approve / reject / cancel | Signed-off diff or blocked deploy |
+| **Summarizer** | Session closure | Handoff + session notes | Handoff markdown on disk |
 
-**Pipeline:** `planner → coder → tester → review` — fixed order, no skipped steps.
+**Pipeline:** `Planner → Coder → Tester → Reviewer → Summarizer` — fixed order, no skipped steps.
 
 ---
 
@@ -34,23 +35,24 @@ This sample mirrors a live production engine — names anonymised.
 - **Planner** cannot deploy to production or edit live customer data.
 - **Coder** cannot change global business rules without schema approval.
 - **Tester** cannot bypass failing checks.
-- **Review** is not optional on production paths — deploy stays manual by design.
+- **Reviewer** is not optional on production paths — deploy stays manual by design.
+- **Summarizer** does not auto-deploy — handoff only.
 
 ---
 
-## Orchestration rules (SSoT)
+## Hybrid honesty
 
-- One **single source of truth** for schemas, agent cards and brain docs.
-- If code and documentation disagree → conflict is flagged, not silently patched.
-- Context packets are **minimal** — agents receive only what the task requires.
+- **VPS (LIVE):** orchestration, queue, HITL, Mission Control, Langfuse.
+- **Local runner (LOCAL-ONLY):** code/git execution on dev PC — tasks wait in `WAITING_RUNNER` when PC is offline.
+- **VCMS** governs repos and SSoT — outside the LangGraph pipeline.
 
 ---
 
 ## Stack (process proof)
 
-- **Runtime:** FastAPI + LangGraph on a VPS (EU)
-- **Governance:** 12-step internal workflow mapped to 5 client-visible phases
-- **Measurement:** architecture diagram available on request — no fabricated uptime %
+- **Control plane:** FastAPI + LangGraph + PostgreSQL on EU VPS
+- **UI:** Mission Control (agent-os-ui) — tasks, queue, history, costs
+- **Measurement:** prod smoke PASS — architecture diagram and 60s demo on case study
 
 ---
 
@@ -61,4 +63,4 @@ Want this level of structure for your business operations? Start with a paid **A
 **Book:** services.flexgrafik.nl/book-discovery/
 
 ---
-*Norbert — AI Systems Architect · Quietforge · hello@flexgrafik.nl*
+*Norbert — Conversion Systems Architect · Quietforge · hello@flexgrafik.nl*

@@ -1,7 +1,17 @@
-# Workflow map — 12 internal steps → 5 client phases
+# Workflow map — client delivery phases vs LangGraph pipeline
 
-> How a production multi-agent business runs projects — the same workflow used for client deliveries.
-> Process proof, not a sales brochure. No fabricated timelines or metrics.
+> How Agent OS fits client delivery — process proof, not a sales brochure.
+> No fabricated timelines or uptime percentages.
+
+---
+
+## LangGraph pipeline (what runs in Agent OS)
+
+`Planner → Coder → Tester → Reviewer → Summarizer`
+
+- **VPS (LIVE):** orchestration, HITL approve/reject/cancel, Mission Control, Langfuse.
+- **Local runner (LOCAL-ONLY):** code and git on dev PC via `WAITING_RUNNER`.
+- **Human gate:** nothing production without your approval — no auto-deploy.
 
 ---
 
@@ -16,7 +26,7 @@ Draw the target system: which agent does what, where data flows, where you appro
 **Deliverable:** architecture diagram + plain-language spec.
 
 ### 03 — Build with an AI workforce
-Assembled by orchestrated agents — `planner → coder → tester → review` — against fixed rules.
+Assembled by Agent OS against fixed agent cards — `Planner → Coder → Tester → Reviewer → Summarizer`.
 **Deliverable:** working system in a test environment.
 
 ### 04 — Verify *(human-in-the-loop)*
@@ -29,31 +39,14 @@ README, walkthrough, optional light monthly care. Take it in-house anytime.
 
 ---
 
-## What runs behind the scenes (12-step engine)
-
-The production orchestrator uses twelve enforced steps grouped in six phases:
-
-| Internal phase | What it guarantees |
-|---|---|
-| **Plan & frame** | Context loaded, scope approved before build |
-| **Design & spec** | Schema/contracts updated before code changes |
-| **Build & orchestrate** | One module per session — no mega-diffs |
-| **Test & audit** | Security, UX and stability checks |
-| **Launch** | Manual deploy only — human commander approves |
-| **Iterate & handoff** | Knowledge captured for the next cycle |
-
-You do not manage these steps — you get the **artefacts and approval gates** at the right moments.
-
----
-
 ## Why this is different from „freestyle AI"
 
-- **Fixed pipeline** — not ad-hoc prompting.
+- **Fixed 5-node pipeline** — not ad-hoc prompting.
 - **Agent cards** — each role has a contract.
-- **SSoT** — one place for rules; no silent drift.
+- **Hybrid honesty** — VPS orchestration LIVE; code execution needs your PC.
 - **Manual deploy** — production changes stay under human control.
 
-**Measurement:** process proof — full architecture diagram on request.
+**Measurement:** process proof — live Mission Control screenshot + 60s demo on case study.
 
 ---
 
@@ -64,4 +57,4 @@ You do not manage these steps — you get the **artefacts and approval gates** a
 **Book:** services.flexgrafik.nl/book-discovery/
 
 ---
-*Norbert — AI Systems Architect · Quietforge · hello@flexgrafik.nl*
+*Norbert — Conversion Systems Architect · Quietforge · hello@flexgrafik.nl*

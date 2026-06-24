@@ -40,7 +40,7 @@ Norbert runs a real multi-repo ecosystem before selling automation to clients. T
 ### AI execution
 | Module | Role |
 |---|---|
-| **Agent OS** | LangGraph: Planner → Coder → Tester → Review → Summarizer. HITL before deploy. |
+| **Agent OS** | LangGraph: Planner → Coder → Tester → Reviewer → Summarizer. Hybrid VPS + local runner. HITL before deploy. |
 | **Agent OS UI** | Mission Control dashboard — task create, health, approval gates |
 
 ### Client-facing & back-office
@@ -89,4 +89,4 @@ Want this level of structure for your business? Book a paid **Automation Map** �
 **Book:** services.flexgrafik.nl/book-discovery/
 
 ---
-*Norbert — AI Systems Architect · Quietforge · hello@flexgrafik.nl*
+*Norbert — Conversion Systems Architect · Quietforge · hello@flexgrafik.nl*

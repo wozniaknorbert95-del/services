@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
-  <title id="title">Multi-agent orchestrator architecture</title>
-  <desc id="desc">Three-layer agent architecture on a VPS with single source of truth and human approval before production deploy.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Agent OS 2.0 hybrid architecture</title>
+  <desc id="desc">VPS control plane with 5-node LangGraph pipeline, local runner for code execution, and human approval gate.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
       <path d="M0,0 L8,3 L0,6 Z" fill="#e8a33d"/>
@@ -8,62 +8,75 @@
     <style>
       .bg { fill: #0e0c0a; }
       .box { fill: #15120e; stroke: #2a241c; stroke-width: 2; }
-      .layer { fill: #1c1813; stroke: #3a3226; stroke-width: 1.5; }
-      .text { fill: #e9e2d4; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 16px; font-weight: 700; }
-      .sub { fill: #9a907e; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 12px; }
+      .vps { fill: #1c1813; stroke: #3a3226; stroke-width: 1.5; }
+      .local { fill: #1a1714; stroke: #6b5a3a; stroke-width: 1.5; stroke-dasharray: 6 4; }
+      .text { fill: #e9e2d4; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 14px; font-weight: 700; }
+      .sub { fill: #9a907e; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 11px; }
       .accent { fill: #e8a33d; }
       .gate { fill: #e8a33d; fill-opacity: 0.12; stroke: #e8a33d; stroke-width: 2; stroke-dasharray: 6 4; }
+      .node { fill: #15120e; stroke: #2a241c; stroke-width: 1.5; }
     </style>
   </defs>
 
-  <rect class="bg" width="1200" height="800"/>
-  <text x="600" y="44" class="text" text-anchor="middle" font-size="20">Multi-agent orchestrator  —  architecture (anonymised)</text>
-  <text x="600" y="72" class="sub" text-anchor="middle">FastAPI + LangGraph on VPS · single source of truth · fixed agent contracts</text>
+  <rect class="bg" width="1200" height="820"/>
+  <text x="600" y="40" class="text" text-anchor="middle" font-size="20">Agent OS 2.0  —  hybrid architecture</text>
+  <text x="600" y="66" class="sub" text-anchor="middle">VPS control plane · 5-node LangGraph · local runner · Mission Control · PostgreSQL</text>
 
-  <!-- SSoT -->
-  <rect x="420" y="100" width="360" height="64" rx="4" class="box"/>
-  <text x="600" y="128" class="text" text-anchor="middle" font-size="15">Single source of truth</text>
-  <text x="600" y="150" class="sub" text-anchor="middle">rules · schemas · agent cards · brain docs</text>
+  <!-- VPS control plane -->
+  <rect x="80" y="90" width="520" height="200" rx="4" class="vps"/>
+  <text x="100" y="118" class="accent" font-size="12">VPS CONTROL PLANE (24/7)</text>
+  <text x="340" y="148" class="text" text-anchor="middle" font-size="14">FastAPI + LangGraph + PostgreSQL</text>
+  <text x="340" y="172" class="sub" text-anchor="middle">Task queue · HITL · WAITING_RUNNER · Langfuse</text>
+  <text x="340" y="196" class="sub" text-anchor="middle">os-api.flexgrafik.nl · os.flexgrafik.nl</text>
+  <rect x="120" y="214" width="180" height="56" rx="4" class="box"/>
+  <text x="210" y="248" class="sub" text-anchor="middle">Mission Control UI</text>
+  <rect x="380" y="214" width="180" height="56" rx="4" class="box"/>
+  <text x="470" y="248" class="sub" text-anchor="middle">Langfuse costs</text>
 
-  <!-- Directive layer -->
-  <rect x="80" y="210" width="1040" height="100" rx="4" class="layer"/>
-  <text x="100" y="238" class="accent" font-family="JetBrains Mono, monospace" font-size="13">DIRECTIVE</text>
-  <text x="600" y="262" class="text" text-anchor="middle" font-size="15">Strategist  —  what to build &amp; why</text>
-  <text x="600" y="286" class="sub" text-anchor="middle">strategy · margin guardrails · scope approval</text>
+  <!-- Local runner -->
+  <rect x="640" y="90" width="480" height="200" rx="4" class="local"/>
+  <text x="660" y="118" class="accent" font-size="12">LOCAL RUNNER (LOCAL-ONLY)</text>
+  <text x="880" y="148" class="text" text-anchor="middle" font-size="14">Dev PC — code &amp; git execution</text>
+  <text x="880" y="172" class="sub" text-anchor="middle">OpenCode / real executor · MCP git diff</text>
+  <text x="880" y="196" class="sub" text-anchor="middle">Handoff markdown on disk · PC must be online</text>
 
-  <!-- Orchestration layer -->
-  <rect x="80" y="340" width="1040" height="100" rx="4" class="layer"/>
-  <text x="100" y="368" class="accent" font-family="JetBrains Mono, monospace" font-size="13">ORCHESTRATION</text>
-  <text x="600" y="392" class="text" text-anchor="middle" font-size="15">Planner  —  task decomposition &amp; context packets</text>
-  <text x="600" y="416" class="sub" text-anchor="middle">implementation plan · which agent gets what · least privilege</text>
+  <line x1="600" y1="290" x2="600" y2="330" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <!-- Execution layer -->
-  <rect x="80" y="470" width="1040" height="120" rx="4" class="layer"/>
-  <text x="100" y="498" class="accent" font-family="JetBrains Mono, monospace" font-size="13">EXECUTION</text>
-  <rect x="120" y="512" width="200" height="56" rx="4" class="box"/>
-  <text x="220" y="546" class="sub" text-anchor="middle">Planner node</text>
-  <rect x="360" y="512" width="200" height="56" rx="4" class="box"/>
-  <text x="460" y="546" class="sub" text-anchor="middle">Coder node</text>
-  <rect x="600" y="512" width="200" height="56" rx="4" class="box"/>
-  <text x="700" y="546" class="sub" text-anchor="middle">Tester node</text>
-  <rect x="840" y="512" width="200" height="56" rx="4" class="box"/>
-  <text x="940" y="546" class="sub" text-anchor="middle">Review node</text>
+  <!-- 5-node pipeline -->
+  <text x="600" y="322" class="accent" text-anchor="middle" font-size="12">LANGGRAPH PIPELINE (5 NODES)</text>
+  <rect x="60" y="340" width="1080" height="100" rx="4" class="vps"/>
+  <rect x="80" y="360" width="180" height="64" rx="4" class="node"/>
+  <text x="170" y="388" class="text" text-anchor="middle" font-size="12">Planner</text>
+  <text x="170" y="408" class="sub" text-anchor="middle">SSoT · task list</text>
+  <rect x="280" y="360" width="180" height="64" rx="4" class="node"/>
+  <text x="370" y="388" class="text" text-anchor="middle" font-size="12">Coder</text>
+  <text x="370" y="408" class="sub" text-anchor="middle">one module</text>
+  <rect x="480" y="360" width="180" height="64" rx="4" class="node"/>
+  <text x="570" y="388" class="text" text-anchor="middle" font-size="12">Tester</text>
+  <text x="570" y="408" class="sub" text-anchor="middle">pass/fail</text>
+  <rect x="680" y="360" width="180" height="64" rx="4" class="node"/>
+  <text x="770" y="388" class="text" text-anchor="middle" font-size="12">Reviewer</text>
+  <text x="770" y="408" class="sub" text-anchor="middle">HITL gate</text>
+  <rect x="880" y="360" width="180" height="64" rx="4" class="node"/>
+  <text x="970" y="388" class="text" text-anchor="middle" font-size="12">Summarizer</text>
+  <text x="970" y="408" class="sub" text-anchor="middle">handoff file</text>
 
-  <!-- VPS -->
-  <rect x="200" y="630" width="800" height="72" rx="4" class="box"/>
-  <text x="600" y="662" class="text" text-anchor="middle" font-size="15">VPS runtime  —  FastAPI + LangGraph engine</text>
-  <text x="600" y="684" class="sub" text-anchor="middle">EU-hosted · logged actions · scoped service accounts</text>
+  <line x1="260" y1="392" x2="278" y2="392" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="460" y1="392" x2="478" y2="392" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="660" y1="392" x2="678" y2="392" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="860" y1="392" x2="878" y2="392" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- VCMS note -->
+  <rect x="80" y="470" width="1040" height="56" rx="4" class="box"/>
+  <text x="600" y="504" class="sub" text-anchor="middle">VCMS governs repos &amp; SSoT — outside LangGraph, not a pipeline node</text>
 
   <!-- HITL gate -->
-  <rect x="380" y="720" width="440" height="56" rx="4" class="gate"/>
-  <text x="600" y="752" class="text" text-anchor="middle" font-size="14" fill="#e8a33d">· Human approval before production deploy</text>
+  <rect x="300" y="550" width="600" height="56" rx="4" class="gate"/>
+  <text x="600" y="584" class="text" text-anchor="middle" font-size="13" fill="#e8a33d">Human approval before production deploy — no auto-deploy</text>
 
-  <!-- Arrows -->
-  <line x1="600" y1="164" x2="600" y2="208" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="600" y1="310" x2="600" y2="338" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="600" y1="440" x2="600" y2="468" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="600" y1="590" x2="600" y2="628" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="600" y1="702" x2="600" y2="718" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="600" y1="526" x2="600" y2="548" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <text x="600" y="790" class="sub" text-anchor="middle">Norbert · AI Systems Architect · Quietforge · process proof  —  diagram on request</text>
+  <text x="600" y="640" class="sub" text-anchor="middle">Conversion Systems Architect · Quietforge · process proof</text>
+  <text x="600" y="662" class="sub" text-anchor="middle">Guided agency demo — not public SaaS</text>
 </svg>

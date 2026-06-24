@@ -87,19 +87,22 @@ export const inboxKiller = {
 ```
 
 ## REPO 4 — agent-os
+
+> **Synced 2026-06-24** with `src/content/proof.ts` + `src/content/agent-os-case-study.ts`. Canonical pack: `agent-os/docs/portfolio/AGENT-OS-PORTFOLIO-PACK.yaml`.
+
 ```ts
 export const agentOs = {
   repoKey: "agent-os",
-  role: "Multi-agent workforce: plan → code → test → review. Supervised, not a single prompt.",
-  status: "mvp",
+  role: "Agent workforce: Planner → Coder → Tester → Reviewer → Summarizer. Hybrid VPS + local runner.",
+  status: "production",
   metrics: {
     graph: "5-node LangGraph",                                 // [R]
-    e2e: "Real flow via OpenRouter",                           // [R]
-    oversight: "Mission Control UI (task/approve/reject)",     // [R]
+    e2e: "prod E2E smoke PASS · hybrid handoff on disk",       // [R]
+    oversight: "Mission Control UI (tasks/queue/history/costs)", // [R]
   },
-  screen: "agentCards",       // rola każdego agenta
-  video: "agentOs",           // 60s — task przez pipeline
-  extraScreen: "workflowMap", // [R]
+  screen: "agentCards",       // /gratka/agent-cards.svg
+  video: "agentOs",           // /gratka/agent-os-demo.mp4 — ready: true
+  extraScreen: "workflowMap", // /gratka/workflow-map.svg
   caseStudy: "results/agent-orchestrator/",
   framing: "Not built by one prompt. Assembled by agents that plan, code, test and review — with a human at the gate.",
 };
@@ -194,7 +197,7 @@ export const videos = {
   inboxKiller: { url: null, duration: "60s", poster: null, ready: false },
   wizard:      { url: null, duration: "45s", poster: null, ready: false },
   leadMagnet:  { url: null, duration: "45s", poster: null, ready: false },
-  agentOs:     { url: null, duration: "60s", poster: null, ready: false },
+  agentOs:     { url: "/gratka/agent-os-demo.mp4", duration: "60s", poster: null, ready: true },
   vcms:        { url: null, duration: "75s", poster: null, ready: false },
 };
 ```
@@ -204,7 +207,7 @@ export const videos = {
 ```ts
 export const caseMeasurements = {
   inboxKiller: { value: "Live mailbox, 142 msgs/scan, human approval on every send.", ready: false },
-  agentOs:     { value: "5-node LangGraph, real E2E flow via OpenRouter.", ready: false },
+  agentOs:     { value: "5-node LangGraph · hybrid VPS control plane LIVE · prod E2E handoff · Langfuse cost tracking.", ready: true },
   salesFunnel: { value: "9-step configurator → quote → payment, live.", ready: false },
   leadMagnet:  { value: "5-level game, email capture on win.", ready: false },
 };
