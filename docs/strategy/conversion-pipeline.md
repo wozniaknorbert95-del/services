@@ -245,7 +245,7 @@ Scoring implementation lives in wizard/WhatsApp backend — **site copy must not
 | How It Works | `/how-it-works/` | Process trust |
 | Solutions | dropdown | Productised entry points |
 | Pricing | `/pricing/` | Commercial clarity |
-| About | `/founder/` or `/about/` | Founder story |
+| About | `/founder/` (header: **Founder's System**) · `/about/` (footer only) | Founder story + legacy about page |
 | **CTA** | `/book-discovery/` | Book Automation Map |
 
 **Solutions dropdown** (product ladder):

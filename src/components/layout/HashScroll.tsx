@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 /**
  * Next.js App Router does not always scroll to hash targets after client hydration.
- * Re-run scroll once the DOM is ready so /#los-teaser and cross-page hashes land correctly.
+ * Re-run scroll until the target is in view (footer Architecture LOS, /#los-teaser, etc.).
  */
 export default function HashScroll() {
   useEffect(() => {
@@ -17,28 +17,35 @@ export default function HashScroll() {
     const navOffset =
       parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height'), 10) || 64;
 
+    const isInView = (target: HTMLElement) => {
+      const r = target.getBoundingClientRect();
+      return r.top >= navOffset && r.top < window.innerHeight * 0.85;
+    };
+
     const scrollToTarget = () => {
       const target = document.getElementById(id);
       if (!target) {
         return false;
       }
       const top = target.getBoundingClientRect().top + window.scrollY - navOffset - 8;
-      window.scrollTo({ top, behavior: 'auto' });
-      return true;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+      return isInView(target);
     };
 
-    if (scrollToTarget()) {
-      return;
-    }
+    let cancelled = false;
+    const delays = [0, 100, 400, 1200, 2500];
 
-    const t1 = window.setTimeout(scrollToTarget, 100);
-    const t2 = window.setTimeout(scrollToTarget, 400);
-    const t3 = window.setTimeout(scrollToTarget, 1200);
+    const timers = delays.map((delay) =>
+      window.setTimeout(() => {
+        if (!cancelled) {
+          scrollToTarget();
+        }
+      }, delay)
+    );
 
     return () => {
-      window.clearTimeout(t1);
-      window.clearTimeout(t2);
-      window.clearTimeout(t3);
+      cancelled = true;
+      timers.forEach((t) => window.clearTimeout(t));
     };
   }, []);
 
