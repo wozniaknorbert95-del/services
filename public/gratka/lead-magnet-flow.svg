@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Gamified lead funnel — experience first, form second</title>
+  <title id="title">Gamified lead funnel - experience first, form second</title>
   <desc id="desc">Visitor registers, plays five acts on Canvas, earns reward, captures contact, routes to self-service wizard.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
@@ -16,10 +17,9 @@
   </defs>
 
   <rect class="bg" width="1200" height="720"/>
-  <text x="600" y="48" class="text" text-anchor="middle" font-size="22">Gamified lead system — acquisition funnel</text>
-  <text x="600" y="76" class="sub" text-anchor="middle">register · play · reward · capture · wizard handoff</text>
+  <text x="600" y="48" class="text" text-anchor="middle" font-size="22">Gamified lead system - acquisition funnel</text>
+  <text x="600" y="76" class="sub" text-anchor="middle">register / play / reward / capture / wizard handoff</text>
 
-  <!-- Row 1 -->
   <rect x="60" y="130" width="160" height="72" rx="4" class="box"/>
   <text x="140" y="162" class="text" text-anchor="middle" font-size="14">Visitor</text>
   <text x="140" y="184" class="sub" text-anchor="middle">cold traffic</text>
@@ -45,10 +45,9 @@
   <line x1="660" y1="166" x2="718" y2="166" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="880" y1="166" x2="938" y2="166" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <!-- Row 2 — coupon + wizard -->
   <rect x="320" y="300" width="220" height="80" rx="4" class="box"/>
   <text x="430" y="332" class="money" text-anchor="middle" font-size="18">GAME10</text>
-  <text x="430" y="358" class="sub" text-anchor="middle">discount code · game attribution</text>
+  <text x="430" y="358" class="sub" text-anchor="middle">discount code / game attribution</text>
 
   <rect x="620" y="300" width="260" height="80" rx="4" class="box"/>
   <text x="750" y="332" class="text" text-anchor="middle" font-size="14">ZZPackage wizard</text>
@@ -59,7 +58,6 @@
   <line x1="430" y1="250" x2="430" y2="298" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="540" y1="340" x2="618" y2="340" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <!-- Five acts -->
   <text x="600" y="440" class="text" text-anchor="middle" font-size="18">Five acts (Canvas)</text>
   <rect x="80" y="470" width="190" height="48" rx="4" class="box"/>
   <text x="175" y="500" class="sub" text-anchor="middle">01 Klusser</text>
@@ -72,10 +70,9 @@
   <rect x="920" y="470" width="200" height="48" rx="4" class="box"/>
   <text x="1020" y="500" class="sub" text-anchor="middle">05 Belasting-Eindbaas</text>
 
-  <!-- Leaderboard -->
   <rect x="380" y="580" width="440" height="64" rx="4" class="box"/>
   <text x="600" y="608" class="text" text-anchor="middle" font-size="14">Monthly leaderboard</text>
-  <text x="600" y="628" class="sub" text-anchor="middle">retention · replay · social proof before wizard CTA</text>
+  <text x="600" y="628" class="sub" text-anchor="middle">retention / replay / social proof before wizard CTA</text>
 
-  <text x="600" y="690" class="sub" text-anchor="middle">app.flexgrafik.nl · live · custom Canvas engine</text>
+  <text x="600" y="690" class="sub" text-anchor="middle">app.flexgrafik.nl / live / custom Canvas engine</text>
 </svg>
