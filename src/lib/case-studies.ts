@@ -2,10 +2,7 @@ import { ROUTES } from '@/lib/constants';
 import type { CaseMeasurementKey, IntentId } from '@/content/ecosystem';
 import { caseMeasurements } from '@/content/proof';
 import { agentOsDisplayName } from '@/content/agent-os-case-study';
-import {
-  leadMagnetDisplayName,
-  leadMagnetSalesOneLiner,
-} from '@/content/lead-magnet-case-study';
+import { leadMagnetDisplayName } from '@/content/lead-magnet-case-study';
 
 export interface CaseStudy {
   slug: string;
@@ -74,7 +71,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     context:
       'Dutch ZZP contractors ignore static forms. The brief: turn cold traffic into qualified wizard handoffs without a brochure-site feel.',
     system:
-      'Game loop + reward ladder → register gate → five acts → leaderboard season → coupon bridge into self-service quoting.',
+      'Discount + sticker → shirt → hoodie ladder → register gate → five acts → leaderboard season → coupon bridge into self-service quoting.',
     real: 'Live on app.flexgrafik.nl — full funnel instrumented in GA4.',
     measurement: caseMeasurements.leadMagnet.value ?? '',
     intents: ['money'],

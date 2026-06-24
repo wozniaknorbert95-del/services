@@ -41,13 +41,61 @@ export const leadMagnetChallenge = {
 
 export const leadMagnetInsight = {
   title: 'Insight',
-  body: 'A game loop with a visible reward ladder increases session starts, time on site, and return visits before you ask for contact. The ask lands after investment — not on page load.',
+  body: 'A visible progression ladder — 10% discount, then sticker pack, t-shirt, and branded hoodie as purchase bonuses — gives players a reason to finish all five acts before the contact ask.',
 } as const;
 
 export const leadMagnetSolution = {
   title: 'Solution',
-  body: 'A branded lead magnet game with a register gate, five progression acts, tiered rewards, a monthly leaderboard season, and a coupon bridge into the self-service wizard — every step instrumented for measurement.',
+  body: 'Register gate, five Canvas acts, a four-tier reward ladder (discount + physical purchase bonuses), monthly season ranking, and a tracked handoff into the self-service wizard — every step instrumented in GA4.',
 } as const;
+
+export type LeadMagnetRewardTier = {
+  level: string;
+  code: string;
+  label: string;
+  type: 'discount' | 'purchase-bonus';
+  act: string;
+};
+
+/** Sync with app.flexgrafik.nl/src/config/levels.ts — wizardReward + mainMenuCopy */
+export const leadMagnetRewardLadder: readonly LeadMagnetRewardTier[] = [
+  {
+    level: 'L2',
+    code: 'GAME10',
+    label: '10% off ZZP Wizard',
+    type: 'discount',
+    act: '02 Reputatie',
+  },
+  {
+    level: 'L3',
+    code: 'STICKER1',
+    label: 'PRO-ZZP sticker pack',
+    type: 'purchase-bonus',
+    act: '03 Professionalisering',
+  },
+  {
+    level: 'L4',
+    code: 'TSHIRT2',
+    label: 'ZZP t-shirt',
+    type: 'purchase-bonus',
+    act: '04 Expansie',
+  },
+  {
+    level: 'L5',
+    code: 'WINNER',
+    label: 'Branded hoodie (purchase bonus)',
+    type: 'purchase-bonus',
+    act: '05 Belasting-Eindbaas',
+  },
+];
+
+export const leadMagnetSeasonPrize = {
+  title: 'Monthly season prize',
+  body: 'Magnet board and stickers — separate retention track from the progression ladder. Highest score wins; tie-break by fastest time.',
+} as const;
+
+export const leadMagnetRewardLegalDisclaimer =
+  'Physical items are purchase bonuses on ZZPackage activation (min. €199 incl. VAT) — not a lottery or unconditional free gift.';
 
 export type LeadMagnetScopePillar = {
   title: string;
@@ -66,7 +114,7 @@ export const leadMagnetScopeOfWork: readonly LeadMagnetScopePillar[] = [
     title: 'Copy system & naming discipline',
     deliverable:
       'One portfolio name for buyers, Dutch in-product copy for players, English case study for decision-makers.',
-    proof: 'Reward ladder labels tied to wizard tiers',
+    proof: 'L2 GAME10 → L3 stickers → L4 t-shirt → L5 hoodie — tied to wizard checkout',
   },
   {
     title: 'Visual system — dark premium utility',
@@ -91,7 +139,11 @@ export type LeadMagnetOutcomeEvent = {
 /** Sync with app.flexgrafik.nl/src/services/AnalyticsManager.ts */
 export const leadMagnetOutcomeEvents: readonly LeadMagnetOutcomeEvent[] = [
   { event: 'game_start', funnelStep: 'Start', meaning: 'Player begins a session' },
-  { event: 'level_complete', funnelStep: 'Progress', meaning: 'Act cleared — reward tier unlocked' },
+  {
+    event: 'level_complete',
+    funnelStep: 'Progress',
+    meaning: 'Act cleared — next reward tier unlocked (discount or physical purchase bonus)',
+  },
   { event: 'lead_registered', funnelStep: 'Register', meaning: 'Contact details captured at gate' },
   { event: 'lead_conversion', funnelStep: 'Capture', meaning: 'Email submitted after gameplay' },
   { event: 'leaderboard_view', funnelStep: 'Return', meaning: 'Player opens season ranking' },
@@ -111,13 +163,13 @@ export const leadMagnetImplementation = {
 } as const;
 
 export const leadMagnetFlowDiagramAlt =
-  'Funnel diagram: visitor registers, plays five acts, earns reward, captures contact, routes to self-service wizard';
+  'Funnel: register, play five acts, unlock discount and physical purchase bonuses, capture contact, route to wizard';
 
 /** CapCut storyboard — Dowódca exports 45s; set videos.leadMagnet in proof.ts when ready */
 export const leadMagnetVideoStoryboard = [
   { beat: '01', duration: '3s', shot: 'Static form vs empty engagement — the problem' },
   { beat: '02', duration: '10s', shot: 'Start screen → gameplay loop' },
-  { beat: '03', duration: '8s', shot: 'Reward overlay → contact capture moment' },
+  { beat: '03', duration: '8s', shot: 'Reward cards L2→L5 (discount → stickers → shirt → hoodie), then contact capture' },
   { beat: '04', duration: '8s', shot: 'Leaderboard → wizard CTA' },
   { beat: '05', duration: '6s', shot: 'Outcome line + portfolio CTA' },
 ] as const;

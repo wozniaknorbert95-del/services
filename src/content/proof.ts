@@ -68,7 +68,8 @@ export const leadMagnetGallery: readonly ProductGalleryShot[] = [
     label: 'Reward overlay',
     src: '/gratka/lead-magnet-reward.png',
     alt: 'Level reward tier cards and unlock codes',
-    caption: 'Visible reward ladder — player sees what they earn before the contact ask.',
+    caption:
+      'Four-tier ladder on main menu — 10% discount through sticker pack, t-shirt, and hoodie purchase bonus.',
     ready: true,
   },
   {
@@ -91,8 +92,8 @@ export const leadMagnetGallery: readonly ProductGalleryShot[] = [
     order: '06',
     label: 'Wizard bridge',
     src: '/gratka/lead-magnet-wizard-bridge.png',
-    alt: 'GAME10 coupon CTA routing to self-service wizard',
-    caption: 'Warm lead clicks through with discount code — handoff to quoting wizard.',
+    alt: 'Score redemption CTA routing to self-service wizard with tier-aware code',
+    caption: 'Score redemption CTA — tier-aware code routes to wizard (GAME10 minimum).',
     ready: true,
   },
   {

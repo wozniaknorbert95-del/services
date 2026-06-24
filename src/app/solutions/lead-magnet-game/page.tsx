@@ -46,7 +46,7 @@ export default function LeadMagnetGamePage() {
         after: [
           'More qualified starts — play earns attention before the ask.',
           'Longer sessions — progression acts and season ranking keep players on site.',
-          'Warm wizard handoff — discount code routes to the same configurator paying clients use.',
+          'Warm wizard handoff — discount code plus physical purchase bonuses route to the same configurator paying clients use.',
         ],
       }}
       screenKey="leadMagnet"

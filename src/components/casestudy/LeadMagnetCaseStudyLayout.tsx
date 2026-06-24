@@ -21,8 +21,11 @@ import {
   leadMagnetOutcomeDisclaimer,
   leadMagnetOutcomeEvents,
   leadMagnetPortfolioTitle,
+  leadMagnetRewardLadder,
+  leadMagnetRewardLegalDisclaimer,
   leadMagnetSalesOneLiner,
   leadMagnetScopeOfWork,
+  leadMagnetSeasonPrize,
   leadMagnetSolution,
   leadMagnetVideoStoryboard,
 } from '@/content/lead-magnet-case-study';
@@ -92,11 +95,42 @@ export default function LeadMagnetCaseStudyLayout({
             src={GRATKA.leadMagnetFlowSvg}
             alt={leadMagnetFlowDiagramAlt}
             width={1200}
-            height={720}
+            height={820}
             priority
             className="h-auto w-full min-w-[700px]"
           />
         </div>
+      </Section>
+
+      <Section padding="large">
+        <h2 className="mb-4 text-[var(--qf-fs-2xl)] font-bold tracking-tight">Reward ladder</h2>
+        <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+          Four progression tiers unlock as players clear each act — discount first, then physical
+          purchase bonuses on wizard activation.
+        </p>
+        <div className="mb-8 grid gap-[var(--qf-sp-4)] md:grid-cols-2">
+          {leadMagnetRewardLadder.map((tier) => (
+            <Card key={tier.code} className="p-5">
+              <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+                {tier.level} · {tier.code}
+              </p>
+              <p className="mb-1 text-sm font-semibold text-[var(--qf-text)]">{tier.label}</p>
+              <p className="font-mono text-xs text-[var(--qf-text-faint)]">
+                {tier.act} ·{' '}
+                {tier.type === 'discount' ? 'discount' : 'purchase bonus on activation'}
+              </p>
+            </Card>
+          ))}
+        </div>
+        <Card className="mb-4 border-[var(--qf-border)] p-5">
+          <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+            {leadMagnetSeasonPrize.title}
+          </p>
+          <p className="text-sm text-[var(--qf-text-dim)]">{leadMagnetSeasonPrize.body}</p>
+        </Card>
+        <p className="max-w-[var(--qf-maxw-narrow)] font-mono text-xs text-[var(--qf-text-faint)]">
+          {leadMagnetRewardLegalDisclaimer}
+        </p>
       </Section>
 
       <Section padding="large">

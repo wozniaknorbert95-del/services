@@ -57,8 +57,10 @@ export const leadMagnet = {
   metrics: {
     levels: "5",                                               // [R]
     mechanic: "Register gate → play → reward ladder → wizard handoff", // [R]
+    rewardCodes: "GAME10, STICKER1, TSHIRT2, WINNER",        // [R] L2-L5 progression
     capture: "Contact at gate + post-game capture",             // [R]
     events: "9 GA4 funnel events (game_start … session_duration)", // [R]
+    activationFloor: "€199 incl. BTW — purchase bonuses",     // [R]
   },
   screen: "leadMagnet",       // 7-screen gallery on case study
   video: "leadMagnet",        // 45s — storyboard in SSoT; ready:false until CapCut export
