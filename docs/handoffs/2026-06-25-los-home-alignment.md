@@ -50,3 +50,13 @@ npm run build       # pass (34 routes)
 
 - Optional: relocate `SystemArchitecture` SMB pipeline to `/how-it-works` as buyer-journey subsection.
 - PF-12+ from portfolio plan if any remain (LinkedIn polish, etc.).
+
+---
+
+## Audit follow-up (2026-06-25)
+
+**Diagram load fix:** `LivingSystemTeaser` switched from `next/image` to `GratkaDiagram` (native `<img>`) — same pattern as case studies; avoids transparent/stuck SVG state.
+
+**SVG encoding:** Removed ASCII control chars (0x14) and curly quotes from `los-architecture.svg`, `jadzia-coi-architecture.svg`, `workflow-map.svg`, `agent-cards.svg`.
+
+**Other fixes:** `GRATKA.losArchitectureSvg`, intent highlight on repo card border (not wrapper), `site-map` §3 `losLayers` column, `#system-architecture` → `#los-teaser` in conversion-pipeline, `SystemArchitecture` added to forbidden-on-home list.

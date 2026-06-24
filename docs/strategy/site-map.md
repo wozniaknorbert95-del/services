@@ -45,6 +45,7 @@
 | Item | Reason |
 |------|--------|
 | `EcosystemVideo` | Video placeholders read as unfinished — videos are last phase |
+| `SystemArchitecture` | SMB Visitor→Client pipeline — superseded by full LOS on home §2 |
 | Second hero rewrite | Positioning locked in `conversion-copy.ts` |
 | AI Systems Architect label | Superseded by Conversion Systems Architect |
 
@@ -61,16 +62,16 @@
 
 Data source: `src/content/ecosystem.ts` → `ECOSYSTEM_REPOS`
 
-| # | Repo key | Role | Intent colors | Screen key | Proof route |
-|---|----------|------|---------------|------------|-------------|
-| 1 | zzpackage | Wizard Cash Engine ★ | money, efficiency | wizardCheckout | `/results/sales-funnel/` |
-| 2 | app.flexgrafik.nl | Lead magnet game | money | leadMagnet | `/results/lead-magnet/` |
-| 3 | jadzia-core | Chief Operating Intelligence (COI) | time, calm, order | workflowMap | `/results/jadzia-coi/` |
-| 4 | agent-os | Agent workforce | time, efficiency | agentCards | `/results/agent-orchestrator/` |
-| 5 | flex-vcms | Governance ★ | order, calm | vcmsDashboard | `/results/owner-ecosystem/` |
-| 6 | flexgrafik-nl | Trust Portal | money, order | portalAssistant | `/solutions/web-upgrade/` |
-| 7 | flexgrafik-meta | Method / Automation Map | order, money | — | `/how-it-works/` |
-| 8 | agent-os-ui | Mission Control | order, efficiency | adminDashboard | `/trust/` |
+| # | Repo key | Role | LOS layers | Intent colors | Screen key | Proof route |
+|---|----------|------|------------|---------------|------------|-------------|
+| 1 | zzpackage | Wizard Cash Engine ★ | sense, act | money, efficiency | wizardCheckout | `/results/sales-funnel/` |
+| 2 | app.flexgrafik.nl | Lead magnet game | sense | money | leadMagnet | `/results/lead-magnet/` |
+| 3 | jadzia-core | Chief Operating Intelligence (COI) | think, act | time, calm, order, efficiency | workflowMap | `/results/jadzia-coi/` |
+| 4 | agent-os | Agent workforce | orchestrate, act | time, efficiency | agentCards | `/results/agent-orchestrator/` |
+| 5 | flex-vcms | Governance ★ | sense, guard | order, calm | vcmsDashboard | `/results/owner-ecosystem/` |
+| 6 | flexgrafik-nl | Trust Portal | sense | money, order | portalAssistant | `/solutions/web-upgrade/` |
+| 7 | flexgrafik-meta | Method / Automation Map | guard, memory | order, money | — | `/how-it-works/` |
+| 8 | agent-os-ui | Mission Control | orchestrate | order, efficiency | adminDashboard | `/trust/` |
 
 ★ = flagship proof (Wizard Cash Engine + VCMS governance)
 
@@ -88,7 +89,7 @@ Data source: `src/content/ecosystem.ts` → `INTENT_LEGEND`
 | calm | Reduces stress and chaos | `--fx-calm` | `text-fx-calm` |
 | efficiency | Increases team efficiency | `--fx-efficiency` | `text-fx-efficiency` |
 
-**Rule:** Every module card (`IntentRouter`), pain card (`PainGrid`), and results hub card must show ≥1 intent badge.
+**Rule:** Every repo card (`IntentRouter`), pain card (`PainGrid`), and results hub card must show ≥1 intent badge.
 
 ---
 

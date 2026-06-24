@@ -19,60 +19,52 @@
   </defs>
 
   <rect class="bg" width="1200" height="720"/>
-  <text x="600" y="36" class="text" text-anchor="middle" font-size="18">Living Operating System  FlexGrafik</text>
-  <text x="600" y="58" class="sub" text-anchor="middle">Governance-first · Sense ’ Think ’ Orchestrate ’ Act · Guard always on · Memory feeds back</text>
+  <text x="600" y="36" class="text" text-anchor="middle" font-size="18">Living Operating System - FlexGrafik</text>
+  <text x="600" y="58" class="sub" text-anchor="middle">Governance-first | Sense to Think to Orchestrate to Act | Guard always on | Memory feeds back</text>
 
-  <!-- Guard band -->
   <rect x="40" y="72" width="1120" height="56" rx="2" class="guard"/>
-  <text x="600" y="104" class="accent" text-anchor="middle" font-size="12">GUARD  global-rules · Kaizen · HITL · Zasada 11</text>
+  <text x="600" y="104" class="accent" text-anchor="middle" font-size="12">GUARD - global-rules, Kaizen, HITL, Zasada 11</text>
 
-  <!-- Sense -->
   <rect x="40" y="148" width="1120" height="88" rx="2" class="layer"/>
   <text x="56" y="172" class="accent" font-size="11">SENSE</text>
-  <text x="56" y="192" class="sub">GA4 · WooCommerce · Game · Portal · VCMS scan</text>
+  <text x="56" y="192" class="sub">GA4, WooCommerce, Game, Portal, VCMS scan</text>
   <rect x="56" y="200" width="130" height="24" rx="2" class="repo"/><text x="121" y="216" class="sub" text-anchor="middle" font-size="9">zzpackage</text>
   <rect x="196" y="200" width="130" height="24" rx="2" class="repo"/><text x="261" y="216" class="sub" text-anchor="middle" font-size="9">app.flexgrafik.nl</text>
   <rect x="336" y="200" width="130" height="24" rx="2" class="repo"/><text x="401" y="216" class="sub" text-anchor="middle" font-size="9">flexgrafik-nl</text>
   <rect x="476" y="200" width="130" height="24" rx="2" class="repo"/><text x="541" y="216" class="sub" text-anchor="middle" font-size="9">flex-vcms</text>
 
-  <!-- Think -->
   <rect x="40" y="252" width="520" height="88" rx="2" class="layer-accent"/>
   <text x="56" y="276" class="accent" font-size="11">THINK</text>
-  <text x="56" y="296" class="sub">Jadzia Strategist · weekly brief · Kaizen guard</text>
+  <text x="56" y="296" class="sub">Jadzia Strategist, weekly brief, Kaizen guard</text>
   <rect x="56" y="304" width="160" height="24" rx="2" class="repo"/><text x="136" y="320" class="sub" text-anchor="middle" font-size="9">jadzia-core</text>
 
-  <!-- Orchestrate -->
   <rect x="580" y="252" width="580" height="88" rx="2" class="layer"/>
   <text x="596" y="276" class="accent" font-size="11">ORCHESTRATE</text>
-  <text x="596" y="296" class="sub">Planner · Agent OS · VCMS governance</text>
+  <text x="596" y="296" class="sub">Planner, Agent OS, VCMS governance</text>
   <rect x="596" y="304" width="130" height="24" rx="2" class="repo"/><text x="661" y="320" class="sub" text-anchor="middle" font-size="9">agent-os</text>
   <rect x="736" y="304" width="130" height="24" rx="2" class="repo"/><text x="801" y="320" class="sub" text-anchor="middle" font-size="9">agent-os-ui</text>
   <rect x="876" y="304" width="130" height="24" rx="2" class="repo"/><text x="941" y="320" class="sub" text-anchor="middle" font-size="9">flex-vcms</text>
 
-  <!-- Act -->
   <rect x="40" y="356" width="1120" height="88" rx="2" class="layer"/>
-  <text x="56" y="380" class="accent" font-size="11">ACT  bounded writes</text>
-  <text x="56" y="400" class="sub">Operational nodes · Agent OS code changes (HITL)</text>
+  <text x="56" y="380" class="accent" font-size="11">ACT - bounded writes</text>
+  <text x="56" y="400" class="sub">Operational nodes, Agent OS code changes (HITL)</text>
   <rect x="56" y="408" width="130" height="24" rx="2" class="repo"/><text x="121" y="424" class="sub" text-anchor="middle" font-size="9">zzpackage</text>
   <rect x="196" y="408" width="130" height="24" rx="2" class="repo"/><text x="261" y="424" class="sub" text-anchor="middle" font-size="9">jadzia-core</text>
   <rect x="336" y="408" width="130" height="24" rx="2" class="repo"/><text x="401" y="424" class="sub" text-anchor="middle" font-size="9">agent-os</text>
 
-  <!-- Memory -->
   <rect x="40" y="460" width="1120" height="72" rx="2" class="memory"/>
   <text x="56" y="484" class="sub" font-size="11" fill="#6f8fae">MEMORY</text>
-  <text x="56" y="504" class="sub">jadzia.db · handoffs · SESSION-ANCHOR · meta docs core</text>
+  <text x="56" y="504" class="sub">jadzia.db, handoffs, SESSION-ANCHOR, meta docs core</text>
   <rect x="900" y="492" width="160" height="24" rx="2" class="repo"/><text x="980" y="508" class="sub" text-anchor="middle" font-size="9">flexgrafik-meta</text>
 
-  <!-- Flow arrows -->
   <line x1="600" y1="236" x2="600" y2="250" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="300" y1="340" x2="300" y2="354" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="870" y1="340" x2="870" y2="354" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="600" y1="444" x2="600" y2="458" stroke="#6f8fae" stroke-width="2" marker-end="url(#arrow)"/>
   <path d="M 200 496 Q 200 560 300 600" fill="none" stroke="#6f8fae" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="600" y="580" class="sub" text-anchor="middle">Memory ’ Think feedback loop</text>
+  <text x="600" y="580" class="sub" text-anchor="middle">Memory to Think feedback loop</text>
 
-  <!-- Enterprise pattern footer -->
-  <text x="600" y="640" class="sub" text-anchor="middle">Applications (touchpoints) · Governance (Jadzia + VCMS + Meta) · AI Services (MCP)</text>
-  <text x="600" y="662" class="sub" text-anchor="middle">8 repositories · one supervised LOS</text>
-  <text x="600" y="698" class="sub" text-anchor="middle" fill="#6fae6f">quietforge.flexgrafik.nl  portfolio truth</text>
+  <text x="600" y="640" class="sub" text-anchor="middle">Applications (touchpoints) | Governance (Jadzia + VCMS + Meta) | AI Services (MCP)</text>
+  <text x="600" y="662" class="sub" text-anchor="middle">8 repositories, one supervised LOS</text>
+  <text x="600" y="698" class="sub" text-anchor="middle" fill="#6fae6f">quietforge.flexgrafik.nl - portfolio truth</text>
 </svg>

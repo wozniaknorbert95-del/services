@@ -122,14 +122,10 @@ export default function IntentRouter() {
           {sortedRepos.map((repo) => {
             const matches = itemMatchesIntent(repo, activeIntent);
             return (
-              <motion.div
-                layout
-                key={repo.repoKey}
-                className={`transition-opacity duration-[var(--qf-transition)] ${intentHighlightClass(matches, isFiltering)}`}
-              >
+              <motion.div layout key={repo.repoKey}>
                 <Link
                   href={repo.proofRoute}
-                  className="group flex h-full flex-col border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-6)] transition-colors duration-[var(--qf-transition)] hover:border-[var(--qf-border-bright)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--qf-accent)]"
+                  className={`group flex h-full flex-col border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-6)] transition-all duration-[var(--qf-transition)] hover:border-[var(--qf-border-bright)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--qf-accent)] ${intentHighlightClass(matches, isFiltering)}`}
                 >
                   <span className="mb-2 font-mono text-xs text-[var(--qf-text-faint)]">
                     // repo_{String(repo.number).padStart(2, '0')}

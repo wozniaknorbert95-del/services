@@ -69,7 +69,7 @@ Every major page exposes up to three commitment levels. Never more than **one pr
 
 | Tier | User intent | Default labels | Typical href |
 |------|-------------|----------------|--------------|
-| **L1 — Explore** | Browse proof, low friction | See results · Explore systems · View architecture | `/results/`, `#system-architecture`, `/how-it-works/` |
+| **L1 — Explore** | Browse proof, low friction | See results · Explore systems · View architecture | `/results/`, `#los-teaser`, `/how-it-works/` |
 | **L2 — Watch demo** | See it work | Watch walkthrough · See the wizard | Video embed, Loom, `EXTERNAL.zzpackageWizard` |
 | **L3 — Book / Chat** | Ready to talk | Book Automation Map · Start WhatsApp chat | `/book-discovery/` · WhatsApp deep link |
 

@@ -1,9 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
+import { GRATKA } from '@/lib/gratka';
+import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import { getIntentMeta } from '@/content/ecosystem';
 import {
   LOS_LAYERS,
@@ -46,22 +47,16 @@ export default function LivingSystemTeaser() {
           <p className="qf-hint mt-[var(--qf-sp-2)]">{LOS_TEASER.governanceLine}</p>
         </motion.div>
 
-        <motion.div
-          initial={fade.initial}
-          whileInView={fade.animate}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={fade.transition}
-          className="qf-los-diagram mb-[var(--qf-sp-12)] overflow-hidden border border-[var(--qf-border)] bg-[var(--qf-bg-inset)]"
-        >
-          <Image
-            src="/gratka/los-architecture.svg"
+        <div className="qf-los-diagram mb-[var(--qf-sp-12)] overflow-x-auto border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-2">
+          <GratkaDiagram
+            src={GRATKA.losArchitectureSvg}
             alt="FlexGrafik Living Operating System — six layers and eight repositories"
             width={1200}
             height={720}
-            className="h-auto w-full"
-            priority={false}
+            className="h-auto w-full min-w-[320px]"
+            priority
           />
-        </motion.div>
+        </div>
 
         <p className="qf-hint mb-[var(--qf-sp-8)] text-center font-mono text-xs">
           {LOS_ENTERPRISE_PATTERN.applications} · {LOS_ENTERPRISE_PATTERN.governance} ·{' '}

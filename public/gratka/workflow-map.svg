@@ -13,10 +13,10 @@
     </style>
   </defs>
   <rect class="bg" width="960" height="600"/>
-  <text x="480" y="48" class="t" text-anchor="middle" font-size="18">Agent OS  5-node LangGraph pipeline</text>
-  <text x="480" y="72" class="s" text-anchor="middle">Hybrid VPS orchestration · code execution LOCAL on dev PC</text>
+  <text x="480" y="48" class="t" text-anchor="middle" font-size="18">Agent OS - 5-node LangGraph pipeline</text>
+  <text x="480" y="72" class="s" text-anchor="middle">Hybrid VPS orchestration ï¿½ code execution LOCAL on dev PC</text>
   <g transform="translate(40,120)">
-    <rect x="0" y="0" width="160" height="80" class="box"/><text x="80" y="32" class="t" text-anchor="middle">Planner</text><text x="80" y="52" class="s" text-anchor="middle">SSoT · tasks</text>
+    <rect x="0" y="0" width="160" height="80" class="box"/><text x="80" y="32" class="t" text-anchor="middle">Planner</text><text x="80" y="52" class="s" text-anchor="middle">SSoT ï¿½ tasks</text>
     <rect x="180" y="0" width="160" height="80" class="box"/><text x="260" y="32" class="t" text-anchor="middle">Coder</text><text x="260" y="52" class="s" text-anchor="middle">one module</text>
     <rect x="360" y="0" width="160" height="80" class="box"/><text x="440" y="32" class="t" text-anchor="middle">Tester</text><text x="440" y="52" class="s" text-anchor="middle">pass/fail</text>
     <rect x="540" y="0" width="160" height="80" class="box"/><text x="620" y="32" class="t" text-anchor="middle">Reviewer</text><text x="620" y="52" class="s" text-anchor="middle">HITL</text>
@@ -27,6 +27,6 @@
     <line x1="700" y1="40" x2="718" y2="40" stroke="#e8a33d" stroke-width="2" marker-end="url(#arr)"/>
   </g>
   <rect x="120" y="280" width="720" height="48" rx="4" fill="#e8a33d" fill-opacity="0.1" stroke="#e8a33d" stroke-dasharray="6 4"/>
-  <text x="480" y="310" class="a" text-anchor="middle" font-size="12">Human approval before ship  no auto-deploy</text>
-  <text x="480" y="380" class="s" text-anchor="middle">Mission Control: tasks · queue · history · costs  LIVE on os.flexgrafik.nl</text>
+  <text x="480" y="310" class="a" text-anchor="middle" font-size="12">Human approval before ship - no auto-deploy</text>
+  <text x="480" y="380" class="s" text-anchor="middle">Mission Control: tasks ï¿½ queue ï¿½ history ï¿½ costs - LIVE on os.flexgrafik.nl</text>
 </svg>
