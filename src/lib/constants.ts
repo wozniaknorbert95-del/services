@@ -63,6 +63,7 @@ export const ROUTES = {
 /** Owner ecosystem — external live demos */
 export const EXTERNAL = {
   zzpackageWizard: 'https://zzpackage.flexgrafik.nl/',
+  leadMagnetGame: 'https://app.flexgrafik.nl/',
 } as const;
 
 export const ARTEFACTS = {

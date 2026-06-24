@@ -34,7 +34,7 @@ export const SOLUTIONS_NAV: readonly SolutionNavItem[] = [
   { label: 'Inbox Killer', href: ROUTES.inboxKiller, badge: 'Start here' },
   { label: 'Sales Funnel', href: ROUTES.salesFunnel },
   { label: 'Web Upgrade', href: ROUTES.webUpgrade },
-  { label: 'Lead Magnet Game', href: ROUTES.leadMagnetGame },
+  { label: 'Gamified lead system', href: ROUTES.leadMagnetGame },
   { label: 'Managed Automation', href: ROUTES.managedAutomation, badge: 'MRR' },
 ] as const;
 

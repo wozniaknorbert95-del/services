@@ -65,9 +65,13 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
     ],
   },
   'lead-magnet': {
-    diagramSrc: '/gratka/lead-magnet.png',
-    diagramAlt: 'Lead magnet gameplay with email capture and leaderboard',
-    gratkaLinks: [],
+    diagramSrc: GRATKA.leadMagnetFlowSvg,
+    diagramAlt:
+      'Gamified lead funnel: register gate, play acts, reward tiers, leaderboard season, coupon bridge to self-service wizard',
+    gratkaLinks: [
+      { label: 'Flow diagram (SVG)', href: GRATKA.leadMagnetFlowSvg },
+      { label: 'Play live game', href: 'https://app.flexgrafik.nl/' },
+    ],
   },
   'owner-ecosystem': {
     diagramSrc: GRATKA.ownerEcosystemMapSvg,

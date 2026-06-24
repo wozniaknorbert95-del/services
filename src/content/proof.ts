@@ -7,6 +7,7 @@
 // ============================================================================
 
 import type { CaseMeasurementKey, ScreenKey, VideoKey } from '@/content/ecosystem';
+import { leadMagnetSalesOneLiner } from '@/content/lead-magnet-case-study';
 
 export const metrics = {
   repos: "8",                                                  // [R] 8 zbadanych repo
@@ -32,6 +33,77 @@ export type VideoSlot = {
 export type FeatureClaimStatus = 'PROVEN' | 'DEMO' | 'PLANNED';
 
 export type AgentOsClaimLabel = 'LIVE' | 'LOCAL-ONLY' | 'NOT OFFERED';
+
+export type LeadMagnetClaimLabel = 'LIVE' | 'NOT OFFERED';
+
+export type ProductGalleryShot = {
+  order: string;
+  label: string;
+  src: string;
+  alt: string;
+  caption: string;
+  ready: boolean;
+};
+
+/** Seven-screen product gallery — /results/lead-magnet/ */
+export const leadMagnetGallery: readonly ProductGalleryShot[] = [
+  {
+    order: '01',
+    label: 'Start screen',
+    src: '/gratka/lead-magnet-start.png',
+    alt: 'Industrial main menu — Bouwplaats Chaos start screen',
+    caption: 'First impression sets premium utility tone — not a casual browser game.',
+    ready: true,
+  },
+  {
+    order: '02',
+    label: 'Entry gate',
+    src: '/gratka/lead-magnet-entry-gate.png',
+    alt: 'Registration gate before gameplay begins',
+    caption: 'Qualified intent before play — name and email, not anonymous traffic.',
+    ready: true,
+  },
+  {
+    order: '03',
+    label: 'Reward overlay',
+    src: '/gratka/lead-magnet-reward.png',
+    alt: 'Level reward tier cards and unlock codes',
+    caption: 'Visible reward ladder — player sees what they earn before the contact ask.',
+    ready: true,
+  },
+  {
+    order: '04',
+    label: 'Leaderboard',
+    src: '/gratka/lead-magnet-leaderboard.png',
+    alt: 'Monthly season leaderboard with season prize',
+    caption: 'Retention hook — players return; ranking visible before wizard handoff.',
+    ready: true,
+  },
+  {
+    order: '05',
+    label: 'Mobile gameplay',
+    src: '/gratka/lead-magnet-mobile.png',
+    alt: 'Mobile viewport gameplay with thumb-zone layout',
+    caption: '70/30 playfield split — thumb-safe controls on narrow screens.',
+    ready: true,
+  },
+  {
+    order: '06',
+    label: 'Wizard bridge',
+    src: '/gratka/lead-magnet-wizard-bridge.png',
+    alt: 'GAME10 coupon CTA routing to self-service wizard',
+    caption: 'Warm lead clicks through with discount code — handoff to quoting wizard.',
+    ready: true,
+  },
+  {
+    order: '07',
+    label: 'Conversion handoff',
+    src: '/gratka/lead-magnet-conversion-handoff.png',
+    alt: 'Self-service wizard entry from game attribution',
+    caption: 'Game-sourced visitor lands in the same configurator paying clients use.',
+    ready: true,
+  },
+];
 
 /** Honest Agent OS labels — sync with agent-os/docs/portfolio/AGENT-OS-PORTFOLIO-PACK.yaml (12 capabilities) */
 export const agentOsFeatureStatus: Record<string, { label: string; status: AgentOsClaimLabel }> = {
@@ -89,7 +161,7 @@ export const videos: Record<VideoKey, VideoSlot> = {
   ecosystem:   { url: null, duration: "90s", poster: null, ready: false },  // "How the whole ecosystem works"
   inboxKiller: { url: null, duration: "60s", poster: null, ready: false },
   wizard:      { url: null, duration: "45s", poster: null, ready: false },
-  leadMagnet:  { url: null, duration: "45s", poster: null, ready: false },
+  leadMagnet:  { url: null, duration: "45s", poster: "/gratka/lead-magnet-start.png", ready: false },
   agentOs:     { url: "/gratka/agent-os-demo.mp4", duration: "60s", poster: null, ready: true },
   vcms:        { url: "/gratka/vcms-demo.mp4", duration: "69s", poster: null, ready: true }, // Self-hosted from flex-vcms/docs/demo/final-portfolio-demo.mp4
   founder:     { url: null, duration: "120s", poster: null, ready: false },
@@ -104,7 +176,9 @@ export type ScreenShot = {
 
 export const screens: Record<ScreenKey, ScreenShot> = {
   wizardCheckout:  { src: "/gratka/wizard-checkout.png", alt: "Configurator checkout with live price", caption: "Configure → see price → pay, no phone call.", ready: true },
-  leadMagnet:      { src: "/gratka/lead-magnet.png", alt: "Gameplay with email capture and leaderboard", caption: "A lead magnet that earns the contact.", ready: true },
+  leadMagnet:      { src: "/gratka/lead-magnet-start.png", alt: "Gamified lead system start screen", caption: "Industrial product framing — credible B2B entry, not arcade fluff.", ready: true },
+  leadMagnetGameOver: { src: "/gratka/lead-magnet-wizard-bridge.png", alt: "Wizard bridge with discount coupon CTA", caption: "Reward moment routes to self-service quoting.", ready: true },
+  leadMagnetLeaderboard: { src: "/gratka/lead-magnet-leaderboard.png", alt: "Monthly season leaderboard", caption: "Season ranking before conversion handoff.", ready: true },
   inboxLanes:      { src: "/gratka/inbox-lanes.png", alt: "Inbox classification lanes with approval gate", caption: "Lead · client · invoice · noise, with approval gate.", ready: true },
   auditLog:        { src: "/gratka/audit-log.svg", alt: "VCMS governance action log", caption: "Scan events from governance-audit.jsonl — DEMO: local trail; handoffs + prod ops on request.", ready: true },
   agentCards:      { src: "/gratka/agent-cards.svg", alt: "Agent OS agent cards — five fixed roles", caption: "Every agent has a role, rules and a review gate — LIVE on VPS; code execution LOCAL on dev PC.", ready: true },
@@ -123,7 +197,7 @@ export const caseMeasurements: Record<
   inboxKiller: { value: "Live mailbox, 142 msgs/scan, human approval on every send.", ready: true },
   agentOs:     { value: "5-node LangGraph · hybrid VPS control plane LIVE · prod E2E handoff · Langfuse cost tracking.", ready: true },
   salesFunnel: { value: "9-step configurator → quote → payment, live.", ready: true },
-  leadMagnet:  { value: "5-level game, email capture on win.", ready: true },
+  leadMagnet:  { value: leadMagnetSalesOneLiner, ready: true },
   advisory:    { value: "6-phase delivery, AVG layer specified · anonymised · in delivery.", ready: true },
   ownerEcosystem: { value: "8-repo scan status with conflict detection before deploy.", ready: true },
 };
@@ -132,6 +206,7 @@ export const caseMeasurements: Record<
 export const pricing = {
   discovery: { price: "€290", note: "Credited toward your project." },  // known, keep
   singleSystem: { from: "€1.490", timeline: "2-3 weeks", includes: "1 Custom Module (e.g. Inbox Killer or CRM sync)" },
+  leadMagnetGame: { from: "€2.200", timeline: "2-3 weeks", includes: "Custom Canvas game + email capture + wizard bridge" },
   ecosystem:    {
     from: "€3.490",
     timeline: "4-6 weeks",

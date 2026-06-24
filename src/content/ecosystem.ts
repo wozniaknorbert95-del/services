@@ -11,6 +11,8 @@ export type IntentId = 'time' | 'money' | 'order' | 'calm' | 'efficiency';
 export type ScreenKey =
   | 'wizardCheckout'
   | 'leadMagnet'
+  | 'leadMagnetGameOver'
+  | 'leadMagnetLeaderboard'
   | 'inboxLanes'
   | 'auditLog'
   | 'agentCards'
@@ -196,8 +198,8 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
   },
   {
     id: 'm6',
-    name: 'Lead Magnet System',
-    effect: 'Interactive tools that capture qualified leads.',
+    name: 'Gamified lead system',
+    effect: 'Experience-first capture for Dutch ZZP — play, reward ladder, wizard handoff.',
     intents: ['money'],
     route: ROUTES.resultsLeadMagnet,
     repoKey: 'app.flexgrafik.nl',

@@ -1,19 +1,22 @@
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/constants';
+import { leadMagnetPortfolioTitle } from '@/content/lead-magnet-case-study';
 
 export const metadata: Metadata = {
-  title: 'Lead Magnet Game — turn visitors into leads',
+  title: 'Gamified lead system — qualified ZZP leads without cold forms',
   description:
-    'A branded quiz or mini-game that captures contacts and feeds your list. Built on a custom game engine, mobile-first, fully tracked. From €2,200. Book a paid Automation Map.',
+    'Experience-first lead capture for Dutch ZZP: register, play, reward ladder, leaderboard season, and wizard handoff. Live on app.flexgrafik.nl. From €2,200.',
   openGraph: {
-    title: 'Lead Magnet Game — turn visitors into leads',
+    title: 'Gamified lead system for Dutch ZZP',
     description:
-      'A branded quiz or mini-game that captures contacts and feeds your list. Built on a custom game engine, mobile-first, fully tracked.',
+      'Turn cold traffic into qualified wizard handoffs — play, progress, reward, then self-service quoting. Live proof.',
+    url: `${SITE_URL}/solutions/lead-magnet-game`,
     images: ['/og/lead-magnet-game.svg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lead Magnet Game — turn visitors into leads',
-    description: 'A branded quiz or mini-game that captures contacts and feeds your list.',
+    title: 'Gamified lead system for Dutch ZZP',
+    description: `${leadMagnetPortfolioTitle} — live on app.flexgrafik.nl.`,
     images: ['/og/lead-magnet-game.svg'],
   },
 };

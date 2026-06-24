@@ -45,22 +45,26 @@ export const zzpackage = {
 };
 ```
 
-## REPO 2 — app.flexgrafik.nl (Lead Magnet Game)
+## REPO 2 — app.flexgrafik.nl (Gamified lead system)
+
+> **Synced 2026-06-24** with `src/content/lead-magnet-case-study.ts` + `src/content/proof.ts` (`leadMagnetGallery[]`). Canonical pack: `app.flexgrafik.nl/docs/portfolio/LEAD-MAGNET-PORTFOLIO-PACK.md`.
+
 ```ts
 export const leadMagnet = {
   repoKey: "app.flexgrafik.nl",
-  role: "Lead machine: experience-based capture, not a form.",
+  role: "Gamified acquisition system for Dutch ZZP — experience-first capture, not a form.",
   status: "live",
   metrics: {
     levels: "5",                                               // [R]
-    mechanic: "Register → play → win → code GAME10",           // [R]
-    capture: "Email on win",                                   // [R]
+    mechanic: "Register gate → play → reward ladder → wizard handoff", // [R]
+    capture: "Contact at gate + post-game capture",             // [R]
+    events: "9 GA4 funnel events (game_start … session_duration)", // [R]
   },
-  screen: "leadMagnet",       // gameplay + moment capture + leaderboard
-  video: "leadMagnet",        // 45s — "how a visitor becomes a lead"
-  offer: "Lead Magnet Game",
+  screen: "leadMagnet",       // 7-screen gallery on case study
+  video: "leadMagnet",        // 45s — storyboard in SSoT; ready:false until CapCut export
+  offer: "Gamified lead system",
   caseStudy: "results/lead-magnet/",
-  framing: "People don't fill forms. They play. A lead magnet that earns the contact.",
+  framing: "We turned a static lead magnet into a gamified acquisition system for Dutch ZZP — play, progress, reward, then hand off to self-service quoting.",
 };
 ```
 
@@ -179,7 +183,7 @@ export const adminUi = {
 ```ts
 export const screens = {
   wizardCheckout:  { src: "/gratka/wizard-checkout.png", alt: "Configurator checkout with live price", caption: "Configure → see price → pay, no phone call.", ready: false },
-  leadMagnet:      { src: "/gratka/lead-magnet.png", alt: "Gameplay with email capture and leaderboard", caption: "A lead magnet that earns the contact.", ready: false },
+  leadMagnet:      { src: "/gratka/lead-magnet-start.png", alt: "Gamified lead system start screen", caption: "Industrial product framing — credible B2B entry.", ready: true },
   inboxLanes:      { src: "/gratka/inbox-lanes.png", alt: "Inbox classification lanes with approval gate", caption: "Lead · client · invoice · noise, with approval gate.", ready: false },
   auditLog:        { src: "/gratka/audit-log.png", alt: "Activity audit log", caption: "Who did what, when — available on request.", ready: false },
   agentCards:      { src: "/gratka/agent-cards.png", alt: "Agent cards", caption: "Every agent has a role, rules and a review gate.", ready: false },
@@ -209,7 +213,7 @@ export const caseMeasurements = {
   inboxKiller: { value: "Live mailbox, 142 msgs/scan, human approval on every send.", ready: false },
   agentOs:     { value: "5-node LangGraph · hybrid VPS control plane LIVE · prod E2E handoff · Langfuse cost tracking.", ready: true },
   salesFunnel: { value: "9-step configurator → quote → payment, live.", ready: false },
-  leadMagnet:  { value: "5-level game, email capture on win.", ready: false },
+  leadMagnet:  { value: "Gamified acquisition for Dutch ZZP — play, reward ladder, wizard handoff, GA4 funnel live.", ready: true },
 };
 ```
 > `ready:false` — włączysz `true`, gdy screen/Loom gotowe. Tekst jest PRAWDZIWY (z kodu), nie fantazją.

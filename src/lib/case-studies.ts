@@ -2,6 +2,10 @@ import { ROUTES } from '@/lib/constants';
 import type { CaseMeasurementKey, IntentId } from '@/content/ecosystem';
 import { caseMeasurements } from '@/content/proof';
 import { agentOsDisplayName } from '@/content/agent-os-case-study';
+import {
+  leadMagnetDisplayName,
+  leadMagnetSalesOneLiner,
+} from '@/content/lead-magnet-case-study';
 
 export interface CaseStudy {
   slug: string;
@@ -65,14 +69,14 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'lead-magnet',
     number: '04',
-    title: 'A game that earns the contact',
-    meta: 'Lead Magnet · live',
+    title: leadMagnetDisplayName,
+    meta: 'Gamified lead system · live',
     context:
-      'Traffic with no conversion — visitors bounce without leaving details. Built on my own Canvas game engine.',
+      'Dutch ZZP contractors ignore static forms. The brief: turn cold traffic into qualified wizard handoffs without a brochure-site feel.',
     system:
-      'Five-level branded game: register → play → win → email capture on victory — not a static form.',
-    real: '5-level game, email capture on win, leaderboard on production.',
-    measurement: '5-level game, email capture on win.',
+      'Game loop + reward ladder → register gate → five acts → leaderboard season → coupon bridge into self-service quoting.',
+    real: 'Live on app.flexgrafik.nl — full funnel instrumented in GA4.',
+    measurement: caseMeasurements.leadMagnet.value ?? '',
     intents: ['money'],
     manifestKey: 'leadMagnet',
     detailHref: ROUTES.resultsLeadMagnet,

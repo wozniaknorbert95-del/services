@@ -46,9 +46,9 @@ const STEP_2 = [
     href: ROUTES.salesFunnel,
   },
   {
-    title: 'Lead Magnet Game',
-    what: 'A branded mini-game that collects leads while they play. Unique differentiator with your own engine.',
-    outcomes: ['More contacts, longer visits', 'Shareable brand asset', 'Works while you sleep'],
+    title: 'Gamified lead system',
+    what: 'Experience-first lead capture for Dutch ZZP — register, play, reward ladder, then wizard handoff.',
+    outcomes: ['Qualified contacts, not cold forms', 'Longer sessions before the ask', 'Tracked funnel to self-service quoting'],
     price: `From €${PRICING.leadMagnetGame.from.toLocaleString()}`,
     href: ROUTES.leadMagnetGame,
   },

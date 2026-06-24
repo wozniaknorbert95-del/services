@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Lead magnet funnel  experience first, form second</title>
+  <desc id="desc">Visitor registers, plays five acts on Canvas, wins, email captured, GAME10 routes to zzpackage wizard with UTM tracking.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6fae6f"/>
+    </marker>
+    <style>
+      .bg { fill: #0e0c0a; }
+      .box { fill: #15120e; stroke: #2a241c; stroke-width: 2; }
+      .money { fill: #6fae6f; }
+      .text { fill: #e9e2d4; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 16px; font-weight: 700; }
+      .sub { fill: #9a907e; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 12px; }
+      .gate { fill: #6fae6f; fill-opacity: 0.12; stroke: #6fae6f; stroke-width: 2; stroke-dasharray: 6 4; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="720"/>
+  <text x="600" y="48" class="text" text-anchor="middle" font-size="22">Bouwplaats Chaos  lead magnet funnel</text>
+  <text x="600" y="76" class="sub" text-anchor="middle">register · play · win · capture · GAME10 ’ wizard</text>
+
+  <!-- Row 1 -->
+  <rect x="60" y="130" width="160" height="72" rx="4" class="box"/>
+  <text x="140" y="162" class="text" text-anchor="middle" font-size="14">Visitor</text>
+  <text x="140" y="184" class="sub" text-anchor="middle">cold traffic</text>
+
+  <rect x="280" y="130" width="160" height="72" rx="4" class="box"/>
+  <text x="360" y="162" class="text" text-anchor="middle" font-size="14">Register</text>
+  <text x="360" y="184" class="sub" text-anchor="middle">name + email</text>
+
+  <rect x="500" y="130" width="160" height="72" rx="4" class="box"/>
+  <text x="580" y="162" class="text" text-anchor="middle" font-size="14">Play</text>
+  <text x="580" y="184" class="sub" text-anchor="middle">5 Canvas acts</text>
+
+  <rect x="720" y="130" width="160" height="72" rx="4" class="box"/>
+  <text x="800" y="162" class="text" text-anchor="middle" font-size="14">Win</text>
+  <text x="800" y="184" class="sub" text-anchor="middle">game over gate</text>
+
+  <rect x="940" y="130" width="200" height="72" rx="4" class="gate"/>
+  <text x="1040" y="162" class="text" text-anchor="middle" font-size="14">Capture</text>
+  <text x="1040" y="184" class="sub" text-anchor="middle">email on win</text>
+
+  <line x1="220" y1="166" x2="278" y2="166" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="440" y1="166" x2="498" y2="166" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="660" y1="166" x2="718" y2="166" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="880" y1="166" x2="938" y2="166" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Row 2  reward + wizard -->
+  <rect x="320" y="300" width="220" height="80" rx="4" class="box"/>
+  <text x="430" y="332" class="money" text-anchor="middle" font-size="18">GAME10</text>
+  <text x="430" y="358" class="sub" text-anchor="middle">10% off · utm_source=game</text>
+
+  <rect x="620" y="300" width="260" height="80" rx="4" class="box"/>
+  <text x="750" y="332" class="text" text-anchor="middle" font-size="14">zzpackage wizard</text>
+  <text x="750" y="358" class="sub" text-anchor="middle">self-service quote + pay</text>
+
+  <line x1="1040" y1="202" x2="1040" y2="250" stroke="#6fae6f" stroke-width="2"/>
+  <line x1="1040" y1="250" x2="430" y2="250" stroke="#6fae6f" stroke-width="2"/>
+  <line x1="430" y1="250" x2="430" y2="298" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="540" y1="340" x2="618" y2="340" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Five acts -->
+  <text x="600" y="440" class="text" text-anchor="middle" font-size="18">Five acts (Canvas)</text>
+  <rect x="80" y="470" width="190" height="48" rx="4" class="box"/>
+  <text x="175" y="500" class="sub" text-anchor="middle">01 Klusser</text>
+  <rect x="290" y="470" width="190" height="48" rx="4" class="box"/>
+  <text x="385" y="500" class="sub" text-anchor="middle">02 Reputatie</text>
+  <rect x="500" y="470" width="190" height="48" rx="4" class="box"/>
+  <text x="595" y="500" class="sub" text-anchor="middle">03 Professionalisering</text>
+  <rect x="710" y="470" width="190" height="48" rx="4" class="box"/>
+  <text x="805" y="500" class="sub" text-anchor="middle">04 Expansie</text>
+  <rect x="920" y="470" width="200" height="48" rx="4" class="box"/>
+  <text x="1020" y="500" class="sub" text-anchor="middle">05 Belasting-Eindbaas</text>
+
+  <!-- Leaderboard -->
+  <rect x="380" y="580" width="440" height="64" rx="4" class="box"/>
+  <text x="600" y="608" class="text" text-anchor="middle" font-size="14">Monthly leaderboard</text>
+  <text x="600" y="628" class="sub" text-anchor="middle">retention · replay · social proof before wizard CTA</text>
+
+  <text x="600" y="690" class="sub" text-anchor="middle">app.flexgrafik.nl · live · custom Canvas engine (React 19 + Vite 6)</text>
+</svg>
