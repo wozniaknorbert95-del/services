@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Lead magnet funnel  experience first, form second</title>
-  <desc id="desc">Visitor registers, plays five acts on Canvas, wins, email captured, GAME10 routes to zzpackage wizard with UTM tracking.</desc>
+  <title id="title">Gamified lead funnel — experience first, form second</title>
+  <desc id="desc">Visitor registers, plays five acts on Canvas, earns reward, captures contact, routes to self-service wizard.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
       <path d="M0,0 L8,3 L0,6 Z" fill="#6fae6f"/>
@@ -16,8 +16,8 @@
   </defs>
 
   <rect class="bg" width="1200" height="720"/>
-  <text x="600" y="48" class="text" text-anchor="middle" font-size="22">Bouwplaats Chaos  lead magnet funnel</text>
-  <text x="600" y="76" class="sub" text-anchor="middle">register · play · win · capture · GAME10 ’ wizard</text>
+  <text x="600" y="48" class="text" text-anchor="middle" font-size="22">Gamified lead system — acquisition funnel</text>
+  <text x="600" y="76" class="sub" text-anchor="middle">register · play · reward · capture · wizard handoff</text>
 
   <!-- Row 1 -->
   <rect x="60" y="130" width="160" height="72" rx="4" class="box"/>
@@ -33,25 +33,25 @@
   <text x="580" y="184" class="sub" text-anchor="middle">5 Canvas acts</text>
 
   <rect x="720" y="130" width="160" height="72" rx="4" class="box"/>
-  <text x="800" y="162" class="text" text-anchor="middle" font-size="14">Win</text>
-  <text x="800" y="184" class="sub" text-anchor="middle">game over gate</text>
+  <text x="800" y="162" class="text" text-anchor="middle" font-size="14">Reward</text>
+  <text x="800" y="184" class="sub" text-anchor="middle">tier unlock</text>
 
   <rect x="940" y="130" width="200" height="72" rx="4" class="gate"/>
   <text x="1040" y="162" class="text" text-anchor="middle" font-size="14">Capture</text>
-  <text x="1040" y="184" class="sub" text-anchor="middle">email on win</text>
+  <text x="1040" y="184" class="sub" text-anchor="middle">contact earned</text>
 
   <line x1="220" y1="166" x2="278" y2="166" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="440" y1="166" x2="498" y2="166" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="660" y1="166" x2="718" y2="166" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
   <line x1="880" y1="166" x2="938" y2="166" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <!-- Row 2  reward + wizard -->
+  <!-- Row 2 — coupon + wizard -->
   <rect x="320" y="300" width="220" height="80" rx="4" class="box"/>
   <text x="430" y="332" class="money" text-anchor="middle" font-size="18">GAME10</text>
-  <text x="430" y="358" class="sub" text-anchor="middle">10% off · utm_source=game</text>
+  <text x="430" y="358" class="sub" text-anchor="middle">discount code · game attribution</text>
 
   <rect x="620" y="300" width="260" height="80" rx="4" class="box"/>
-  <text x="750" y="332" class="text" text-anchor="middle" font-size="14">zzpackage wizard</text>
+  <text x="750" y="332" class="text" text-anchor="middle" font-size="14">ZZPackage wizard</text>
   <text x="750" y="358" class="sub" text-anchor="middle">self-service quote + pay</text>
 
   <line x1="1040" y1="202" x2="1040" y2="250" stroke="#6fae6f" stroke-width="2"/>
@@ -77,5 +77,5 @@
   <text x="600" y="608" class="text" text-anchor="middle" font-size="14">Monthly leaderboard</text>
   <text x="600" y="628" class="sub" text-anchor="middle">retention · replay · social proof before wizard CTA</text>
 
-  <text x="600" y="690" class="sub" text-anchor="middle">app.flexgrafik.nl · live · custom Canvas engine (React 19 + Vite 6)</text>
+  <text x="600" y="690" class="sub" text-anchor="middle">app.flexgrafik.nl · live · custom Canvas engine</text>
 </svg>
