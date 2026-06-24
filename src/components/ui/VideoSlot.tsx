@@ -33,7 +33,8 @@ const DEFAULT_EMPTY: Record<
   },
   agentOs: {
     title: 'Agent orchestrator',
-    description: 'Architecture diagram and agent cards in the case study document the live VPS engine.',
+    description:
+      '60s Mission Control demo and architecture diagrams document the hybrid VPS engine — see the case study.',
   },
   vcms: {
     title: 'VCMS governance',

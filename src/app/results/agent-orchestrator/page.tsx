@@ -2,13 +2,20 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
-import Section from '@/components/ui/Section';
 import ProofScreenImage from '@/components/ui/ProofScreenImage';
+import ProofScreenSlot from '@/components/ui/ProofScreenSlot';
 import { ROUTES } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
-import { screens } from '@/content/proof';
+import {
+  agentOsFeatureStatus,
+  agentOsNarrative,
+  agentOsPublicUrls,
+  agentOsVerifiedMetrics,
+  screens,
+  type AgentOsClaimLabel,
+} from '@/content/proof';
 
 const SLUG = 'agent-orchestrator';
 
@@ -20,10 +27,10 @@ const BEFORE_ITEMS = [
 ];
 
 const AFTER_ITEMS = [
-  'One orchestrator coordinates work across the business',
-  'Agents run in fixed roles with clear contracts',
+  'One orchestrator coordinates work across the business — LIVE on VPS',
+  'Agents run in fixed roles with clear contracts (5-node LangGraph)',
   'Single source of truth for schemas and rules',
-  'Human approval before anything hits production',
+  'Human approval before anything hits production — no auto-deploy',
 ];
 
 const WORKFLOW_PHASES = [
@@ -48,7 +55,7 @@ const LAYERS = [
   {
     label: 'Execution',
     title: 'Specialist nodes',
-    detail: 'Planner → coder → tester → review pipeline. One module per session.',
+    detail: 'Planner → coder → tester → reviewer → summarizer. One module per session.',
   },
 ];
 
@@ -56,17 +63,24 @@ const AGENT_CARDS = [
   { role: 'Planner', scope: 'SSoT read, task list', output: 'Implementation plan' },
   { role: 'Coder', scope: 'Target module only', output: 'Diff ready for review' },
   { role: 'Tester', scope: 'Tests + logs', output: 'Pass/fail report' },
-  { role: 'Review', scope: 'Human gate', output: 'Approve or block deploy' },
+  { role: 'Reviewer', scope: 'Human gate (HITL)', output: 'Approve or block' },
+  { role: 'Summarizer', scope: 'Handoff + session closure', output: 'Handoff markdown on disk' },
 ];
+
+function agentOsStatusClass(status: AgentOsClaimLabel): string {
+  if (status === 'LIVE') return 'text-emerald-500';
+  if (status === 'LOCAL-ONLY') return 'text-amber-500';
+  return 'text-[var(--qf-text-faint)]';
+}
 
 export const metadata: Metadata = {
   title: 'Case study — Multi-agent orchestrator',
   description:
-    'How a FastAPI + LangGraph engine on a VPS coordinates a business with single source of truth, agent cards and human approval gates.',
+    'How a hybrid FastAPI + LangGraph control plane on a VPS coordinates multi-repo work with agent cards, Langfuse observability and human approval gates.',
   openGraph: {
     title: 'Case study — Multi-agent orchestrator',
     description:
-      'Production agent engine — planner → coder → tester → review. Process-proof architecture.',
+      'Production agent engine — planner → coder → tester → reviewer → summarizer. Hybrid VPS + local runner. Process-proof architecture.',
     url: 'https://services.flexgrafik.nl/results/agent-orchestrator',
     images: [
       {
@@ -80,7 +94,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Case study — Multi-agent orchestrator',
-    description: 'SSoT + agent cards + 12-step workflow. Architecture diagram on request.',
+    description: 'SSoT + 5-node LangGraph + HITL gates. Architecture diagram and live Mission Control proof.',
     images: ['/og/results-agent-orchestrator.svg'],
   },
 };
@@ -119,6 +133,9 @@ export default function AgentOrchestratorCaseStudyPage() {
       architectureDescription={
         <>
           <p className="mb-4">{study.system}</p>
+          <p className="mb-4 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)] italic">
+            {agentOsNarrative.framing}
+          </p>
           <div className="grid gap-[var(--qf-sp-4)] md:grid-cols-3">
             {LAYERS.map((layer) => (
               <Card key={layer.label} className="p-5">
@@ -144,7 +161,7 @@ export default function AgentOrchestratorCaseStudyPage() {
           — this engine runs them internally on every project.
         </p>
       }
-      stack={['FastAPI', 'LangGraph', 'Python', 'EU-hosted VPS']}
+      stack={['FastAPI', 'LangGraph', 'PostgreSQL', 'Mission Control', 'EU VPS']}
       manifestKey="agentOs"
       videoKey="agentOs"
       screenKey="agentCards"
@@ -173,6 +190,65 @@ export default function AgentOrchestratorCaseStudyPage() {
           </Card>
         </>
       )}
+      <h2 className="mt-8 text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
+        What is LIVE today
+      </h2>
+      <p className="mb-6 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+        Guided agency demo — not a public SaaS. Hybrid control plane on VPS; code execution stays on a
+        supervised local runner.
+      </p>
+      <ul className="mb-6 flex flex-wrap gap-2">
+        {Object.values(agentOsFeatureStatus).map((f) => (
+          <li
+            key={f.label}
+            className="rounded-full border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-[var(--qf-text-dim)]"
+          >
+            {f.label}{' '}
+            <span className={agentOsStatusClass(f.status)}>{f.status}</span>
+          </li>
+        ))}
+      </ul>
+      <div className="mb-10 flex flex-wrap gap-3">
+        {agentOsVerifiedMetrics.map((m) => (
+          <span
+            key={m.label}
+            className="rounded-full border border-[var(--qf-border)] bg-[var(--qf-bg)] px-4 py-1.5 font-mono text-sm text-[var(--qf-text-dim)]"
+          >
+            {m.label}: <span className="text-[var(--qf-text)]">{m.value}</span>
+          </span>
+        ))}
+      </div>
+      <h2 className="mt-8 text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
+        Mission Control
+      </h2>
+      <p className="mb-6 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+        Tasks, queue, history and cost tabs — observability layer for the orchestrator. Login required
+        for live UI; screenshot from prod smoke.
+      </p>
+      <div className="mb-6 max-w-3xl">
+        <ProofScreenSlot screen={screens.adminDashboard} screenKey="adminDashboard" />
+      </div>
+      <div className="mb-10 flex flex-wrap gap-4 text-sm">
+        <a
+          href={agentOsPublicUrls.missionControl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+        >
+          Mission Control (os.flexgrafik.nl) ↗
+        </a>
+        <a
+          href={agentOsPublicUrls.apiHealth}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+        >
+          API health ↗
+        </a>
+        <Link href={ROUTES.trust} className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
+          Trust & observability page →
+        </Link>
+      </div>
       <h2 className="mt-8 text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
         Agent cards — sample contracts
       </h2>

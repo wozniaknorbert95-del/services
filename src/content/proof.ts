@@ -31,6 +31,37 @@ export type VideoSlot = {
 
 export type FeatureClaimStatus = 'PROVEN' | 'DEMO' | 'PLANNED';
 
+export type AgentOsClaimLabel = 'LIVE' | 'LOCAL-ONLY' | 'NOT OFFERED';
+
+/** Honest Agent OS labels — sync with agent-os/docs/portfolio/AGENT-OS-PORTFOLIO-PACK.yaml */
+export const agentOsFeatureStatus: Record<string, { label: string; status: AgentOsClaimLabel }> = {
+  taskQueue:     { label: 'Task queue + lifecycle', status: 'LIVE' },
+  hitl:          { label: 'HITL approve / reject / cancel', status: 'LIVE' },
+  hybridRouting: { label: 'Hybrid VPS + local runner', status: 'LIVE' },
+  codeExecution: { label: 'Code/git execution', status: 'LOCAL-ONLY' },
+  observability: { label: 'Langfuse cost tracking', status: 'LIVE' },
+  publicSaaS:    { label: 'Public multi-tenant SaaS', status: 'NOT OFFERED' },
+  autoDeploy:    { label: 'Auto-deploy to client PROD', status: 'NOT OFFERED' },
+};
+
+/** Verified gates from agent-os portfolio pack — smoke_run_id 2026-06-24T05-42-34-858Z */
+export const agentOsVerifiedMetrics = [
+  { label: 'LangGraph pipeline', value: '5 nodes' },
+  { label: 'pytest integration', value: '42/42' },
+  { label: 'prod E2E smoke', value: 'PASS' },
+  { label: 'browser smoke', value: '2026-06-24' },
+] as const;
+
+export const agentOsNarrative = {
+  framing:
+    'Not built by one prompt. Assembled by agents that plan, code, test and review — with a human at the gate.',
+} as const;
+
+export const agentOsPublicUrls = {
+  missionControl: 'https://os.flexgrafik.nl',
+  apiHealth: 'https://os-api.flexgrafik.nl/api/v1/health',
+} as const;
+
 /** Honest VCMS feature labels for portfolio — sync with flex-vcms/docs/VCMS_SALES_REPORT.md */
 export const vcmsFeatureStatus: Record<string, { label: string; status: FeatureClaimStatus }> = {
   scan:           { label: 'Repo & content scan', status: 'PROVEN' },
@@ -54,7 +85,7 @@ export const videos: Record<VideoKey, VideoSlot> = {
   inboxKiller: { url: null, duration: "60s", poster: null, ready: false },
   wizard:      { url: null, duration: "45s", poster: null, ready: false },
   leadMagnet:  { url: null, duration: "45s", poster: null, ready: false },
-  agentOs:     { url: null, duration: "60s", poster: null, ready: false },
+  agentOs:     { url: "/gratka/agent-os-demo.mp4", duration: "60s", poster: null, ready: true },
   vcms:        { url: "/gratka/vcms-demo.mp4", duration: "69s", poster: null, ready: true }, // Self-hosted from flex-vcms/docs/demo/final-portfolio-demo.mp4
   founder:     { url: null, duration: "120s", poster: null, ready: false },
 };
@@ -71,12 +102,12 @@ export const screens: Record<ScreenKey, ScreenShot> = {
   leadMagnet:      { src: "/gratka/lead-magnet.png", alt: "Gameplay with email capture and leaderboard", caption: "A lead magnet that earns the contact.", ready: true },
   inboxLanes:      { src: "/gratka/inbox-lanes.png", alt: "Inbox classification lanes with approval gate", caption: "Lead · client · invoice · noise, with approval gate.", ready: true },
   auditLog:        { src: "/gratka/audit-log.svg", alt: "VCMS governance action log", caption: "Scan events from governance-audit.jsonl — DEMO: local trail; handoffs + prod ops on request.", ready: true },
-  agentCards:      { src: "/gratka/agent-cards.png", alt: "Agent cards", caption: "Every agent has a role, rules and a review gate.", ready: true },
-  workflowMap:     { src: "/gratka/workflow-map.png", alt: "Agent pipeline workflow", caption: "Plan → code → test → review → approve.", ready: true },
+  agentCards:      { src: "/gratka/agent-cards.png", alt: "Agent cards", caption: "Every agent has a role, rules and a review gate — LIVE on VPS; code execution LOCAL on dev PC.", ready: true },
+  workflowMap:     { src: "/gratka/workflow-map.png", alt: "Agent pipeline workflow", caption: "Plan → code → test → review → approve — hybrid pipeline with human gate before ship.", ready: true },
   vcmsDashboard:   { src: "/gratka/vcms-dashboard.svg", alt: "VCMS governance dashboard", caption: "8-repo scan status with Conflicts: 0 target — governance command center (live).", ready: true },
   conflictReport:  { src: "/gratka/conflict-report.svg", alt: "VCMS conflict report (demo fixture)", caption: "Example SSoT mismatch flagged before deploy — DEMO fixture; live scan target is Conflicts: 0.", ready: true },
   portalAssistant: { src: "/gratka/portal-assistant.png", alt: "Customer-facing portal assistant", caption: "Qualification assistant in the customer portal.", ready: true },
-  adminDashboard:  { src: "/gratka/admin-dashboard.png", alt: "Admin monitoring dashboard", caption: "Task approvals and system health, visible at all times.", ready: true },
+  adminDashboard:  { src: "/gratka/agent-os-mission-control.png", alt: "Mission Control dashboard — tasks, queue, history and cost tabs", caption: "Mission Control — tasks, queue, history and cost tabs. LIVE on os.flexgrafik.nl.", ready: true },
 };
 
 // Case studies: measurement line (honest reframe)
@@ -85,7 +116,7 @@ export const caseMeasurements: Record<
   { value: string | null; ready: boolean }
 > = {
   inboxKiller: { value: "Live mailbox, 142 msgs/scan, human approval on every send.", ready: true },
-  agentOs:     { value: "5-node LangGraph, real E2E flow via OpenRouter.", ready: true },
+  agentOs:     { value: "5-node LangGraph · hybrid VPS control plane LIVE · prod E2E handoff · Langfuse cost tracking.", ready: true },
   salesFunnel: { value: "9-step configurator → quote → payment, live.", ready: true },
   leadMagnet:  { value: "5-level game, email capture on win.", ready: true },
   advisory:    { value: "6-phase delivery, AVG layer specified · anonymised · in delivery.", ready: true },

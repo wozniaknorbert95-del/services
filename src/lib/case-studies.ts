@@ -35,13 +35,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: 'agent-orchestrator',
     number: '02',
     title: 'A multi-agent orchestrator',
-    meta: 'Agent engine · production',
+    meta: 'Agent OS 2.0 · hybrid · production',
     context:
-      'My own multi-repo business stack — orders, content, CRM — without spreadsheets everywhere.',
+      'My own multi-repo business stack — orders, content, CRM — coordinated by a VPS control plane that runs 24/7 while code execution stays on a supervised local runner.',
     system:
-      'A FastAPI + LangGraph engine on a VPS, governed by a single source of truth, agent cards and fixed rules (planner → coder → tester → review).',
-    real: 'Production engine, SSoT architecture, guardrails, 7-step workflow.',
-    measurement: '5-node LangGraph, real E2E flow via OpenRouter.',
+      'FastAPI + LangGraph + PostgreSQL on an EU VPS. Hybrid routing via WAITING_RUNNER: orchestration and HITL online; git/code work on the dev PC. Mission Control UI for tasks, queue, history and costs.',
+    real: 'Prod smoke PASS — HITL approve/reject/cancel, Langfuse cost tracking, E2E handoff on disk. Guided demo ready; not a public SaaS.',
+    measurement: '5-node LangGraph · hybrid VPS control plane LIVE · prod E2E handoff · Langfuse cost tracking.',
     intents: ['time', 'efficiency'],
     manifestKey: 'agentOs',
     detailHref: ROUTES.resultsAgentOrchestrator,
