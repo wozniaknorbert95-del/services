@@ -21,7 +21,9 @@ const targets = [
     'advisory-scope-summary.md',
     'advisory-avg-layer.md',
     'advisory-delivery-timeline.md',
-    'owner-ecosystem-map.md',
+    'los-architecture.md',
+    // Deprecated — stale WorkFlow layer; kept for external bookmarks only:
+    // 'owner-ecosystem-map.md',
   ]},
 ];
 

@@ -118,6 +118,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -130,6 +131,10 @@ body {
   line-height: var(--qf-lh-body);
   font-feature-settings: "liga" 0;
   -webkit-font-smoothing: antialiased;
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--nav-height) + 8px);
 }
 
 code, pre, .mono {

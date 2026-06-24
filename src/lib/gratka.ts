@@ -18,6 +18,8 @@ export const GRATKA = {
   jadziaCoiArchitectureSvg: '/gratka/jadzia-coi-architecture.svg',
   /** Canonical system architecture — Living Operating System (home §2 SSoT). */
   losArchitectureSvg: '/gratka/los-architecture.svg',
+  /** Generated from public/gratka/los-architecture.md via npm run generate:artefacts */
+  losArchitecturePdf: '/gratka/los-architecture.pdf',
   leadMagnetFlowSvg: '/gratka/lead-magnet-flow.svg',
   leadMagnetPlayerJourneyPdf: '/gratka/lead-magnet-player-journey.pdf',
 } as const;

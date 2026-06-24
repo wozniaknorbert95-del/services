@@ -55,4 +55,15 @@ npm run build       # pass (34 routes)
 ## Następny krok / Next steps
 
 - Desktop StickyCta floating pill (Phase 2).
-- Optional: remove deprecated `owner-ecosystem-map.svg` from repo after external link check.
+## Follow-up (2026-06-25 verification pass)
+
+| Gap | Fix |
+|-----|-----|
+| PDF pipeline still on stale `owner-ecosystem-map.md` | Added `los-architecture.md` + `losArchitecturePdf` in `gratka.ts`; script generates `los-architecture.pdf` |
+| `/about/` removed from footer (plan: keep accessible) | Restored **About** in `FOOTER_COMPANY` (header stays Founder) |
+| `/legal/` OG 404 | Added `public/og/legal.svg` |
+| Results hub missing PDF download | `CASE_EXTRAS['owner-ecosystem']` + owner-ecosystem hero buttons |
+| `site-map.md` §6 drift | Footer list includes About |
+
+**Deferred (unchanged):** delete deprecated `owner-ecosystem-map.svg`; desktop StickyCta pill; live smoke on production.
+

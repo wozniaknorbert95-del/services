@@ -20,6 +20,7 @@ export default function BuiltVsPlanned() {
 
   return (
     <section
+      id="built-vs-planned"
       data-home-section="built-vs-planned"
       className="border-t border-[var(--qf-border)] py-[var(--qf-sp-24)]"
       aria-labelledby="built-vs-planned-heading"

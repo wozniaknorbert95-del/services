@@ -134,7 +134,7 @@ Data source: `src/content/ecosystem.ts` → `INTENT_LEGEND`
 
 **Header nav (5 + CTA):** Systems · How It Works · Solutions (dropdown) · Pricing · **Founder's System** → `/founder/`. CTA = L3 Book.
 
-**Footer company:** How It Works · Systems & results · **Architecture (LOS)** → `/results/owner-ecosystem/#los` · Pricing · Trust · Founder · Blog. WhatsApp only via SocialLinks (not duplicated in Get started column).
+**Footer company:** How It Works · Systems & results · **Architecture (LOS)** → `/results/owner-ecosystem/#los` · Pricing · Trust · **About** → `/about/` · Founder · Blog. WhatsApp only via SocialLinks (not duplicated in Get started column).
 
 **StickyCta (mobile home):** appears after `built-vs-planned` (§3); WhatsApp primary, Book secondary.
 

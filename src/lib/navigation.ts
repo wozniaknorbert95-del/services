@@ -50,6 +50,7 @@ export const FOOTER_COMPANY: readonly NavLink[] = [
   { label: 'Architecture (LOS)', href: `${ROUTES.resultsOwnerEcosystem}#los` },
   { label: 'Pricing', href: ROUTES.pricing },
   { label: 'Trust & Safety', href: ROUTES.trust },
+  { label: 'About', href: ROUTES.about },
   { label: "The Founder's System", href: ROUTES.founder },
   { label: 'Blog', href: ROUTES.blog },
 ] as const;

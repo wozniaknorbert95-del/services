@@ -78,6 +78,7 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
     diagramAlt: 'Living Operating System — six layers, eight repositories, governance-first',
     gratkaLinks: [
       { label: 'Download LOS diagram (SVG)', href: GRATKA.losArchitectureSvg },
+      { label: 'Download LOS map (PDF)', href: GRATKA.losArchitecturePdf },
       { label: 'Full LOS map', href: `${ROUTES.resultsOwnerEcosystem}#los` },
     ],
   },
@@ -203,45 +204,45 @@ export default function ResultsPage() {
                   Measurement: {c.measurement}
                 </p>
 
-                {extras && (
-                  <>
-                    <div className="mb-4 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-2">
-                      <GratkaDiagram
-                        src={extras.diagramSrc}
-                        alt={extras.diagramAlt}
-                        width={1200}
-                        height={720}
-                        className="h-auto w-full min-w-[280px]"
-                      />
-                    </div>
-                    {c.slug !== 'owner-ecosystem' ? (
-                      <p className="qf-hint mb-4 text-xs">
-                        Part of the{' '}
-                        <Link href="/#los-teaser" className="text-[var(--qf-accent)]">
-                          Living Operating System
-                        </Link>
-                      </p>
-                    ) : null}
-                    <div className="mt-auto space-y-2 border-t border-[var(--qf-border)] pt-4 text-sm">
-                    <Link
-                      href={c.detailHref}
-                      className="block text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
-                    >
-                      Read full case study →
+                {extras ? (
+                  <div className="mb-4 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-2">
+                    <GratkaDiagram
+                      src={extras.diagramSrc}
+                      alt={extras.diagramAlt}
+                      width={1200}
+                      height={720}
+                      className="h-auto w-full min-w-[280px]"
+                    />
+                  </div>
+                ) : null}
+
+                {c.slug && c.slug !== 'owner-ecosystem' ? (
+                  <p className="qf-hint mb-4 text-xs">
+                    Part of the{' '}
+                    <Link href="/#los-teaser" className="text-[var(--qf-accent)]">
+                      Living Operating System
                     </Link>
-                    {extras.gratkaLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        download
-                        className="block text-[var(--qf-info)] hover:text-[var(--qf-text)]"
-                      >
-                        {link.label} ↓
-                      </Link>
-                    ))}
-                    </div>
-                  </>
-                )}
+                  </p>
+                ) : null}
+
+                <div className="mt-auto space-y-2 border-t border-[var(--qf-border)] pt-4 text-sm">
+                  <Link
+                    href={c.detailHref}
+                    className="block text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+                  >
+                    Read full case study →
+                  </Link>
+                  {extras?.gratkaLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      download
+                      className="block text-[var(--qf-info)] hover:text-[var(--qf-text)]"
+                    >
+                      {link.label} ↓
+                    </Link>
+                  ))}
+                </div>
               </Card>
             );
           })}

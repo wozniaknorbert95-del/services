@@ -26,6 +26,7 @@ export default function LivingSystemTeaser() {
 
   return (
     <section
+      id="los-teaser"
       data-home-section="los-teaser"
       className="border-t border-[var(--qf-border)] bg-[var(--qf-bg-raised)] py-[var(--qf-sp-24)]"
       aria-labelledby="los-teaser-heading"

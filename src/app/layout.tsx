@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HashScroll from "@/components/layout/HashScroll";
 import { BRAND_LOGO, CREATOR, EMAIL, FLEXGRAFIK_URL, LINKEDIN_URL, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -110,6 +111,7 @@ export default function RootLayout({
         />
       </head>
       <body data-app="services" className="min-h-full flex flex-col bg-[var(--qf-bg)] text-[var(--qf-text)]">
+        <HashScroll />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

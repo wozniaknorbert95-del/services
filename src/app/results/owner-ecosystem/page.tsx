@@ -48,27 +48,27 @@ const VCMS_WHY = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Owner ecosystem — 8 repos, 1 system',
+  title: 'Owner ecosystem — Living Operating System',
   description:
-    '8-repo governed ecosystem. Jadzia COI, VCMS supervision, Agent OS execution, wizard commerce — the stack behind Quietforge.',
+    'Living Operating System: 8-repo governed stack. Jadzia COI, VCMS supervision, Agent OS execution, wizard commerce — the stack behind Quietforge.',
   openGraph: {
-    title: 'Owner ecosystem — 8 repos, 1 system',
+    title: 'Owner ecosystem — Living Operating System',
     description:
-      'Governance-first architecture map · Wizard live · honest LIVE/PARTIAL/PLANNED labels — the stack behind Quietforge.',
+      'LOS architecture map · 8 repos · governance-first · honest LIVE/PARTIAL labels — the stack behind Quietforge.',
     url: `${SITE_URL}/results/owner-ecosystem`,
     images: [
       {
         url: '/og/results-owner-ecosystem.svg',
         width: 1200,
         height: 630,
-        alt: 'Owner ecosystem — 8 repos one system',
+        alt: 'Living Operating System — 8 repos one supervised stack',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Owner ecosystem — 8 repos, 1 system',
-    description: 'Live stack behind the Conversion Systems Architect — process proof.',
+    title: 'Owner ecosystem — Living Operating System',
+    description: 'LOS proof — live stack behind the Conversion Systems Architect.',
     images: ['/og/results-owner-ecosystem.svg'],
   },
 };
@@ -88,18 +88,21 @@ export default function OwnerEcosystemPage() {
           The system behind the architect
         </h1>
         <p className="mb-2 font-mono text-sm text-[var(--qf-accent)]">
-          8 repos · 1 supervised system · process proof
+          8 repos · 1 Living Operating System · process proof
         </p>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)]">
-          Before I sell automation to SMB clients, I run it on my own business. This map shows how
-          governance, commerce, AI execution and supervision connect — patterns you can get scaled to
-          your operation, not a ZZP product catalog.
+          Before I sell automation to SMB clients, I run it on my own business. This is the same LOS
+          architecture as the home page — governance, commerce, AI execution and supervision in one
+          supervised stack.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <Button href={GRATKA.losArchitectureSvg} target="_blank" rel="noopener noreferrer" variant="secondary">
             LOS diagram (SVG) ↓
           </Button>
-          <Button href={ROUTES.home} variant="ghost">
+          <Button href={GRATKA.losArchitecturePdf} target="_blank" rel="noopener noreferrer" variant="secondary">
+            LOS map (PDF) ↓
+          </Button>
+          <Button href={`${ROUTES.home}#los-teaser`} variant="ghost">
             See on home →
           </Button>
         </div>
