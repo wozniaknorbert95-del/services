@@ -80,6 +80,15 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
       { label: 'Download ecosystem map (PDF)', href: GRATKA.ownerEcosystemMapPdf },
     ],
   },
+  'jadzia-coi': {
+    diagramSrc: GRATKA.jadziaCoiArchitectureSvg,
+    diagramAlt:
+      'Jadzia COI architecture: central operational brain with wizard, game, portal, WordPress SSH and Telegram HITL',
+    gratkaLinks: [
+      { label: 'COI architecture diagram (SVG)', href: GRATKA.jadziaCoiArchitectureSvg },
+      { label: 'Full case study', href: ROUTES.resultsJadziaCoi },
+    ],
+  },
 };
 
 /* ── metadata ── */
@@ -133,8 +142,8 @@ export default function ResultsPage() {
             8 repos, 1 supervised system
           </h2>
           <p className="mb-6 max-w-none text-sm text-[var(--qf-text-dim)]">
-            All six case studies connect to modules in a live stack — VCMS supervision, Agent OS
-            execution, wizard commerce, portal assistant and inbox automation. See how they cooperate.
+            All seven case studies connect to modules in a live stack — Jadzia COI operations,
+            VCMS supervision, Agent OS execution, wizard commerce and portal trust. See how they cooperate.
           </p>
           <div className="mb-6 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-3">
             <GratkaDiagram

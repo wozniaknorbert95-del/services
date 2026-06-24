@@ -66,7 +66,7 @@ Data source: `src/content/ecosystem.ts` → `ECOSYSTEM_REPOS`
 |---|----------|------|---------------|------------|-------------|
 | 1 | zzpackage | Wizard Cash Engine ★ | money, efficiency | wizardCheckout | `/results/sales-funnel/` |
 | 2 | app.flexgrafik.nl | Lead magnet game | money | leadMagnet | `/results/lead-magnet/` |
-| 3 | jadzia-core | Chief Operating Intelligence (COI) | time, calm, order | inboxLanes | `/results/inbox-killer/` |
+| 3 | jadzia-core | Chief Operating Intelligence (COI) | time, calm, order | workflowMap | `/results/jadzia-coi/` |
 | 4 | agent-os | Agent workforce | time, efficiency | agentCards | `/results/agent-orchestrator/` |
 | 5 | flex-vcms | Governance ★ | order, calm | vcmsDashboard | `/results/owner-ecosystem/` |
 | 6 | flexgrafik-nl | Trust Portal | money, order | portalAssistant | `/solutions/web-upgrade/` |
@@ -97,7 +97,8 @@ Data source: `src/content/ecosystem.ts` → `INTENT_LEGEND`
 
 ```
 /                          → HOME (§2)
-/results/                  → Proof hub (≥6 cards)
+/results/                  → Proof hub (≥7 cards)
+/results/jadzia-coi/       ★ Jadzia COI case study
 /results/inbox-killer/
 /results/sales-funnel/
 /results/lead-magnet/
@@ -105,7 +106,7 @@ Data source: `src/content/ecosystem.ts` → `INTENT_LEGEND`
 /results/advisory-modernisation/
 /results/owner-ecosystem/
 /solutions/                → Product ladder hub
-/solutions/inbox-killer/   ★ spearhead
+/solutions/inbox-killer/   → B2B product (COI-powered)
 /solutions/web-upgrade/
 /solutions/sales-funnel/
 /solutions/lead-magnet-game/

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Jadzia COI  Chief Operating Intelligence architecture</title>
+  <desc id="desc">Central jadzia.db hub with wizard orders, game leads, portal chat, WordPress SSH agent and Telegram HITL guard.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#e8a33d"/>
+    </marker>
+    <style>
+      .bg { fill: #0e0c0a; }
+      .hub { fill: #1c1813; stroke: #e8a33d; stroke-width: 2; }
+      .box { fill: #15120e; stroke: #2a241c; stroke-width: 2; }
+      .text { fill: #e9e2d4; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 14px; font-weight: 700; }
+      .sub { fill: #9a907e; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 11px; }
+      .accent { fill: #e8a33d; }
+      .gate { fill: #e8a33d; fill-opacity: 0.12; stroke: #e8a33d; stroke-width: 2; stroke-dasharray: 6 4; }
+      .ok { fill: #6fae6f; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="900"/>
+  <text x="600" y="40" class="text" text-anchor="middle" font-size="20">Jadzia COI    Chief Operating Intelligence</text>
+  <text x="600" y="66" class="sub" text-anchor="middle">FastAPI :8000 · jadzia.db · orders · leads · chat · WP SSH · HITL</text>
+
+  <!-- Hub -->
+  <rect x="420" y="320" width="360" height="120" rx="4" class="hub"/>
+  <text x="600" y="358" class="accent" text-anchor="middle" font-size="16">JADZIA COI</text>
+  <text x="600" y="384" class="text" text-anchor="middle" font-size="13">jadzia.db · worker queue · strategist</text>
+  <text x="600" y="408" class="sub" text-anchor="middle">Sense ’ Think ’ Act ’ Guard</text>
+
+  <!-- Inputs top -->
+  <rect x="80" y="120" width="200" height="72" rx="4" class="box"/>
+  <text x="180" y="152" class="text" text-anchor="middle" font-size="13">Wizard</text>
+  <text x="180" y="174" class="sub" text-anchor="middle">orders · widget chat</text>
+
+  <rect x="320" y="120" width="200" height="72" rx="4" class="box"/>
+  <text x="420" y="152" class="text" text-anchor="middle" font-size="13">Lead game</text>
+  <text x="420" y="174" class="sub" text-anchor="middle">leads · coupons</text>
+
+  <rect x="560" y="120" width="200" height="72" rx="4" class="box"/>
+  <text x="660" y="152" class="text" text-anchor="middle" font-size="13">Trust portal</text>
+  <text x="660" y="174" class="sub" text-anchor="middle">sales chat</text>
+
+  <rect x="800" y="120" width="200" height="72" rx="4" class="box"/>
+  <text x="900" y="152" class="text" text-anchor="middle" font-size="13">Telegram</text>
+  <text x="900" y="174" class="sub" text-anchor="middle">ops · HITL · alerts</text>
+
+  <line x1="180" y1="192" x2="500" y2="318" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="420" y1="192" x2="540" y2="318" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="660" y1="192" x2="620" y2="318" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="900" y1="192" x2="700" y2="318" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Outputs bottom -->
+  <rect x="120" y="520" width="220" height="72" rx="4" class="box"/>
+  <text x="230" y="552" class="text" text-anchor="middle" font-size="13">Order intelligence</text>
+  <text x="230" y="574" class="sub" text-anchor="middle">WC ingestion · fulfilment state</text>
+
+  <rect x="380" y="520" width="220" height="72" rx="4" class="box"/>
+  <text x="490" y="552" class="text" text-anchor="middle" font-size="13">Lead unification</text>
+  <text x="490" y="574" class="sub" text-anchor="middle">scored · attributed</text>
+
+  <rect x="640" y="520" width="220" height="72" rx="4" class="box"/>
+  <text x="750" y="552" class="text" text-anchor="middle" font-size="13">WP SSH agent</text>
+  <text x="750" y="574" class="sub" text-anchor="middle">diff · write · rollback</text>
+
+  <rect x="900" y="520" width="200" height="72" rx="4" class="box"/>
+  <text x="1000" y="552" class="text" text-anchor="middle" font-size="13">Weekly brief</text>
+  <text x="1000" y="574" class="sub" text-anchor="middle">COI synthesis</text>
+
+  <line x1="520" y1="440" x2="230" y2="518" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="560" y1="440" x2="490" y2="518" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="620" y1="440" x2="750" y2="518" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="680" y1="440" x2="1000" y2="518" stroke="#6fae6f" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- HITL gate -->
+  <rect x="380" y="660" width="440" height="80" rx="4" class="gate"/>
+  <text x="600" y="694" class="accent" text-anchor="middle" font-size="14">· HUMAN APPROVAL GATE</text>
+  <text x="600" y="718" class="sub" text-anchor="middle">Telegram approve · worker JWT · Kaizen guard · Zasada 11 manual deploy</text>
+
+  <line x1="600" y1="592" x2="600" y2="658" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Widget flow strip -->
+  <text x="100" y="800" class="accent" font-size="12">WIDGET FLOW</text>
+  <rect x="100" y="812" width="140" height="48" rx="4" class="box"/>
+  <text x="170" y="842" class="sub" text-anchor="middle">Visitor chat</text>
+  <line x1="240" y1="836" x2="278" y2="836" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="280" y="812" width="140" height="48" rx="4" class="box"/>
+  <text x="350" y="842" class="sub" text-anchor="middle">POST widget/chat</text>
+  <line x1="420" y1="836" x2="458" y2="836" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="460" y="812" width="120" height="48" rx="4" class="box"/>
+  <text x="520" y="842" class="sub" text-anchor="middle">Score lead</text>
+  <line x1="580" y1="836" x2="618" y2="836" stroke="#e8a33d" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="620" y="812" width="160" height="48" rx="4" class="box"/>
+  <text x="700" y="842" class="sub" text-anchor="middle">Reply + Telegram</text>
+
+  <text x="1000" y="842" class="ok" text-anchor="end" font-size="12">LIVE · EU VPS</text>
+</svg>

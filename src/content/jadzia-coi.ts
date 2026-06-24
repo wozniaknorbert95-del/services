@@ -8,7 +8,7 @@ import { ROUTES } from '@/lib/constants';
 
 export const JADZIA_COI_ANCHOR = 'jadzia-coi';
 
-export const JADZIA_COI_ROUTE = `${ROUTES.resultsOwnerEcosystem}#${JADZIA_COI_ANCHOR}`;
+export const JADZIA_COI_ROUTE = ROUTES.resultsJadziaCoi;
 
 export const JADZIA_COI = {
   name: 'Jadzia COI',

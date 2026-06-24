@@ -65,13 +65,19 @@ export default function LivingSystemTeaser() {
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
-          className="mt-[var(--qf-sp-8)]"
+          className="mt-[var(--qf-sp-8)] flex flex-wrap gap-[var(--qf-sp-4)]"
         >
           <Link
             href={LOS_TEASER.ctaHref}
             className="text-sm font-semibold text-[var(--qf-accent)] transition-colors hover:text-[var(--qf-text)]"
           >
             {LOS_TEASER.ctaLabel} →
+          </Link>
+          <Link
+            href={LOS_TEASER.ecosystemCtaHref}
+            className="text-sm text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-accent)]"
+          >
+            {LOS_TEASER.ecosystemCtaLabel} →
           </Link>
         </motion.div>
       </div>

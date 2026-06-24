@@ -11,8 +11,10 @@ export const LOS_TEASER = {
   lead:
     'The Living Operating System is not full autonomy. Five layers connect sense, strategy, orchestration, bounded action and guardrails — the stack behind Quietforge and FlexGrafik.',
   governanceLine: 'Governance-first — not autonomous AI.',
-  ctaLabel: 'See full owner ecosystem map',
-  ctaHref: ROUTES.resultsOwnerEcosystem,
+  ctaLabel: 'Read the Jadzia COI case study',
+  ctaHref: ROUTES.resultsJadziaCoi,
+  ecosystemCtaLabel: 'See full owner ecosystem map',
+  ecosystemCtaHref: ROUTES.resultsOwnerEcosystem,
 } as const;
 
 export interface LosLayer {

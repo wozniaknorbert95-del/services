@@ -3,6 +3,7 @@ import type { CaseMeasurementKey, IntentId } from '@/content/ecosystem';
 import { caseMeasurements } from '@/content/proof';
 import { agentOsDisplayName } from '@/content/agent-os-case-study';
 import { leadMagnetDisplayName } from '@/content/lead-magnet-case-study';
+import { jadziaCoiDisplayName, JADZIA_COI_SLUG } from '@/content/jadzia-coi-case-study';
 
 export interface CaseStudy {
   slug: string;
@@ -36,8 +37,23 @@ export const CASE_STUDIES: CaseStudy[] = [
     detailHref: ROUTES.resultsOwnerEcosystem,
   },
   {
-    slug: 'sales-funnel',
+    slug: JADZIA_COI_SLUG,
     number: '02',
+    title: jadziaCoiDisplayName,
+    meta: 'Jadzia COI · production',
+    context:
+      'Running a print business on eight repos without an operating brain means orders, leads and ops live in separate tools — and WordPress edits stay risky.',
+    system:
+      'FastAPI COI on EU VPS — jadzia.db unifies orders and leads, customer_agent powers wizard and portal chat, Paramiko SSH agent supervises WordPress with Telegram HITL.',
+    real: 'COI live — widget chat, WP SSH pipeline, worker queue, hot-lead alerts and weekly strategy brief.',
+    measurement: caseMeasurements.jadziaCoi.value ?? '',
+    intents: ['time', 'calm', 'order', 'efficiency'],
+    manifestKey: 'jadziaCoi',
+    detailHref: ROUTES.resultsJadziaCoi,
+  },
+  {
+    slug: 'sales-funnel',
+    number: '03',
     title: 'Self-service quote & onboarding',
     meta: 'Wizard Cash Engine · live',
     context: 'My own sales funnel — the same "what do you charge?" questions, answered by the system.',
@@ -51,7 +67,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: 'agent-orchestrator',
-    number: '03',
+    number: '04',
     title: agentOsDisplayName,
     meta: 'Agent OS 2.0 · hybrid · production',
     context:
@@ -66,7 +82,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: 'lead-magnet',
-    number: '04',
+    number: '05',
     title: leadMagnetDisplayName,
     meta: 'Gamified lead system · live',
     context:
@@ -81,7 +97,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: 'inbox-killer',
-    number: '05',
+    number: '06',
     title: 'The self-running back-office',
     meta: 'Inbox Killer · B2B product',
     context:
@@ -96,7 +112,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: 'advisory-modernisation',
-    number: '06',
+    number: '07',
     title: 'Modernisation + AI assistant for an advisory firm',
     meta: 'Web Upgrade + assistant · anonymised',
     context:
@@ -117,7 +133,7 @@ export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
 
 /** Home ResultsTeaser — wizard + ecosystem first */
 export const FEATURED_CASE_SLUGS = [
+  'jadzia-coi',
   'owner-ecosystem',
   'sales-funnel',
-  'agent-orchestrator',
 ] as const;

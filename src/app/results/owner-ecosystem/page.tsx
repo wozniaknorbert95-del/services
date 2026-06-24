@@ -286,6 +286,11 @@ export default function OwnerEcosystemPage() {
             </li>
           </ul>
         </Card>
+        <div className="mt-8">
+          <Button href={ROUTES.resultsJadziaCoi} withArrow>
+            Read full Jadzia COI case study
+          </Button>
+        </div>
       </Section>
 
       <Section background="surface" padding="large">

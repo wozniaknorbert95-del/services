@@ -23,6 +23,8 @@ const ROUTES = [
   '/results/inbox-killer/',
   '/results/agent-orchestrator/',
   '/results/sales-funnel/',
+  '/results/lead-magnet/',
+  '/results/jadzia-coi/',
   '/results/advisory-modernisation/',
   '/results/owner-ecosystem/',
   '/results/whatsapp-discovery-pilot/',

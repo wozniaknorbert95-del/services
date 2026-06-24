@@ -31,7 +31,8 @@ export type CaseMeasurementKey =
   | 'salesFunnel'
   | 'leadMagnet'
   | 'advisory'
-  | 'ownerEcosystem';
+  | 'ownerEcosystem'
+  | 'jadziaCoi';
 
 /** Maps case study slug → proof caseMeasurements key */
 export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
@@ -41,6 +42,7 @@ export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
   'lead-magnet': 'leadMagnet',
   'advisory-modernisation': 'advisory',
   'owner-ecosystem': 'ownerEcosystem',
+  'jadzia-coi': 'jadziaCoi',
 } as const;
 
 /** Home section markers — site-map.md §2 (for DOM verification) */

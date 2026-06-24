@@ -49,6 +49,7 @@ export const ROUTES = {
   resultsSalesFunnel: '/results/sales-funnel/',
   resultsAdvisoryModernisation: '/results/advisory-modernisation/',
   resultsOwnerEcosystem: '/results/owner-ecosystem/',
+  resultsJadziaCoi: '/results/jadzia-coi/',
   resultsOwnerEcosystemWhyVcms: '/results/owner-ecosystem/#why-vcms',
   resultsLeadMagnet: '/results/lead-magnet/',
   resultsWhatsappPilot: '/results/whatsapp-discovery-pilot/',
