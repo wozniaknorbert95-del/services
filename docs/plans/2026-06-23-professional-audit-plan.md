@@ -177,7 +177,7 @@ docs/audits/2026-06-23/
 - AGENTS.md: EN client UI/code, PL owner comms, no secrets
 - Do not change strategy canon during audit — document gaps only
 - Handoff: `docs/handoffs/2026-06-23-professional-audit.md` at session end
-- Prior audit findings: `docs/audit-findings (1).md` (2026-06-17) — cross-reference, do not duplicate
+- Prior audit findings: `docs/audits/2026-06-17-canon-audit-findings.md` (2026-06-17) — cross-reference, do not duplicate
 
 ---
 

@@ -164,7 +164,7 @@ Full screenshots: `assets/desktop/`, `assets/site-mobile/`.
 
 ## Cross-reference: prior audit (2026-06-17)
 
-`docs/audit-findings (1).md` — 50 comma-level recommendations. This audit **confirms** items #6 (home length), #43–47 (WhatsApp), #53 (JSON-LD sameAs) and **adds** cross-channel P0 (LinkedIn) not in prior scope.
+`docs/audits/2026-06-17-canon-audit-findings.md` — 50 comma-level recommendations. This audit **confirms** items #6 (home length), #43–47 (WhatsApp), #53 (JSON-LD sameAs) and **adds** cross-channel P0 (LinkedIn) not in prior scope.
 
 ---
 

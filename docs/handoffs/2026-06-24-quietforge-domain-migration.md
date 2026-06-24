@@ -39,14 +39,12 @@ nslookup quietforge.flexgrafik.nl ns1.cyberfolks.pl → 76.76.21.21 ✅
 ## Post-deploy smoke (owner / agent after DNS propagates)
 
 - [x] Deploy `7eefcb5` → Vercel CI success (2026-06-24 ~07:20 UTC)
-- [x] `flexgrafik-services.vercel.app/sitemap.xml` → `<loc>https://quietforge.flexgrafik.nl/...`
-- [x] Google DNS `8.8.8.8` + Cloudflare `1.1.1.1` → `76.76.21.21`
-- [x] Authoritative `ns1.cyberfolks.pl` → `76.76.21.21`
-- [ ] `nslookup quietforge.flexgrafik.nl` → `76.76.21.21` (local ISP resolver still caching NXDOMAIN)
-- [ ] `curl -sI https://quietforge.flexgrafik.nl/` → HTTP 200 (pending Vercel SSL verify)
-- [ ] `/results/agent-orchestrator/` → title `Case study — Agent OS`
-- [ ] Vercel Domains → `quietforge.flexgrafik.nl` Valid + SSL (CLI still warning; email when ready)
-- [ ] Optional: `https://services.flexgrafik.nl/` → 301 to quietforge (after services A record)
+- [x] `flexgrafik-services.vercel.app` → 200, metadata + sitemap `quietforge.flexgrafik.nl`
+- [x] Google DNS `8.8.8.8` + authoritative CyberFolks → `76.76.21.21`
+- [x] `https://quietforge.flexgrafik.nl/` → HTTP **200** (verified 2026-06-24)
+- [x] `/results/lead-magnet/` → Reward ladder + STICKER1 on page
+- [x] Vercel production deploy live on quietforge
+- [ ] LinkedIn Featured + GSC → patrz `docs/handoffs/2026-06-24-go-live-linkedin-gsc.md`
 
 ## Next steps
 

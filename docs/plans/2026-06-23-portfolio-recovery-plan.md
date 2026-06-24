@@ -95,7 +95,7 @@ Audit rekomenduje skrócenie 14 sekcji. **Nie ruszać bez aktualizacji `site-map
 
 | Bloker | Stan | Co potrzeba od Dowódcy |
 |--------|------|------------------------|
-| As-is audit w repo | Plik `raport z audytu agent-os` = zły content (nav plan) | Prawdziwy audit → `agent-os/docs/audit/` |
+| As-is audit w repo | Nav/footer plan → `docs/plans/2026-06-17-nav-footer-chrome-plan.md` | Prawdziwy audit → `agent-os/docs/audit/` |
 | Brak LIVE proof labels | MVP lokalny | Honesty: LIVE / LOCAL-ONLY / DEMO per capability |
 | Backend P0 gaps | README, auth, hybrid worker | S1–S6 w `agent-os` |
 | Portfolio pack (S7) | Czeka na S6 e2e | **To jest sesja services** |

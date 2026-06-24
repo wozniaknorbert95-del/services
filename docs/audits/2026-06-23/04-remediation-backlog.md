@@ -114,4 +114,4 @@ v1 items AUD-X01, AUD-L02, AUD-L03 **cancelled** — based on stale LinkedIn scr
 
 ---
 
-*Prior canon audit: `docs/audit-findings (1).md` — still valid for site/funnel items*
+*Prior canon audit: `docs/audits/2026-06-17-canon-audit-findings.md` — still valid for site/funnel items*

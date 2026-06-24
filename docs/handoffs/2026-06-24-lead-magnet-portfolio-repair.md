@@ -54,6 +54,12 @@ Strategy: Problem→System→Effect on case card + solution page · intent `mone
 4. OG previews: `results-lead-magnet.svg`, `lead-magnet-game.svg`
 5. `node scripts/audit-404s.mjs` after deploy
 
+## Shipped
+
+- **Commit:** `9c5f9f3` · reward ladder sync (follow-up to `340fa4a`)
+- **Deploy:** Vercel production · `quietforge.flexgrafik.nl` 200
+- **Excluded from commit:** `.cursor/`, unrelated handoffs, artefact PDF churn
+
 ## Następny krok / Next steps
 
 - **Video (S6):** Export 45s CapCut per `leadMagnetVideoStoryboard` → set `videos.leadMagnet.url` + `ready: true` in `proof.ts`

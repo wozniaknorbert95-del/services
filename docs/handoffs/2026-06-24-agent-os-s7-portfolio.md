@@ -31,4 +31,11 @@
 
 ## Deploy
 
-Push `services/master` → Vercel auto. Verify: `https://services.flexgrafik.nl/results/agent-orchestrator/`
+Pushed `services/master` → `49a971f` (Vercel auto).  
+Verify: https://services.flexgrafik.nl/results/agent-orchestrator/
+
+Local prod smoke PASS (2026-06-24): honesty badges, Mission Control PNG, MP4, `/trust/` adminDashboard.
+
+## agent-os
+
+Portfolio pack shipped: `51ca640` — `docs/portfolio/*`, `render_demo_video.py` fix.
