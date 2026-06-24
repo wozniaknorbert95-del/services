@@ -60,7 +60,7 @@ This sample mirrors the live 5-node LangGraph pipeline — names anonymised.
 
 Want this level of structure for your business operations? Start with a paid **Automation Map**.
 
-**Book:** services.flexgrafik.nl/book-discovery/
+**Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
 *Norbert — Conversion Systems Architect · Quietforge · hello@flexgrafik.nl*

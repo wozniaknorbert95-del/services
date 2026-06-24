@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { BRAND_LOGO, CREATOR, EMAIL, FLEXGRAFIK_URL, LINKEDIN_URL, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://services.flexgrafik.nl'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Quietforge — Conversion Systems Architect',
     template: '%s | Quietforge',
@@ -21,12 +21,12 @@ export const metadata: Metadata = {
     'SMB automation',
     'lead qualification',
   ],
-  authors: [{ name: 'Norbert Wozniak', url: 'https://services.flexgrafik.nl/founder/' }],
+  authors: [{ name: 'Norbert Wozniak', url: `${SITE_URL}/founder/` }],
   creator: 'Norbert Wozniak',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://services.flexgrafik.nl',
+    url: SITE_URL,
     siteName: 'Quietforge',
     title: 'Quietforge — Conversion Systems Architect',
     description:

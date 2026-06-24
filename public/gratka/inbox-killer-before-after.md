@@ -54,7 +54,7 @@ classify → plan → diff → approve
 
 Not sure if your inbox is worth automating first? Book a paid **Automation Map** — 60–90 minutes, ROI scored, document is yours either way.
 
-**Book:** services.flexgrafik.nl/book-discovery/
+**Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
 *Norbert — AI Systems Architect · Quietforge · hello@flexgrafik.nl*

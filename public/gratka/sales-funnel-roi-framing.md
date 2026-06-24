@@ -84,7 +84,7 @@ Prospect enters configurator
 
 Book a paid **Automation Map** (60–90 min). We map your quoting leaks, score ROI qualitatively, and recommend whether a 7-step configurator — or something simpler — is the right first build.
 
-**Book:** services.flexgrafik.nl/book-discovery/
+**Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
 *Norbert — AI Systems Architect · Quietforge · hello@flexgrafik.nl*

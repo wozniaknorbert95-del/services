@@ -5,7 +5,7 @@ import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
-import { ROUTES, ARTEFACTS } from '@/lib/constants';
+import { ROUTES, ARTEFACTS, SITE_URL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { vcmsFeatureStatus } from '@/content/proof';
 import { ECOSYSTEM_REPOS } from '@/content/ecosystem';
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: 'Owner ecosystem — 8 repos, 1 system',
     description:
       'Governance · VCMS · jadzia · Agent OS · wizard · portal — the system the architect runs before selling automation.',
-    url: 'https://services.flexgrafik.nl/results/owner-ecosystem',
+    url: `${SITE_URL}/results/owner-ecosystem`,
     images: [
       {
         url: '/og/results-owner-ecosystem.svg',

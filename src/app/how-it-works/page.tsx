@@ -4,7 +4,7 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import FaqItem from '@/components/ui/FaqItem';
-import { ROUTES, PRICING } from '@/lib/constants';
+import { ROUTES, PRICING, SITE_URL } from '@/lib/constants';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'How it works — three clear steps',
     description:
       'A calm, transparent process: a paid Automation Map, a fast productized build, and optional monthly care. Live in days, not months.',
-    url: 'https://services.flexgrafik.nl/how-it-works',
+    url: `${SITE_URL}/how-it-works`,
     images: [
       {
         url: '/og/how-it-works.svg',

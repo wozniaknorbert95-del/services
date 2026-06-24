@@ -5,7 +5,7 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import FaqItem from '@/components/ui/FaqItem';
-import { ROUTES, PRODUCT_TIER_RANGES } from '@/lib/constants';
+import { ROUTES, PRODUCT_TIER_RANGES, SITE_URL } from '@/lib/constants';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Pricing — clear, no surprises',
     description:
       'Transparent pricing for small-business systems. Start with a €290 Automation Map (credited toward your project). Builds from €1,200. Managed plans from €99/mo.',
-    url: 'https://services.flexgrafik.nl/pricing',
+    url: `${SITE_URL}/pricing`,
     images: [
       {
         url: '/og/pricing.svg',

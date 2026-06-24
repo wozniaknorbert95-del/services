@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     title: 'Case study — Inbox Killer',
     description:
       'read → classify → draft → approve → send. Live mailbox proof with human-in-the-loop on every outbound.',
-    url: 'https://services.flexgrafik.nl/results/inbox-killer',
+    url: `${SITE_URL}/results/inbox-killer`,
     images: [
       {
         url: '/og/results-inbox-killer.svg',

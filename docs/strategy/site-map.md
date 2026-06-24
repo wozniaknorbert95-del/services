@@ -1,4 +1,4 @@
-# Site Map — services.flexgrafik.nl (BINDING)
+# Site Map — quietforge.flexgrafik.nl (BINDING)
 
 **Version:** 1.0  
 **Status:** Canonical — single source for home layout, 8-repo map, intent colors, routes  

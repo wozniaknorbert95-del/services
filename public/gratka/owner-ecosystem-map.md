@@ -6,7 +6,7 @@
 
 ## What this is
 
-Norbert runs a real multi-repo ecosystem before selling automation to clients. This is not a slide deck — it is the architecture that powers case studies 01–04 on services.flexgrafik.nl.
+Norbert runs a real multi-repo ecosystem before selling automation to clients. This is not a slide deck — it is the architecture that powers case studies 01–04 on quietforge.flexgrafik.nl.
 
 **Framing:** owner ecosystem proof · not a product catalog for ZZP branding.
 
@@ -46,7 +46,7 @@ Norbert runs a real multi-repo ecosystem before selling automation to clients. T
 ### Client-facing & back-office
 | Module | Role |
 |---|---|
-| **services.flexgrafik.nl** | Quietforge B2B — Automation Map, case studies, client delivery |
+| **quietforge.flexgrafik.nl** | Quietforge B2B — Automation Map, case studies, client delivery |
 | **Inbox Killer** | Live inbox agent — classify → approve. Strongest process proof. |
 
 ---
@@ -58,7 +58,7 @@ Visitor → flexgrafik.nl (assistant) → wizard or game → order in jadzia.db
        → Agent OS builds & tests changes → VCMS scan (conflicts: 0 target)
        → human approves deploy · Inbox Killer handles email ops in parallel
 
-B2B path: services.flexgrafik.nl → paid Automation Map → same 5-phase workflow
+B2B path: quietforge.flexgrafik.nl → paid Automation Map → same 5-phase workflow
 ```
 
 ---
@@ -86,7 +86,7 @@ B2B path: services.flexgrafik.nl → paid Automation Map → same 5-phase workfl
 
 Want this level of structure for your business? Book a paid **Automation Map** — we score which layers you need first (often simpler than the full stack).
 
-**Book:** services.flexgrafik.nl/book-discovery/
+**Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
 *Norbert — Conversion Systems Architect · Quietforge · hello@flexgrafik.nl*

@@ -54,7 +54,7 @@ README, walkthrough, optional light monthly care. Take it in-house anytime.
 
 **Automation Map** — 60–90 minutes, fee credited toward your project.
 
-**Book:** services.flexgrafik.nl/book-discovery/
+**Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
 *Norbert — Conversion Systems Architect · Quietforge · hello@flexgrafik.nl*

@@ -3,7 +3,7 @@ import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import SocialLinks from '@/components/ui/SocialLinks';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES, SITE_URL } from '@/lib/constants';
 import { ABOUT, CTAS, POSITIONING } from '@/content/conversion-copy';
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: ABOUT.metaTitle,
     description:
       'Conversion systems with human approval gates — built on a live owner ecosystem, not theory.',
-    url: 'https://services.flexgrafik.nl/about',
+    url: `${SITE_URL}/about`,
     images: [
       {
         url: '/og/about.svg',

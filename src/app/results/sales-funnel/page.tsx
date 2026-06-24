@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import Section from '@/components/ui/Section';
-import { ROUTES, EXTERNAL } from '@/lib/constants';
+import { ROUTES, EXTERNAL, SITE_URL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: 'Case study — Self-service quote & onboarding',
     description:
       '7-step configurator · progress bar · sticky cart · open pricing at checkout. Live production proof.',
-    url: 'https://services.flexgrafik.nl/results/sales-funnel',
+    url: `${SITE_URL}/results/sales-funnel`,
     images: [
       {
         url: '/og/results-sales-funnel.svg',

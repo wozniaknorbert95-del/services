@@ -1,5 +1,5 @@
 export const SITE_NAME = 'Quietforge';
-export const SITE_URL = 'https://services.flexgrafik.nl';
+export const SITE_URL = 'https://quietforge.flexgrafik.nl';
 
 /** Lowercase typographic lockup — header/footer wordmark */
 export const BRAND_WORDMARK = 'quietforge';

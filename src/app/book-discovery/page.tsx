@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
-import { PRICING, EMAIL } from '@/lib/constants';
+import { PRICING, EMAIL, SITE_URL } from '@/lib/constants';
 import BookDiscoveryForm from './BookDiscoveryForm';
 
 /* ── metadata ── */
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: `Book your Automation Map — €${PRICING.discovery}, credited`,
     description:
       'Book a paid Automation Map: 60–90 minutes to find your biggest time and money leaks, with ROI and a recommended first step.',
-    url: 'https://services.flexgrafik.nl/book-discovery',
+    url: `${SITE_URL}/book-discovery`,
     images: [
       {
         url: '/og/book-discovery.svg',

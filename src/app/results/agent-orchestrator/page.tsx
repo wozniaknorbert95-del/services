@@ -4,7 +4,7 @@ import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import ProofScreenImage from '@/components/ui/ProofScreenImage';
 import ProofScreenSlot from '@/components/ui/ProofScreenSlot';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES, SITE_URL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: agentOsCaseMeta.openGraphTitle,
     description: agentOsCaseMeta.openGraphDescription,
-    url: 'https://services.flexgrafik.nl/results/agent-orchestrator',
+    url: `${SITE_URL}/results/agent-orchestrator`,
     images: [
       {
         url: '/og/results-agent-orchestrator.svg',

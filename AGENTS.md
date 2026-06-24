@@ -1,4 +1,4 @@
-# AGENTS — services.flexgrafik.nl
+# AGENTS — quietforge.flexgrafik.nl
 
 ## Projekt
 Standalone B2B SMB Conversion Systems Portfolio — FlexGrafik Digital (Quietforge).
@@ -37,7 +37,7 @@ Visual implementation: `DESIGN-SYSTEM.md` + `src/app/globals.css`. Project memor
 8. Po każdej sesji: `npm run build` musi przejść bez błędów.
 9. OG image dla każdej nowej route.
 10. Sitemap + robots.txt aktualizowane przy nowych stronach (sitemap via build script).
-11. **JSON-LD:** Root layout — `Organization` + `Person` (Norbert Wozniak, founder, services.flexgrafik.nl) + existing `WebSite`.
+11. **JSON-LD:** Root layout — `Organization` + `Person` (Norbert Wozniak, founder, quietforge.flexgrafik.nl) + existing `WebSite`.
 
 ## Struktura
 ```

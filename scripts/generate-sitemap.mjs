@@ -34,7 +34,7 @@ const ROUTES = [
   '/blog/',
 ];
 
-const base = 'https://services.flexgrafik.nl';
+const base = 'https://quietforge.flexgrafik.nl';
 const lastmod = new Date().toISOString().slice(0, 10);
 
 const urls = ROUTES.map(

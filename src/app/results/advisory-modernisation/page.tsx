@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import Section from '@/components/ui/Section';
-import { ROUTES, ARTEFACTS } from '@/lib/constants';
+import { ROUTES, ARTEFACTS, SITE_URL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     title: 'Case study — Advisory firm modernisation',
     description:
       'Web upgrade + qualification-only assistant + content engine. AVG layer specified. In delivery — no fabricated outcomes.',
-    url: 'https://services.flexgrafik.nl/results/advisory-modernisation',
+    url: `${SITE_URL}/results/advisory-modernisation`,
     images: [
       {
         url: '/og/results-advisory-modernisation.svg',

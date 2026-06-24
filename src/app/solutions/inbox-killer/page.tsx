@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import SolutionLayout from '@/components/solutions/SolutionLayout';
-import { PRICING, ROUTES } from '@/lib/constants';
+import { PRICING, ROUTES, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Inbox Killer — Lead Qualification System',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Inbox Killer — Lead Qualification System | Quietforge',
     description:
       'Lead qualification system for busy owners: classify lanes, draft replies, human approval on every send.',
-    url: 'https://services.flexgrafik.nl/solutions/inbox-killer',
+    url: `${SITE_URL}/solutions/inbox-killer`,
     images: [
       {
         url: '/og/solutions-inbox-killer.svg',

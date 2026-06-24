@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { EXTERNAL } from '@/lib/constants';
+import { EXTERNAL, SITE_URL } from '@/lib/constants';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
 import Button from '@/components/ui/Button';
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Case study — Lead magnet game',
     description: 'Play → win → email capture. A lead magnet that earns the contact.',
-    url: 'https://services.flexgrafik.nl/results/lead-magnet',
+    url: `${SITE_URL}/results/lead-magnet`,
     images: [
       {
         url: '/og/results.svg',

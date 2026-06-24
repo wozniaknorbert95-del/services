@@ -5,7 +5,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES, SITE_URL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { CASE_STUDIES } from '@/lib/case-studies';
 import FieldReports from '@/components/results/FieldReports';
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     title: 'Results — what changes',
     description:
       'Real systems already running inside a live business ecosystem. Names withheld; architecture is real.',
-    url: 'https://services.flexgrafik.nl/results',
+    url: `${SITE_URL}/results`,
     images: [
       {
         url: '/og/results.svg',

@@ -3,7 +3,7 @@ import SolutionLayout from '@/components/solutions/SolutionLayout';
 import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import FaqItem from '@/components/ui/FaqItem';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Managed Automation — your systems, kept sharp',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Managed Automation — your systems, kept sharp',
     description:
       'Keep your automations healthy and improving. Monitoring, tuning and optimisation from €99/mo.',
-    url: 'https://services.flexgrafik.nl/solutions/managed-automation',
+    url: `${SITE_URL}/solutions/managed-automation`,
     images: [
       {
         url: '/og/managed-automation.svg',
