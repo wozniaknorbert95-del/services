@@ -8,17 +8,20 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { fadeIn, slideUp, staggerContainer } from '@/lib/motion';
 import { ROUTES, PRICING } from '@/lib/constants';
+import { SOLUTIONS_NAV } from '@/lib/navigation';
 
 /* ── local motion wrappers ── */
 const M = {
   div: motion.div,
 };
 
-/* ── data ── */
+const [INBOX_NAV, WEB_NAV, SALES_NAV, LEAD_NAV, MRR_NAV] = SOLUTIONS_NAV;
+
+/* ── data — routes/labels from navigation.ts; copy local ── */
 const STEP_1 = {
   label: 'STEP 1 — Tame the chaos',
-  title: 'Inbox Killer',
-  badge: 'Start here',
+  title: INBOX_NAV.label,
+  badge: INBOX_NAV.badge ?? 'Start here',
   who: 'Small businesses drowning in email — consultants, accountants, agencies.',
   what: 'Your inbox sorts itself, surfaces what matters, and drafts your replies. You approve every send.',
   outcomes: [
@@ -27,40 +30,41 @@ const STEP_1 = {
     'Full control — nothing sends without you',
   ],
   price: `From €${PRICING.inboxKiller.from.toLocaleString()}`,
-  href: ROUTES.inboxKiller,
+  href: INBOX_NAV.href,
 };
 
 const STEP_2 = [
   {
-    title: 'Web Upgrade',
+    title: WEB_NAV.label,
     what: 'A website that finally earns its keep — mobile-first, fast, and built to convert.',
     outcomes: ['Modern, trustworthy presence', 'Lead capture built in', 'No more "2012 look"'],
     price: `From €${PRICING.webUpgrade.from.toLocaleString()}`,
-    href: ROUTES.webUpgrade,
+    href: WEB_NAV.href,
   },
   {
-    title: 'Sales Funnel',
+    title: SALES_NAV.label,
     what: 'Quotes, bookings and qualifying — handled. A 3–5 step configurator that turns enquiries into pipeline.',
     outcomes: ['End manual quoting', 'Structured pipeline', 'Integrated CRM + mail'],
     price: `From €${PRICING.salesFunnel.from.toLocaleString()}`,
-    href: ROUTES.salesFunnel,
+    href: SALES_NAV.href,
   },
   {
-    title: 'Gamified lead system',
+    title: LEAD_NAV.label,
     what: 'Experience-first lead capture for Dutch ZZP — register, play, reward ladder, then wizard handoff.',
     outcomes: ['Qualified contacts, not cold forms', 'Longer sessions before the ask', 'Tracked funnel to self-service quoting'],
     price: `From €${PRICING.leadMagnetGame.from.toLocaleString()}`,
-    href: ROUTES.leadMagnetGame,
+    href: LEAD_NAV.href,
   },
 ];
 
 const MRR = {
   label: 'KEEP IT RUNNING',
-  title: 'Managed Automation',
+  title: MRR_NAV.label,
+  badge: MRR_NAV.badge,
   what: 'Your AI worker that never sleeps — kept healthy every month.',
   outcomes: ['Uptime & monitoring', 'Fine-tuning as you grow', 'Priority support when you need it'],
   price: `From €${PRICING.care}/mo`,
-  href: ROUTES.managedAutomation,
+  href: MRR_NAV.href,
 };
 
 /* ── page ── */

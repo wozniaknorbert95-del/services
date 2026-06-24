@@ -11,9 +11,12 @@ export const GRATKA = {
   advisoryAvgLayerPdf: '/gratka/advisory-avg-layer.pdf',
   advisoryDeliveryTimelineSvg: '/gratka/advisory-delivery-timeline.svg',
   advisoryDeliveryTimelinePdf: '/gratka/advisory-delivery-timeline.pdf',
+  /** @deprecated Retired from UI — use losArchitectureSvg. File kept for external bookmarks. */
   ownerEcosystemMapSvg: '/gratka/owner-ecosystem-map.svg',
+  /** @deprecated Retired from UI — use losArchitectureSvg download. */
   ownerEcosystemMapPdf: '/gratka/owner-ecosystem-map.pdf',
   jadziaCoiArchitectureSvg: '/gratka/jadzia-coi-architecture.svg',
+  /** Canonical system architecture — Living Operating System (home §2 SSoT). */
   losArchitectureSvg: '/gratka/los-architecture.svg',
   leadMagnetFlowSvg: '/gratka/lead-magnet-flow.svg',
   leadMagnetPlayerJourneyPdf: '/gratka/lead-magnet-player-journey.pdf',

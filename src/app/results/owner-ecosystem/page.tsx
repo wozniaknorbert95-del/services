@@ -96,29 +96,29 @@ export default function OwnerEcosystemPage() {
           your operation, not a ZZP product catalog.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
-          <Button href={GRATKA.ownerEcosystemMapSvg} target="_blank" rel="noopener noreferrer" variant="secondary">
-            Ecosystem diagram (SVG) ↓
+          <Button href={GRATKA.losArchitectureSvg} target="_blank" rel="noopener noreferrer" variant="secondary">
+            LOS diagram (SVG) ↓
           </Button>
-          <Button href={GRATKA.ownerEcosystemMapPdf} target="_blank" rel="noopener noreferrer" variant="secondary">
-            Ecosystem map (PDF) ↓
+          <Button href={ROUTES.home} variant="ghost">
+            See on home →
           </Button>
         </div>
       </Section>
 
-      <Section background="surface" padding="large">
+      <Section background="surface" padding="large" id="los">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
-          Full architecture map
+          Living Operating System — full map
         </h2>
         <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
-          Adapted from the portfolio ecosystem diagram — Quietforge tokens, B2B framing. Forward to
+          Same architecture as the home page — six layers, eight repos, governance-first. Forward to
           a developer, partner or accountant.
         </p>
         <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-4">
           <GratkaDiagram
-            src={GRATKA.ownerEcosystemMapSvg}
-            alt="Full owner ecosystem architecture with governance, Flex-VCMS, applications, Agent OS, services and Inbox Killer"
+            src={GRATKA.losArchitectureSvg}
+            alt="Living Operating System — six layers and eight repositories"
             width={1200}
-            height={1100}
+            height={720}
           />
         </div>
       </Section>

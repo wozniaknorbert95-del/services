@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { ROUTES } from '@/lib/constants';
 import { HEADER_NAV, SOLUTIONS_NAV, HEADER_CTA } from '@/lib/navigation';
 import BrandLogo from '@/components/ui/BrandLogo';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -46,7 +45,7 @@ export default function Header() {
               )}
 
               {item.hasDropdown && dropdownOpen && (
-                <div className="absolute left-0 top-full mt-2 w-56 rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-2 shadow-lg">
+                <div className="qf-dropdown absolute left-0 top-full mt-2 w-56 border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-2">
                   <Link
                     href={item.href}
                     className="mb-1 block rounded-[var(--qf-radius)] px-3 py-2 text-sm font-semibold text-[var(--qf-text)] hover:bg-[var(--qf-bg-inset)]"

@@ -20,6 +20,8 @@ interface CaseStudyLayoutProps {
   architectureDiagramSvgUrl: string;
   architectureDiagramAlt: string;
   architectureDescription: ReactNode;
+  /** Show link to full LOS stack under architecture diagram. Default true. */
+  showLosFootnote?: boolean;
   buildModules: { title: string; detail: string; highlight?: boolean; number?: string; step?: string }[];
   buildDescription: ReactNode;
   stack: string[];
@@ -45,6 +47,7 @@ export default function CaseStudyLayout({
   screenKey,
   downloadButtons,
   children,
+  showLosFootnote = true,
 }: CaseStudyLayoutProps) {
   const measurement = caseMeasurements[manifestKey];
   const screen = screens[screenKey];
@@ -119,6 +122,21 @@ export default function CaseStudyLayout({
             className="h-auto w-full min-w-[700px]"
           />
         </div>
+        {showLosFootnote ? (
+          <p className="qf-hint mt-4 text-sm">
+            This module sits inside the{' '}
+            <Link href="/#los-teaser" className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
+              Living Operating System
+            </Link>
+            {' '}→{' '}
+            <Link
+              href={`${ROUTES.resultsOwnerEcosystem}#los`}
+              className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+            >
+              see full stack
+            </Link>
+          </p>
+        ) : null}
       </Section>
 
       <Section padding="large">

@@ -95,8 +95,9 @@ L3 has **two complementary paths:** (a) paid Automation Map / scheduled session,
 
 ### Sticky CTA
 
-- Appears after user scrolls past first proof section (section 3+ on full home; section 2 on MVP home).
-- Mobile: sticky bottom bar; desktop: floating pill bottom-right.
+- Appears after user scrolls past **Built vs Planned** (`data-home-section="built-vs-planned"`, home §3).
+- Mobile: sticky bottom bar — **WhatsApp primary**, Book Automation Map secondary; uses `HEADER_CTA` from `navigation.ts`.
+- Desktop floating pill: Phase 2 (not shipped).
 - Final CTA band remains the page closer.
 
 | Location | L1 | L2 | L3 |

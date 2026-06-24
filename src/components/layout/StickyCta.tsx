@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ROUTES, WHATSAPP } from '@/lib/constants';
-import { CTAS } from '@/content/conversion-copy';
+import { WHATSAPP } from '@/lib/constants';
+import { HEADER_CTA } from '@/lib/navigation';
 
 const OBSERVER_ROOT_MARGIN = '0px 0px -40% 0px';
 
@@ -11,7 +11,7 @@ export default function StickyCta() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const target = document.querySelector('[data-home-section="system-metrics"]');
+    const target = document.querySelector('[data-home-section="built-vs-planned"]');
     if (!target) {
       return;
     }
@@ -38,20 +38,20 @@ export default function StickyCta() {
       aria-label="Quick actions"
     >
       <div className="mx-auto flex max-w-[var(--qf-maxw)] gap-[var(--qf-sp-3)]">
-        <Link
-          href={ROUTES.bookDiscovery}
-          className="flex flex-1 items-center justify-center border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-4 py-3 text-sm font-semibold text-[var(--qf-bg)]"
-        >
-          {CTAS.bookAutomationMap}
-        </Link>
         <a
           href={WHATSAPP.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center border border-[var(--qf-border)] px-4 py-3 text-sm font-semibold text-[var(--qf-text)]"
+          className="flex flex-1 items-center justify-center border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-4 py-3 text-sm font-semibold text-[var(--qf-bg)]"
         >
           {WHATSAPP.label}
         </a>
+        <Link
+          href={HEADER_CTA.href}
+          className="flex items-center justify-center border border-[var(--qf-border)] px-4 py-3 text-sm font-semibold text-[var(--qf-text)]"
+        >
+          {HEADER_CTA.label}
+        </Link>
       </div>
     </div>
   );

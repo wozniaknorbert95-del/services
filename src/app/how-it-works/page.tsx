@@ -4,7 +4,10 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import FaqItem from '@/components/ui/FaqItem';
+import GratkaDiagram from '@/components/ui/GratkaDiagram';
+import Link from 'next/link';
 import { ROUTES, PRICING, SITE_URL } from '@/lib/constants';
+import { GRATKA } from '@/lib/gratka';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
@@ -75,6 +78,38 @@ export default function HowItWorksPage() {
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
           Book your Automation Map
         </Button>
+      </Section>
+
+      <Section background="surface" padding="large">
+        <Eyebrow>Architecture</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
+          The system behind the method
+        </h2>
+        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
+          Every build runs inside the same Living Operating System I operate daily — governance-first,
+          human approval gates, eight repos supervised as one stack.
+        </p>
+        <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-4">
+          <GratkaDiagram
+            src={GRATKA.losArchitectureSvg}
+            alt="Living Operating System — six layers and eight repositories"
+            width={1200}
+            height={720}
+            className="h-auto w-full min-w-[320px]"
+          />
+        </div>
+        <p className="qf-hint mt-4 text-sm">
+          <Link href="/#los-teaser" className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
+            See full LOS on home
+          </Link>
+          {' · '}
+          <Link
+            href={`${ROUTES.resultsOwnerEcosystem}#los`}
+            className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+          >
+            Owner ecosystem proof
+          </Link>
+        </p>
       </Section>
 
       {/* ═══════════════════════════════════════════════════════════

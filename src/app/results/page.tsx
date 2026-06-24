@@ -74,10 +74,11 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
     ],
   },
   'owner-ecosystem': {
-    diagramSrc: GRATKA.ownerEcosystemMapSvg,
-    diagramAlt: 'Owner ecosystem diagram: eight repos, one supervised system',
+    diagramSrc: GRATKA.losArchitectureSvg,
+    diagramAlt: 'Living Operating System — six layers, eight repositories, governance-first',
     gratkaLinks: [
-      { label: 'Download ecosystem map (PDF)', href: GRATKA.ownerEcosystemMapPdf },
+      { label: 'Download LOS diagram (SVG)', href: GRATKA.losArchitectureSvg },
+      { label: 'Full LOS map', href: `${ROUTES.resultsOwnerEcosystem}#los` },
     ],
   },
   'jadzia-coi': {
@@ -136,37 +137,37 @@ export default function ResultsPage() {
       <Section background="surface" padding="large">
         <Card className="border-[var(--qf-accent)] p-6 md:p-8">
           <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-            Owner ecosystem
+            Living Operating System
           </p>
           <h2 className="mb-3 text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-            8 repos, 1 supervised system
+            8 repos, 1 supervised LOS
           </h2>
           <p className="mb-6 max-w-none text-sm text-[var(--qf-text-dim)]">
-            All seven case studies connect to modules in a live stack — Jadzia COI operations,
-            VCMS supervision, Agent OS execution, wizard commerce and portal trust. See how they cooperate.
+            All case studies connect inside the same Living Operating System — Jadzia COI, VCMS
+            supervision, Agent OS execution, wizard commerce and portal trust.
           </p>
           <div className="mb-6 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-3">
             <GratkaDiagram
-              src={GRATKA.ownerEcosystemMapSvg}
-              alt="Owner ecosystem diagram: governance, VCMS, applications, Agent OS, Quietforge and Inbox Killer"
+              src={GRATKA.losArchitectureSvg}
+              alt="Living Operating System — six layers and eight repositories"
               width={1200}
-              height={1100}
+              height={720}
               className="h-auto w-full min-w-[480px]"
             />
           </div>
           <div className="flex flex-wrap gap-4">
             <Link
-              href={ROUTES.resultsOwnerEcosystem}
+              href={`${ROUTES.resultsOwnerEcosystem}#los`}
               className="text-sm font-semibold text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
             >
-              Full ecosystem map →
+              Full LOS map →
             </Link>
             <Link
-              href={GRATKA.ownerEcosystemMapPdf}
+              href={GRATKA.losArchitectureSvg}
               download
               className="text-sm text-[var(--qf-info)] hover:text-[var(--qf-text)]"
             >
-              Download PDF ↓
+              Download LOS diagram (SVG) ↓
             </Link>
           </div>
         </Card>
@@ -213,6 +214,14 @@ export default function ResultsPage() {
                         className="h-auto w-full min-w-[280px]"
                       />
                     </div>
+                    {c.slug !== 'owner-ecosystem' ? (
+                      <p className="qf-hint mb-4 text-xs">
+                        Part of the{' '}
+                        <Link href="/#los-teaser" className="text-[var(--qf-accent)]">
+                          Living Operating System
+                        </Link>
+                      </p>
+                    ) : null}
                     <div className="mt-auto space-y-2 border-t border-[var(--qf-border)] pt-4 text-sm">
                     <Link
                       href={c.detailHref}

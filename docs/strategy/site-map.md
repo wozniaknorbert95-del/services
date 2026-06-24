@@ -132,6 +132,12 @@ Data source: `src/content/ecosystem.ts` → `INTENT_LEGEND`
 | L2 Watch demo | See the wizard (2 min) | IntentRouter, OwnerEcosystem, EXTERNAL.zzpackageWizard |
 | L3 Book | **Book your Automation Map** | Header, hero primary, final band, pricing, footer |
 
+**Header nav (5 + CTA):** Systems · How It Works · Solutions (dropdown) · Pricing · **Founder's System** → `/founder/`. CTA = L3 Book.
+
+**Footer company:** How It Works · Systems & results · **Architecture (LOS)** → `/results/owner-ecosystem/#los` · Pricing · Trust · Founder · Blog. WhatsApp only via SocialLinks (not duplicated in Get started column).
+
+**StickyCta (mobile home):** appears after `built-vs-planned` (§3); WhatsApp primary, Book secondary.
+
 **Header CTA rule:** Global header button is always L3 Book (not L1 „See systems”). L1 proof access = **Systems** nav item → `/results/`. Traffic-aware header swap = Phase 2 only (see conversion-pipeline.md §3).
 
 **Forbidden:** "Book Strategy Call" as primary CTA.

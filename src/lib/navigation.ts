@@ -27,7 +27,7 @@ export const HEADER_NAV: readonly HeaderNavItem[] = [
   { label: 'How It Works', href: ROUTES.howItWorks },
   { label: 'Solutions', href: ROUTES.solutions, hasDropdown: true },
   { label: 'Pricing', href: ROUTES.pricing },
-  { label: 'About', href: ROUTES.about },
+  { label: "Founder's System", href: ROUTES.founder },
 ] as const;
 
 export const SOLUTIONS_NAV: readonly SolutionNavItem[] = [
@@ -47,9 +47,9 @@ export const FOOTER_SOLUTIONS: readonly NavLink[] = [
 export const FOOTER_COMPANY: readonly NavLink[] = [
   { label: 'How It Works', href: ROUTES.howItWorks },
   { label: 'Systems & results', href: ROUTES.results },
+  { label: 'Architecture (LOS)', href: `${ROUTES.resultsOwnerEcosystem}#los` },
   { label: 'Pricing', href: ROUTES.pricing },
   { label: 'Trust & Safety', href: ROUTES.trust },
-  { label: 'About', href: ROUTES.about },
   { label: "The Founder's System", href: ROUTES.founder },
   { label: 'Blog', href: ROUTES.blog },
 ] as const;

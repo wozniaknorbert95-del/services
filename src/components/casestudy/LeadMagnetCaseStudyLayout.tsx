@@ -100,6 +100,19 @@ export default function LeadMagnetCaseStudyLayout({
             className="h-auto w-full min-w-[700px]"
           />
         </div>
+        <p className="qf-hint mt-4 text-sm">
+          Part of the{' '}
+          <Link href="/#los-teaser" className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
+            Living Operating System
+          </Link>
+          {' '}→{' '}
+          <Link
+            href={`${ROUTES.resultsOwnerEcosystem}#los`}
+            className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+          >
+            see full stack
+          </Link>
+        </p>
       </Section>
 
       <Section padding="large">

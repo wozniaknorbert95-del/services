@@ -125,6 +125,21 @@ export const CASE_STUDIES: CaseStudy[] = [
     manifestKey: 'advisory',
     detailHref: ROUTES.resultsAdvisoryModernisation,
   },
+  {
+    slug: 'whatsapp-discovery-pilot',
+    number: '08',
+    title: 'WhatsApp discovery pilot',
+    meta: 'Pilot · async qualification',
+    context:
+      'Cold calls waste time. A chat agent asks 6–8 questions, scores fit, and delivers a brief — same path used for discovery.',
+    system:
+      'Async WhatsApp qualification with scored brief output — human review before any follow-up.',
+    real: 'Pilot walkthrough — screen recording and brief PDF output path documented.',
+    measurement: '6–8 question flow · scored brief · pilot stage.',
+    intents: ['time', 'money'],
+    manifestKey: 'ownerEcosystem',
+    detailHref: ROUTES.resultsWhatsappPilot,
+  },
 ];
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import BrandLogo from '@/components/ui/BrandLogo';
-import { EMAIL, WHATSAPP } from '@/lib/constants';
+import { EMAIL } from '@/lib/constants';
 import SocialLinks from '@/components/ui/SocialLinks';
 import {
   FOOTER_SOLUTIONS,
@@ -65,16 +65,6 @@ export default function Footer() {
             <p className="mb-2">
               <a href={`mailto:${EMAIL}`} className="hover:text-[var(--qf-accent)]">
                 {EMAIL}
-              </a>
-            </p>
-            <p>
-              <a
-                href={WHATSAPP.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--qf-accent)]"
-              >
-                {WHATSAPP.label}
               </a>
             </p>
           </div>

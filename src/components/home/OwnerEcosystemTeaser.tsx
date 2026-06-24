@@ -34,30 +34,30 @@ export default function OwnerEcosystemTeaser() {
               The system I run on — before I sell it.
             </h2>
             <p className="mb-[var(--qf-sp-8)] max-w-[var(--qf-maxw-narrow)] text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">
-              Eight repos, one supervised ecosystem. VCMS governs the codebase, Agent OS executes, and
-              human approval gates protect the output.
+              Living Operating System — eight repos, one supervised stack. VCMS governs the codebase,
+              Agent OS executes, and human approval gates protect the output.
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Button href={ROUTES.resultsOwnerEcosystem} withArrow>
-                See the ecosystem map
+              <Button href={`${ROUTES.resultsOwnerEcosystem}#los`} withArrow>
+                Full LOS map
               </Button>
               <Button
-                href={GRATKA.ownerEcosystemMapPdf}
+                href={GRATKA.losArchitectureSvg}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="secondary"
               >
-                Download PDF ↓
+                Download LOS diagram (SVG) ↓
               </Button>
             </div>
           </div>
           <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-3">
             <GratkaDiagram
-              src={GRATKA.ownerEcosystemMapSvg}
-              alt="Owner ecosystem diagram: governance, VCMS supervision, applications, Agent OS, Quietforge and Inbox Killer"
-              width={600}
-              height={550}
+              src={GRATKA.losArchitectureSvg}
+              alt="Living Operating System — six layers and eight repositories"
+              width={1200}
+              height={720}
               className="h-auto w-full min-w-[320px]"
             />
           </div>

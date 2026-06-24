@@ -9,7 +9,7 @@
   </style>
   <rect class="bg" width="960" height="600"/>
   <text x="480" y="40" class="t" text-anchor="middle" font-size="16">Agent cards - fixed contracts</text>
-  <text x="480" y="62" class="s" text-anchor="middle">LIVE orchestration on VPS � code execution LOCAL on dev PC</text>
+  <text x="480" y="62" class="s" text-anchor="middle">LIVE orchestration on VPS · code execution LOCAL on dev PC</text>
   <g transform="translate(48,90)">
     <rect x="0" y="0" width="260" height="100" class="card"/><text x="16" y="28" class="a">Planner</text><text x="16" y="48" class="s">SSoT read, task list</text><text x="16" y="68" class="s">- Implementation plan</text>
     <rect x="280" y="0" width="260" height="100" class="card"/><text x="296" y="28" class="a">Coder</text><text x="296" y="48" class="s">Target module only</text><text x="296" y="68" class="s">- Diff ready for review</text>
