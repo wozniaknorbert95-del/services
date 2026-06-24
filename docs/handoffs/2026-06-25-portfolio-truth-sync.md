@@ -1,13 +1,13 @@
 # Handoff — Portfolio Truth Sync (2026-06-25)
 
-**Repo:** services.flexgrafik.nl · **Build:** `npm run build` ✅ (33 routes)
+**Repo:** services.flexgrafik.nl · **Build:** `npm run build` ✅ (33 routes) · **Deployed:** `dd6caea` → master → Vercel CD ✅
 
 ## SESSIONANCHOR
 
 ```
 TASK: P0 portfolio truth sync (PF-01 … PF-06)
 CANON: flexgrafik-meta/docs/core/ snapshot 2026-06-24
-STATUS: COMPLETE — build gate passed, deploy pending (Zasada 11 manual)
+STATUS: COMPLETE — shipped dd6caea, live smoke PASS 2026-06-25
 BLOCKER: BL-01 Mission Control URL — default os.flexgrafik.nl used in proof.ts (unchanged)
 ```
 
@@ -72,16 +72,24 @@ Select-String -Path src -Pattern "orders, automation, jadzia.db" -Recurse  # 0 h
 
 ## Post-deploy smoke (Dowódca — manual deploy Zasada 11)
 
-```powershell
-Set-Location C:\Users\FlexGrafik\FlexGrafik\github\services
-npm run build
-npx serve dist
-```
+**Executed 2026-06-25 after push `dd6caea`:**
 
-1. https://quietforge.flexgrafik.nl/ — LOS + Built vs Planned sections
-2. https://quietforge.flexgrafik.nl/results/owner-ecosystem/ — honest Jadzia + portal copy
-3. Wizard CTA → https://zzpackage.flexgrafik.nl/
-4. Console: 0 × 404 for `/gratka/` images on home
+| Check | Result |
+|-------|--------|
+| `quietforge.flexgrafik.nl/` HTTP 200 | ✅ |
+| `data-home-section="los-teaser"` in HTML | ✅ |
+| `built-vs-planned` section | ✅ |
+| Spearhead = Wizard Cash Engine | ✅ |
+| No `Inbox Killer — spearhead` | ✅ |
+| `/results/owner-ecosystem/` COI + PARTIAL/PLANNED | ✅ |
+| No `orders, automation, jadzia.db` | ✅ |
+| `node scripts/audit-404s.mjs` all routes | ✅ `failed: []` |
+
+```powershell
+# Local re-check anytime:
+Set-Location C:\Users\FlexGrafik\FlexGrafik\github\services
+node scripts/audit-404s.mjs
+```
 
 ## Następny krok / Next steps (P1)
 
