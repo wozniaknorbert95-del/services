@@ -5,6 +5,8 @@
 // ============================================================================
 
 import { ROUTES } from '@/lib/constants';
+import { JADZIA_COI_ROUTE } from '@/content/jadzia-coi';
+import { MODULE_SHOWCASE } from '@/content/module-showcase';
 
 export type IntentId = 'time' | 'money' | 'order' | 'calm' | 'efficiency';
 
@@ -162,7 +164,7 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
   {
     id: 'm2',
     name: 'Sales Funnel & Wizard',
-    effect: 'Conversion on autopilot: prospects qualify themselves and buy.',
+    effect: MODULE_SHOWCASE.zzpackage.effect,
     intents: ['money', 'efficiency'],
     route: ROUTES.resultsSalesFunnel,
     repoKey: 'zzpackage',
@@ -172,19 +174,18 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
   },
   {
     id: 'm3',
-    name: 'Inbox Killer',
-    effect:
-      'B2B email automation service — supervised drafts with approval on every send. Production today: WP agent and sales chat via jadzia COI.',
-    intents: ['time', 'calm'],
-    route: ROUTES.resultsInboxKiller,
+    name: 'Jadzia COI',
+    effect: MODULE_SHOWCASE['jadzia-core'].effect,
+    intents: ['time', 'calm', 'order', 'efficiency'],
+    route: JADZIA_COI_ROUTE,
     repoKey: 'jadzia-core',
-    screenKey: 'inboxLanes',
+    screenKey: 'workflowMap',
     videoKey: 'inboxKiller',
   },
   {
     id: 'm4',
     name: 'Agent OS (Custom Agents)',
-    effect: 'Agents that run repeatable tasks — with review gates.',
+    effect: MODULE_SHOWCASE['agent-os'].effect,
     intents: ['time', 'efficiency'],
     route: ROUTES.resultsAgentOrchestrator,
     repoKey: 'agent-os',
@@ -194,7 +195,7 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
   {
     id: 'm5',
     name: 'VCMS (Governance Layer)',
-    effect: 'Scans 8 repos, SSoT conflicts and handoffs — supervision before deploy.',
+    effect: MODULE_SHOWCASE['flex-vcms'].effect,
     intents: ['order', 'calm'],
     route: ROUTES.resultsOwnerEcosystemWhyVcms,
     repoKey: 'flex-vcms',
@@ -204,7 +205,7 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
   {
     id: 'm6',
     name: 'Gamified lead system',
-    effect: 'Experience-first capture for Dutch ZZP — play, reward ladder, wizard handoff.',
+    effect: MODULE_SHOWCASE['app.flexgrafik.nl'].effect,
     intents: ['money'],
     route: ROUTES.resultsLeadMagnet,
     repoKey: 'app.flexgrafik.nl',
@@ -214,8 +215,7 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
   {
     id: 'm7',
     name: 'Mission Control',
-    effect:
-      'Tasks, queue, history and cost tabs — observability for the Agent OS pipeline. LIVE on os.flexgrafik.nl.',
+    effect: MODULE_SHOWCASE['agent-os-ui'].effect,
     intents: ['order', 'efficiency'],
     route: ROUTES.trust,
     repoKey: 'agent-os-ui',
@@ -224,8 +224,7 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
   {
     id: 'm8',
     name: 'Trust Portal',
-    effect:
-      'flexgrafik.nl brand portal with CTAs. Generic sales chat LIVE; dedicated qualification agent PLANNED.',
+    effect: MODULE_SHOWCASE['flexgrafik-nl'].effect,
     intents: ['money', 'order'],
     route: ROUTES.webUpgrade,
     repoKey: 'flexgrafik-nl',
@@ -266,10 +265,11 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     number: 3,
     repoKey: 'jadzia-core',
     role: 'Chief Operating Intelligence (COI)',
-    statusNote: 'LIVE: WP agent + sales chat · TO-BE: order/lead/analytics',
-    intents: ['time', 'calm', 'order'],
-    screenKey: 'inboxLanes',
-    proofRoute: ROUTES.resultsInboxKiller,
+    statusNote: 'LIVE: orders · leads · analytics · WP SSH · sales chat · weekly brief',
+    intents: ['time', 'calm', 'order', 'efficiency'],
+    screenKey: 'workflowMap',
+    proofRoute: JADZIA_COI_ROUTE,
+    flagship: true,
   },
   {
     number: 4,

@@ -9,7 +9,17 @@ import { ROUTES, ARTEFACTS, SITE_URL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { vcmsFeatureStatus } from '@/content/proof';
 import { ECOSYSTEM_REPOS } from '@/content/ecosystem';
-import { OWNER_FLOW_STEPS, JADZIA_ONE_LINER, PORTAL_CHAT_DISCLAIMER } from '@/content/owner-ecosystem';
+import {
+  OWNER_FLOW_STEPS,
+  JADZIA_ONE_LINER,
+  PORTAL_CHAT_DISCLAIMER,
+} from '@/content/owner-ecosystem';
+import {
+  JADZIA_COI,
+  JADZIA_COI_ANCHOR,
+  JADZIA_COI_CAPABILITIES,
+  JADZIA_COI_STACK,
+} from '@/content/jadzia-coi';
 import { READINESS_ROWS } from '@/content/readiness';
 import { INVESTOR_SECTION, LIVE_DEMO_LINKS } from '@/content/live-demos';
 import StatusBadge from '@/components/ui/StatusBadge';
@@ -40,7 +50,7 @@ const VCMS_WHY = [
 export const metadata: Metadata = {
   title: 'Owner ecosystem — 8 repos, 1 system',
   description:
-    '8-repo governed ecosystem · honest built vs planned. VCMS supervision, Jadzia COI roadmap, Agent OS execution, wizard commerce.',
+    '8-repo governed ecosystem. Jadzia COI, VCMS supervision, Agent OS execution, wizard commerce — the stack behind Quietforge.',
   openGraph: {
     title: 'Owner ecosystem — 8 repos, 1 system',
     description:
@@ -240,10 +250,48 @@ export default function OwnerEcosystemPage() {
         </div>
       </Section>
 
-      <Section padding="large">
+      <Section padding="large" id={JADZIA_COI_ANCHOR} className="scroll-mt-24">
+        <Eyebrow>{JADZIA_COI.name}</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-2">
+          {JADZIA_COI.fullName}
+        </h2>
+        <p className="mb-2 font-mono text-sm text-[var(--qf-accent)]">{JADZIA_COI.tagline}</p>
+        <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)]">
+          {JADZIA_COI.summary}
+        </p>
+        <div className="mb-8 grid gap-[var(--qf-sp-4)] sm:grid-cols-2 lg:grid-cols-3">
+          {JADZIA_COI_CAPABILITIES.map((cap) => (
+            <Card key={cap.id} className="p-5">
+              <h3 className="mb-2 font-bold text-[var(--qf-text)]">{cap.title}</h3>
+              <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{cap.detail}</p>
+            </Card>
+          ))}
+        </div>
+        <Card className="p-5">
+          <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+            Stack
+          </p>
+          <ul className="flex flex-wrap gap-2 text-sm text-[var(--qf-text-dim)]">
+            <li className="rounded-full border border-[var(--qf-border)] px-3 py-1">
+              {JADZIA_COI_STACK.api}
+            </li>
+            <li className="rounded-full border border-[var(--qf-border)] px-3 py-1">
+              {JADZIA_COI_STACK.llm}
+            </li>
+            <li className="rounded-full border border-[var(--qf-border)] px-3 py-1">
+              {JADZIA_COI_STACK.ops}
+            </li>
+            <li className="rounded-full border border-[var(--qf-border)] px-3 py-1">
+              {JADZIA_COI_STACK.data}
+            </li>
+          </ul>
+        </Card>
+      </Section>
+
+      <Section background="surface" padding="large">
         <Card className="p-6">
           <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-            Portal chat · honest framing
+            Portal chat · product roadmap
           </p>
           <p className="mb-4 max-w-none text-sm text-[var(--qf-text-dim)]">{PORTAL_CHAT_DISCLAIMER}</p>
           <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{JADZIA_ONE_LINER}</p>

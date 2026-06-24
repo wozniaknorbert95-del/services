@@ -38,8 +38,7 @@ export default function BuiltVsPlanned() {
           </h2>
           <p className="qf-lead mt-[var(--qf-sp-4)] max-w-2xl">{READINESS_HEADER.lead}</p>
           <p className="qf-hint mt-[var(--qf-sp-3)]">
-            {metrics.repos} repos · {metrics.productionTouching} production-touching · COI roadmap
-            active
+            {metrics.repos} repos · {metrics.productionTouching} production-touching · Jadzia COI live
           </p>
         </motion.div>
 

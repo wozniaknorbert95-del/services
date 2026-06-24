@@ -15,7 +15,7 @@ export const metrics = {
   wizardSteps: "9",                                            // [R] kod: "Stap 1 van 9" — UI screens
   wizardBusinessSteps: "7",                                    // [R] business strategy decision stages
   wizardStepsFootnote: "9 UI screens · 7 business decision stages",
-  skus: "200+",                                                // [R] katalogi JSON
+  skus: "77",                                                 // [R] product-master-table.json SSoT
   gameLevels: "5",                                             // [R] Beginner → Boss: Belastingdienst
   agentNodes: "5",                                             // [R] Planner→Coder→Tester→Reviewer→Summarizer
   msgsPerScan: "142",                                          // [T] po B1 — test inbox
@@ -201,7 +201,7 @@ export const caseMeasurements: Record<
   salesFunnel: { value: "9-step configurator → quote → payment, live.", ready: true },
   leadMagnet:  { value: leadMagnetSalesOneLiner, ready: true },
   advisory:    { value: "6-phase delivery, AVG layer specified · anonymised · in delivery.", ready: true },
-  ownerEcosystem: { value: "8-repo scan status with conflict detection before deploy.", ready: true },
+  ownerEcosystem: { value: "8-repo governance + Jadzia COI operations layer live in production.", ready: true },
 };
 
 // Pricing tiers — placeholders null

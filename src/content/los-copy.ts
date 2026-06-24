@@ -34,7 +34,7 @@ export const LOS_LAYERS: readonly LosLayer[] = [
     id: 'think',
     name: 'Think',
     systems: 'Jadzia Strategist',
-    detail: 'Interpret context and propose next actions — never auto-ship.',
+    detail: 'Orders, leads and ops signals feed Jadzia COI — weekly strategy brief and Kaizen guard before action.',
   },
   {
     id: 'orchestrate',

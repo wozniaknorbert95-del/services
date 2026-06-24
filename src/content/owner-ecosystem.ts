@@ -1,9 +1,10 @@
 // ============================================================================
-// OWNER ECOSYSTEM — flow steps with honest LIVE / PARTIAL / PLANNED labels.
-// Binding: flexgrafik-meta/docs/core/as-is-inventory.md (2026-06-24)
+// OWNER ECOSYSTEM — flow steps with status labels.
+// Binding: flexgrafik-meta/docs/core/modules/ + jadzia-coi.ts
 // ============================================================================
 
 import { metrics } from '@/content/proof';
+import { JADZIA_COI } from '@/content/jadzia-coi';
 
 export type FlowStepStatus = 'LIVE' | 'PARTIAL' | 'PLANNED';
 
@@ -22,43 +23,42 @@ export const FLOW_STEP_STATUS_LABELS: Record<FlowStepStatus, string> = {
   PLANNED: 'PLANNED',
 } as const;
 
-/** Six-step owner ecosystem flow — honest AS-IS from canonical inventory */
+/** Six-step owner ecosystem flow */
 export const OWNER_FLOW_STEPS: readonly OwnerFlowStep[] = [
   {
     step: '01',
     title: 'Entry',
     status: 'PARTIAL',
     detail:
-      'flexgrafik.nl trust portal routes visitors. Generic sales chat (customer_agent) is LIVE — same endpoint as the wizard. Dedicated industry qualification agent is PLANNED.',
-    plannedNote: 'Qualification agent post-angel',
+      'flexgrafik.nl trust portal routes visitors. Sales chat (customer_agent) is LIVE on portal and wizard. Dedicated industry qualification agent is on the product roadmap.',
+    plannedNote: 'Portal qualification agent',
   },
   {
     step: '02',
     title: 'Revenue',
     status: 'LIVE',
-    detail: `zzpackage wizard — ${metrics.wizardSteps} UI screens, open pricing, Mollie checkout. ${metrics.wizardStepsFootnote}.`,
+    detail: `zzpackage wizard — ${metrics.wizardSteps} UI screens, 77 SKU catalog, open pricing, Mollie checkout from €199. ${metrics.wizardStepsFootnote}.`,
   },
   {
     step: '03',
     title: 'Leads',
     status: 'LIVE',
     detail:
-      'app.flexgrafik.nl game — coupons and contacts funnel into the wizard with tier-aware attribution.',
+      'app.flexgrafik.nl — Bouwplaats Chaos PWA, Turnstile gate, 4-tier reward ladder, seasonal leaderboard, wizard bridge with tier-aware coupons.',
   },
   {
     step: '04',
     title: 'Operations',
-    status: 'PARTIAL',
-    detail:
-      'jadzia-core COI layer. LIVE today: WordPress SSH agent and wizard sales chat. PLANNED: order ingestion, lead unification, weekly strategy brief.',
-    plannedNote: 'order_node · WC webhooks · jadzia.db ingestion',
+    status: 'LIVE',
+    highlight: true,
+    detail: JADZIA_COI.summary,
   },
   {
     step: '05',
     title: 'Execution',
     status: 'LIVE',
     highlight: true,
-    detail: `Agent OS — ${metrics.agentNodes}-node LangGraph pipeline (Planner → Coder → Tester → Reviewer → Summarizer). Hybrid VPS control plane with human gate before deploy.`,
+    detail: `Agent OS — ${metrics.agentNodes}-node LangGraph pipeline (Planner → Coder → Tester → Reviewer → Summarizer). Hybrid VPS control plane + Local Runner with human gate before deploy.`,
   },
   {
     step: '06',
@@ -66,12 +66,11 @@ export const OWNER_FLOW_STEPS: readonly OwnerFlowStep[] = [
     status: 'LIVE',
     highlight: true,
     detail:
-      'Flex-VCMS — scan all repos, detect conflicts, enforce SSoT. Governance layer with Conflicts: 0 target on every scan.',
+      'Flex-VCMS — scan all repos, detect conflicts, enforce SSoT, KODA assistant and governance audit trail. Conflicts: 0 target on every scan.',
   },
 ] as const;
 
 export const PORTAL_CHAT_DISCLAIMER =
-  'The homepage chat is a supervised sales assistant (shared with the wizard). A dedicated industry qualification agent is planned — discovery first, checkout in the wizard.';
+  'Portal and wizard share the same supervised sales chat (customer_agent). A dedicated industry qualification flow is on the product roadmap — discovery first, checkout in the wizard.';
 
-export const JADZIA_ONE_LINER =
-  'Jadzia is the Chief Operating Intelligence layer — not a chatbot. Live: WP automation and wizard chat. Next: orders, leads and analytics in one governed loop.';
+export const JADZIA_ONE_LINER = JADZIA_COI.oneLiner;
