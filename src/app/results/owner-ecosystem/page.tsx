@@ -266,14 +266,26 @@ export default function OwnerEcosystemPage() {
                 <StatusBadge status={demo.status} />
               </div>
               <p className="mb-3 text-sm text-[var(--qf-text-dim)]">{demo.note}</p>
-              <a
-                href={demo.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
-              >
-                Open live demo ↗
-              </a>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href={demo.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+                >
+                  Open live demo ↗
+                </a>
+                {demo.verifyHref ? (
+                  <a
+                    href={demo.verifyHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-[var(--qf-text-dim)] hover:text-[var(--qf-accent)]"
+                  >
+                    Verify API health ↗
+                  </a>
+                ) : null}
+              </div>
             </Card>
           ))}
         </div>

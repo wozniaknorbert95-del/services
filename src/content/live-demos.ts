@@ -17,6 +17,7 @@ export interface LiveDemoLink {
   id: string;
   label: string;
   href: string;
+  verifyHref?: string;
   status: 'LIVE';
   note: string;
 }
@@ -47,7 +48,8 @@ export const LIVE_DEMO_LINKS: readonly LiveDemoLink[] = [
     id: 'mission-control',
     label: 'Mission Control',
     href: agentOsPublicUrls.missionControl,
+    verifyHref: agentOsPublicUrls.apiHealth,
     status: 'LIVE',
-    note: 'Agent OS dashboard · HITL queue',
+    note: 'Dashboard UI auth-gated · public API health for verification',
   },
 ] as const;
