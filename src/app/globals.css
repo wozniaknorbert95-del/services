@@ -288,6 +288,15 @@ a:hover {
   opacity: 0.45;
 }
 
+.qf-los-life-loop-step {
+  min-width: 9rem;
+}
+
+.qf-los-hitl-badge {
+  border: 1px solid var(--qf-accent);
+  padding: 0.125rem 0.375rem;
+}
+
 .qf-pipeline-handoff {
   border-color: var(--qf-accent);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--qf-accent) 35%, transparent);

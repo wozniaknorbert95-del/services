@@ -7,6 +7,7 @@
 import { ROUTES } from '@/lib/constants';
 import { JADZIA_COI_ROUTE } from '@/content/jadzia-coi';
 import { MODULE_SHOWCASE } from '@/content/module-showcase';
+import type { LosLayerId } from '@/content/los-architecture';
 
 export type IntentId = 'time' | 'money' | 'order' | 'calm' | 'efficiency';
 
@@ -48,10 +49,9 @@ export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
 /** Home section markers — site-map.md §2 (for DOM verification) */
 export const HOME_SECTION_MARKERS: Record<(typeof HOME_SECTIONS)[number], string> = {
   HeroSection: 'hero',
-  SystemArchitecture: 'system-architecture',
   LivingSystemTeaser: 'los-teaser',
   BuiltVsPlanned: 'built-vs-planned',
-  IntentRouter: 'intent-router',
+  IntentRouter: 'repo-router',
   PainGrid: 'pain-grid',
   SpearheadSpotlight: 'spearhead',
   OwnerEcosystemTeaser: 'owner-ecosystem',
@@ -126,7 +126,6 @@ export function getIntentMeta(id: IntentId) {
 /** Locked home stack — site-map.md §2 */
 export const HOME_SECTIONS = [
   'HeroSection',
-  'SystemArchitecture',
   'LivingSystemTeaser',
   'BuiltVsPlanned',
   'IntentRouter',
@@ -240,6 +239,7 @@ export interface EcosystemRepo {
   role: string;
   statusNote?: string;
   intents: IntentId[];
+  losLayers: readonly LosLayerId[];
   screenKey?: ScreenKey;
   proofRoute: string;
   flagship?: boolean;
@@ -251,6 +251,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'zzpackage',
     role: 'Wizard Cash Engine',
     intents: ['money', 'efficiency'],
+    losLayers: ['sense', 'act'],
     screenKey: 'wizardCheckout',
     proofRoute: ROUTES.resultsSalesFunnel,
     flagship: true,
@@ -260,6 +261,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'app.flexgrafik.nl',
     role: 'Lead magnet game',
     intents: ['money'],
+    losLayers: ['sense'],
     screenKey: 'leadMagnet',
     proofRoute: ROUTES.resultsLeadMagnet,
   },
@@ -269,6 +271,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     role: 'Chief Operating Intelligence (COI)',
     statusNote: 'LIVE: orders · leads · analytics · WP SSH · sales chat · weekly brief',
     intents: ['time', 'calm', 'order', 'efficiency'],
+    losLayers: ['think', 'act'],
     screenKey: 'workflowMap',
     proofRoute: JADZIA_COI_ROUTE,
     flagship: true,
@@ -278,6 +281,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'agent-os',
     role: 'Agent workforce',
     intents: ['time', 'efficiency'],
+    losLayers: ['orchestrate', 'act'],
     screenKey: 'agentCards',
     proofRoute: ROUTES.resultsAgentOrchestrator,
   },
@@ -286,6 +290,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'flex-vcms',
     role: 'Governance layer',
     intents: ['order', 'calm'],
+    losLayers: ['sense', 'guard'],
     screenKey: 'vcmsDashboard',
     proofRoute: ROUTES.resultsOwnerEcosystemWhyVcms,
     flagship: true,
@@ -296,6 +301,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     role: 'Trust Portal',
     statusNote: 'LIVE: generic sales chat · PLANNED: qualification agent',
     intents: ['money', 'order'],
+    losLayers: ['sense'],
     screenKey: 'portalAssistant',
     proofRoute: ROUTES.webUpgrade,
   },
@@ -304,6 +310,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'flexgrafik-meta',
     role: 'Method / Automation Map',
     intents: ['order', 'money'],
+    losLayers: ['guard', 'memory'],
     proofRoute: ROUTES.howItWorks,
   },
   {
@@ -311,6 +318,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'agent-os-ui',
     role: 'Mission Control',
     intents: ['order', 'efficiency'],
+    losLayers: ['orchestrate'],
     screenKey: 'adminDashboard',
     proofRoute: ROUTES.trust,
   },

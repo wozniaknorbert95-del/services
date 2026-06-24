@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import HeroSection from '@/components/home/HeroSection';
-import SystemArchitecture from '@/components/home/SystemArchitecture';
 import LivingSystemTeaser from '@/components/home/LivingSystemTeaser';
 import BuiltVsPlanned from '@/components/home/BuiltVsPlanned';
 import IntentRouter from '@/components/home/IntentRouter';
@@ -50,7 +49,6 @@ export default function Home() {
       <div className="pb-20 lg:pb-0">
         <SectionProgress />
         <HeroSection />
-        <SystemArchitecture />
         <LivingSystemTeaser />
         <BuiltVsPlanned />
         <IntentRouter />

@@ -23,7 +23,7 @@ Invoke this skill when:
 
 ### Step 2 — Check against binding rules
 
-**Home order (site-map §2 — LOCKED):** the 13 sections must stay in canonical order (Hero → SystemArchitecture → IntentRouter → PainGrid → SpearheadSpotlight → OwnerEcosystemTeaser → SystemMetrics → ResultsTeaser → BehindTheScenes → HowIWork → TrustAndObjections → Pricing → FinalCtaBand). Forbidden on home: `EcosystemVideo`, second hero rewrite, "AI Systems Architect" label.
+**Home order (site-map §2 — LOCKED):** 14 sections — Hero → LivingSystemTeaser (full LOS) → BuiltVsPlanned → IntentRouter (8 repos) → PainGrid → SpearheadSpotlight → OwnerEcosystemTeaser → SystemMetrics → ResultsTeaser → BehindTheScenes → HowIWork → TrustAndObjections → Pricing → FinalCtaBand. Forbidden on home: `EcosystemVideo`, second hero rewrite, "AI Systems Architect" label, `SystemArchitecture` SMB pipeline.
 
 **Page arc:** every money page is **Problem → System → Effect**, never Feature → Feature → Feature.
 

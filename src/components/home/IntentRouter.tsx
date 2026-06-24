@@ -2,60 +2,87 @@
 
 import { useMemo } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
-  ECOSYSTEM_MODULES,
+  ECOSYSTEM_REPOS,
   INTENT_LEGEND,
   getIntentMeta,
   type IntentId,
 } from '@/content/ecosystem';
+import { formatLosLayers } from '@/content/los-architecture';
 import { ROUTES } from '@/lib/constants';
 import { useHomeIntent } from '@/lib/home-intent';
+import {
+  intentHighlightClass,
+  itemMatchesIntent,
+  sortByIntentMatch,
+} from '@/lib/intent-highlight';
 import IntentBadges from '@/components/ui/IntentBadges';
 import ModulePreviewThumb from '@/components/ui/ModulePreviewThumb';
 import Button from '@/components/ui/Button';
 
-/** When filtering by order — surface governance (VCMS) first. */
-const ORDER_INTENT_MODULE_IDS = ['m5', 'm1', 'm7', 'm8'] as const;
+/** When filtering by order — surface governance repos first. */
+const ORDER_INTENT_REPO_KEYS = [
+  'flex-vcms',
+  'flexgrafik-meta',
+  'agent-os-ui',
+  'flexgrafik-nl',
+] as const;
 
-function sortModulesForIntent(modules: typeof ECOSYSTEM_MODULES, intent: IntentId) {
-  if (intent !== 'order') return [...modules];
+function sortReposForIntent(repos: typeof ECOSYSTEM_REPOS, intent: IntentId) {
+  if (intent !== 'order') {
+    return sortByIntentMatch(repos, intent);
+  }
 
-  return [...modules].sort((a, b) => {
-    const ai = ORDER_INTENT_MODULE_IDS.indexOf(a.id as (typeof ORDER_INTENT_MODULE_IDS)[number]);
-    const bi = ORDER_INTENT_MODULE_IDS.indexOf(b.id as (typeof ORDER_INTENT_MODULE_IDS)[number]);
+  return [...repos].sort((a, b) => {
+    const aMatch = a.intents.includes(intent);
+    const bMatch = b.intents.includes(intent);
+    if (aMatch !== bMatch) {
+      return aMatch ? -1 : 1;
+    }
+    const ai = ORDER_INTENT_REPO_KEYS.indexOf(
+      a.repoKey as (typeof ORDER_INTENT_REPO_KEYS)[number]
+    );
+    const bi = ORDER_INTENT_REPO_KEYS.indexOf(
+      b.repoKey as (typeof ORDER_INTENT_REPO_KEYS)[number]
+    );
     return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
   });
 }
 
 export default function IntentRouter() {
-  const { activeIntent, setActiveIntent } = useHomeIntent();
+  const { activeIntent, setActiveIntent, isFiltering } = useHomeIntent();
 
-  const filteredModules = useMemo(() => {
-    const base = activeIntent
-      ? ECOSYSTEM_MODULES.filter((m) => m.intents.includes(activeIntent))
-      : [...ECOSYSTEM_MODULES];
-    return activeIntent ? sortModulesForIntent(base, activeIntent) : base;
-  }, [activeIntent]);
+  const sortedRepos = useMemo(
+    () =>
+      activeIntent ? sortReposForIntent(ECOSYSTEM_REPOS, activeIntent) : [...ECOSYSTEM_REPOS],
+    [activeIntent]
+  );
 
-  const recommended = filteredModules[0];
+  const recommended = useMemo(() => {
+    if (!activeIntent) {
+      return ECOSYSTEM_REPOS.find((r) => r.flagship) ?? ECOSYSTEM_REPOS[0];
+    }
+    return sortedRepos.find((r) => r.intents.includes(activeIntent)) ?? sortedRepos[0];
+  }, [activeIntent, sortedRepos]);
+
   const filterLabel = activeIntent
-    ? `Showing: ${filteredModules.length} module${filteredModules.length === 1 ? '' : 's'} matching "${getIntentMeta(activeIntent).label}"`
-    : `Showing: all ${ECOSYSTEM_MODULES.length} modules`;
+    ? `Highlighting repos matching "${getIntentMeta(activeIntent).label}" — all 8 visible`
+    : `Showing: all ${ECOSYSTEM_REPOS.length} repositories · one LOS`;
 
   return (
     <section
-      data-home-section="intent-router"
+      id="repo-router"
+      data-home-section="repo-router"
       className="relative border-t border-[var(--qf-border)] py-[var(--qf-sp-24)]"
     >
       <div className="mx-auto flex max-w-[var(--qf-maxw)] flex-col gap-[var(--qf-sp-12)] px-[var(--qf-sp-6)]">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="qf-eyebrow">// route --by-outcome</span>
-          <h2 className="mt-[var(--qf-sp-4)]">
-            What do you want to improve in your business?
-          </h2>
+          <span className="qf-eyebrow">// eight_repos — living_system_map</span>
+          <h2 className="mt-[var(--qf-sp-4)]">Eight repositories. One supervised LOS.</h2>
           <p className="qf-lead mx-auto mt-[var(--qf-sp-4)]">
-            You pick business outcomes. I match the system underneath — not a generic service list.
+            Pick a business outcome — every repo stays visible. Matching cards highlight; the rest
+            dim. Each repo maps to LOS layers and proof.
           </p>
         </div>
 
@@ -92,36 +119,49 @@ export default function IntentRouter() {
         <p className="text-center font-mono text-xs text-[var(--qf-text-dim)]">{filterLabel}</p>
 
         <div className="grid grid-cols-1 gap-[var(--qf-sp-4)] md:grid-cols-2 lg:grid-cols-4">
-          <AnimatePresence mode="popLayout">
-            {filteredModules.map((module) => (
+          {sortedRepos.map((repo) => {
+            const matches = itemMatchesIntent(repo, activeIntent);
+            return (
               <motion.div
                 layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                key={module.id}
+                key={repo.repoKey}
+                className={`transition-opacity duration-[var(--qf-transition)] ${intentHighlightClass(matches, isFiltering)}`}
               >
                 <Link
-                  href={module.route}
+                  href={repo.proofRoute}
                   className="group flex h-full flex-col border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-6)] transition-colors duration-[var(--qf-transition)] hover:border-[var(--qf-border-bright)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--qf-accent)]"
                 >
-                  <ModulePreviewThumb screenKey={module.screenKey} />
-                  <h3 className="mb-2 text-[var(--qf-fs-lg)] font-bold transition-colors group-hover:text-[var(--qf-accent)]">
-                    {module.name}
+                  <span className="mb-2 font-mono text-xs text-[var(--qf-text-faint)]">
+                    // repo_{String(repo.number).padStart(2, '0')}
+                    {repo.flagship ? ' ★' : ''}
+                  </span>
+                  {repo.screenKey ? <ModulePreviewThumb screenKey={repo.screenKey} /> : null}
+                  <h3 className="mb-1 text-[var(--qf-fs-lg)] font-bold transition-colors group-hover:text-[var(--qf-accent)]">
+                    {repo.role}
                   </h3>
-                  <p className="mb-6 flex-grow text-sm text-[var(--qf-text-dim)]">{module.effect}</p>
+                  <p className="mb-2 font-mono text-[10px] text-[var(--qf-accent)]">
+                    LOS: {formatLosLayers(repo.losLayers)}
+                  </p>
+                  {repo.statusNote ? (
+                    <p className="mb-4 flex-grow text-sm text-[var(--qf-text-dim)]">
+                      {repo.statusNote}
+                    </p>
+                  ) : (
+                    <p className="mb-4 flex-grow font-mono text-xs text-[var(--qf-text-faint)]">
+                      {repo.repoKey}
+                    </p>
+                  )}
 
                   <div className="mt-auto flex items-center justify-between border-t border-[var(--qf-border)] pt-4">
-                    <IntentBadges intents={[...module.intents]} />
+                    <IntentBadges intents={[...repo.intents]} />
                     <span className="font-mono text-xs text-[var(--qf-accent)] group-hover:underline">
-                      Details →
+                      Proof →
                     </span>
                   </div>
                 </Link>
               </motion.div>
-            ))}
-          </AnimatePresence>
+            );
+          })}
         </div>
 
         <motion.div
@@ -138,8 +178,8 @@ export default function IntentRouter() {
           <p className="mb-3 font-mono text-xs text-[var(--qf-text-dim)]">// next_step</p>
           <p className="mb-[var(--qf-sp-8)] text-[var(--qf-fs-lg)] font-semibold text-[var(--qf-text)]">
             {activeIntent && recommended
-              ? `Recommended: ${recommended.name}`
-              : 'Start with a paid Automation Map — then we pick the right module.'}
+              ? `Recommended: ${recommended.role}`
+              : 'Start with a paid Automation Map — then we pick the right repo.'}
           </p>
 
           <div className="flex flex-col justify-center gap-[var(--qf-sp-4)] sm:flex-row">

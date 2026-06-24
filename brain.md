@@ -61,9 +61,9 @@ Portfolio sprzedaży systemów konwersji dla SMB. Flagship proof: **Wizard Cash 
 | Track | Asset | Audience | Reguła |
 |---|---|---|---|
 | 3 | `portfolio.flexgrafik.nl` | Enterprise AI engineering | **Święty.** Zero ZZP, zero cen, zero packages. |
-| 4 | `quietforge.flexgrafik.nl` (repo `services`) | SMB/ZZP + investor bridge | **Konwersja + honest architecture proof.** SMB buyer path + `/results/owner-ecosystem/` for tech/investor audience. |
+| 4 | `quietforge.flexgrafik.nl` (repo `services`) | SMB/ZZP + investor bridge | **Konwersja + LOS canon on home** (`living-system-architecture.md`). SMB buyer path via PainGrid; `/results/owner-ecosystem/` for tech/investor audience. |
 
-**Most:** Historia Norberta Wozniaka ("Zbudowałem systemy dla własnej drukarni...") — ecosystem proof on request, not jargon on every hero.
+**Home architecture (2026-06-25):** Full LOS on home §2 — 6 layers + Memory, life loop, three brains, `los-architecture.svg`. Repo router always shows 8 repos (`ECOSYSTEM_REPOS`). SMB pipeline (`SystemArchitecture`) removed from home; component retained for future `/how-it-works` use.
 
 ---
 

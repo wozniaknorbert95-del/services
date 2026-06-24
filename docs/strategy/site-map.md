@@ -24,20 +24,19 @@
 | # | Section | Component | Inspiracja | Funnel job |
 |---|---------|-----------|------------|------------|
 | 1 | Hero | `HeroSection` | BLOK 2 | Who / for whom / outcome / proof line / L3 CTA |
-| 2 | System pipeline | `SystemArchitecture` | BLOK 7, 10 | Visitor → Client education |
-| 3 | LOS architecture | `LivingSystemTeaser` | LOS canon | Investor bridge — 5 layers, governance-first |
-| 4 | Built vs planned | `BuiltVsPlanned` | AS-IS inventory | Honest LIVE/PARTIAL table — 8 repos |
-| 5 | Intent router | `IntentRouter` | BLOK 7, 8, 15 | 8 modules + 5 intent colors |
-| 6 | Pain grid | `PainGrid` | BLOK 1 | Pain recognition → solution link |
-| 7 | Spearhead | `SpearheadSpotlight` | Filar 2 | Wizard Cash Engine = live proof #1 |
-| 8 | Ecosystem map | `OwnerEcosystemTeaser` | 8 repos | 8 repos · 1 supervised system |
-| 9 | Metrics | `SystemMetrics` | BLOK 8 | Numbers from `proof.ts` + intent colors |
-| 10 | Results teaser | `ResultsTeaser` | BLOK 3, 12 | Problem → System → Effect cards |
-| 11 | Behind the scenes | `BehindTheScenes` | BLOK 6 | VCMS + screens from manifest |
-| 12 | How I work | `HowIWork` | REPO 7 | Map → Hand over |
-| 13 | Trust & objections | `TrustAndObjections` | BLOK 6, 8 | HITL/EU/AVG cards + 4 named objections (`data-home-section`: `trust-safety`, `why-this-works`) |
-| 14 | Pricing | `sections/Pricing` | BLOK 13 | 4 tiers + L3 |
-| 15 | Final CTA | `FinalCtaBand` | BLOK 13 | Single L3 close |
+| 2 | LOS architecture | `LivingSystemTeaser` | LOS canon | Full LOS — 6 layers + Memory, life loop, 3 brains, diagram |
+| 3 | Built vs planned | `BuiltVsPlanned` | AS-IS inventory | Honest LIVE/PARTIAL table — 8 repos |
+| 4 | Repo router | `IntentRouter` | BLOK 7, 8, 15 | **8 repos** + LOS layer badges + 5 intent colors (dim/highlight, never hide) |
+| 5 | Pain grid | `PainGrid` | BLOK 1 | Pain recognition → solution link |
+| 6 | Spearhead | `SpearheadSpotlight` | Filar 2 | Wizard Cash Engine = live proof #1 |
+| 7 | Ecosystem map | `OwnerEcosystemTeaser` | 8 repos | 8 repos · 1 supervised system |
+| 8 | Metrics | `SystemMetrics` | BLOK 8 | Numbers from `proof.ts` + intent colors |
+| 9 | Results teaser | `ResultsTeaser` | BLOK 3, 12 | Problem → System → Effect cards |
+| 10 | Behind the scenes | `BehindTheScenes` | BLOK 6 | VCMS + screens from manifest |
+| 11 | How I work | `HowIWork` | REPO 7 | Map → Hand over |
+| 12 | Trust & objections | `TrustAndObjections` | BLOK 6, 8 | HITL/EU/AVG cards + 4 named objections (`data-home-section`: `trust-safety`, `why-this-works`) |
+| 13 | Pricing | `sections/Pricing` | BLOK 13 | 4 tiers + L3 |
+| 14 | Final CTA | `FinalCtaBand` | BLOK 13 | Single L3 close |
 
 **Chrome (not numbered sections):** `SectionProgress` (left rail + mobile scroll bar), `StickyCta` (mobile).
 
@@ -53,7 +52,7 @@
 
 - One L3 above fold (hero primary = Book Automation Map)
 - Minimum two proof sections before second L3
-- `IntentRouter` routes to proof routes, not only pricing
+- `IntentRouter` routes to proof routes, not only pricing — **always shows all 8 repos** (`ECOSYSTEM_REPOS`); intent filter dims non-matching cards
 - Every module/pain/case card: ≥1 intent color badge (§4)
 
 ---
