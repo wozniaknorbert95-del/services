@@ -2,7 +2,7 @@
 
 > **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` when out of date.
 
-**Updated:** 2026-06-25 · **Last ship:** E-2 CS-02 (pending commit)
+**Updated:** 2026-06-25 · **Last ship:** `9aa24f5` E-2 CS-02
 
 ---
 
