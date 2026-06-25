@@ -388,4 +388,27 @@ Today: manifest slot only (`proof.ts` `ecosystem`, `ready: false`). Recording ca
 
 ---
 
-*Next action: Commander session 1 — record `wizard` + `leadMagnet` per Master order. Agent waits for MP4 before any `ready: true`.*
+*Next action: Commander reviews `wizard-demo.mp4` on deploy; continue inbox/lead-magnet per Master order.*
+
+---
+
+## Lessons learned — wizard automated capture (2026-06-25)
+
+**Root cause of v1 failure:** Script advanced past vehicle without scrolling to `Volgende`; user stayed on Stap 3 Voertuig for ~45s. Playwright lead-in black frames made the opening look empty.
+
+**Minimum interaction checklist (`npm run record:wizard`):**
+
+| # | Gate | Requirement |
+|---|------|-------------|
+| 1 | Entry | `/wizard/` + accept cookies |
+| 2 | Fundament | `LOGO BRONBESTAND` → cart €90 |
+| 3 | Vehicle | `CADDY / PARTNER` + scroll products; scroll bottom before `Volgende` |
+| 4 | Nav fallback | Progress bar step 4 if stuck on Stap 3 |
+| 5 | Minimum cart | `Softshell` + `WERKBROEK` via `data-action="plus"` → ≥ €199 |
+| 6 | Checkout | Stap 9 `SAMENVATTING & AFREKENEN` + upload zone |
+| 7 | FFmpeg | Tail trim `-sseof -68` (checkout is at end of raw capture) |
+| 8 | Quality | 45–72s, >800 KB, ≥5 distinct screens |
+
+**HEADED fallback:** `HEADED=1 npm run record:wizard`
+
+---

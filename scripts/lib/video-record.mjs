@@ -1,6 +1,5 @@
 /**
  * Shared Playwright screen capture → MP4 pipeline for gratka demo videos.
- * Requires: playwright (devDep). FFmpeg via @ffmpeg-installer/ffmpeg (optional dep).
  */
 import { chromium } from 'playwright';
 import { mkdirSync, readdirSync, statSync, unlinkSync, renameSync } from 'node:fs';
@@ -40,94 +39,133 @@ export function findLatestWebm(dir) {
   return files[0]?.f ?? null;
 }
 
-/**
- * Convert Playwright webm to H.264 MP4 (1920×1080, crf 23).
- * @returns {boolean} true when mp4 exists and > minBytes
- */
-export function webmToMp4(webmPath, mp4Path, minBytes = 100_000) {
+export function webmToMp4(webmPath, mp4Path, minBytes = 100_000, maxDurationSec = null) {
   const ffmpeg = resolveFfmpeg();
   if (!ffmpeg) {
-    console.warn(
-      'FFmpeg not found. Install @ffmpeg-installer/ffmpeg or set FFMPEG_PATH.',
-    );
-    console.warn(`WebM retained at ${webmPath} — convert manually before shipping.`);
+    console.warn('FFmpeg not found — WebM retained at', webmPath);
     return false;
   }
 
-  const result = spawnSync(
-    ffmpeg,
-    [
-      '-y',
-      '-i',
-      webmPath,
-      '-c:v',
-      'libx264',
-      '-crf',
-      '23',
-      '-pix_fmt',
-      'yuv420p',
-      '-movflags',
-      '+faststart',
-      mp4Path,
-    ],
-    { stdio: 'inherit' },
-  );
+  const args = maxDurationSec
+    ? [
+        '-y', '-sseof', `-${maxDurationSec}`, '-i', webmPath,
+        '-c:v', 'libx264', '-crf', '23', '-pix_fmt', 'yuv420p',
+        '-movflags', '+faststart', mp4Path,
+      ]
+    : [
+        '-y', '-ss', '1.5', '-i', webmPath,
+        '-c:v', 'libx264', '-crf', '23', '-pix_fmt', 'yuv420p',
+        '-movflags', '+faststart', mp4Path,
+      ];
 
-  if (result.status !== 0) {
-    console.error('FFmpeg conversion failed');
-    return false;
-  }
+  const result = spawnSync(ffmpeg, args, { stdio: 'inherit' });
 
+  if (result.status !== 0) return false;
   const size = statSync(mp4Path).size;
   console.log(`MP4 written: ${mp4Path} (${(size / 1024).toFixed(0)} KB)`);
   return size >= minBytes;
 }
 
-export async function launchRecordingBrowser() {
+/** @param {{ slowMo?: number }} [opts] */
+export async function launchRecordingBrowser(opts = {}) {
   ensureDirs();
-  const browser = await chromium.launch({ headless: true });
+  const headed = process.env.HEADED === '1';
+  const slowMo = opts.slowMo ?? (headed ? 50 : 0);
+
+  const browser = await chromium.launch({
+    headless: !headed,
+    slowMo,
+    args: ['--disable-blink-features=AutomationControlled'],
+  });
+
   const context = await browser.newContext({
     viewport: VIEWPORT,
     recordVideo: { dir: TMP_DIR, size: VIEWPORT },
     locale: 'nl-NL',
+    colorScheme: 'dark',
   });
+
   const page = await context.newPage();
-  return { browser, context, page };
+  return { browser, context, page, headed, slowMo };
 }
 
-export async function finalizeRecording(context, browser, outputName) {
+export async function finalizeRecording(context, browser, outputName, minBytes = 500_000, maxDurationSec = null) {
   await context.close();
   await browser.close();
 
   const webmName = findLatestWebm(TMP_DIR);
-  if (!webmName) {
-    throw new Error('No Playwright webm recording found in .tmp-video/');
-  }
+  if (!webmName) throw new Error('No Playwright webm recording found in .tmp-video/');
 
   const webmPath = join(TMP_DIR, webmName);
   const mp4Path = join(OUT_DIR, outputName);
+  const ok = webmToMp4(webmPath, mp4Path, minBytes, maxDurationSec);
 
-  const ok = webmToMp4(webmPath, mp4Path);
-  try {
-    unlinkSync(webmPath);
-  } catch {
-    /* ignore */
-  }
+  try { unlinkSync(webmPath); } catch { /* ignore */ }
 
   if (!ok) {
     const fallback = join(OUT_DIR, outputName.replace(/\.mp4$/, '.webm'));
     renameSync(webmPath, fallback);
-    console.warn(`Fallback: ${fallback} — run FFmpeg to produce ${outputName}`);
-    return { path: fallback, ready: false };
+    return { path: fallback, ready: false, size: 0 };
   }
 
-  return { path: mp4Path, ready: true };
+  return { path: mp4Path, ready: true, size: statSync(mp4Path).size };
 }
 
 export async function acceptCookiesIfPresent(page) {
   const btn = page.getByRole('button', { name: /alles accepteren/i });
   if (await btn.count()) {
     await btn.click();
-    await pause(page, 500);
+    await pause(page, 600);
   }
+}
+
+export async function dwell(page, ms, label) {
+  if (label) console.log(`  ⏱ ${label} (${(ms / 1000).toFixed(1)}s)`);
+  await pause(page, ms);
+}
+
+export async function scrollToTop(page) {
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  await pause(page, 400);
+}
+
+export async function scrollToBottom(page) {
+  await page.evaluate(() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }));
+  await pause(page, 1200);
+}
+
+export async function scrollBy(page, y) {
+  await page.evaluate((scrollY) => window.scrollTo({ top: scrollY, behavior: 'smooth' }), y);
+  await pause(page, 1200);
+}
+
+export async function waitForStep(page, stepNum) {
+  await page.waitForSelector(`text=STAP ${stepNum} ·`, { timeout: 20_000 }).catch(() => {});
+  await pause(page, 800);
+}
+
+export async function clickVolgende(page) {
+  const btn = page.getByRole('button', { name: /^volgende$/i });
+  await btn.scrollIntoViewIfNeeded().catch(() => {});
+  if (!(await btn.count())) return false;
+  if (!(await btn.isEnabled().catch(() => false))) return false;
+  await btn.click();
+  await pause(page, 3500);
+  return true;
+}
+
+export async function clickGeenSkip(page, label) {
+  const el = page.locator(`text=${label}`).first();
+  if (await el.count()) {
+    await el.scrollIntoViewIfNeeded().catch(() => {});
+    await el.click();
+    await pause(page, 2000);
+    return true;
+  }
+  return false;
+}
+
+export async function cartTotalExcl(page) {
+  const body = await page.locator('body').innerText();
+  return body.match(/TOTAAL EXCL\. BTW\s*\n€\s*([\d.,]+)/)?.[1] ?? '?';
 }
