@@ -15,12 +15,13 @@ import {
   jadziaCoiIntegrations,
   jadziaCoiLoopIntro,
   jadziaCoiLoopNodes,
+  jadziaCoiMetricStatusClass,
   jadziaCoiStack,
   jadziaCoiSupervisionNote,
   jadziaCoiVerifiedMetrics,
   jadziaCoiWorkflowPipelines,
 } from '@/content/jadzia-coi-case-study';
-import { JADZIA_COI_CAPABILITIES } from '@/content/jadzia-coi';
+import { JADZIA_COI_CAPABILITIES, jadziaCoiCapabilityStatusClass } from '@/content/jadzia-coi';
 
 export const metadata: Metadata = {
   title: jadziaCoiCaseMeta.title,
@@ -57,6 +58,8 @@ export default function JadziaCoiCaseStudyPage() {
     step: String(index + 1).padStart(2, '0'),
     title: cap.title,
     detail: cap.detail,
+    status: cap.status,
+    statusClass: jadziaCoiCapabilityStatusClass(cap.status),
     highlight: cap.id === 'orders' || cap.id === 'strategy',
   }));
 
@@ -144,7 +147,8 @@ export default function JadziaCoiCaseStudyPage() {
               key={m.label}
               className="rounded-full border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-3 py-1 font-mono text-xs text-[var(--qf-text-dim)]"
             >
-              {m.label}: <span className="text-emerald-500">{m.value}</span>
+              {m.label}:{' '}
+              <span className={jadziaCoiMetricStatusClass(m.status)}>{m.value}</span>
             </li>
           ))}
         </ul>

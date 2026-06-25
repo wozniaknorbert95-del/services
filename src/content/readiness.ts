@@ -39,9 +39,9 @@ export const READINESS_ROWS: readonly ReadinessRow[] = [
   {
     module: 'Jadzia COI',
     repoKey: 'jadzia-core',
-    readiness: '~95%',
-    capability: 'Orders, leads, analytics, WP SSH agent, sales chat, weekly brief',
-    status: 'LIVE',
+    readiness: '~90%',
+    capability: 'Leads, WP SSH, sales chat, weekly brief LIVE · WC order sync PLANNED',
+    status: 'PARTIAL',
   },
   {
     module: 'Agent OS',

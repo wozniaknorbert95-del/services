@@ -2,27 +2,27 @@
 
 > **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` when out of date.
 
-**Updated:** 2026-06-25 · **Last ship:** `ed05cb1` (deployed · smoke PASS)
+**Updated:** 2026-06-25 · **Last ship:** pending commit (E-4)
 
 ---
 
 ## CO ROBIMY
 
-**E-4 — Jadzia orders truth sync** — portfolio-wide MR-16 fix (prep ready).
+**E-4 — Jadzia orders truth sync** — **SHIPPED** (build PASS).
 
 ## DLACZEGO
 
-E-2b naprawił agent-orchestrator; ten sam drift („orders LIVE” w jadzia.db) zostaje na **featured case #02**, home §3 BuiltVsPlanned i `proof.ts`. Meta AS-IS wygrywa.
+MR-16 drift closed portfolio-wide; home BuiltVsPlanned, jadzia-coi, agent-orchestrator i proof.ts mówią jedną historię.
 
 ## NASTĘPNY KROK
 
-| # | Akcja | Effort |
-|---|--------|--------|
-| **1** | **E-4** — qualify orders across 8 files (prep: [`e4-jadzia-orders-truth-prep`](./handoffs/2026-06-25-e4-jadzia-orders-truth-prep.md)) | ~1 sesja |
-| 2 | E-5 — inbox-killer SSoT extraction | ~1 sesja |
-| 3 | BL-02 — commercial traction (Commander data) | blocked |
+| # | Akcja |
+|---|--------|
+| **1** | **E-5** — `inbox-killer-case-study.ts` SSoT (page hardcoded today) |
+| 2 | BL-02 — commercial traction §2.2 (Commander) |
+| 3 | BL-01 — Mission Control URL polish (optional) |
 
-**Start E-4 prompt:** „Begin E-4 per prep doc — jadzia orders truth sync.”
+**Start E-5 prompt:** „Begin E-5 — inbox-killer case study SSoT.”
 
 ---
 
@@ -30,7 +30,7 @@ E-2b naprawił agent-orchestrator; ten sam drift („orders LIVE” w jadzia.db)
 
 | Session | Handoff |
 |---------|---------|
-| 2026-06-25 | [`deploy-smoke-e2b-e3`](./handoffs/2026-06-25-deploy-smoke-e2b-e3.md) |
+| 2026-06-25 | [`e4-jadzia-orders-truth`](./handoffs/2026-06-25-e4-jadzia-orders-truth.md) |
 | 2026-06-25 | [`e3-cs03-sales-funnel`](./handoffs/2026-06-25-e3-cs03-sales-funnel.md) |
 | 2026-06-25 | [`e2b-cs02-polish`](./handoffs/2026-06-25-e2b-cs02-polish.md) |
 

@@ -40,11 +40,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: JADZIA_COI_SLUG,
     number: '02',
     title: jadziaCoiDisplayName,
-    meta: 'Jadzia COI · production',
+    meta: 'Jadzia COI · PARTIAL',
     context:
       'Running a print business on eight repos without an operating brain means orders, leads and ops live in separate tools — and WordPress edits stay risky.',
     system:
-      'FastAPI COI on EU VPS — jadzia.db unifies orders and leads, customer_agent powers wizard and portal chat, Paramiko SSH agent supervises WordPress with Telegram HITL.',
+      'FastAPI COI on EU VPS — jadzia.db unifies leads and ops; customer_agent powers wizard and portal chat; Paramiko SSH agent supervises WordPress with Telegram HITL. WC order sync: PLANNED.',
     real: 'COI live — widget chat, WP SSH pipeline, worker queue, hot-lead alerts and weekly strategy brief.',
     measurement: caseMeasurements.jadziaCoi.value ?? '',
     intents: ['time', 'calm', 'order', 'efficiency'],

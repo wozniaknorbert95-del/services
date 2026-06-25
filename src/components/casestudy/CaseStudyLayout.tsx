@@ -22,7 +22,15 @@ interface CaseStudyLayoutProps {
   architectureDescription: ReactNode;
   /** Show link to full LOS stack under architecture diagram. Default true. */
   showLosFootnote?: boolean;
-  buildModules: { title: string; detail: string; highlight?: boolean; number?: string; step?: string }[];
+  buildModules: {
+    title: string;
+    detail: string;
+    highlight?: boolean;
+    number?: string;
+    step?: string;
+    status?: string;
+    statusClass?: string;
+  }[];
   buildDescription: ReactNode;
   stack: string[];
   manifestKey: keyof typeof caseMeasurements;
@@ -153,6 +161,13 @@ export default function CaseStudyLayout({
                   {item.step || item.number || String(idx + 1).padStart(2, '0')}
                 </span>
                 <div className="min-w-0">
+                  {item.status ? (
+                    <p
+                      className={`mb-1 font-mono text-[10px] uppercase tracking-wider ${item.statusClass ?? 'text-[var(--qf-text-faint)]'}`}
+                    >
+                      {item.status}
+                    </p>
+                  ) : null}
                   <h3 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">{item.title}</h3>
                   <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{item.detail}</p>
                 </div>

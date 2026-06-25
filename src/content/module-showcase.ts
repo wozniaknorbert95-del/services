@@ -30,8 +30,8 @@ export const MODULE_SHOWCASE: Record<string, ModuleShowcase> = {
     repoKey: 'jadzia-core',
     portfolioLabel: 'Jadzia COI',
     effect:
-      'Chief Operating Intelligence — orders, leads, analytics, WP SSH agent and sales chat in one HITL-governed loop.',
-    highlights: ['jadzia.db operational store', 'Weekly strategy brief', 'Telegram + worker queue'],
+      'Chief Operating Intelligence — leads, analytics, WP SSH agent and sales chat LIVE in one HITL-governed loop · WC order sync PLANNED.',
+    highlights: ['Leads + chat LIVE', 'Order sync PLANNED', 'Telegram + worker queue'],
   },
   'agent-os': {
     repoKey: 'agent-os',

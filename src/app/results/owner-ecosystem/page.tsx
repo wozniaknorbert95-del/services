@@ -18,6 +18,7 @@ import {
   JADZIA_COI,
   JADZIA_COI_ANCHOR,
   JADZIA_COI_CAPABILITIES,
+  jadziaCoiCapabilityStatusClass,
   JADZIA_COI_STACK,
 } from '@/content/jadzia-coi';
 import { READINESS_ROWS } from '@/content/readiness';
@@ -265,6 +266,11 @@ export default function OwnerEcosystemPage() {
         <div className="mb-8 grid gap-[var(--qf-sp-4)] sm:grid-cols-2 lg:grid-cols-3">
           {JADZIA_COI_CAPABILITIES.map((cap) => (
             <Card key={cap.id} className="p-5">
+              <p
+                className={`mb-1 font-mono text-[10px] uppercase tracking-wider ${jadziaCoiCapabilityStatusClass(cap.status)}`}
+              >
+                {cap.status}
+              </p>
               <h3 className="mb-2 font-bold text-[var(--qf-text)]">{cap.title}</h3>
               <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{cap.detail}</p>
             </Card>

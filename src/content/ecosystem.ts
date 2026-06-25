@@ -269,7 +269,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     number: 3,
     repoKey: 'jadzia-core',
     role: 'Chief Operating Intelligence (COI)',
-    statusNote: 'LIVE: orders · leads · analytics · WP SSH · sales chat · weekly brief',
+    statusNote: 'LIVE: leads · analytics · WP SSH · sales chat · weekly brief · PLANNED: WC order sync to jadzia.db',
     intents: ['time', 'calm', 'order', 'efficiency'],
     losLayers: ['think', 'act'],
     screenKey: 'workflowMap',

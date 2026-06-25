@@ -203,7 +203,7 @@ export const caseMeasurements: Record<
   advisory:    { value: "6-phase delivery, AVG layer specified · anonymised · in delivery.", ready: true },
   ownerEcosystem: { value: "8-repo governance + Jadzia COI operations layer live in production.", ready: true },
   jadziaCoi: {
-    value: 'COI live — orders, leads, WP SSH, sales chat, worker HITL and weekly brief on EU VPS.',
+    value: 'COI live — leads, WP SSH, sales chat, worker HITL, weekly brief on EU VPS · WC order sync PLANNED.',
     ready: true,
   },
 };

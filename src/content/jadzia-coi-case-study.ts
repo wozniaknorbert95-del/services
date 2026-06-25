@@ -10,12 +10,12 @@ export const jadziaCoiDisplayName = 'Jadzia COI — Chief Operating Intelligence
 export const jadziaCoiCaseMeta = {
   title: 'Case study — Jadzia COI',
   description:
-    'How a FastAPI Chief Operating Intelligence layer unifies orders, leads, WordPress operations and sales chat — with Telegram HITL and jadzia.db as the operational brain.',
+    'How a FastAPI Chief Operating Intelligence layer unifies leads, WordPress operations and sales chat — with Telegram HITL and jadzia.db as the operational brain. WC order sync to jadzia.db: PLANNED.',
   openGraphTitle: 'Case study — Jadzia COI',
   openGraphDescription:
-    'Chief Operating Intelligence for a live 8-repo stack — orders, leads, analytics, WP SSH agent and wizard chat in one governed loop.',
+    'Chief Operating Intelligence for a live 8-repo stack — leads, analytics, WP SSH agent and wizard chat LIVE · WC order sync PLANNED.',
   twitterDescription:
-    'Jadzia COI — business brain with HITL gates. Architecture diagram and live integration proof.',
+    'Jadzia COI — business brain with HITL gates. Leads and chat LIVE; order webhook PLANNED per meta AS-IS.',
   ogAlt: 'Case study — Jadzia COI',
 } as const;
 
@@ -27,14 +27,14 @@ export const jadziaCoiBeforeItems = [
 ] as const;
 
 export const jadziaCoiAfterItems = [
-  'One COI layer — jadzia.db holds orders, leads and operational state',
+  'One COI layer — jadzia.db holds leads and operational state; WC order sync PLANNED',
   'WP SSH agent: diff → HITL approve → write → rollback on Telegram',
   'customer_agent on wizard and portal — scored leads, hot alerts to Telegram',
   'Worker queue with JWT tasks, cost tracking and weekly strategy brief',
 ] as const;
 
 export const jadziaCoiArchitectureAlt =
-  'Jadzia COI architecture: central jadzia.db hub connecting wizard orders, game leads, portal chat, WordPress SSH agent and Telegram HITL';
+  'Jadzia COI architecture: central jadzia.db hub connecting wizard checkouts, game leads, portal chat, WordPress SSH agent and Telegram HITL';
 
 export const jadziaCoiLoopIntro =
   'Jadzia is the Think layer in the Living Operating System — Sense signals enter, COI proposes, humans approve, then Act executes within bounded permissions.';
@@ -59,7 +59,7 @@ export const jadziaCoiLoopNodes: readonly CoiLoopNode[] = [
   {
     phase: 'Act',
     title: 'Bounded execution',
-    detail: 'SSH writes, chat replies, order state updates and worker tasks — scoped permissions only.',
+    detail: 'SSH writes, chat replies and worker tasks — scoped permissions only. Order state sync via WC webhook: PLANNED.',
   },
   {
     phase: 'Guard',
@@ -92,19 +92,38 @@ export const jadziaCoiWorkflowPipelines = [
 ] as const;
 
 export const jadziaCoiIntegrations = [
-  { system: 'zzpackage Wizard', direction: 'In / Out', detail: 'Widget chat · order webhook → jadzia.db' },
+  {
+    system: 'zzpackage Wizard',
+    direction: 'In / Out',
+    detail: 'Widget chat LIVE · order webhook → jadzia.db PLANNED',
+  },
   { system: 'app.flexgrafik.nl', direction: 'In', detail: 'Lead sync · coupon attribution' },
   { system: 'flexgrafik.nl', direction: 'In', detail: 'Shared customer_agent chat endpoint' },
   { system: 'Telegram', direction: 'In / Out', detail: 'Ops commands · HITL · hot lead alerts' },
   { system: 'Agent OS', direction: 'Sibling', detail: 'Engineering pipeline — Jadzia does not commit product code' },
 ] as const;
 
-export const jadziaCoiVerifiedMetrics = [
-  { label: 'API', value: 'FastAPI :8000 EU VPS' },
-  { label: 'Widget endpoint', value: 'LIVE' },
-  { label: 'WP SSH agent', value: 'LIVE' },
-  { label: 'Worker HITL', value: 'LIVE' },
+export type JadziaCoiMetricStatus = 'LIVE' | 'PLANNED' | 'INFO';
+
+export type JadziaCoiVerifiedMetric = {
+  label: string;
+  value: string;
+  status?: JadziaCoiMetricStatus;
+};
+
+export const jadziaCoiVerifiedMetrics: readonly JadziaCoiVerifiedMetric[] = [
+  { label: 'API', value: 'FastAPI :8000 EU VPS', status: 'INFO' },
+  { label: 'Widget endpoint', value: 'LIVE', status: 'LIVE' },
+  { label: 'WP SSH agent', value: 'LIVE', status: 'LIVE' },
+  { label: 'Worker HITL', value: 'LIVE', status: 'LIVE' },
+  { label: 'Order sync', value: 'PLANNED', status: 'PLANNED' },
 ] as const;
+
+export function jadziaCoiMetricStatusClass(status: JadziaCoiMetricStatus | undefined): string {
+  if (status === 'LIVE') return 'text-emerald-500';
+  if (status === 'PLANNED') return 'text-amber-500';
+  return 'text-[var(--qf-text)]';
+}
 
 export const jadziaCoiStack = [
   'Python 3.11 · FastAPI · Uvicorn',
@@ -115,4 +134,4 @@ export const jadziaCoiStack = [
 ] as const;
 
 export const jadziaCoiSupervisionNote =
-  'Agent OS handles code commits across repos. Jadzia COI handles business operations — orders, leads, chat and WP. VCMS governs both from outside the runtime.';
+  'Agent OS handles code commits across repos. Jadzia COI handles business operations — leads, WP SSH, sales chat — not the engineering task queue. Order sync from WooCommerce: PLANNED. VCMS governs both from outside the runtime.';

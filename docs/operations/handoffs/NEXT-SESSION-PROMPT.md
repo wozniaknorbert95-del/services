@@ -1,4 +1,4 @@
-# Next Session Prompt — E-4 Jadzia orders truth sync
+# Next Session Prompt — E-5 Inbox Killer SSoT
 
 > Load [`SESSION-ANCHOR.md`](../SESSION-ANCHOR.md) first.
 
@@ -8,37 +8,22 @@
 
 | Work | Status |
 |------|--------|
-| Knowledge architecture | Done 2026-06-25 |
-| E-2 CS-02 + E-2b polish | Done · deployed · smoke PASS |
-| E-3 CS-03 sales-funnel SSoT | Done · deployed · smoke PASS |
-| **E-4 Jadzia orders truth** | **NEXT** |
+| E-4 Jadzia orders truth | **Done 2026-06-25** |
+| **E-5 Inbox Killer SSoT** | **NEXT** |
 
 ---
 
-## Cel E-4
+## Cel E-5
 
-Qualify „orders” claims portfolio-wide: WooCommerce checkout on zzpackage is LIVE; **jadzia.db WC order webhook is PLANNED** (meta AS-IS).
-
-### Read before code
-
-1. [`e4-jadzia-orders-truth-prep.md`](./2026-06-25-e4-jadzia-orders-truth-prep.md)
-2. `flexgrafik-meta/docs/core/as-is-inventory.md` § jadzia-core
-3. [`authority-chain.md`](../../architecture/authority-chain.md)
+Extract inbox-killer case study copy to `src/content/inbox-killer-case-study.ts` — mirror E-2/E-3 pattern. Page [`inbox-killer/page.tsx`](../../../src/app/results/inbox-killer/page.tsx) still hardcodes BEFORE/AFTER/FLOW_STEPS.
 
 ### DoD
 
-- [ ] 8 files aligned (see prep table)
-- [ ] `readiness.ts` jadzia → `PARTIAL` or split capability string
-- [ ] Home BuiltVsPlanned consistent with jadzia-coi case study
-- [ ] No contradiction with agent-orchestrator E-2b copy
+- [ ] `inbox-killer-case-study.ts` = SSoT
+- [ ] Page thin — imports only
+- [ ] MR-16 pass (142 msgs/scan stays sourced from proof)
 - [ ] Build + handoff
 
 ---
 
-## Then E-5
-
-Inbox Killer — extract `inbox-killer-case-study.ts` (page still hardcoded).
-
----
-
-> **Begin:** „Start E-4 per prep doc.”
+> **Begin:** „Start E-5 — inbox-killer case study SSoT.”
