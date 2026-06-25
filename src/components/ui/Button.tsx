@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { trackEvent, type AnalyticsEvent } from '@/lib/analytics';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -14,6 +15,8 @@ interface ButtonProps {
   rel?: string;
   onClick?: () => void;
   type?: 'button' | 'submit';
+  analyticsEvent?: AnalyticsEvent;
+  analyticsDetail?: Record<string, string>;
 }
 
 export default function Button({
@@ -27,6 +30,8 @@ export default function Button({
   rel,
   onClick,
   type = 'button',
+  analyticsEvent,
+  analyticsDetail,
 }: ButtonProps) {
   const baseStyles =
     'inline-flex items-center gap-[var(--qf-sp-2)] font-[family-name:var(--qf-mono)] font-semibold transition-all duration-[var(--qf-transition)] focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--qf-accent)] focus-visible:outline-offset-2';
@@ -57,16 +62,29 @@ export default function Button({
     </>
   );
 
+  const handleClick = () => {
+    if (analyticsEvent) {
+      trackEvent(analyticsEvent, analyticsDetail);
+    }
+    onClick?.();
+  };
+
   if (href) {
     return (
-      <Link href={href} className={classes} target={target} rel={rel}>
+      <Link
+        href={href}
+        className={classes}
+        target={target}
+        rel={rel}
+        onClick={analyticsEvent ? () => trackEvent(analyticsEvent, analyticsDetail) : undefined}
+      >
         {content}
       </Link>
     );
   }
 
   return (
-    <button type={type} className={classes} onClick={onClick}>
+    <button type={type} className={classes} onClick={handleClick}>
       {content}
     </button>
   );

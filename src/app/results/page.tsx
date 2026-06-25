@@ -11,6 +11,8 @@ import { CASE_STUDIES } from '@/lib/case-studies';
 import FieldReports from '@/components/results/FieldReports';
 import SystemMetrics from '@/components/home/SystemMetrics';
 import IntentBadges from '@/components/ui/IntentBadges';
+import StatusBadge from '@/components/ui/StatusBadge';
+import TrackedLink from '@/components/analytics/TrackedLink';
 
 interface CaseGratkaLink {
   label: string;
@@ -187,18 +189,18 @@ export default function ResultsPage() {
                 <h2 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
                   {c.title}
                 </h2>
-                <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
-                <div className="mb-4">
+                <div className="mb-4 flex flex-wrap items-center gap-3">
+                  <StatusBadge status={c.status} />
                   <IntentBadges intents={[...c.intents]} />
                 </div>
                 <p className="mb-3 max-w-none text-sm text-[var(--qf-text-dim)]">
-                  <strong className="text-[var(--qf-text)]">Context:</strong> {c.context}
+                  <strong className="text-[var(--qf-text)]">Problem:</strong> {c.context}
                 </p>
                 <p className="mb-3 max-w-none text-sm text-[var(--qf-text-dim)]">
                   <strong className="text-[var(--qf-text)]">System:</strong> {c.system}
                 </p>
                 <p className="mb-3 max-w-none border-l-2 border-[var(--qf-accent)] pl-3 text-sm text-[var(--qf-text)]">
-                  <strong>Real:</strong> {c.real}
+                  <strong>Effect:</strong> {c.real}
                 </p>
                 <p className="mb-6 max-w-none font-mono text-xs text-[var(--qf-text-faint)]">
                   Measurement: {c.measurement}
@@ -226,12 +228,14 @@ export default function ResultsPage() {
                 ) : null}
 
                 <div className="mt-auto space-y-2 border-t border-[var(--qf-border)] pt-4 text-sm">
-                  <Link
+                  <TrackedLink
                     href={c.detailHref}
+                    event="case_study_open"
+                    detail={c.slug ? { slug: c.slug } : { href: c.detailHref }}
                     className="block text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
                   >
                     Read full case study →
-                  </Link>
+                  </TrackedLink>
                   {extras?.gratkaLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -261,8 +265,8 @@ export default function ResultsPage() {
           Start with a paid Automation Map. In 60–90 minutes we&apos;ll pinpoint your biggest leaks
           and show you the ROI — before you commit to anything bigger.
         </p>
-        <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
+          Book Automation Map
         </Button>
       </Section>
     </>

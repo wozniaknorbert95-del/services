@@ -16,13 +16,26 @@ import {
   LOS_ENTERPRISE_PATTERN,
 } from '@/content/los-copy';
 
+import { ROUTES } from '@/lib/constants';
+
+const TEASER_LOOP = [
+  { name: 'Sense', detail: 'Capture signals from inbox, site, wizard and ops.' },
+  { name: 'Decide', detail: 'Score, route and queue what needs human judgment.' },
+  { name: 'Act', detail: 'Draft, configure and execute with approval gates.' },
+  { name: 'Learn', detail: 'Log outcomes and tighten the loop over time.' },
+] as const;
+
+interface LivingSystemTeaserProps {
+  variant?: 'default' | 'teaser';
+}
+
 /**
- * Living Operating System — full canon section (6 layers, life loop, three brains).
- * Used in: src/app/page.tsx (home §2)
+ * Living Operating System — full canon or compact teaser on home.
  */
-export default function LivingSystemTeaser() {
+export default function LivingSystemTeaser({ variant = 'default' }: LivingSystemTeaserProps) {
   const motionCfg = useMotion();
   const fade = motionCfg.fadeIn();
+  const isTeaser = variant === 'teaser';
 
   return (
     <section
@@ -45,9 +58,36 @@ export default function LivingSystemTeaser() {
           </h2>
           <p className="qf-lead mt-[var(--qf-sp-4)] max-w-2xl">{LOS_TEASER.lead}</p>
           <p className="qf-hint mt-[var(--qf-sp-3)]">{LOS_DEFINITION.living}</p>
-          <p className="qf-hint mt-[var(--qf-sp-2)]">{LOS_TEASER.governanceLine}</p>
+          {!isTeaser ? <p className="qf-hint mt-[var(--qf-sp-2)]">{LOS_TEASER.governanceLine}</p> : null}
         </motion.div>
 
+        {isTeaser ? (
+          <>
+            <ol className="mb-[var(--qf-sp-8)] grid gap-[var(--qf-sp-3)] sm:grid-cols-2 lg:grid-cols-4">
+              {TEASER_LOOP.map((step, index) => (
+                <li
+                  key={step.name}
+                  className="border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-[var(--qf-sp-4)]"
+                >
+                  <span className="font-mono text-xs text-[var(--qf-accent)]">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="mt-1 font-bold text-[var(--qf-text)]">{step.name}</h3>
+                  <p className="mt-1 text-sm text-[var(--qf-text-dim)]">{step.detail}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="flex flex-wrap justify-center gap-[var(--qf-sp-4)]">
+              <Link
+                href={ROUTES.resultsOwnerEcosystem}
+                className="text-sm font-semibold text-[var(--qf-accent)] transition-colors hover:text-[var(--qf-text)]"
+              >
+                View full architecture →
+              </Link>
+            </div>
+          </>
+        ) : (
+          <>
         <div className="qf-los-diagram mb-[var(--qf-sp-12)] overflow-x-auto border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-2">
           <GratkaDiagram
             src={GRATKA.losArchitectureSvg}
@@ -183,6 +223,8 @@ export default function LivingSystemTeaser() {
             {LOS_TEASER.ecosystemCtaLabel} →
           </Link>
         </motion.div>
+          </>
+        )}
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 // Measurement authority: src/content/proof.ts metrics.msgsPerScan
 
 import { PRICING, ROUTES } from '@/lib/constants';
+import { PRICING_MATRIX } from './pricing';
 import { metrics } from '@/content/proof';
 
 export const INBOX_KILLER_SLUG = 'inbox-killer' as const;
@@ -189,5 +190,5 @@ export const inboxKillerSolutionEffectAfter = [
 ] as const;
 
 export function inboxKillerPriceFromLabel(): string {
-  return `From €${PRICING.inboxKiller.from.toLocaleString()}`;
+  return PRICING_MATRIX.inboxKiller.range;
 }

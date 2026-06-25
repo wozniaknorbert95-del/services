@@ -78,11 +78,11 @@ export default function IntentRouter() {
     >
       <div className="mx-auto flex max-w-[var(--qf-maxw)] flex-col gap-[var(--qf-sp-12)] px-[var(--qf-sp-6)]">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="qf-eyebrow">// eight_repos — living_system_map</span>
-          <h2 className="mt-[var(--qf-sp-4)]">Eight repositories. One supervised LOS.</h2>
+          <span className="qf-eyebrow">// supervised_system</span>
+          <h2 className="mt-[var(--qf-sp-4)]">Eight parts. One supervised system.</h2>
           <p className="qf-lead mx-auto mt-[var(--qf-sp-4)]">
-            Pick a business outcome — every repo stays visible. Matching cards highlight; the rest
-            dim. Each repo maps to LOS layers and proof.
+            Business outcome first — pick what matters, then see which production module delivers it.
+            All eight repos stay visible.
           </p>
         </div>
 
@@ -133,10 +133,11 @@ export default function IntentRouter() {
                   </span>
                   {repo.screenKey ? <ModulePreviewThumb screenKey={repo.screenKey} /> : null}
                   <h3 className="mb-1 text-[var(--qf-fs-lg)] font-bold transition-colors group-hover:text-[var(--qf-accent)]">
-                    {repo.role}
+                    {repo.outcomeLabel}
                   </h3>
+                  <p className="mb-1 text-sm font-semibold text-[var(--qf-text)]">{repo.role}</p>
                   <p className="mb-2 font-mono text-[10px] text-[var(--qf-accent)]">
-                    LOS: {formatLosLayers(repo.losLayers)}
+                    LOS: {formatLosLayers(repo.losLayers)} · {repo.repoKey}
                   </p>
                   {repo.statusNote ? (
                     <p className="mb-4 flex-grow text-sm text-[var(--qf-text-dim)]">

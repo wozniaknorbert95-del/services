@@ -1,12 +1,15 @@
 import type { FlowStepStatus } from '@/content/owner-ecosystem';
 import type { ReadinessStatus } from '@/content/readiness';
+import type { CaseStatusLabel } from '@/lib/case-studies';
 
-type StatusBadgeVariant = FlowStepStatus | ReadinessStatus;
+type StatusBadgeVariant = FlowStepStatus | ReadinessStatus | CaseStatusLabel;
 
 const STATUS_CLASS: Record<StatusBadgeVariant, string> = {
   LIVE: 'text-emerald-500 border-emerald-500/30',
   PARTIAL: 'text-amber-500 border-amber-500/30',
   PLANNED: 'text-[var(--qf-text-faint)] border-[var(--qf-border)]',
+  PILOT: 'text-sky-400 border-sky-400/30',
+  DEMO: 'text-violet-400 border-violet-400/30',
 };
 
 interface StatusBadgeProps {

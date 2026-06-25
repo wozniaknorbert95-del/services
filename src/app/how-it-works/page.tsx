@@ -7,6 +7,7 @@ import FaqItem from '@/components/ui/FaqItem';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import Link from 'next/link';
 import { ROUTES, PRICING, SITE_URL } from '@/lib/constants';
+import { PRICING_MATRIX } from '@/content/pricing';
 import { GRATKA } from '@/lib/gratka';
 
 /* ── metadata ── */
@@ -180,7 +181,7 @@ export default function HowItWorksPage() {
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
           Software isn&apos;t &quot;set and forget&quot;. With optional Managed Automation, your system stays
           monitored, tuned and improving as your business changes.{' '}
-          <span className="text-[var(--qf-text)]">From €{PRICING.care}/mo, cancel anytime.</span>
+          <span className="text-[var(--qf-text)]">{PRICING_MATRIX.managedAutomation.range}, cancel anytime.</span>
         </p>
         <Button href={ROUTES.managedAutomation} variant="secondary" withArrow>
           See Managed Automation

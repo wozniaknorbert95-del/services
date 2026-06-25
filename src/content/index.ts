@@ -8,6 +8,7 @@
  * - metrics-display.ts — how metrics render on home
  */
 
+export * from './pricing';
 export * from './ecosystem';
 export * from './conversion-copy';
 export * from './metrics-display';

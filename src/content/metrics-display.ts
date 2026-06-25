@@ -15,7 +15,7 @@ export interface MetricDisplayCard {
   intent: IntentId;
 }
 
-/** Home SystemMetrics section — site-map.md §2 #7 */
+/** Home SystemMetrics section — site-map.md §3 #3 */
 export const METRIC_DISPLAY_CARDS: readonly MetricDisplayCard[] = [
   {
     metricKey: 'wizardSteps',

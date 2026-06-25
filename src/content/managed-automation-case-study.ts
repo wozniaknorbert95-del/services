@@ -2,16 +2,17 @@
 // Proof link: /trust/ + agent-orchestrator for ops layer
 
 import { ROUTES } from '@/lib/constants';
+import { PRICING_MATRIX } from '@/content/pricing';
 
 export const MANAGED_AUTOMATION_SLUG = 'managed-automation' as const;
 
 export const managedAutomationSolutionMeta = {
   title: 'Managed Automation — your systems, kept sharp',
   description:
-    'Keep your automations healthy and improving. Monitoring, tuning and optimisation from €99/mo. Human-in-the-loop, no lock-in, cancel anytime.',
+    `Keep your automations healthy and improving. Monitoring, tuning and optimisation ${PRICING_MATRIX.managedAutomation.range}. Human-in-the-loop, no lock-in, cancel anytime.`,
   openGraphTitle: 'Managed Automation — your systems, kept sharp',
   openGraphDescription:
-    'Keep your automations healthy and improving. Monitoring, tuning and optimisation from €99/mo.',
+    `Keep your automations healthy and improving. Monitoring, tuning and optimisation ${PRICING_MATRIX.managedAutomation.range}.`,
   ogAlt: 'Managed Automation — your systems, kept sharp',
 } as const;
 

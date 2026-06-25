@@ -85,6 +85,25 @@ export default function TrustPage() {
         </Section>
       )}
 
+      <Section background="surface" padding="large">
+        <Eyebrow>Before go-live</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-6">
+          AVG / DPA checklist
+        </h2>
+        <ol className="max-w-2xl space-y-3 list-decimal list-inside text-[var(--qf-text-dim)]">
+          {[
+            'Scope what data the system reads, stores and sends.',
+            'Sign verwerkersovereenkomst before live processing.',
+            'Use service accounts and scoped permissions — no password sharing.',
+            'Run on EU hosting; document retention and deletion.',
+            'Keep human approval on every consequential outbound action.',
+            'Hand over logs and README so you stay in control after delivery.',
+          ].map((step) => (
+            <li key={step}>{step}</li>
+          ))}
+        </ol>
+      </Section>
+
       <Section padding="large">
         <div className="max-w-2xl border-l-2 border-[var(--qf-border)] pl-4">
           <h2 className="text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">

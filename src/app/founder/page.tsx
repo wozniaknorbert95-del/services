@@ -1,21 +1,28 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { ROUTES } from '@/lib/constants';
-import VideoSlot from '@/components/ui/VideoSlot';
 
 export const metadata: Metadata = {
-  title: "The Founder's System",
-  description: 'Built for real use, not pitch decks. Why I built my own system to run my business, and why I install the exact same architecture for other small businesses.',
+  title: "Founder's System — Built in Production",
+  description:
+    'I built Quietforge to run my own business — pipeline, wizard, inbox logic, AI routing and governance. Now I deploy that production-tested architecture for other small businesses.',
 };
+
+const PROOF_LINKS = [
+  { label: 'See live results', href: ROUTES.results },
+  { label: 'See owner ecosystem', href: ROUTES.resultsOwnerEcosystem },
+  { label: 'See the Wizard Cash Engine', href: ROUTES.resultsSalesFunnel },
+] as const;
 
 export default function FounderPage() {
   const points = [
     {
       title: 'Built for real use, not pitch decks',
-      body: "I didn't invent this to sell to you. I built it because I needed it to run my own agency. It handles real invoices, real clients, and real leads every day.",
+      body: "I didn't invent this to sell to you. I built it because I needed it to run my own business. It handles real invoices, real clients, and real leads every day.",
     },
     {
       title: 'Single source of truth',
@@ -23,27 +30,46 @@ export default function FounderPage() {
     },
     {
       title: 'Scalable without head-count',
-      body: 'The goal of automation isn\'t to replace people; it\'s to decouple your revenue growth from your payroll size.',
+      body: "The goal of automation isn't to replace people; it's to decouple your revenue growth from your payroll size.",
     },
   ];
 
   return (
     <>
       <Section padding="large">
-        <Eyebrow>Behind the scenes</Eyebrow>
+        <Eyebrow>// Behind the systems</Eyebrow>
         <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
           The Founder&apos;s System
         </h1>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-2xl mb-12">
-          I didn&apos;t start an agency to build websites. I built a system to run my own business — the CRM, the pipeline, the AI routing — because off-the-shelf tools were too scattered. Now, I install that exact same architecture for other small businesses.
+          I didn&apos;t build Quietforge to sell websites. I built a system to run my own business — the
+          pipeline, wizard, inbox logic, AI routing and governance layer — because scattered tools were
+          costing too much time. Quietforge is how I deploy that same architecture for other small
+          businesses.
         </p>
 
-        <div className="mb-16 max-w-4xl">
-          <VideoSlot
-            videoKey="founder"
-            emptyCtaHref={ROUTES.results}
-            emptyCtaLabel="See live results"
-          />
+        <div className="mb-16 max-w-4xl rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-8">
+          <h2 className="text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
+            How the system became the offer
+          </h2>
+          <p className="text-[var(--qf-text-dim)] mb-6">
+            First, I built the workflow for FLEXGRAFIK: a live print and design business with real leads,
+            real orders and real admin. Then I connected the pieces — wizard checkout, inbox
+            classification, Jadzia COI, VCMS governance and Agent OS execution — into one supervised
+            operating loop. Now I use that production-tested structure as the starting point for client
+            systems.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            {PROOF_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-semibold text-[var(--qf-accent)] hover:underline"
+              >
+                {link.label} →
+              </Link>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -69,7 +95,8 @@ export default function FounderPage() {
             Stop working for your tools.
           </h2>
           <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] mb-8">
-            Let your tools work for you. Start with an Automation Map and we&apos;ll see if this architecture fits your business.
+            Let your tools work for you. Start with an Automation Map and we&apos;ll see if this architecture
+            fits your business.
           </p>
           <Button href={ROUTES.bookDiscovery} withArrow size="xl">
             Book your Automation Map

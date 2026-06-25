@@ -3,15 +3,14 @@
 import { useEffect, useState } from 'react';
 
 const PROGRESS_GROUPS = [
-  { id: 'system', label: 'System', sections: ['hero', 'los-teaser', 'built-vs-planned'] },
-  { id: 'route', label: 'Route', sections: ['repo-router', 'pain-grid', 'spearhead'] },
-  { id: 'proof', label: 'Proof', sections: ['owner-ecosystem', 'system-metrics', 'results-teaser', 'behind-the-scenes'] },
-  { id: 'process', label: 'Process', sections: ['how-i-work', 'why-this-works', 'trust-safety'] },
+  { id: 'start', label: 'Start', sections: ['hero', 'pain-grid', 'system-metrics', 'spearhead', 'built-vs-planned'] },
+  { id: 'proof', label: 'Proof', sections: ['results-teaser', 'repo-router', 'los-teaser', 'behind-the-scenes'] },
+  { id: 'process', label: 'Process', sections: ['how-i-work', 'trust-safety'] },
   { id: 'pricing', label: 'Pricing', sections: ['pricing', 'final-cta'] },
 ] as const;
 
 export default function SectionProgress() {
-  const [activeGroup, setActiveGroup] = useState<string>('system');
+  const [activeGroup, setActiveGroup] = useState<string>('start');
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {

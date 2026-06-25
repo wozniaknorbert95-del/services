@@ -18,7 +18,7 @@ Invoke this skill when:
 
 ### Step 1 — Scope (1-1-1)
 
-One component per session. No mega-diffs. Batch mode max 3 sections with `npm run build` between (`ui-ux-principles.md` §11). Confirm the section's funnel job in `site-map.md` §2 before editing.
+One component per session. No mega-diffs. Batch mode max 3 sections with `npm run build` between (`ui-ux-principles.md` §11). Confirm the section's funnel job in `site-map.md` §3 before editing.
 
 ### Step 2 — Wire content, not copy
 
@@ -54,14 +54,14 @@ One H1 per page; single primary action per viewport section. Every card gets ≥
 
 ### Step 6 — Verify & log
 
-Run `verify` (build must pass). If you touched `page.tsx`/section order, run `strategy-check` (update `site-map.md` §2). Close with `handoff`.
+Run `verify` (build must pass). If you touched `page.tsx`/section order, run `strategy-check` (update `site-map.md` §3). Close with `handoff`.
 
 ## Output Format
 
 ```markdown
 ## Section Build — <component>
 
-**Funnel job:** <from site-map §2> · **Content source:** <…ts>
+**Funnel job:** <from site-map §3> · **Content source:** <…ts>
 **Changes:** <what was built/edited>
 **Token/util compliance:** ≤8 utils/element ✅ · qf-* extracted: <list> · dark tokens ✅
 **Motion:** reduced-motion path ✅ · **Mobile:** ✅

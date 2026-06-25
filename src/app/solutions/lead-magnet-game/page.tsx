@@ -1,5 +1,6 @@
 import SolutionLayout from '@/components/solutions/SolutionLayout';
 import { ROUTES } from '@/lib/constants';
+import { SOLUTION_DETAIL_PRICES } from '@/content/pricing';
 import {
   leadMagnetExperienceName,
   leadMagnetInsight,
@@ -51,7 +52,7 @@ export default function LeadMagnetGamePage() {
       }}
       screenKey="leadMagnet"
       caseStudyHref={ROUTES.resultsLeadMagnet}
-      priceKey="leadMagnetGame"
+      priceFrom={SOLUTION_DETAIL_PRICES.leadMagnetGame}
     />
   );
 }

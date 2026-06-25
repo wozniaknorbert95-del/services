@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Monitor, Quote, Users } from 'lucide-react';
 import { useMotion } from '@/lib/useMotion';
-import { PAIN_GRID, getIntentMeta } from '@/content/ecosystem';
+import { PAIN_GRID, PAIN_GRID_HEADER, getIntentMeta } from '@/content/ecosystem';
 import { useHomeIntent, matchesHomeIntent } from '@/lib/home-intent';
 import { intentHighlightClass, sortByIntentMatch } from '@/lib/intent-highlight';
 import Eyebrow from '@/components/ui/Eyebrow';
@@ -37,8 +37,9 @@ export default function PainGrid() {
           transition={fade.transition}
           className="mb-[var(--qf-sp-8)]"
         >
-          <Eyebrow>diagnostics</Eyebrow>
-          <h2 className="mb-[var(--qf-sp-2)]">Where the leaks are.</h2>
+          <Eyebrow>{PAIN_GRID_HEADER.eyebrow}</Eyebrow>
+          <h2 className="mb-[var(--qf-sp-2)]">{PAIN_GRID_HEADER.title}</h2>
+          <p className="qf-lead max-w-2xl">{PAIN_GRID_HEADER.lead}</p>
         </motion.div>
 
         <motion.div

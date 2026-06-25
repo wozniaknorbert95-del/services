@@ -4,6 +4,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
 import { ROUTES } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 import { screens, pricing, videos } from '@/content/proof';
 import ProofMediaGrid from '@/components/ui/ProofMediaGrid';
 
@@ -33,9 +34,15 @@ export default function SolutionLayout({
   priceFrom,
 }: SolutionLayoutProps) {
   const screen = screens[screenKey];
-  const priceData = pricing[priceKey];
+  const priceData = priceKey ? pricing[priceKey] : undefined;
+  const rawFrom =
+    priceData && 'from' in priceData && priceData.from != null ? String(priceData.from) : null;
   const priceFromTier =
-    priceData && 'from' in priceData && priceData.from != null ? `from ${priceData.from}` : null;
+    rawFrom && (rawFrom.includes('–') || rawFrom.includes('/mo'))
+      ? rawFrom
+      : rawFrom
+        ? `from ${rawFrom}`
+        : null;
   const priceLabel = priceFrom ?? priceFromTier ?? 'Scoped after Automation Map';
 
   return (
@@ -107,7 +114,7 @@ export default function SolutionLayout({
           />
         </div>
         <div className="mb-16">
-          <Button href={caseStudyHref} variant="secondary" withArrow>
+          <Button href={caseStudyHref} variant="secondary" withArrow analyticsEvent="case_study_open" analyticsDetail={{ href: caseStudyHref }}>
             Read the full case study
           </Button>
         </div>
@@ -120,8 +127,8 @@ export default function SolutionLayout({
             this system is the right first build.
           </p>
           <div className="flex flex-col items-center gap-4">
-            <Button href={ROUTES.bookDiscovery} size="xl" withArrow>
-              Book your Automation Map
+            <Button href={ROUTES.bookDiscovery} size="xl" withArrow analyticsEvent="cta_book_map_click">
+              {CTAS.bookAutomationMap}
             </Button>
             <p className="text-sm text-[var(--qf-text-faint)]">
               See full{' '}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Button from '@/components/ui/Button';
+import { trackEvent } from '@/lib/analytics';
 
 const PAIN_OPTIONS = [
   'Drowning in email',
@@ -9,6 +10,13 @@ const PAIN_OPTIONS = [
   'Manual quotes',
   'Few leads',
   'Not sure',
+];
+
+const BUDGET_OPTIONS = [
+  'Not sure yet',
+  'Under €1,200',
+  '€1,200–€3,500',
+  '€3,500+',
 ];
 
 export default function BookDiscoveryForm() {
@@ -19,6 +27,8 @@ export default function BookDiscoveryForm() {
     email: '',
     url: '',
     pains: [] as string[],
+    budget: 'Not sure yet',
+    availability: '',
     other: '',
   });
 
@@ -33,8 +43,7 @@ export default function BookDiscoveryForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // For now: no backend / payment integration. Show confirmation.
-    // In production: wire to Mollie + Calendly or email handler.
+    trackEvent('intake_submit');
     setSubmitted(true);
   };
 
@@ -42,11 +51,11 @@ export default function BookDiscoveryForm() {
     return (
       <div className="rounded-[var(--qf-radius)] border border-[var(--qf-ok)] bg-[var(--qf-bg-raised)] p-8 max-w-2xl">
         <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-ok)] mb-2">
-          Message sent.
+          Request received.
         </h3>
         <p className="text-[var(--qf-text-dim)]">
-          Thank you — I will get back to you within 24 hours with next steps and a secure payment
-          link to confirm your Automation Map.
+          Thank you — if the fit is right, I will send a payment link and available session times
+          within 24 hours.
         </p>
       </div>
     );
@@ -76,6 +85,7 @@ export default function BookDiscoveryForm() {
         <input
           id="bdf-company"
           type="text"
+          required
           value={formData.company}
           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
           className="w-full rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-4 py-3 text-[var(--qf-text)] placeholder:text-[var(--qf-text-faint)] focus:border-[var(--qf-accent)] focus:outline-none"
@@ -100,11 +110,12 @@ export default function BookDiscoveryForm() {
 
       <div>
         <label htmlFor="bdf-url" className="block text-sm font-semibold text-[var(--qf-text)] mb-2">
-          Website / link (optional)
+          Website / link
         </label>
         <input
           id="bdf-url"
           type="url"
+          required
           value={formData.url}
           onChange={(e) => setFormData({ ...formData, url: e.target.value })}
           className="w-full rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-4 py-3 text-[var(--qf-text)] placeholder:text-[var(--qf-text-faint)] focus:border-[var(--qf-accent)] focus:outline-none"
@@ -139,6 +150,38 @@ export default function BookDiscoveryForm() {
       </div>
 
       <div>
+        <label htmlFor="bdf-budget" className="block text-sm font-semibold text-[var(--qf-text)] mb-2">
+          Budget range
+        </label>
+        <select
+          id="bdf-budget"
+          value={formData.budget}
+          onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+          className="w-full rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-4 py-3 text-[var(--qf-text)] focus:border-[var(--qf-accent)] focus:outline-none"
+        >
+          {BUDGET_OPTIONS.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="bdf-availability" className="block text-sm font-semibold text-[var(--qf-text)] mb-2">
+          Preferred time zone / availability
+        </label>
+        <input
+          id="bdf-availability"
+          type="text"
+          value={formData.availability}
+          onChange={(e) => setFormData({ ...formData, availability: e.target.value })}
+          className="w-full rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-4 py-3 text-[var(--qf-text)] placeholder:text-[var(--qf-text-faint)] focus:border-[var(--qf-accent)] focus:outline-none"
+          placeholder="e.g. CET mornings, Tue–Thu"
+        />
+      </div>
+
+      <div>
         <label htmlFor="bdf-other" className="block text-sm font-semibold text-[var(--qf-text)] mb-2">
           Anything else? (optional)
         </label>
@@ -148,16 +191,16 @@ export default function BookDiscoveryForm() {
           value={formData.other}
           onChange={(e) => setFormData({ ...formData, other: e.target.value })}
           className="w-full rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-4 py-3 text-[var(--qf-text)] placeholder:text-[var(--qf-text-faint)] focus:border-[var(--qf-accent)] focus:outline-none resize-y"
-          placeholder="Tell me a bit about your business and what you'd like to fix..."
+          placeholder="Current tools, team size, what you want fixed first..."
         />
       </div>
 
-      <Button type="submit" size="lg">
-        Send enquiry — I will reply within 24h
+      <Button type="submit" size="lg" analyticsEvent="cta_book_map_click">
+        Request my Automation Map slot
       </Button>
 
       <p className="text-xs text-[var(--qf-text-faint)]">
-        No spam. No sales pressure. Your data stays yours.
+        If the fit is right, I&apos;ll send a payment link and available times within 24 hours. No spam.
       </p>
     </form>
   );

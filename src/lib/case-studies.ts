@@ -8,19 +8,15 @@ import { salesFunnelHubTitle } from '@/content/sales-funnel-case-study';
 import { inboxKillerDisplayName } from '@/content/inbox-killer-case-study';
 import { advisoryModernisationDisplayName } from '@/content/advisory-modernisation-case-study';
 import { ownerEcosystemHubCard } from '@/content/owner-ecosystem';
-import {
-  whatsappPilotHubContext,
-  whatsappPilotHubReal,
-  whatsappPilotHubSystem,
-  whatsappPilotHubTitle,
-  WHATSAPP_PILOT_SLUG,
-} from '@/content/whatsapp-discovery-pilot-case-study';
+
+export type CaseStatusLabel = 'LIVE' | 'PARTIAL' | 'PILOT' | 'DEMO' | 'PLANNED';
 
 export interface CaseStudy {
   slug: string;
   number: string;
   title: string;
   meta: string;
+  status: CaseStatusLabel;
   context: string;
   system: string;
   real: string;
@@ -37,6 +33,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: '01',
     title: ownerEcosystemHubCard.title,
     meta: ownerEcosystemHubCard.meta,
+    status: 'LIVE',
     context: ownerEcosystemHubCard.context,
     system: ownerEcosystemHubCard.system,
     real: ownerEcosystemHubCard.real,
@@ -50,6 +47,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: '02',
     title: jadziaCoiDisplayName,
     meta: 'Jadzia COI · PARTIAL',
+    status: 'PARTIAL',
     context:
       'Running a print business on eight repos without an operating brain means orders, leads and ops live in separate tools — and WordPress edits stay risky.',
     system:
@@ -65,6 +63,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: '03',
     title: salesFunnelHubTitle,
     meta: 'Wizard Cash Engine · zzpackage · live',
+    status: 'LIVE',
     context: 'My own sales funnel — the same "what do you charge?" questions, answered by the system.',
     system:
       'Wizard Cash Engine on zzpackage.flexgrafik.nl — 9 UI screens, Mollie checkout from €199, calm form or designer handoff.',
@@ -79,6 +78,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: '04',
     title: agentOsDisplayName,
     meta: 'Agent OS · jadzia-core · Flex-VCMS',
+    status: 'LIVE',
     context:
       'A multi-repo stack needs named layers — not one generic “AI engine”. Engineering execution, business ops and governance must stay separable with human gates.',
     system:
@@ -94,6 +94,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: '05',
     title: leadMagnetDisplayName,
     meta: 'Gamified lead system · live',
+    status: 'LIVE',
     context:
       'Dutch ZZP contractors ignore static forms. The brief: turn cold traffic into qualified wizard handoffs without a brochure-site feel.',
     system:
@@ -109,6 +110,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: '06',
     title: inboxKillerDisplayName,
     meta: 'Inbox Killer · B2B · live ops',
+    status: 'LIVE',
     context:
       'Deployed in my own NL print-business ecosystem (2+ years in production). Same architecture I deploy for clients — not theory.',
     system:
@@ -124,6 +126,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: '07',
     title: advisoryModernisationDisplayName,
     meta: 'Anonymised reference · in delivery',
+    status: 'PARTIAL',
     context:
       'Scope designed for advisory-firm modernisation (anonymised reference brief) — same delivery patterns as my live stack.',
     system:
@@ -133,19 +136,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     intents: ['money', 'order'],
     manifestKey: 'advisory',
     detailHref: ROUTES.resultsAdvisoryModernisation,
-  },
-  {
-    slug: WHATSAPP_PILOT_SLUG,
-    number: '08',
-    title: whatsappPilotHubTitle,
-    meta: 'Pilot · async qualification',
-    context: whatsappPilotHubContext,
-    system: whatsappPilotHubSystem,
-    real: whatsappPilotHubReal,
-    measurement: caseMeasurements.whatsappPilot.value ?? '',
-    intents: ['time', 'money'],
-    manifestKey: 'whatsappPilot',
-    detailHref: ROUTES.resultsWhatsappPilot,
   },
 ];
 

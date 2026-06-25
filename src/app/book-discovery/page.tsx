@@ -1,32 +1,33 @@
 import type { Metadata } from 'next';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
-import { PRICING, EMAIL, SITE_URL } from '@/lib/constants';
+import Link from 'next/link';
+import { PRICING, EMAIL, SITE_URL, ROUTES, ARTEFACTS } from '@/lib/constants';
 import BookDiscoveryForm from './BookDiscoveryForm';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
-  title: `Book your Automation Map — €${PRICING.discovery}, credited`,
+  title: `Book Automation Map — €${PRICING.discovery} Credited`,
   description:
-    'Book a paid Automation Map: 60–90 minutes to find your biggest time and money leaks, with ROI and a recommended first step. Fee credited toward your project. Remote.',
+    'Request your Automation Map slot: 60–90 minutes to find your biggest time and money leaks, with ROI and a recommended first step. €290 credited toward your project after fit check.',
   openGraph: {
-    title: `Book your Automation Map — €${PRICING.discovery}, credited`,
+    title: `Book Automation Map — €${PRICING.discovery} Credited`,
     description:
-      'Book a paid Automation Map: 60–90 minutes to find your biggest time and money leaks, with ROI and a recommended first step.',
+      'Request your Automation Map slot: 60–90 minutes to find your biggest leaks. Payment link follows after fit check.',
     url: `${SITE_URL}/book-discovery`,
     images: [
       {
         url: '/og/book-discovery.svg',
         width: 1200,
         height: 630,
-        alt: 'Book your Automation Map',
+        alt: 'Book Automation Map',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Book your Automation Map — €${PRICING.discovery}, credited`,
-    description: '60–90 minutes to find your biggest leaks. Fee credited toward your project.',
+    title: `Book Automation Map — €${PRICING.discovery} Credited`,
+    description: 'Request your Automation Map slot. Fee credited toward your project.',
     images: ['/og/book-discovery.svg'],
   },
 };
@@ -35,36 +36,40 @@ export const metadata: Metadata = {
 export default function BookDiscoveryPage() {
   return (
     <>
-      {/* ═══════════════════════════════════════════════════════════
-          § A — HERO
-         ═══════════════════════════════════════════════════════════ */}
       <Section padding="large">
         <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
-          Start with a paid Automation Map — €{PRICING.discovery}.
+          Request your Automation Map slot — €{PRICING.discovery}, credited.
         </h1>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-4">
           In 60–90 minutes we find your two or three biggest time-and-money leaks, calculate the
-          ROI, and recommend the right first step. The fee is credited toward your project.
+          likely ROI, and decide the right first system to build. You keep the written Map either way.
         </p>
-        <p className="text-[var(--qf-text-dim)] text-sm max-w-[var(--qf-maxw-narrow)] mb-8 border-l-2 border-[var(--qf-accent)] pl-4">
-          Already downloaded the Automation Map sample? Mention it when you book — skip the basics,
-          go straight to scoping.
+        <p className="text-[var(--qf-text-dim)] text-sm max-w-[var(--qf-maxw-narrow)] mb-4 border-l-2 border-[var(--qf-accent)] pl-4">
+          The €{PRICING.discovery} fee is credited toward your first project. If there is nothing worth
+          automating, you stop there and keep the document.
+        </p>
+        <p className="text-sm text-[var(--qf-text-faint)] max-w-[var(--qf-maxw-narrow)] mb-8">
+          <Link href={ARTEFACTS.automationMapSample} className="text-[var(--qf-accent)] hover:underline">
+            Download sample Map
+          </Link>
+          {' · '}
+          <Link href={ROUTES.results} className="text-[var(--qf-accent)] hover:underline">
+            See live systems
+          </Link>
         </p>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          § B — WHAT YOU GET
-         ═══════════════════════════════════════════════════════════ */}
       <Section background="surface" padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
           What you get for €{PRICING.discovery}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl">
           {[
-            'A focused 60–90 minute working session.',
-            'A written Automation Map — yours to keep, whatever you decide.',
-            'Clear ROI on each recommendation.',
-            'A recommended first build, with a fixed quote to follow.',
+            'A focused 60–90 minute working session',
+            'A written Automation Map you keep',
+            'Clear ROI logic for each recommendation',
+            'A recommended first build with fixed quote to follow',
+            'A no-build recommendation if automation is not worth it',
           ].map((item) => (
             <div key={item} className="flex items-start gap-3">
               <span className="text-[var(--qf-ok)] mt-0.5 shrink-0">✓</span>
@@ -74,9 +79,6 @@ export default function BookDiscoveryPage() {
         </div>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          § C — HOW IT WORKS
-         ═══════════════════════════════════════════════════════════ */}
       <Section padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
           Three steps to clarity
@@ -85,18 +87,18 @@ export default function BookDiscoveryPage() {
           {[
             {
               step: '1',
-              title: 'Pay & pick a slot',
-              body: 'Secure your session in under two minutes.',
+              title: 'Request your slot',
+              body: 'Share your business context and biggest bottleneck.',
             },
             {
               step: '2',
-              title: 'Tell me about your business',
-              body: 'A short form so I arrive prepared.',
+              title: 'Fit check & payment link',
+              body: 'If the fit is right, I send a payment link and available times within 24 hours.',
             },
             {
               step: '3',
-              title: 'We meet',
-              body: 'You walk away with a roadmap, not a sales pitch.',
+              title: 'Leave with a Map',
+              body: 'You get a written plan, not a sales pitch.',
             },
           ].map((item) => (
             <Card key={item.step} className="p-6">
@@ -112,9 +114,6 @@ export default function BookDiscoveryPage() {
         </div>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          § D — RISK REVERSAL
-         ═══════════════════════════════════════════════════════════ */}
       <Section background="surface" padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-6">
           No risk, no pressure
@@ -126,19 +125,16 @@ export default function BookDiscoveryPage() {
         </p>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          § E — FORM
-         ═══════════════════════════════════════════════════════════ */}
       <Section padding="large">
-        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
-          Book your session
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-2">
+          Request your slot
         </h2>
+        <p className="text-sm text-[var(--qf-text-dim)] mb-8 max-w-2xl">
+          If the fit is right, I&apos;ll send a payment link and available times within 24 hours.
+        </p>
         <BookDiscoveryForm />
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          § F — ALT CONTACT
-         ═══════════════════════════════════════════════════════════ */}
       <Section background="surface" padding="large">
         <h2 className="text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
           Prefer to ask something first?
@@ -152,9 +148,6 @@ export default function BookDiscoveryPage() {
         </p>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          § G — MICRO-FAQ
-         ═══════════════════════════════════════════════════════════ */}
       <Section padding="large">
         <h2 className="text-[var(--qf-fs-xl)] font-bold tracking-tight mb-8">
           Quick questions

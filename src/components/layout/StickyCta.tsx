@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { WHATSAPP } from '@/lib/constants';
 import { HEADER_CTA } from '@/lib/navigation';
+import { trackEvent } from '@/lib/analytics';
 
 const OBSERVER_ROOT_MARGIN = '0px 0px -40% 0px';
 
@@ -42,12 +43,14 @@ export default function StickyCta() {
           href={WHATSAPP.url}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackEvent('cta_whatsapp_click')}
           className="flex flex-1 items-center justify-center border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-4 py-3 text-sm font-semibold text-[var(--qf-bg)]"
         >
           {WHATSAPP.label}
         </a>
         <Link
           href={HEADER_CTA.href}
+          onClick={() => trackEvent('cta_book_map_click')}
           className="flex items-center justify-center border border-[var(--qf-border)] px-4 py-3 text-sm font-semibold text-[var(--qf-text)]"
         >
           {HEADER_CTA.label}

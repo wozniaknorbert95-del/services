@@ -3,10 +3,11 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useMotion } from '@/lib/useMotion';
-import { HERO, POSITIONING } from '@/content/conversion-copy';
+import { ROUTES, WHATSAPP } from '@/lib/constants';
+import { HERO } from '@/content/conversion-copy';
+import { trackEvent } from '@/lib/analytics';
 import { metrics } from '@/content/proof';
 import BrandWatermark from '@/components/ui/BrandWatermark';
-import { ROUTES, WHATSAPP } from '@/lib/constants';
 
 export default function HeroSection() {
   const motionCfg = useMotion();
@@ -26,37 +27,38 @@ export default function HeroSection() {
             animate={fade.animate}
             transition={fade.transition}
           >
-            <p className="mb-[var(--qf-sp-3)] text-[var(--qf-fs-sm)] text-[var(--qf-text-faint)]">
-              {POSITIONING.antiPositioning}
-            </p>
             <p className="mb-[var(--qf-sp-2)] font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-              {POSITIONING.label}
+              {HERO.eyebrow}
             </p>
             <h1 className="mb-[var(--qf-sp-4)]">{HERO.headline}</h1>
             <p className="text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">{HERO.subline}</p>
+            <p className="mt-[var(--qf-sp-4)] font-mono text-xs text-[var(--qf-text-dim)]">
+              {HERO.proofStrip}
+            </p>
             <div className="mt-[var(--qf-sp-6)] flex flex-wrap items-center gap-[var(--qf-sp-3)]">
               <Link
                 href={ROUTES.bookDiscovery}
+                onClick={() => trackEvent('cta_book_map_click')}
                 className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:border-[var(--qf-accent-soft)] hover:bg-[var(--qf-accent-soft)]"
               >
                 {HERO.primaryCta} <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href={HERO.secondaryHref}
+                className="inline-flex items-center border border-[var(--qf-border)] px-6 py-3 text-sm font-semibold text-[var(--qf-text)] transition-colors hover:border-[var(--qf-accent)] hover:text-[var(--qf-accent)]"
+              >
+                {HERO.secondaryCta}
               </Link>
               <a
                 href={WHATSAPP.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center border border-[var(--qf-border)] px-6 py-3 text-sm font-semibold text-[var(--qf-text)] transition-colors hover:border-[var(--qf-accent)] hover:text-[var(--qf-accent)]"
+                onClick={() => trackEvent('cta_whatsapp_click')}
+                className="text-sm font-semibold text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-accent)]"
               >
                 {HERO.whatsappCta}
               </a>
             </div>
-            <p className="mt-[var(--qf-sp-4)] text-[var(--qf-fs-sm)] text-[var(--qf-text-dim)]">
-              <span className="text-[var(--qf-accent)]">→ </span>
-              {HERO.proofLine}
-            </p>
-            <p className="mt-[var(--qf-sp-2)] text-[var(--qf-fs-sm)] text-[var(--qf-text-faint)]">
-              {HERO.microTrust}
-            </p>
           </motion.div>
 
           <motion.div
@@ -112,6 +114,7 @@ export default function HeroSection() {
             href={HERO.wizardHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('wizard_demo_click')}
             className="inline-flex items-center gap-1.5 text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-accent)]"
           >
             {HERO.wizardCta} →

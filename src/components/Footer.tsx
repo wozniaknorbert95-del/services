@@ -9,6 +9,7 @@ import {
   FOOTER_LEGAL,
   HEADER_CTA,
 } from '@/lib/navigation';
+import FooterArtefactLinks from '@/components/FooterArtefactLinks';
 import { FOOTER, POSITIONING } from '@/content/conversion-copy';
 
 export default function Footer() {
@@ -79,16 +80,7 @@ export default function Footer() {
               {link.label}
             </Link>
           ))}
-          {FOOTER_ARTEFACTS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              download
-              className="hover:text-[var(--qf-accent)]"
-            >
-              {link.label} ↓
-            </a>
-          ))}
+          {FOOTER_ARTEFACTS.length > 0 ? <FooterArtefactLinks links={FOOTER_ARTEFACTS} /> : null}
         </div>
 
         <div className="mt-[var(--qf-sp-4)] flex flex-col gap-2 border-t border-[var(--qf-border)] pt-[var(--qf-sp-4)] sm:flex-row sm:items-center sm:justify-between">

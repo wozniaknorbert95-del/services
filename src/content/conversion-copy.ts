@@ -9,19 +9,22 @@ export const POSITIONING = {
 } as const;
 
 export const HERO = {
-  headline: 'Conversion systems that qualify leads, automate bookings and reduce admin work.',
+  eyebrow: '// Conversion Systems Architect for NL small business',
+  headline:
+    'Conversion systems that qualify leads, reduce admin and keep humans in control.',
   subline:
-    'Built with custom workflows, AI assistants and automation logic — with you in the loop on every send.',
+    'For Dutch small businesses tired of manual quotes, inbox chaos and websites that do not turn visitors into pipeline. I design the system, wire the workflow, and keep approval gates where they belong.',
+  proofStrip: 'Live wizard checkout · 8-repo governance · HITL approval · EU-hosted',
   proofLine:
-    'Quietforge deploys the same governed stack that runs FlexGrafik — my registered company. Wizard checkout, Jadzia COI, game leads, portal, Agent OS and VCMS supervision are live — with human gates throughout.',
+    'Live wizard checkout · 8-repo governance · HITL approval · EU-hosted',
   microTrust:
     'Quietforge deploys the same architecture that runs FLEXGRAFIK — my registered company, not a demo.',
-  primaryCta: 'Book your Automation Map',
-  secondaryCta: 'See the systems',
+  primaryCta: 'Book Automation Map',
+  secondaryCta: 'See live systems',
   secondaryHref: '/results/',
   wizardCta: 'Try the wizard (2 min)',
   wizardHref: 'https://zzpackage.flexgrafik.nl/',
-  whatsappCta: 'Quick question? WhatsApp',
+  whatsappCta: 'Ask on WhatsApp',
   /** Hero terminal mock — illustrative only; no client counts (PR-07). */
   terminal: {
     windowTitle: 'conversion-pipeline · live',
@@ -101,7 +104,7 @@ export const SPEARHEAD = {
 } as const;
 
 export const CTAS = {
-  bookAutomationMap: 'Book your Automation Map',
+  bookAutomationMap: 'Book Automation Map',
   seeSystems: 'See the systems',
   seeResults: 'See all results',
 } as const;

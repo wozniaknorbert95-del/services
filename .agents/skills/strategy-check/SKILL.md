@@ -23,7 +23,7 @@ Invoke this skill when:
 
 ### Step 2 — Check against binding rules
 
-**Home order (site-map §2 — LOCKED):** 14 sections — Hero → LivingSystemTeaser (full LOS) → BuiltVsPlanned → IntentRouter (8 repos) → PainGrid → SpearheadSpotlight → OwnerEcosystemTeaser → SystemMetrics → ResultsTeaser → BehindTheScenes → HowIWork → TrustAndObjections → Pricing → FinalCtaBand. Forbidden on home: `EcosystemVideo`, second hero rewrite, "AI Systems Architect" label, `SystemArchitecture` SMB pipeline.
+**Home order (site-map §3 — LOCKED):** 13 sections — Hero → PainGrid → SystemMetrics (compact) → SpearheadSpotlight → BuiltVsPlanned (compact) → ResultsTeaser → IntentRouter → LivingSystemTeaser (teaser) → BehindTheScenes → HowIWork → TrustAndObjections → Pricing → FinalCtaBand. Forbidden on home: `EcosystemVideo`, `OwnerEcosystemTeaser`, second hero rewrite, "AI Systems Architect" label, full LOS at §2.
 
 **Page arc:** every money page is **Problem → System → Effect**, never Feature → Feature → Feature.
 
@@ -35,7 +35,7 @@ Invoke this skill when:
 
 ### Step 3 — Enforce the anti-chaos rule
 
-If `src/app/page.tsx` or home section order changed → **`site-map.md` §2 MUST be updated in the same session** (`AGENTS.md`, `README.md`). Verify the table reflects reality; update it if not.
+If `src/app/page.tsx` or home section order changed → **`site-map.md` §3 MUST be updated in the same session** (`AGENTS.md`, `README.md`). Verify the table reflects reality; update it if not.
 
 ### Step 4 — Report drift
 
@@ -46,7 +46,7 @@ If `src/app/page.tsx` or home section order changed → **`site-map.md` §2 MUST
 
 | Rule | Status | Note |
 |------|--------|------|
-| Home order (site-map §2 LOCKED) | ✅ / ❌ | <deviation> |
+| Home order (site-map §3 LOCKED) | ✅ / ❌ | <deviation> |
 | Page arc Problem→System→Effect | ✅ / ❌ | |
 | Single L3 / header = L3 Book | ✅ / ❌ | |
 | Intent badge on every card (§4) | ✅ / ❌ | |
@@ -59,6 +59,6 @@ If `src/app/page.tsx` or home section order changed → **`site-map.md` §2 MUST
 ## Guardrails
 
 - The canon wins over `brain.md` and ad-hoc notes when they disagree (`docs/architecture/authority-chain.md`).
-- Never reorder or remove a home section without updating `site-map.md` §2 the same session.
+- Never reorder or remove a home section without updating `site-map.md` §3 the same session.
 - Don't delete a proof section that sits before a CTA (funnel job).
 - Content lives in `src/content/*` — change copy there, not hardcoded in components.

@@ -13,6 +13,7 @@ import {
 export const metadata: Metadata = {
   title: whatsappPilotCaseMeta.title,
   description: whatsappPilotCaseMeta.description,
+  robots: { index: false, follow: false },
   openGraph: {
     title: whatsappPilotCaseMeta.openGraphTitle,
     description: whatsappPilotCaseMeta.openGraphDescription,

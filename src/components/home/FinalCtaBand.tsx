@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
 import { ARTEFACTS, ROUTES } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
+import { trackEvent } from '@/lib/analytics';
 
 export default function FinalCtaBand() {
   const fade = useMotion().fadeIn();
@@ -31,6 +33,7 @@ export default function FinalCtaBand() {
             <Link
               href={ARTEFACTS.automationMapSample}
               download
+              onClick={() => trackEvent('sample_map_download')}
               className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
             >
               See a sample Automation Map ↓
@@ -38,9 +41,10 @@ export default function FinalCtaBand() {
           </p>
           <a
             href={ROUTES.bookDiscovery}
+            onClick={() => trackEvent('cta_book_map_click')}
             className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-8 py-4 text-base font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:bg-[var(--qf-accent-soft)] hover:border-[var(--qf-accent-soft)]"
           >
-            Book your Automation Map <span aria-hidden="true">→</span>
+            {CTAS.bookAutomationMap} <span aria-hidden="true">→</span>
           </a>
         </motion.div>
       </div>

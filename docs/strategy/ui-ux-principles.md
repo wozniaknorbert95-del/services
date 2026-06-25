@@ -1,287 +1,298 @@
-# UI/UX Principles — Product Company Presentation Standard
+# UI/UX Principles — Quietforge Product-Consulting Standard
 
-**Version:** 2.1  
-**Status:** Canonical — binding for layout, hierarchy, and motion  
-**Reference aesthetic:** Linear · Vercel · Retool · Framer (presentation patterns, not visual plagiarism)
+**Version:** 3.0  
+**Status:** Canonical — post-audit layout, hierarchy, density, motion and mobile rules  
+**Reference quality:** Linear clarity · Vercel proof culture · Retool utility · IBM/Google-level information hierarchy
 
 ---
 
 ## 1. Design intent
 
-The site must feel like a **product company** explaining a **system**, not a freelancer portfolio showing screenshots.
+Quietforge must feel like a product company and senior systems architect, not a freelancer portfolio.
 
-| Portfolio (reject) | Product company (target) |
-|------------------|--------------------------|
-| Grid of pretty work | Narrative of how the system works |
-| Decorative motion | Motion that teaches the funnel |
-| Many equal CTAs | Clear commitment ladder |
-| Feature badges | Outcome metrics |
-| Generic "About me" | Founder as system builder |
+The interface should communicate:
 
-**Copy the presentation method, not the pixels.**
+1. this is real,
+2. this is controlled,
+3. this is safe,
+4. this can improve my business,
+5. I know what to do next.
 
 ---
 
-## 2. Relationship to design system
+## 2. UX principle: buyer cognition first
 
-| Layer | Document / file | Scope |
-|-------|---------------|-------|
-| Strategy (this file) | `docs/strategy/ui-ux-principles.md` | Hierarchy, section rules, motion policy |
-| Visual tokens | `DESIGN-SYSTEM.md`, `quietforge.css`, `globals.css` | Colors, type, spacing, components |
-| Implementation | `src/components/**` | React + Tailwind |
+The buyer is not buying “8 repos”. The buyer is buying relief from a business leak.
 
-Agents MUST read this file **and** `DESIGN-SYSTEM.md` before UI work.
+Therefore:
 
-**Brand skin:** Quietforge — terminal / developer-tool, dark-first, amber accent, monospace, sharp corners.
+```text
+Pain → outcome → proof → architecture
+```
 
-**Theme rule:** Dark = default (architect credibility). Light = optional toggle for SMB readers on phone in daylight (`qf-theme-light` on `<html>`). Ship dark-only at MVP; toggle in Phase 2.
+is usually stronger than:
+
+```text
+Architecture → repos → proof → pain
+```
+
+Deep architecture is valuable, but it must be progressively disclosed.
 
 ---
 
-## 3. Visual hierarchy rules
+## 3. Visual hierarchy
 
 ### Page structure
 
-1. **One H1 per page** — outcome-oriented
-2. **Eyebrow** (`// LABEL`) before section H2s — encodes category
-3. **Lead paragraph** — one idea, max 2 sentences above fold
-4. **Proof block** adjacent to claim — never orphan superlatives
-5. **Single primary action** per viewport section
+1. One H1 per page.
+2. Eyebrow before H2: `// CATEGORY`.
+3. Lead paragraph max 2 sentences.
+4. Proof adjacent to claim.
+5. One primary action per viewport.
+6. Architecture diagrams after user understands the business value.
 
-### Section anatomy (standard)
+### Section anatomy
 
+```text
+section
+  eyebrow
+  H2 outcome/problem
+  lead
+  content: cards / diagram / proof
+  effect line or trust note
+  CTA row: max one primary + one secondary/text
 ```
-.qf-section
-  .qf-eyebrow     // CATEGORY
-  h2              // Outcome headline
-  .qf-lead        // Supporting sentence
-  [content]       // Cards | diagram | terminal mock
-  .qf-hint        // Trust micro-line (optional)
-  CTA row         // L1 link + L3 button max
-```
-
-### Emphasis hierarchy
-
-| Level | Use |
-|-------|-----|
-| Spearhead panel | One flagship system per page (`qf-panel--spearhead`) |
-| Standard panel | Supporting systems / features |
-| Status bar | Metrics under hero (systems count, HITL, live indicator) |
-| Terminal mock | Show system behaviour, not decoration |
 
 ---
 
-## 4. Navigation UX
+## 4. Density rules
+
+Quietforge uses a dense terminal/developer-tool aesthetic, but density must be controlled.
+
+### Per section maximum
+
+| Element | Max per section |
+|---|---:|
+| Primary CTA | 1 |
+| Secondary CTA | 1 |
+| Large diagram | 1 |
+| Metrics | 4 visible before expansion |
+| Table rows on home | 4 visible before expansion |
+| Badges per card | 3 |
+| Technical acronyms before explanation | 0 |
+
+### Progressive disclosure
+
+Use:
+
+- `View full architecture`
+- `Expand all systems`
+- `See case study`
+- `Download diagram`
+
+Do not expose every system detail on home by default.
+
+---
+
+## 5. Navigation UX
 
 ### Header
 
-- Sticky, blurred backdrop, thin border
-- Logo → home only
-- Max 5 nav items + 1 CTA (see conversion-pipeline.md)
-- Solutions dropdown on desktop; accordion on mobile
-- **No** second CTA in header
+- Sticky with blurred dark backdrop and thin border.
+- Max 5 nav links + 1 CTA.
+- CTA: `Book Automation Map`.
+- Solutions dropdown uses corrected package names and prices.
+- No second filled CTA in header.
 
 ### Mobile
 
-- Full-screen menu; tap targets ≥ 44px
-- CTA repeated at bottom of mobile menu
-- Sections stack vertically; no horizontal scroll
-
-### Wayfinding
-
-- Breadcrumb or "Back to results" on detail pages
-- IntentRouter cards must show **destination + outcome**, not jargon
-- Footer mirrors solutions + trust links
+- Full-screen menu or clean sheet.
+- Tap targets min 44px.
+- CTA repeated at bottom.
+- Sticky CTA appears only after proof/honesty gate.
+- No horizontal scroll tables.
 
 ---
 
-## 5. Home & section composition
+## 6. Home composition
 
-Sections are **user-patchable units** — each maps 1:1 to a component in `src/components/home/`. Rules for composing home:
+Home must follow:
 
-| Principle | Rule |
-|-----------|------|
-| Narrative arc | Problem → proof → process → human → commercial → close |
-| Patchability | One component per session; no mega-diff |
-| Reorder | Only per conversion-pipeline.md §6 target order |
-| New section | Requires block mapping in marketing-strategy.md §5 |
-| Remove section | Check funnel job — don't delete proof before CTA |
+1. Hero
+2. Pain router
+3. Compact metrics/proof strip
+4. Spearhead live proof
+5. Honesty gate
+6. Results teaser
+7. System router
+8. LOS teaser
+9. Governance proof
+10. Method
+11. Trust
+12. Pricing
+13. Final CTA
 
-### Case study card (list)
+### Spearhead rule
 
-Required visible fields:
+Only one section on home gets full flagship treatment: **Wizard Cash Engine**.
 
-- Problem (1 line)
-- Scope · Duration (meta row)
-- Architecture tag or icon row
-- AI / Automation indicators
-- Result line (honest)
-- Link to detail
-
-### Case study detail
-
-- Hero: problem statement
-- Diagram or architecture block early
-- BEFORE / SOLUTION / BUILD / RESULT as anchored sections
-- VIDEO slot (16:9 placeholder acceptable until asset exists)
-- Final L3 band
+Governance/VCMS is the second proof, visually smaller but trust-heavy.
 
 ---
 
-## 6. Motion & animation policy
+## 7. Cards
 
-### Allowed
+### Pain card
 
-- Fade / slide on scroll (Framer Motion via `useMotion`)
-- Diagram step reveal synced to funnel stages
-- Terminal typing mock in hero (static acceptable)
-- Hover state on cards (border brighten, subtle translate)
+Required fields:
 
-### Forbidden
+1. Plain-language pain
+2. Cost of problem
+3. System fix
+4. One CTA
 
-- Animation without narrative purpose
-- Parallax decoration
-- Infinite loops that distract from CTA
-- Motion when `prefers-reduced-motion: reduce` — must degrade to static
+### Solution card
 
-### Sales-flow animation spec
+Required fields:
 
-When animating the acquisition pipeline:
+1. Problem
+2. System
+3. Outcome
+4. Starting range
+5. Link
 
+### Result card
+
+Required fields:
+
+1. Problem
+2. System
+3. Effect
+4. Status label
+5. Link
+
+### Repo/system card
+
+Order:
+
+1. Business outcome
+2. System name
+3. LOS layer / repo name
+4. Proof link
+
+---
+
+## 8. Tables and pricing
+
+Tables are allowed on desktop when they improve clarity.
+
+On mobile:
+
+- pricing tables become cards,
+- Built vs Planned becomes compact status cards or accordion,
+- large comparison tables must not cause horizontal scroll unless unavoidable.
+
+Price fragments must be sourced from one content object. Never hardcode conflicting prices across components.
+
+---
+
+## 9. Proof and media
+
+Allowed proof assets:
+
+- real screenshots,
+- SVG diagrams,
+- terminal mocks that describe system behaviour,
+- downloadable artefacts,
+- labelled demo fixtures.
+
+Forbidden:
+
+- stock photos,
+- unfinished video placeholders on public money pages,
+- fake client logos,
+- unlabelled demo screenshots.
+
+If video is not ready, use a deliberate static proof block:
+
+```text
+Written walkthrough
+Architecture diagram
+Proof link
 ```
-Lead → Wizard → AI → VCMS → Quote → Sale
-```
 
-- Step duration: 2–4s per stage max
-- Labels plain language
-- Pause / respect reduced motion
-- Ends on outcome (Sale / Client), not on tech stack
-
-### Interaction motion cheatsheet
-
-| Interaction | Spec |
-|-------------|------|
-| Hero entrance | fade + 8px slide-up, 400ms ease-out |
-| Scroll reveal | opacity 0→1, translateY 16px→0, 600ms |
-| Hover cards | border brighten only — no transform |
-| Focus ring | 2px amber outline, 2px offset |
-
-Implement via `useMotion` presets — see `src/lib/useMotion.ts`.
+Do not write “Video is in production” as the main content of a public route.
 
 ---
 
-## 7. Proof & media presentation
+## 10. Motion
 
-| Asset type | Treatment |
-|------------|-----------|
-| Loom / video | 16:9 container, poster frame, caption with outcome |
-| Screenshots | Bordered panel, optional terminal chrome |
-| PDF artefacts | Download with explicit deliverable name |
-| Architecture diagram | SVG or structured HTML; accessible labels |
-| Metrics | `SystemMetrics` grid — large number + label + source |
+Motion must teach the funnel or clarify state.
 
-**No stock photos.** Real screenshots, diagrams, or typographic placeholders.
+Allowed:
 
----
+- fade/slide reveal,
+- diagram step reveal,
+- subtle terminal cursor if non-distracting,
+- hover border brightening.
 
-## 8. Typography & density
+Forbidden:
 
-- Monospace base — developer-tool identity
-- Generous section spacing (`--qf-sp-16`–`24` between major blocks)
-- Prose width capped (`--qf-maxw-narrow`) for long copy
-- Numbers and metrics at larger scale (`--qf-fs-2xl`+) for scanability
-
-Avoid walls of text; break with lists (`qf-list--check`, `qf-list--steps`).
+- decorative parallax,
+- infinite loops near CTAs,
+- motion without `prefers-reduced-motion` fallback.
 
 ---
 
-## 9. Accessibility
+## 11. Accessibility
 
-- Semantic landmarks: `header`, `main`, `footer`, `section` + `aria-labelledby` where needed
-- Focus visible on all interactive elements
-- Colour contrast: accent on dark meets WCAG AA for text/buttons
-- Video: captions when published
-- Diagrams: text alternative or adjacent prose summary
+Targets:
 
-Target: Lighthouse Accessibility ≥ 95 (see brain.md verification).
-
----
-
-## 10. Responsive breakpoints
-
-- Mobile-first: single column default
-- Grids collapse at ~820px (`qf-grid-*`)
-- Hero: copy first on mobile, visual second
-- Tables/pricing: scroll container only if unavoidable
+- Lighthouse Accessibility ≥ 95.
+- Visible focus state for all links/buttons/cards.
+- WCAG AA contrast for text/buttons.
+- Semantic landmarks: header/main/footer/section.
+- Diagrams have alt text and adjacent text summary.
+- All interactive cards keyboard-accessible.
 
 ---
 
-## 11. Component session rules (agents)
+## 12. Form UX
 
-1. MVP home (5 sections) = up to 5 sessions
-2. **Batch mode:** Hermes plans + OpenCode executes up to 3 sections per session with `npm run build` between batches
-3. No inline `style={{}}` — Tailwind + CSS vars only
-4. Reuse `qf-*` classes before inventing patterns
-5. New UI pattern → handoff note before second use
-6. `npm run build` must pass before commit
+### Book Discovery form
 
----
+The form must match the commercial promise.
 
-## 14. State design
+If paid checkout is live:
 
-| State | Treatment |
-|-------|-----------|
-| Empty | Short copy + L1 CTA (*No case studies yet — see architecture*) |
-| Loading | Skeleton blocks using `--qf-bg-inset` tokens |
-| Error | Friendly message + retry + link home |
+- button: `Pay €290 and pick a slot`
+- payment step visible,
+- slot selection visible,
+- intake after payment or before payment, but clearly labelled.
 
----
+If manual fit check:
 
-## 15. Print / PDF case studies
+- button: `Request my Automation Map slot`
+- microcopy explains payment link follows after fit check.
 
-- Serif body 11pt, mono headings 14pt, max-width 720px
-- Links as full URLs in PDF output
-- Generated from `/results/*` print stylesheet (`@media print`)
+Never use `Send enquiry` as the main submit on the paid Map page.
 
 ---
 
-## 16. i18n (deferred epic)
+## 13. Enterprise polish checklist
 
-- **EN** = primary (canonical)
-- **NL** fallback for 5 high-intent routes: `/`, `/pricing/`, `/book-discovery/`, `/solutions/inbox-killer/`, `/founder/`
-- `hreflang` on those 5 when NL ships
+Before a page is “done”:
 
----
-
-## 12. Polish bar (enterprise review)
-
-Before calling a page "done":
-
-- [ ] Feels like product narrative, not portfolio grid
-- [ ] One H1, clear section eyebrows
-- [ ] Spearhead used once per page max
-- [ ] Motion serves funnel story or is disabled
-- [ ] Proof adjacent to claims
-- [ ] CTA hierarchy matches conversion-pipeline.md
-- [ ] Mobile tested — no overflow, 44px taps
-- [ ] Reduced motion path verified
-- [ ] Matches DESIGN-SYSTEM.md tokens
+- [ ] One decision per section.
+- [ ] One primary CTA per viewport.
+- [ ] Business language before system names.
+- [ ] Proof sits beside the claim.
+- [ ] Pricing matches canonical matrix.
+- [ ] Mobile cards replace dense tables.
+- [ ] No unfinished placeholders.
+- [ ] Status labels are honest.
+- [ ] Focus, reduced motion and alt text are verified.
 
 ---
 
-## 13. Inspiration mapping (what to steal)
-
-| Source | Steal | Don't steal |
-|--------|-------|-------------|
-| Linear | Calm density, feature→outcome copy, crisp sections | Their colour system |
-| Vercel | Developer credibility, diagram culture | Enterprise scale claims |
-| Retool | "Build internal tools" clarity | Product UI chrome |
-| Framer | Motion with purpose | Template marketplace look |
-| Make.com | Automation productized for SMB | Their UI chrome |
-| ConvertKit | Founder-voice email automation | Their colour system |
-
-Use Linear/Vercel for architect sections; Make.com/ConvertKit patterns for SMB-facing proof pages.
-
----
-
-*Implementation skin: [DESIGN-SYSTEM.md](../../DESIGN-SYSTEM.md) · Funnel: [conversion-pipeline.md](./conversion-pipeline.md) · Copy: [marketing-strategy.md](./marketing-strategy.md)*
+*Updated post-audit: 2026-06-25*

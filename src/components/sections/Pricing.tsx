@@ -3,6 +3,7 @@ import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { ROUTES } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 
 type TierCta = {
   label: string;
@@ -27,7 +28,7 @@ export default function PricingSection() {
       timeline: '60–90 min session',
       includes: ['ROI scoring', 'System roadmap', 'Build recommendation'],
       note: pricing.discovery.note,
-      cta: { label: 'Book your Automation Map', variant: 'primary' },
+      cta: { label: CTAS.bookAutomationMap, variant: 'primary' },
     },
     {
       name: 'Single System Build',
@@ -51,11 +52,11 @@ export default function PricingSection() {
       cta: { label: 'Scoped in your Map', variant: 'secondary' },
     },
     {
-      name: 'Maintenance',
-      price: pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : 'Quoted after Map',
+      name: 'Managed Automation',
+      price: pricing.managedAutomation.from,
       timeline: 'Monthly',
       includes: ['Active tuning', 'Health monitoring', 'Priority support'],
-      note: pricing.maintenance.note,
+      note: pricing.managedAutomation.note,
       cta: { label: 'Add after build', variant: 'secondary' },
     },
   ];

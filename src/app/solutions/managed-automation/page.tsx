@@ -4,6 +4,7 @@ import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import FaqItem from '@/components/ui/FaqItem';
 import { SITE_URL } from '@/lib/constants';
+import { SOLUTION_DETAIL_PRICES } from '@/content/pricing';
 import {
   managedAutomationCaseStudyHref,
   managedAutomationFaqs,
@@ -42,7 +43,7 @@ export default function ManagedAutomationPage() {
         effectItems={[...managedAutomationSolutionEffectItems]}
         screenKey="adminDashboard"
         caseStudyHref={managedAutomationCaseStudyHref}
-        priceKey="maintenance"
+        priceFrom={SOLUTION_DETAIL_PRICES.managedAutomation}
       />
 
       <Section background="surface" padding="large">

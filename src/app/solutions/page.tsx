@@ -8,7 +8,9 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { fadeIn, slideUp, staggerContainer } from '@/lib/motion';
 import { ROUTES, PRICING } from '@/lib/constants';
+import { formatRange } from '@/content/pricing';
 import { SOLUTIONS_NAV } from '@/lib/navigation';
+import { CTAS } from '@/content/conversion-copy';
 
 /* ── local motion wrappers ── */
 const M = {
@@ -17,42 +19,50 @@ const M = {
 
 const [INBOX_NAV, WEB_NAV, SALES_NAV, LEAD_NAV, MRR_NAV] = SOLUTIONS_NAV;
 
-/* ── data — routes/labels from navigation.ts; copy local ── */
+/* ── data — routes/labels from navigation.ts; copy from route-content-patches §2 ── */
 const STEP_1 = {
   label: 'STEP 1 — Tame the chaos',
   title: INBOX_NAV.label,
   badge: INBOX_NAV.badge ?? 'Start here',
-  who: 'Small businesses drowning in email — consultants, accountants, agencies.',
-  what: 'Your inbox sorts itself, surfaces what matters, and drafts your replies. You approve every send.',
+  who: 'Small businesses drowning in email — consultants, accountants, agencies and service teams.',
+  what: 'Your inbox is classified into clear lanes, draft replies are prepared, and every send waits for human approval.',
   outcomes: [
-    'Hours back, every week',
-    'Zero lost leads',
-    'Full control — nothing sends without you',
+    'Hours back every week',
+    'Fewer lost leads and invoices',
+    'Full control — nothing sends without approval',
   ],
-  price: `From €${PRICING.inboxKiller.from.toLocaleString()}`,
+  price: INBOX_NAV.price ?? formatRange(PRICING.inboxKiller.from, PRICING.inboxKiller.to),
   href: INBOX_NAV.href,
 };
 
 const STEP_2 = [
   {
     title: WEB_NAV.label,
-    what: 'A website that finally earns its keep — mobile-first, fast, and built to convert.',
-    outcomes: ['Modern, trustworthy presence', 'Lead capture built in', 'No more "2012 look"'],
-    price: `From €${PRICING.webUpgrade.from.toLocaleString()}`,
+    what: 'A modern conversion-ready website for businesses whose current site looks outdated, fails on mobile or gives visitors no clear next step.',
+    outcomes: ['Modern, trustworthy presence', 'Lead capture and clear CTAs built in', 'Analytics-ready structure'],
+    price: WEB_NAV.price ?? formatRange(PRICING.webUpgrade.from, PRICING.webUpgrade.to),
     href: WEB_NAV.href,
   },
   {
     title: SALES_NAV.label,
-    what: 'Quotes, bookings and qualifying — handled. A 3–5 step configurator that turns enquiries into pipeline.',
-    outcomes: ['End manual quoting', 'Structured pipeline', 'Integrated CRM + mail'],
-    price: `From €${PRICING.salesFunnel.from.toLocaleString()}`,
+    what: 'Quotes, bookings and qualifying handled by a guided flow — the visitor answers the right questions, sees the next step, and reaches checkout or a human-approved handoff.',
+    outcomes: [
+      'End repeated manual quoting',
+      'Structure lead qualification before your time is spent',
+      'Checkout, quote or CRM handoff',
+    ],
+    price: SALES_NAV.price ?? formatRange(PRICING.salesFunnel.from, PRICING.salesFunnel.to),
     href: SALES_NAV.href,
   },
   {
     title: LEAD_NAV.label,
-    what: 'Experience-first lead capture for Dutch ZZP — register, play, reward ladder, then wizard handoff.',
-    outcomes: ['Qualified contacts, not cold forms', 'Longer sessions before the ask', 'Tracked funnel to self-service quoting'],
-    price: `From €${PRICING.leadMagnetGame.from.toLocaleString()}`,
+    what: 'Experience-first lead capture for Dutch ZZP: register, play, earn a reward, then move into a self-service wizard handoff.',
+    outcomes: [
+      'Qualified contacts, not cold forms',
+      'Longer sessions before the ask',
+      'Tracked funnel to quoting',
+    ],
+    price: LEAD_NAV.price ?? formatRange(PRICING.leadMagnetGame.from, PRICING.leadMagnetGame.to),
     href: LEAD_NAV.href,
   },
 ];
@@ -61,9 +71,9 @@ const MRR = {
   label: 'KEEP IT RUNNING',
   title: MRR_NAV.label,
   badge: MRR_NAV.badge,
-  what: 'Your AI worker that never sleeps — kept healthy every month.',
-  outcomes: ['Uptime & monitoring', 'Fine-tuning as you grow', 'Priority support when you need it'],
-  price: `From €${PRICING.care}/mo`,
+  what: 'Your system stays monitored, tuned and improving after launch — without locking you into a bloated retainer.',
+  outcomes: ['Monitoring and health checks', 'Small improvements as your business changes', 'Priority support and quarterly review options'],
+  price: MRR_NAV.price ?? formatRange(PRICING.managedAutomation.from, PRICING.managedAutomation.to, true),
   href: MRR_NAV.href,
 };
 
@@ -76,18 +86,16 @@ export default function SolutionsPage() {
         <M.div variants={fadeIn} initial="initial" animate="animate">
           <Eyebrow>Solutions</Eyebrow>
           <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6">
-            A few sharp, productized systems{' '}
-            <span className="text-[var(--qf-text-dim)]">— not a hundred services.</span>
+            A few sharp systems for the business leak that hurts most.
           </h1>
           <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
-            Each system is built, tested, and ready to adapt to your business. Pick the one that
-            hurts most right now — or start with the{' '}
-            <span className="text-[var(--qf-accent)]">Automation Map</span> and let us show you the
-            fastest path.
+            Start with the problem: inbox chaos, an outdated website, manual quoting, cold traffic or
+            systems that decay after launch. Each solution is built from modules already running in my
+            own production ecosystem.
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-              Book your Automation Map
+              Book Automation Map
             </Button>
             <Button href={ROUTES.howItWorks} variant="ghost" withArrow>
               See how it works
@@ -284,8 +292,8 @@ export default function SolutionsPage() {
             time and money leaks — and show you the ROI before you commit to anything bigger. The
             fee is credited toward your first project.
           </p>
-          <Button href={ROUTES.bookDiscovery} withArrow size="xl">
-            Book your Automation Map
+          <Button href={ROUTES.bookDiscovery} withArrow size="xl" analyticsEvent="cta_book_map_click">
+            {CTAS.bookAutomationMap}
           </Button>
         </div>
       </Section>

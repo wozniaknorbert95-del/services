@@ -51,14 +51,13 @@ export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
 /** Home section markers — site-map.md §2 (for DOM verification) */
 export const HOME_SECTION_MARKERS: Record<(typeof HOME_SECTIONS)[number], string> = {
   HeroSection: 'hero',
-  LivingSystemTeaser: 'los-teaser',
-  BuiltVsPlanned: 'built-vs-planned',
-  IntentRouter: 'repo-router',
   PainGrid: 'pain-grid',
-  SpearheadSpotlight: 'spearhead',
-  OwnerEcosystemTeaser: 'owner-ecosystem',
   SystemMetrics: 'system-metrics',
+  SpearheadSpotlight: 'spearhead',
+  BuiltVsPlanned: 'built-vs-planned',
   ResultsTeaser: 'results-teaser',
+  IntentRouter: 'repo-router',
+  LivingSystemTeaser: 'los-teaser',
   BehindTheScenes: 'behind-the-scenes',
   HowIWork: 'how-i-work',
   TrustAndObjections: 'trust-safety',
@@ -125,17 +124,16 @@ export function getIntentMeta(id: IntentId) {
   return found;
 }
 
-/** Locked home stack — site-map.md §2 */
+/** Locked home stack — site-map.md §3 */
 export const HOME_SECTIONS = [
   'HeroSection',
-  'LivingSystemTeaser',
-  'BuiltVsPlanned',
-  'IntentRouter',
   'PainGrid',
-  'SpearheadSpotlight',
-  'OwnerEcosystemTeaser',
   'SystemMetrics',
+  'SpearheadSpotlight',
+  'BuiltVsPlanned',
   'ResultsTeaser',
+  'IntentRouter',
+  'LivingSystemTeaser',
   'BehindTheScenes',
   'HowIWork',
   'TrustAndObjections',
@@ -238,6 +236,7 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
 export interface EcosystemRepo {
   number: number;
   repoKey: string;
+  outcomeLabel: string;
   role: string;
   statusNote?: string;
   intents: IntentId[];
@@ -251,6 +250,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 1,
     repoKey: 'zzpackage',
+    outcomeLabel: 'Quote, price and checkout in one guided flow',
     role: 'Wizard Cash Engine',
     intents: ['money', 'efficiency'],
     losLayers: ['sense', 'act'],
@@ -261,6 +261,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 2,
     repoKey: 'app.flexgrafik.nl',
+    outcomeLabel: 'Turn cold traffic into qualified handoffs',
     role: 'Lead magnet game',
     intents: ['money'],
     losLayers: ['sense'],
@@ -270,7 +271,8 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 3,
     repoKey: 'jadzia-core',
-    role: 'Chief Operating Intelligence (COI)',
+    outcomeLabel: 'Know which leads, orders and ops need action',
+    role: 'Jadzia COI',
     statusNote: 'LIVE: leads · analytics · WP SSH · sales chat · weekly brief · PLANNED: WC order sync to jadzia.db',
     intents: ['time', 'calm', 'order', 'efficiency'],
     losLayers: ['think', 'act'],
@@ -281,7 +283,8 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 4,
     repoKey: 'agent-os',
-    role: 'Agent workforce',
+    outcomeLabel: 'Build and test changes through a fixed agent workflow',
+    role: 'Agent OS',
     intents: ['time', 'efficiency'],
     losLayers: ['orchestrate', 'act'],
     screenKey: 'agentCards',
@@ -290,6 +293,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 5,
     repoKey: 'flex-vcms',
+    outcomeLabel: 'Stop content and repo drift before deploy',
     role: 'Governance layer',
     intents: ['order', 'calm'],
     losLayers: ['sense', 'guard'],
@@ -300,6 +304,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 6,
     repoKey: 'flexgrafik-nl',
+    outcomeLabel: 'Give visitors a trustworthy conversion portal',
     role: 'Trust Portal',
     statusNote: 'LIVE: generic sales chat · PLANNED: qualification agent',
     intents: ['money', 'order'],
@@ -310,6 +315,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 7,
     repoKey: 'flexgrafik-meta',
+    outcomeLabel: 'Start every project with a written operating map',
     role: 'Method / Automation Map',
     intents: ['order', 'money'],
     losLayers: ['guard', 'memory'],
@@ -318,6 +324,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
   {
     number: 8,
     repoKey: 'agent-os-ui',
+    outcomeLabel: 'See tasks, approvals, history and cost',
     role: 'Mission Control',
     intents: ['order', 'efficiency'],
     losLayers: ['orchestrate'],
@@ -334,32 +341,42 @@ export interface PainCard {
   intents: IntentId[];
 }
 
+export const PAIN_GRID_HEADER = {
+  eyebrow: '// Choose your leak',
+  title: 'Where is the business leaking time or money?',
+  lead: 'Start with the operational pain. The architecture comes after we know which leak is worth fixing.',
+} as const;
+
 export const PAIN_GRID: readonly PainCard[] = [
   {
     id: 'pain-inbox',
     title: 'Drowning in email',
-    description: 'Important messages, invoices and spam in one pile. Leads slip through.',
+    description:
+      'Important leads, invoices and customer questions sit in the same pile as noise. The system classifies, drafts and queues replies — you approve every send.',
     href: ROUTES.inboxKiller,
     intents: ['time', 'calm'],
   },
   {
     id: 'pain-site',
-    title: 'A site stuck in the past',
-    description: 'No mobile, no clear next step, nothing to track. It quietly costs you clients.',
+    title: 'An outdated website',
+    description:
+      'Visitors arrive, but the page gives them no trust, no clear route and no reason to act. The system turns the site into a conversion path.',
     href: ROUTES.webUpgrade,
     intents: ['money', 'order'],
   },
   {
     id: 'pain-quotes',
-    title: 'Quotes by hand, all day',
-    description: 'The same questions, the same replies, over and over.',
+    title: 'Quotes by hand',
+    description:
+      'You answer the same questions before knowing if the lead is serious. The wizard structures the quote, price logic and next step.',
     href: ROUTES.salesFunnel,
     intents: ['money', 'efficiency'],
   },
   {
     id: 'pain-leads',
     title: 'Traffic, but no leads',
-    description: 'People visit. Almost none get in touch.',
+    description:
+      'People visit and disappear. An interactive lead system earns attention first, then hands qualified users into the funnel.',
     href: ROUTES.leadMagnetGame,
     intents: ['money'],
   },

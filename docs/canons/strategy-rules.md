@@ -14,22 +14,22 @@ supersedes: "brain.md §5 (partial)"
 
 ## Agent duty
 
-Before home or money-page work: load this file + `site-map.md` §2.  
+Before home or money-page work: load this file + `site-map.md` §3 (home order).  
 On violation: cite rule ID, winner doc, proposed fix. Do not ship silent drift.
 
 ---
 
 ## Home & layout
 
-**SR-01 (HARD)** — Home section order is LOCKED to 14 sections in `site-map.md` §2.  
-*Violation:* Adding `SystemArchitecture` SMB pipeline to home.  
-*Source:* site-map §2
+**SR-01 (HARD)** — Home section order is LOCKED to 13 sections in `site-map.md` §3 (buyer-first: pain before deep architecture).  
+*Violation:* Reverting to arch-first order (full LOS at §2) or adding `OwnerEcosystemTeaser` / `SystemArchitecture` SMB pipeline on home.  
+*Source:* site-map §3
 
-**SR-02 (HARD)** — Forbidden on home until explicit Commander decision: `EcosystemVideo`, second hero rewrite, "AI Systems Architect" label, `SystemArchitecture`.  
-*Violation:* Re-introducing SMB Visitor→Client pipeline on home.  
-*Source:* site-map §2 forbidden table
+**SR-02 (HARD)** — Forbidden on home until explicit Commander decision: `EcosystemVideo`, second hero rewrite, "AI Systems Architect" label, `SystemArchitecture`, full `OwnerEcosystemTeaser` on home.  
+*Violation:* Re-introducing SMB Visitor→Client pipeline on home or arch-first layout before pain/proof.  
+*Source:* site-map §3–§4 (home contracts); SR-02 anti-patterns above
 
-**SR-03 (HARD)** — Anti-chaos: any change to `src/app/page.tsx` or home section order MUST update `site-map.md` §2 in the same session.  
+**SR-03 (HARD)** — Anti-chaos: any change to `src/app/page.tsx` or home section order MUST update `site-map.md` §3 in the same session.  
 *Violation:* Merged PR with page.tsx diff and no site-map update.  
 *Source:* AGENTS.md, strategy README
 
@@ -79,18 +79,21 @@ On violation: cite rule ID, winner doc, proposed fix. Do not ship silent drift.
 **SR-14 (HARD)** — Qualification paths: Wizard and/or Book Discovery with expectations set — no unqualified "free call" as only path.  
 *Source:* conversion-pipeline §1
 
-**SR-15 (HARD)** — Pricing floors and discovery pricing live in `src/lib/constants.ts` — docs reference, do not invent numbers in copy sessions.  
-*Source:* constants.ts, meta global-rules
+**SR-15 (HARD)** — All public prices come from `src/content/pricing.ts` (single matrix). Forbidden live fragments: `from €99/mo` for Managed Automation, `from €290/mo` for maintenance, swapped Web Upgrade / Sales Funnel ranges.  
+*Source:* site-map §8, marketing-strategy §8
+
+**SR-18 (HARD)** — Book Discovery copy must match UI: fallback = *Request Automation Map slot* + payment link after fit check; checkout model only when payment + calendar are live. Forbidden main submit: `Send enquiry`.  
+*Source:* conversion-pipeline §5, site-map §9
 
 ---
 
 ## Ecosystem display
 
-**SR-16 (HARD)** — Built vs Planned table on home reflects `readiness.ts` — 8 rows, honest LIVE/PARTIAL/PLANNED labels.  
-*Source:* site-map §2 #3, proof-rules
+**SR-16 (HARD)** — Built vs Planned on home is **compact** (max 4 rows + link to full map on owner-ecosystem); full 8-row table on `/results/owner-ecosystem/`. Data from `readiness.ts` — honest LIVE/PARTIAL/PLANNED labels.  
+*Source:* site-map §3 #5, proof-rules
 
-**SR-17 (SOFT)** — Home arc teaches LOS (§2) before product ladder (§4+) — do not reorder without Commander + site-map update.
+**SR-17 (SOFT)** — Home arc is buyer-first: pain → proof → honesty gate → architecture teaser — do not revert to full LOS at §2 without Commander + site-map update.
 
 ---
 
-*17 rules · Detail in strategy canon · Changes require `updated` bump + strategy-check skill sync*
+*18 rules · Detail in strategy canon · Changes require `updated` bump + strategy-check skill sync*

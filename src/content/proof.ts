@@ -248,16 +248,30 @@ export const fieldReports: readonly FieldReport[] = [
   },
 ] as const;
 
-// Pricing tiers — placeholders null
+import { PRICING_MATRIX, PRICING_NUMBERS, formatEuro } from './pricing';
+
+// Pricing tiers — derived from pricing.ts SSoT
 export const pricing = {
-  discovery: { price: "€290", note: "Credited toward your project." },  // known, keep
-  singleSystem: { from: "€1.490", timeline: "2-3 weeks", includes: "1 Custom Module (e.g. Inbox Killer or CRM sync)" },
-  leadMagnetGame: { from: "€2.200", timeline: "2-3 weeks", includes: "Custom Canvas game + email capture + wizard bridge" },
-  ecosystem:    {
-    from: "€3.490",
-    timeline: "4-6 weeks",
-    includes: "VCMS scan & governance",
-    summary: "2–3 modules + VCMS scan & governance + Agent OS + AVG/HITL",
+  discovery: { price: PRICING_MATRIX.automationMap.price, note: 'Credited toward your project.' },
+  singleSystem: {
+    from: formatEuro(PRICING_NUMBERS.singleSystem.from),
+    timeline: '2-3 weeks',
+    includes: '1 Custom Module (e.g. Inbox Killer or CRM sync)',
   },
-  maintenance:  { from: "€290", perMonth: true, note: "No lock-in." },
+  leadMagnetGame: {
+    from: formatEuro(PRICING_NUMBERS.leadMagnetGame.from),
+    timeline: '2-3 weeks',
+    includes: 'Custom Canvas game + email capture + wizard bridge',
+  },
+  ecosystem: {
+    from: formatEuro(PRICING_NUMBERS.ecosystemBuild.from),
+    timeline: '4-6 weeks',
+    includes: 'VCMS scan & governance',
+    summary: '2–3 modules + VCMS scan & governance + Agent OS + AVG/HITL',
+  },
+  managedAutomation: {
+    from: PRICING_MATRIX.managedAutomation.range,
+    perMonth: true,
+    note: 'No lock-in.',
+  },
 };

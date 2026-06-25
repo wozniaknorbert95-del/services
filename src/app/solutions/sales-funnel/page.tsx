@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SolutionLayout from '@/components/solutions/SolutionLayout';
 import { ROUTES, SITE_URL } from '@/lib/constants';
+import { SOLUTION_DETAIL_PRICES } from '@/content/pricing';
 import {
   salesFunnelSolutionEffectAfter,
   salesFunnelSolutionEffectBefore,
@@ -47,7 +48,7 @@ export default function SalesFunnelPage() {
       screenKey="wizardCheckout"
       videoKey="wizard"
       caseStudyHref={ROUTES.resultsSalesFunnel}
-      priceKey="singleSystem"
+      priceFrom={SOLUTION_DETAIL_PRICES.salesFunnel}
     />
   );
 }

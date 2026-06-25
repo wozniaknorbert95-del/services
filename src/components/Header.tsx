@@ -45,7 +45,7 @@ export default function Header() {
               )}
 
               {item.hasDropdown && dropdownOpen && (
-                <div className="qf-dropdown absolute left-0 top-full mt-2 w-56 border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-2">
+                <div className="qf-dropdown absolute left-0 top-full mt-2 w-72 border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-2">
                   <Link
                     href={item.href}
                     className="mb-1 block rounded-[var(--qf-radius)] px-3 py-2 text-sm font-semibold text-[var(--qf-text)] hover:bg-[var(--qf-bg-inset)]"
@@ -56,12 +56,23 @@ export default function Header() {
                     <Link
                       key={sub.label}
                       href={sub.href}
-                      className="flex items-center justify-between rounded-[var(--qf-radius)] px-3 py-2 text-sm text-[var(--qf-text-dim)] hover:bg-[var(--qf-bg-inset)] hover:text-[var(--qf-text)]"
+                      className="flex items-start justify-between gap-3 rounded-[var(--qf-radius)] px-3 py-2 text-sm hover:bg-[var(--qf-bg-inset)]"
                     >
-                      <span>{sub.label}</span>
-                      {sub.badge && (
-                        <span className="text-[var(--qf-fs-xs)] text-[var(--qf-accent)]">{sub.badge}</span>
-                      )}
+                      <span className="min-w-0">
+                        <span className="block text-[var(--qf-text-dim)] hover:text-[var(--qf-text)]">
+                          {sub.label}
+                        </span>
+                        {sub.price ? (
+                          <span className="mt-0.5 block font-mono text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">
+                            {sub.price}
+                          </span>
+                        ) : null}
+                      </span>
+                      {sub.badge ? (
+                        <span className="shrink-0 text-[var(--qf-fs-xs)] text-[var(--qf-accent)]">
+                          {sub.badge}
+                        </span>
+                      ) : null}
                     </Link>
                   ))}
                 </div>
@@ -107,13 +118,20 @@ export default function Header() {
                         <Link
                           key={sub.label}
                           href={sub.href}
-                          className="flex min-h-11 items-center py-2 text-[var(--qf-text-dim)] text-sm hover:text-[var(--qf-text)]"
+                          className="flex min-h-11 flex-col justify-center py-2 text-[var(--qf-text-dim)] text-sm hover:text-[var(--qf-text)]"
                           onClick={() => setMobileOpen(false)}
                         >
-                          {sub.label}
-                          {sub.badge && (
-                            <span className="ml-2 text-[var(--qf-accent)] text-xs">({sub.badge})</span>
-                          )}
+                          <span>
+                            {sub.label}
+                            {sub.badge ? (
+                              <span className="ml-2 text-[var(--qf-accent)] text-xs">({sub.badge})</span>
+                            ) : null}
+                          </span>
+                          {sub.price ? (
+                            <span className="font-mono text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">
+                              {sub.price}
+                            </span>
+                          ) : null}
                         </Link>
                       ))}
                     </div>

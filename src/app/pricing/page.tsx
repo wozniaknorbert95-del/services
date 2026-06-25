@@ -1,22 +1,24 @@
 import type { Metadata } from 'next';
 import { pricing } from '@/content/proof';
-import { WEBSITE_ONLY_EXCEPTION } from '@/content/conversion-copy';
+import { WEBSITE_ONLY_EXCEPTION, CTAS } from '@/content/conversion-copy';
 import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import FaqItem from '@/components/ui/FaqItem';
-import { ROUTES, PRODUCT_TIER_RANGES, SITE_URL } from '@/lib/constants';
+import AnalyticsPageView from '@/components/analytics/AnalyticsPageView';
+import { ROUTES, PRICING, PRODUCT_TIER_RANGES, SITE_URL } from '@/lib/constants';
+import { PRICING_MATRIX } from '@/content/pricing';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
-  title: 'Pricing — clear, no surprises',
+  title: 'Pricing — Automation Map & Conversion Systems',
   description:
-    'Transparent pricing for small-business systems. Start with a €290 Automation Map (credited toward your project). Builds from €1,200. Managed plans from €99/mo. No lock-in.',
+    `Transparent pricing for small-business systems. Start with a ${PRICING_MATRIX.automationMap.price} Automation Map (credited toward your project). Builds from ${PRICING_MATRIX.inboxKiller.range}. Managed Automation ${PRICING_MATRIX.managedAutomation.range}. No lock-in.`,
   openGraph: {
-    title: 'Pricing — clear, no surprises',
+    title: 'Pricing — Automation Map & Conversion Systems',
     description:
-      'Transparent pricing for small-business systems. Start with a €290 Automation Map (credited toward your project). Builds from €1,200. Managed plans from €99/mo.',
+      `Transparent pricing for small-business systems. Start with a ${PRICING_MATRIX.automationMap.price} Automation Map (credited toward your project). Managed Automation ${PRICING_MATRIX.managedAutomation.range}.`,
     url: `${SITE_URL}/pricing`,
     images: [
       {
@@ -44,7 +46,11 @@ const SETUP_TIERS = [
 ];
 
 const MRR_TIERS = [
-  { name: 'Maintenance', for: 'Keep it healthy & monitored', price: pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : 'Quoted' },
+  {
+    name: 'Managed Automation',
+    for: 'Keep it healthy & monitored',
+    price: PRICING_MATRIX.managedAutomation.range,
+  },
 ];
 
 const FAQS = [
@@ -74,6 +80,7 @@ const FAQS = [
 export default function PricingPage() {
   return (
     <>
+      <AnalyticsPageView event="pricing_view" />
       {/* ═══════════════════════════════════════════════════════════
           § A — HERO
          ═══════════════════════════════════════════════════════════ */}
@@ -91,14 +98,15 @@ export default function PricingPage() {
           Budget below €1,200? Start with the Automation Map to scope before committing.{' '}
           <a href="/artefacts/automation-map-sample.pdf" className="text-[var(--qf-accent)] hover:underline">
             Download sample Map
-          </a>{' '}
-          · Under €199?{' '}
-          <a href="/artefacts/automation-map-sample.pdf" className="text-[var(--qf-accent)] hover:underline">
-            Free lead guide (PDF)
           </a>
+          . Not ready for a paid Map yet? Read the practical notes in the{' '}
+          <a href={ROUTES.blog} className="text-[var(--qf-accent)] hover:underline">
+            blog
+          </a>
+          .
         </p>
-        <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
+          {CTAS.bookAutomationMap}
         </Button>
       </Section>
 
@@ -110,7 +118,7 @@ export default function PricingPage() {
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
           Starting ranges per system
         </h2>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto hidden md:block">
           <table className="w-full text-left border-collapse max-w-3xl">
             <thead>
               <tr className="border-b border-[var(--qf-border)]">
@@ -128,12 +136,23 @@ export default function PricingPage() {
                   <td className="py-4 pr-4 font-semibold text-[var(--qf-text)]">{tier.name}</td>
                   <td className="py-4 pr-4 text-right font-mono text-[var(--qf-text)]">
                     €{tier.from.toLocaleString('en-NL')}–€{tier.to.toLocaleString('en-NL')}
-                    {tier.name === 'Managed Automation' ? '/mo' : ''}
+                    {tier.perMonth ? '/mo' : ''}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+        <div className="grid grid-cols-1 gap-4 md:hidden max-w-3xl">
+          {PRODUCT_TIER_RANGES.map((tier) => (
+            <Card key={tier.name} className="p-4">
+              <h3 className="font-semibold text-[var(--qf-text)]">{tier.name}</h3>
+              <p className="mt-2 font-mono text-[var(--qf-accent)]">
+                €{tier.from.toLocaleString('en-NL')}–€{tier.to.toLocaleString('en-NL')}
+                {tier.perMonth ? '/mo' : ''}
+              </p>
+            </Card>
+          ))}
         </div>
         <p className="mt-4 text-sm text-[var(--qf-text-faint)] max-w-2xl">
           Final quote fixed after your Automation Map — priced to outcome, not hourly billing.
@@ -194,12 +213,12 @@ export default function PricingPage() {
             <div className="text-[var(--qf-fs-xs)] uppercase tracking-[0.1em] text-[var(--qf-accent)] mb-2">
               ③ Run
             </div>
-            <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-2">Maintenance</h3>
+            <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-2">Managed Automation</h3>
             <p className="text-[var(--qf-text-dim)] text-sm mb-4">
               Keep it healthy & monitored.
             </p>
             <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-              {pricing.maintenance.from !== null ? `from ${pricing.maintenance.from}/mo` : 'Quoted monthly'}
+              {pricing.managedAutomation.from}
             </div>
             <p className="text-[var(--qf-fs-xs)] text-[var(--qf-text-faint)]">cancel anytime</p>
           </Card>
@@ -234,8 +253,8 @@ export default function PricingPage() {
             </li>
           ))}
         </ul>
-        <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
+          {CTAS.bookAutomationMap}
         </Button>
       </Section>
 
@@ -404,11 +423,11 @@ export default function PricingPage() {
           Start with {pricing.discovery.price} and total clarity.
         </h2>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
-          No big commitment, no guesswork. Book your Automation Map, see the ROI, and decide
+          No big commitment, no guesswork. Book an Automation Map, see the ROI, and decide
           from there.
         </p>
-        <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
+          {CTAS.bookAutomationMap}
         </Button>
       </Section>
     </>

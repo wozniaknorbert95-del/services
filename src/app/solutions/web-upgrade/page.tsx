@@ -3,6 +3,7 @@ import Link from 'next/link';
 import SolutionLayout from '@/components/solutions/SolutionLayout';
 import Section from '@/components/ui/Section';
 import { ROUTES, SITE_URL } from '@/lib/constants';
+import { SOLUTION_DETAIL_PRICES } from '@/content/pricing';
 import {
   webUpgradeAdvisoryBridge,
   webUpgradeFitException,
@@ -51,7 +52,7 @@ export default function WebUpgradePage() {
         }}
         screenKey="portalAssistant"
         caseStudyHref={ROUTES.resultsAdvisoryModernisation}
-        priceKey="singleSystem"
+        priceFrom={SOLUTION_DETAIL_PRICES.webUpgrade}
       />
 
       <Section background="surface" padding="large">

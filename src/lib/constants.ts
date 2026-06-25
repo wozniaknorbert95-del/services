@@ -1,3 +1,7 @@
+import { PRICING, PRODUCT_TIER_RANGES } from '@/content/pricing';
+
+export { PRICING, PRODUCT_TIER_RANGES };
+
 export const SITE_NAME = 'Quietforge';
 export const SITE_URL = 'https://quietforge.flexgrafik.nl';
 
@@ -18,7 +22,7 @@ export const WHATSAPP = {
   url:
     process.env.NEXT_PUBLIC_WHATSAPP_URL ??
     'https://wa.me/31687286151?text=Hi%20Norbert%2C%20I%27d%20like%20to%20explore%20conversion%20systems%20for%20my%20business.',
-  label: 'Chat on WhatsApp',
+  label: 'Ask on WhatsApp',
   offlineFallback: `mailto:${EMAIL}?subject=WhatsApp%20unavailable`,
 } as const;
 
@@ -73,24 +77,3 @@ export const ARTEFACTS = {
   maintenanceHandover: '/artefacts/maintenance-handover.pdf',
 } as const;
 
-
-export const PRICING = {
-  discovery: 290,
-  inboxKiller: { from: 1200, to: 4800 },
-  webUpgrade: { from: 1800, to: 5500 },
-  salesFunnel: { from: 2400, to: 6500 },
-  leadMagnetGame: { from: 2200, to: 4500 },
-  bundleGrowth: { from: 3900, to: 7500 },
-  bundlePro: { from: 6500, to: 12000 },
-  care: 99,
-  manage: 349,
-  partner: 890,
-  budgetQualificationFloor: 1200,
-} as const;
-
-export const PRODUCT_TIER_RANGES = [
-  { name: 'Inbox Killer', from: PRICING.inboxKiller.from, to: PRICING.inboxKiller.to },
-  { name: 'Sales Funnel', from: PRICING.salesFunnel.from, to: PRICING.salesFunnel.to },
-  { name: 'Web Upgrade', from: PRICING.webUpgrade.from, to: PRICING.webUpgrade.to },
-  { name: 'Managed Automation', from: PRICING.manage, to: PRICING.partner },
-] as const;
