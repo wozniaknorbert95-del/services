@@ -162,7 +162,7 @@ export const vcmsFeatureStatus: Record<string, { label: string; status: FeatureC
 export const videos: Record<VideoKey, VideoSlot> = {
   ecosystem:   { url: null, duration: "90s", poster: null, ready: false },  // Wire: owner-ecosystem §ecosystem-video — run record-ecosystem-demo.mjs
   inboxKiller: { url: null, duration: "60s", poster: "/gratka/inbox-lanes.png", ready: false },
-  wizard:      { url: "/gratka/wizard-demo.mp4", duration: "68s", poster: "/gratka/wizard-checkout.png", ready: true },
+  wizard:      { url: "/gratka/wizard-demo.mp4", duration: "98s", poster: "/gratka/wizard-checkout.png", ready: true },
   leadMagnet:  { url: null, duration: "45s", poster: "/gratka/lead-magnet-start.png", ready: false },
   agentOs:     { url: "/gratka/agent-os-demo.mp4", duration: "60s", poster: null, ready: true },
   vcms:        { url: "/gratka/vcms-demo.mp4", duration: "69s", poster: null, ready: true }, // Self-hosted from flex-vcms/docs/demo/final-portfolio-demo.mp4

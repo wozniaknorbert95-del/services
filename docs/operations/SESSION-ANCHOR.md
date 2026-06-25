@@ -2,33 +2,34 @@
 
 > **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` when out of date.
 
-**Updated:** 2026-06-25 · **Last ship:** wizard demo professional re-capture (`record:wizard` v2)
+**Updated:** 2026-06-25 · **Last ship:** wizard demo Commander manual OBS (`wizard-demo.mp4` 98s)
 
 ---
 
 ## CO ROBIMY
 
-**Video production** — wizard BL-03 **FIXED** (full-funnel Playwright v2). Four videos remain.
+**Video production** — wizard BL-03 **closed** (Commander manual OBS). Four videos remain.
 
 ## NASTĘPNY KROK (Commander)
 
 | # | Akcja |
 |---|--------|
-| 1 | **Review** `wizard-demo.mp4` on deploy — Stap 9 checkout, €254 cart, no PII |
-| 2 | **P0 BL-03b** — `JADZIA_INBOX_URL` → `npm run record:inbox-killer` |
-| 3 | **P1** — `npm run record:lead-magnet` + `record:ecosystem` |
+| 1 | **P0 BL-03b** — inbox video: manual OBS per [`wizard-video-manual.md`](./wizard-video-manual.md) pattern → `inbox-killer-demo.mp4` |
+| 2 | **P1** — lead-magnet + ecosystem manual capture |
+| 3 | **Deploy** — push `master` when ready (wizard MP4 ~41 MB) |
 
-## Docs
+## Last shipped
 
-- **Video plan:** [`video-production-plan-2026-06-25.md`](./video-production-plan-2026-06-25.md) (lessons learned §)
-- **Fix handoff:** [`wizard-demo-fix`](./handoffs/2026-06-25-wizard-demo-fix.md)
+| Session | Handoff |
+|---------|---------|
+| 2026-06-25 | [`bl03-wizard-manual-ship`](./handoffs/2026-06-25-bl03-wizard-manual-ship.md) |
 
 ## Blockers
 
 | ID | Item | Status |
 |----|------|--------|
-| BL-03 | Wizard video | **closed** — `wizard-demo.mp4` 68s, `ready: true` |
-| BL-03b | Inbox video | open — needs `JADZIA_INBOX_URL` |
+| BL-03 | Wizard video | **closed** — `wizard-demo.mp4` 98s manual OBS, `ready: true` |
+| BL-03b | Inbox video | open — Commander manual OBS |
 | BL-02 | Commercial traction | partial — public UNKNOWN |
 
 ## Video score
