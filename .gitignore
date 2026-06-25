@@ -45,5 +45,6 @@ next-env.d.ts
 .vercel
 .env*
 
-/dist/
+# Commander source recordings (drop zone — ffmpeg compress before public/gratka/)
+docs/*.mp4
 

@@ -34,12 +34,17 @@
 
 ## Po nagraniu
 
-1. Zatrzymaj OBS → zapisz jako `wizard-demo.mp4`.
-2. Skopiuj do: `services/public/gratka/wizard-demo.mp4` (nadpisz stary plik).
+1. Zatrzymaj OBS → zapisz lokalnie (np. `docs/wizard video.mp4` — **gitignored**).
+2. **Skompresuj przed commitem** (OBS ~40 MB → push timeout bez tego):
+   ```bash
+   ffmpeg -i "docs/wizard video.mp4" -c:v libx264 -crf 23 -preset medium -an -movflags +faststart public/gratka/wizard-demo.mp4
+   ```
+   (ffmpeg z `node_modules/@ffmpeg-installer` jeśli brak w PATH)
 3. Obejrzyj raz — PII? cena czytelna? ruch?
-4. Napisz Agentowi: **„wizard mp4 gotowy”** → Agent ustawi `videos.wizard` `ready: true` + push.
+4. Napisz Agentowi: **„wizard mp4 gotowy”** → Agent ustawi `duration` w `proof.ts` + push.
+   Push dużych plików: `$env:GIT_HTTP_LOW_SPEED_LIMIT=0; $env:GIT_HTTP_LOW_SPEED_TIME=999999`
 
-**Nie commituj** sam jeśli wolisz — wrzuć plik lokalnie, Agent zrobi resztę.
+**Nie commituj** surowego OBS z `docs/` — tylko skompresowany plik w `public/gratka/`.
 
 ---
 
