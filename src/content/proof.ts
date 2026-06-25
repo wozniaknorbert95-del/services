@@ -160,9 +160,9 @@ export const vcmsFeatureStatus: Record<string, { label: string; status: FeatureC
  * 3. Set url + ready: true below (optional poster: /gratka/vcms-demo-poster.jpg)
  */
 export const videos: Record<VideoKey, VideoSlot> = {
-  ecosystem:   { url: null, duration: "90s", poster: null, ready: false },  // "How the whole ecosystem works"
-  inboxKiller: { url: null, duration: "60s", poster: null, ready: false },
-  wizard:      { url: null, duration: "45s", poster: "/gratka/wizard-checkout.png", ready: false },  // BL-03: Commander records → set url + ready:true
+  ecosystem:   { url: null, duration: "90s", poster: null, ready: false },  // Wire: owner-ecosystem §ecosystem-video — run record-ecosystem-demo.mjs
+  inboxKiller: { url: null, duration: "60s", poster: "/gratka/inbox-lanes.png", ready: false },
+  wizard:      { url: "/gratka/wizard-demo.mp4", duration: "54s", poster: "/gratka/wizard-checkout.png", ready: true },
   leadMagnet:  { url: null, duration: "45s", poster: "/gratka/lead-magnet-start.png", ready: false },
   agentOs:     { url: "/gratka/agent-os-demo.mp4", duration: "60s", poster: null, ready: true },
   vcms:        { url: "/gratka/vcms-demo.mp4", duration: "69s", poster: null, ready: true }, // Self-hosted from flex-vcms/docs/demo/final-portfolio-demo.mp4

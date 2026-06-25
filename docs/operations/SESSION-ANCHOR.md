@@ -2,38 +2,41 @@
 
 > **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` when out of date.
 
-**Updated:** 2026-06-25 · **Last ship:** `213e9a5` audit remediation · **Video plan:** created
+**Updated:** 2026-06-25 · **Last ship:** video P0 agency (wizard MP4 + record pipeline) · **Video plan:** [`video-production-plan-2026-06-25.md`](./video-production-plan-2026-06-25.md)
 
 ---
 
 ## CO ROBIMY
 
-**Post-audit remediation** — **SHIPPED**. Solutions SSoT, proof integrity, audit docs on master.
+**Video production** — wizard BL-03 **SHIPPED** (automated capture). Four videos remain.
 
 ## NASTĘPNY KROK (Commander)
 
 | # | Akcja |
 |---|--------|
-| 1 | **Video production** — follow [`video-production-plan-2026-06-25.md`](./video-production-plan-2026-06-25.md) (self-hosted MP4, no Loom) |
-| 2 | **P0** — record `wizard-demo.mp4` → Agent sets `videos.wizard` (`ready: true` only with file) |
-| 3 | **P0** — record `inbox-killer-demo.mp4` (after wizard) |
-| 4 | **P1/P2** — ecosystem, leadMagnet, founder per master session order in plan |
+| 1 | **Review** `public/gratka/wizard-demo.mp4` — PII check; re-run `npm run record:wizard` if trim needed |
+| 2 | **P0 BL-03b** — `JADZIA_INBOX_URL=<test inbox>` → `npm run record:inbox-killer` → Agent sets `ready: true` |
+| 3 | **P1** — `npm run record:lead-magnet` + `record:ecosystem` (or OBS per plan) |
+| 4 | **P2** — `npm run record:founder` (screen montage; optional VO re-record) |
 | 5 | Partner alignment → optional WC/GA4 for investor deck |
 
 ## Docs
 
 - **Video plan:** [`video-production-plan-2026-06-25.md`](./video-production-plan-2026-06-25.md)
-- Ship handoff: [`audit-remediation-ship`](./handoffs/2026-06-25-audit-remediation-ship.md)
+- **Agency handoff:** [`video-p0-agency`](./handoffs/2026-06-25-video-p0-agency.md)
 - DoD: [`07-remediation-plan-dod.md`](../audits/2026-06-25/07-remediation-plan-dod.md)
-- BL-02 private: [`commercial-traction-2026-06-25.md`](./commercial-traction-2026-06-25.md)
 
 ## Blockers
 
 | ID | Item | Status |
 |----|------|--------|
 | BL-02 | Commercial traction | **partial** — public UNKNOWN |
-| BL-03 | Wizard video | open |
-| BL-03b | Inbox video | open |
+| BL-03 | Wizard video | **closed** — `wizard-demo.mp4` + `ready: true` |
+| BL-03b | Inbox video | open — needs `JADZIA_INBOX_URL` |
+
+## Video score
+
+**3/7 ready** (`agentOs`, `vcms`, `wizard`) · record scripts in `scripts/record-*.mjs`
 
 ---
 

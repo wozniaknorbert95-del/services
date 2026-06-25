@@ -27,6 +27,7 @@ import StatusBadge from '@/components/ui/StatusBadge';
 import { CASE_STUDIES } from '@/lib/case-studies';
 import IntentBadges from '@/components/ui/IntentBadges';
 import ModulePreviewThumb from '@/components/ui/ModulePreviewThumb';
+import VideoSlot from '@/components/ui/VideoSlot';
 
 const CASE_MAP = CASE_STUDIES.map((c) => ({
   case: `${c.number} ${c.title}`,
@@ -352,6 +353,18 @@ export default function OwnerEcosystemPage() {
           ))}
         </div>
         <p className="mt-6 text-sm text-[var(--qf-text-faint)]">{INVESTOR_SECTION.docsNote}</p>
+      </Section>
+
+      <Section padding="large" id="ecosystem-video" className="scroll-mt-24">
+        <Eyebrow>Ecosystem tour</Eyebrow>
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
+          How the whole stack connects
+        </h2>
+        <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)]">
+          One business, eight repositories — capture to governance in one supervised pipeline.
+          Video plays when the montage ships; explore the map and live demos meanwhile.
+        </p>
+        <VideoSlot videoKey="ecosystem" />
       </Section>
 
       <Section background="surface" padding="large" id="why-vcms" className="scroll-mt-24">
