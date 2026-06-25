@@ -114,13 +114,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: 'advisory-modernisation',
     number: '07',
     title: 'Modernisation + AI assistant for an advisory firm',
-    meta: 'Web Upgrade + assistant · anonymised',
+    meta: 'Anonymised reference · in delivery',
     context:
       'Scope designed for advisory-firm modernisation (anonymised reference brief) — same delivery patterns as my live stack.',
     system:
       'Site modernisation + a lead-qualifying AI assistant (qualification only, no tax advice) + a human-approved content engine, with a signed data-processing agreement.',
     real: 'Full scope designed, security & AVG layer specified, staged delivery.',
-    measurement: '6-phase delivery, AVG layer specified · anonymised · in delivery.',
+    measurement: caseMeasurements.advisory.value ?? '',
     intents: ['money', 'order'],
     manifestKey: 'advisory',
     detailHref: ROUTES.resultsAdvisoryModernisation,

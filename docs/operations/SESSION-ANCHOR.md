@@ -2,27 +2,25 @@
 
 > **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` when out of date.
 
-**Updated:** 2026-06-25 · **Last ship:** `9a5c40f` E-5b
+**Updated:** 2026-06-25 · **Last ship:** pending commit (E-6)
 
 ---
 
 ## CO ROBIMY
 
-**E-5b — Inbox Killer solutions SSoT** — **SHIPPED** (build PASS).
+**E-6 — Advisory modernisation SSoT** — **SHIPPED** (build PASS). All `CaseStudyLayout` results CS now have content modules.
 
 ## DLACZEGO
 
-B2B product ladder (`/solutions/inbox-killer/`) i case study (`/results/inbox-killer/`) — jeden moduł content, mniej driftu na ścieżce konwersji.
+Domknięcie serii E-2…E-6 — zero hardcoded copy w standardowych case studies.
 
 ## NASTĘPNY KROK
 
 | # | Akcja |
 |---|--------|
-| **1** | **E-6** — `advisory-modernisation` case study SSoT (ostatni hardcoded results CS) |
-| 2 | BL-02 — commercial traction (Commander) |
-| 3 | BL-03 — inboxKiller video when ready |
-
-**Start prompt:** „Begin E-6”.
+| 1 | **E-7** (optional) — whatsapp-discovery-pilot content module |
+| 2 | **BL-02** — commercial traction §2.2 (Commander) |
+| 3 | Commander visual pass — mobile bridges across results CS |
 
 ---
 
@@ -30,19 +28,14 @@ B2B product ladder (`/solutions/inbox-killer/`) i case study (`/results/inbox-ki
 
 | Session | Handoff |
 |---------|---------|
+| 2026-06-25 | [`e6-advisory-modernisation-ssot`](./handoffs/2026-06-25-e6-advisory-modernisation-ssot.md) |
 | 2026-06-25 | [`e5b-inbox-killer-solutions-ssot`](./handoffs/2026-06-25-e5b-inbox-killer-solutions-ssot.md) |
-| 2026-06-25 | [`e5-inbox-killer-ssot`](./handoffs/2026-06-25-e5-inbox-killer-ssot.md) |
 
 ## Blockers
 
 | ID | Item | Owner |
 |----|------|-------|
-| BL-01 | Mission Control URL in proof.ts | Commander optional |
 | BL-02 | Commercial traction §2.2 | Commander |
-
-## Read order (agents)
-
-[`docs/README.md`](../README.md) → canons → strategy → [`brain.md`](../../brain.md) → this file
 
 ---
 
