@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { pricing } from '@/content/proof';
+import { WEBSITE_ONLY_EXCEPTION } from '@/content/conversion-copy';
 import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
@@ -82,6 +83,9 @@ export default function PricingPage() {
         </h1>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-4">
           Start with a paid Automation Map. Then choose a build that fits the size of the problem — not the size of a retainer.
+        </p>
+        <p className="text-[var(--qf-text-dim)] text-sm max-w-[var(--qf-maxw-narrow)] mb-4 border-l-2 border-[var(--qf-accent)] pl-4">
+          {WEBSITE_ONLY_EXCEPTION}
         </p>
         <p className="text-[var(--qf-text-dim)] text-sm max-w-[var(--qf-maxw-narrow)] mb-8">
           Budget below €1,200? Start with the Automation Map to scope before committing.{' '}

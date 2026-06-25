@@ -2,40 +2,40 @@
 
 > **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` when out of date.
 
-**Updated:** 2026-06-25 · **Last ship:** `e259aad` E-6
+**Updated:** 2026-06-25 · **Last ship:** `e259aad` E-6 · **Remediation:** agent batch local (uncommitted)
 
 ---
 
 ## CO ROBIMY
 
-**E-6 — Advisory modernisation SSoT** — **SHIPPED** (build PASS). All `CaseStudyLayout` results CS now have content modules.
+**Audit remediation FIND-03…10** — **DONE** (agent). **BL-02** — **partial** (Commander private notes, public UNKNOWN).
 
 ## DLACZEGO
 
-Domknięcie serii E-2…E-6 — zero hardcoded copy w standardowych case studies.
+Post-audyt 2026-06-25: solutions SSoT, proof traceability, hub sync. Pre-launch: no fake traction on site.
 
 ## NASTĘPNY KROK
 
-| # | Akcja |
-|---|--------|
-| 1 | **E-7** (optional) — whatsapp-discovery-pilot content module |
-| 2 | **BL-02** — commercial traction §2.2 (Commander) |
-| 3 | Commander visual pass — mobile bridges across results CS |
+| # | Akcja | Owner |
+|---|--------|-------|
+| 1 | **BL-03** — wizard Loom → `videos.wizard.ready: true` | Commander |
+| 2 | Partner alignment → then investor WC/GA4 pull (optional) | Commander |
+| 3 | **BL-03b** — inbox video | Commander |
+| 4 | Commit + push remediation batch when ready | Commander |
 
----
+## Docs
 
-## Last shipped
-
-| Session | Handoff |
-|---------|---------|
-| 2026-06-25 | [`e6-advisory-modernisation-ssot`](./handoffs/2026-06-25-e6-advisory-modernisation-ssot.md) |
-| 2026-06-25 | [`e5b-inbox-killer-solutions-ssot`](./handoffs/2026-06-25-e5b-inbox-killer-solutions-ssot.md) |
+- DoD: [`07-remediation-plan-dod.md`](../audits/2026-06-25/07-remediation-plan-dod.md)
+- BL-02 private: [`commercial-traction-2026-06-25.md`](./commercial-traction-2026-06-25.md)
+- Handoff: [`audit-remediation-phase1`](./handoffs/2026-06-25-audit-remediation-phase1.md)
 
 ## Blockers
 
-| ID | Item | Owner |
-|----|------|-------|
-| BL-02 | Commercial traction §2.2 | Commander |
+| ID | Item | Status |
+|----|------|--------|
+| BL-02 | Commercial traction | **partial** — public UNKNOWN; private notes filed |
+| BL-03 | Wizard video | open — poster only, `ready: false` |
+| BL-03b | Inbox video | open |
 
 ---
 

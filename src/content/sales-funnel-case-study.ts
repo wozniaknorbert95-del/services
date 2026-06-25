@@ -108,3 +108,50 @@ export const salesFunnelRoiRows = [
 
 export const salesFunnelRoiFooter =
   'Download the full framing sheet (PDF) for a printable version to share with a partner or accountant.';
+
+export const salesFunnelHubTitle = 'Self-service quote & onboarding';
+
+// ---------------------------------------------------------------------------
+// Solutions ladder — /solutions/sales-funnel/ (E-8a SSoT)
+// ---------------------------------------------------------------------------
+
+export const salesFunnelSolutionMeta = {
+  title: 'Wizard Cash Engine — quotes & checkout on autopilot',
+  description:
+    'Self-service configurator on zzpackage.flexgrafik.nl — 9 UI screens, Mollie checkout from €199, calm form or designer handoff. Same spearhead Quietforge deploys for SMB clients.',
+  openGraphTitle: 'Wizard Cash Engine — quotes & checkout | Quietforge',
+  openGraphDescription:
+    `${metrics.wizardStepsFootnote} · Mollie checkout · open pricing before pay.`,
+  twitterDescription:
+    'Live wizard — configure, see price, pay via Mollie. Process proof, not invented conversion rates.',
+  ogAlt: 'Wizard Cash Engine — Sales Funnel solution',
+} as const;
+
+export const salesFunnelSolutionTitle =
+  'Wizard Cash Engine — quotes, pricing and checkout without the email chase.';
+
+export const salesFunnelSolutionProblem =
+  'Manual quoting does not just eat hours — prospects who wanted a number now go cold while you type the same answers again.';
+
+export const salesFunnelSolutionSystemItems = [
+  {
+    title: salesFunnelJourneySteps[0].title,
+    body: 'Orient the client — what they configure and how long it takes. Progress bar stays visible.',
+  },
+  {
+    title: 'Configuration',
+    body: `${metrics.wizardStepsFootnote} — structured options, dependencies and minimums enforced in-flow.`,
+  },
+  {
+    title: salesFunnelJourneySteps[7].title,
+    body: 'Summary, open price, asset uploads — sticky cart on every step.',
+  },
+  {
+    title: salesFunnelJourneySteps[8].title,
+    body: 'Mollie payment from €199 or book — qualified lead webhook to inbox / CRM / sheet.',
+  },
+] as const;
+
+export const salesFunnelSolutionEffectBefore = [...salesFunnelBeforeItems] as const;
+
+export const salesFunnelSolutionEffectAfter = [...salesFunnelAfterItems] as const;

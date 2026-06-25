@@ -33,7 +33,8 @@ export type CaseMeasurementKey =
   | 'leadMagnet'
   | 'advisory'
   | 'ownerEcosystem'
-  | 'jadziaCoi';
+  | 'jadziaCoi'
+  | 'whatsappPilot';
 
 /** Maps case study slug → proof caseMeasurements key */
 export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
@@ -44,6 +45,7 @@ export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
   'advisory-modernisation': 'advisory',
   'owner-ecosystem': 'ownerEcosystem',
   'jadzia-coi': 'jadziaCoi',
+  'whatsapp-discovery-pilot': 'whatsappPilot',
 } as const;
 
 /** Home section markers — site-map.md §2 (for DOM verification) */

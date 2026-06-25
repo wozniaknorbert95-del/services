@@ -25,6 +25,10 @@ classification: "Architecture — src/content ownership"
 | `metrics-display.ts` | Home metrics presentation + footnotes | proof.ts |
 | `los-architecture.ts` | LOS layer IDs for badges | site-map §3 |
 | `jadzia-coi.ts` | Jadzia COI case study content | module-jadzia-core |
+| `*-case-study.ts` | Per-route CS + solutions ladder exports | site-map §5 |
+| `web-upgrade-case-study.ts` | Web Upgrade solutions + fit exception | marketing-strategy §2 |
+| `whatsapp-discovery-pilot-case-study.ts` | WhatsApp pilot custom page | conversion-pipeline §3 |
+| `managed-automation-case-study.ts` | MRR solutions + FAQ | site-map §5 |
 | `module-showcase.ts` | Intent router showcase data | ecosystem.ts |
 | `navigation.ts` | Header nav, footer, solutions dropdown | site-map §6, conversion-pipeline §3 |
 

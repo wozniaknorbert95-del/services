@@ -162,7 +162,7 @@ export const vcmsFeatureStatus: Record<string, { label: string; status: FeatureC
 export const videos: Record<VideoKey, VideoSlot> = {
   ecosystem:   { url: null, duration: "90s", poster: null, ready: false },  // "How the whole ecosystem works"
   inboxKiller: { url: null, duration: "60s", poster: null, ready: false },
-  wizard:      { url: null, duration: "45s", poster: null, ready: false },
+  wizard:      { url: null, duration: "45s", poster: "/gratka/wizard-checkout.png", ready: false },  // BL-03: Commander records → set url + ready:true
   leadMagnet:  { url: null, duration: "45s", poster: "/gratka/lead-magnet-start.png", ready: false },
   agentOs:     { url: "/gratka/agent-os-demo.mp4", duration: "60s", poster: null, ready: true },
   vcms:        { url: "/gratka/vcms-demo.mp4", duration: "69s", poster: null, ready: true }, // Self-hosted from flex-vcms/docs/demo/final-portfolio-demo.mp4
@@ -206,7 +206,36 @@ export const caseMeasurements: Record<
     value: 'COI live — leads, WP SSH, sales chat, worker HITL, weekly brief on EU VPS · WC order sync PLANNED.',
     ready: true,
   },
+  whatsappPilot: {
+    value: '6–8 question async flow · scored brief · pilot stage.',
+    ready: true,
+  },
 };
+
+export type FieldReport = {
+  date: string;
+  text: string;
+  verified: boolean;
+};
+
+/** Self-reports from production — PR-07: no unverified commercial counts on site */
+export const fieldReports: readonly FieldReport[] = [
+  {
+    date: 'Wizard funnel',
+    text: 'Self-service configurator qualifies leads in one session — open pricing and Mollie checkout without email ping-pong.',
+    verified: true,
+  },
+  {
+    date: 'Inbox run',
+    text: `${metrics.msgsPerScan} messages scanned per pass — drafts queued with human approval before every send.`,
+    verified: true,
+  },
+  {
+    date: 'VCMS scan',
+    text: 'Eight repos checked in one pass; conflicts flagged before anything touched production.',
+    verified: true,
+  },
+] as const;
 
 // Pricing tiers — placeholders null
 export const pricing = {

@@ -4,6 +4,17 @@ import { caseMeasurements } from '@/content/proof';
 import { agentOsDisplayName } from '@/content/agent-os-case-study';
 import { leadMagnetDisplayName } from '@/content/lead-magnet-case-study';
 import { jadziaCoiDisplayName, JADZIA_COI_SLUG } from '@/content/jadzia-coi-case-study';
+import { salesFunnelHubTitle } from '@/content/sales-funnel-case-study';
+import { inboxKillerDisplayName } from '@/content/inbox-killer-case-study';
+import { advisoryModernisationDisplayName } from '@/content/advisory-modernisation-case-study';
+import { ownerEcosystemHubCard } from '@/content/owner-ecosystem';
+import {
+  whatsappPilotHubContext,
+  whatsappPilotHubReal,
+  whatsappPilotHubSystem,
+  whatsappPilotHubTitle,
+  WHATSAPP_PILOT_SLUG,
+} from '@/content/whatsapp-discovery-pilot-case-study';
 
 export interface CaseStudy {
   slug: string;
@@ -24,14 +35,12 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'owner-ecosystem',
     number: '01',
-    title: 'Eight repos, one supervised system',
-    meta: 'Owner ecosystem · governance',
-    context:
-      'A multi-repo business stack without a governance layer drifts — conflicts, duplicate truth, deploy surprises.',
-    system:
-      'VCMS scans all repos, detects SSoT conflicts, and enforces handoffs before changes reach production.',
-    real: '8 repos governed · Conflicts: 0 target · live scan pipeline.',
-    measurement: '8-repo scan status with conflict detection before deploy.',
+    title: ownerEcosystemHubCard.title,
+    meta: ownerEcosystemHubCard.meta,
+    context: ownerEcosystemHubCard.context,
+    system: ownerEcosystemHubCard.system,
+    real: ownerEcosystemHubCard.real,
+    measurement: caseMeasurements.ownerEcosystem.value ?? '',
     intents: ['order', 'calm'],
     manifestKey: 'ownerEcosystem',
     detailHref: ROUTES.resultsOwnerEcosystem,
@@ -54,13 +63,13 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'sales-funnel',
     number: '03',
-    title: 'Self-service quote & onboarding',
+    title: salesFunnelHubTitle,
     meta: 'Wizard Cash Engine · zzpackage · live',
     context: 'My own sales funnel — the same "what do you charge?" questions, answered by the system.',
     system:
       'Wizard Cash Engine on zzpackage.flexgrafik.nl — 9 UI screens, Mollie checkout from €199, calm form or designer handoff.',
     real: 'Working funnel — pick options → upload logo → see price → pay via Mollie.',
-    measurement: '9 UI screens · 7 business decision stages → quote → payment, live.',
+    measurement: caseMeasurements.salesFunnel.value ?? '',
     intents: ['money', 'efficiency'],
     manifestKey: 'salesFunnel',
     detailHref: ROUTES.resultsSalesFunnel,
@@ -98,8 +107,8 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'inbox-killer',
     number: '06',
-    title: 'The self-running back-office',
-    meta: `Inbox Killer · B2B · live ops`,
+    title: inboxKillerDisplayName,
+    meta: 'Inbox Killer · B2B · live ops',
     context:
       'Deployed in my own NL print-business ecosystem (2+ years in production). Same architecture I deploy for clients — not theory.',
     system:
@@ -113,7 +122,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'advisory-modernisation',
     number: '07',
-    title: 'Modernisation + AI assistant for an advisory firm',
+    title: advisoryModernisationDisplayName,
     meta: 'Anonymised reference · in delivery',
     context:
       'Scope designed for advisory-firm modernisation (anonymised reference brief) — same delivery patterns as my live stack.',
@@ -126,18 +135,16 @@ export const CASE_STUDIES: CaseStudy[] = [
     detailHref: ROUTES.resultsAdvisoryModernisation,
   },
   {
-    slug: 'whatsapp-discovery-pilot',
+    slug: WHATSAPP_PILOT_SLUG,
     number: '08',
-    title: 'WhatsApp discovery pilot',
+    title: whatsappPilotHubTitle,
     meta: 'Pilot · async qualification',
-    context:
-      'Cold calls waste time. A chat agent asks 6–8 questions, scores fit, and delivers a brief — same path used for discovery.',
-    system:
-      'Async WhatsApp qualification with scored brief output — human review before any follow-up.',
-    real: 'Pilot walkthrough — screen recording and brief PDF output path documented.',
-    measurement: '6–8 question flow · scored brief · pilot stage.',
+    context: whatsappPilotHubContext,
+    system: whatsappPilotHubSystem,
+    real: whatsappPilotHubReal,
+    measurement: caseMeasurements.whatsappPilot.value ?? '',
     intents: ['time', 'money'],
-    manifestKey: 'ownerEcosystem',
+    manifestKey: 'whatsappPilot',
     detailHref: ROUTES.resultsWhatsappPilot,
   },
 ];

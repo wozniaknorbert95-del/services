@@ -74,3 +74,14 @@ export const PORTAL_CHAT_DISCLAIMER =
   'Portal and wizard share the same supervised sales chat (customer_agent). A dedicated industry qualification flow is on the product roadmap — discovery first, checkout in the wizard.';
 
 export const JADZIA_ONE_LINER = JADZIA_COI.oneLiner;
+
+/** Results hub card #01 — sync with /results/owner-ecosystem/ */
+export const ownerEcosystemHubCard = {
+  title: 'Eight repos, one supervised system',
+  meta: 'Owner ecosystem · governance',
+  context:
+    'A multi-repo business stack without a governance layer drifts — conflicts, duplicate truth, deploy surprises.',
+  system:
+    'VCMS scans all repos, detects SSoT conflicts, and enforces handoffs before changes reach production.',
+  real: '8 repos governed · Conflicts: 0 target · live scan pipeline.',
+} as const;

@@ -1,21 +1,7 @@
 import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
-
-const REPORTS = [
-  {
-    date: 'Production week',
-    text: 'Last Tuesday the wizard scored 14 leads in 6 hours; I closed 3 without a single email exchange.',
-  },
-  {
-    date: 'Inbox run',
-    text: '142 messages scanned, 18 drafts queued — every send waited on my approval before it left.',
-  },
-  {
-    date: 'VCMS scan',
-    text: 'Eight repos checked in one pass; conflicts flagged before anything touched production.',
-  },
-] as const;
+import { fieldReports } from '@/content/proof';
 
 export default function FieldReports() {
   return (
@@ -29,7 +15,7 @@ export default function FieldReports() {
         deploy for clients.
       </p>
       <div className="grid gap-4 md:grid-cols-3">
-        {REPORTS.map((report) => (
+        {fieldReports.map((report) => (
           <Card key={report.date} className="p-6">
             <span className="font-mono text-xs uppercase text-[var(--qf-accent)]">{report.date}</span>
             <p className="mt-3 text-sm text-[var(--qf-text-dim)]">{report.text}</p>

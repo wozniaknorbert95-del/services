@@ -1,32 +1,48 @@
+import type { Metadata } from 'next';
 import SolutionLayout from '@/components/solutions/SolutionLayout';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES, SITE_URL } from '@/lib/constants';
+import {
+  salesFunnelSolutionEffectAfter,
+  salesFunnelSolutionEffectBefore,
+  salesFunnelSolutionMeta,
+  salesFunnelSolutionProblem,
+  salesFunnelSolutionSystemItems,
+  salesFunnelSolutionTitle,
+} from '@/content/sales-funnel-case-study';
 
-export const metadata = {
-  title: 'Sales Funnel Engine — quotes & bookings on autopilot',
+export const metadata: Metadata = {
+  title: salesFunnelSolutionMeta.title,
+  description: salesFunnelSolutionMeta.description,
+  openGraph: {
+    title: salesFunnelSolutionMeta.openGraphTitle,
+    description: salesFunnelSolutionMeta.openGraphDescription,
+    url: `${SITE_URL}/solutions/sales-funnel`,
+    images: [
+      {
+        url: '/og/solutions-sales-funnel.svg',
+        width: 1200,
+        height: 630,
+        alt: salesFunnelSolutionMeta.ogAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: salesFunnelSolutionMeta.title,
+    description: salesFunnelSolutionMeta.twitterDescription,
+    images: ['/og/solutions-sales-funnel.svg'],
+  },
 };
 
 export default function SalesFunnelPage() {
   return (
     <SolutionLayout
-      title="Quotes, bookings and qualifying — handled."
-      problem="Manual quoting doesn't just eat hours — it loses the clients who wanted an answer now, not next week."
-      systemItems={[
-        { title: 'A guided flow', body: 'Client picks options, you collect clean data.' },
-        { title: 'Built-in logic', body: 'Minimum values, options and rules.' },
-        { title: 'Connected', body: 'Pushes to your inbox / CRM / sheet automatically.' },
-        { title: 'A clear close', body: 'Payment, booking, or "call me back".' },
-      ]}
+      title={salesFunnelSolutionTitle}
+      problem={salesFunnelSolutionProblem}
+      systemItems={[...salesFunnelSolutionSystemItems]}
       effectBeforeAfter={{
-        before: [
-          'The same questions answered by hand, all day.',
-          'Prospects drop off because the next step isn\'t obvious.',
-          'You chase details by email before quoting.'
-        ],
-        after: [
-          'Fewer back-and-forth emails.',
-          'More completed enquiries with clean data.',
-          'A tidy pipeline where you always know what\'s in motion.'
-        ]
+        before: [...salesFunnelSolutionEffectBefore],
+        after: [...salesFunnelSolutionEffectAfter],
       }}
       screenKey="wizardCheckout"
       videoKey="wizard"

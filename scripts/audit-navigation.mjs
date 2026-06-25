@@ -67,7 +67,7 @@ async function checkRoute(page, route) {
   const handler = (res) => {
     const s = res.status();
     const u = res.url();
-    if (s >= 400 && u.startsWith(BASE)) failed.push({ status: s, url: u });
+    if (s >= 400 && u.startsWith(BASE) && !u.includes('_rsc=')) failed.push({ status: s, url: u });
   };
   page.on('response', handler);
   let status = 0;

@@ -1,38 +1,74 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
 import SolutionLayout from '@/components/solutions/SolutionLayout';
-import { ROUTES } from '@/lib/constants';
+import Section from '@/components/ui/Section';
+import { ROUTES, SITE_URL } from '@/lib/constants';
+import {
+  webUpgradeAdvisoryBridge,
+  webUpgradeFitException,
+  webUpgradeSolutionEffectAfter,
+  webUpgradeSolutionEffectBefore,
+  webUpgradeSolutionMeta,
+  webUpgradeSolutionProblem,
+  webUpgradeSolutionSystemItems,
+  webUpgradeSolutionTitle,
+} from '@/content/web-upgrade-case-study';
 
-export const metadata = {
-  title: 'Conversion Web Upgrade — a site that converts',
+export const metadata: Metadata = {
+  title: webUpgradeSolutionMeta.title,
+  description: webUpgradeSolutionMeta.description,
+  openGraph: {
+    title: webUpgradeSolutionMeta.openGraphTitle,
+    description: webUpgradeSolutionMeta.openGraphDescription,
+    url: `${SITE_URL}/solutions/web-upgrade`,
+    images: [
+      {
+        url: '/og/solutions-web-upgrade.svg',
+        width: 1200,
+        height: 630,
+        alt: webUpgradeSolutionMeta.ogAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: webUpgradeSolutionMeta.title,
+    description: webUpgradeSolutionMeta.twitterDescription,
+    images: ['/og/solutions-web-upgrade.svg'],
+  },
 };
 
 export default function WebUpgradePage() {
   return (
-    <SolutionLayout
-      title="A website that finally earns its keep."
-      problem="A site that doesn't convert isn't neutral — it's a leak you pay for in lost clients every single month."
-      systemItems={[
-        { title: 'Mobile-first layout', body: 'Clean, fast, and built around one clear action.' },
-        { title: 'Lead capture', body: 'Forms wired to your inbox / CRM, with instant confirmation emails.' },
-        { title: 'Real tracking', body: 'GA4 set up so you see what brings clients in.' },
-        { title: 'Content foundation', body: 'UX and copy structured to guide visitors to act.' },
-      ]}
-      effectBeforeAfter={{
-        before: [
-          'It looks dated — and first impressions decide.',
-          'It\'s slow or clumsy on a phone, where most people land.',
-          'No clear next step, so visitors leave without acting.',
-          'You have no idea where your enquiries come from.'
-        ],
-        after: [
-          'A site you\'re proud to share.',
-          'More enquiries through clear conversion paths.',
-          'Clarity on what works via real tracking.',
-          'Speed — pages that load fast and feel effortless.'
-        ]
-      }}
-      screenKey="portalAssistant"
-      caseStudyHref={ROUTES.resultsAdvisoryModernisation}
-      priceKey="singleSystem"
-    />
+    <>
+      <SolutionLayout
+        title={webUpgradeSolutionTitle}
+        problem={webUpgradeSolutionProblem}
+        systemItems={[...webUpgradeSolutionSystemItems]}
+        effectBeforeAfter={{
+          before: [...webUpgradeSolutionEffectBefore],
+          after: [...webUpgradeSolutionEffectAfter],
+        }}
+        screenKey="portalAssistant"
+        caseStudyHref={ROUTES.resultsAdvisoryModernisation}
+        priceKey="singleSystem"
+      />
+
+      <Section background="surface" padding="large">
+        <p className="text-[var(--qf-text-dim)] text-sm max-w-[var(--qf-maxw-narrow)] border-l-2 border-[var(--qf-accent)] pl-4">
+          {webUpgradeFitException}
+        </p>
+        <div className="mt-8 max-w-2xl rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6">
+          <p className="font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+            {webUpgradeAdvisoryBridge.eyebrow}
+          </p>
+          <h2 className="mt-2 text-[var(--qf-fs-lg)] font-bold">{webUpgradeAdvisoryBridge.title}</h2>
+          <p className="mt-2 text-sm text-[var(--qf-text-dim)]">{webUpgradeAdvisoryBridge.lead}</p>
+          <Link href={webUpgradeAdvisoryBridge.href} className="mt-4 inline-block text-sm text-[var(--qf-accent)] hover:underline">
+            {webUpgradeAdvisoryBridge.cta}
+          </Link>
+        </div>
+      </Section>
+    </>
   );
 }
