@@ -15,12 +15,7 @@
     "generate:artefacts": "node scripts/generate-artefact-pdfs.mjs",
     "audit:links": "npx broken-link-checker https://services.flexgrafik.nl --ordered",
     "audit:navigation": "node scripts/audit-navigation.mjs",
-    "audit:menu-footer": "node scripts/audit-menu-footer.mjs",
-    "record:wizard": "node scripts/record-wizard-demo.mjs",
-    "record:inbox-killer": "node scripts/record-inbox-killer-demo.mjs",
-    "record:ecosystem": "node scripts/record-ecosystem-demo.mjs",
-    "record:lead-magnet": "node scripts/record-lead-magnet-demo.mjs",
-    "record:founder": "node scripts/record-founder-demo.mjs"
+    "audit:menu-footer": "node scripts/audit-menu-footer.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

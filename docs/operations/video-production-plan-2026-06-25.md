@@ -12,7 +12,7 @@
 
 | Key | Priority | Target | Filename | Pages (today) | Status |
 |-----|----------|--------|----------|---------------|--------|
-| `wizard` | **P0** | 45–60s | `wizard-demo.mp4` | `/solutions/sales-funnel/`, `/results/sales-funnel/` | BL-03 open |
+| `wizard` | **P0** | 45–60s | `wizard-demo.mp4` | `/solutions/sales-funnel/`, `/results/sales-funnel/` | **manual OBS** — [`wizard-video-manual.md`](./wizard-video-manual.md) |
 | `inboxKiller` | **P0** | 60s | `inbox-killer-demo.mp4` | `/solutions/inbox-killer/`, `/results/inbox-killer/`, `/results/jadzia-coi/` | BL-03b open |
 | `ecosystem` | **P1** | 90s | `ecosystem-demo.mp4` | *Not wired yet* — future: `/results/owner-ecosystem/`, home Phase B | Manifest only |
 | `leadMagnet` | **P1** | 45s | `lead-magnet-demo.mp4` | `/results/lead-magnet/` | Poster ready |
@@ -46,7 +46,7 @@ Source: `flex-vcms/docs/VCMS_DEMO_SCRIPT.md`, [2026-06-17 VCMS presentation hand
 
 **Agent OS (done):** `public/gratka/agent-os-demo.mp4` — 60s automated demo from `agent-os` portfolio pack; same self-host + `ready: true` pattern.
 
-**Pending five videos:** No repo-level `demo:all` pipeline yet → **manual OBS capture** + optional FFmpeg post (see Tools below). Subtitles optional but recommended for silent B2B demos (match VCMS tone).
+**Pending five videos:** **Commander manual OBS / Win+G only** — see [`wizard-video-manual.md`](./wizard-video-manual.md). Playwright `record:*` scripts are **deprecated** (failed quality gate on wizard).
 
 ---
 
