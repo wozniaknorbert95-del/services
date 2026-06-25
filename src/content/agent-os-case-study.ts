@@ -34,8 +34,15 @@ export type AgentOsEcosystemModule = {
   layer: string;
   detail: string;
   href: string;
+  linkLabel: string;
   status: 'LIVE' | 'PARTIAL';
 };
+
+function moduleStatusClass(status: 'LIVE' | 'PARTIAL'): string {
+  return status === 'LIVE' ? 'text-emerald-500' : 'text-amber-500';
+}
+
+export { moduleStatusClass as agentOsModuleStatusClass };
 
 /** Three brains — honest boundaries per meta module specs (not one mega-engine). */
 export const agentOsEcosystemModules: readonly AgentOsEcosystemModule[] = [
@@ -46,6 +53,7 @@ export const agentOsEcosystemModules: readonly AgentOsEcosystemModule[] = [
     detail:
       '5-node LangGraph on VPS (Planner → Coder → Tester → Reviewer → Summarizer). Hybrid local runner for git/code. Mission Control for queue, HITL and Langfuse costs.',
     href: ROUTES.resultsAgentOrchestrator,
+    linkLabel: 'This page',
     status: 'LIVE',
   },
   {
@@ -53,9 +61,10 @@ export const agentOsEcosystemModules: readonly AgentOsEcosystemModule[] = [
     name: 'jadzia-core',
     layer: 'Operations (COI)',
     detail:
-      'Business ops on EU VPS — orders, leads, WP SSH agent, sales chat widget, worker HITL, weekly strategy brief. Outside the LangGraph pipeline.',
+      'Business ops on EU VPS — leads, WP SSH agent, sales chat widget, worker HITL, weekly brief LIVE. Order ingestion to jadzia.db via WC webhook: PLANNED (meta AS-IS). Outside the LangGraph pipeline.',
     href: ROUTES.resultsJadziaCoi,
-    status: 'LIVE',
+    linkLabel: 'Jadzia COI case study →',
+    status: 'PARTIAL',
   },
   {
     id: 'flex-vcms',
@@ -64,6 +73,7 @@ export const agentOsEcosystemModules: readonly AgentOsEcosystemModule[] = [
     detail:
       '8-repo scan, SSoT conflict detection, KODA read-only assistant, governance audit trail. Governs what may change — not a graph node.',
     href: ROUTES.resultsOwnerEcosystem,
+    linkLabel: 'Full stack map →',
     status: 'LIVE',
   },
 ] as const;
@@ -80,13 +90,13 @@ export const agentOsBeforeItems = [
 
 export const agentOsAfterItems = [
   'Agent OS — fixed 5-node LangGraph pipeline with HITL on VPS (queue, approve, reject, cancel)',
-  'jadzia-core — business ops and sales chat on the same ecosystem, separate service',
+  'jadzia-core — business ops and sales chat on the same ecosystem, separate service (order webhook PLANNED)',
   'Flex-VCMS — repo scan and conflict detection before changes ship (Conflicts: 0 target)',
   'Human approval before production — Zasada 11; no auto-deploy to client PROD',
 ] as const;
 
 export const agentOsSupervisionNote =
-  'Flex-VCMS governs repos and SSoT outside the LangGraph pipeline. jadzia-core handles business operations — orders, leads, WP SSH — not engineering task queue. Agent OS owns code/test/review execution only.';
+  'Flex-VCMS governs repos and SSoT outside the LangGraph pipeline. jadzia-core handles business operations — leads, WP SSH, sales chat — not engineering task queue. Order sync from WooCommerce: PLANNED. Agent OS owns code/test/review execution only.';
 
 export type AgentOsPipelineNode = {
   role: string;

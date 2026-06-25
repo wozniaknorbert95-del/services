@@ -55,12 +55,12 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: 'sales-funnel',
     number: '03',
     title: 'Self-service quote & onboarding',
-    meta: 'Wizard Cash Engine · live',
+    meta: 'Wizard Cash Engine · zzpackage · live',
     context: 'My own sales funnel — the same "what do you charge?" questions, answered by the system.',
     system:
-      'A 9-step configurator with open pricing and payment — qualifies, quotes and books without a phone call.',
-    real: 'Working funnel — pick options → upload logo → see price → pay.',
-    measurement: '9-step configurator → quote → payment, live.',
+      'Wizard Cash Engine on zzpackage.flexgrafik.nl — 9 UI screens, Mollie checkout from €199, calm form or designer handoff.',
+    real: 'Working funnel — pick options → upload logo → see price → pay via Mollie.',
+    measurement: '9 UI screens · 7 business decision stages → quote → payment, live.',
     intents: ['money', 'efficiency'],
     manifestKey: 'salesFunnel',
     detailHref: ROUTES.resultsSalesFunnel,
@@ -73,7 +73,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     context:
       'A multi-repo stack needs named layers — not one generic “AI engine”. Engineering execution, business ops and governance must stay separable with human gates.',
     system:
-      'Agent OS — 5-node LangGraph HITL pipeline on VPS (hybrid local runner for code). jadzia-core — COI ops (orders, leads, WP SSH, sales chat). Flex-VCMS — 8-repo scan and SSoT conflicts before deploy.',
+      'Agent OS — 5-node LangGraph HITL on VPS. Sits alongside jadzia-core (ops) and Flex-VCMS (governance) — three named layers, one ecosystem.',
     real: 'Prod smoke PASS — HITL approve/reject/cancel, Langfuse costs, E2E handoff on disk. Guided agency demo; not public SaaS.',
     measurement: caseMeasurements.agentOs.value ?? '',
     intents: ['time', 'efficiency', 'order'],

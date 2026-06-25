@@ -2,22 +2,25 @@
 
 > **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` when out of date.
 
-**Updated:** 2026-06-25 · **Last ship:** `9aa24f5` E-2 CS-02
+**Updated:** 2026-06-25 · **Last ship:** pending commit (E-2b + E-3)
 
 ---
 
 ## CO ROBIMY
 
-**E-2 CS-02** — Agent orchestrator copy refresh — **COMPLETE** (awaiting deploy smoke).
+**E-2b + E-3** — CS-02 polish + CS-03 sales-funnel SSoT — **READY TO SHIP** (build PASS).
 
 ## DLACZEGO
 
-Case study must show named ecosystem layers (Agent OS / jadzia-core / Flex-VCMS), not a generic engine — aligns with vision-system §3 and owner-ecosystem flow.
+Professional review P1 closed; Wizard case study aligned with meta (Mollie, footnote, zzpackage).
 
 ## NASTĘPNY KROK
 
-1. Dowódca: smoke `/results/agent-orchestrator/` after Vercel CD
-2. **E-3 CS-03** — zzpackage wizard case study (when ready)
+| Priorytet | Akcja |
+|-----------|--------|
+| 1 | Commander: `git push` → Vercel CD smoke (agent-orchestrator + sales-funnel) |
+| 2 | BL-02 commercial traction §2.2 before investor/LinkedIn |
+| 3 | E-4 — next ROADMAP case study or home polish |
 
 ---
 
@@ -25,8 +28,9 @@ Case study must show named ecosystem layers (Agent OS / jadzia-core / Flex-VCMS)
 
 | Session | Handoff |
 |---------|---------|
+| 2026-06-25 | [`2026-06-25-e3-cs03-sales-funnel.md`](./handoffs/2026-06-25-e3-cs03-sales-funnel.md) |
+| 2026-06-25 | [`2026-06-25-e2b-cs02-polish.md`](./handoffs/2026-06-25-e2b-cs02-polish.md) |
 | 2026-06-25 | [`2026-06-25-e2-cs02-agent-orchestrator-copy.md`](./handoffs/2026-06-25-e2-cs02-agent-orchestrator-copy.md) |
-| 2026-06-25 | [`2026-06-25-knowledge-architecture-canon.md`](./handoffs/2026-06-25-knowledge-architecture-canon.md) |
 
 ## Blockers
 
