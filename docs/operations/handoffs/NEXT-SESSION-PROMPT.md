@@ -1,48 +1,44 @@
-# Next Session Prompt — E-2 CS-02 ecosystem copy
+# Next Session Prompt — E-4 Jadzia orders truth sync
 
-> **Start here for implementation.** Knowledge canon established 2026-06-25 — load [`SESSION-ANCHOR.md`](../SESSION-ANCHOR.md) first.
+> Load [`SESSION-ANCHOR.md`](../SESSION-ANCHOR.md) first.
 
 ---
 
 ## Stan
 
 | Work | Status |
-|---|---|
-| P0 portfolio truth-sync | Done 2026-06-25 |
-| Knowledge architecture canon | Done 2026-06-25 |
-| E-1 Owner ecosystem | Done |
-| E-2 CS-02 copy refresh | **Done 2026-06-25** |
-
-**Handoff:** [`2026-06-13-e1-owner-ecosystem.md`](./2026-06-13-e1-owner-ecosystem.md)
+|------|--------|
+| Knowledge architecture | Done 2026-06-25 |
+| E-2 CS-02 + E-2b polish | Done · deployed · smoke PASS |
+| E-3 CS-03 sales-funnel SSoT | Done · deployed · smoke PASS |
+| **E-4 Jadzia orders truth** | **NEXT** |
 
 ---
 
-## Cel E-2: CS-02 copy refresh
+## Cel E-4
 
-Remap `/results/agent-orchestrator/` from generic „FastAPI engine” to named stack:
+Qualify „orders” claims portfolio-wide: WooCommerce checkout on zzpackage is LIVE; **jadzia.db WC order webhook is PLANNED** (meta AS-IS).
 
-- **Agent OS** — execution (Planner → Coder → Tester → Review)
-- **jadzia-core** — brain / ops / module loop
-- **Flex-VCMS** — supervision, conflict scan, SSoT
+### Read before code
 
-Link prominently to `/results/owner-ecosystem/` (already wired — deepen copy).
+1. [`e4-jadzia-orders-truth-prep.md`](./2026-06-25-e4-jadzia-orders-truth-prep.md)
+2. `flexgrafik-meta/docs/core/as-is-inventory.md` § jadzia-core
+3. [`authority-chain.md`](../../architecture/authority-chain.md)
 
 ### DoD
 
-- [ ] Copy names real modules (no brand dump)
-- [ ] No fake uptime %
-- [ ] Gratka still valid or refreshed if needed
-- [ ] Compliant with [`marketing-rules.md`](../../canons/marketing-rules.md) MR-16
-- [ ] Build + handoff in `docs/operations/handoffs/`
+- [ ] 8 files aligned (see prep table)
+- [ ] `readiness.ts` jadzia → `PARTIAL` or split capability string
+- [ ] Home BuiltVsPlanned consistent with jadzia-coi case study
+- [ ] No contradiction with agent-orchestrator E-2b copy
+- [ ] Build + handoff
 
 ---
 
-## Then E-3 (NEXT)
+## Then E-5
 
-CS-03 zzpackage: wizard + calm form + designer handoff story.
-
-**Handoff:** [`2026-06-25-e2-cs02-agent-orchestrator-copy.md`](./2026-06-25-e2-cs02-agent-orchestrator-copy.md)
+Inbox Killer — extract `inbox-killer-case-study.ts` (page still hardcoded).
 
 ---
 
-> **Begin:** Read CS-02 page + owner-ecosystem page → align narrative → build.
+> **Begin:** „Start E-4 per prep doc.”
