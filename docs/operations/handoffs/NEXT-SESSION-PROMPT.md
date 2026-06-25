@@ -11,7 +11,7 @@
 | P0 portfolio truth-sync | Done 2026-06-25 |
 | Knowledge architecture canon | Done 2026-06-25 |
 | E-1 Owner ecosystem | Done |
-| E-2 CS-02 copy refresh | **NEXT** |
+| E-2 CS-02 copy refresh | **Done 2026-06-25** |
 
 **Handoff:** [`2026-06-13-e1-owner-ecosystem.md`](./2026-06-13-e1-owner-ecosystem.md)
 
@@ -37,9 +37,11 @@ Link prominently to `/results/owner-ecosystem/` (already wired — deepen copy).
 
 ---
 
-## Then E-3
+## Then E-3 (NEXT)
 
 CS-03 zzpackage: wizard + calm form + designer handoff story.
+
+**Handoff:** [`2026-06-25-e2-cs02-agent-orchestrator-copy.md`](./2026-06-25-e2-cs02-agent-orchestrator-copy.md)
 
 ---
 

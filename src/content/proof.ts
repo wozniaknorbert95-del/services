@@ -133,7 +133,7 @@ export const agentOsVerifiedMetrics = [
 
 export const agentOsNarrative = {
   framing:
-    'Not built by one prompt. Assembled by agents that plan, code, test and review — with a human at the gate.',
+    'Three named modules — Agent OS (execute), jadzia-core (operate), Flex-VCMS (govern). Not one prompt; fixed roles with a human at the gate.',
 } as const;
 
 export const agentOsPublicUrls = {

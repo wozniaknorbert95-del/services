@@ -14,6 +14,9 @@ import {
   agentOsBeforeItems,
   agentOsCaseMeta,
   agentOsDeliveryPhases,
+  agentOsEcosystemIntro,
+  agentOsEcosystemModules,
+  agentOsOwnerEcosystemBridge,
   agentOsPipelineNodes,
   agentOsStack,
   agentOsSupervisionNote,
@@ -77,10 +80,24 @@ export default function AgentOrchestratorCaseStudyPage() {
       <Button href={GRATKA.orchestratorWorkflowMapPdf} target="_blank" rel="noopener noreferrer" variant="secondary">
         Workflow map (PDF) ↓
       </Button>
-      <Button href={ROUTES.resultsOwnerEcosystem} variant="ghost">
-        Full owner ecosystem map →
-      </Button>
     </>
+  );
+
+  const ecosystemBridge = (
+    <Card className="qf-panel--spearhead mb-10 p-6">
+      <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+        {agentOsOwnerEcosystemBridge.eyebrow}
+      </p>
+      <h2 className="mb-3 text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
+        {agentOsOwnerEcosystemBridge.title}
+      </h2>
+      <p className="mb-6 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+        {agentOsOwnerEcosystemBridge.lead}
+      </p>
+      <Button href={agentOsOwnerEcosystemBridge.href} variant="primary">
+        {agentOsOwnerEcosystemBridge.cta}
+      </Button>
+    </Card>
   );
 
   return (
@@ -97,7 +114,7 @@ export default function AgentOrchestratorCaseStudyPage() {
             {agentOsNarrative.framing}
           </p>
           <h3 className="mb-4 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
-            LangGraph pipeline
+            Agent OS — LangGraph pipeline
           </h3>
           <div className="mb-4 grid gap-[var(--qf-sp-4)] md:grid-cols-2 lg:grid-cols-3">
             {agentOsPipelineNodes.map((node) => (
@@ -130,6 +147,36 @@ export default function AgentOrchestratorCaseStudyPage() {
       screenKey="agentCards"
       downloadButtons={downloadButtons}
     >
+      {ecosystemBridge}
+      <h2 className="text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
+        Three named layers
+      </h2>
+      <p className="mb-6 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+        {agentOsEcosystemIntro}
+      </p>
+      <div className="mb-10 grid gap-[var(--qf-sp-4)] md:grid-cols-3">
+        {agentOsEcosystemModules.map((mod) => (
+          <Card key={mod.id} className="p-5">
+            <p className="mb-1 font-mono text-[10px] uppercase tracking-wider text-emerald-500">
+              {mod.status}
+            </p>
+            <p className="mb-1 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+              {mod.layer}
+            </p>
+            <h3 className="mb-2 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+              {mod.name}
+            </h3>
+            <p className="mb-4 max-w-none text-sm text-[var(--qf-text-dim)]">{mod.detail}</p>
+            {mod.id !== 'agent-os' ? (
+              <Link href={mod.href} className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
+                Case study →
+              </Link>
+            ) : (
+              <span className="text-sm text-[var(--qf-text-faint)]">This page</span>
+            )}
+          </Card>
+        ))}
+      </div>
       {screens.workflowMap.ready && screens.workflowMap.src && (
         <>
           <h2 className="mt-8 text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
