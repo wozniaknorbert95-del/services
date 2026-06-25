@@ -27,7 +27,7 @@ Invoke this skill when:
 
 **Page arc:** every money page is **Problem → System → Effect**, never Feature → Feature → Feature.
 
-**Single L3 contract:** one L3 above the fold (hero primary = *Book your Automation Map*). Header CTA is always L3 Book. Forbidden: "Book Strategy Call" as primary CTA. Min two proof sections before a second L3.
+**Single L3 contract:** one L3 above the fold (hero primary = *Book Automation Map*). Header CTA is always L3 Book. Forbidden: "Book Strategy Call" as primary CTA. Min two proof sections before a second L3.
 
 **Intent colors (§4):** every module card (`IntentRouter`), pain card (`PainGrid`), and results card shows ≥1 intent badge using tokens `--fx-time/money/order/calm/efficiency` (`text-fx-*`). No invented colors.
 

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Section from '@/components/ui/Section';
 import Button from '@/components/ui/Button';
 import { ROUTES } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 
 export const metadata: Metadata = {
   title: 'Blog — practical notes on systems & automation',
@@ -113,7 +114,7 @@ export default function BlogPage() {
           Ready to find your biggest time leak?
         </h3>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
+          {CTAS.bookAutomationMap}
         </Button>
       </div>
     </>

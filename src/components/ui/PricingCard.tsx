@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import Button from './Button';
+import { CTAS } from '@/content/conversion-copy';
 
 interface PricingCardProps {
   name: string;
@@ -18,7 +19,7 @@ export default function PricingCard({
   price,
   period,
   features,
-  ctaLabel = 'Book your Automation Map →',
+  ctaLabel = `${CTAS.bookAutomationMap} →`,
   ctaHref = '/book-discovery/',
   highlighted = false,
   badge,

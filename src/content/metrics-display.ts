@@ -49,7 +49,7 @@ export function getMetricValue(key: MetricKey): string {
 }
 
 export const SYSTEM_METRICS_COPY = {
-  eyebrow: '// metrics',
+  eyebrow: 'metrics',
   lead: 'What the numbers mean for your business — not just for developers.',
   wizardFootnote: '9 UI screens · 7 business decision stages',
 } as const;

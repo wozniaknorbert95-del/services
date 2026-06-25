@@ -84,7 +84,7 @@ export default function TrustAndObjections() {
             transition={fade.transition}
             className="mt-[var(--qf-sp-12)]"
           >
-            <span className="qf-eyebrow">// system.verify()</span>
+            <span className="qf-eyebrow">system.verify()</span>
             <h3 className="mb-[var(--qf-sp-6)] mt-[var(--qf-sp-4)] text-[var(--qf-fs-xl)] font-bold">
               Common objections — answered
             </h3>

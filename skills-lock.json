@@ -7,6 +7,18 @@
       "skillPath": "skills/nielsen-heuristics-audit/SKILL.md",
       "computedHash": "f62b323d02e15647e74d182dd84964746ccbb193ab8c03f7f5225d8cd0d5b2e1"
     },
+    "tuzi-copy-polish": {
+      "source": "tuziapi/tuzi-skills",
+      "sourceType": "github",
+      "skillPath": "skills/tuzi-copy-polish/SKILL.md",
+      "computedHash": "cf5960da4d187c87edbfe7832208d5e71b3b69a52a4985ce46f659b9f1b2298e"
+    },
+    "ui-audit": {
+      "source": "mblode/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ui-audit/SKILL.md",
+      "computedHash": "7c52bc290815a9d634288f7911581991fe707a1125ea3eb05b7d278760c32de8"
+    },
     "ui-design-review": {
       "source": "mastepanoski/claude-skills",
       "sourceType": "github",

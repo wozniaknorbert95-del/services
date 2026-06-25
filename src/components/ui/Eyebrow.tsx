@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn, normalizeEyebrowChildren } from '@/lib/utils';
 
 interface EyebrowProps {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ export default function Eyebrow({ children, className }: EyebrowProps) {
       )}
     >
       <span className="text-[var(--qf-text-faint)]">// </span>
-      {children}
+      {normalizeEyebrowChildren(children)}
     </span>
   );
 }

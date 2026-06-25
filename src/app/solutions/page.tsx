@@ -94,8 +94,8 @@ export default function SolutionsPage() {
             own production ecosystem.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-              Book Automation Map
+            <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
+              {CTAS.bookAutomationMap}
             </Button>
             <Button href={ROUTES.howItWorks} variant="ghost" withArrow>
               See how it works

@@ -5,6 +5,7 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { ROUTES } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 
 export const metadata: Metadata = {
   title: "Founder's System — Built in Production",
@@ -37,7 +38,7 @@ export default function FounderPage() {
   return (
     <>
       <Section padding="large">
-        <Eyebrow>// Behind the systems</Eyebrow>
+        <Eyebrow>Behind the systems</Eyebrow>
         <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
           The Founder&apos;s System
         </h1>
@@ -99,7 +100,7 @@ export default function FounderPage() {
             fits your business.
           </p>
           <Button href={ROUTES.bookDiscovery} withArrow size="xl">
-            Book your Automation Map
+            {CTAS.bookAutomationMap}
           </Button>
         </div>
       </Section>

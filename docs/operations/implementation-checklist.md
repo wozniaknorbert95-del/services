@@ -96,3 +96,13 @@ A page is done only if:
 - [x] Fix `site-map.md` audit reference path.
 - [x] Align SR-02 source to site-map §3–§4.
 - [x] Header solutions dropdown shows price ranges.
+
+## Polish repair (2026-06-25)
+
+- [x] Eyebrow double-prefix audit + `Eyebrow` hardening (`stripEyebrowPrefix`).
+- [x] Glued copy fixes (Spearhead, HowIWork, SystemMetrics, how-it-works Step 3).
+- [x] Agency → implementation demo copy.
+- [x] CTA `Book Automation Map` on all button surfaces.
+- [x] Sitemap tiered priorities.
+- [x] `/results/` case cards before LOS connector section.
+- [x] Skills: `ui-audit`, `tuzi-copy-polish`, `copy-polish-quietforge` installed.

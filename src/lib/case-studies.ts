@@ -83,7 +83,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       'A multi-repo stack needs named layers — not one generic “AI engine”. Engineering execution, business ops and governance must stay separable with human gates.',
     system:
       'Agent OS — 5-node LangGraph HITL on VPS. Sits alongside jadzia-core (ops) and Flex-VCMS (governance) — three named layers, one ecosystem.',
-    real: 'Prod smoke PASS — HITL approve/reject/cancel, Langfuse costs, E2E handoff on disk. Guided agency demo; not public SaaS.',
+    real: 'Prod smoke PASS — HITL approve/reject/cancel, Langfuse costs, E2E handoff on disk. Guided implementation demo — not public SaaS.',
     measurement: caseMeasurements.agentOs.value ?? '',
     intents: ['time', 'efficiency', 'order'],
     manifestKey: 'agentOs',

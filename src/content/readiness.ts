@@ -14,7 +14,7 @@ export interface ReadinessRow {
 }
 
 export const READINESS_HEADER = {
-  eyebrow: '// honesty_gate',
+  eyebrow: 'honesty_gate',
   title: 'What is live today vs what is on the roadmap.',
   lead:
     'No inflated metrics — evidence from production code and governance scans (Conflicts: 0). Percentages reflect AS-IS inventory, not revenue claims.',

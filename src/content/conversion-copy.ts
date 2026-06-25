@@ -55,7 +55,8 @@ export const WHY_THIS_WORKS_PILLARS = [
 export const OBJECTIONS = [
   {
     objection: 'Price',
-    rebuttal: '€290 is a filter, not a hidden cost — you get a written Automation Map either way.',
+    rebuttal:
+      'The €290 is a filter, not a hidden cost — you get a written Automation Map either way.',
   },
   {
     objection: 'Trust',
@@ -82,8 +83,7 @@ export const SITE_GOAL =
 
 export const SPEARHEAD = {
   eyebrow: 'spearhead',
-  headline: 'Wizard Cash Engine —',
-  headlineAccent: 'live checkout proof, not a slide deck.',
+  headline: 'Wizard Cash Engine — live checkout proof, not a slide deck.',
   body:
     'The self-service configurator runs on Mollie checkout today — 9 UI screens, open pricing, human approval on every deploy. This is the revenue layer I run before selling automation.',
   bullets: [

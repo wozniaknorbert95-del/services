@@ -65,11 +65,11 @@ export default function SystemMetrics({ variant = 'default' }: SystemMetricsProp
                 variants={motionCfg.childFade}
                 className={`flex flex-col rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-4)] transition-opacity duration-[var(--qf-transition)] ${intentHighlightClass(matches, isFiltering)}`}
               >
-                <span className="mb-[var(--qf-sp-2)] text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
-                  {card.outcome}
-                </span>
-                <span className={`font-mono text-xs uppercase ${intent.textClass}`}>
+                <span className={`mb-[var(--qf-sp-2)] font-mono text-xs uppercase ${intent.textClass}`}>
                   {getMetricValue(card.metricKey)} · {card.label}
+                </span>
+                <span className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+                  {card.outcome}
                 </span>
               </motion.div>
             );

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import { ROUTES } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 
 /* ── post registry ── */
 const POST_META: Record<string, { title: string; date: string; category: string; excerpt: string }> = {
@@ -119,7 +120,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             the ROI in 60–90 minutes.
           </p>
           <Button href={ROUTES.bookDiscovery} withArrow>
-            Book your Automation Map
+            {CTAS.bookAutomationMap}
           </Button>
         </div>
       </footer>

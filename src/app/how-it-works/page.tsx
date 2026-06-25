@@ -8,13 +8,14 @@ import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import Link from 'next/link';
 import { ROUTES, PRICING, SITE_URL } from '@/lib/constants';
 import { PRICING_MATRIX } from '@/content/pricing';
+import { CTAS } from '@/content/conversion-copy';
 import { GRATKA } from '@/lib/gratka';
 
 /* ── metadata ── */
 export const metadata: Metadata = {
   title: 'How it works — three clear steps',
   description:
-    'A calm, transparent process: a paid Automation Map, a fast productized build, and optional monthly care. Live in days, not months. Book your Automation Map.',
+    'A calm, transparent process: a paid Automation Map, a fast productized build, and optional monthly care. Live in days, not months. Book an Automation Map.',
   openGraph: {
     title: 'How it works — three clear steps',
     description:
@@ -77,7 +78,7 @@ export default function HowItWorksPage() {
           control the whole way.
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
+          {CTAS.bookAutomationMap}
         </Button>
       </Section>
 
@@ -180,8 +181,10 @@ export default function HowItWorksPage() {
         </h2>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
           Software isn&apos;t &quot;set and forget&quot;. With optional Managed Automation, your system stays
-          monitored, tuned and improving as your business changes.{' '}
-          <span className="text-[var(--qf-text)]">{PRICING_MATRIX.managedAutomation.range}, cancel anytime.</span>
+          monitored, tuned and improving as your business changes —{' '}
+          <span className="text-[var(--qf-text)]">
+            {PRICING_MATRIX.managedAutomation.range}, cancel anytime.
+          </span>
         </p>
         <Button href={ROUTES.managedAutomation} variant="secondary" withArrow>
           See Managed Automation
@@ -279,7 +282,7 @@ export default function HowItWorksPage() {
           Start with clarity — Step 1 is the Automation Map.
         </h2>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
+          {CTAS.bookAutomationMap}
         </Button>
       </Section>
     </>

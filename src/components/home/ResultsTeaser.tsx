@@ -45,7 +45,7 @@ export default function ResultsTeaser() {
           transition={fade.transition}
           className="mb-[var(--qf-sp-12)]"
         >
-          <span className="qf-eyebrow">// results</span>
+          <span className="qf-eyebrow">results</span>
           <h2 id="results-teaser-title" className="mt-[var(--qf-sp-4)]">
             What changes
           </h2>

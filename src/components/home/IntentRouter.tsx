@@ -11,6 +11,7 @@ import {
 } from '@/content/ecosystem';
 import { formatLosLayers } from '@/content/los-architecture';
 import { ROUTES } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 import { useHomeIntent } from '@/lib/home-intent';
 import {
   intentHighlightClass,
@@ -78,7 +79,7 @@ export default function IntentRouter() {
     >
       <div className="mx-auto flex max-w-[var(--qf-maxw)] flex-col gap-[var(--qf-sp-12)] px-[var(--qf-sp-6)]">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="qf-eyebrow">// supervised_system</span>
+          <span className="qf-eyebrow">supervised_system</span>
           <h2 className="mt-[var(--qf-sp-4)]">Eight parts. One supervised system.</h2>
           <p className="qf-lead mx-auto mt-[var(--qf-sp-4)]">
             Business outcome first — pick what matters, then see which production module delivers it.
@@ -180,8 +181,8 @@ export default function IntentRouter() {
           </p>
 
           <div className="flex flex-col justify-center gap-[var(--qf-sp-4)] sm:flex-row">
-            <Button href={ROUTES.bookDiscovery} withArrow>
-              Book your Automation Map
+            <Button href={ROUTES.bookDiscovery} withArrow analyticsEvent="cta_book_map_click">
+              {CTAS.bookAutomationMap}
             </Button>
             <Button href={ROUTES.results} variant="secondary" withArrow>
               See the systems

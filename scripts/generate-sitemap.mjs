@@ -1,5 +1,5 @@
 /**
- * Regenerates public/sitemap.xml from ROUTES in src/lib/sitemap-routes.ts
+ * Regenerates public/sitemap.xml — priority tiers per site-map / SEO canon.
  * Run: node scripts/generate-sitemap.mjs
  */
 import { writeFileSync } from 'node:fs';
@@ -35,17 +35,50 @@ const ROUTES = [
   '/blog/',
 ];
 
+const HIGH_INTENT = new Set(['/solutions/', '/pricing/', '/book-discovery/']);
+const PROOF_HUBS = new Set(['/results/', '/how-it-works/', '/founder/', '/trust/']);
+
+/** @param {string} path */
+function getSitemapMeta(path) {
+  if (path === '/') {
+    return { priority: '1.0', changefreq: 'weekly' };
+  }
+  if (HIGH_INTENT.has(path)) {
+    return { priority: '0.9', changefreq: 'weekly' };
+  }
+  if (PROOF_HUBS.has(path)) {
+    return { priority: '0.8', changefreq: 'weekly' };
+  }
+  if (path.startsWith('/solutions/') && path !== '/solutions/') {
+    return { priority: '0.75', changefreq: 'weekly' };
+  }
+  if (path.startsWith('/results/') && path !== '/results/') {
+    return { priority: '0.7', changefreq: 'monthly' };
+  }
+  if (path === '/blog/') {
+    return { priority: '0.5', changefreq: 'monthly' };
+  }
+  if (path === '/about/') {
+    return { priority: '0.3', changefreq: 'monthly' };
+  }
+  if (path === '/legal/') {
+    return { priority: '0.3', changefreq: 'yearly' };
+  }
+  return { priority: '0.8', changefreq: 'weekly' };
+}
+
 const base = 'https://quietforge.flexgrafik.nl';
 const lastmod = new Date().toISOString().slice(0, 10);
 
-const urls = ROUTES.map(
-  (path) => `  <url>
+const urls = ROUTES.map((path) => {
+  const { priority, changefreq } = getSitemapMeta(path);
+  return `  <url>
     <loc>${base}${path}</loc>
     <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>${path === '/' ? '1.0' : '0.8'}</priority>
-  </url>`
-).join('\n');
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+}).join('\n');
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

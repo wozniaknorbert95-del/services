@@ -50,7 +50,7 @@ export default function BehindTheScenes() {
           transition={fade.transition}
           className="mb-[var(--qf-sp-12)]"
         >
-          <span className="qf-eyebrow">// governance</span>
+          <span className="qf-eyebrow">governance</span>
           <h2 className="mt-[var(--qf-sp-4)] text-[var(--qf-fs-2xl)] font-bold">
             The governance layer behind the system.
           </h2>

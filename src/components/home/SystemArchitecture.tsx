@@ -32,7 +32,7 @@ export default function SystemArchitecture() {
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
         >
-          <span className="qf-eyebrow">// pipeline</span>
+          <span className="qf-eyebrow">pipeline</span>
           <h2 id="system-architecture-heading" className="mt-[var(--qf-sp-4)]">
             One pipeline from first visit to signed client.
           </h2>

@@ -144,7 +144,7 @@ export default function LivingSystemTeaser({ variant = 'default' }: LivingSystem
           transition={fade.transition}
           className="qf-los-life-loop mt-[var(--qf-sp-12)]"
         >
-          <p className="qf-eyebrow mb-[var(--qf-sp-4)]">// life_loop</p>
+          <p className="qf-eyebrow mb-[var(--qf-sp-4)]">life_loop</p>
           <ol className="qf-los-life-loop-track flex gap-[var(--qf-sp-2)] overflow-x-auto pb-2">
             {LOS_LIFE_LOOP.map((phase, index) => (
               <li
@@ -173,7 +173,7 @@ export default function LivingSystemTeaser({ variant = 'default' }: LivingSystem
           viewport={{ once: true, margin: '-80px' }}
           className="mt-[var(--qf-sp-12)] grid gap-[var(--qf-sp-4)] md:grid-cols-3"
         >
-          <p className="qf-eyebrow md:col-span-3">// three_brains</p>
+          <p className="qf-eyebrow md:col-span-3">three_brains</p>
           {LOS_THREE_BRAINS.map((brain) => (
             <motion.div
               key={brain.id}

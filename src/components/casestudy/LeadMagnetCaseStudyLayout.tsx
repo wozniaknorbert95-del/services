@@ -8,6 +8,7 @@ import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import VideoSlot from '@/components/ui/VideoSlot';
 import ProductGallery from '@/components/casestudy/ProductGallery';
 import { ROUTES, EXTERNAL } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 import { GRATKA } from '@/lib/gratka';
 import { leadMagnetGallery } from '@/content/proof';
 import type { CaseStudy } from '@/lib/case-studies';
@@ -263,7 +264,7 @@ export default function LeadMagnetCaseStudyLayout({
           recommend whether a gamified lead system is the right first build.
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
+          {CTAS.bookAutomationMap}
         </Button>
       </Section>
     </>

@@ -17,7 +17,7 @@ export const LOS_DEFINITION = {
 } as const;
 
 export const LOS_TEASER = {
-  eyebrow: '// living_operating_system',
+  eyebrow: 'living_operating_system',
   title: LOS_DEFINITION.headline,
   lead: LOS_DEFINITION.subline,
   governanceLine: 'Governance-first — not autonomous AI.',

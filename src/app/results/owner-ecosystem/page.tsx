@@ -6,6 +6,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
 import { ROUTES, ARTEFACTS, SITE_URL } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 import { GRATKA } from '@/lib/gratka';
 import { vcmsFeatureStatus } from '@/content/proof';
 import { ECOSYSTEM_REPOS } from '@/content/ecosystem';
@@ -473,7 +474,7 @@ export default function OwnerEcosystemPage() {
           which layers matter for your business first.
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
+          {CTAS.bookAutomationMap}
         </Button>
       </Section>
     </>

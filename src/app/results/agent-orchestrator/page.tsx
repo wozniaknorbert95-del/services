@@ -204,7 +204,7 @@ export default function AgentOrchestratorCaseStudyPage() {
         What is LIVE today
       </h2>
       <p className="mb-6 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
-        Guided agency demo — not a public SaaS. Hybrid control plane on VPS; code execution stays on a
+        Guided implementation demo — not a public SaaS. Hybrid control plane on VPS; code execution stays on a
         supervised local runner.
       </p>
       <ul className="mb-6 flex flex-wrap gap-2">

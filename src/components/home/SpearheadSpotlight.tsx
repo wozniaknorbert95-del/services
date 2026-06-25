@@ -29,10 +29,7 @@ export default function SpearheadSpotlight() {
             transition={fade.transition}
           >
             <Eyebrow>{SPEARHEAD.eyebrow}</Eyebrow>
-            <h2 className="mb-[var(--qf-sp-4)]">
-              {SPEARHEAD.headline}{' '}
-              <span className="text-[var(--qf-accent)]">{SPEARHEAD.headlineAccent}</span>
-            </h2>
+            <h2 className="mb-[var(--qf-sp-4)]">{SPEARHEAD.headline}</h2>
             <p className="text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">{SPEARHEAD.body}</p>
             <ul className="mt-[var(--qf-sp-6)] space-y-3">
               {SPEARHEAD.bullets.map((item) => (

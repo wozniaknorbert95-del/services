@@ -6,7 +6,6 @@ import { useMotion } from '@/lib/useMotion';
 import { ARTEFACTS } from '@/lib/constants';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
-import Badge from '@/components/ui/Badge';
 
 interface Phase {
   number: string;
@@ -109,12 +108,15 @@ export default function HowIWork() {
                   {phase.number}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <h3 className="mb-2 flex flex-wrap items-center gap-[var(--qf-sp-2)] text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+                  <h3 className="mb-2 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
                     {phase.title}
                     {phase.tags?.map((tag) => (
-                      <Badge key={tag} className="uppercase tracking-wider">
-                        {tag}
-                      </Badge>
+                      <span
+                        key={tag}
+                        className="ml-1 font-mono text-xs font-normal uppercase tracking-wider text-[var(--qf-text-dim)]"
+                      >
+                        · {tag}
+                      </span>
                     ))}
                   </h3>
                   <p className="mb-2 max-w-none text-sm text-[var(--qf-text-dim)]">

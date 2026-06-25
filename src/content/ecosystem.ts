@@ -342,7 +342,7 @@ export interface PainCard {
 }
 
 export const PAIN_GRID_HEADER = {
-  eyebrow: '// Choose your leak',
+  eyebrow: 'Choose your leak',
   title: 'Where is the business leaking time or money?',
   lead: 'Start with the operational pain. The architecture comes after we know which leak is worth fixing.',
 } as const;

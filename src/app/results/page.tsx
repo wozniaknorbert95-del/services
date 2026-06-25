@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import { ROUTES, SITE_URL } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 import { GRATKA } from '@/lib/gratka';
 import { CASE_STUDIES } from '@/lib/case-studies';
 import FieldReports from '@/components/results/FieldReports';
@@ -138,45 +139,6 @@ export default function ResultsPage() {
       </Section>
 
       <Section background="surface" padding="large">
-        <Card className="border-[var(--qf-accent)] p-6 md:p-8">
-          <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-            Living Operating System
-          </p>
-          <h2 className="mb-3 text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-            8 repos, 1 supervised LOS
-          </h2>
-          <p className="mb-6 max-w-none text-sm text-[var(--qf-text-dim)]">
-            All case studies connect inside the same Living Operating System — Jadzia COI, VCMS
-            supervision, Agent OS execution, wizard commerce and portal trust.
-          </p>
-          <div className="mb-6 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-3">
-            <GratkaDiagram
-              src={GRATKA.losArchitectureSvg}
-              alt="Living Operating System — six layers and eight repositories"
-              width={1200}
-              height={720}
-              className="h-auto w-full min-w-[480px]"
-            />
-          </div>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href={`${ROUTES.resultsOwnerEcosystem}#los`}
-              className="text-sm font-semibold text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
-            >
-              Full LOS map →
-            </Link>
-            <Link
-              href={GRATKA.losArchitectureSvg}
-              download
-              className="text-sm text-[var(--qf-info)] hover:text-[var(--qf-text)]"
-            >
-              Download LOS diagram (SVG) ↓
-            </Link>
-          </div>
-        </Card>
-      </Section>
-
-      <Section background="surface" padding="large">
         <div className="grid gap-[var(--qf-sp-6)] md:grid-cols-2">
           {CASE_STUDIES.map((c) => {
             const extras = c.slug ? CASE_EXTRAS[c.slug] : undefined;
@@ -253,6 +215,44 @@ export default function ResultsPage() {
         </div>
       </Section>
 
+      <Section padding="large">
+        <Eyebrow>How these systems connect</Eyebrow>
+        <h2 className="mb-3 text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)] max-w-3xl">
+          One supervised Living Operating System
+        </h2>
+        <p className="mb-6 max-w-[var(--qf-maxw-narrow)] text-sm text-[var(--qf-text-dim)]">
+          Every case study above runs inside the same stack — Jadzia COI, VCMS supervision, Agent OS
+          execution, wizard commerce and portal trust. Architecture is shared; the business outcome
+          differs per client.
+        </p>
+        <Card className="border-[var(--qf-accent)] p-6 md:p-8">
+          <div className="mb-6 overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-3">
+            <GratkaDiagram
+              src={GRATKA.losArchitectureSvg}
+              alt="Living Operating System — six layers and eight repositories"
+              width={1200}
+              height={720}
+              className="h-auto w-full min-w-[480px]"
+            />
+          </div>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href={`${ROUTES.resultsOwnerEcosystem}#los`}
+              className="text-sm font-semibold text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+            >
+              Full LOS map →
+            </Link>
+            <Link
+              href={GRATKA.losArchitectureSvg}
+              download
+              className="text-sm text-[var(--qf-info)] hover:text-[var(--qf-text)]"
+            >
+              Download LOS diagram (SVG) ↓
+            </Link>
+          </div>
+        </Card>
+      </Section>
+
       <FieldReports />
 
       <SystemMetrics />
@@ -266,7 +266,7 @@ export default function ResultsPage() {
           and show you the ROI — before you commit to anything bigger.
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
-          Book Automation Map
+          {CTAS.bookAutomationMap}
         </Button>
       </Section>
     </>

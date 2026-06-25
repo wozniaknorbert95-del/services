@@ -9,6 +9,7 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import ProofMediaGrid from '@/components/ui/ProofMediaGrid';
 import { ROUTES } from '@/lib/constants';
+import { CTAS } from '@/content/conversion-copy';
 import { caseMeasurements, screens, videos } from '@/content/proof';
 import type { CaseStudy } from '@/lib/case-studies';
 
@@ -229,7 +230,7 @@ export default function CaseStudyLayout({
           recommend whether this is the right first system — before you commit to anything bigger.
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
-          Book your Automation Map
+          {CTAS.bookAutomationMap}
         </Button>
       </Section>
     </>
