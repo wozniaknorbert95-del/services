@@ -1,4 +1,4 @@
-import { videos } from '@/content/proof';
+import { videos, videoLabels } from '@/content/proof';
 import ProofEmptyState from '@/components/ui/ProofEmptyState';
 
 interface VideoSlotProps {
@@ -55,6 +55,7 @@ export default function VideoSlot({
   emptyCtaHref,
 }: VideoSlotProps) {
   const video = videos[videoKey];
+  const label = videoLabels[videoKey];
 
   if (!video) {
     return (
@@ -85,29 +86,39 @@ export default function VideoSlot({
   }
 
   const isLocalAsset = video.url.startsWith('/');
+  const ariaLabel = `${label.title} — ${label.hint}`;
 
   return (
-    <div className="relative aspect-video w-full overflow-hidden rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[#000]">
-      {isLocalAsset ? (
-        <video
-          src={video.url}
-          title={`${videoKey} video`}
-          controls
-          playsInline
-          preload="metadata"
-          poster={video.poster ?? undefined}
-          className="absolute inset-0 h-full w-full object-contain"
-        />
-      ) : (
-        <iframe
-          src={video.url}
-          title={`${videoKey} video`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          loading="lazy"
-          className="absolute inset-0 h-full w-full border-0"
-        />
-      )}
-    </div>
+    <figure className="flex flex-col gap-[var(--qf-sp-3)]">
+      <div className="relative aspect-video w-full overflow-hidden rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)]">
+        {isLocalAsset ? (
+          <video
+            src={video.url}
+            aria-label={ariaLabel}
+            controls
+            playsInline
+            preload="metadata"
+            poster={video.poster ?? undefined}
+            className="absolute inset-0 h-full w-full object-contain"
+          />
+        ) : (
+          <iframe
+            src={video.url}
+            title={ariaLabel}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+            className="absolute inset-0 h-full w-full border-0"
+          />
+        )}
+      </div>
+      <figcaption>
+        <p className="font-mono text-xs text-[var(--qf-accent)]">
+          {label.title}
+          {video.duration ? ` · ${video.duration}` : ''}
+        </p>
+        <p className="mt-1 text-sm text-[var(--qf-text-dim)]">{label.hint}</p>
+      </figcaption>
+    </figure>
   );
 }

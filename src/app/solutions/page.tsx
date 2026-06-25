@@ -144,8 +144,7 @@ export default function SolutionsPage() {
                     (label, i) => (
                       <div
                         key={label}
-                        className="h-5 rounded-sm bg-[var(--qf-border)]"
-                        style={{ opacity: 1 - i * 0.2 }}
+                        className={`h-5 rounded-sm bg-[var(--qf-border)] ${['opacity-100', 'opacity-80', 'opacity-60', 'opacity-40'][i] ?? 'opacity-40'}`}
                       />
                     )
                   )}
@@ -260,7 +259,7 @@ export default function SolutionsPage() {
               <div className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-4 py-3">
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-[var(--qf-text-faint)]">uptime</span>
-                  <span className="text-[var(--qf-text-dim)]">99.9%</span>
+                  <span className="text-[var(--qf-text-dim)]">monitored</span>
                 </div>
               </div>
               <div className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-4 py-3">

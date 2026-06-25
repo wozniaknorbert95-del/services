@@ -5,8 +5,7 @@ import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
 import { ROUTES } from '@/lib/constants';
 import { screens, pricing, videos } from '@/content/proof';
-import VideoSlot from '@/components/ui/VideoSlot';
-import ProofScreenSlot from '@/components/ui/ProofScreenSlot';
+import ProofMediaGrid from '@/components/ui/ProofMediaGrid';
 
 interface SolutionLayoutProps {
   title: string;
@@ -98,17 +97,14 @@ export default function SolutionLayout({
         )}
 
         <h2 className="text-[var(--qf-fs-xl)] font-bold tracking-tight mb-6">Proof</h2>
-        <div
-          className={`grid gap-[var(--qf-sp-8)] mb-8 ${videoKey ? 'md:grid-cols-2' : ''}`}
-        >
-          <ProofScreenSlot screen={screen} screenKey={screenKey} emptyCtaHref={caseStudyHref} />
-          {videoKey ? (
-            <VideoSlot
-              videoKey={videoKey}
-              emptyCtaHref={caseStudyHref}
-              emptyCtaLabel="View case study"
-            />
-          ) : null}
+        <div className="mb-8">
+          <ProofMediaGrid
+            screen={screen}
+            screenKey={screenKey}
+            videoKey={videoKey}
+            emptyCtaHref={caseStudyHref}
+            emptyCtaLabel="View case study"
+          />
         </div>
         <div className="mb-16">
           <Button href={caseStudyHref} variant="secondary" withArrow>

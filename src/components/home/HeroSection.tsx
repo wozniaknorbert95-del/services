@@ -69,11 +69,11 @@ export default function HeroSection() {
                 <span className="h-2 w-2 rounded-full bg-[var(--qf-accent)]" />
                 <span className="h-2 w-2 rounded-full bg-[var(--qf-border-bright)]" />
                 <span className="h-2 w-2 rounded-full bg-[var(--qf-border-bright)]" />
-                <span className="ml-auto">conversion-pipeline · live</span>
+                <span className="ml-auto">{HERO.terminal.windowTitle}</span>
               </div>
               <div className="p-[var(--qf-sp-6)]">
                 <pre className="overflow-x-auto whitespace-pre font-[family-name:var(--qf-mono)] text-[var(--qf-fs-sm)] text-[var(--qf-text-dim)]">
-                  <span className="text-[var(--qf-accent)]">$</span> lead.qualify --wizard zzpackage
+                  <span className="text-[var(--qf-accent)]">$</span> {HERO.terminal.command}
                   {'\n'}
                   <span className="text-[var(--qf-ok)]">✓</span> {metrics.wizardSteps} UI screens ·{' '}
                   {metrics.skus} SKUs
@@ -81,9 +81,8 @@ export default function HeroSection() {
                   <span className="text-[var(--qf-text-faint)]">  </span>
                   {metrics.wizardStepsFootnote}
                   {'\n'}
-                  <span className="text-[var(--qf-ok)]">✓</span> scored → hot(3) warm(8) nurture(11)
-                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> brief ready ·{' '}
-                  <span className="text-[var(--qf-accent)]">awaiting your approval</span>
+                  <span className="text-[var(--qf-ok)]">✓</span> {HERO.terminal.scoredLine}
+                  {'\n'}<span className="text-[var(--qf-ok)]">✓</span> {HERO.terminal.approvalLine}
                   {'\n'}<span className="text-[var(--qf-accent)]">$</span>{' '}
                   <span className="qf-cursor-blink text-[var(--qf-accent)]">_</span>
                 </pre>

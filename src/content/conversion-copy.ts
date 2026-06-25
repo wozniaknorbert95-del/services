@@ -22,6 +22,13 @@ export const HERO = {
   wizardCta: 'Try the wizard (2 min)',
   wizardHref: 'https://zzpackage.flexgrafik.nl/',
   whatsappCta: 'Quick question? WhatsApp',
+  /** Hero terminal mock — illustrative only; no client counts (PR-07). */
+  terminal: {
+    windowTitle: 'conversion-pipeline · live',
+    command: 'lead.qualify --wizard zzpackage',
+    scoredLine: 'scored → hot · warm · nurture tiers',
+    approvalLine: 'brief ready · awaiting your approval',
+  },
 } as const;
 
 export const WHY_THIS_WORKS_PILLARS = [

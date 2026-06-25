@@ -24,6 +24,17 @@ export const metrics = {
   deployment: "GitHub Actions CI/CD",                          // [R]
 } as const;
 
+/** Display labels for proof video slots (UI only). */
+export const videoLabels: Record<VideoKey, { title: string; hint: string }> = {
+  wizard: { title: 'Walkthrough', hint: 'Full funnel — configure to checkout' },
+  inboxKiller: { title: 'Walkthrough', hint: 'Classification lanes and approval gate' },
+  leadMagnet: { title: 'Walkthrough', hint: 'Game capture to wizard handoff' },
+  agentOs: { title: 'Walkthrough', hint: 'Mission Control — tasks, queue, cost' },
+  vcms: { title: 'Walkthrough', hint: 'Governance scan and conflict report' },
+  ecosystem: { title: 'Walkthrough', hint: 'Full-stack owner ecosystem tour' },
+  founder: { title: 'Walkthrough', hint: 'How FLEXGRAFIK runs this stack' },
+};
+
 export type VideoSlot = {
   url: string | null;        // FILL: youtube/vimeo/loom embed url
   duration: string;          // set: "90s", "60s", etc.

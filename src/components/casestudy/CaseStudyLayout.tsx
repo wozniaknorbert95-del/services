@@ -7,8 +7,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';
-import VideoSlot from '@/components/ui/VideoSlot';
-import ProofScreenSlot from '@/components/ui/ProofScreenSlot';
+import ProofMediaGrid from '@/components/ui/ProofMediaGrid';
 import { ROUTES } from '@/lib/constants';
 import { caseMeasurements, screens, videos } from '@/content/proof';
 import type { CaseStudy } from '@/lib/case-studies';
@@ -195,16 +194,13 @@ export default function CaseStudyLayout({
 
       <Section padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">Proof</h2>
-        <div className={`grid gap-[var(--qf-sp-8)] ${videoKey ? 'md:grid-cols-2' : ''}`}>
-          <ProofScreenSlot screen={screen} screenKey={screenKey} />
-          {videoKey ? (
-            <VideoSlot
-              videoKey={videoKey}
-              emptyCtaHref={ROUTES.bookDiscovery}
-              emptyCtaLabel="Book Automation Map"
-            />
-          ) : null}
-        </div>
+        <ProofMediaGrid
+          screen={screen}
+          screenKey={screenKey}
+          videoKey={videoKey}
+          emptyCtaHref={ROUTES.bookDiscovery}
+          emptyCtaLabel="Book Automation Map"
+        />
       </Section>
 
       <Section background="surface" padding="large">
