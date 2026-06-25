@@ -1,83 +1,52 @@
 import type { Metadata } from 'next';
+import Button from '@/components/ui/Button';
+import Card from '@/components/ui/Card';
 import { SITE_URL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
-import Button from '@/components/ui/Button';
-
-const SLUG = 'inbox-killer';
-
-const BEFORE_ITEMS = [
-  'Manual inbox triage every morning — leads mixed with newsletters and noise',
-  'Reply drafting started from scratch for every thread',
-  'No consistent lanes for lead vs client vs invoice mail',
-  'Risk of auto-send tools firing without owner review',
-];
-
-const AFTER_ITEMS = [
-  'Mailbox scanned on schedule — 142 messages classified per run in production',
-  'Lead, client, invoice, and noise lanes with priority surfacing',
-  'Draft replies ready for edit and approval before send',
-  'Human approval gate on every outbound — architecture, not a toggle',
-];
-
-const FLOW_STEPS = [
-  {
-    step: '01',
-    title: 'Read',
-    detail: 'Agent connects via secure OAuth and polls the mailbox on a defined schedule.',
-  },
-  {
-    step: '02',
-    title: 'Classify',
-    detail: 'Each message is sorted into lead, client, invoice, or noise lanes with scoring.',
-  },
-  {
-    step: '03',
-    title: 'Draft',
-    detail: 'AI drafts replies in your tone. You edit or discard — drafts never auto-send.',
-  },
-  {
-    step: '04',
-    title: 'Approve',
-    detail: 'Outbound mail waits at a human gate. Nothing leaves without your explicit OK.',
-  },
-  {
-    step: '05',
-    title: 'Send',
-    detail: 'Approved replies send and log to the audit trail. Overrides train the lanes.',
-    highlight: true,
-  },
-];
+import {
+  inboxKillerAfterItems,
+  inboxKillerArchitectureAlt,
+  inboxKillerArchitectureIntro,
+  inboxKillerBeforeItems,
+  inboxKillerBuildDescription,
+  inboxKillerCaseMeta,
+  inboxKillerFlowSteps,
+  inboxKillerJadziaBridge,
+  inboxKillerLanes,
+  inboxKillerLanesIntro,
+  inboxKillerSolutionBridge,
+  inboxKillerStack,
+  INBOX_KILLER_SLUG,
+} from '@/content/inbox-killer-case-study';
 
 export const metadata: Metadata = {
-  title: 'Case study — Inbox Killer',
-  description:
-    'How a live inbox agent reads mail, classifies intent into lanes, drafts replies, and stops at a human approval gate. Process-proof case study with downloadable flow diagram.',
+  title: inboxKillerCaseMeta.title,
+  description: inboxKillerCaseMeta.description,
   openGraph: {
-    title: 'Case study — Inbox Killer',
-    description:
-      'read → classify → draft → approve → send. Live mailbox proof with human-in-the-loop on every outbound.',
+    title: inboxKillerCaseMeta.openGraphTitle,
+    description: inboxKillerCaseMeta.openGraphDescription,
     url: `${SITE_URL}/results/inbox-killer`,
     images: [
       {
         url: '/og/results-inbox-killer.svg',
         width: 1200,
         height: 630,
-        alt: 'Case study — Inbox Killer classification flow',
+        alt: inboxKillerCaseMeta.ogAlt,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Case study — Inbox Killer',
-    description: 'Inbox classification and reply drafting with human approval gates.',
+    title: inboxKillerCaseMeta.openGraphTitle,
+    description: inboxKillerCaseMeta.twitterDescription,
     images: ['/og/results-inbox-killer.svg'],
   },
 };
 
 export default function InboxKillerCaseStudyPage() {
-  const study = getCaseStudyBySlug(SLUG);
+  const study = getCaseStudyBySlug(INBOX_KILLER_SLUG);
 
   if (!study) {
     return null;
@@ -97,23 +66,79 @@ export default function InboxKillerCaseStudyPage() {
   return (
     <CaseStudyLayout
       study={study}
-      problemBefore={BEFORE_ITEMS}
-      problemAfter={AFTER_ITEMS}
+      problemBefore={[...inboxKillerBeforeItems]}
+      problemAfter={[...inboxKillerAfterItems]}
       architectureDiagramSvgUrl={GRATKA.inboxKillerFlowSvg}
-      architectureDiagramAlt="Inbox Killer flow: read mailbox, classify into lanes, draft reply, await human approval, send"
+      architectureDiagramAlt={inboxKillerArchitectureAlt}
       architectureDescription={
-        <p>
-          One page you can forward: what happens from a new email to an approved send. The approval gate is the
-          architecture — not an optional safety setting you might forget to enable.
-        </p>
+        <>
+          <p className="mb-6 max-w-[var(--qf-maxw-narrow)]">{inboxKillerArchitectureIntro}</p>
+          <Card className="qf-panel--spearhead mb-6 p-6">
+            <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+              {inboxKillerSolutionBridge.eyebrow}
+            </p>
+            <p className="mb-3 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+              {inboxKillerSolutionBridge.title}
+            </p>
+            <p className="mb-4 max-w-[var(--qf-maxw-narrow)] text-sm text-[var(--qf-text-dim)]">
+              {inboxKillerSolutionBridge.lead}
+            </p>
+            <Button href={inboxKillerSolutionBridge.href} variant="primary">
+              {inboxKillerSolutionBridge.cta}
+            </Button>
+          </Card>
+          <Card className="mb-4 p-6">
+            <p className="mb-2 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+              {inboxKillerJadziaBridge.eyebrow}
+            </p>
+            <p className="mb-3 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+              {inboxKillerJadziaBridge.title}
+            </p>
+            <p className="mb-4 max-w-[var(--qf-maxw-narrow)] text-sm text-[var(--qf-text-dim)]">
+              {inboxKillerJadziaBridge.lead}
+            </p>
+            <Button href={inboxKillerJadziaBridge.href} variant="ghost">
+              {inboxKillerJadziaBridge.cta}
+            </Button>
+          </Card>
+        </>
       }
-      buildModules={FLOW_STEPS}
-      buildDescription={<p>Five steps under the hood — the same flow running in FLEXGRAFIK production mail.</p>}
-      stack={['Gmail / Microsoft 365 OAuth', 'Make.com', 'OpenAI API', 'Webhook routing', 'Human approval gate']}
+      buildModules={[...inboxKillerFlowSteps]}
+      buildDescription={<p>{inboxKillerBuildDescription}</p>}
+      stack={[...inboxKillerStack]}
       manifestKey="inboxKiller"
       videoKey="inboxKiller"
       screenKey="inboxLanes"
       downloadButtons={downloadButtons}
-    />
+    >
+      <h2 className="mt-8 text-[var(--qf-fs-xl)] font-bold tracking-tight mb-4">
+        Classification lanes
+      </h2>
+      <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+        {inboxKillerLanesIntro}
+      </p>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[480px] border-collapse text-left text-sm">
+          <thead>
+            <tr className="border-b border-[var(--qf-border)]">
+              <th className="py-3 pr-4 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+                Lane
+              </th>
+              <th className="py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+                Routing intent
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {inboxKillerLanes.map((row) => (
+              <tr key={row.lane} className="border-b border-[var(--qf-border)]">
+                <td className="py-3 pr-4 font-semibold text-[var(--qf-text)]">{row.lane}</td>
+                <td className="py-3 text-[var(--qf-text-dim)]">{row.detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </CaseStudyLayout>
   );
 }

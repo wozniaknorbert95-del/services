@@ -99,13 +99,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: 'inbox-killer',
     number: '06',
     title: 'The self-running back-office',
-    meta: 'Inbox Killer · B2B product',
+    meta: `Inbox Killer · B2B · live ops`,
     context:
       'Deployed in my own NL print-business ecosystem (2+ years in production). Same architecture I deploy for clients — not theory.',
     system:
-      'An agent that reads folders, sorts by intent, drafts replies, and stops at a human approval gate before anything sends.',
-    real: 'Live mailbox, 142 msgs/scan, human-in-the-loop on every send.',
-    measurement: 'Live mailbox, 142 msgs/scan, human approval on every send.',
+      'Reads mail via OAuth, classifies into lanes, drafts replies, and stops at a human approval gate before anything sends.',
+    real: caseMeasurements.inboxKiller.value ?? '',
+    measurement: caseMeasurements.inboxKiller.value ?? '',
     intents: ['time', 'calm'],
     manifestKey: 'inboxKiller',
     detailHref: ROUTES.resultsInboxKiller,

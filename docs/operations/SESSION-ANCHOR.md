@@ -2,27 +2,27 @@
 
 > **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` when out of date.
 
-**Updated:** 2026-06-25 · **Last ship:** `46ab3fe` E-4
+**Updated:** 2026-06-25 · **Last ship:** pending commit (E-5)
 
 ---
 
 ## CO ROBIMY
 
-**E-4 — Jadzia orders truth sync** — **SHIPPED** (build PASS).
+**E-5 — Inbox Killer case study SSoT** — **SHIPPED** (build PASS).
 
 ## DLACZEGO
 
-MR-16 drift closed portfolio-wide; home BuiltVsPlanned, jadzia-coi, agent-orchestrator i proof.ts mówią jedną historię.
+Ostatni hardcoded results case study przeniesiony do content module — wzorzec E-2/E-3/E-4 kompletny dla głównych CS.
 
 ## NASTĘPNY KROK
 
 | # | Akcja |
 |---|--------|
-| **1** | **E-5** — `inbox-killer-case-study.ts` SSoT (page hardcoded today) |
-| 2 | BL-02 — commercial traction §2.2 (Commander) |
-| 3 | BL-01 — Mission Control URL polish (optional) |
+| **1** | **E-5b** (optional) — solutions/inbox-killer copy SSoT |
+| 2 | **E-6** — advisory-modernisation SSoT |
+| 3 | BL-02 — commercial traction (Commander) |
 
-**Start E-5 prompt:** „Begin E-5 — inbox-killer case study SSoT.”
+**Start prompt:** „Begin E-5b” lub „Begin E-6”.
 
 ---
 
@@ -30,16 +30,15 @@ MR-16 drift closed portfolio-wide; home BuiltVsPlanned, jadzia-coi, agent-orches
 
 | Session | Handoff |
 |---------|---------|
+| 2026-06-25 | [`e5-inbox-killer-ssot`](./handoffs/2026-06-25-e5-inbox-killer-ssot.md) |
 | 2026-06-25 | [`e4-jadzia-orders-truth`](./handoffs/2026-06-25-e4-jadzia-orders-truth.md) |
-| 2026-06-25 | [`e3-cs03-sales-funnel`](./handoffs/2026-06-25-e3-cs03-sales-funnel.md) |
-| 2026-06-25 | [`e2b-cs02-polish`](./handoffs/2026-06-25-e2b-cs02-polish.md) |
 
 ## Blockers
 
 | ID | Item | Owner |
 |----|------|-------|
-| BL-01 | Mission Control URL default `os.flexgrafik.nl` in proof.ts | Commander optional |
-| BL-02 | Commercial traction §2.2 — fill before investor/LinkedIn | Commander |
+| BL-01 | Mission Control URL in proof.ts | Commander optional |
+| BL-02 | Commercial traction §2.2 | Commander |
 
 ## Read order (agents)
 

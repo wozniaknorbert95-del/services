@@ -1,4 +1,4 @@
-# Next Session Prompt — E-5 Inbox Killer SSoT
+# Next Session Prompt — E-5b or E-6
 
 > Load [`SESSION-ANCHOR.md`](../SESSION-ANCHOR.md) first.
 
@@ -8,22 +8,19 @@
 
 | Work | Status |
 |------|--------|
-| E-4 Jadzia orders truth | **Done 2026-06-25** |
-| **E-5 Inbox Killer SSoT** | **NEXT** |
+| E-5 Inbox Killer SSoT | **Done 2026-06-25** |
+| **E-5b / E-6** | Commander picks |
 
 ---
 
-## Cel E-5
+## Opcja A — E-5b Solutions Inbox Killer SSoT
 
-Extract inbox-killer case study copy to `src/content/inbox-killer-case-study.ts` — mirror E-2/E-3 pattern. Page [`inbox-killer/page.tsx`](../../../src/app/results/inbox-killer/page.tsx) still hardcodes BEFORE/AFTER/FLOW_STEPS.
+Extract shared copy from [`solutions/inbox-killer/page.tsx`](../../../src/app/solutions/inbox-killer/page.tsx) — optional partial reuse from `inbox-killer-case-study.ts`.
 
-### DoD
+## Opcja B — E-6 Advisory Modernisation SSoT
 
-- [ ] `inbox-killer-case-study.ts` = SSoT
-- [ ] Page thin — imports only
-- [ ] MR-16 pass (142 msgs/scan stays sourced from proof)
-- [ ] Build + handoff
+[`results/advisory-modernisation/page.tsx`](../../../src/app/results/advisory-modernisation/page.tsx) — hardcoded copy today.
 
 ---
 
-> **Begin:** „Start E-5 — inbox-killer case study SSoT.”
+> **Begin:** „Start E-5b” or „Start E-6”.
