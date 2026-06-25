@@ -2,27 +2,27 @@
 
 > **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` when out of date.
 
-**Updated:** 2026-06-25 · **Last ship:** `72217fa` E-5
+**Updated:** 2026-06-25 · **Last ship:** pending commit (E-5b)
 
 ---
 
 ## CO ROBIMY
 
-**E-5 — Inbox Killer case study SSoT** — **SHIPPED** (build PASS).
+**E-5b — Inbox Killer solutions SSoT** — **SHIPPED** (build PASS).
 
 ## DLACZEGO
 
-Ostatni hardcoded results case study przeniesiony do content module — wzorzec E-2/E-3/E-4 kompletny dla głównych CS.
+B2B product ladder (`/solutions/inbox-killer/`) i case study (`/results/inbox-killer/`) — jeden moduł content, mniej driftu na ścieżce konwersji.
 
 ## NASTĘPNY KROK
 
 | # | Akcja |
 |---|--------|
-| **1** | **E-5b** (optional) — solutions/inbox-killer copy SSoT |
-| 2 | **E-6** — advisory-modernisation SSoT |
-| 3 | BL-02 — commercial traction (Commander) |
+| **1** | **E-6** — `advisory-modernisation` case study SSoT (ostatni hardcoded results CS) |
+| 2 | BL-02 — commercial traction (Commander) |
+| 3 | BL-03 — inboxKiller video when ready |
 
-**Start prompt:** „Begin E-5b” lub „Begin E-6”.
+**Start prompt:** „Begin E-6”.
 
 ---
 
@@ -30,8 +30,8 @@ Ostatni hardcoded results case study przeniesiony do content module — wzorzec 
 
 | Session | Handoff |
 |---------|---------|
+| 2026-06-25 | [`e5b-inbox-killer-solutions-ssot`](./handoffs/2026-06-25-e5b-inbox-killer-solutions-ssot.md) |
 | 2026-06-25 | [`e5-inbox-killer-ssot`](./handoffs/2026-06-25-e5-inbox-killer-ssot.md) |
-| 2026-06-25 | [`e4-jadzia-orders-truth`](./handoffs/2026-06-25-e4-jadzia-orders-truth.md) |
 
 ## Blockers
 

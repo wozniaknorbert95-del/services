@@ -131,3 +131,63 @@ export const inboxKillerLanes: readonly InboxKillerLane[] = [
     detail: 'Newsletters, notifications and low-intent mail — archived with override rules.',
   },
 ] as const;
+
+// ---------------------------------------------------------------------------
+// Solutions ladder page — /solutions/inbox-killer/ (E-5b SSoT)
+// Tone: owner pain → system → effect. Case study = process proof.
+// ---------------------------------------------------------------------------
+
+export const inboxKillerSolutionMeta = {
+  title: 'Inbox Killer — Lead Qualification System',
+  description:
+    'Your inbox sorted, drafted, and gated. Inbox Killer reads mail, classifies intent, drafts replies, and waits for your approval before anything sends.',
+  openGraphTitle: 'Inbox Killer — Lead Qualification System | Quietforge',
+  openGraphDescription:
+    'Lead qualification system for busy owners: classify lanes, draft replies, human approval on every send.',
+  twitterDescription:
+    'Your inbox sorted, drafted, and gated — with you in the loop on every send.',
+  ogAlt: 'Inbox Killer — Lead Qualification System',
+} as const;
+
+export const inboxKillerSolutionTitle =
+  'Inbox Killer — your inbox sorted, drafted, and gated.';
+
+export const inboxKillerSolutionProblem =
+  'Your inbox is where leads arrive, clients follow up, and invoices hide — but most owners spend mornings sorting noise instead of closing work. Miss one hot lead and the rest of the week is catch-up.';
+
+export const inboxKillerSolutionSystemItems = [
+  {
+    title: inboxKillerFlowSteps[0].title,
+    body: 'Secure OAuth connection to Gmail or Microsoft 365. The agent scans new mail on a schedule you control.',
+  },
+  {
+    title: inboxKillerFlowSteps[1].title,
+    body: 'Every message lands in a lane: lead, client, invoice, or noise — so you see what pays first.',
+  },
+  {
+    title: inboxKillerFlowSteps[2].title,
+    body: 'Replies are drafted in your tone. You edit, approve, or discard — nothing auto-sends.',
+  },
+  {
+    title: inboxKillerFlowSteps[3].title,
+    body: 'Human-in-the-loop gate on every outbound. The architecture stops at your yes, not a setting.',
+  },
+] as const;
+
+export const inboxKillerSolutionEffectBefore = [
+  'Mornings lost triaging newsletters, spam, and low-intent mail.',
+  'Hot leads buried under operational noise.',
+  'Reply delays because drafting starts from zero every time.',
+  'No audit trail of what was sent and why.',
+] as const;
+
+export const inboxKillerSolutionEffectAfter = [
+  'Classification lanes surface leads and clients first.',
+  'Drafts ready when you open the inbox — you stay in control.',
+  'Noise archived automatically with rules you can override.',
+  `Full approval log — nothing sends without your explicit OK.`,
+] as const;
+
+export function inboxKillerPriceFromLabel(): string {
+  return `From €${PRICING.inboxKiller.from.toLocaleString()}`;
+}

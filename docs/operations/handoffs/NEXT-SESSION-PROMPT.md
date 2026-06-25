@@ -1,4 +1,4 @@
-# Next Session Prompt — E-5b or E-6
+# Next Session Prompt — E-6 Advisory Modernisation SSoT
 
 > Load [`SESSION-ANCHOR.md`](../SESSION-ANCHOR.md) first.
 
@@ -8,19 +8,21 @@
 
 | Work | Status |
 |------|--------|
-| E-5 Inbox Killer SSoT | **Done 2026-06-25** |
-| **E-5b / E-6** | Commander picks |
+| E-5 + E-5b Inbox Killer | **Done 2026-06-25** |
+| **E-6 Advisory CS SSoT** | **NEXT** — only hardcoded results page left |
 
 ---
 
-## Opcja A — E-5b Solutions Inbox Killer SSoT
+## Cel E-6
 
-Extract shared copy from [`solutions/inbox-killer/page.tsx`](../../../src/app/solutions/inbox-killer/page.tsx) — optional partial reuse from `inbox-killer-case-study.ts`.
+Extract [`results/advisory-modernisation/page.tsx`](../../../src/app/results/advisory-modernisation/page.tsx) copy to `advisory-modernisation-case-study.ts`.
 
-## Opcja B — E-6 Advisory Modernisation SSoT
+### DoD
 
-[`results/advisory-modernisation/page.tsx`](../../../src/app/results/advisory-modernisation/page.tsx) — hardcoded copy today.
+- [ ] Content module = SSoT
+- [ ] Anonymised reference — no invented client metrics (MR-16)
+- [ ] Build + handoff
 
 ---
 
-> **Begin:** „Start E-5b” or „Start E-6”.
+> **Begin:** „Start E-6”.
