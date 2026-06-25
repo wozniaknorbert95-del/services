@@ -2,24 +2,27 @@
 
 > **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` (archived E-2).
 
-**Updated:** 2026-06-25
+**Updated:** 2026-06-25 · **Shipped:** `614bc3a` → master → Vercel CD
 
 ---
 
 ## CO ROBIMY
 
-Knowledge Architecture canon — **COMPLETE** (this session).  
-Next code session: **E-2 CS-02** — remap `/results/agent-orchestrator/` to named stack (Agent OS + jadzia-core + Flex-VCMS).
+Knowledge Architecture canon — **SHIPPED** (`614bc3a`).  
+**Następna sesja kodu (E-2 CS-02) — ZABLOKOWANA** do Twojego profesjonalnego review kanonów.
 
 ## DLACZEGO
 
-Portfolio truth-sync (P0) shipped; docs now have authority layers. CS-02 deepens proof narrative without changing home §2 LOCKED order.
+Dokumentacja musi być „perfect” zanim dotkniemy `/results/agent-orchestrator/`. Review przed kodem = mniej dryfu.
 
-## NASTĘPNY KROK
+## NASTĘPNY KROK (Dowódca)
 
-1. Commander HITL: review [`docs/canons/vision-system.md`](../canons/vision-system.md) (15 min)
-2. Agent session: read CS-02 spec in [`NEXT-SESSION-PROMPT.md`](./handoffs/NEXT-SESSION-PROMPT.md) (updated)
-3. Implement CS-02 copy → `npm run build` → handoff
+1. **Review kanonów** (kolejność):
+   - [`docs/README.md`](../README.md) — 10 min mapa
+   - [`docs/canons/vision-system.md`](../canons/vision-system.md) — HITL checkbox
+   - [`docs/canons/strategy-rules.md`](../canons/strategy-rules.md) + [`marketing-rules.md`](../canons/marketing-rules.md)
+   - [`docs/operations/handoffs/2026-06-25-knowledge-architecture-canon.md`](./handoffs/2026-06-25-knowledge-architecture-canon.md)
+2. Po approve → odpal sesję **E-2 CS-02** ([`NEXT-SESSION-PROMPT.md`](./handoffs/NEXT-SESSION-PROMPT.md))
 
 ---
 
