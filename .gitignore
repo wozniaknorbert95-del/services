@@ -48,3 +48,5 @@ next-env.d.ts
 # Commander source recordings (drop zone — ffmpeg compress before public/gratka/)
 docs/*.mp4
 
+/dist/
+
