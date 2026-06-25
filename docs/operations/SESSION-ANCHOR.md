@@ -1,46 +1,44 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-> **Single source for "what now?"** Replaces stale `NEXT-SESSION-PROMPT.md` when out of date.
+> **Single source for "what now?"** Replaces stale prompts when out of date.
 
-**Updated:** 2026-06-25 · **Last ship:** proof polish + hero metrics fix (`dadc3f7`) · **Deploy:** Vercel ✅
+**Updated:** 2026-06-25 · **Last ship:** housekeeping `4ed31ac` · **Deploy:** Vercel ✅
 
 ---
 
 ## CO ROBIMY
 
-**Warm outbound** — site sales-ready for ICP 1:1. Video program **deferred** (Commander adds MP4 later).
+**Meta SSoT alignment** — site must stop pretending the stack is 100% done. Truth = `flexgrafik-meta/docs/core/`.
 
-## NASTĘPNY KROK (Commander)
+## NASTĘPNY KROK (Agent)
 
 | # | Akcja |
 |---|--------|
-| 1 | Smoke `book-discovery` + wizard on live — end-to-end booking path |
-| 2 | LinkedIn post + 5–10 warm DM → Automation Map €290 |
-| 3 | BL-02 private: WC/GA4 counts for 1:1 only (not public) |
+| 1 | Read meta core pack (blueprint, as-is, to-be, charter, kaizen, contracts, modules×8) |
+| 2 | **Short plan** — fix `/results/` + `src/content/*` vs AS-IS (LIVE/PARTIAL/PLANNED) |
+| 3 | Clean conflicting docs in services repo (not meta) — 1 module / session |
+
+**Start:** [`handoffs/NEXT-SESSION-PROMPT.md`](./handoffs/NEXT-SESSION-PROMPT.md)  
+**Context:** [`handoffs/2026-06-25-meta-ssot-alignment-brief.md`](./handoffs/2026-06-25-meta-ssot-alignment-brief.md)
 
 ## Last shipped
 
 | Session | Handoff |
 |---------|---------|
+| 2026-06-25 | [`meta-ssot-alignment-brief`](./handoffs/2026-06-25-meta-ssot-alignment-brief.md) |
 | 2026-06-25 | [`housekeeping-deploy-audit`](./handoffs/2026-06-25-housekeeping-deploy-audit.md) |
-| 2026-06-25 | [`bl03-wizard-manual-ship`](./handoffs/2026-06-25-bl03-wizard-manual-ship.md) |
 
 ## Blockers
 
 | ID | Item | Status |
 |----|------|--------|
-| BL-03 | Wizard video | **closed** — `wizard-demo.mp4` 98s (~7.6 MB), `ready: true` |
-| BL-03b | Inbox video | **deferred** — empty state + poster OK until Commander records |
+| **SSoT** | Portfolio vs meta AS-IS | **open** — next session |
+| BL-03b | Inbox video | deferred |
 | BL-02 | Commercial traction | partial — public UNKNOWN |
 
 ## Video score
 
-**3/7 ready** (`agentOs`, `vcms`, `wizard`) — remaining slots OK as empty state
-
-## Repo hygiene
-
-- `master` = `origin/master` @ `dadc3f7`
-- Source OBS drops: `docs/*.mp4` gitignored — compress → `public/gratka/` before commit
+**3/7 ready** — deferred
 
 ---
 
