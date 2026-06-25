@@ -38,12 +38,13 @@ Commercial scale **not launched** — partner alignment in progress.
 
 ## FIND-02 · BL-03 — Wizard video
 
-**Handoff:** [`bl03-wizard-video-commander.md`](../operations/handoffs/2026-06-25-bl03-wizard-video-commander.md)
+**Handoff:** [`video-p0-agency.md`](../operations/handoffs/2026-06-25-video-p0-agency.md)
 
 - [x] `videos.wizard.poster` = `/gratka/wizard-checkout.png`
-- [x] `ready: false` — no `wizard-demo.mp4` in repo (PR-05)
-- [ ] Commander recording → Agent sets `url` + `ready: true`
-- [ ] Post-deploy smoke on solutions + results sales-funnel
+- [x] `public/gratka/wizard-demo.mp4` committed (54s, Playwright capture)
+- [x] `videos.wizard`: `url` + `ready: true` (PR-05 satisfied)
+- [ ] Commander visual review (PII / checkout frame)
+- [ ] Post-deploy smoke on solutions + results sales-funnel (after Vercel CD)
 
 ---
 
