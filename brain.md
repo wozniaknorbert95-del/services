@@ -1,187 +1,108 @@
 # Brain — services.flexgrafik.nl
 
-## Canonicka pamięć projektu | v1.1 | 2026-06-17
+## Canonical project memory | v2.0 | 2026-06-25
 
 ---
 
-## 0) STRATEGY CANON (v2 — read first)
+## 0) READ ORDER FOR AGENTS
 
-**Marketing, conversion, and UX decisions are owned by `docs/strategy/`, not this file.**
+**Marketing, conversion, UX, and direction are NOT owned by this file.**
 
-| Document | Path |
-|----------|------|
-| Index + read order | `docs/strategy/README.md` |
-| Marketing & positioning | `docs/strategy/marketing-strategy.md` |
-| User flow, nav, qualification | `docs/strategy/conversion-pipeline.md` |
-| UI hierarchy & motion | `docs/strategy/ui-ux-principles.md` |
+| Step | Document |
+|------|----------|
+| 1 | [`docs/README.md`](docs/README.md) — knowledge map |
+| 2 | [`docs/canons/vision-system.md`](docs/canons/vision-system.md) — north star |
+| 3 | [`docs/canons/*-rules.md`](docs/canons/README.md) — HARD rules |
+| 4 | [`docs/strategy/`](docs/strategy/README.md) — detailed canon |
+| 5 | This file — tech, deploy, guardrails only |
+| 6 | [`docs/operations/SESSION-ANCHOR.md`](docs/operations/SESSION-ANCHOR.md) — live session |
 
-**Positioning (v2):** Conversion Systems Architect — systems that qualify leads and reduce admin, not "web designer".
-
-**Primary funnel:** Home → Hard proof (results / VCMS) → Qualification (wizard / book-discovery) → Strategy call.
-
-Sections §2 (single-product goal) and §5 (flat IA) below are **historical** — superseded by strategy v2 where they conflict. Tech stack, guardrails, deploy, and tokens in this file remain binding.
+**Ecosystem constitution:** `flexgrafik-meta/docs/core/` (upstream — wins on AS-IS truth)
 
 ---
 
-## 1) IDENTYTET
+## 1) IDENTITY
 
 | | |
 |---|---|
-| **Domena** | `services.flexgrafik.nl` |
-| **Subdomena** | Tak — osobny asset od `portfolio.flexgrafik.nl` |
-| **Repo** | `wozniaknorbert95-del/services` (standalone) |
-| **Linked Vercel** | `wozniaknorbert95-dels-projects/flexgrafik-services` |
-| **Rol** | B2B SMB Conversion Systems Portfolio — konwersja ZZP/SMB na zakwalifikowane leady |
-| **Positioning** | Conversion Systems Architect (see `docs/strategy/marketing-strategy.md`) |
-| **Język** | Angielski (wszystkie B2B assets) |
-| **Audience** | ZZP, małe BV, profesjonalne usługi (księgowi, konsultanci) |
+| **Domain** | `quietforge.flexgrafik.nl` (legacy: `services.flexgrafik.nl`) |
+| **Repo** | `wozniaknorbert95-del/services` (standalone sibling asset) |
+| **Role** | B2B Conversion Systems Portfolio — qualify SMB leads + LOS investor bridge |
+| **Positioning** | Conversion Systems Architect — see [`marketing-rules.md`](docs/canons/marketing-rules.md) |
+| **Language** | English (all public B2B assets) |
+| **Audience** | ZZP, small BV, professional services + tech/investor via `/results/owner-ecosystem/` |
 
 ---
 
-## 2) CEL
+## 2) TECH STACK
 
-> **Superseded for copy/IA by `docs/strategy/`** — kept for historical context.
-
-Portfolio sprzedaży systemów konwersji dla SMB. Flagship proof: **Wizard Cash Engine** + product ladder (Inbox Killer, Sales Funnel, Web Upgrade).
-
-- Discovery: Automation Map (paid session)
-- Project floors: see `src/lib/constants.ts` → `PRICING`
-- Wizard (qualification): `https://zzpackage.flexgrafik.nl/`
-
-**Canonical commercial + funnel rules:** `docs/strategy/conversion-pipeline.md`
-
----
-
-## 3) AUDIENCJE i SEPARACJA
-
-> **⚠ SUPERSEDED 2026-06-25 — Track 4 rule below is STALE.**  
-> Site now shows governed ecosystem proof (LOS, Built vs Planned, owner-ecosystem map) with B2B framing — not zero-repo zero-jargon.  
-> **Canonical copy/IA:** `docs/strategy/marketing-strategy.md` · **Home order:** `docs/strategy/site-map.md` §2.
-
-| Track | Asset | Audience | Reguła |
-|---|---|---|---|
-| 3 | `portfolio.flexgrafik.nl` | Enterprise AI engineering | **Święty.** Zero ZZP, zero cen, zero packages. |
-| 4 | `quietforge.flexgrafik.nl` (repo `services`) | SMB/ZZP + investor bridge | **Konwersja + LOS canon on home** (`living-system-architecture.md`). SMB buyer path via PainGrid; `/results/owner-ecosystem/` for tech/investor audience. |
-
-**Home architecture (2026-06-25):** Full LOS on home §2 — 6 layers + Memory, life loop, three brains, `los-architecture.svg`. Repo router always shows 8 repos (`ECOSYSTEM_REPOS`). SMB pipeline (`SystemArchitecture`) removed from home; component retained for future `/how-it-works` use.
-
----
-
-## 4) TECH STACK
-
-| Warstwa | Technologia |
+| Layer | Technology |
 |---|---|
 | Framework | Next.js 16.2.6 (App Router) |
 | React | 19.2.4 |
 | TypeScript | strict, `noEmit` |
 | Styling | Tailwind CSS v4 (utility-first) |
-| Animacje | Framer Motion + `prefers-reduced-motion` |
-| Ikony | Lucide React |
+| Animation | Framer Motion + `prefers-reduced-motion` |
+| Icons | Lucide React |
 | Deploy | Vercel static export (`output: 'export'`) |
-| Build artifact | `dist/` (nie `.next/`) |
+| Build artifact | `dist/` (not `.next/`) |
 
 ---
 
-## 5) ARCHITEKTURA INFORMACJI
+## 3) DESIGN TOKENS
 
-> **Canonical sitemap, nav, home section order:** `docs/strategy/conversion-pipeline.md` §6
+**Source of truth:** `src/app/globals.css` — CSS custom properties.
 
-**Live routes (summary):** `/` · `/solutions/*` · `/results/*` · `/how-it-works/` · `/pricing/` · `/book-discovery/` · `/founder/` · `/about/` · `/trust/` · `/legal/`
+**Also read:** [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md) · [`quietforge.css`](src/app/quietforge.css)
 
-**Zasada:** Każda route ma jeden funnel job. Nowe strony = OG + sitemap + handoff z odwołaniem do strategy canon.
+**Rule:** No inline styles, no hardcoded colors, no CSS Modules. Tailwind + `var(--color-*)` / `qf-*` classes.
 
----
-
-## 6) DESIGN TOKENS
-
-**Źródło prawdy:** `src/app/globals.css` — CSS custom properties.
-
-```css
-:root {
-  --color-bg: #090c11;
-  --color-bg-surface: #0f1318;
-  --color-bg-elevated: #161b22;
-  --color-border: #21262d;
-  --color-text-primary: #e6edf3;
-  --color-text-secondary: #8b949e;
-  --color-text-muted: #484f58;
-  --color-accent: #58a6ff;
-  --color-accent-glow: #1f6feb;
-  --color-green: #3fb950;
-  --color-amber: #d29922;
-  --color-red: #f85149;
-}
-```
-
-**Zakaz:** inline `style={{...}}`, hardcoded kolory, CSS Modules. Wszystko przez Tailwind utility classes z `var(--color-*)`.
+**Intent colors:** `--fx-time`, `--fx-money`, `--fx-order`, `--fx-calm`, `--fx-efficiency` — see [`ux-rules.md`](docs/canons/ux-rules.md) UR-09.
 
 ---
 
-## 7) GUARDRAILS (TWARDE)
+## 4) GUARDRAILS (HARD)
 
-1. **`npm run build` musi przejść przed każdym commitem.** Zero wyjątków.
-2. **TypeScript strict — zero `any`.** `npx tsc --noEmit` jako dodatkowa weryfikacja.
-3. **One primary CTA above the fold** — cold traffic: See systems; warm: Book or WhatsApp — see strategy canon.
-4. **Animacje respektują `prefers-reduced-motion`.** Framer Motion wyłączone, transition: none.
-5. **Mobile-first responsive.** Wszystkie sekcje stackują pionowo. Tap targets ≥ 44px.
-6. **Zero sekretów w repo.** Klucze, tokeny, hasła w `.env.local` (`.gitignore`).
-7. **Deploy: Vercel auto na push do `master`.** Wyjątek od Zasady 11 — marketing asset.
-8. **OG image dla każdej nowej route.** 1200×630 via `scripts/generate-og.mjs` template.
-9. **Sitemap** regeneruje się on build (`scripts/generate-sitemap.mjs`).
-10. **Continuity rule:** Każdy wdrożony system ma documented handoff (diagram + runbook) w VCMS. Norbert unavailable 2 weeks → system runs without intervention for ~80% cases.
-11. **WhatsApp AVG:** Explicit opt-in przed pierwszą wiadomością. Retention max 90 dni. Right-to-delete webhook do VCMS. Privacy policy update przed launch agenta.
-12. **Build fail = PR blocked.** Build pass z env warning = OK dev; **blokuje deploy prod** jeśli brakuje wymaganego env (np. `NEXT_PUBLIC_WHATSAPP_URL`).
-13. **Images:** WebP preferred; screenshots max 1600px width; lazy below fold. SVG inline only if &lt;5KB.
+1. **`npm run build` must pass before every commit.**
+2. **TypeScript strict — zero `any`.** `npm run typecheck` for verification.
+3. **One primary CTA above the fold** — see [`strategy-rules.md`](docs/canons/strategy-rules.md) SR-04.
+4. **Animations respect `prefers-reduced-motion`.**
+5. **Mobile-first.** Tap targets ≥ 44px.
+6. **Zero secrets in repo.** Keys in `.env.local` (gitignored).
+7. **Deploy:** Vercel auto on push to `master` (marketing asset exception to global Zasada 11).
+8. **OG image for every new route** — `scripts/generate-og.mjs`.
+9. **Sitemap** regenerates on build — `scripts/generate-sitemap.mjs`.
+10. **Handoff every session** — `docs/operations/handoffs/YYYY-MM-DD-*.md`.
+11. **WhatsApp AVG:** opt-in, 90-day retention, delete webhook, privacy before agent launch.
+12. **Build fail = PR blocked.** Missing prod env blocks deploy.
+13. **Images:** WebP preferred; screenshots max 1600px; lazy below fold.
 
 ---
 
-## 8) DEPLOY RULES
+## 5) DEPLOY
 
 ### Vercel
 
 ```bash
-# Project linked: wozniaknorbert95-dels-projects/flexgrafik-services
-# Sprawdź status:
+# Project: wozniaknorbert95-dels-projects/flexgrafik-services
 npx vercel projects ls
-
-# Deploy production:
 npx vercel dist --prod --yes
 ```
 
-### DNS (services.flexgrafik.nl)
+### DNS
 
-W panelu Cyber-Folks (ns1.cyberfolks.pl) dodaj:
-
-**Opcja A (szybsza):**
-- Typ: A
-- Host: `services`
-- Wartość: `76.76.21.21`
-
-**Opcja B (CNAME):**
-- Typ: CNAME
-- Host: `services`
-- Wartość: `cname.vercel-dns.com`
-
-Po dodaniu: `npx vercel domains inspect services.flexgrafik.nl`
+- A record `services` → `76.76.21.21` OR CNAME → `cname.vercel-dns.com`
+- Verify: `npx vercel domains inspect quietforge.flexgrafik.nl`
 
 ---
 
-## 9) WERYFIKACJA PO DEPLOYU
-
-### Automatyczna
+## 6) POST-DEPLOY VERIFICATION
 
 ```bash
-# Health check
-curl -sI https://flexgrafik-services.vercel.app/ | head -1
-
-# Po DNS:
-curl -sI https://services.flexgrafik.nl/ | head -1
-
-# Lighthouse (wymaga globalnego `npm install -g lighthouse`)
-lighthouse https://services.flexgrafik.nl --output=json --chrome-flags="--headless"
+curl -sI https://quietforge.flexgrafik.nl/ | head -1
+npm run audit:links
+npm run lighthouse:ci   # A11y <95 or Perf <85 blocks merge
 ```
-
-### Manualna
 
 | Checkpoint | Target |
 |---|---|
@@ -189,90 +110,49 @@ lighthouse https://services.flexgrafik.nl --output=json --chrome-flags="--headle
 | Lighthouse Accessibility | ≥ 95 |
 | Lighthouse Best Practices | ≥ 95 |
 | Lighthouse SEO | ≥ 95 |
-| **CI gate** | `npm run lighthouse:ci` — blocks merge if Accessibility &lt;95 or Performance &lt;85; blocks release if Best Practices or SEO &lt;95 |
-| Mobile viewport | No horizontal scroll, readable fonts |
-| Tap targets | ≥ 44px |
-| One CTA above fold | "Book Free Demo" widoczny bez scrolla |
-| OG images | Wszystkie main routes mają OG image |
-| Broken links | Zero 404 (sprawdź `npm run audit:links`) |
+| Mobile 375px | No horizontal scroll |
+| OG images | All main routes |
 
 ---
 
-## 10) SOURCE OF TRUTH
+## 7) SOURCE OF TRUTH (quick links)
 
-| Dokument | Ścieżka |
+| Topic | Path |
 |---|---|
-| **Strategy canon (v2)** | `docs/strategy/README.md` → marketing · conversion · ui-ux |
-| Marketing & positioning | `docs/strategy/marketing-strategy.md` |
-| Conversion & user flow | `docs/strategy/conversion-pipeline.md` |
-| UI/UX principles | `docs/strategy/ui-ux-principles.md` |
-| Design system (visual) | `DESIGN-SYSTEM.md` · `quietforge.css` |
-| Design tokens (code) | `src/app/globals.css` |
-| Routes & pricing constants | `src/lib/constants.ts` |
-| Handoffi | `docs/handoffs/YYYY-MM-DD-*.md` |
-| Cross-repo B2B strategy (ref) | `portfolio/docs/strategy/B2B-SMB-AUTOMATION-STRATEGY-EN.md` |
+| Knowledge map | `docs/README.md` |
+| Vision / direction | `docs/canons/vision-system.md` |
+| HARD rules | `docs/canons/*-rules.md` |
+| Strategy detail | `docs/strategy/` |
+| Content SSoT | `src/content/*.ts` — see `docs/architecture/content-ssot.md` |
+| Routes & pricing | `src/lib/constants.ts` |
+| Ecosystem meta | `flexgrafik-meta/docs/core/` |
+| Handoffs | `docs/operations/handoffs/` |
 
 ---
 
-## 11) BACKLOG
+## 8) KEY FILES
 
-Aktualny backlog: `services/todo.json` (do utworzenia) lub GitHub Issues.
-
-**Rekomendacja:** Utrzymuj `TODO.md` w root `services/` z krótką listą:
-- Phase 2 strony: `/website-modernization/`, `/marketing-automation/`
-- Formularz kontaktowy (webhook do Make/Zapier)
-- Case Study #2 (FitDiet lub inny klient)
-- OG images per dynamic route (jeśli powstaną)
-
----
-
-## 12) DO'S & DON'TS
-
-### ✅ DO
-- Sales copy first, code second.
-- Każda sekcja ma jeden cel psychologiczny (PAS framework).
-- Hard data w pain points ("12h/week", "€800–1,500/mo").
-- Before/After metrics w case studies.
-- Risk reversal na każdym etapie (gwarancja, Zasada 11, no lock-in).
-- Framer Motion dla scroll animations — ale tylko fade/slide, nie przesadzaj.
-
-### ❌ DON'T
-- Tech jargon w copy SMB-facing (nie "LangGraph", nie "LLM pipeline").
-- Portfolio/enterprise content na tej domenie.
-- Feature-dump copy bez Problem → System → Effect (see marketing-strategy.md).
-- Stock photos — używaj placeholderów lub screenshotów z realnych projektów.
-- Inline styles — zawsze Tailwind + CSS vars.
-- Commit bez `npm run build`.
-
----
-
-## 13) KLUCZOWE PLIKI
-
-| Plik | Cel |
+| File | Purpose |
 |---|---|
-| `src/app/globals.css` | Design tokens — źródło prawdy |
-| `src/app/layout.tsx` | Root metadata, JSON-LD, fonts |
-| `src/app/page.tsx` | Home — kompozycja wszystkich sekcji |
-| `src/components/ui/*` | Reusable atoms: Button, Card, Section, Badge |
-| `public/og/*.svg` | OG images dla wszystkich route'ów |
-| `public/robots.txt` | Allow all + sitemap reference |
-| `public/sitemap.xml` | Wszystkie route'y |
-| `next.config.ts` | Static export config |
+| `src/app/globals.css` | Design tokens |
+| `src/app/layout.tsx` | Root metadata, JSON-LD |
+| `src/app/page.tsx` | Home composition — binding: site-map §2 |
+| `src/content/ecosystem.ts` | Modules, repos, home sections |
+| `src/content/proof.ts` | Metrics, proof manifest |
+| `public/og/*.svg` | OG images |
 
 ---
 
-## 14) KOMENDY REFERENCYJNE
+## 9) COMMANDS
 
-| Komenda | Cel |
+| Command | Purpose |
 |---|---|
-| `npm run build` | Static export do `dist/` |
-| `npm run typecheck` | TypeScript strict check (`tsc --noEmit`) |
+| `npm run build` | Static export to `dist/` |
+| `npm run typecheck` | TypeScript check |
 | `npm run lint` | ESLint |
-| `npm run audit:links` | Sprawdzenie broken links |
-| `npx vercel dist --prod` | Deploy na Vercel production |
-| `npx vercel domains inspect services.flexgrafik.nl` | Status domeny |
-| `npx vercel projects ls` | Lista projektów |
+| `npm run audit:links` | Broken link check |
+| `npx vercel dist --prod` | Production deploy |
 
 ---
 
-*Last updated: 2026-06-17 | Owner: Norbert Wozniak | Next review: after enterprise polish sprint (implementation phase)*
+*Last updated: 2026-06-25 · Owner: Norbert Wozniak · Next review: quarterly or post-Phase B*

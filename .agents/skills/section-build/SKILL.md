@@ -22,7 +22,7 @@ One component per session. No mega-diffs. Batch mode max 3 sections with `npm ru
 
 ### Step 2 — Wire content, not copy
 
-Pull text/numbers from `src/content/*` (`ecosystem.ts`, `conversion-copy.ts`, `proof.ts`, `metrics-display.ts`). Never hardcode copy in JSX. Follow the hierarchy in `site-map.md` §7.
+Pull text/numbers from `src/content/*` (`ecosystem.ts`, `conversion-copy.ts`, `proof.ts`, `metrics-display.ts`). Never hardcode copy in JSX. Follow the hierarchy in `docs/architecture/content-ssot.md`.
 
 ### Step 3 — Build to the section anatomy
 

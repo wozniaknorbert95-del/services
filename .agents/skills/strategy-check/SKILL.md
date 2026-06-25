@@ -5,7 +5,7 @@ description: Verify changes comply with the strategy canon for services.flexgraf
 
 # strategy-check — Strategy Canon Compliance
 
-The canon (`docs/strategy/*`) is the single source of truth for layout, copy, nav, and CTAs. This skill catches drift before it ships and enforces the anti-chaos rule so docs and code never diverge.
+The canon (`docs/canons/strategy-rules.md` + `docs/strategy/*`) is the single source of truth for layout, copy, nav, and CTAs. This skill catches drift before it ships and enforces the anti-chaos rule so docs and code never diverge.
 
 ## When to Use This Skill
 
@@ -19,7 +19,7 @@ Invoke this skill when:
 
 ### Step 1 — Load the relevant canon
 
-`docs/strategy/site-map.md` (primary), plus `conversion-pipeline.md` (CTA tiers) and `marketing-strategy.md` (positioning) as needed.
+`docs/canons/strategy-rules.md` (enforceable HARD rules), `docs/strategy/site-map.md` (primary), plus `conversion-pipeline.md` (CTA tiers) and `marketing-rules.md` / `marketing-strategy.md` (positioning) as needed.
 
 ### Step 2 — Check against binding rules
 
@@ -58,7 +58,7 @@ If `src/app/page.tsx` or home section order changed → **`site-map.md` §2 MUST
 
 ## Guardrails
 
-- The canon wins over `brain.md` and ad-hoc notes when they disagree.
+- The canon wins over `brain.md` and ad-hoc notes when they disagree (`docs/architecture/authority-chain.md`).
 - Never reorder or remove a home section without updating `site-map.md` §2 the same session.
 - Don't delete a proof section that sits before a CTA (funnel job).
 - Content lives in `src/content/*` — change copy there, not hardcoded in components.

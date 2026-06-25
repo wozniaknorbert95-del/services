@@ -15,7 +15,7 @@ Repo-specific skills for the Quietforge Conversion Systems portfolio (Next.js 16
 | [rootcause](./rootcause/SKILL.md) | Systematic debugging — reproduce → isolate → hypothesize → minimal fix → verify; no band-aids | Any bug, build/type failure, broken layout |
 | [verify](./verify/SKILL.md) | Build & quality gate — typecheck, lint, build, 404 audit, ReadLints → pass/fail table | Before every commit (build MUST pass) |
 | [ship](./ship/SKILL.md) | Safe commit + push to master (Vercel CD) — diff review, no secrets/.cursor, post-deploy smoke | After `verify` PASS, on explicit request |
-| [handoff](./handoff/SKILL.md) | Write `docs/handoffs/YYYY-MM-DD-[feature].md` — goal, files, verification, smoke, next steps | End of every session |
+| [handoff](./handoff/SKILL.md) | Write `docs/operations/handoffs/YYYY-MM-DD-[feature].md` — goal, files, verification, smoke, next steps | End of every session |
 
 ## Typical session order
 

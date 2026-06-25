@@ -1,6 +1,6 @@
 ---
 name: vibeinit
-description: Session bootstrap for services.flexgrafik.nl. Reads the strategy canon in order, checks git state and active handoffs, then prints a concise ADHD-friendly session anchor (CO robimy / DLACZEGO / NASTĘPNY KROK). Invoke at the start of every working session before touching code.
+description: Session bootstrap for services.flexgrafik.nl. Reads the knowledge canons and strategy canon in order, checks git state and active handoffs, then prints a concise ADHD-friendly session anchor (CO robimy / DLACZEGO / NASTĘPNY KROK). Invoke at the start of every working session before touching code.
 ---
 
 # vibeinit — Session Bootstrap
@@ -17,17 +17,20 @@ Invoke this skill when:
 
 ## Procedure
 
-### Step 1 — Read the strategy canon (mandatory, in order)
+### Step 1 — Read knowledge canons (mandatory, in order)
 
 Per `AGENTS.md`, read top-to-bottom before any page/component work:
 
-1. `docs/strategy/README.md` — authority + read order + anti-chaos rule
-2. `docs/strategy/marketing-strategy.md` — positioning, ICP, proof standards
-3. `docs/strategy/site-map.md` — **home order (LOCKED §2), 8-repo map (§3), intent colors (§4)**
-4. `docs/strategy/conversion-pipeline.md` — flow, nav, CTA tiers
-5. `docs/strategy/ui-ux-principles.md` — hierarchy, section anatomy, motion policy
+1. `docs/README.md` — knowledge map + authority layers
+2. `docs/canons/vision-system.md` — north star, three brains, phases
+3. `docs/canons/strategy-rules.md` — IA / funnel HARD rules
+4. `docs/canons/marketing-rules.md` — copy / proof HARD rules
+5. `docs/strategy/site-map.md` — **home order (LOCKED §2), 8-repo map, intent colors**
+6. `docs/strategy/conversion-pipeline.md` — flow, nav, CTA tiers
+7. `docs/strategy/marketing-strategy.md` — positioning detail
+8. `docs/strategy/ui-ux-principles.md` — hierarchy, section anatomy, motion policy
 
-Also skim `brain.md` (project memory) and `DESIGN-SYSTEM.md` (visual tokens) if doing UI work.
+Also skim `brain.md` (tech/deploy only) and `DESIGN-SYSTEM.md` (visual tokens) if doing UI work.
 
 ### Step 2 — Read repo state
 
@@ -41,8 +44,8 @@ Note uncommitted work and whether it is mid-feature or stray. Flag anything unde
 
 ### Step 3 — Surface active work
 
-- List newest files in `docs/handoffs/` (most recent date = last session): read the latest 1–2.
-- Check `docs/handoffs/NEXT-SESSION-PROMPT.md` and any `docs/plans/*` for queued work.
+- List newest files in `docs/operations/handoffs/` (most recent date = last session): read the latest 1–2.
+- Check `docs/operations/SESSION-ANCHOR.md` for queued work.
 - Scan for open threads: `rg '\[FILL:' src/`, TODO/FIXME if relevant.
 
 ### Step 4 — Emit the session anchor
@@ -73,4 +76,4 @@ Note uncommitted work and whether it is mid-feature or stray. Flag anything unde
 - One focused goal per session (Zasada 1-1-1: one session = one task = one module).
 - Do NOT start implementation inside `vibeinit` — it only orients. Hand off to `section-build` / `rootcause` / etc.
 - Communicate the anchor PL-friendly and brief (ADHD: CO → DLACZEGO → NASTĘPNY KROK). Code/docs stay EN.
-- If the canon and `brain.md` disagree, canon wins (`docs/strategy/README.md`).
+- If the canon and `brain.md` disagree, canons + strategy win (`docs/architecture/authority-chain.md`).

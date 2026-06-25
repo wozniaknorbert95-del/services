@@ -1,6 +1,6 @@
 # Next Session Prompt — E-2 CS-02 ecosystem copy
 
-> **Start here.** E-1 ecosystem diagram deployed.
+> **Start here for implementation.** Knowledge canon established 2026-06-25 — load [`SESSION-ANCHOR.md`](../SESSION-ANCHOR.md) first.
 
 ---
 
@@ -8,11 +8,12 @@
 
 | Work | Status |
 |---|---|
+| P0 portfolio truth-sync | Done 2026-06-25 |
+| Knowledge architecture canon | Done 2026-06-25 |
 | E-1 Owner ecosystem | Done |
-| Audit FIXes | Done |
-| FIX-6 DNS | Owner action |
+| E-2 CS-02 copy refresh | **NEXT** |
 
-**Handoff:** `docs/handoffs/2026-06-13-e1-owner-ecosystem.md`
+**Handoff:** [`2026-06-13-e1-owner-ecosystem.md`](./2026-06-13-e1-owner-ecosystem.md)
 
 ---
 
@@ -31,7 +32,8 @@ Link prominently to `/results/owner-ecosystem/` (already wired — deepen copy).
 - [ ] Copy names real modules (no brand dump)
 - [ ] No fake uptime %
 - [ ] Gratka still valid or refreshed if needed
-- [ ] Build + handoff
+- [ ] Compliant with [`marketing-rules.md`](../../canons/marketing-rules.md) MR-16
+- [ ] Build + handoff in `docs/operations/handoffs/`
 
 ---
 

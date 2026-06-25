@@ -2,22 +2,30 @@
 
 ## Projekt
 Standalone B2B SMB Conversion Systems Portfolio — FlexGrafik Digital (Quietforge).
-Positioning: **Conversion Systems Architect** — see strategy canon below.
+Positioning: **Conversion Systems Architect** — see knowledge canons below.
 Stack: Next.js 16.2.6, React 19, TypeScript, Tailwind v4, Framer Motion, Lucide React.
 
-## Strategy canon (mandatory before page/component work)
+## Knowledge read order (mandatory before page/component work)
 
-Read in order — binding for copy, nav, CTAs, and section composition:
+1. [`docs/README.md`](docs/README.md) — knowledge map + authority layers
+2. [`docs/canons/vision-system.md`](docs/canons/vision-system.md) — direction
+3. [`docs/canons/strategy-rules.md`](docs/canons/strategy-rules.md) — IA / funnel HARD rules
+4. [`docs/canons/marketing-rules.md`](docs/canons/marketing-rules.md) — copy HARD rules
+5. [`docs/strategy/site-map.md`](docs/strategy/site-map.md) — home §2 LOCKED, 8-repo map
+6. [`docs/strategy/conversion-pipeline.md`](docs/strategy/conversion-pipeline.md) — CTA tiers
+7. [`docs/strategy/marketing-strategy.md`](docs/strategy/marketing-strategy.md) — positioning detail
+8. [`docs/strategy/ui-ux-principles.md`](docs/strategy/ui-ux-principles.md) — UI detail
+9. [`brain.md`](brain.md) — tech stack, deploy, guardrails
+10. [`docs/operations/SESSION-ANCHOR.md`](docs/operations/SESSION-ANCHOR.md) — live session pointer
 
-1. `docs/strategy/README.md`
-2. `docs/strategy/marketing-strategy.md`
-3. **`docs/strategy/site-map.md`** — home section order (LOCKED), 8-repo map, intent colors
-4. `docs/strategy/conversion-pipeline.md`
-5. `docs/strategy/ui-ux-principles.md`
+**UI add:** [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md) + [`docs/canons/ux-rules.md`](docs/canons/ux-rules.md)  
+**Proof add:** [`docs/canons/proof-rules.md`](docs/canons/proof-rules.md) + `src/content/proof.ts`  
+**Ecosystem truth:** [`docs/architecture/authority-chain.md`](docs/architecture/authority-chain.md) + `flexgrafik-meta/docs/core/`
 
 **Content sources:** `src/content/ecosystem.ts`, `src/content/proof.ts`, `src/content/conversion-copy.ts`
 
-**Anti-chaos:** Zmiana `page.tsx` (home) = aktualizacja `site-map.md` w tej samej sesji.
+**Anti-chaos:** Zmiana `page.tsx` (home) = aktualizacja `site-map.md` §2 w tej samej sesji.  
+**Rule change:** HARD rule edit in `docs/canons/` = update relevant skill same session.
 
 Visual implementation: `DESIGN-SYSTEM.md` + `src/app/globals.css`. Project memory: `brain.md`.
 
@@ -44,6 +52,12 @@ Visual implementation: `DESIGN-SYSTEM.md` + `src/app/globals.css`. Project memor
 src/
   app/          — Next.js App Router pages
   components/   — React components (ui/ + feature components)
+docs/
+  canons/       — vision + HARD rules
+  strategy/     — detailed marketing canon
+  architecture/ — bridges to meta + content SSoT
+  operations/   — SESSION-ANCHOR + handoffs
+  archive/      — audits, plans, legacy (do not load by default)
 public/
   og/           — Open Graph images (1200×630 SVG)
 ```
@@ -67,4 +81,4 @@ Akcenty per repo są ładowane via atrybut `data-app="nazwa-repo"` w sekcji `<bo
 - TypeScript: `npm run typecheck`
 
 ## Handoff
-Każda sesja OpenCode kończy się plikiem `docs/handoffs/YYYY-MM-DD-[feature].md`.
+Każda sesja OpenCode kończy się plikiem `docs/operations/handoffs/YYYY-MM-DD-[feature].md`.

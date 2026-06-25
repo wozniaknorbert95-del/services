@@ -11,8 +11,8 @@ Start sesji z pełnym kontekstem: zasady, stack, guardrails i trasa workflow.
 Opis zadania od Dowódcy.
 
 ## Do
-1. Wczytaj `brain.md` (SSoT projektu — stack, deploy rules, guardrails).
-2. Wczytaj `AGENTS.md` (globalne zasady ekosystemu).
+1. Wczytaj `docs/README.md` + `docs/canons/vision-system.md` + `AGENTS.md` read order.
+2. Wczytaj `brain.md` (tech, deploy — nie strategia).
 3. Sprawdź `package.json` — zależności i skrypty.
 4. Oceń aktualny branch (`git branch --show-current`).
 5. Wyciągnij GŁÓWNE OGRANICZENIA z brain.md §7 (Guardrails).

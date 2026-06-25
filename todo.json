@@ -197,7 +197,7 @@
           "dod": [
             "`npm run build` passes with zero errors",
             "`npm run typecheck` passes with zero errors",
-            "Handoff doc written to docs/handoffs/YYYY-MM-DD-phase-0-foundation.md",
+            "Handoff doc written to docs/operations/handoffs/YYYY-MM-DD-phase-0-foundation.md",
             "brand (Quietforge) visible in layout.tsx metadata"
           ]
         }
@@ -809,7 +809,7 @@
           "dod": [
             "`npm run build` passes with zero errors and zero warnings",
             "`npm run typecheck` passes with zero errors",
-            "Handoff doc written to docs/handoffs/YYYY-MM-DD-quietforge-rebuild.md",
+            "Handoff doc written to docs/operations/handoffs/YYYY-MM-DD-quietforge-rebuild.md",
             "Handoff includes: route map, component architecture, payment integration notes, env vars required, pending decisions"
           ]
         }

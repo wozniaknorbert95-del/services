@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: Write a session handoff doc to docs/handoffs/YYYY-MM-DD-[feature].md following the repo convention (goal, files changed table, verification, post-deploy smoke, next steps). Invoke at the end of every session — handoff is mandatory per AGENTS.md.
+description: Write a session handoff doc to docs/operations/handoffs/YYYY-MM-DD-[feature].md following the repo convention (goal, files changed table, verification, post-deploy smoke, next steps). Invoke at the end of every session — handoff is mandatory per AGENTS.md.
 ---
 
 # handoff — Session Handoff Doc
@@ -18,7 +18,7 @@ Invoke this skill when:
 
 ### Step 1 — Pick the path
 
-`docs/handoffs/YYYY-MM-DD-[feature].md` — today's date, kebab-case feature slug.
+`docs/operations/handoffs/YYYY-MM-DD-[feature].md` — today's date, kebab-case feature slug.
 Examples in repo: `2026-06-24-logo-remediation.md`, `2026-06-23-sprint-1-ux-fixes.md`.
 
 ### Step 2 — Gather facts (don't invent)

@@ -3,7 +3,7 @@
 **Version:** 1.0  
 **Status:** Canonical — single source for home layout, 8-repo map, intent colors, routes  
 **Supersedes:** `Tak to ma być/Mapa Strony Filar 2.md` for implementation order (Filar 2 remains reference for copy tone)  
-**Vision reference:** [inspiracja pro.md](../../inspiracja%20pro.md) (BLOKI 1–15)
+**Vision reference:** [vision-system.md](../canons/vision-system.md) · legacy BLOKI: [inspiracja pro.md](../archive/legacy/inspiracja%20pro.md)
 
 > Agents: do not change `src/app/page.tsx` without updating **§2** in this file in the same session.
 
@@ -147,7 +147,7 @@ Data source: `src/content/ecosystem.ts` → `INTENT_LEGEND`
 ## §7 Content file hierarchy
 
 ```
-inspiracja pro.md (vision)
+docs/canons/vision-system.md + *-rules.md
     ↓
 site-map.md (this file — layout + routes + global chrome)
     ↓
@@ -159,6 +159,8 @@ navigation.ts (header nav, footer columns, solutions dropdown)
     ↓
 src/components + src/app
 ```
+
+Full map: [content-ssot.md](../architecture/content-ssot.md)
 
 Videos: fill `proof.ts` in **last phase** — never show `[FILL]` video placeholders on home.
 

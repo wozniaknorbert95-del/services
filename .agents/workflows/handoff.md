@@ -45,7 +45,7 @@ Wynik sesji (kod, deploy, decyzje).
 4. Określ SCOPE zmian (co zrobione, co nie).
 5. Zanotuj DECYZJE podjęte w trakcie sesji.
 6. Zanotuj BLOKERS (co zatrzymuje kolejne kroki).
-7. Utwórz handoff doc w `docs/handoffs/YYYY-MM-DD-[feature].md`.
+7. Utwórz handoff doc w `docs/operations/handoffs/YYYY-MM-DD-[feature].md`.
 8. **Zaktualizuj SESSION ANCHOR u góry tego pliku.**
 
 ## Handoff Template
@@ -81,5 +81,5 @@ Wynik sesji (kod, deploy, decyzje).
 
 ## Done when
 - [ ] SESSION ANCHOR zaktualizowany
-- [ ] `docs/handoffs/YYYY-MM-DD-[feature].md` istnieje
+- [ ] `docs/operations/handoffs/YYYY-MM-DD-[feature].md` istnieje
 - [ ] Build PASS
