@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Link from 'next/link';
+import AnalyticsPageView from '@/components/analytics/AnalyticsPageView';
 import { PRICING, EMAIL, SITE_URL, ROUTES, ARTEFACTS } from '@/lib/constants';
 import BookDiscoveryForm from './BookDiscoveryForm';
 
@@ -36,6 +37,7 @@ export const metadata: Metadata = {
 export default function BookDiscoveryPage() {
   return (
     <>
+      <AnalyticsPageView event="book_discovery_view" />
       <Section padding="large">
         <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
           Request your Automation Map slot — €{PRICING.discovery}, credited.

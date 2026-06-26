@@ -1,21 +1,20 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-06-25 · **Ship:** Professional Update implementation · **Build:** ✅
+**Updated:** 2026-06-26 · **Ship:** GA4 P1 instrumentation (local) · **Build:** ✅
 
 ---
 
 ## CO ROBIMY
 
-**Professional Update shipped** — buyer-first home, pricing SSoT, Book Discovery fallback, hubs polished.
+**GA4 sesja** — P1 `location` + `book_discovery_view` done. MCP audit blocked on SA JSON.
 
 ## NASTĘPNY KROK
 
-Optional follow-ups only:
-1. Mollie + calendar for Book Discovery checkout model
-2. ~~GA4 listener on `qf_analytics` CustomEvent~~ — **shipped 2026-06-26** (`GoogleAnalytics.tsx`); set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in Vercel
-3. WhatsApp pilot — complete case or keep internal
+1. **Owner (raz):** `scripts/setup-ga-mcp-credentials.ps1` → JSON → restart Cursor
+2. **Ship:** commit + push P1 analytics changes
+3. **Agent:** MCP `run_report` 28d audyt gdy credentials live
 
-**Handoff:** [`2026-06-25-professional-update-implementation.md`](./handoffs/2026-06-25-professional-update-implementation.md)
+**Handoff:** [`2026-06-26-ga4-mcp-audit-p1.md`](./handoffs/2026-06-26-ga4-mcp-audit-p1.md)
 
 ---
 

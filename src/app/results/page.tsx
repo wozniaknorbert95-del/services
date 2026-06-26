@@ -265,7 +265,7 @@ export default function ResultsPage() {
           Start with a paid Automation Map. In 60–90 minutes we&apos;ll pinpoint your biggest leaks
           and show you the ROI — before you commit to anything bigger.
         </p>
-        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'results_footer' }}>
           {CTAS.bookAutomationMap}
         </Button>
       </Section>

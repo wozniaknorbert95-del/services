@@ -105,7 +105,7 @@ export default function PricingPage() {
           </a>
           .
         </p>
-        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'pricing_hero' }}>
           {CTAS.bookAutomationMap}
         </Button>
       </Section>
@@ -253,7 +253,7 @@ export default function PricingPage() {
             </li>
           ))}
         </ul>
-        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'pricing_discovery' }}>
           {CTAS.bookAutomationMap}
         </Button>
       </Section>
@@ -426,7 +426,7 @@ export default function PricingPage() {
           No big commitment, no guesswork. Book an Automation Map, see the ROI, and decide
           from there.
         </p>
-        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
+        <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'pricing_footer' }}>
           {CTAS.bookAutomationMap}
         </Button>
       </Section>

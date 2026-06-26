@@ -38,7 +38,7 @@ export default function HeroSection() {
             <div className="mt-[var(--qf-sp-6)] flex flex-wrap items-center gap-[var(--qf-sp-3)]">
               <Link
                 href={ROUTES.bookDiscovery}
-                onClick={() => trackEvent('cta_book_map_click')}
+                onClick={() => trackEvent('cta_book_map_click', { location: 'hero_primary' })}
                 className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:border-[var(--qf-accent-soft)] hover:bg-[var(--qf-accent-soft)]"
               >
                 {HERO.primaryCta} <span aria-hidden="true">→</span>
@@ -53,7 +53,7 @@ export default function HeroSection() {
                 href={WHATSAPP.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent('cta_whatsapp_click')}
+                onClick={() => trackEvent('cta_whatsapp_click', { location: 'hero_whatsapp' })}
                 className="text-sm font-semibold text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-accent)]"
               >
                 {HERO.whatsappCta}
@@ -114,7 +114,7 @@ export default function HeroSection() {
             href={HERO.wizardHref}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackEvent('wizard_demo_click')}
+            onClick={() => trackEvent('wizard_demo_click', { location: 'hero_statusbar' })}
             className="inline-flex items-center gap-1.5 text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-accent)]"
           >
             {HERO.wizardCta} →

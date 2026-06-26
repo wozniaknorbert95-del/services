@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { HEADER_NAV, SOLUTIONS_NAV, HEADER_CTA } from '@/lib/navigation';
 import BrandLogo from '@/components/ui/BrandLogo';
+import { trackEvent } from '@/lib/analytics';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 export default function Header() {
@@ -82,6 +83,7 @@ export default function Header() {
 
           <Link
             href={HEADER_CTA.href}
+            onClick={() => trackEvent('cta_book_map_click', { location: 'header_desktop' })}
             className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:bg-[var(--qf-accent-soft)] hover:border-[var(--qf-accent-soft)]"
           >
             {HEADER_CTA.label} <span aria-hidden="true">→</span>
@@ -150,7 +152,10 @@ export default function Header() {
             <Link
               href={HEADER_CTA.href}
               className="mt-2 inline-flex min-h-11 items-center justify-center gap-2 border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)]"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => {
+                trackEvent('cta_book_map_click', { location: 'header_mobile' });
+                setMobileOpen(false);
+              }}
             >
               {HEADER_CTA.label} →
             </Link>

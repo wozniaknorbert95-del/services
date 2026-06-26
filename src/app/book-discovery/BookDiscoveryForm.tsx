@@ -43,7 +43,7 @@ export default function BookDiscoveryForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    trackEvent('intake_submit');
+    trackEvent('intake_submit', { location: 'book_discovery_form' });
     setSubmitted(true);
   };
 
@@ -195,7 +195,7 @@ export default function BookDiscoveryForm() {
         />
       </div>
 
-      <Button type="submit" size="lg" analyticsEvent="cta_book_map_click">
+      <Button type="submit" size="lg" analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'book_discovery_submit' }}>
         Request my Automation Map slot
       </Button>
 

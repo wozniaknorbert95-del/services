@@ -44,7 +44,7 @@ export default function SpearheadSpotlight() {
                 href={SPEARHEAD.primaryHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent('wizard_demo_click')}
+                onClick={() => trackEvent('wizard_demo_click', { location: 'spearhead' })}
                 className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:border-[var(--qf-accent-soft)] hover:bg-[var(--qf-accent-soft)]"
               >
                 {SPEARHEAD.primaryCta} <span aria-hidden="true">→</span>

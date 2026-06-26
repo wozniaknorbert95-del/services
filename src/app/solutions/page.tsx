@@ -94,7 +94,7 @@ export default function SolutionsPage() {
             own production ecosystem.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click">
+            <Button href={ROUTES.bookDiscovery} withArrow size="lg" analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'solutions_hero' }}>
               {CTAS.bookAutomationMap}
             </Button>
             <Button href={ROUTES.howItWorks} variant="ghost" withArrow>
@@ -292,7 +292,7 @@ export default function SolutionsPage() {
             time and money leaks — and show you the ROI before you commit to anything bigger. The
             fee is credited toward your first project.
           </p>
-          <Button href={ROUTES.bookDiscovery} withArrow size="xl" analyticsEvent="cta_book_map_click">
+          <Button href={ROUTES.bookDiscovery} withArrow size="xl" analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'solutions_footer' }}>
             {CTAS.bookAutomationMap}
           </Button>
         </div>

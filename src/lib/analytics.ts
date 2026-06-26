@@ -10,6 +10,7 @@ export type AnalyticsEvent =
   | 'wizard_demo_click'
   | 'case_study_open'
   | 'pricing_view'
+  | 'book_discovery_view'
   | 'book_payment_start'
   | 'book_payment_complete'
   | 'intake_submit';

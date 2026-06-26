@@ -20,6 +20,7 @@ export default function FooterArtefactLinks({ links }: FooterArtefactLinksProps)
               href={link.href}
               download
               event="sample_map_download"
+              detail={{ location: 'footer' }}
               className="hover:text-[var(--qf-accent)]"
             >
               {link.label} ↓

@@ -114,7 +114,7 @@ export default function SolutionLayout({
           />
         </div>
         <div className="mb-16">
-          <Button href={caseStudyHref} variant="secondary" withArrow analyticsEvent="case_study_open" analyticsDetail={{ href: caseStudyHref }}>
+          <Button href={caseStudyHref} variant="secondary" withArrow analyticsEvent="case_study_open" analyticsDetail={{ href: caseStudyHref, location: 'solution_detail' }}>
             Read the full case study
           </Button>
         </div>
@@ -127,7 +127,7 @@ export default function SolutionLayout({
             this system is the right first build.
           </p>
           <div className="flex flex-col items-center gap-4">
-            <Button href={ROUTES.bookDiscovery} size="xl" withArrow analyticsEvent="cta_book_map_click">
+            <Button href={ROUTES.bookDiscovery} size="xl" withArrow analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'solution_detail' }}>
               {CTAS.bookAutomationMap}
             </Button>
             <p className="text-sm text-[var(--qf-text-faint)]">

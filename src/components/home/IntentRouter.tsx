@@ -181,7 +181,7 @@ export default function IntentRouter() {
           </p>
 
           <div className="flex flex-col justify-center gap-[var(--qf-sp-4)] sm:flex-row">
-            <Button href={ROUTES.bookDiscovery} withArrow analyticsEvent="cta_book_map_click">
+            <Button href={ROUTES.bookDiscovery} withArrow analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'intent_router' }}>
               {CTAS.bookAutomationMap}
             </Button>
             <Button href={ROUTES.results} variant="secondary" withArrow>

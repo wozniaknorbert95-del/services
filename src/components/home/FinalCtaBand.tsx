@@ -33,7 +33,7 @@ export default function FinalCtaBand() {
             <Link
               href={ARTEFACTS.automationMapSample}
               download
-              onClick={() => trackEvent('sample_map_download')}
+              onClick={() => trackEvent('sample_map_download', { location: 'final_cta' })}
               className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
             >
               See a sample Automation Map ↓
@@ -41,7 +41,7 @@ export default function FinalCtaBand() {
           </p>
           <a
             href={ROUTES.bookDiscovery}
-            onClick={() => trackEvent('cta_book_map_click')}
+            onClick={() => trackEvent('cta_book_map_click', { location: 'final_cta' })}
             className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-8 py-4 text-base font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:bg-[var(--qf-accent-soft)] hover:border-[var(--qf-accent-soft)]"
           >
             {CTAS.bookAutomationMap} <span aria-hidden="true">→</span>
