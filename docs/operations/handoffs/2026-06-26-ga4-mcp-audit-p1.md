@@ -18,7 +18,8 @@ Domknąć sesję GA4: MCP audit raportów + P1 instrumentacja (`location`, `book
 - gtag `G-M24NL622DF` ✅
 - `cta_book_map_click` + `page_path` ✅
 
-### P1 kod (shipped lokalnie, deploy pending)
+### P1 kod
+- **Shipped:** `242e376` → master → Vercel CD ✅
 - `location` na wszystkich głównych CTA (hero, header, sticky, pricing, solutions, results, intent_router, final_cta, form)
 - `book_discovery_view` + `AnalyticsPageView` na `/book-discovery/`
 - `intake_submit` z `location: book_discovery_form`

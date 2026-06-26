@@ -22,6 +22,8 @@ Stack: Next.js 16.2.6, React 19, TypeScript, Tailwind v4, Framer Motion, Lucide 
 **Proof add:** [`docs/canons/proof-rules.md`](docs/canons/proof-rules.md) + `src/content/proof.ts`  
 **Ecosystem truth:** [`docs/architecture/authority-chain.md`](docs/architecture/authority-chain.md) + `flexgrafik-meta/docs/core/`
 
+**Ops / analytics:** [`docs/canons/ops-rules.md`](docs/canons/ops-rules.md) + [`docs/architecture/ga4-property-map.md`](docs/architecture/ga4-property-map.md)
+
 **Content sources:** `src/content/ecosystem.ts`, `src/content/proof.ts`, `src/content/conversion-copy.ts`
 
 **Anti-chaos:** Zmiana `page.tsx` (home) = aktualizacja `site-map.md` §2 w tej samej sesji.  

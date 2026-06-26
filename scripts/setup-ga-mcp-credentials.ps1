@@ -14,6 +14,25 @@ if (Test-Path $target) {
   exit 0
 }
 
+# Auto-install from latest GCP key in Downloads
+$downloads = Join-Path $env:USERPROFILE "Downloads"
+if (Test-Path $downloads) {
+  $candidates = Get-ChildItem $downloads -Filter "*.json" -ErrorAction SilentlyContinue |
+    Where-Object { $_.Length -lt 12KB } |
+    Sort-Object LastWriteTime -Descending
+  foreach ($file in $candidates) {
+    try {
+      $j = Get-Content $file.FullName -Raw | ConvertFrom-Json
+      if ($j.type -eq "service_account" -and $j.client_email -match "gserviceaccount") {
+        Copy-Item $file.FullName $target -Force
+        Write-Host "OK: installed credentials from $($file.Name) -> $target"
+        Write-Host "SA email: $($j.client_email) - add Viewer on GA4 property 543331587 (Quietforge) if not done."
+        exit 0
+      }
+    } catch { }
+  }
+}
+
 Write-Host @"
 
 GA4 MCP needs a Google service account JSON at:
@@ -26,8 +45,8 @@ In Chrome (logged in as FlexGrafik Google account):
      -> Create: quietforge-ga-reader
      -> Keys -> Add key -> JSON -> save file
 
-  2. GA4 Viewer access (property 528764186):
-     https://analytics.google.com/analytics/web/#/a337818458p528764186/admin/property/access-management
+  2. GA4 Viewer access (property 543331587 Quietforge):
+     https://analytics.google.com/analytics/web/#/a337818458p543331587/admin/property/access-management
      -> Add user -> paste SA email (…@….iam.gserviceaccount.com) -> Viewer
 
   3. Move downloaded JSON to:
@@ -37,7 +56,7 @@ Opening both URLs in default browser...
 "@
 
 Start-Process "https://console.cloud.google.com/iam-admin/serviceaccounts"
-Start-Process "https://analytics.google.com/analytics/web/#/a337818458p528764186/admin/property/access-management"
+Start-Process "https://analytics.google.com/analytics/web/#/a337818458p543331587/admin/property/access-management"
 
 Write-Host "Waiting for JSON at target path (Ctrl+C to cancel)..."
 while (-not (Test-Path $target)) {

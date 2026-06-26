@@ -17,6 +17,7 @@ Binding short-form rules extracted from detailed strategy docs. **HARD rules her
 | [marketing-rules.md](./marketing-rules.md) | L2 | Positioning, copy arc, forbidden claims |
 | [ux-rules.md](./ux-rules.md) | L2 | Hierarchy, tokens, intent colors, motion |
 | [proof-rules.md](./proof-rules.md) | L2 | LIVE/PARTIAL/PLANNED, metrics honesty |
+| [ops-rules.md](./ops-rules.md) | L2 | GA4 boundaries, infra — no shortcuts, no handoff leftovers |
 
 ## Versioning
 

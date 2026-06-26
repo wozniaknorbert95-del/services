@@ -1,22 +1,31 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-06-26 · **Ship:** GA4 P1 + SA MCP path · **Build:** ✅
+**Updated:** 2026-06-26 · **Status:** CLOSED · **Handoff:** [`handoffs/2026-06-26-git-ship-ux-audit.md`](./handoffs/2026-06-26-git-ship-ux-audit.md)
 
 ---
 
-## CO ROBIMY
+## WYNIK
 
-**GA4** — P1 shipped (`location`, `book_discovery_view`). MCP audit blocked on SA JSON.
+GA4 Quietforge property split **DONE**. Selektor GA → **Quietforge** (`543331587`). Prod → `G-LY0E7MW0HF`.
 
-## NASTĘPNY KROK
+| ID | Wartość |
+|----|---------|
+| Property | `543331587` (Quietforge) |
+| Measurement | `G-LY0E7MW0HF` |
+| Stream | Quietforge Web `15155226236` |
+| Legacy (App only) | `528764186` / `G-M24NL622DF` |
 
-1. **Chrome (zalogowany):** GCP → service account `quietforge-ga-reader` → JSON key → `C:\Users\FlexGrafik\.config\quietforge-ga-sa.json`
-2. **GA4:** property 528764186 → SA email → Viewer
-3. **Restart Cursor** → wklej prompt z `RESTART-PROMPT-GA4-MCP.md`
+## WERYFIKACJA (2026-06-26)
 
-OAuth **wyłączone** (Google blokował public client).
+- `npm run build` PASS (34 routes) · `typecheck` PASS
+- Vercel Production env + redeploy PASS
+- `node scripts/ga4-prod-smoke.mjs` PASS (nowy G-, canon events)
+- `python scripts/ga4-api-audit.py` exit 0 · SA widzi Quietforge + App osobno
+- SSoT: [`architecture/ga4-property-map.md`](../architecture/ga4-property-map.md)
 
-**Handoff:** [`2026-06-26-ga4-mcp-audit-p1.md`](./handoffs/2026-06-26-ga4-mcp-audit-p1.md)
+## WEEKLY
+
+Użyj [`RESTART-PROMPT-GA4-MCP.md`](./RESTART-PROMPT-GA4-MCP.md) — property `543331587`, nie `528764186`.
 
 ---
 

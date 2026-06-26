@@ -93,7 +93,7 @@ npx vercel dist --prod --yes
 
 | Variable | Purpose |
 |---|---|
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 web stream ID (`G-XXXXXXXXXX`) — property `528764186` |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 Quietforge stream `G-LY0E7MW0HF` (property `543331587` — see [`ga4-property-map.md`](docs/architecture/ga4-property-map.md)) |
 | `NEXT_PUBLIC_WHATSAPP_URL` | WhatsApp deep link override |
 
 ### DNS

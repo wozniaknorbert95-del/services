@@ -263,6 +263,7 @@ Track these events:
 | `wizard_demo_click` | External wizard click |
 | `case_study_open` | Results card click |
 | `pricing_view` | Pricing section/page view |
+| `book_discovery_view` | Book Discovery page view |
 | `book_payment_start` | Payment step begins |
 | `book_payment_complete` | Payment completed |
 | `intake_submit` | Intake completed |
