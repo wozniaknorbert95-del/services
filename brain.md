@@ -89,6 +89,13 @@ npx vercel projects ls
 npx vercel dist --prod --yes
 ```
 
+**Env (production):**
+
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 web stream ID (`G-XXXXXXXXXX`) — property `528764186` |
+| `NEXT_PUBLIC_WHATSAPP_URL` | WhatsApp deep link override |
+
 ### DNS
 
 - A record `services` → `76.76.21.21` OR CNAME → `cname.vercel-dns.com`
