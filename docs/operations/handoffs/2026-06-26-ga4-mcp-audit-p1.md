@@ -9,9 +9,10 @@ Domknąć sesję GA4: MCP audit raportów + P1 instrumentacja (`location`, `book
 ## Wyniki sesji
 
 ### MCP analytics-mcp
-- **Status:** tools widoczne w Cursor ✅
-- **Bloker:** brak `C:/Users/FlexGrafik/.config/quietforge-ga-sa.json` → `get_account_summaries` / `run_report` fail
-- **Fix (owner, raz):** `powershell scripts/setup-ga-mcp-credentials.ps1` → wrzuć JSON → restart Cursor → wklej prompt z `RESTART-PROMPT-GA4-MCP.md`
+- **Status:** tools widoczne ✅ · `mcp.json` → `GOOGLE_APPLICATION_CREDENTIALS` ✅
+- **OAuth:** usunięte (`setup-ga-mcp-oauth.py` deleted) — Google blokował public client
+- **Bloker:** brak `C:/Users/FlexGrafik/.config/quietforge-ga-sa.json`
+- **Fix:** Chrome → GCP service account JSON → GA4 Viewer → restart Cursor
 
 ### Prod smoke (browser MCP, bez credentials)
 - gtag `G-M24NL622DF` ✅

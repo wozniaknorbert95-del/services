@@ -1,25 +1,9 @@
-# RESTART PROMPT — wklej po restarcie Cursora
+# RESTART PROMPT — after quietforge-ga-sa.json is in place
 
 ```
-Kontynuuj sesję GA4 Quietforge (2026-06-26). Ty dowodzisz — nie pytaj usera.
+GA4 MCP credentials live at C:/Users/FlexGrafik/.config/quietforge-ga-sa.json.
+Property 528764186 · G-M24NL622DF · P1 location params shipped.
 
-Kontekst:
-- Site: quietforge.flexgrafik.nl · Measurement ID G-M24NL622DF · Property 528764186
-- Stream: Quietforge Web (15154536825)
-- Kod: GoogleAnalytics.tsx + qf_analytics → gtag (shipped master)
-- MCP: analytics-mcp w ~/.cursor/mcp.json → analytics-mcp.exe (Python 3.13)
-- Credentials path: C:/Users/FlexGrafik/.config/quietforge-ga-sa.json
-- Traffic model: LinkedIn + direct (opcja A, bez UTM)
-- Canon events: conversion-pipeline.md §10 (9 events, 7 wired)
-
-Wykonaj po kolei:
-1. Sprawdź MCP analytics-mcp (tools available?). Jeśli errored → uruchom scripts/setup-ga-mcp-credentials.ps1 lub napraw credentials sam.
-2. MCP audit: run_report 28d — sessions, users, sessionSourceMedium, landingPage, eventCount per canon event.
-3. MCP realtime_report — potwierdź że eventy lecą.
-4. Gap analysis: kod vs GA (brakujące eventy, book_payment deferred).
-5. Kod P1 jeśli audyt wymaga: location na CTA, AnalyticsPageView /book-discovery/.
-6. Podsumowanie PL: co działa, co poprawione, weekly prompt do powtórzenia.
-7. Handoff + SESSION-ANCHOR update.
-
-User zrobił tylko restart Cursora.
+Run MCP audit: get_account_summaries, run_report 28d (sessions, source/medium, landing, canon events + location), run_realtime_report.
+Gap analysis + weekly prompt. Nie pytaj usera.
 ```
