@@ -61,7 +61,7 @@ export const agentOsEcosystemModules: readonly AgentOsEcosystemModule[] = [
     name: 'jadzia-core',
     layer: 'Operations (COI)',
     detail:
-      'Business ops on EU VPS — leads, WP SSH agent, sales chat widget, worker HITL, weekly brief LIVE. Order ingestion to jadzia.db via WC webhook: PLANNED (meta AS-IS). Outside the LangGraph pipeline.',
+      'Business ops on EU VPS — orders INT-002, leads, GA4 snapshot, content calendar, WP SSH agent, sales chat widget, worker HITL LIVE. Outside the LangGraph pipeline.',
     href: ROUTES.resultsJadziaCoi,
     linkLabel: 'Jadzia COI case study →',
     status: 'PARTIAL',
@@ -90,13 +90,13 @@ export const agentOsBeforeItems = [
 
 export const agentOsAfterItems = [
   'Agent OS — fixed 5-node LangGraph pipeline with HITL on VPS (queue, approve, reject, cancel)',
-  'jadzia-core — business ops and sales chat on the same ecosystem, separate service (order webhook PLANNED)',
+  'jadzia-core — business ops and sales chat on the same ecosystem, separate service (order webhook INT-002 LIVE)',
   'Flex-VCMS — repo scan and conflict detection before changes ship (Conflicts: 0 target)',
   'Human approval before production — Zasada 11; no auto-deploy to client PROD',
 ] as const;
 
 export const agentOsSupervisionNote =
-  'Flex-VCMS governs repos and SSoT outside the LangGraph pipeline. jadzia-core handles business operations — leads, WP SSH, sales chat — not engineering task queue. Order sync from WooCommerce: PLANNED. Agent OS owns code/test/review execution only.';
+  'Flex-VCMS governs repos and SSoT outside the LangGraph pipeline. jadzia-core handles business operations — orders, leads, analytics, content calendar, WP SSH, sales chat — not engineering task queue. WC order webhook INT-002 LIVE on EU VPS. Agent OS owns code/test/review execution only.';
 
 export type AgentOsPipelineNode = {
   role: string;

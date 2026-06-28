@@ -37,7 +37,7 @@ export const OWNER_FLOW_STEPS: readonly OwnerFlowStep[] = [
     step: '02',
     title: 'Revenue',
     status: 'LIVE',
-    detail: `zzpackage wizard — ${metrics.wizardSteps} UI screens, 77 SKU catalog, open pricing, Mollie checkout from €199. ${metrics.wizardStepsFootnote}.`,
+    detail: `zzpackage wizard — ${metrics.wizardSteps} UI screens, ${metrics.skus} SKU catalog, open pricing, Mollie checkout from €199. ${metrics.wizardStepsFootnote}.`,
   },
   {
     step: '03',

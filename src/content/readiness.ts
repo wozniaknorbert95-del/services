@@ -3,6 +3,8 @@
 // Source: flexgrafik-meta/docs/core/as-is-inventory.md §1 (2026-06-24)
 // ============================================================================
 
+import { metrics } from '@/content/proof';
+
 export type ReadinessStatus = 'LIVE' | 'PARTIAL' | 'PLANNED';
 
 export interface ReadinessRow {
@@ -26,7 +28,7 @@ export const READINESS_ROWS: readonly ReadinessRow[] = [
     module: 'Wizard Cash Engine',
     repoKey: 'zzpackage',
     readiness: '~90%',
-    capability: '77 SKU catalog, Mollie checkout, 9-screen configurator',
+    capability: `${metrics.skus} SKU catalog, Mollie checkout, 9-screen configurator`,
     status: 'LIVE',
   },
   {
@@ -39,8 +41,8 @@ export const READINESS_ROWS: readonly ReadinessRow[] = [
   {
     module: 'Jadzia COI',
     repoKey: 'jadzia-core',
-    readiness: '~90%',
-    capability: 'Leads, WP SSH, sales chat, weekly brief LIVE · WC order sync PLANNED',
+    readiness: '~55%',
+    capability: 'Phase A+B LIVE: orders INT-002, leads, GA4, content calendar · Procurement Brain Phase C',
     status: 'PARTIAL',
   },
   {

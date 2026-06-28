@@ -10,12 +10,12 @@ export const jadziaCoiDisplayName = 'Jadzia COI — Chief Operating Intelligence
 export const jadziaCoiCaseMeta = {
   title: 'Case study — Jadzia COI',
   description:
-    'How a FastAPI Chief Operating Intelligence layer unifies leads, WordPress operations and sales chat — with Telegram HITL and jadzia.db as the operational brain. WC order sync to jadzia.db: PLANNED.',
+    'How a FastAPI Chief Operating Intelligence layer unifies leads, orders, analytics and sales chat — with Telegram HITL and jadzia.db as the operational brain. WC order webhook INT-002 LIVE (prod order #3149).',
   openGraphTitle: 'Case study — Jadzia COI',
   openGraphDescription:
-    'Chief Operating Intelligence for a live 8-repo stack — leads, analytics, WP SSH agent and wizard chat LIVE · WC order sync PLANNED.',
+    'Chief Operating Intelligence for a live 8-repo stack — orders, leads, GA4 snapshot, content calendar Phase B LIVE · INT-002 E2E verified.',
   twitterDescription:
-    'Jadzia COI — business brain with HITL gates. Leads and chat LIVE; order webhook PLANNED per meta AS-IS.',
+    'Jadzia COI — business brain with HITL gates. Phase A+B spine LIVE: orders, leads, analytics, content suggestions from orders.',
   ogAlt: 'Case study — Jadzia COI',
 } as const;
 
@@ -27,10 +27,10 @@ export const jadziaCoiBeforeItems = [
 ] as const;
 
 export const jadziaCoiAfterItems = [
-  'One COI layer — jadzia.db holds leads and operational state; WC order sync PLANNED',
+  'One COI layer — jadzia.db holds orders, leads and operational state (INT-002 LIVE)',
   'WP SSH agent: diff → HITL approve → write → rollback on Telegram',
   'customer_agent on wizard and portal — scored leads, hot alerts to Telegram',
-  'Worker queue with JWT tasks, cost tracking and weekly strategy brief',
+  'Phase B: order → content calendar case-study suggestions (order #3149 E2E)',
 ] as const;
 
 export const jadziaCoiArchitectureAlt =
@@ -59,7 +59,7 @@ export const jadziaCoiLoopNodes: readonly CoiLoopNode[] = [
   {
     phase: 'Act',
     title: 'Bounded execution',
-    detail: 'SSH writes, chat replies and worker tasks — scoped permissions only. Order state sync via WC webhook: PLANNED.',
+    detail: 'SSH writes, chat replies, order ingestion and worker tasks — scoped permissions. WC webhook INT-002 LIVE.',
   },
   {
     phase: 'Guard',
@@ -95,7 +95,7 @@ export const jadziaCoiIntegrations = [
   {
     system: 'zzpackage Wizard',
     direction: 'In / Out',
-    detail: 'Widget chat LIVE · order webhook → jadzia.db PLANNED',
+    detail: 'Widget chat LIVE · order webhook → jadzia.db LIVE (INT-002)',
   },
   { system: 'app.flexgrafik.nl', direction: 'In', detail: 'Lead sync · coupon attribution' },
   { system: 'flexgrafik.nl', direction: 'In', detail: 'Shared customer_agent chat endpoint' },
@@ -113,10 +113,12 @@ export type JadziaCoiVerifiedMetric = {
 
 export const jadziaCoiVerifiedMetrics: readonly JadziaCoiVerifiedMetric[] = [
   { label: 'API', value: 'FastAPI :8000 EU VPS', status: 'INFO' },
-  { label: 'Widget endpoint', value: 'LIVE', status: 'LIVE' },
+  { label: 'Widget endpoint', value: 'LIVE (INT-001)', status: 'LIVE' },
+  { label: 'Order sync', value: 'LIVE (INT-002, order #3149)', status: 'LIVE' },
+  { label: 'GA4 snapshot', value: 'LIVE (INT-009)', status: 'LIVE' },
+  { label: 'Content calendar', value: 'LIVE (Phase B)', status: 'LIVE' },
   { label: 'WP SSH agent', value: 'LIVE', status: 'LIVE' },
   { label: 'Worker HITL', value: 'LIVE', status: 'LIVE' },
-  { label: 'Order sync', value: 'PLANNED', status: 'PLANNED' },
 ] as const;
 
 export function jadziaCoiMetricStatusClass(status: JadziaCoiMetricStatus | undefined): string {
@@ -134,4 +136,4 @@ export const jadziaCoiStack = [
 ] as const;
 
 export const jadziaCoiSupervisionNote =
-  'Agent OS handles code commits across repos. Jadzia COI handles business operations — leads, WP SSH, sales chat — not the engineering task queue. Order sync from WooCommerce: PLANNED. VCMS governs both from outside the runtime.';
+  'Agent OS handles code commits across repos. Jadzia COI handles business operations — orders, leads, analytics, content calendar, WP SSH, sales chat — not the engineering task queue. WC order webhook INT-002 LIVE on EU VPS. VCMS governs both from outside the runtime.';

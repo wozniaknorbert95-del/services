@@ -273,7 +273,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'jadzia-core',
     outcomeLabel: 'Know which leads, orders and ops need action',
     role: 'Jadzia COI',
-    statusNote: 'LIVE: leads · analytics · WP SSH · sales chat · weekly brief · PLANNED: WC order sync to jadzia.db',
+    statusNote: 'LIVE: orders INT-002 · leads · GA4 · content calendar · WP SSH · sales chat · worker HITL',
     intents: ['time', 'calm', 'order', 'efficiency'],
     losLayers: ['think', 'act'],
     screenKey: 'workflowMap',

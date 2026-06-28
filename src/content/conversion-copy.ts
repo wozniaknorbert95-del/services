@@ -3,6 +3,8 @@
 // Source: docs/strategy/marketing-strategy.md + inspiracja pro.md BLOK 2
 // ============================================================================
 
+import { metrics } from '@/content/proof';
+
 export const POSITIONING = {
   label: 'Conversion Systems Architect',
   antiPositioning: 'Not a web designer. Not an AI chatbot builder.',
@@ -88,7 +90,7 @@ export const SPEARHEAD = {
     'The self-service configurator runs on Mollie checkout today — 9 UI screens, open pricing, human approval on every deploy. This is the revenue layer I run before selling automation.',
   bullets: [
     'Live on zzpackage.flexgrafik.nl — try it in two minutes.',
-    '77 SKU catalog, scored leads, calm order form or designer handoff.',
+    `${metrics.skus} SKU catalog, scored leads, calm order form or designer handoff.`,
     'Same stack Quietforge deploys for SMB clients — governed, not templated.',
   ],
   primaryCta: 'Try the wizard (2 min)',
@@ -116,7 +118,7 @@ export const ABOUT = {
     "I'm Norbert Wozniak — I design conversion systems that qualify leads, automate bookings and reduce admin work, with you in the loop on every critical step. Everything here is proven on a live operation before it reaches a client.",
   storyTitle: 'FLEXGRAFIK is the proof — Quietforge is how I deploy it for you',
   storyBody:
-    'FLEXGRAFIK is my Netherlands-registered print and design company — and the live operating environment where I built and run this entire stack: Jadzia COI, VCMS governance, a 77-SKU self-service wizard, inbox automation, and a lead-generation game. It is not a demo or a case study mock-up — it is the business that pays the bills while the software runs it. Quietforge is the consulting arm: I deploy the same architecture for Dutch ZZP and SME owners, with human-in-the-loop on every critical step.',
+    `FLEXGRAFIK is my Netherlands-registered print and design company — and the live operating environment where I built and run this entire stack: Jadzia COI, VCMS governance, a ${metrics.skus}-SKU self-service wizard, inbox automation, and a lead-generation game. It is not a demo or a case study mock-up — it is the business where the software runs before it reaches a client. Quietforge is the consulting arm: I deploy the same architecture for Dutch ZZP and SME owners, with human-in-the-loop on every critical step.`,
   moatTitle: 'What makes this different',
   moatPillars: [
     {

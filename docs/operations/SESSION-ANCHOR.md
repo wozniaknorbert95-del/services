@@ -1,22 +1,23 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-06-28 · **Status:** CLOSED · **Handoff:** [`handoffs/2026-06-28-results-honesty-pain-grid.md`](./handoffs/2026-06-28-results-honesty-pain-grid.md)
+**Updated:** 2026-06-28 · **Status:** CLOSED · **Handoff:** [`handoffs/2026-06-28-jadzia-coi-ssot-sync.md`](./handoffs/2026-06-28-jadzia-coi-ssot-sync.md)
 
 ---
 
 ## WYNIK
 
-**Results honesty** + **Pain Grid P0**. `/results/` hero = tech LIVE, commercial pre-revenue (print setup gate). Home Pain Grid = intent chips + cost lines + Clear filter.
+**Jadzia COI SSoT sync** — INT-002/Phase A+B LIVE spójne w całym portfolio. SKU **161** z `proof.ts` wszędzie dynamicznie.
 
 ## WERYFIKACJA (2026-06-28)
 
 - `npm run build` PASS (34 routes)
-- proof: no `[FILL:]` in `src/`
+- Zero `WC order PLANNED` w `src/`
 
 ## OPEN (carry-over)
 
-- Vercel Preview GA env — [dashboard](https://vercel.com/wozniaknorbert95-dels-projects/flexgrafik-services/settings/environment-variables)
-- UX P0-3/P0-4: hero CTA + L3 copy alignment
+- Vercel Preview GA env — dashboard
+- UX P0-3/P0-4: hero CTA + L3 copy
+- Procurement Brain Phase C (jadzia-core repo)
 
 ## WEEKLY GA4
 

@@ -15,9 +15,9 @@ export const JADZIA_COI = {
   fullName: 'Chief Operating Intelligence',
   tagline: 'The business brain — not a chatbot.',
   summary:
-    'Jadzia is the Chief Operating Intelligence layer for FlexGrafik: leads, analytics, WordPress operations and sales chat in one governed loop — with human approval on every consequential action. WC order sync to jadzia.db: PLANNED.',
+    'Jadzia is the Chief Operating Intelligence layer for FlexGrafik: orders, leads, analytics, WordPress operations and sales chat in one governed loop — with human approval on every consequential action. WC order webhook INT-002 LIVE (E2E verified).',
   oneLiner:
-    'Chief Operating Intelligence for the whole stack — leads, analytics, WP automation and wizard chat LIVE under HITL gates · order ingestion PLANNED.',
+    'Chief Operating Intelligence for the whole stack — Phase A+B LIVE: orders INT-002, leads, GA4 snapshot, content calendar, WP automation and wizard chat under HITL gates.',
 } as const;
 
 export type JadziaCoiCapabilityStatus = 'LIVE' | 'PARTIAL' | 'PLANNED';
@@ -41,10 +41,10 @@ export { capabilityStatusClass as jadziaCoiCapabilityStatusClass };
 export const JADZIA_COI_CAPABILITIES: readonly JadziaCoiCapability[] = [
   {
     id: 'orders',
-    title: 'Order intelligence (planned)',
+    title: 'Order intelligence',
     detail:
-      'Planned: WooCommerce order webhook → jadzia.db operational state and status sync for production fulfilment. Checkout on zzpackage is LIVE separately.',
-    status: 'PLANNED',
+      'WooCommerce order webhook → jadzia.db operational state and status sync (INT-002 LIVE, prod order #3149 E2E). Checkout on zzpackage is LIVE separately.',
+    status: 'LIVE',
   },
   {
     id: 'leads',
@@ -53,9 +53,21 @@ export const JADZIA_COI_CAPABILITIES: readonly JadziaCoiCapability[] = [
     status: 'LIVE',
   },
   {
+    id: 'analytics',
+    title: 'GA4 snapshot',
+    detail: 'Quietforge property analytics pull into COI loop for weekly ops review (INT-009 LIVE).',
+    status: 'LIVE',
+  },
+  {
+    id: 'content',
+    title: 'Content calendar (Phase B)',
+    detail: 'Order → case-study content suggestions in operational calendar — verified E2E on prod order #3149.',
+    status: 'LIVE',
+  },
+  {
     id: 'chat',
     title: 'Sales chat widget',
-    detail: 'customer_agent on wizard and portal — Haiku-powered replies, hot-lead Telegram alerts, session TTL.',
+    detail: 'customer_agent on wizard and portal — Haiku-powered replies, hot-lead Telegram alerts, session TTL (INT-001 LIVE).',
     status: 'LIVE',
   },
   {
@@ -71,10 +83,10 @@ export const JADZIA_COI_CAPABILITIES: readonly JadziaCoiCapability[] = [
     status: 'LIVE',
   },
   {
-    id: 'strategy',
-    title: 'Weekly strategy brief',
-    detail: 'COI synthesis across repos — Kaizen guard filters AI proposals before they reach your inbox.',
-    status: 'LIVE',
+    id: 'procurement',
+    title: 'Procurement Brain (Phase C)',
+    detail: 'Supplier and print-production intelligence layer — on the roadmap after order spine is stable.',
+    status: 'PLANNED',
   },
 ] as const;
 

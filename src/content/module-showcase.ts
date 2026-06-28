@@ -10,13 +10,15 @@ export interface ModuleShowcase {
   highlights: readonly string[];
 }
 
+import { metrics } from '@/content/proof';
+
 /** Eight-repo portfolio presentation — aligned with module specs 2026-06-24 */
 export const MODULE_SHOWCASE: Record<string, ModuleShowcase> = {
   zzpackage: {
     repoKey: 'zzpackage',
     portfolioLabel: 'Wizard Cash Engine',
     effect:
-      'Wizard-only checkout — 7 business stages, 9 UI screens, 77 SKU catalog, Mollie payments from €199 minimum.',
+      `Wizard-only checkout — 7 business stages, 9 UI screens, ${metrics.skus} SKU catalog, Mollie payments from €199 minimum.`,
     highlights: ['Mollie + WooCommerce', 'Open pricing configurator', 'Game coupon attribution'],
   },
   'app.flexgrafik.nl': {
@@ -30,8 +32,8 @@ export const MODULE_SHOWCASE: Record<string, ModuleShowcase> = {
     repoKey: 'jadzia-core',
     portfolioLabel: 'Jadzia COI',
     effect:
-      'Chief Operating Intelligence — leads, analytics, WP SSH agent and sales chat LIVE in one HITL-governed loop · WC order sync PLANNED.',
-    highlights: ['Leads + chat LIVE', 'Order sync PLANNED', 'Telegram + worker queue'],
+      'Chief Operating Intelligence — Phase A+B LIVE: orders INT-002, leads, GA4 snapshot, content calendar, WP SSH and sales chat in one HITL-governed loop.',
+    highlights: ['INT-002 order sync LIVE', 'GA4 + content calendar', 'Telegram + worker queue'],
   },
   'agent-os': {
     repoKey: 'agent-os',
