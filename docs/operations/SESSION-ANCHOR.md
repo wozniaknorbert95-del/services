@@ -1,23 +1,24 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-06-28 · **Status:** CLOSED · **Handoff:** [`handoffs/2026-06-28-jadzia-coi-ssot-sync.md`](./handoffs/2026-06-28-jadzia-coi-ssot-sync.md)
+**Updated:** 2026-06-28 · **Status:** CLOSED · **Handoff:** [`handoffs/2026-06-28-session-results-jadzia-cleanup.md`](./handoffs/2026-06-28-session-results-jadzia-cleanup.md)
 
 ---
 
 ## WYNIK
 
-**Jadzia COI SSoT sync** — INT-002/Phase A+B LIVE spójne w całym portfolio. SKU **161** z `proof.ts` wszędzie dynamicznie.
+Sesja domknięta: **Results honesty** + **Pain Grid P0** + **Jadzia COI SSoT** + **archive cleanup**. Git clean · `master` shipped (`5bcab17` → `8d52413` → `badd6f6`).
 
 ## WERYFIKACJA (2026-06-28)
 
 - `npm run build` PASS (34 routes)
-- Zero `WC order PLANNED` w `src/`
+- `ga4:smoke` PASS · prod HTML verified
+- `git status` clean
 
-## OPEN (carry-over)
+## OPEN
 
-- Vercel Preview GA env — dashboard
-- UX P0-3/P0-4: hero CTA + L3 copy
-- Procurement Brain Phase C (jadzia-core repo)
+- Vercel Preview GA env (dashboard)
+- UX P0-3/P0-4 · Procurement Brain Phase C
+- Investor doc w archive — sync liczb przed call
 
 ## WEEKLY GA4
 
