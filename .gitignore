@@ -25,6 +25,8 @@
 .tmp-video/
 *.pem
 .cursor/
+**/New Text Document.txt
+Thumbs.db
 
 # debug
 npm-debug.log*
