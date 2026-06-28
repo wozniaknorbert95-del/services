@@ -1,5 +1,8 @@
 # Handoff — GA4 MCP audit + P1 instrumentation (2026-06-26)
 
+> **SUPERSEDED** — use property **`543331587` (Quietforge)** / `G-LY0E7MW0HF`.  
+> Current closure: [`2026-06-28-ga4-full-closure.md`](./2026-06-28-ga4-full-closure.md)
+
 **Repo:** services.flexgrafik.nl · **Build:** `npm run build` ✅ (34 routes)
 
 ## Cel / Goal

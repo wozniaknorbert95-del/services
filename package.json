@@ -15,7 +15,9 @@
     "generate:artefacts": "node scripts/generate-artefact-pdfs.mjs",
     "audit:links": "npx broken-link-checker https://services.flexgrafik.nl --ordered",
     "audit:navigation": "node scripts/audit-navigation.mjs",
-    "audit:menu-footer": "node scripts/audit-menu-footer.mjs"
+    "audit:menu-footer": "node scripts/audit-menu-footer.mjs",
+    "ga4:smoke": "node scripts/ga4-prod-smoke.mjs",
+    "ga4:audit": "python scripts/ga4-api-audit.py"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

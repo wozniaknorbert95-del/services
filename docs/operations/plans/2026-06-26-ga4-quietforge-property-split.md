@@ -53,7 +53,7 @@ classification: "Operations plan"
 |------------|--------|
 | Custom dimension | `location` → display **CTA location** · scope Event |
 | Key events | Mark `cta_book_map_click`, create `intake_submit` |
-| Exploration | New **Quietforge Map funnel** (canon steps) |
+| Exploration | New **Quietforge Map funnel** (canon steps) | Hub URL + `ga4-create-exploration.mjs` (2026-06-28) |
 | SA access | `quietforge-ga-reader-712@flexgrafik.iam.gserviceaccount.com` → **Przeglądający** on **new** property only |
 
 ### Phase 2 — Deploy wiring ~15 min

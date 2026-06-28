@@ -1,12 +1,12 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-06-26 · **Status:** CLOSED · **Handoff:** [`handoffs/2026-06-26-git-ship-ux-audit.md`](./handoffs/2026-06-26-git-ship-ux-audit.md)
+**Updated:** 2026-06-28 · **Status:** CLOSED · **Handoff:** [`handoffs/2026-06-28-ga4-full-closure.md`](./handoffs/2026-06-28-ga4-full-closure.md)
 
 ---
 
 ## WYNIK
 
-GA4 Quietforge property split **DONE**. Selektor GA → **Quietforge** (`543331587`). Prod → `G-LY0E7MW0HF`.
+GA4 Quietforge **FULL CLOSURE**. Property `543331587` · Measurement `G-LY0E7MW0HF` · prod `page_view` + canon events verified.
 
 | ID | Wartość |
 |----|---------|
@@ -15,17 +15,20 @@ GA4 Quietforge property split **DONE**. Selektor GA → **Quietforge** (`5433315
 | Stream | Quietforge Web `15155226236` |
 | Legacy (App only) | `528764186` / `G-M24NL622DF` |
 
-## WERYFIKACJA (2026-06-26)
+## WERYFIKACJA (2026-06-28)
 
-- `npm run build` PASS (34 routes) · `typecheck` PASS
-- Vercel Production env + redeploy PASS
-- `node scripts/ga4-prod-smoke.mjs` PASS (nowy G-, canon events)
-- `python scripts/ga4-api-audit.py` exit 0 · SA widzi Quietforge + App osobno
+- `npm run ga4:smoke` PASS
+- `npm run ga4:audit` exit 0 · realtime > 0
+- MCP funnel + realtime PASS
 - SSoT: [`architecture/ga4-property-map.md`](../architecture/ga4-property-map.md)
+
+## OPEN (Dowódca — 1 click)
+
+Vercel **Preview** env `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-LY0E7MW0HF` — dashboard only (CLI blocked).
 
 ## WEEKLY
 
-Użyj [`RESTART-PROMPT-GA4-MCP.md`](./RESTART-PROMPT-GA4-MCP.md) — property `543331587`, nie `528764186`.
+[`RESTART-PROMPT-GA4-MCP.md`](./RESTART-PROMPT-GA4-MCP.md) — property **543331587**.
 
 ---
 

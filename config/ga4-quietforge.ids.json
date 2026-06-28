@@ -9,5 +9,15 @@
   "stream_url": "https://quietforge.flexgrafik.nl",
   "legacy_measurement_id": "G-M24NL622DF",
   "legacy_property_id": "528764186",
-  "created_at": "2026-06-26"
+  "created_at": "2026-06-26",
+  "exploration_name": "Quietforge Map funnel",
+  "exploration_url": "https://analytics.google.com/analytics/web/#/a337818458p543331587/analysis/explorations",
+  "exploration_create_script": "node scripts/ga4-create-exploration.mjs",
+  "funnel_monitoring": "python scripts/ga4-api-audit.py (funnel_7d) + MCP run_funnel_report",
+  "vercel_env": {
+    "production": "G-LY0E7MW0HF",
+    "development": "G-LY0E7MW0HF",
+    "preview": "dashboard-required — see scripts/vercel-ga-preview-env.ps1"
+  },
+  "closure_at": "2026-06-28"
 }

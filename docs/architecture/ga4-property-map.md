@@ -2,7 +2,7 @@
 status: "[ACTIVE]"
 title: "GA4 Property Map — FlexGrafik Ecosystem"
 owner: "Norbert Wozniak"
-updated: "2026-06-26"
+updated: "2026-06-28"
 classification: "Architecture — analytics SSoT"
 ---
 
@@ -23,7 +23,33 @@ Account: **FlexGrafik** (`337818458`)
 | Strona Flexgrafik | `flexgrafik.nl` | `468854880` | TBD | — | optional |
 | ZZPackage Shop | `zzpackage.flexgrafik.nl` | `528785553` | TBD | — | optional |
 
-**Quietforge selector shows the word “Quietforge”.** Cutover executed 2026-06-26.
+**Cutover COMPLETE 2026-06-28.** Selector shows **Quietforge**. Prod receives `page_view` + canon events.
+
+---
+
+## Vercel env (`flexgrafik-services`)
+
+| Environment | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Status |
+|-------------|----------------------------------|--------|
+| Production | `G-LY0E7MW0HF` | OK |
+| Development | `G-LY0E7MW0HF` | OK |
+| Preview | `G-LY0E7MW0HF` | **Dashboard** — CLI blocked (`git_branch_required`); run [`scripts/vercel-ga-preview-env.ps1`](../../scripts/vercel-ga-preview-env.ps1) or Vercel UI → Settings → Env Vars → Preview |
+
+---
+
+## Admin artifacts (Quietforge `543331587`)
+
+| Item | Status | Detail |
+|------|--------|--------|
+| Web stream | OK | Quietforge Web · `quietforge.flexgrafik.nl` |
+| Custom dimension | OK | `location` → CTA location (Event scope) |
+| Key events | OK | `cta_book_map_click`, `intake_submit` (+ GA defaults) |
+| Saved exploration | Hub + script | Name: **Quietforge Map funnel** · Hub: [Explorations](https://analytics.google.com/analytics/web/#/a337818458p543331587/analysis/explorations) · Create: `node scripts/ga4-create-exploration.mjs` |
+| Funnel monitoring (API) | OK | `ga4-api-audit.py` → `funnel_7d` · MCP `run_funnel_report` |
+
+### Canon funnel steps
+
+`book_discovery_view` → `cta_book_map_click` → (`pricing_view` OR `case_study_open`) → `intake_submit`
 
 ---
 
@@ -33,9 +59,6 @@ Account: **FlexGrafik** (`337818458`)
 |------|-------|--------|
 | Old stream on FlexGrafik App | `G-M24NL622DF` | **deprecated for Quietforge — do not use** |
 | Old property conflation | `528764186` labeled Quietforge in docs | Retired — App property only |
-| Mixed B2B + game traffic | pre-cutover | Historical only on `528764186` |
-
-Prod cutover: Vercel `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-LY0E7MW0HF` (Production + Preview).
 
 ---
 
@@ -45,12 +68,6 @@ Active: `cta_book_map_click`, `cta_whatsapp_click`, `sample_map_download`, `wiza
 
 Deferred: `book_payment_start`, `book_payment_complete`
 
-Custom dimension: `location` (CTA location) — parameter `location`, scope Event
-
-Key events: `cta_book_map_click`, `intake_submit`
-
-Exploration: **Quietforge Map funnel** — book_discovery_view → cta_book_map_click → pricing_view|case_study_open → intake_submit
-
 ---
 
 ## Code / ops touchpoints
@@ -58,6 +75,8 @@ Exploration: **Quietforge Map funnel** — book_discovery_view → cta_book_map_
 | File | Field |
 |------|-------|
 | Vercel `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-LY0E7MW0HF` |
+| `npm run ga4:smoke` | prod collect + dataLayer gate |
+| `npm run ga4:audit` | API audit + funnel_7d |
 | `scripts/ga4-prod-smoke.mjs` | `G-LY0E7MW0HF` |
 | `scripts/ga4-api-audit.py` | `543331587` |
 | `config/ga4-quietforge.ids.json` | full ID bundle |

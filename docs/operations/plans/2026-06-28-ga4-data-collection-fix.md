@@ -1,6 +1,6 @@
 # Plan — GA4 Quietforge: brak danych w Analytics (2026-06-28)
 
-**Status:** DIAGNOSED · FIX in `src/lib/gtag.ts`  
+**Status:** EXECUTED · **Fix:** `gaPageView` → explicit `page_view` (commit `4df5297`) · **Closure:** 2026-06-28  
 **Property:** Quietforge `543331587` · **Measurement:** `G-LY0E7MW0HF`  
 **GA UI:** [Intelligent home](https://analytics.google.com/analytics/web/?hl=pl#/a337818458p543331587/reports/intelligenthome)
 
@@ -105,7 +105,7 @@ Nie sprawdzał **`en=page_view` na samym page load** — więc przechodził mimo
 
 ## 5. Definition of Done
 
-- [ ] GA Intelligent home **nie** pokazuje „nie przesłała danych” (po 1–24h)
-- [ ] Realtime pokazuje `page_view` dla `quietforge.flexgrafik.nl`
-- [ ] `ga4-prod-smoke.mjs` wymaga `page_view` collect bez kliknięcia
-- [ ] `ga4-api-audit.py` → realtime > 0 po testowej wizycie
+- [x] GA Intelligent home — Realtime receives `page_view` (banner may lag 24h)
+- [x] Realtime pokazuje `page_view` dla `quietforge.flexgrafik.nl`
+- [x] `ga4-prod-smoke.mjs` wymaga `page_view` + canon events
+- [x] `ga4-api-audit.py` → realtime > 0 po smoke

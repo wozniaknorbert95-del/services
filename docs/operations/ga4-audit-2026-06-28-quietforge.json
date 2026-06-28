@@ -1,0 +1,70 @@
+{
+  "property_id": "543331587",
+  "custom_dimensions": [
+    "location (CTA location)"
+  ],
+  "key_events": [
+    "cta_book_map_click",
+    "purchase",
+    "close_convert_lead",
+    "qualify_lead",
+    "intake_submit"
+  ],
+  "traffic_28d": {
+    "row_count": 0,
+    "rows": []
+  },
+  "landing_28d": {
+    "row_count": 0,
+    "rows": []
+  },
+  "canon_events_28d": {
+    "row_count": 0,
+    "rows": []
+  },
+  "location_breakdown_28d": {
+    "row_count": 0,
+    "rows": []
+  },
+  "realtime": {
+    "row_count": 3,
+    "rows": [
+      {
+        "eventName": "first_visit",
+        "eventCount": "2"
+      },
+      {
+        "eventName": "page_view",
+        "eventCount": "2"
+      },
+      {
+        "eventName": "session_start",
+        "eventCount": "2"
+      }
+    ]
+  },
+  "funnel_7d": {
+    "row_count": 0,
+    "steps": []
+  },
+  "weekly_7d": {
+    "row_count": 0,
+    "rows": []
+  },
+  "mcp_verification": {
+    "run_realtime_report": {
+      "row_count": 3,
+      "events": ["first_visit", "page_view", "session_start"]
+    },
+    "run_funnel_report": {
+      "canon_steps": [
+        "book_discovery_view",
+        "cta_book_map_click",
+        "pricing_view|case_study_open",
+        "intake_submit"
+      ],
+      "row_count": 0,
+      "status": "ok_empty_low_volume"
+    }
+  }
+}

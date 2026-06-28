@@ -190,17 +190,18 @@ def run_realtime(c) -> dict:
     return {"row_count": len(rows), "rows": rows}
 
 
-def run_funnel(c) -> dict:
+def run_funnel() -> dict:
+    """Canon funnel via Data API v1alpha (v1beta lacks Funnel types)."""
     try:
-        from google.analytics.data_v1beta.types import (
+        from google.analytics.data_v1alpha import AlphaAnalyticsDataClient
+        from google.analytics.data_v1alpha.types import (
             DateRange,
             Funnel,
             FunnelEventFilter,
-            FunnelFieldFilter,
             FunnelFilterExpression,
+            FunnelFilterExpressionList,
             FunnelStep,
             RunFunnelReportRequest,
-            StringFilter,
         )
 
         def event_step(name: str, event_name: str) -> FunnelStep:
@@ -211,56 +212,31 @@ def run_funnel(c) -> dict:
                 ),
             )
 
-        def page_view_home() -> FunnelStep:
+        def or_event_step(name: str, event_names: list[str]) -> FunnelStep:
             return FunnelStep(
-                name="Home page_view",
+                name=name,
                 filter_expression=FunnelFilterExpression(
-                    and_group=FunnelFilterExpression.AndGroup(
+                    or_group=FunnelFilterExpressionList(
                         expressions=[
                             FunnelFilterExpression(
-                                funnel_event_filter=FunnelEventFilter(event_name="page_view")
-                            ),
-                            FunnelFilterExpression(
-                                funnel_field_filter=FunnelFieldFilter(
-                                    field_name="pageLocation",
-                                    string_filter=StringFilter(
-                                        match_type=StringFilter.MatchType.CONTAINS,
-                                        value="quietforge.flexgrafik.nl/",
-                                        case_sensitive=False,
-                                    ),
-                                )
-                            ),
+                                funnel_event_filter=FunnelEventFilter(event_name=e)
+                            )
+                            for e in event_names
                         ]
                     )
                 ),
             )
 
-        def pricing_or_case() -> FunnelStep:
-            return FunnelStep(
-                name="pricing_view OR case_study_open",
-                filter_expression=FunnelFilterExpression(
-                    or_group=FunnelFilterExpression.OrGroup(
-                        expressions=[
-                            FunnelFilterExpression(
-                                funnel_event_filter=FunnelEventFilter(event_name="pricing_view")
-                            ),
-                            FunnelFilterExpression(
-                                funnel_event_filter=FunnelEventFilter(event_name="case_study_open")
-                            ),
-                        ]
-                    )
-                ),
-            )
-
-        resp = c.run_funnel_report(
+        alpha = AlphaAnalyticsDataClient()
+        resp = alpha.run_funnel_report(
             RunFunnelReportRequest(
                 property=f"properties/{PROPERTY_ID}",
-                date_ranges=[DateRange(start_date="28daysAgo", end_date="yesterday")],
+                date_ranges=[DateRange(start_date="7daysAgo", end_date="today")],
                 funnel=Funnel(
                     steps=[
-                        page_view_home(),
-                        pricing_or_case(),
+                        event_step("book_discovery_view", "book_discovery_view"),
                         event_step("cta_book_map_click", "cta_book_map_click"),
+                        or_event_step("pricing_or_case", ["pricing_view", "case_study_open"]),
                         event_step("intake_submit", "intake_submit"),
                     ]
                 ),
@@ -277,9 +253,23 @@ def run_funnel(c) -> dict:
                         "completion_rate": row.metric_values[1].value if len(row.metric_values) > 1 else "",
                     }
                 )
-        return {"steps": steps}
+        return {"row_count": len(steps), "steps": steps}
     except Exception as exc:
-        return {"error": str(exc), "steps": []}
+        return {"error": str(exc), "row_count": 0, "steps": []}
+
+
+def get_key_events() -> list[str]:
+    from google.analytics.admin_v1beta import AnalyticsAdminServiceClient
+
+    admin = AnalyticsAdminServiceClient()
+    parent = f"properties/{PROPERTY_ID}"
+    names: list[str] = []
+    try:
+        for ev in admin.list_conversion_events(parent=parent):
+            names.append(ev.event_name)
+    except Exception as exc:
+        names.append(f"admin_api_unavailable: {exc}")
+    return names
 
 
 def get_custom_dims(c) -> list[str]:
@@ -297,12 +287,29 @@ def get_custom_dims(c) -> list[str]:
 
 
 def main() -> None:
+    import argparse
+
+    parser = argparse.ArgumentParser(description="GA4 Quietforge API audit")
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Exit 1 if realtime has zero rows (run after smoke)",
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        default="",
+        help="Write JSON report to file path",
+    )
+    args = parser.parse_args()
+
     require_credentials()
     c = client()
 
     report = {
         "property_id": PROPERTY_ID,
         "custom_dimensions": get_custom_dims(c),
+        "key_events": get_key_events(),
         "traffic_28d": run_report(
             c,
             ["sessionSourceMedium"],
@@ -344,7 +351,7 @@ def main() -> None:
             limit=25,
         ),
         "realtime": run_realtime(c),
-        "funnel_28d": run_funnel(c),
+        "funnel_7d": run_funnel(),
         "weekly_7d": run_report(
             c,
             ["sessionSourceMedium"],
@@ -354,7 +361,18 @@ def main() -> None:
         ),
     }
 
+    if args.output:
+        Path(args.output).write_text(json.dumps(report, indent=2), encoding="utf-8")
+        print(f"wrote: {args.output}")
+
     print(json.dumps(report, indent=2))
+
+    if args.strict and report["realtime"]["row_count"] == 0:
+        print("FAIL: realtime row_count is 0 — run ga4-prod-smoke first", file=sys.stderr)
+        sys.exit(1)
+
+    if report["funnel_7d"].get("error"):
+        print(f"WARN: funnel report error: {report['funnel_7d']['error']}", file=sys.stderr)
 
 
 if __name__ == "__main__":
