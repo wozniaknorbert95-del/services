@@ -1,76 +1,90 @@
 # Handoff — GA4 Quietforge full closure (2026-06-28)
 
-**Repo:** services.flexgrafik.nl · **Build:** `npm run build` ✅ (34 routes)
+**Repo:** services.flexgrafik.nl · **Commits:** `4df5297` (page_view) · `fa63267` (tooling) · closure gate PASS  
+**Status:** OR-02 CLOSED — repo + prod + API gates complete
 
 ## Cel / Goal
 
-Domknąć GA4 Quietforge bez półśrodków (OR-02): Admin verify, tooling, smoke/audit gates, SSoT, funnel monitoring.
+Domknąć GA4 Quietforge bez półśrodków: property `543331587`, measurement `G-LY0E7MW0HF`, canon events, funnel monitoring, SSoT, zero starych ID w aktywnych docs.
+
+## Definition of Done (OR-02)
+
+| # | Kryterium | Status |
+|---|-----------|--------|
+| 1 | Prod tag `G-LY0E7MW0HF`, brak `G-M24NL622DF` w HTML | ✅ |
+| 2 | `page_view` na route load (`gtag.ts` explicit event) | ✅ commit `4df5297` |
+| 3 | Custom dimension `location` + key events `cta_book_map_click`, `intake_submit` | ✅ MCP + Admin API |
+| 4 | `npm run ga4:smoke` — canon collect asserts | ✅ |
+| 5 | `npm run ga4:audit` — funnel_7d bez błędu SDK | ✅ |
+| 6 | `npm run ga4:gate` — smoke + strict realtime (retry) | ✅ |
+| 7 | MCP realtime + funnel zapisane w audit JSON | ✅ |
+| 8 | SSoT: `ga4-property-map.md`, SESSION-ANCHOR, plany EXECUTED | ✅ |
+| 9 | Vercel Production + Development env | ✅ |
+| 10 | Vercel **Preview** env | ⏳ Dowódca — 30s w dashboard (CLI blocked) |
+| 11 | GA UI exploration „Quietforge Map funnel” | ⏳ opcjonalnie — API funnel działa; helper script gotowy |
 
 ## Co zrobiono / What changed
 
-- **page_view fix** (prior commit `4df5297`) — verified end-to-end
-- **`ga4-api-audit.py`** — funnel via `data_v1alpha`, canon steps, `key_events`, `--strict`, `--output`
-- **`ga4-prod-smoke.mjs`** — POST body parse + dataLayer asserts for all canon events
-- **`npm run ga4:smoke`** + **`npm run ga4:audit`** added
-- **`ga4-provision-ui.mjs`** — points to property `543331587`
-- **`ga4-create-exploration.mjs`** — funnel exploration UI helper (property guard)
-- **`vercel-ga-preview-env.ps1`** — Preview env helper (CLI limitation documented)
-- **SSoT** — `ga4-property-map.md`, `config/ga4-quietforge.ids.json` updated
-- **Superseded** — `2026-06-26-ga4-mcp-audit-p1.md` (old property `528764186`)
+- **`ga4-api-audit.py`** — funnel `data_v1alpha`, canon steps, `--strict` z realtime retry (lag API)
+- **`ga4-prod-smoke.mjs`** — POST body + dataLayer asserts dla wszystkich canon events
+- **`npm run ga4:gate`** — jeden gate: smoke → audit strict → zapis audit JSON
+- **`ga4-provision-ui.mjs`** → property `543331587`
+- **`ga4-create-exploration.mjs`** — Playwright helper (property guard)
+- **`vercel-ga-preview-env.ps1`** — Preview env + dashboard fallback
+- **SSoT** — `ga4-property-map.md`, `config/ga4-quietforge.ids.json`
+- **Superseded** — `2026-06-26-ga4-mcp-audit-p1.md` (stary property `528764186`)
 
 ## Pliki / Files
 
 | File | Action |
 |------|--------|
-| `scripts/ga4-api-audit.py` | update — funnel_7d, key_events, CLI flags |
+| `scripts/ga4-api-audit.py` | update — funnel_7d, strict retry, key_events |
 | `scripts/ga4-prod-smoke.mjs` | update — canon event gate |
 | `scripts/ga4-provision-ui.mjs` | rewrite — Quietforge admin |
 | `scripts/ga4-create-exploration.mjs` | new |
 | `scripts/vercel-ga-preview-env.ps1` | new |
-| `package.json` | update — ga4:smoke, ga4:audit |
-| `config/ga4-quietforge.ids.json` | update — exploration hub, vercel status |
-| `docs/architecture/ga4-property-map.md` | update — full closure |
-| `docs/operations/ga4-audit-2026-06-28-quietforge.json` | new — API audit output |
-| `docs/operations/handoffs/2026-06-28-ga4-full-closure.md` | new — this file |
+| `package.json` | `ga4:smoke`, `ga4:audit`, `ga4:gate` |
+| `config/ga4-quietforge.ids.json` | update |
+| `docs/architecture/ga4-property-map.md` | update — cutover COMPLETE |
+| `docs/operations/ga4-audit-2026-06-28-quietforge.json` | audit + MCP snapshot |
+| `docs/operations/handoffs/2026-06-28-ga4-full-closure.md` | this file |
 
 ## Weryfikacja / Verification
 
 ```bash
-npm run typecheck   # PASS
-npm run build       # PASS (34 routes)
-npm run ga4:smoke   # PASS — page_view, cta_book_map_click, pricing_view, book_discovery_view
-npm run ga4:audit   # exit 0 — realtime row_count >= 1, funnel_7d no SDK error
+npm run typecheck          # PASS
+npm run build              # PASS (34 routes)
+npm run ga4:gate           # PASS — smoke + audit strict (realtime row_count >= 1)
 ```
 
-| Check | Result |
-|-------|--------|
-| MCP `get_account_summaries` | Quietforge `543331587` separate from App |
-| MCP `run_realtime_report` | `page_view`, `session_start`, `first_visit` |
-| MCP `run_funnel_report` | OK (empty rows — low volume, expected) |
-| Custom dimension `location` | OK |
-| Key events | `cta_book_map_click`, `intake_submit` present |
-| Prod HTML | `G-LY0E7MW0HF` only, no legacy ID |
-| Vercel Production + Development | `G-LY0E7MW0HF` |
-| Vercel Preview | **1 dashboard click** — see below |
+Prod HTML (`quietforge.flexgrafik.nl`): tylko `G-LY0E7MW0HF`.
 
-## Jedyny krok Dowódcy (Preview env)
+## Dowódca — 2 kroki poza repo (≤2 min)
 
-Vercel CLI returns `git_branch_required` for Preview on this project.
+### 1. Vercel Preview env (wymagane dla preview deployów)
 
-**Vercel Dashboard** → project `flexgrafik-services` → Settings → Environment Variables:
+Dashboard: [flexgrafik-services → Environment Variables](https://vercel.com/wozniaknorbert95-dels-projects/flexgrafik-services/settings/environment-variables)
 
 - Name: `NEXT_PUBLIC_GA_MEASUREMENT_ID`
 - Value: `G-LY0E7MW0HF`
-- Environment: **Preview** (All Preview Deployments)
+- Environment: **Preview** → All Preview Deployments
 
-Or run `scripts/vercel-ga-preview-env.ps1` after Git integration exposes preview branches.
+CLI zwraca `git_branch_required` / `branch_not_found` — to limitacja integracji Git↔Vercel, nie błąd repo.
 
-## Opcjonalnie (GA UI)
+### 2. GA exploration (opcjonalnie — monitoring już działa przez API)
 
-Saved exploration **Quietforge Map funnel**: open [Explorations hub](https://analytics.google.com/analytics/web/#/a337818458p543331587/analysis/explorations) → Funnel template → 4 canon steps → Save. Or: `node scripts/ga4-create-exploration.mjs` (logged-in Chrome).
+[Explorations hub](https://analytics.google.com/analytics/web/#/a337818458p543331587/analysis/explorations) → Funnel → 4 kroki canon → Save jako **Quietforge Map funnel**.
 
-Weekly: [`RESTART-PROMPT-GA4-MCP.md`](../RESTART-PROMPT-GA4-MCP.md) on property **543331587**.
+Lub: `node scripts/ga4-create-exploration.mjs` (zalogowany Chrome).
+
+## Weekly gate
+
+```bash
+GOOGLE_APPLICATION_CREDENTIALS=~/.config/quietforge-ga-sa.json npm run ga4:gate
+```
+
+Prompt: [`RESTART-PROMPT-GA4-MCP.md`](../RESTART-PROMPT-GA4-MCP.md) · property **543331587**.
 
 ## Następny krok / Next steps
 
-UX P0 from audit (Pain Grid intent filter) — separate session. GA4 closed.
+GA4 zamknięte. Kolejna sesja: UX P0 (Pain Grid intent filter) — osobny scope.

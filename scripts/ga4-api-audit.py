@@ -286,6 +286,22 @@ def get_custom_dims(c) -> list[str]:
     return names
 
 
+def run_realtime_with_retry(c, *, attempts: int = 6, delay_s: float = 4.0) -> dict:
+    """Realtime can lag 10–30s after collect hits; retry when used post-smoke."""
+    import time
+
+    last: dict = {"row_count": 0, "rows": []}
+    for attempt in range(1, attempts + 1):
+        last = run_realtime(c)
+        if last["row_count"] > 0:
+            last["retry_attempt"] = attempt
+            return last
+        if attempt < attempts:
+            time.sleep(delay_s)
+    last["retry_attempt"] = attempts
+    return last
+
+
 def main() -> None:
     import argparse
 
@@ -293,7 +309,7 @@ def main() -> None:
     parser.add_argument(
         "--strict",
         action="store_true",
-        help="Exit 1 if realtime has zero rows (run after smoke)",
+        help="Exit 1 if realtime has zero rows after smoke (retries for API lag)",
     )
     parser.add_argument(
         "--output",
@@ -350,7 +366,7 @@ def main() -> None:
             },
             limit=25,
         ),
-        "realtime": run_realtime(c),
+        "realtime": run_realtime_with_retry(c) if args.strict else run_realtime(c),
         "funnel_7d": run_funnel(),
         "weekly_7d": run_report(
             c,

@@ -5,14 +5,17 @@
 $measurementId = "G-LY0E7MW0HF"
 $name = "NEXT_PUBLIC_GA_MEASUREMENT_ID"
 
+$dashboardUrl = "https://vercel.com/wozniaknorbert95-dels-projects/flexgrafik-services/settings/environment-variables"
+
 Write-Host "Attempting Preview env for all preview deployments..."
 vercel env add $name preview --value $measurementId --yes --force 2>&1
 
 if ($LASTEXITCODE -ne 0) {
   Write-Host @"
 
-If CLI requires a Git branch, set in Vercel Dashboard:
-  Project flexgrafik-services -> Settings -> Environment Variables
+CLI blocked (git_branch_required). Set in Vercel Dashboard (30s):
+  $dashboardUrl
+
   Name: $name
   Value: $measurementId
   Environment: Preview (All Preview Deployments)

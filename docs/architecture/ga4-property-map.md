@@ -77,6 +77,7 @@ Deferred: `book_payment_start`, `book_payment_complete`
 | Vercel `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-LY0E7MW0HF` |
 | `npm run ga4:smoke` | prod collect + dataLayer gate |
 | `npm run ga4:audit` | API audit + funnel_7d |
+| `npm run ga4:gate` | smoke → audit strict (weekly OR-02 gate) |
 | `scripts/ga4-prod-smoke.mjs` | `G-LY0E7MW0HF` |
 | `scripts/ga4-api-audit.py` | `543331587` |
 | `config/ga4-quietforge.ids.json` | full ID bundle |

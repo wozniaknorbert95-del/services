@@ -91,10 +91,14 @@ npx vercel dist --prod --yes
 
 **Env (production):**
 
-| Variable | Purpose |
-|---|---|
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 Quietforge stream `G-LY0E7MW0HF` (property `543331587` — see [`ga4-property-map.md`](docs/architecture/ga4-property-map.md)) |
-| `NEXT_PUBLIC_WHATSAPP_URL` | WhatsApp deep link override |
+| Variable | Environment | Value / status |
+|---|---|---|
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Production | `G-LY0E7MW0HF` (property `543331587`) |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Development | `G-LY0E7MW0HF` |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Preview | **Dashboard** — CLI blocked; see [`vercel-ga-preview-env.ps1`](scripts/vercel-ga-preview-env.ps1) |
+| `NEXT_PUBLIC_WHATSAPP_URL` | Production | WhatsApp deep link override |
+
+**GA weekly gate:** `npm run ga4:gate` (requires `GOOGLE_APPLICATION_CREDENTIALS` for audit step).
 
 ### DNS
 

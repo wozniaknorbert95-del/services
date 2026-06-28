@@ -27,21 +27,26 @@
     "rows": []
   },
   "realtime": {
-    "row_count": 3,
+    "row_count": 4,
     "rows": [
       {
-        "eventName": "first_visit",
-        "eventCount": "2"
+        "eventName": "page_view",
+        "eventCount": "3"
       },
       {
-        "eventName": "page_view",
-        "eventCount": "2"
+        "eventName": "first_visit",
+        "eventCount": "1"
+      },
+      {
+        "eventName": "scroll",
+        "eventCount": "1"
       },
       {
         "eventName": "session_start",
-        "eventCount": "2"
+        "eventCount": "1"
       }
-    ]
+    ],
+    "retry_attempt": 1
   },
   "funnel_7d": {
     "row_count": 0,
@@ -51,10 +56,11 @@
     "row_count": 0,
     "rows": []
   },
+  "gate_verified_at": "2026-06-28",
   "mcp_verification": {
     "run_realtime_report": {
-      "row_count": 3,
-      "events": ["first_visit", "page_view", "session_start"]
+      "row_count": 4,
+      "events": ["page_view", "first_visit", "scroll", "session_start"]
     },
     "run_funnel_report": {
       "canon_steps": [

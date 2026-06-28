@@ -17,16 +17,20 @@ GA4 Quietforge **FULL CLOSURE**. Property `543331587` · Measurement `G-LY0E7MW0
 
 ## WERYFIKACJA (2026-06-28)
 
-- `npm run ga4:smoke` PASS
-- `npm run ga4:audit` exit 0 · realtime > 0
-- MCP funnel + realtime PASS
+- `npm run ga4:gate` PASS (smoke + audit strict + audit JSON)
+- MCP realtime + funnel PASS
 - SSoT: [`architecture/ga4-property-map.md`](../architecture/ga4-property-map.md)
 
-## OPEN (Dowódca — 1 click)
+## DOWÓDCA (≤2 min, poza repo)
 
-Vercel **Preview** env `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-LY0E7MW0HF` — dashboard only (CLI blocked).
+1. **Vercel Preview** — `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-LY0E7MW0HF` → [dashboard env vars](https://vercel.com/wozniaknorbert95-dels-projects/flexgrafik-services/settings/environment-variables)
+2. **GA exploration** (opcjonalnie) — `node scripts/ga4-create-exploration.mjs` lub ręcznie w Explorations hub
 
 ## WEEKLY
+
+```bash
+GOOGLE_APPLICATION_CREDENTIALS=~/.config/quietforge-ga-sa.json npm run ga4:gate
+```
 
 [`RESTART-PROMPT-GA4-MCP.md`](./RESTART-PROMPT-GA4-MCP.md) — property **543331587**.
 
