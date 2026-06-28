@@ -14,8 +14,12 @@ export function gaPageView(pagePath: string): void {
     return;
   }
 
-  window.gtag('config', GA_MEASUREMENT_ID, {
+  // send_page_view is false on initial config — config+page_path does not emit a hit.
+  // Explicit page_view is required for GA4 to register traffic (Realtime + home card).
+  window.gtag('event', 'page_view', {
     page_path: pagePath,
+    page_location: window.location.href,
+    page_title: document.title,
   });
 }
 

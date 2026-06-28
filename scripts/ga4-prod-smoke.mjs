@@ -23,9 +23,35 @@ async function snapshotEvents(page) {
   );
 }
 
+async function collectHits(page) {
+  const hits = [];
+  const handler = (req) => {
+    const url = req.url();
+    if (url.includes('/g/collect') || url.includes('/collect?')) {
+      const q = new URL(url).searchParams;
+      hits.push({ en: q.get('en'), tid: q.get('tid') });
+    }
+  };
+  page.on('request', handler);
+  return {
+    hits,
+    detach: () => page.off('request', handler),
+  };
+}
+
 async function main() {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
+  const { hits: loadHits, detach } = await collectHits(page);
+
+  await page.goto(BASE + '/', { waitUntil: 'load' });
+  await page.waitForTimeout(6000);
+  detach();
+
+  const pageViewOnLoad = loadHits.some(
+    (h) => h.en === 'page_view' && h.tid === MEASUREMENT_ID
+  );
+
   const collects = [];
   page.on('request', (req) => {
     const url = req.url();
@@ -33,9 +59,6 @@ async function main() {
       collects.push(url);
     }
   });
-
-  await page.goto(BASE + '/', { waitUntil: 'domcontentloaded' });
-  await page.waitForTimeout(2000);
 
   const gtagCheck = await page.evaluate((mid) => ({
     hasGtag: typeof window.gtag === 'function',
@@ -60,6 +83,7 @@ async function main() {
     JSON.stringify(
       {
         gtagCheck,
+        pageViewOnLoad,
         collectRequests: collects.length,
         collectHasMeasurementId: collects.some((u) => u.includes(MEASUREMENT_ID)),
         eventsAfterHeroClick: afterHero,
@@ -70,6 +94,11 @@ async function main() {
       2
     )
   );
+
+  if (!pageViewOnLoad) {
+    console.error('FAIL: no page_view collect on initial load — check gtag.ts gaPageView');
+    process.exit(1);
+  }
 
   await browser.close();
 }
