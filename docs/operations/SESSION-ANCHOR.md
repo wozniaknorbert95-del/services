@@ -1,38 +1,28 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-06-28 · **Status:** CLOSED · **Handoff:** [`handoffs/2026-06-28-ga4-full-closure.md`](./handoffs/2026-06-28-ga4-full-closure.md)
+**Updated:** 2026-06-28 · **Status:** CLOSED · **Handoff:** [`handoffs/2026-06-28-results-honesty-pain-grid.md`](./handoffs/2026-06-28-results-honesty-pain-grid.md)
 
 ---
 
 ## WYNIK
 
-GA4 Quietforge **FULL CLOSURE**. Property `543331587` · Measurement `G-LY0E7MW0HF` · prod `page_view` + canon events verified.
-
-| ID | Wartość |
-|----|---------|
-| Property | `543331587` (Quietforge) |
-| Measurement | `G-LY0E7MW0HF` |
-| Stream | Quietforge Web `15155226236` |
-| Legacy (App only) | `528764186` / `G-M24NL622DF` |
+**Results honesty** + **Pain Grid P0**. `/results/` hero = tech LIVE, commercial pre-revenue (print setup gate). Home Pain Grid = intent chips + cost lines + Clear filter.
 
 ## WERYFIKACJA (2026-06-28)
 
-- `npm run ga4:gate` PASS (smoke + audit strict + audit JSON)
-- MCP realtime + funnel PASS
-- SSoT: [`architecture/ga4-property-map.md`](../architecture/ga4-property-map.md)
+- `npm run build` PASS (34 routes)
+- proof: no `[FILL:]` in `src/`
 
-## DOWÓDCA (≤2 min, poza repo)
+## OPEN (carry-over)
 
-1. **Vercel Preview** — `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-LY0E7MW0HF` → [dashboard env vars](https://vercel.com/wozniaknorbert95-dels-projects/flexgrafik-services/settings/environment-variables)
-2. **GA exploration** (opcjonalnie) — `node scripts/ga4-create-exploration.mjs` lub ręcznie w Explorations hub
+- Vercel Preview GA env — [dashboard](https://vercel.com/wozniaknorbert95-dels-projects/flexgrafik-services/settings/environment-variables)
+- UX P0-3/P0-4: hero CTA + L3 copy alignment
 
-## WEEKLY
+## WEEKLY GA4
 
 ```bash
 GOOGLE_APPLICATION_CREDENTIALS=~/.config/quietforge-ga-sa.json npm run ga4:gate
 ```
-
-[`RESTART-PROMPT-GA4-MCP.md`](./RESTART-PROMPT-GA4-MCP.md) — property **543331587**.
 
 ---
 

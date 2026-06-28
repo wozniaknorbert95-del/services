@@ -150,6 +150,12 @@ a:hover { color: var(--qf-text); text-decoration: underline; text-underline-offs
 }
 .qf-hint::before { content: "→ "; color: var(--qf-accent); }
 
+.qf-pain-cost {
+  font-family: var(--qf-mono);
+  font-size: var(--qf-fs-xs);
+  color: var(--qf-text-faint);
+}
+
 /* ---------------------------------------------------------------- *
  * 5. HEADER / NAV                                                  *
  * ---------------------------------------------------------------- */

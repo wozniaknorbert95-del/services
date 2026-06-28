@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   ECOSYSTEM_REPOS,
-  INTENT_LEGEND,
   getIntentMeta,
   type IntentId,
 } from '@/content/ecosystem';
@@ -21,6 +20,7 @@ import {
 import IntentBadges from '@/components/ui/IntentBadges';
 import ModulePreviewThumb from '@/components/ui/ModulePreviewThumb';
 import Button from '@/components/ui/Button';
+import IntentFilterChips from '@/components/home/IntentFilterChips';
 
 /** When filtering by order — surface governance repos first. */
 const ORDER_INTENT_REPO_KEYS = [
@@ -87,35 +87,7 @@ export default function IntentRouter() {
           </p>
         </div>
 
-        <div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-[var(--qf-sp-3)]">
-          {INTENT_LEGEND.map((intent) => {
-            const isActive = activeIntent === intent.id;
-            return (
-              <button
-                key={intent.id}
-                type="button"
-                aria-pressed={isActive}
-                onClick={() => setActiveIntent(isActive ? null : intent.id)}
-                className={`border px-6 py-3 text-sm font-medium transition-colors duration-[var(--qf-transition)] sm:text-base ${
-                  isActive
-                    ? 'border-transparent text-[var(--qf-bg)]'
-                    : 'border-[var(--qf-border)] bg-[var(--qf-bg-raised)] text-[var(--qf-text)] hover:border-[var(--qf-border-bright)]'
-                }`}
-                style={
-                  isActive
-                    ? {
-                        backgroundColor: intent.cssVar,
-                        borderColor: intent.cssVar,
-                      }
-                    : undefined
-                }
-              >
-                {isActive ? '✓ ' : ''}
-                {intent.label}
-              </button>
-            );
-          })}
-        </div>
+        <IntentFilterChips />
 
         <p className="text-center font-mono text-xs text-[var(--qf-text-dim)]">{filterLabel}</p>
 

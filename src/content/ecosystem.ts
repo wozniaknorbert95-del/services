@@ -337,6 +337,7 @@ export interface PainCard {
   id: string;
   title: string;
   description: string;
+  costLine: string;
   href: string;
   intents: IntentId[];
 }
@@ -353,6 +354,7 @@ export const PAIN_GRID: readonly PainCard[] = [
     title: 'Drowning in email',
     description:
       'Important leads, invoices and customer questions sit in the same pile as noise. The system classifies, drafts and queues replies — you approve every send.',
+    costLine: '~12 hours/week lost to triage and reply drafting',
     href: ROUTES.inboxKiller,
     intents: ['time', 'calm'],
   },
@@ -361,6 +363,7 @@ export const PAIN_GRID: readonly PainCard[] = [
     title: 'An outdated website',
     description:
       'Visitors arrive, but the page gives them no trust, no clear route and no reason to act. The system turns the site into a conversion path.',
+    costLine: 'Visitors leave without a path — enquiries stay flat',
     href: ROUTES.webUpgrade,
     intents: ['money', 'order'],
   },
@@ -369,6 +372,7 @@ export const PAIN_GRID: readonly PainCard[] = [
     title: 'Quotes by hand',
     description:
       'You answer the same questions before knowing if the lead is serious. The wizard structures the quote, price logic and next step.',
+    costLine: "3-day email ping-pong before you know if they're serious",
     href: ROUTES.salesFunnel,
     intents: ['money', 'efficiency'],
   },
@@ -377,6 +381,7 @@ export const PAIN_GRID: readonly PainCard[] = [
     title: 'Traffic, but no leads',
     description:
       'People visit and disappear. An interactive lead system earns attention first, then hands qualified users into the funnel.',
+    costLine: 'Traffic with no capture — paid clicks with nothing in the CRM',
     href: ROUTES.leadMagnetGame,
     intents: ['money'],
   },

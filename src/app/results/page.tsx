@@ -7,6 +7,7 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';
 import { ROUTES, SITE_URL } from '@/lib/constants';
 import { CTAS } from '@/content/conversion-copy';
+import { resultsPageHero, resultsPageMeta } from '@/content/results-page';
 import { GRATKA } from '@/lib/gratka';
 import { CASE_STUDIES } from '@/lib/case-studies';
 import FieldReports from '@/components/results/FieldReports';
@@ -98,27 +99,25 @@ const CASE_EXTRAS: Partial<Record<string, CaseExtras>> = {
 
 /* ── metadata ── */
 export const metadata: Metadata = {
-  title: 'Results — what changes',
-  description:
-    'Real systems already running: inbox automation, multi-agent orchestration, self-service quoting, and advisory firm modernisation. Process-proof case studies.',
+  title: resultsPageMeta.title,
+  description: resultsPageMeta.description,
   openGraph: {
-    title: 'Results — what changes',
-    description:
-      'Real systems already running inside a live business ecosystem. Names withheld; architecture is real.',
+    title: resultsPageMeta.title,
+    description: resultsPageMeta.openGraphDescription,
     url: `${SITE_URL}/results`,
     images: [
       {
         url: '/og/results.svg',
         width: 1200,
         height: 630,
-        alt: 'Results — Real systems, already running',
+        alt: resultsPageMeta.ogAlt,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Results — what changes',
-    description: 'Real systems, already running — process-proof case studies.',
+    title: resultsPageMeta.title,
+    description: resultsPageMeta.twitterDescription,
     images: ['/og/results.svg'],
   },
 };
@@ -128,14 +127,14 @@ export default function ResultsPage() {
   return (
     <>
       <Section padding="large">
-        <Eyebrow>Proof</Eyebrow>
+        <Eyebrow>{resultsPageHero.eyebrow}</Eyebrow>
         <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
-          Real systems, already running.
+          {resultsPageHero.h1}
         </h1>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)]">
-          Deployed in production in my own ecosystem (2+ years running). Same architecture I deploy
-          for clients — not theory. Names are withheld where anonymised; the stack is real.
+          {resultsPageHero.lead}
         </p>
+        <p className="qf-hint mt-4 max-w-[var(--qf-maxw-narrow)]">{resultsPageHero.hint}</p>
       </Section>
 
       <Section background="surface" padding="large">
