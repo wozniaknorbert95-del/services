@@ -99,22 +99,21 @@ export const SPEARHEAD = {
   eyebrow: 'spearhead',
   headline: 'Wizard Cash Engine — live checkout proof, not a slide deck.',
   body:
-    'The self-service configurator runs on Mollie checkout today — 9 UI screens, open pricing, human approval on every deploy. This is the revenue layer I run before selling automation.',
+    'The self-service configurator runs live today — open pricing, human approval on every deploy. This is the revenue layer I run before selling automation.',
   bullets: [
     'Live on zzpackage.flexgrafik.nl — try it in two minutes.',
-    `${metrics.skus} SKU catalog, scored leads, calm order form or designer handoff.`,
+    'Scored leads, calm order form or designer handoff — no phone tag.',
     'Same stack Quietforge deploys for SMB clients — governed, not templated.',
   ],
   primaryCta: 'Try the wizard (2 min)',
   primaryHref: 'https://zzpackage.flexgrafik.nl/',
   secondaryCta: 'Inbox Killer — B2B product',
   secondaryHref: '/solutions/inbox-killer/',
-  terminalCommand: 'wizard.checkout --live zzpackage',
-  terminalLines: [
-    '9 UI screens · 7 business decision stages',
-    'Mollie checkout · open pricing',
-    'HITL active: deploy manual only',
-  ],
+  screenshot: {
+    src: '/gratka/wizard-checkout.png',
+    alt: 'Wizard Cash Engine checkout — live configurator with open pricing',
+    caption: 'Configure → see price → pay, no phone call.',
+  },
 } as const;
 
 export const CTAS = {

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useMotion } from '@/lib/useMotion';
@@ -11,7 +12,7 @@ import { ShoppingCart } from 'lucide-react';
 
 /**
  * Spearhead spotlight — Wizard Cash Engine as primary live proof.
- * Used in: src/app/page.tsx (home)
+ * Used in: src/app/page.tsx (home) — sekcja 5 per site-map.md §3 v3.0
  */
 export default function SpearheadSpotlight() {
   const motionCfg = useMotion();
@@ -78,19 +79,19 @@ export default function SpearheadSpotlight() {
                 </span>
               </div>
               <p className="mb-4 text-[var(--qf-text)]">Wizard Cash Engine — production checkout.</p>
-              <div className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-4">
-                <pre className="overflow-x-auto whitespace-pre font-[family-name:var(--qf-mono)] text-[var(--qf-fs-sm)] text-[var(--qf-text-dim)]">
-                  <span className="text-[var(--qf-accent)]">$</span> {SPEARHEAD.terminalCommand}
-                  {'\n'}
-                  {SPEARHEAD.terminalLines.map((line) => (
-                    <span key={line}>
-                      <span className="text-[var(--qf-ok)]">✓</span> {line}
-                      {'\n'}
-                    </span>
-                  ))}
-                  <span className="text-[var(--qf-accent)]">$</span> _
-                </pre>
+              <div className="overflow-hidden rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)]">
+                <Image
+                  src={SPEARHEAD.screenshot.src}
+                  alt={SPEARHEAD.screenshot.alt}
+                  width={480}
+                  height={300}
+                  className="h-auto w-full"
+                  loading="lazy"
+                />
               </div>
+              <p className="mt-3 font-mono text-xs text-[var(--qf-text-faint)]">
+                {SPEARHEAD.screenshot.caption}
+              </p>
             </div>
           </motion.div>
         </div>
