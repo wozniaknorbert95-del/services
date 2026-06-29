@@ -1,5 +1,5 @@
 ---
-status: "[APPROVED — COMMANDER DECISIONS RECEIVED 2026-06-29]"
+status: "[APPROVED — Faza 1 CLOSED 2026-06-29]"
 title: "Homepage Master Brief — Ostateczna wersja homepage + GTM spójność"
 owner: "Norbert Wozniak (Dowódca)"
 updated: "2026-06-29"
@@ -439,16 +439,18 @@ Plan Dowódcy ma 4 fazy. Rozbijam na sesje agenta (max 3 sekcje/sesja z build ga
 
 ### Faza 1 — Canon + struktura + komunikacja
 
-| Sesja | Typ | Co | Zasada 1-1-1 | Output |
-|-------|-----|----|--------------|--------|
-| **1.0** | `risky` (scope-lock) | **Canon amend (wszystko w jednej sesji):** `site-map.md §3` (nowa struktura 9) + `SR-01` (15→9) + `SR-06` (8→6 kart IntentRouter home, pełne 8 na /results/owner-ecosystem/) + `SR-12` (governance proof = BuiltVsPlanned row + link, nie dedykowana sekcja) + `strategy-check` skill sync | docs canon edit | Zaktualizowane `strategy-rules.md` + `site-map.md` + skill |
-| **1.1** | `page-feature` | Refactor `src/app/page.tsx` — nowa kolejność 9 sekcji + usunięcie `LivingSystemTeaser` + `BehindTheScenes` z importów (zachować komponenty dla `/results/owner-ecosystem/`) | 1 file: page.tsx | Nowy `page.tsx` + sync `site-map.md §3` (już zaktualizowane w 1.0) |
-| **1.2** | `page-feature` | Refactor sekcji #5 — `SpearheadSpotlight` + `SystemMetrics` compact połączone. **W2: terminal mock → screenshot only**. Skrócić do 4–5 punktów. | 1 komponent (lub 2 jeśli wymaga) | Zedytowane `SpearheadSpotlight.tsx` + `SystemMetrics.tsx` (lub nowy wrapper) |
-| **1.3** | `page-feature` | Refactor sekcji #6 — `BuiltVsPlanned` compact. **T4: 4 wiersze = Wizard, Jadzia COI, Agent OS, Governance.** **W3: de-jargon `LangGraph HITL pipeline` → "supervised workflow"**. Usunąć `ResultsTeaser` z home (merge z BuiltVsPlanned lub usunięcie — decyzja w sesji). | 1 komponent | Zedytowane `BuiltVsPlanned.tsx` + `READINESS_ROWS` w `readiness.ts` |
-| **1.4** | `page-feature` | Refactor sekcji #7 — `IntentRouter` 6 kart (ukryć `flex-vcms` + `flexgrafik-meta`). Mocno skrócone opisy (1–2 zdania). Zachować outcome-first labels + StatusBadge + filter dim. | 1 komponent | Zedytowane `IntentRouter.tsx` + `ecosystem.ts` (nowy filtr lub flaga `homeVisible`) |
-| **1.5** | `page-feature` | Refactor sekcji #8 — `HowIWork` skrócony. 5 kroków bez "AI agents orchestrate", "fixed rules". Skupić na korzyściach (safety, clarity, no lock-in). | 1 komponent | Zedytowane `HowIWork.tsx` |
-| **1.6** | `page-feature` | Refactor sekcji #9 — `TrustAndObjections` skrócony o ~50% + `Pricing` + `FinalCtaBand` połączone. Mocniejsze CTA. Dodać link "See full architecture →" do `/results/owner-ecosystem/` (SR-12 amend). | 1 komponent (lub 2 jeśli wymaga) | Zedytowane `TrustAndObjections.tsx` + `FinalCtaBand.tsx` |
-| **1.7** | `conversion-task` | Copy polish W1 — `ResultsTeaser` (jeśli zostaje w sekcji #6 lub link): de-jargon "8-repo governance" → "One supervised system, 8 production parts". Effect lines bez `Langfuse`, `WP SSH`, `GA4`. | 1 komponent | Zedytowane `ResultsTeaser.tsx` + `proof.ts` `caseMeasurements` |
+> **✅ FAZA 1 CLOSED (2026-06-29)** — wszystkie 7 sesji wykonawczych shipped + pushed. Commits: `0abeaf3` (1.0 canon), `bf381b8` (1.1 page), `1610108` (1.2 Spearhead W2), `f87afde` (1.3 BuiltVsPlanned T4+W3), `94eaeff` (1.4 IntentRouter 6), `b78e21a` (1.5 HowIWork), `025c497` (1.6 Trust+FinalCta LOS). Sesja 1.7 = N/A (ResultsTeaser usunięte w 1.3). Master brief §12 updated.
+
+| Sesja | Typ | Co | Zasada 1-1-1 | Output | Status |
+|-------|-----|----|--------------|--------|--------|
+| **1.0** | `risky` (scope-lock) | **Canon amend (wszystko w jednej sesji):** `site-map.md §3` (nowa struktura 9) + `SR-01` (15→9) + `SR-06` (8→6 kart IntentRouter home, pełne 8 na /results/owner-ecosystem/) + `SR-12` (governance proof = BuiltVsPlanned row + link, nie dedykowana sekcja) + `strategy-check` skill sync | docs canon edit | Zaktualizowane `strategy-rules.md` + `site-map.md` + skill | ✅ DONE `0abeaf3` |
+| **1.1** | `page-feature` | Refactor `src/app/page.tsx` — nowa kolejność 9 sekcji + usunięcie `LivingSystemTeaser` + `BehindTheScenes` z importów (zachować komponenty dla `/results/owner-ecosystem/`) | 1 file: page.tsx | Nowy `page.tsx` + sync `site-map.md §3` (już zaktualizowane w 1.0) | ✅ DONE `bf381b8` |
+| **1.2** | `page-feature` | Refactor sekcji #5 — `SpearheadSpotlight` + `SystemMetrics` compact połączone. **W2: terminal mock → screenshot only**. Skrócić do 4–5 punktów. | 1 komponent (lub 2 jeśli wymaga) | Zedytowane `SpearheadSpotlight.tsx` + `SystemMetrics.tsx` (lub nowy wrapper) | ✅ DONE `1610108` |
+| **1.3** | `page-feature` | Refactor sekcji #6 — `BuiltVsPlanned` compact. **T4: 4 wiersze = Wizard, Jadzia COI, Agent OS, Governance.** **W3: de-jargon `LangGraph HITL pipeline` → "supervised workflow"**. Usunąć `ResultsTeaser` z home (merge z BuiltVsPlanned lub usunięcie — decyzja w sesji). | 1 komponent | Zedytowane `BuiltVsPlanned.tsx` + `READINESS_ROWS` w `readiness.ts` | ✅ DONE `f87afde` |
+| **1.4** | `page-feature` | Refactor sekcji #7 — `IntentRouter` 6 kart (ukryć `flex-vcms` + `flexgrafik-meta`). Mocno skrócone opisy (1–2 zdania). Zachować outcome-first labels + StatusBadge + filter dim. | 1 komponent | Zedytowane `IntentRouter.tsx` + `ecosystem.ts` (nowy filtr lub flaga `homeVisible`) | ✅ DONE `94eaeff` |
+| **1.5** | `page-feature` | Refactor sekcji #8 — `HowIWork` skrócony. 5 kroków bez "AI agents orchestrate", "fixed rules". Skupić na korzyściach (safety, clarity, no lock-in). | 1 komponent | Zedytowane `HowIWork.tsx` | ✅ DONE `b78e21a` |
+| **1.6** | `page-feature` | Refactor sekcji #9 — `TrustAndObjections` skrócony o ~50% + `Pricing` + `FinalCtaBand` połączone. Mocniejsze CTA. Dodać link "See full architecture →" do `/results/owner-ecosystem/` (SR-12 amend). | 1 komponent (lub 2 jeśli wymaga) | Zedytowane `TrustAndObjections.tsx` + `FinalCtaBand.tsx` | ✅ DONE `025c497` |
+| **1.7** | `conversion-task` | Copy polish W1 — `ResultsTeaser` (jeśli zostaje w sekcji #6 lub link): de-jargon "8-repo governance" → "One supervised system, 8 production parts". Effect lines bez `Langfuse`, `WP SSH`, `GA4`. | 1 komponent | Zedytowane `ResultsTeaser.tsx` + `proof.ts` `caseMeasurements` | ⏸ N/A — ResultsTeaser usunięte z home w sesji 1.3 |
 
 ### Faza 2 — UX i potencjał sprzedażowy
 
