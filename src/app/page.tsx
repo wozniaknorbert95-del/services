@@ -3,13 +3,11 @@ import HeroSection from '@/components/home/HeroSection';
 import DualBrandBand from '@/components/home/DualBrandBand';
 import FeaturedStrip from '@/components/home/FeaturedStrip';
 import PainGrid from '@/components/home/PainGrid';
-import SystemMetrics from '@/components/home/SystemMetrics';
 import SpearheadSpotlight from '@/components/home/SpearheadSpotlight';
+import SystemMetrics from '@/components/home/SystemMetrics';
 import BuiltVsPlanned from '@/components/home/BuiltVsPlanned';
 import ResultsTeaser from '@/components/home/ResultsTeaser';
 import IntentRouter from '@/components/home/IntentRouter';
-import LivingSystemTeaser from '@/components/home/LivingSystemTeaser';
-import BehindTheScenes from '@/components/home/BehindTheScenes';
 import HowIWork from '@/components/home/HowIWork';
 import TrustAndObjections from '@/components/home/TrustAndObjections';
 import Pricing from '@/components/sections/Pricing';
@@ -43,7 +41,7 @@ export const metadata: Metadata = {
   },
 };
 
-/** Home section order: docs/strategy/site-map.md §3 */
+/** Home section order: docs/strategy/site-map.md §3 v3.0 (9 sections, 2026-06-29) */
 export default function Home() {
   return (
     <HomeIntentProvider>
@@ -53,13 +51,11 @@ export default function Home() {
         <DualBrandBand />
         <FeaturedStrip />
         <PainGrid />
-        <SystemMetrics variant="compact" />
         <SpearheadSpotlight />
+        <SystemMetrics variant="compact" />
         <BuiltVsPlanned variant="compact" />
         <ResultsTeaser />
         <IntentRouter />
-        <LivingSystemTeaser variant="teaser" />
-        <BehindTheScenes />
         <HowIWork />
         <TrustAndObjections />
         <Pricing />
