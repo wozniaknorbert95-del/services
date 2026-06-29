@@ -47,8 +47,11 @@ export default function ResultsTeaser() {
         >
           <span className="qf-eyebrow">results</span>
           <h2 id="results-teaser-title" className="mt-[var(--qf-sp-4)]">
-            What changes
+            Problem → System → Effect
           </h2>
+          <p className="qf-lead mt-[var(--qf-sp-2)] max-w-2xl">
+            Three live modules — same narrative beat as the hero and LinkedIn posts.
+          </p>
           {filterLabel ? (
             <p className="mt-[var(--qf-sp-2)] font-mono text-xs text-[var(--qf-accent)]">
               // {filterLabel}
@@ -76,13 +79,22 @@ export default function ResultsTeaser() {
                 <div className="mb-3">
                   <IntentBadges intents={[...c.intents]} />
                 </div>
-                <h3 className="mb-1 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+                <h3 className="mb-3 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
                   {c.title}
                 </h3>
-                <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">{c.meta}</p>
-                <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{c.system}</p>
-                <p className="mb-4 font-mono text-xs text-[var(--qf-accent)]">
-                  {measurement?.ready && measurement.value ? measurement.value : c.measurement}
+                <p className="mb-1 font-mono text-[10px] uppercase tracking-wider text-[var(--qf-text-faint)]">
+                  Problem
+                </p>
+                <p className="mb-3 text-sm text-[var(--qf-text-dim)]">{c.context}</p>
+                <p className="mb-1 font-mono text-[10px] uppercase tracking-wider text-[var(--qf-text-faint)]">
+                  System
+                </p>
+                <p className="mb-3 text-sm text-[var(--qf-text-dim)]">{c.system}</p>
+                <p className="mb-1 font-mono text-[10px] uppercase tracking-wider text-[var(--qf-text-faint)]">
+                  Effect
+                </p>
+                <p className="mb-4 text-sm text-[var(--qf-text)]">
+                  {measurement?.ready && measurement.value ? measurement.value : c.real}
                 </p>
                 <Link
                   href={c.detailHref}

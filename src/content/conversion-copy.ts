@@ -17,9 +17,22 @@ export const HERO = {
     'Conversion systems that qualify leads, reduce admin and keep humans in control.',
   subline:
     'For Dutch small businesses tired of manual quotes, inbox chaos and websites that do not turn visitors into pipeline. I design the system, wire the workflow, and keep approval gates where they belong.',
-  proofStrip: 'Live wizard checkout · 8-repo governance · HITL approval · EU-hosted',
-  proofLine:
-    'Live wizard checkout · 8-repo governance · HITL approval · EU-hosted',
+  beats: {
+    problem: {
+      label: 'Problem',
+      text: 'Manual quotes, inbox chaos, and traffic that never becomes pipeline.',
+    },
+    system: {
+      label: 'System',
+      text: 'Supervised conversion workflow — qualify, route, and approve before anything sends.',
+    },
+    effect: {
+      label: 'Effect',
+      text: 'Fewer missed leads, less admin, humans stay in control.',
+    },
+  },
+  proofStrip: 'Live wizard checkout · HITL approval · EU-hosted · inbox classified',
+  proofLine: 'Live wizard checkout · HITL approval · EU-hosted · inbox classified',
   microTrust:
     'Quietforge deploys the same architecture that runs FLEXGRAFIK — my registered company, not a demo.',
   primaryCta: 'Book Automation Map',
@@ -28,12 +41,10 @@ export const HERO = {
   wizardCta: 'Try the wizard (2 min)',
   wizardHref: 'https://zzpackage.flexgrafik.nl/',
   whatsappCta: 'Ask on WhatsApp',
-  /** Hero terminal mock — illustrative only; no client counts (PR-07). */
-  terminal: {
-    windowTitle: 'conversion-pipeline · live',
-    command: 'lead.qualify --wizard zzpackage',
-    scoredLine: 'scored → hot · warm · nurture tiers',
-    approvalLine: 'brief ready · awaiting your approval',
+  proofVisual: {
+    src: '/gratka/wizard-checkout.png',
+    alt: 'Wizard Cash Engine checkout — live proof on FlexGrafik operations',
+    caption: 'Live on zzpackage.flexgrafik.nl — try in two minutes',
   },
 } as const;
 

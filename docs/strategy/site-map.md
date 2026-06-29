@@ -117,7 +117,7 @@ Conversion systems that qualify leads, reduce admin and keep humans in control.
 For Dutch small businesses that are tired of manual quotes, inbox chaos and websites that do not turn visitors into pipeline. I design the system, wire the workflow, and keep approval gates where they belong.
 
 **Proof strip**  
-Live wizard checkout · 8-repo governance · HITL approval · EU-hosted
+Live wizard checkout · HITL approval · EU-hosted · inbox classified
 
 **CTA**  
 Primary: `Book Automation Map` → `/book-discovery/`  

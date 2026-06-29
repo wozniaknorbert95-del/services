@@ -82,6 +82,10 @@ export const READINESS_ROWS: readonly ReadinessRow[] = [
   },
 ] as const;
 
+export function getReadinessStatus(repoKey: string): ReadinessStatus | undefined {
+  return READINESS_ROWS.find((row) => row.repoKey === repoKey)?.status;
+}
+
 export function readinessStatusClass(status: ReadinessStatus): string {
   if (status === 'LIVE') return 'text-emerald-500';
   if (status === 'PARTIAL') return 'text-amber-500';

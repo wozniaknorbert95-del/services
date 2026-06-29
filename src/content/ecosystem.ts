@@ -51,6 +51,8 @@ export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
 /** Home section markers — site-map.md §2 (for DOM verification) */
 export const HOME_SECTION_MARKERS: Record<(typeof HOME_SECTIONS)[number], string> = {
   HeroSection: 'hero',
+  DualBrandBand: 'dual-brand',
+  FeaturedStrip: 'featured-strip',
   PainGrid: 'pain-grid',
   SystemMetrics: 'system-metrics',
   SpearheadSpotlight: 'spearhead',
@@ -127,6 +129,8 @@ export function getIntentMeta(id: IntentId) {
 /** Locked home stack — site-map.md §3 */
 export const HOME_SECTIONS = [
   'HeroSection',
+  'DualBrandBand',
+  'FeaturedStrip',
   'PainGrid',
   'SystemMetrics',
   'SpearheadSpotlight',
@@ -332,6 +336,19 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     proofRoute: ROUTES.trust,
   },
 ] as const;
+
+export const INTENT_ROUTER_HEADER = {
+  eyebrow: 'pick your module',
+  title: 'Pick your leak — see the production module that fixes it.',
+  lead:
+    'Business outcome first. Filter by what matters — each card links to live proof with honest status labels.',
+  filterAll: (count: number) =>
+    `Showing ${count} production modules · filter by intent above`,
+  filterActive: (label: string, count: number) =>
+    `Highlighting modules for "${label}" — all ${count} stay visible`,
+  nextStepDefault: 'Start with a paid Automation Map — then we pick the right module.',
+  nextStepRecommended: (role: string) => `Recommended next: ${role}`,
+} as const;
 
 export interface PainCard {
   id: string;

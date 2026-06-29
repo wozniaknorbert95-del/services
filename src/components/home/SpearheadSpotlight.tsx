@@ -6,6 +6,7 @@ import { useMotion } from '@/lib/useMotion';
 import { SPEARHEAD } from '@/content/conversion-copy';
 import { trackEvent } from '@/lib/analytics';
 import Eyebrow from '@/components/ui/Eyebrow';
+import StatusBadge from '@/components/ui/StatusBadge';
 import { ShoppingCart } from 'lucide-react';
 
 /**
@@ -29,6 +30,10 @@ export default function SpearheadSpotlight() {
             transition={fade.transition}
           >
             <Eyebrow>{SPEARHEAD.eyebrow}</Eyebrow>
+            <div className="mb-[var(--qf-sp-3)] flex flex-wrap items-center gap-[var(--qf-sp-3)]">
+              <StatusBadge status="LIVE" />
+              <span className="font-mono text-xs text-[var(--qf-text-faint)]">Wizard Cash Engine</span>
+            </div>
             <h2 className="mb-[var(--qf-sp-4)]">{SPEARHEAD.headline}</h2>
             <p className="text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">{SPEARHEAD.body}</p>
             <ul className="mt-[var(--qf-sp-6)] space-y-3">

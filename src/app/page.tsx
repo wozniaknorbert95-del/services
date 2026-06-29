@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Conversion Systems Architect for Small Business | Quietforge',
     description:
-      'Conversion systems that qualify leads, reduce admin and keep humans in control. Live wizard checkout · 8-repo governance.',
+      'Conversion systems that qualify leads, reduce admin and keep humans in control. Live wizard checkout · honest built vs planned.',
     images: [
       {
         url: '/og/home.svg',

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | Quietforge',
   },
   description:
-    '8-repo governed ecosystem · Wizard live · honest built vs planned. Conversion systems for NL small businesses — human-in-the-loop throughout.',
+    'Conversion systems for NL small businesses — qualify leads, reduce admin, human-in-the-loop. Live wizard checkout · honest built vs planned.',
   keywords: [
     'small business automation',
     'inbox automation',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: 'Quietforge',
     title: 'Quietforge — Conversion Systems Architect',
     description:
-      '8-repo governed ecosystem · Wizard live checkout · honest built vs planned. VCMS supervision, Agent OS, human gates.',
+      'Conversion systems that qualify leads, reduce admin and keep humans in control. Live wizard checkout · honest built vs planned.',
     images: [
       {
         url: '/og/home.svg',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Quietforge — Conversion Systems Architect',
-    description: '8-repo governed ecosystem · Wizard live · honest built vs planned.',
+    description: 'Conversion systems for NL SMB — live wizard proof · honest built vs planned.',
     creator: '@flexgrafik',
     images: ['/og/home.svg'],
   },
