@@ -3,16 +3,19 @@ status: "[ACTIVE]"
 title: "GTM Strategy Pack — Quietforge × FlexGrafik"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
-version: "2.0 — site-audit sync"
+version: "2.1 — channel split"
 classification: "L3 — outbound / channel strategy (documentation only)"
 parent: "../README.md"
 ---
 
 # GTM Strategy Pack
 
-> **Cel folderu:** Jedno miejsce na strategię **wyjścia na rynek** (kanały, LinkedIn, treści, investor track) — oraz **wymagania spójności z homepage** zanim ruszy implementacja w `src/`.
+> **Cel folderu:** Fundament **wyjścia na rynek** — dual-brand, architektura kanałów, filary treści, roadmapa 90 dni, investor track.  
+> **Uwaga v2.1:** Strategia LinkedIn, zasady i kalendarz przeniesione do [`../linkedin/`](../linkedin/README.md). Ten folder = kontekst GTM, nie operacje kanałowe.
 
 **Nie zastępuje:** [marketing-strategy.md](../marketing-strategy.md) (positioning strony), [site-map.md](../site-map.md) (IA home LOCKED), [vision-system.md](../../canons/vision-system.md) §2 (two-brand LOS), [proof-rules.md](../../canons/proof-rules.md) (uczciwość dowodów).
+
+**LinkedIn canon (strategy, rules, calendar):** [`../linkedin/`](../linkedin/README.md) — **single source** dla operacji LinkedIn.
 
 **Audyty (obowiązkowe przed copy/post):**
 - LinkedIn: [audits/linkedin-audit-2026-06-29.md](./audits/linkedin-audit-2026-06-29.md)
@@ -50,12 +53,11 @@ parent: "../README.md"
 |---|----------|--------------|
 | 1 | [01-two-brand-model.md](./01-two-brand-model.md) | Zawsze pierwszy — fundament |
 | 2 | [02-channel-architecture.md](./02-channel-architecture.md) | Przed wyborem kanału; homepage jako asset |
-| 3 | [03-linkedin-principles.md](./03-linkedin-principles.md) | Przed LinkedIn + przed zmianami home |
-| 4 | [04-audience-and-messaging.md](./04-audience-and-messaging.md) | Przed copy B2B vs investor |
-| 5 | [05-content-pillars.md](./05-content-pillars.md) | Planowanie treści + sekcje home |
-| 6 | [06-roadmap-90-days.md](./06-roadmap-90-days.md) | Plan kwartalny (homepage przed postami B2B) |
-| 7 | [07-post-playbook.md](./07-post-playbook.md) | Pisanie posta + wersja homepage |
-| 8 | [08-investor-track.md](./08-investor-track.md) | Tylko seria D |
+| 3 | [05-content-pillars.md](./05-content-pillars.md) | Planowanie treści + sekcje home |
+| 4 | [06-roadmap-90-days.md](./06-roadmap-90-days.md) | Plan kwartalny (homepage przed postami B2B) |
+| 5 | [08-investor-track.md](./08-investor-track.md) | Tylko seria D |
+
+**LinkedIn operacje (strategy, rules, calendar):** [`../linkedin/README.md`](../linkedin/README.md) — **nie** w tym folderze. |
 
 ---
 

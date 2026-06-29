@@ -1,0 +1,60 @@
+Experience
+
+
+Conversion Systems Architect (Founder)
+
+Quietforge · Self-employed
+
+May 2026 - Present · 2 mos
+
+Rotterdam, South Holland, Netherlands · Remote
+
+I design and deploy advanced conversion systems for Dutch ZZP and small businesses that go beyond automation — they increase revenue and eliminate operational inefficiencies.
+What sets me apart is full system control and the ability to build environments that operate, learn, and improve over time.
+My work is built on two core components:
+VCMS (Visual Conversion Management System) – a proprietary system that gives full control over every stage of the conversion flow. Every change is measurable, reversible, and intentional — you operate with clarity, not guesswork.
+Agent OS – an AI agent-based operational layer that allows systems to run, respond, and continuously optimize. It enables environments that support daily operations, detect issues, and improve based on real data.
+The result is a system that actively works for your business 24/7.
+Core systems I deliver:
+Inbox Killer – automated classification, drafting, and routing with mandatory human approval
+Sales Funnel Engine – self-service quoting and onboarding without sales calls
+Web Upgrade + AI Assistant – modern site with AI lead qualification
+Lead Magnet Systems – tools that capture and score leads
+Mini Business Systems – autonomous systems generating leads or revenue 24/7
+Managed Automation – ongoing monitoring and optimization (from €349/month)
+How I work:
+Each project starts with an Automation Map (€290, credited toward the build). In a 60–90 minute session, I identify key inefficiencies and deliver a clear roadmap with priorities and fixed pricing.
+All systems are built from proven modules, allowing fast deployment (often within two weeks).
+Human-in-the-loop is non-negotiable — nothing is sent or published without approval.
+I work exclusively with Netherlands-based ZZP and small BVs ready to move from operational chaos to controlled, scalable systems.
+
+
+Skills for Conversion Systems Architect (Founder) at Quietforge
+Multi-agent Systems
+
+
+AI Automation
+
+
+LangGraph
+
+
+Workflow Automation
+
+
+Process Automation
+
+
+Prompt Engineering
+
+
+FastAPI
+
+
+AI-Assisted Development
+
+
+Conversion Rate Optimization (CRO)
+
+
+Model Context Protocol (MCP)

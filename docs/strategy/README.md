@@ -20,7 +20,12 @@
 | 3 | [conversion-pipeline.md](./conversion-pipeline.md) | User flow, navigation, CTA tiers, qualification |
 | 4 | [ui-ux-principles.md](./ui-ux-principles.md) | Visual hierarchy, section composition, animation policy |
 
-**Outbound / GTM (channels, LinkedIn, roadmap):** [gtm/README.md](./gtm/README.md) — dual-brand, LinkedIn principles, 90-day content plan (documentation only).  
+**Outbound / GTM (channels, LinkedIn, roadmap):** [gtm/README.md](./gtm/README.md) — dual-brand, channel architecture, 90-day roadmap (documentation only).
+
+**LinkedIn channel canon (strategy, rules, calendar):** [linkedin/README.md](./linkedin/README.md) — single-source for LinkedIn B2B activity.
+
+**Facebook channel canon:** [facebook/README.md](./facebook/README.md) — TBD.
+
 **LinkedIn audit baseline:** [gtm/audits/linkedin-audit-2026-06-29.md](./gtm/audits/linkedin-audit-2026-06-29.md) + screenshots in `gtm/audits/assets/`.
 
 **Content data:** `src/content/ecosystem.ts` + `src/content/proof.ts` + `src/content/conversion-copy.ts` — see [content-ssot.md](../architecture/content-ssot.md)  
@@ -45,7 +50,9 @@ Implementation sessions MUST align copy, navigation, and section order to these 
 | Path | Purpose |
 |------|---------|
 | `marketing-strategy.md`, `site-map.md`, `conversion-pipeline.md`, `ui-ux-principles.md` | **Site canon** — IA, funnel, UX |
-| [gtm/](./gtm/README.md) | **Outbound** — dual-brand, channels, LinkedIn, content roadmap |
+| [linkedin/](./linkedin/README.md) | **LinkedIn B2B** — strategy, hard rules, 4-week calendar |
+| [facebook/](./facebook/README.md) | **Facebook B2B** — TBD |
+| [gtm/](./gtm/README.md) | **GTM context** — dual-brand, channel architecture, pillars, 90-day roadmap, investor track |
 | [gtm/audits/](./gtm/audits/linkedin-audit-2026-06-29.md) | GTM audits (LinkedIn baseline + assets) |
 
 ---
