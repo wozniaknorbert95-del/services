@@ -3,6 +3,7 @@ status: "[ACTIVE]"
 title: "GTM Roadmap — 90 Days"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
+version: "2.0 — site-audit sync"
 classification: "L3 — GTM roadmap"
 cadence: "2 LinkedIn posts / week · EN · Track A primary"
 ---
@@ -35,6 +36,8 @@ Bez faz wracasz do „jednego wiralowego posta o funding” co kwartał — zero
 
 ## Baseline (punkt zero — 2026-06-29)
 
+### LinkedIn
+
 | Metryka | Wartość | Źródło |
 |---------|---------|--------|
 | B2B readiness score | 2.4 / 5 | [linkedin-audit](./audits/linkedin-audit-2026-06-29.md) |
@@ -43,6 +46,18 @@ Bez faz wracasz do „jednego wiralowego posta o funding” co kwartał — zero
 | Connections | 16 | audyt |
 | Posty z quietforge CTA | 0 / 9 | audyt |
 | Commercial traction public | UNKNOWN | [PR-08](../../operations/commander/commercial-traction-template.md) |
+
+### Strona (homepage)
+
+| Metryka | Wartość | Źródło |
+|---------|---------|--------|
+| Home section flow | 7.2 / 10 | [quietforge-ux-ia](../../audits/2026-06-25/quietforge-ux-ia.md) |
+| Konwersja | 6.5 / 10 | audyt site |
+| Dual-brand visible above fold | Nie | audyt + live crawl |
+| Featured strip (Map/results/process) | Nie | audyt |
+| De-jargon hero (no 8-repo/terminal) | Nie | audyt |
+| Book Discovery copy match | Drift P0 | audyt site §2 |
+| Homepage ↔ LI Featured sync | 0% | brak Featured obu stron |
 
 ---
 
@@ -66,20 +81,26 @@ gantt
 
 ## Phase 1 — Foundation (tyg. 1–2)
 
-**CO:** Ustabilizować **ton B2B** na feedzie po serii 4/4.
+**CO:** Ustabilizować **ton B2B** na feedzie po serii 4/4 **oraz** domknąć homepage minimum (docs → kod).
 
-**DLACZEGO:** Ostatni post widoczny = funding (216 imp) — pierwsze wrażenie cold visitor.
+**DLACZEGO:** Ostatni post widoczny = funding (216 imp) — pierwsze wrażenie cold visitor. Równolegle: landing marnuje kliknięcia (6.5/10 konwersja).
 
-**BO:** Nowy post bez zmiany kierunku = „jeszcze jeden prośba”, nie architekt.
+**BO:** Post B2B z Map CTA bez spójnego home = compound trust leak.
 
 ### Milestones (strategiczne)
 
 | # | Milestone | Done when |
 |---|-----------|-----------|
-| M1.1 | Pierwszy post **P1 Proof** (Inbox lub Wizard) opublikowany | Post live + CTA w komentarzu |
+| **M0.1** | **GTM pack v2 Commander HITL** | README gap table zaakceptowana |
+| **M0.2** | **Homepage Faza 0 (kod)** — dual-brand, Featured, de-jargon, badges | [README gap](./README.md) wiersze P0 = DONE na prod |
+| **M0.3** | **Book Discovery** — jeden model (pay vs enquiry) | Copy = form behaviour |
+| M1.1 | Pierwszy post **P1 Proof** (Inbox lub Wizard) opublikowany | Post live + CTA w komentarzu **+ landing pass 5s test** |
 | M1.2 | Drugi post **P2 Objection** lub anti-positioning | 2× B2B z rzędu na feedzie |
 | M1.3 | Wszystkie nowe posty: Problem→System→Effect | Checklist [07-playbook](./07-post-playbook.md) |
 | M1.4 | UTM na linkach LI | Spójny pattern w komentarzach |
+| M1.5 | LinkedIn Featured = mirror homepage Featured | Commander manual + verify URLs |
+
+**Kolejność:** M0.1 → M0.2 → M0.3 → dopiero M1.x posty. **Nie publikować postów B2B zanim M0.2 minimum nie live.**
 
 ### Tydzień po tygodniu (content only)
 
@@ -172,9 +193,13 @@ Jeśli gates NIE — **przedłuż Phase 3** rotacją proof; investor = DM only (
 
 | Metryka | Baseline | Cel strategiczny |
 |---------|----------|------------------|
-| B2B readiness (subiektywny audyt) | 2.4/5 | ≥3.5/5 |
-| % nowych postów z Map CTA | 0% | 100% |
+| B2B readiness (subiektywny audyt LI) | 2.4/5 | ≥3.5/5 |
+| Homepage konwersja (audyt) | 6.5/10 | ≥8/10 |
+| Homepage flow (audyt) | 7.2/10 | ≥8/10 |
+| % nowych postów z Map CTA | 0% | 100% (po M0.2) |
 | Mix P1–P4 vs investor | investor-heavy | ≥80% P1–P4 |
+| Homepage P0 gap items | 4 open | 0 open |
+| LI Featured ↔ home Featured | 0% | 1:1 mirror |
 | Connections | 16 | trend ↑ (brak twardego KPI bez strategii network) |
 | Map bookings attributed LI | UNKNOWN | ≥1 jeśli traction pozwala |
 
@@ -189,6 +214,8 @@ Jeśli gates NIE — **przedłuż Phase 3** rotacją proof; investor = DM only (
 | Kasowanie serii 4/4 | wszystkie |
 | Obiecywać MRR/PMF w roadmap | Phase 4 bez PR-08 |
 | Taski „edytuj LinkedIn Featured” w tym dokumencie | — (osobna egzekucja) |
+| **Publikować posty B2B zanim homepage będzie spójny (M0.2)** | Phase 1 — waste LI traffic |
+| **LinkedIn Featured przed homepage Featured strip** | Phase 1 — rozjazd P5 |
 
 ---
 

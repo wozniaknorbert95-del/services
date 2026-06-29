@@ -3,6 +3,7 @@ status: "[ACTIVE]"
 title: "LinkedIn Principles — Quietforge GTM"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
+version: "2.0 — site-audit sync"
 classification: "L3 — LinkedIn strategy"
 profile: "https://www.linkedin.com/in/flexgrafik-quietforge/"
 audit: "./audits/linkedin-audit-2026-06-29.md"
@@ -47,12 +48,13 @@ Profil bez zasad = każdy post jest „wyjątkiem” (Post 4 funding, magnesy, f
 
 ### P2 — Konwersja
 
-| Zasada | Docelowy kierunek |
-|--------|-------------------|
-| Jedna akcja | Book Automation Map ([conversion-pipeline](../conversion-pipeline.md) L3) |
-| Featured | quietforge home, book-discovery, 1–2 case studies |
-| Link w poście | W **pierwszym komentarzu**, nie w body (zasięg) |
-| Pricing | Jawne odsyłanie do [marketing-strategy §8](../marketing-strategy.md) — nie „contact for pricing” |
+| Zasada | Docelowy kierunek | Wymaganie na stronie (homepage) |
+|--------|-------------------|----------------------------------|
+| Jedna akcja | Book Automation Map ([conversion-pipeline](../conversion-pipeline.md) L3) | Hero L3 + Featured card #1 = ten sam URL `/book-discovery/` |
+| Featured (LI) | quietforge home, book-discovery, 1–2 case studies | **Mirror** homepage Featured strip — 3 cards: Map · /results/ · how-it-works |
+| Link w poście | W **pierwszym komentarzu**, nie w body (zasięg) | Landing musi domknąć w 5 s: dual-brand + Problem→System→Effect |
+| Pricing | Jawne odsyłanie do [marketing-strategy §8](../marketing-strategy.md) — nie „contact for pricing” | Homepage + /pricing/ = jedna macierz cen (audyt: drift P0) |
+| CTA secondary | Live systems | `/results/` jako Featured card #2 — FlexGrafik proof bez consumer pitch |
 
 ### P3 — Feed
 
@@ -75,9 +77,24 @@ Zgodnie z [proof-rules.md](../../canons/proof-rules.md):
 | „161 SKUs” (site SSoT) | „200+ SKUs” jeśli Services nadal ma starą liczbę |
 | PROVEN / DEMO / PLANNED labels | Fake testimonials, fake logos |
 
+### P5 — Spójność z homepage (NOWE v2)
+
+| Zasada | Szczegół |
+|--------|----------|
+| Post ↔ landing | Każdy post B2B z CTA w komentarzu musi **matchować** sekcję homepage, na którą prowadzi |
+| Język | Problem→System→Effect w poście = ten sam beat w hero strony — **nie** repo dump w obu miejscach |
+| Dual-brand | Post mówi „in my NL print business” → landing pokazuje **FlexGrafik jako proof**, nie druk |
+| De-jargon | Jeśli post unika LangGraph/MCP/8-repo w hooku — homepage above fold też |
+| Featured sync | LinkedIn Featured slots = homepage Featured cards (URL + kolejność) |
+| Book Discovery | Copy Map €290 na LI = copy na `/book-discovery/` (audyt: pay&slot vs enquiry form — P0) |
+
+**Test przed publikacją:** Otwórz URL z komentarza na mobile — czy w 5 s wiesz: (a) co sprzedaje Quietforge, (b) gdzie FlexGrafik dowodzi, (c) gdzie kliknąć Map?
+
 ---
 
 ## Co audyt mówi (kontekst, nie „napraw profil”)
+
+### LinkedIn (2026-06-29)
 
 | Finding | Znaczenie strategiczne |
 |---------|------------------------|
@@ -87,7 +104,18 @@ Zgodnie z [proof-rules.md](../../canons/proof-rules.md):
 | Seria 4/4 opublikowana | Zostaje jako founder arc; **następne** posty = B2B pillars |
 | 16 connections, 0 reviews | Sieć i social proof — długi termin; nie blokuje strategii treści |
 
-Pełny raport: [linkedin-audit-2026-06-29.md](./audits/linkedin-audit-2026-06-29.md)
+### Strona / homepage (2026-06-25 audyt)
+
+| Finding | Znaczenie strategiczne |
+|---------|------------------------|
+| Home flow 7.2/10, konwersja 6.5/10 | Architektura za wcześnie dla SMB — **landing psuje LI traffic** |
+| Hero: terminal mock, „8-repo governance” | Jargon above fold — sprzeczne z P3 feed (no repo dump) |
+| Brak dual-brand band | Odwiedzający z LI nie widzi FG proof vs QF sell w 5 s |
+| Brak Featured strip | Rozproszone CTA — brak mirror dla LI Featured |
+| Book Discovery drift | „Pay & slot” vs enquiry form — **P0** przed skalowaniem Map CTA |
+| IntentRouter „Eight parts” | Repo keys visible — consumer/architect confusion |
+
+Pełne raporty: [linkedin-audit-2026-06-29.md](./audits/linkedin-audit-2026-06-29.md) · [quietforge-ux-ia.md](../../audits/2026-06-25/quietforge-ux-ia.md)
 
 ---
 
@@ -119,11 +147,15 @@ Pełny raport: [linkedin-audit-2026-06-29.md](./audits/linkedin-audit-2026-06-29
 
 ## Metryki sukcesu (strategiczne)
 
-| Metryka | Baseline (2026-06-29) | Kierunek |
-|---------|------------------------|----------|
-| B2B readiness (audyt) | 2.4/5 | ≥3.5 po wdrożeniu zasad treści + ścieżki (osobna egzekucja) |
-| Posty z quietforge CTA (komentarz) | 0% | 100% nowych postów |
-| Mix feedu investor vs B2B | ~dominacja investor/founder | 80% B2B pillars / 20% founder |
+| Metryka | Baseline (2026-06-29) | Kierunek | Uwaga homepage |
+|---------|------------------------|----------|----------------|
+| B2B readiness (audyt LI) | 2.4/5 | ≥3.5 po wdrożeniu zasad treści + ścieżki | + landing sync (P5) |
+| Posty z quietforge CTA (komentarz) | 0% | 100% nowych postów | Landing must pass 5s test |
+| Mix feedu investor vs B2B | ~dominacja investor/founder | 80% B2B pillars / 20% founder | — |
+| Homepage konwersja (audyt site) | 6.5/10 | ≥8/10 po Faza 0 | Dual-brand + Featured + de-jargon |
+| Homepage flow (audyt site) | 7.2/10 | ≥8/10 | IntentRouter below fold |
+| LI Featured ↔ home Featured | brak / brak | 1:1 mirror | Commander LI + agent home |
+| Book Discovery copy match | drift (pay vs enquiry) | jeden model | P0 przed postami B2B |
 
 ---
 

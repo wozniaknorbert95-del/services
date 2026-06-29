@@ -3,6 +3,7 @@ status: "[ACTIVE]"
 title: "Investor Track — Deferred GTM"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
+version: "2.0 — site-audit sync"
 classification: "L3 — GTM investor (secondary)"
 priority: "D — after Track A stabilization"
 ---
@@ -35,15 +36,18 @@ Inwestor i SMB kupujący Map **nie reagują na ten sam post**. Mieszanie obniża
 
 Start publicznej serii investor **nie wcześniej niż:**
 
-| Gate | Wymaganie | Status |
-|------|-----------|--------|
-| G1 | Min. **8** postów Track A z quietforge CTA | Do zrobienia ([06-roadmap](./06-roadmap-90-days.md) M3.2) |
-| G2 | Feed B2B ≥ **80%** slotów P1–P4 (rolling 4 tyg.) | Do zrobienia |
-| G3 | Commercial traction ≥ **3** metryki Commander | UNKNOWN — [PR-08](../../operations/commander/commercial-traction-template.md) |
-| G4 | Investor deck / one-pager | UNKNOWN |
-| G5 | Świadoma decyzja Commander: start serii | Pending |
+| Gate | Wymaganie | Status (2026-06-29) |
+|------|-----------|---------------------|
+| G1 | Min. **8** postów Track A z quietforge CTA | **Not started** — 0/9 baseline |
+| G2 | Feed B2B ≥ **80%** slotów P1–P4 (rolling 4 tyg.) | **Not started** — investor-heavy |
+| **G2b** | **Homepage spójność Track A** — dual-brand, Featured, de-jargon, Book Discovery fix | **Not started** — audyt 6.5/10 konwersja; gap table [README](./README.md) |
+| G3 | Commercial traction ≥ **3** metryki Commander | **UNKNOWN** — [PR-08](../../operations/commander/commercial-traction-template.md) |
+| G4 | Investor deck / one-pager | **UNKNOWN** |
+| G5 | Świadoma decyzja Commander: start serii | **Pending** |
 
 **Jeśli gates nie spełnione:** investor conversations = **DM only**, zero public capital ask.
+
+**G2b szczegóły:** Investor series nie może startować, jeśli homepage nadal pokazuje platform/LOS story above fold — SMB z postów B2B zobaczy „niedokończony produkt szuka skali”, nie Map offer.
 
 ---
 
@@ -91,7 +95,7 @@ Szczegóły faz: [06-roadmap-90-days.md](./06-roadmap-90-days.md) Phase 4.
 |-------|------|
 | LinkedIn feed | Dedykowane posty **max 1/mies.** po gates |
 | LinkedIn DM | 1:1 po kwalifikacji |
-| quietforge site | Opcjonalnie Phase B: `/founder/` investor bridge lub osobna route — **nie w scope Q2** |
+| quietforge site | Opcjonalnie Phase B: `/founder/` investor bridge lub osobna route — **nie w scope Q2**; **hero home = Track A only do G2b** |
 | FB/TikTok/GMB | **NIE** — consumer |
 
 ---
@@ -121,6 +125,8 @@ Szczegóły faz: [06-roadmap-90-days.md](./06-roadmap-90-days.md) Phase 4.
 | Dwa posty z rzędu funding + B2B | Mylą primary CTA |
 | Platform valuation / pre-money w public | UNKNOWN bez Commander |
 | PMF / MRR claims | PR-07 |
+| **Investor/platform copy on homepage hero** | Track A visitor confusion — LOS/8-repo above fold = „seeking scale” signal |
+| **Homepage CTA drift** (Map pay vs enquiry) | Undermines both tracks — fix P0 before any investor bridge on site |
 
 ---
 

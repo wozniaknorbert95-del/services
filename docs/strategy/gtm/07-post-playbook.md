@@ -3,6 +3,7 @@ status: "[ACTIVE]"
 title: "LinkedIn Post Playbook — B2B Briefs"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
+version: "2.0 — site-audit sync"
 classification: "L3 — GTM post templates"
 language_posts: "EN"
 language_meta: "PL sections CO/DLACZEGO"
@@ -78,6 +79,9 @@ Screenshot inbox classification / governance (z `public/gratka/` jeśli dostępn
 - „AI reads all your mail autonomously”
 - Consumer print offer
 
+### Wersja do homepage
+Hero beat: *Inbox chaos → classified workflow with your approval → fewer missed leads.* Featured card #2 → /results/ (inbox module). **Nie** terminal mock ani „8-repo” w proof strip.
+
 ---
 
 ## Brief #2 — Wizard proof (P1)
@@ -106,6 +110,9 @@ Primary: book-discovery · Secondary mention: zzpackage as live proof only
 - „200+ SKUs”
 - Wizard jako consumer CTA dla LI audience
 
+### Wersja do homepage
+Featured card #3 lub ResultsTeaser: *Self-qualifying quotes — LIVE on zzpackage.* Link proof secondary; primary CTA = Map. Badge **LIVE** on wizard module.
+
 ---
 
 ## Brief #3 — Anti-positioning (P2)
@@ -129,6 +136,9 @@ Optional: banner crop lub diagram LOS (bez repo list dump)
 ### NIE
 - LangGraph, MCP in hook
 - „Agency”
+
+### Wersja do homepage
+TrustAndObjections section + anti-positioning copy above fold. Dual-brand: „not a web designer” = Quietforge sell line.
 
 ---
 
@@ -154,6 +164,9 @@ PDF sample mention — link w komentarzu: `/artefacts/automation-map-sample.pdf`
 - „Free discovery call”
 - Vague „contact for pricing”
 
+### Wersja do homepage
+Featured card #1: *Automation Map — €290 · credited toward build.* Must match `/book-discovery/` copy exactly (P0 drift fix first).
+
 ---
 
 ## Brief #5 — Jadzia COI honesty (P1)
@@ -175,6 +188,9 @@ I won't sell you "full AI operations" — I'll show you exactly what's LIVE and 
 - „80% complete”
 - Implies full autonomy
 
+### Wersja do homepage
+BuiltVsPlanned card: Jadzia **PARTIAL** badge visible; Procurement Brain = PLANNED label. Honesty gate before IntentRouter.
+
 ---
 
 ## Brief #6 — Trust / self-as-client (P2)
@@ -194,6 +210,9 @@ No fake client logos — I run this stack on my own company first.
 
 ### Komentarz
 `/results/owner-ecosystem/`
+
+### Wersja do homepage
+Dual-brand band: *FlexGrafik = live ops, not demo · Quietforge = deploys same pattern for you.* No fake logos — link /results/.
 
 ---
 
@@ -215,6 +234,9 @@ Cold traffic ignores static forms. Dutch contractors don't.
 ### NIE
 - Game jako consumer CTA primary na LI
 
+### Wersja do homepage
+ResultsTeaser: lead magnet as **proof pattern** — engagement → wizard bridge. Not consumer game CTA on home.
+
 ---
 
 ## Brief #8 — Process / two weeks (P4)
@@ -235,6 +257,30 @@ Typical agency cycle: three months before you see anything working. My target: f
 ### Komentarz
 `/how-it-works/` + book-discovery
 
+### Wersja do homepage
+Featured card #3 → /how-it-works/ · ProcessSteps section. Map → Architect → Build visible before IntentRouter.
+
+---
+
+## Brief #9 — Homepage alignment (opcjonalny, Phase 1)
+
+**Pillar:** P4 + P5 sync | **Roadmap:** przed M1.1 jeśli home jeszcze nie Faza 0
+
+**CO:** Jeden post „mirror” — pokazujesz, że strona i LinkedIn mówią tym samym głosem.
+
+**Hook:**
+```text
+If my LinkedIn says "systems architect" but my homepage looked like a repo dashboard — you'd click away in five seconds.
+```
+
+**Body:**
+- Problem: B2B buyers judge the landing, not the banner
+- System: rebuilding home around Problem→System→Effect + live proof on FlexGrafik
+- Effect: one path — Automation Map — not twenty tabs
+- CTA komentarz: quietforge home + book-discovery (after Faza 0 live)
+
+**Wersja do homepage:** Meta — ten post **wymaga** Faza 0 done; nie publikować przed M0.2.
+
 ---
 
 ## Checklist przed publikacją
@@ -244,6 +290,9 @@ Typical agency cycle: three months before you see anything working. My target: f
 - [ ] LIVE/PARTIAL/DEMO jeśli moduł
 - [ ] CTA w komentarzu (nie body)
 - [ ] UTM slug ustawiony
+- [ ] **Spójność ze stroną:** URL z komentarza pass 5s test ([03 P5](./03-linkedin-principles.md))
+- [ ] **Homepage live:** sekcja matchująca post istnieje (Featured / proof / trust)
+- [ ] Book Discovery copy = form behaviour (jeśli CTA = Map)
 - [ ] Odpowiedzi na komentarze w 2h
 - [ ] Track A only — no investor ask
 

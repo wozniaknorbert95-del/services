@@ -3,6 +3,7 @@ status: "[ACTIVE]"
 title: "Two-Brand Model — FlexGrafik × Quietforge"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
+version: "2.0 — site-audit sync"
 classification: "L3 — GTM foundation"
 upstream:
   - "../../canons/vision-system.md"
@@ -17,10 +18,10 @@ upstream:
 
 Dwa brandy, jedna rzeczywistość operacyjna:
 
-| Brand | Rola GTM | Jedno zdanie |
-|-------|----------|--------------|
-| **FlexGrafik** | RUN + EARN + **PROOF** | Holenderska drukarnia / ZZP — na niej **działa** silnik (wizard, inbox, LOS). |
-| **Quietforge** | DEPLOY + EXPLAIN + **SELL B2B** | Conversion Systems Architect — **wdraża** ten sam typ systemu u innych NL SMB. |
+| Brand | Rola GTM | Jedno zdanie | Status na stronie głównej (2026-06-29) |
+|-------|----------|--------------|----------------------------------------|
+| **FlexGrafik** | RUN + EARN + **PROOF** | Holenderska drukarnia / ZZP — na niej **działa** silnik (wizard, inbox, LOS). | **Niewidoczny jako proof band** — brak dedykowanej sekcji dual-brand; tylko microTrust w hero |
+| **Quietforge** | DEPLOY + EXPLAIN + **SELL B2B** | Conversion Systems Architect — **wdraża** ten sam typ systemu u innych NL SMB. | **Primary w hero** — ale ton = architektura (terminal, 8-repo) zamiast bólu SMB |
 
 Profil LinkedIn: [linkedin.com/in/flexgrafik-quietforge](https://www.linkedin.com/in/flexgrafik-quietforge) — **jedno konto**, oba brandy widoczne, ale **job sprzedażowy = Quietforge**.
 
@@ -94,6 +95,28 @@ flowchart LR
 
 ---
 
+## Diagram — idealny przepływ z homepage (docelowy)
+
+```text
+[5 sek]  HERO: Problem → System → Effect  +  L3 Book Map
+              ↓
+         DUAL-BRAND BAND
+         Quietforge = sell B2B  |  FlexGrafik = live proof (not print pitch)
+              ↓
+         FEATURED STRIP (3 cards)
+         Map €290  ·  /results/ LIVE  ·  Wizard proof
+              ↓
+         PROOF MODULES (LIVE/PARTIAL badges)
+              ↓
+         IntentRouter (problem pick) — BELOW fold, not hero
+              ↓
+         L3 sticky / footer CTA → /book-discovery/
+```
+
+**Stan live vs docelowy:** Hero ma L3, ale brakuje dual-brand band, Featured strip i de-jargon; IntentRouter z „Eight parts” jest za wcześnie w flow ([quietforge-ux-ia](../../audits/2026-06-25/quietforge-ux-ia.md) §1, §4).
+
+---
+
 ## Kanały × brand (skrót)
 
 Pełna tabela: [02-channel-architecture.md](./02-channel-architecture.md).
@@ -116,8 +139,9 @@ Pełna tabela: [02-channel-architecture.md](./02-channel-architecture.md).
 | B2B readiness 2.4/5 | **Luka = konwersja i treść feedu**, nie „kim jesteś” |
 | Feed investor-heavy, 0× quietforge link | **Rozjazd kanału z priorytetem A** — naprawa przez **nową treść**, nie kasowanie historii |
 | Brak Featured / jawnego Map CTA | Strategia mówi *dokąd* prowadzić; wykonanie profilu osobno |
+| **Homepage dual-brand consistency** | **ROZJAZD:** strona nie oddziela QF sell vs FG proof w pierwszych 5 s; hero = terminal + „8-repo governance” zamiast Problem→System→Effect ([quietforge-ux-ia](../../audits/2026-06-25/quietforge-ux-ia.md) 7.2/10 flow, 6.5/10 konwersja) |
 
-Źródło: [linkedin-audit-2026-06-29.md](./audits/linkedin-audit-2026-06-29.md)
+Źródła: [linkedin-audit-2026-06-29.md](./audits/linkedin-audit-2026-06-29.md) · [quietforge-ux-ia.md](../../audits/2026-06-25/quietforge-ux-ia.md)
 
 ---
 
@@ -131,6 +155,7 @@ Pełna tabela: [02-channel-architecture.md](./02-channel-architecture.md).
 | FlexGrafik jako **główna oferta** na LinkedIn | Mylisz ICP z drukarnią |
 | Procent „80% gotowe” zamiast LIVE/PARTIAL | [proof-rules.md](../../canons/proof-rules.md) — honesty gate |
 | Investor ask na głównym feedzie B2B | [08-investor-track.md](./08-investor-track.md) — osobna ścieżka |
+| **Mieszanie consumer pitch na stronie Quietforge** | Homepage ≠ flexgrafik.nl — brak CTA druku, brak „zamów oklejenie”; FlexGrafik tylko jako **proof layer** w /results/, dual-brand band, founder story |
 
 ---
 

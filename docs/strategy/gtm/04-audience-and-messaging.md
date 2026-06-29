@@ -3,6 +3,7 @@ status: "[ACTIVE]"
 title: "Audience & Messaging — B2B vs Investor"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
+version: "2.0 — site-audit sync"
 classification: "L3 — GTM messaging"
 upstream:
   - "../marketing-strategy.md"
@@ -67,6 +68,19 @@ Rozszerzenie strony: [marketing-strategy.md §4](../marketing-strategy.md)
 | LIVE on my business (wizard, inbox) | „80% done”, „need money” |
 | Human-in-the-loop on every critical step | Full autonomy hype |
 
+### Przykłady komunikatów, które **nie działają** na homepage (Track A)
+
+Te frazy są OK w warstwie technicznej (/founder/, investor) — **NIE** above fold na quietforge:
+
+| Komunikat (obecny / ryzykowny) | Dlaczego zły dla SMB na home | Zamiast tego (homepage) |
+|--------------------------------|------------------------------|-------------------------|
+| „8-repo governance” / terminal mock | Architektura zamiast bólu | Problem: inbox chaos → System: classified workflow → Effect: fewer missed leads |
+| „Eight parts of the ecosystem” | Repo dump — ICP nie wie co wybrać | IntentRouter **below** Featured strip; problem labels bez kluczy repo |
+| „LangGraph / Agent OS / MCP” | Techniczny hook — audyt MR-11 | Outcome: „you approve every send” |
+| „Pay & pick a slot” (gdy form = enquiry) | Dysonans zaufania — audyt P0 | Jeden model: albo checkout, albo „Apply for Map — reply in 24h” |
+| FlexGrafik druk / oklejenie CTA | Consumer pitch na stronie B2B | FlexGrafik tylko w dual-brand band + /results/ jako proof |
+| „Platform seeking capital” | Track D na Track A surface | Off homepage; investor = [08](./08-investor-track.md) |
+
 ### Core question (immutable)
 
 > **Can Norbert design and deploy a system that improves my business?**
@@ -117,6 +131,7 @@ Szczegóły: [08-investor-track.md](./08-investor-track.md)
 | 8-repo + VCMS | „Governance — fewer surprises before deploy” | „SSoT + scan — platform discipline” |
 | FlexGrafik print ops | „Same stack I run daily — not a demo” | „First vertical in production” |
 | Jadzia PARTIAL | „Orders + chat LIVE; roadmap named honestly” | „COI spine; Procurement Brain Phase C” |
+| **Homepage hero (above fold)** | Problem→System→Effect + L3 Map · dual-brand band · **no repo dump** | LOS diagram · 8-repo · terminal aesthetic · investor platform story |
 
 ---
 
@@ -130,6 +145,9 @@ Szczegóły: [08-investor-track.md](./08-investor-track.md)
 | Fake client logos | A + D |
 | PMF / MRR bez Commander data | D ([proof-rules](../../canons/proof-rules.md) PR-07) |
 | Mieszać A i D w jednym poście | Oba |
+| **Mieszać Track A i D na homepage** | A — hero, Featured, primary CTA = Map only |
+| **Consumer + B2B pitch w jednej sekcji home** | A — FlexGrafik = proof layer, nie druk |
+| Repo/architecture dump above fold | A — [quietforge-ux-ia](../../audits/2026-06-25/quietforge-ux-ia.md) |
 
 ---
 
