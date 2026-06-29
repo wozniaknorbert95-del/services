@@ -243,11 +243,15 @@ export interface EcosystemRepo {
   outcomeLabel: string;
   role: string;
   statusNote?: string;
+  /** De-jargonised short statusNote for home compact (site-map §3 v3.0 #7). Falls back to `statusNote`. */
+  homeStatusNote?: string;
   intents: IntentId[];
   losLayers: readonly LosLayerId[];
   screenKey?: ScreenKey;
   proofRoute: string;
   flagship?: boolean;
+  /** Whether to show on home IntentRouter (site-map §3 v3.0 #7: 6 business cards). Default true. */
+  homeVisible?: boolean;
 }
 
 export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
@@ -261,6 +265,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     screenKey: 'wizardCheckout',
     proofRoute: ROUTES.resultsSalesFunnel,
     flagship: true,
+    homeVisible: true,
   },
   {
     number: 2,
@@ -271,6 +276,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     losLayers: ['sense'],
     screenKey: 'leadMagnet',
     proofRoute: ROUTES.resultsLeadMagnet,
+    homeVisible: true,
   },
   {
     number: 3,
@@ -278,11 +284,13 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     outcomeLabel: 'Know which leads, orders and ops need action',
     role: 'Jadzia COI',
     statusNote: 'LIVE: orders INT-002 · leads · GA4 · content calendar · WP SSH · sales chat · worker HITL',
+    homeStatusNote: 'Orders, leads and content tracked live — procurement brain on roadmap.',
     intents: ['time', 'calm', 'order', 'efficiency'],
     losLayers: ['think', 'act'],
     screenKey: 'workflowMap',
     proofRoute: JADZIA_COI_ROUTE,
     flagship: true,
+    homeVisible: true,
   },
   {
     number: 4,
@@ -293,6 +301,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     losLayers: ['orchestrate', 'act'],
     screenKey: 'agentCards',
     proofRoute: ROUTES.resultsAgentOrchestrator,
+    homeVisible: true,
   },
   {
     number: 5,
@@ -304,6 +313,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     screenKey: 'vcmsDashboard',
     proofRoute: ROUTES.resultsOwnerEcosystemWhyVcms,
     flagship: true,
+    homeVisible: false,
   },
   {
     number: 6,
@@ -311,10 +321,12 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     outcomeLabel: 'Give visitors a trustworthy conversion portal',
     role: 'Trust Portal',
     statusNote: 'LIVE: generic sales chat · PLANNED: qualification agent',
+    homeStatusNote: 'Live sales chat — qualification agent on roadmap.',
     intents: ['money', 'order'],
     losLayers: ['sense'],
     screenKey: 'portalAssistant',
     proofRoute: ROUTES.webUpgrade,
+    homeVisible: true,
   },
   {
     number: 7,
@@ -324,6 +336,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     intents: ['order', 'money'],
     losLayers: ['guard', 'memory'],
     proofRoute: ROUTES.howItWorks,
+    homeVisible: false,
   },
   {
     number: 8,
@@ -334,8 +347,18 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     losLayers: ['orchestrate'],
     screenKey: 'adminDashboard',
     proofRoute: ROUTES.trust,
+    homeVisible: true,
   },
 ] as const;
+
+/**
+ * Home IntentRouter selection — site-map.md §3 v3.0 #7 (6 business cards per
+ * Commander decision mapa.txt). Hides `flex-vcms` + `flexgrafik-meta` (governance
+ * + method — internal). Full 8 repos on `/results/owner-ecosystem/` and `/founder/`.
+ */
+export function getHomeRepos(): readonly EcosystemRepo[] {
+  return ECOSYSTEM_REPOS.filter((r) => r.homeVisible !== false);
+}
 
 export const INTENT_ROUTER_HEADER = {
   eyebrow: 'pick your module',

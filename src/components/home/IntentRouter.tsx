@@ -4,10 +4,11 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  ECOSYSTEM_REPOS,
+  getHomeRepos,
   INTENT_ROUTER_HEADER,
   getIntentMeta,
   type IntentId,
+  type EcosystemRepo,
 } from '@/content/ecosystem';
 import { getReadinessStatus } from '@/content/readiness';
 import { ROUTES } from '@/lib/constants';
@@ -32,7 +33,7 @@ const ORDER_INTENT_REPO_KEYS = [
   'flexgrafik-nl',
 ] as const;
 
-function sortReposForIntent(repos: typeof ECOSYSTEM_REPOS, intent: IntentId) {
+function sortReposForIntent(repos: readonly EcosystemRepo[], intent: IntentId) {
   if (intent !== 'order') {
     return sortByIntentMatch(repos, intent);
   }
@@ -55,26 +56,27 @@ function sortReposForIntent(repos: typeof ECOSYSTEM_REPOS, intent: IntentId) {
 
 export default function IntentRouter() {
   const { activeIntent, isFiltering } = useHomeIntent();
+  const homeRepos = useMemo(() => getHomeRepos(), []);
 
   const sortedRepos = useMemo(
     () =>
-      activeIntent ? sortReposForIntent(ECOSYSTEM_REPOS, activeIntent) : [...ECOSYSTEM_REPOS],
-    [activeIntent]
+      activeIntent ? sortReposForIntent(homeRepos, activeIntent) : [...homeRepos],
+    [activeIntent, homeRepos]
   );
 
   const recommended = useMemo(() => {
     if (!activeIntent) {
-      return ECOSYSTEM_REPOS.find((r) => r.flagship) ?? ECOSYSTEM_REPOS[0];
+      return homeRepos.find((r) => r.flagship) ?? homeRepos[0];
     }
     return sortedRepos.find((r) => r.intents.includes(activeIntent)) ?? sortedRepos[0];
-  }, [activeIntent, sortedRepos]);
+  }, [activeIntent, sortedRepos, homeRepos]);
 
   const filterLabel = activeIntent
     ? INTENT_ROUTER_HEADER.filterActive(
         getIntentMeta(activeIntent).label,
-        ECOSYSTEM_REPOS.length
+        homeRepos.length
       )
-    : INTENT_ROUTER_HEADER.filterAll(ECOSYSTEM_REPOS.length);
+    : INTENT_ROUTER_HEADER.filterAll(homeRepos.length);
 
   return (
     <section
@@ -112,9 +114,9 @@ export default function IntentRouter() {
                   <h3 className="mb-2 text-[var(--qf-fs-base)] font-bold transition-colors group-hover:text-[var(--qf-accent)]">
                     {repo.outcomeLabel}
                   </h3>
-                  {repo.statusNote ? (
+                  {(repo.homeStatusNote ?? repo.statusNote) ? (
                     <p className="mb-4 flex-grow text-sm text-[var(--qf-text-dim)]">
-                      {repo.statusNote}
+                      {repo.homeStatusNote ?? repo.statusNote}
                     </p>
                   ) : (
                     <p className="mb-4 flex-grow text-sm text-[var(--qf-text-dim)]">
