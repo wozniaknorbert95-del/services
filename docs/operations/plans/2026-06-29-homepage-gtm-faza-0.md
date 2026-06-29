@@ -1,12 +1,14 @@
 ---
-status: "[EXECUTED — AWAITING VERIFICATION]"
+status: "[VERIFIED — COMMANDER SIGN-OFF PENDING]"
 title: "Homepage GTM Critical Path — Faza 0"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
 classification: "Operations plan — src/ implementation"
 approved: "Commander HITL 2026-06-29 (GTM pack v2)"
 executed: "2026-06-29 — kod S1–S4 shipped"
-deploy_commit: "3933c30"
+deploy_commit: "c363d1f"
+verified: "2026-06-29 — agent prod smoke PASS (2 uwagi P2)"
+verify_plan: "./2026-06-29-homepage-gtm-verify-action.md"
 upstream:
   - "../../strategy/gtm/README.md"
   - "../../strategy/site-map.md"
@@ -16,7 +18,17 @@ upstream:
 
 # Homepage GTM Critical Path — Faza 0
 
-> **Stan:** Kod wdrożony i pushed na `master` (`3933c30`) · Vercel CD auto · **M0.2 = DONE w repo, VERIFY na produkcji przed M1.1**
+> **Stan:** Produkcja live · Agent smoke **PASS** (2026-06-29) · **Commander sign-off V1** → potem M1.1
+
+---
+
+## Wynik weryfikacji agenta (2026-06-29)
+
+| B1–B7 | B8 sticky | C LinkedIn |
+|-------|-----------|------------|
+| ✅ PASS (B2 partial — hero L3 na krawędzi mobile; header L3 OK) | ⏳ scroll manual | ⏳ Commander |
+
+Szczegóły: [verify-action plan](./2026-06-29-homepage-gtm-verify-action.md)
 
 ---
 
@@ -27,10 +39,10 @@ upstream:
 | GTM pack v2 docs | ✅ DONE | Commander HITL 2026-06-29 |
 | Faza 0 kod (0.1–0.7) | ✅ DONE w repo | Agent — commity `de22608`, `98727a0` |
 | Build / typecheck | ✅ PASS lokalnie | Agent |
-| Deploy produkcja | ⏳ **VERIFY** | Commander — sprawdź Vercel po push |
-| Smoke test 5s (live) | ⏳ **VERIFY** | Commander — mobile + desktop |
-| LinkedIn Featured mirror | ⏳ **MANUAL** | Commander — 3 URL z Featured strip |
-| Pierwszy post B2B (M1.1) | 🔒 BLOCKED | Dopiero po VERIFY poniżej |
+| Deploy produkcja | ✅ LIVE | Agent — fetch + browser 2026-06-29 |
+| Smoke test 5s (live) | ✅ PASS (B2 partial) | Agent CDP; Commander V1.1 potwierdza |
+| LinkedIn Featured mirror | ⏳ **MANUAL** | Commander V2 |
+| Pierwszy post B2B (M1.1) | 🔓 **READY** po V1.5 sign-off | [verify-action](./2026-06-29-homepage-gtm-verify-action.md) |
 
 ---
 

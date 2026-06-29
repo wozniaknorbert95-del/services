@@ -103,9 +103,9 @@ Masz **GTM pack v2** zsynchronizowany z **dwoma audytami**: LinkedIn (kim jeste�
 **Kolejność pracy:**
 1. ~~GTM pack v2 docs~~ ✅ Commander HITL 2026-06-29
 2. ~~Faza 0 kod~~ ✅ shipped `3933c30`
-3. **VERIFY prod B1–B8** ← **teraz** ([plan](../../operations/plans/2026-06-29-homepage-gtm-faza-0.md))
-4. **LinkedIn Featured + posty M1.x** — po VERIFY
-5. **Investor track** — bez zmian priorytetu; gate w `08`
+3. **VERIFY prod** ✅ Agent PASS — **Commander V1 sign-off** ← **teraz** ([verify-action](../../operations/plans/2026-06-29-homepage-gtm-verify-action.md))
+4. **LinkedIn Featured V2** — po sign-off
+5. **Post M1.1** — Inbox Killer brief #1
 
 Audyt LinkedIn 2.4/5 B2B readiness **nie jest problemem tożsamości** — to problem **ścieżki konwersji** (profil + **strona docelowa**). Seria 4/4 zostaje; strategia idzie forward przez P1–P4 z CTA w komentarzu — **ale tylko jeśli landing nie psuje zaufania**.
 
