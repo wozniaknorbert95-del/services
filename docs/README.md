@@ -18,7 +18,8 @@ classification: "L1 — documentation entry point"
 L0  flexgrafik-meta/docs/core/     Ecosystem constitution (LOS, modules, AS-IS)
 L1  docs/canons/vision-system.md  Portfolio + personal direction
 L2  docs/canons/*-rules.md        Enforceable HARD rules (short)
-L3  docs/strategy/*.md             Detailed marketing / IA / UX canon
+L3  docs/strategy/*.md             Site IA / funnel / UX canon
+L3  docs/strategy/gtm/             Outbound / LinkedIn / GTM pack
 L4  brain.md + src/content/*.ts    Tech memory + live copy SSoT
 L5  docs/operations/handoffs/      Session history (archive)
 ```
@@ -73,7 +74,7 @@ L5  docs/operations/handoffs/      Session history (archive)
 | [strategy/](./strategy/) | Detailed strategy canon (L3) — site IA + [gtm/](./strategy/gtm/README.md) outbound pack |
 | [audits/](./audits/) | Active site audits (<90 dni); closed → [archive/audits/](./archive/audits/) |
 | [architecture/](./architecture/) | Bridges to meta + content SSoT |
-| [operations/](./operations/) | Live session pointer + handoffs |
+| [operations/](./operations/) | Live session pointer — see [operations/README.md](./operations/README.md) (commander, runbooks, artefacts, plans, handoffs) |
 | [archive/](./archive/) | Audits, plans, legacy — **do not load by default** |
 | [governance/](./governance/) | Inventory, lifecycle policy |
 

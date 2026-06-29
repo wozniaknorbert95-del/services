@@ -2,7 +2,7 @@
 
 Chronological archive of session handoffs. **Do not load all** — use [`SESSION-ANCHOR.md`](../SESSION-ANCHOR.md) for current work.
 
-**Location:** `docs/operations/handoffs/` · **Count:** 65 files · **Indexed:** 2026-06-25
+**Location:** `docs/operations/handoffs/` · **Count:** 100 files (96 dated + 4 meta) · **Indexed:** 2026-06-29
 
 ---
 
@@ -10,9 +10,10 @@ Chronological archive of session handoffs. **Do not load all** — use [`SESSION
 
 | Need | Action |
 |------|--------|
-| Current focus | Read `SESSION-ANCHOR.md` + latest dated handoff |
+| Current focus | Read [`SESSION-ANCHOR.md`](../SESSION-ANCHOR.md) + latest dated handoff |
 | Historical context | Find date below, open single file |
-| Full scan | Avoid — use inventory in `docs/governance/` |
+| Bootstrap / deploy prompts | [`meta/`](./meta/) — non-dated reference only |
+| Full scan | Avoid — use [`inventory-2026-06-29.md`](../../governance/inventory-2026-06-29.md) |
 
 ---
 
@@ -20,28 +21,22 @@ Chronological archive of session handoffs. **Do not load all** — use [`SESSION
 
 | Date | File | Topic |
 |------|------|-------|
+| 2026-06-29 | `2026-06-29-docs-repo-cleanup.md` | Docs repo professionalization (Fazy 1–5) |
+| 2026-06-28 | `2026-06-28-session-results-jadzia-cleanup.md` | Results honesty + Jadzia SSoT + archive |
+| 2026-06-28 | `2026-06-28-ga4-full-closure.md` | GA4 full closure |
+| 2026-06-28 | `2026-06-28-results-honesty-pain-grid.md` | Pain grid P0 |
+| 2026-06-28 | `2026-06-28-jadzia-coi-ssot-sync.md` | Jadzia COI sync |
+| 2026-06-26 | `2026-06-26-git-ship-ux-audit.md` | UX audit ship |
+| 2026-06-26 | `2026-06-26-ga4-*` (4) | GA4 property split, MCP, wiring, closure |
 | 2026-06-25 | `2026-06-25-portfolio-truth-sync.md` | P0 truth sync shipped |
-| 2026-06-25 | `2026-06-25-portfolio-truth-p1-complete.md` | P1 completion |
-| 2026-06-25 | `2026-06-25-los-home-alignment.md` | LOS on home |
-| 2026-06-25 | `2026-06-25-navigation-qa.md` | Nav QA + smoke |
-| 2026-06-25 | `2026-06-25-diagrams-nav-audit.md` | Diagrams nav audit |
-| 2026-06-24 | `2026-06-24-quietforge-domain-migration.md` | Domain migration |
-| 2026-06-24 | `2026-06-24-go-live-linkedin-gsc.md` | LinkedIn GSC |
-| 2026-06-24 | `2026-06-24-lead-magnet-*` (3) | Lead magnet fixes |
-| 2026-06-24 | `2026-06-24-agent-os-*` (2) | Agent OS portfolio |
-| 2026-06-24 | `2026-06-24-logo-remediation.md` | Logo fix |
-| 2026-06-24 | `2026-06-24-skill-library.md` | Skills library |
-| 2026-06-24 | `2026-06-24-session-summary.md` | Session summary |
-| 2026-06-23 | `2026-06-23-professional-audit.md` | Professional audit |
-| 2026-06-23 | `2026-06-23-sprint-1-ux-fixes.md` | UX sprint 1 |
-| 2026-06-23 | `2026-06-23-portfolio-skills-audit.md` | Skills audit |
-| 2026-06-23 | `2026-06-23-home-cockpit-optimization.md` | Home cockpit |
-| 2026-06-17 | `2026-06-17-site-map-canon-lock.md` | Site map lock |
-| 2026-06-17 | `2026-06-17-*` (8 files) | Audit, nav, proof, funnel |
-| 2026-06-16 | `2026-06-16-*` (4 files) | Intent router, VCMS |
-| 2026-06-15 | `2026-06-15-*` (2 files) | Proof manifest |
+| 2026-06-25 | `2026-06-25-*` (30+) | Audit remediation, videos, SSOT, knowledge canon |
+| 2026-06-24 | `2026-06-24-*` (10) | Domain, LinkedIn GSC, lead magnet, Agent OS |
+| 2026-06-23 | `2026-06-23-*` (4) | Professional audit, UX sprint, home cockpit |
+| 2026-06-17 | `2026-06-17-*` (8) | Site map lock, audit, nav, proof, funnel |
+| 2026-06-16 | `2026-06-16-*` (4) | Intent router, VCMS |
+| 2026-06-15 | `2026-06-15-*` (2) | Proof manifest |
 | 2026-06-14 | `2026-06-14-plan-wykonawczy-repositioning.md` | Repositioning plan |
-| 2026-06-13 | `2026-06-13-*` (9 files) | Case studies E-1, CS1-4, closure |
+| 2026-06-13 | `2026-06-13-*` (9) | Case studies E-1, CS1-4, closure |
 
 ## 2026-05 (foundation)
 
@@ -52,15 +47,16 @@ Chronological archive of session handoffs. **Do not load all** — use [`SESSION
 | 2026-05-31 | `2026-05-31-session-*.md` (2) | Session closures |
 | 2026-05-30 | `2026-05-30-*` (2) | Brain workflows |
 
-## Meta / prompts (non-dated)
+## Meta / prompts (`handoffs/meta/`)
 
 | File | Status |
 |------|--------|
-| `NEXT-SESSION-PROMPT.md` | ACTIVE — E-2 CS-02 |
-| `SESSION-ANCHOR.md` | → parent `docs/operations/` |
-| `ROADMAP-case-study-expansion.md` | REFERENCE |
-| `DEPLOY-PLAN.md` | REFERENCE |
-| `STARTER-PROMPT.md` | STALE — pre-repositioning |
+| `meta/NEXT-SESSION-PROMPT.md` | STALE — verify before use |
+| `meta/ROADMAP-case-study-expansion.md` | REFERENCE |
+| `meta/DEPLOY-PLAN.md` | REFERENCE |
+| `meta/STARTER-PROMPT.md` | STALE — pre-repositioning |
+
+**Live pointer:** [`SESSION-ANCHOR.md`](../SESSION-ANCHOR.md) (parent `docs/operations/`)
 
 ---
 

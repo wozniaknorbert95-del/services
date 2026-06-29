@@ -7,7 +7,7 @@ Session artifacts, legacy wireframes, and completed plans. **Do not load by defa
 | `audits/` | Professional audits 2026-06-17, 2026-06-23 |
 | `plans/` | Completed implementation plans |
 | `legacy/` | Filar 2 wireframes, inspiracja pro, workspace snapshots |
-| `reference/` | COMMANDER_PLAN, portfolio-update-plan, AGENT-IMPLEMENTATION-PROMPT |
+| `reference/` | COMMANDER_PLAN, portfolio-update-plan, AGENT-IMPLEMENTATION-PROMPT, route-content-patches |
 | `commander-private/` | Fundraising / strategic drafts (not site canon) |
 | `operations/` | Archived ops screenshots and artefacts |
 

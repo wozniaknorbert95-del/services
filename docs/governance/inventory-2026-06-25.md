@@ -1,5 +1,5 @@
 ---
-status: "[ACTIVE]"
+status: "[STALE]"
 title: "Documentation Inventory"
 owner: "Norbert Wozniak"
 updated: "2026-06-25"
@@ -7,6 +7,8 @@ classification: "Governance — doc audit output"
 ---
 
 # Documentation Inventory — 2026-06-25
+
+> **STALE** — superseded by [`inventory-2026-06-29.md`](./inventory-2026-06-29.md). Historical snapshot only.
 
 Full scan of `.md` files excluding `node_modules`, `.next`, `dist`.  
 **Action key:** KEEP · MOVE · ARCHIVE · REFERENCE · DELETE-CANDIDATE

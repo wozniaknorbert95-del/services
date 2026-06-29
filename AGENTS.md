@@ -18,6 +18,8 @@ Stack: Next.js 16.2.6, React 19, TypeScript, Tailwind v4, Framer Motion, Lucide 
 9. [`brain.md`](brain.md) — tech stack, deploy, guardrails
 10. [`docs/operations/SESSION-ANCHOR.md`](docs/operations/SESSION-ANCHOR.md) — live session pointer
 
+**Outbound / LinkedIn add:** [`docs/strategy/gtm/README.md`](docs/strategy/gtm/README.md) → [`gtm/audits/`](docs/strategy/gtm/audits/linkedin-audit-2026-06-29.md) for profile baseline
+
 **UI add:** [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md) + [`docs/canons/ux-rules.md`](docs/canons/ux-rules.md)  
 **Proof add:** [`docs/canons/proof-rules.md`](docs/canons/proof-rules.md) + `src/content/proof.ts`  
 **Ecosystem truth:** [`docs/architecture/authority-chain.md`](docs/architecture/authority-chain.md) + `flexgrafik-meta/docs/core/`
