@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 const PROGRESS_GROUPS = [
-  { id: 'start', label: 'Start', sections: ['hero', 'pain-grid', 'system-metrics', 'spearhead', 'built-vs-planned'] },
+  { id: 'start', label: 'Start', sections: ['hero', 'dual-brand', 'featured-strip', 'pain-grid', 'system-metrics', 'spearhead', 'built-vs-planned'] },
   { id: 'proof', label: 'Proof', sections: ['results-teaser', 'repo-router', 'los-teaser', 'behind-the-scenes'] },
   { id: 'process', label: 'Process', sections: ['how-i-work', 'trust-safety'] },
   { id: 'pricing', label: 'Pricing', sections: ['pricing', 'final-cta'] },

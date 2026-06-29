@@ -4,6 +4,7 @@
 // ============================================================================
 
 import { metrics } from '@/content/proof';
+import { PRICING_NUMBERS, formatEuro } from '@/content/pricing';
 
 export const POSITIONING = {
   label: 'Conversion Systems Architect',
@@ -109,6 +110,65 @@ export const CTAS = {
   bookAutomationMap: 'Book Automation Map',
   seeSystems: 'See the systems',
   seeResults: 'See all results',
+} as const;
+
+/** GTM Faza 0 — dual-brand band (01-two-brand-model, 05-content-pillars P3). */
+export const DUAL_BRAND = {
+  eyebrow: 'two brands one stack',
+  headline: 'Quietforge sells the system. FlexGrafik runs it live.',
+  lead:
+    'Two names, one operating reality — no demo theatre, no print pitch on this site.',
+  quietforge: {
+    brand: 'Quietforge',
+    role: 'Deploy & sell B2B',
+    body:
+      'Conversion Systems Architect for NL SMB — Automation Map first, then scoped builds with human approval on every critical step.',
+    cta: 'Book Automation Map',
+    href: '/book-discovery/',
+  },
+  flexgrafik: {
+    brand: 'FlexGrafik',
+    role: 'Live proof',
+    body:
+      'My Netherlands-registered print and design company — wizard, inbox and governance run here before any client deploy.',
+    cta: 'See live systems',
+    href: '/results/',
+  },
+} as const;
+
+/** GTM Faza 0 — Featured strip mirror for LinkedIn Featured (02-channel-architecture). */
+export const FEATURED_STRIP = {
+  eyebrow: 'start here',
+  headline: 'Three paths — same stack I run daily.',
+  cards: [
+    {
+      id: 'map',
+      title: `Book Automation Map — ${formatEuro(PRICING_NUMBERS.discovery)}`,
+      description:
+        '60–90 min session · credited toward your build · you keep the document.',
+      href: '/book-discovery/',
+      analyticsLocation: 'featured_1',
+      analyticsEvent: 'cta_book_map_click' as const,
+    },
+    {
+      id: 'results',
+      title: 'Live systems on FlexGrafik',
+      description:
+        'Wizard checkout, inbox automation and governance — on my company, not a slide deck.',
+      href: '/results/',
+      analyticsLocation: 'featured_2',
+      analyticsEvent: 'cta_results_click' as const,
+    },
+    {
+      id: 'process',
+      title: 'How it works',
+      description:
+        'Map → Architect → Build → Verify → Handover — process safety before code.',
+      href: '/how-it-works/',
+      analyticsLocation: 'featured_3',
+      analyticsEvent: 'cta_how_it_works_click' as const,
+    },
+  ],
 } as const;
 
 export const ABOUT = {

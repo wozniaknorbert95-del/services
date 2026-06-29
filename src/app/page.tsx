@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import HeroSection from '@/components/home/HeroSection';
+import DualBrandBand from '@/components/home/DualBrandBand';
+import FeaturedStrip from '@/components/home/FeaturedStrip';
 import PainGrid from '@/components/home/PainGrid';
 import SystemMetrics from '@/components/home/SystemMetrics';
 import SpearheadSpotlight from '@/components/home/SpearheadSpotlight';
@@ -48,6 +50,8 @@ export default function Home() {
       <div className="pb-20 lg:pb-0">
         <SectionProgress />
         <HeroSection />
+        <DualBrandBand />
+        <FeaturedStrip />
         <PainGrid />
         <SystemMetrics variant="compact" />
         <SpearheadSpotlight />
