@@ -71,6 +71,7 @@ L5  docs/operations/handoffs/      Session history (archive)
 |--------|---------|
 | [canons/](./canons/) | Vision + extracted HARD rules |
 | [strategy/](./strategy/) | Detailed strategy canon (L3) — site IA + [gtm/](./strategy/gtm/README.md) outbound pack |
+| [audits/](./audits/) | Active site audits (<90 dni); closed → [archive/audits/](./archive/audits/) |
 | [architecture/](./architecture/) | Bridges to meta + content SSoT |
 | [operations/](./operations/) | Live session pointer + handoffs |
 | [archive/](./archive/) | Audits, plans, legacy — **do not load by default** |

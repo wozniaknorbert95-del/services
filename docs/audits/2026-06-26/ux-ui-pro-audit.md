@@ -2,7 +2,7 @@
 
 **Zakres:** analiza na podstawie kanonów i plików źródłowych (`src/`, `docs/`, `DESIGN-SYSTEM.md`) — bez live crawl.  
 **Data:** 2026-06-26  
-**Odniesienie:** [2026-06-25-quietforge-ux-ia.md](./2026-06-25-quietforge-ux-ia.md)
+**Odniesienie:** [quietforge-ux-ia.md](../2026-06-25/quietforge-ux-ia.md)
 
 ---
 

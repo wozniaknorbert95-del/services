@@ -3,7 +3,7 @@
 **Version:** 2.0  
 **Status:** Canonical — post-audit IA, home layout, routes, CTA hierarchy  
 **Supersedes:** Site Map v1.0 home order and route exposure rules  
-**Audit reference:** [`docs/audits/2026-06-25-quietforge-ux-ia.md`](../audits/2026-06-25-quietforge-ux-ia.md) · 2026-06-25
+**Audit reference:** [`docs/audits/2026-06-25/quietforge-ux-ia.md`](../audits/2026-06-25/quietforge-ux-ia.md) · 2026-06-25
 
 > Core decision the site must answer: **“Can this person design and deploy a system that improves my business?”**  
 > Home must now lead with buyer pain and proof before deep architecture.
