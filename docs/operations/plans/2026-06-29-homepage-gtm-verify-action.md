@@ -5,13 +5,14 @@ owner: "Norbert Wozniak"
 updated: "2026-06-29"
 classification: "Operations plan — verification"
 parent: "./2026-06-29-homepage-gtm-faza-0.md"
-deploy_commit: "c363d1f"
+deploy_commit: "271c31b"
 verified_by: "Agent smoke 2026-06-29 (prod fetch + browser CDP)"
+commander_signoff: "M0.2 OK — 2026-06-29"
 ---
 
 # Plan działania — weryfikacja M0.2 + gate M1.1
 
-> **Werdykt agenta (2026-06-29):** Produkcja **https://quietforge.flexgrafik.nl/** ma Fazę 0 live. **M0.2 = PASS z 2 uwagami** (mobile L3 na krawędzi viewport; jargon w ResultsTeaser card #1 below fold). **M1.1 odblokowane po Commander sign-off poniżej.**
+> **Werdykt:** **M0.2 CLOSED** — Commander sign-off **M0.2 OK** (2026-06-29). **Następny gate: V2 LinkedIn Featured → M1.1 post.**
 
 ---
 
@@ -68,11 +69,11 @@ verified_by: "Agent smoke 2026-06-29 (prod fetch + browser CDP)"
 
 | Krok | Akcja | Done |
 |------|-------|------|
-| V1.1 | Otwórz home na telefonie — 5s test własnymi oczami | ☐ |
-| V1.2 | Kliknij Featured 3 karty — URL OK | ☐ |
-| V1.3 | Kliknij Dual-brand oba linki | ☐ |
-| V1.4 | `/book-discovery/` — przeczytaj + mental match form | ☐ |
-| V1.5 | **Sign-off M0.2** — reply „M0.2 OK” lub lista poprawek | ☐ |
+| V1.1 | Otwórz home na telefonie — 5s test własnymi oczami | ✅ Commander |
+| V1.2 | Kliknij Featured 3 karty — URL OK | ✅ Commander |
+| V1.3 | Kliknij Dual-brand oba linki | ✅ Commander |
+| V1.4 | `/book-discovery/` — przeczytaj + mental match form | ✅ Commander |
+| V1.5 | **Sign-off M0.2** — reply „M0.2 OK” lub lista poprawek | ✅ **M0.2 OK** |
 
 ### Faza V2 — LinkedIn manual (po V1.5, ~10 min)
 
@@ -105,9 +106,9 @@ verified_by: "Agent smoke 2026-06-29 (prod fetch + browser CDP)"
 ## Gate summary
 
 ```text
-M0.2 PASS (agent) ──► Commander sign-off V1 ──► LinkedIn Featured V2 ──► M1.1 post
+M0.2 CLOSED ✅ ──► LinkedIn Featured V2 ──► M1.1 post (READY)
                               │
-                              └── jeśli FAIL → Faza B fix → re-smoke
+                              └── publish pack: 2026-06-29-m1-inbox-killer-post.md
 ```
 
 **Agent recommendation:** **Odblokuj M1.1** po V1.5 Commander — landing spełnia GTM v2 P0; W1–W4 to polish below/around fold, nie regresja konwersji cold traffic.

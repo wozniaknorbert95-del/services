@@ -1,24 +1,43 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-06-28 · **Status:** CLOSED · **Handoff:** [`handoffs/2026-06-28-session-results-jadzia-cleanup.md`](./handoffs/2026-06-28-session-results-jadzia-cleanup.md)
+**Updated:** 2026-06-29 · **Status:** ACTIVE · **Gate:** M0.2 CLOSED ✅
 
 ---
 
 ## WYNIK
 
-Sesja domknięta: **Results honesty** + **Pain Grid P0** + **Jadzia COI SSoT** + **archive cleanup**. Git clean · `master` shipped (`5bcab17` → `8d52413` → `badd6f6`).
+**Homepage GTM Faza 0** shipped + verified on prod. **Commander sign-off: M0.2 OK.**
 
-## WERYFIKACJA (2026-06-28)
+| Commit | Opis |
+|--------|------|
+| `271c31b` | Gap tables synced with prod verification |
+| `6c2068b` | Verify-action plan |
+| `de22608`–`3933c30` | Faza 0 S1–S4 + handoff |
 
-- `npm run build` PASS (34 routes)
-- `ga4:smoke` PASS · prod HTML verified
-- `git status` clean
+**Handoff:** [`handoffs/2026-06-29-homepage-gtm-faza-0.md`](./handoffs/2026-06-29-homepage-gtm-faza-0.md)
 
-## OPEN
+---
 
-- Vercel Preview GA env (dashboard)
-- UX P0-3/P0-4 · Procurement Brain Phase C
-- Investor doc w archive — sync liczb przed call
+## NASTĘPNY KROK (Commander)
+
+1. **V2** — LinkedIn Featured (3 URL + Services €290) — ~10 min
+2. **M1.1** — Publish Inbox Killer — copy-paste: [`plans/2026-06-29-m1-inbox-killer-post.md`](./plans/2026-06-29-m1-inbox-killer-post.md)
+3. **M1.2** — First comment with UTM `inbox-killer` within 2h
+
+---
+
+## OPEN (non-blocking)
+
+| Item | Owner | Priorytet |
+|------|-------|-----------|
+| LinkedIn Featured V2 | Commander | **P0 now** |
+| M1.1 post | Commander | **P0 after V2** |
+| ResultsTeaser de-jargon (W1) | Agent session | P2 Faza B |
+| Spearhead terminal mock (W2) | Agent session | P2 defer |
+| StickyCta Map-primary (W4) | Plan + kod | P2 |
+| inboxKiller video BL-03b | Commander OBS | P2 |
+
+---
 
 ## WEEKLY GA4
 
