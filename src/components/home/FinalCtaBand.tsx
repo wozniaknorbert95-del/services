@@ -46,6 +46,15 @@ export default function FinalCtaBand() {
           >
             {CTAS.bookAutomationMap} <span aria-hidden="true">→</span>
           </a>
+          <p className="mt-[var(--qf-sp-6)] font-mono text-xs text-[var(--qf-text-faint)]">
+            Want the full picture first?{' '}
+            <Link
+              href={ROUTES.resultsOwnerEcosystem}
+              className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
+            >
+              See full architecture →
+            </Link>
+          </p>
         </motion.div>
       </div>
     </section>
