@@ -48,19 +48,16 @@ export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
   'whatsapp-discovery-pilot': 'whatsappPilot',
 } as const;
 
-/** Home section markers — site-map.md §2 (for DOM verification) */
+/** Home section markers — site-map.md §3 v3.0 (DOM verification, 2026-06-29) */
 export const HOME_SECTION_MARKERS: Record<(typeof HOME_SECTIONS)[number], string> = {
   HeroSection: 'hero',
   DualBrandBand: 'dual-brand',
   FeaturedStrip: 'featured-strip',
   PainGrid: 'pain-grid',
-  SystemMetrics: 'system-metrics',
   SpearheadSpotlight: 'spearhead',
+  SystemMetrics: 'system-metrics',
   BuiltVsPlanned: 'built-vs-planned',
-  ResultsTeaser: 'results-teaser',
   IntentRouter: 'repo-router',
-  LivingSystemTeaser: 'los-teaser',
-  BehindTheScenes: 'behind-the-scenes',
   HowIWork: 'how-i-work',
   TrustAndObjections: 'trust-safety',
   Pricing: 'pricing',
@@ -126,19 +123,16 @@ export function getIntentMeta(id: IntentId) {
   return found;
 }
 
-/** Locked home stack — site-map.md §3 */
+/** Locked home stack — site-map.md §3 v3.0 (9 logical sections, 13 rendered components, 2026-06-29) */
 export const HOME_SECTIONS = [
   'HeroSection',
   'DualBrandBand',
   'FeaturedStrip',
   'PainGrid',
-  'SystemMetrics',
   'SpearheadSpotlight',
+  'SystemMetrics',
   'BuiltVsPlanned',
-  'ResultsTeaser',
   'IntentRouter',
-  'LivingSystemTeaser',
-  'BehindTheScenes',
   'HowIWork',
   'TrustAndObjections',
   'Pricing',
