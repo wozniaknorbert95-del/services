@@ -69,30 +69,26 @@ These must never be swapped on `/solutions/`, cards, pricing or metadata.
 
 ## §3 HOME — section order
 
-The previous home placed full architecture too early. Version 2.0 uses a buyer-first sequence.
+> **Version 3.0 (2026-06-29):** Reduced from 15 → 9 sections per Commander decision (`mapa.txt`). Buyer-first, de-jargonised, no terminal blocks, no full LOS/governance sections on home. Full LOS + 8-repo + governance details live on `/results/owner-ecosystem/`. See [master brief](../operations/plans/2026-06-29-homepage-master-brief.md) §11 for decisions.
 
-| # | Section | Component | Funnel job | Primary content rule |
+| # | Section | Component(s) | Funnel job | Primary content rule |
 |---|---|---|---|---|
-| 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / outcome / proof strip / L3 CTA |
+| 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / outcome / proof strip / L3 CTA — no terminal, no 8-repo |
 | 2 | Dual-brand | `DualBrandBand` | QF sell vs FG proof | Quietforge deploys B2B · FlexGrafik live proof — no print pitch |
 | 3 | Featured paths | `FeaturedStrip` | Mirror LinkedIn Featured | Map €290 · /results/ · /how-it-works/ — 3 equal cards |
-| 4 | Pain router | `PainGrid` | Recognition | “Choose your leak”: inbox, website, quotes, traffic |
-| 5 | Proof strip | `SystemMetrics` compact | Immediate credibility | 4 verified numbers with outcome translation |
-| 6 | Spearhead proof | `SpearheadSpotlight` | Live system proof #1 | Wizard Cash Engine as working checkout, not slide deck |
-| 7 | Honesty gate | `BuiltVsPlanned` compact | Trust | Live / Partial / Planned, max 4 rows + link to full map |
-| 8 | Results teaser | `ResultsTeaser` | Proof selection | Problem → System → Effect cards |
-| 9 | System router | `IntentRouter` | Self-segmentation | 8 repos visible, but outcome-first labels |
-| 10 | LOS teaser | `LivingSystemTeaser` | Explain why it works | Simplified Sense → Decide → Act → Learn; full LOS linked |
-| 11 | Governance proof | `BehindTheScenes` / `VCMSProof` | Risk removal | VCMS/HITL proof; screenshots only if real or labelled demo |
-| 12 | Method | `HowIWork` | Delivery confidence | Map → Architect → Build → Verify → Handover |
-| 13 | Trust & objections | `TrustAndObjections` | Remove risk | HITL / EU data / AVG / no lock-in / objections |
-| 14 | Pricing | `Pricing` | Commercial clarity | Same price matrix as `/pricing/` |
-| 15 | Final CTA | `FinalCtaBand` | Close | One L3 action only |
+| 4 | Pain router | `PainGrid` | Recognition | "Choose your leak": inbox, website, quotes, traffic |
+| 5 | Live proof — Wizard | `SpearheadSpotlight` + `SystemMetrics` compact | Live system proof #1 | Wizard Cash Engine LIVE — 4–5 bullets + 1 screenshot, **no terminal mock**, no Mollie/SKU details; 4 verified numbers |
+| 6 | Honesty gate | `BuiltVsPlanned` compact | Trust | **4 rows: Wizard, Jadzia COI, Agent OS, Governance** — de-jargonised capabilities, no LangGraph/Paramiko/Langfuse; link to `/results/owner-ecosystem/` |
+| 7 | Pick your module | `IntentRouter` | Self-segmentation | **6 business-relevant cards** (hide `flex-vcms` + `flexgrafik-meta`); outcome-first labels, 1–2 sentence descriptions, StatusBadge LIVE/PARTIAL, no repo keys/diagrams; filter dims only |
+| 8 | How it works | `HowIWork` | Delivery confidence | Map → Architect → Build → Verify → Handover — benefits (safety, clarity, no lock-in), no "AI agents orchestrate"/"fixed rules" |
+| 9 | Trust + Pricing + Final CTA | `TrustAndObjections` + `Pricing` + `FinalCtaBand` | Close | Trust & Safety ~50% shorter + pricing matrix + strong L3 CTA + "See full architecture →" link to `/results/owner-ecosystem/` (SR-12 governance proof) |
+
+**Removed from home (full content on `/results/owner-ecosystem/`):** `LivingSystemTeaser` (LOS 6 layers), `BehindTheScenes` (VCMS governance details), `ResultsTeaser` (merged into section 6 or removed — proof on `/results/` via Featured card #2).
 
 ### Home chrome
 
 - `SectionProgress`: allowed if non-distracting.
-- `StickyCta`: mobile only, appears after honesty gate.
+- `StickyCta`: mobile only, appears after honesty gate (section 6).
 - Sticky mobile primary: **Ask on WhatsApp**; secondary: **Book Automation Map**.
 - Desktop primary CTA remains **Book Automation Map**.
 

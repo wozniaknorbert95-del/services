@@ -2,7 +2,7 @@
 status: "[ACTIVE]"
 title: "Strategy Rules — Enforceable IA & Funnel"
 owner: "Norbert Wozniak"
-updated: "2026-06-25"
+updated: "2026-06-29"
 classification: "L2 — HARD rules (binding)"
 supersedes: "brain.md §5 (partial)"
 ---
@@ -21,13 +21,13 @@ On violation: cite rule ID, winner doc, proposed fix. Do not ship silent drift.
 
 ## Home & layout
 
-**SR-01 (HARD)** — Home section order is LOCKED to 13 sections in `site-map.md` §3 (buyer-first: pain before deep architecture).  
-*Violation:* Reverting to arch-first order (full LOS at §2) or adding `OwnerEcosystemTeaser` / `SystemArchitecture` SMB pipeline on home.  
-*Source:* site-map §3
+**SR-01 (HARD)** — Home section order is LOCKED to 9 sections in `site-map.md` §3 (buyer-first: pain before deep architecture; de-jargonised per Commander decision `mapa.txt` 2026-06-29).  
+*Violation:* Reverting to 15-section arch-first order, re-adding `LivingSystemTeaser` / `BehindTheScenes` / `ResultsTeaser` as standalone home sections, or adding `OwnerEcosystemTeaser` / `SystemArchitecture` on home.  
+*Source:* site-map §3 (v3.0)
 
-**SR-02 (HARD)** — Forbidden on home until explicit Commander decision: `EcosystemVideo`, second hero rewrite, "AI Systems Architect" label, `SystemArchitecture`, full `OwnerEcosystemTeaser` on home.  
-*Violation:* Re-introducing SMB Visitor→Client pipeline on home or arch-first layout before pain/proof.  
-*Source:* site-map §3–§4 (home contracts); SR-02 anti-patterns above
+**SR-02 (HARD)** — Forbidden on home until explicit Commander decision: `EcosystemVideo`, second hero rewrite, "AI Systems Architect" label, `SystemArchitecture`, full `OwnerEcosystemTeaser`, `LivingSystemTeaser`, `BehindTheScenes`, `ResultsTeaser` (standalone), terminal mock blocks in hero/spearhead, full LOS/8-repo/governance sections. Full LOS + 8-repo + governance details live on `/results/owner-ecosystem/`.  
+*Violation:* Re-introducing SMB Visitor→Client pipeline on home, arch-first layout before pain/proof, or re-adding removed sections.  
+*Source:* site-map §3 (v3.0); SR-02 anti-patterns above; Commander decision `mapa.txt` 2026-06-29
 
 **SR-03 (HARD)** — Anti-chaos: any change to `src/app/page.tsx` or home section order MUST update `site-map.md` §3 in the same session.  
 *Violation:* Merged PR with page.tsx diff and no site-map update.  
@@ -40,8 +40,9 @@ On violation: cite rule ID, winner doc, proposed fix. Do not ship silent drift.
 **SR-05 (HARD)** — Minimum two proof sections before a second L3 on home.  
 *Source:* site-map §2 contracts
 
-**SR-06 (HARD)** — `IntentRouter` always shows all 8 repos (`ECOSYSTEM_REPOS`); intent filter dims only, never hides cards.  
-*Source:* site-map §2, §3
+**SR-06 (HARD)** — `IntentRouter` on home shows 6 business-relevant cards (hide `flex-vcms` + `flexgrafik-meta` per Commander decision `mapa.txt` 2026-06-29); intent filter dims only, never hides cards. Full 8 repos (`ECOSYSTEM_REPOS`) shown on `/results/owner-ecosystem/` and `/founder/`.  
+*Violation:* Showing repo keys/diagrams on home cards, or hiding cards by filter instead of dim.  
+*Source:* site-map §3 (v3.0 #7), ecosystem.ts `ECOSYSTEM_REPOS`
 
 ---
 
@@ -66,8 +67,8 @@ On violation: cite rule ID, winner doc, proposed fix. Do not ship silent drift.
 **SR-11 (HARD)** — `portfolio.flexgrafik.nl` content (enterprise AI) MUST NOT appear on quietforge.  
 *Source:* vision-system §2, marketing-rules MR-12
 
-**SR-12 (HARD)** — quietforge shows governed ecosystem proof (LOS, Built vs Planned, 8-repo map) — not zero-repo zero-jargon mode.  
-*Source:* portfolio truth-sync 2026-06-25
+**SR-12 (HARD)** — quietforge shows governed ecosystem proof: on home = `BuiltVsPlanned` compact (4 rows: Wizard, Jadzia COI, Agent OS, Governance) + "See full architecture →" link in section 9; full LOS + 8-repo + governance details on `/results/owner-ecosystem/`. Not zero-repo mode — governance proof is compact on home, full on owner-ecosystem page.  
+*Source:* site-map §3 (v3.0 #6, #9), portfolio truth-sync 2026-06-25, Commander decision `mapa.txt` 2026-06-29
 
 ---
 
@@ -89,10 +90,10 @@ On violation: cite rule ID, winner doc, proposed fix. Do not ship silent drift.
 
 ## Ecosystem display
 
-**SR-16 (HARD)** — Built vs Planned on home is **compact** (max 4 rows + link to full map on owner-ecosystem); full 8-row table on `/results/owner-ecosystem/`. Data from `readiness.ts` — honest LIVE/PARTIAL/PLANNED labels.  
-*Source:* site-map §3 #5, proof-rules
+**SR-16 (HARD)** — Built vs Planned on home is **compact** (4 rows: Wizard, Jadzia COI, Agent OS, Governance + link to full map on owner-ecosystem); full 8-row table on `/results/owner-ecosystem/`. Data from `readiness.ts` — honest LIVE/PARTIAL/PLANNED labels, de-jargonised capabilities (no LangGraph/Paramiko/Langfuse).  
+*Source:* site-map §3 (v3.0 #6), proof-rules, Commander decision `mapa.txt` 2026-06-29
 
-**SR-17 (SOFT)** — Home arc is buyer-first: pain → proof → honesty gate → architecture teaser — do not revert to full LOS at §2 without Commander + site-map update.
+**SR-17 (SOFT)** — Home arc is buyer-first: pain → proof → honesty gate → module pick → method → close — do not revert to full LOS/architecture sections without Commander + site-map update.
 
 ---
 

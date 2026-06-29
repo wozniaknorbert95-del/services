@@ -1,6 +1,6 @@
 ---
 name: strategy-check
-description: Verify changes comply with the strategy canon for services.flexgrafik.nl — LOCKED home order (site-map §2), intent colors (§4), single-L3 rule, Problem→System→Effect arc, CTA tiers. Flags drift and enforces the anti-chaos rule (update site-map.md when page.tsx changes). Invoke before/after any home or money-page work.
+description: Verify changes comply with the strategy canon for services.flexgrafik.nl — LOCKED home order (site-map §3 v3.0, 9 sections), intent colors (§4), single-L3 rule, Problem→System→Effect arc, CTA tiers, IntentRouter 6 cards on home. Flags drift and enforces the anti-chaos rule (update site-map.md when page.tsx changes). Invoke before/after any home or money-page work.
 ---
 
 # strategy-check — Strategy Canon Compliance
@@ -23,7 +23,7 @@ Invoke this skill when:
 
 ### Step 2 — Check against binding rules
 
-**Home order (site-map §3 — LOCKED):** 13 sections — Hero → PainGrid → SystemMetrics (compact) → SpearheadSpotlight → BuiltVsPlanned (compact) → ResultsTeaser → IntentRouter → LivingSystemTeaser (teaser) → BehindTheScenes → HowIWork → TrustAndObjections → Pricing → FinalCtaBand. Forbidden on home: `EcosystemVideo`, `OwnerEcosystemTeaser`, second hero rewrite, "AI Systems Architect" label, full LOS at §2.
+**Home order (site-map §3 v3.0 — LOCKED):** 9 sections — Hero → DualBrandBand → FeaturedStrip → PainGrid → SpearheadSpotlight+SystemMetrics (compact, no terminal) → BuiltVsPlanned (compact, 4 rows: Wizard/Jadzia/Agent OS/Governance) → IntentRouter (6 business cards, hide flex-vcms + flexgrafik-meta) → HowIWork → TrustAndObjections+Pricing+FinalCtaBand. Forbidden on home: `EcosystemVideo`, `OwnerEcosystemTeaser`, `LivingSystemTeaser`, `BehindTheScenes`, `ResultsTeaser` (standalone), `SystemArchitecture`, second hero rewrite, "AI Systems Architect" label, terminal mock blocks, full LOS/8-repo/governance sections. Full LOS + 8-repo + governance on `/results/owner-ecosystem/`.
 
 **Page arc:** every money page is **Problem → System → Effect**, never Feature → Feature → Feature.
 
@@ -46,7 +46,7 @@ If `src/app/page.tsx` or home section order changed → **`site-map.md` §3 MUST
 
 | Rule | Status | Note |
 |------|--------|------|
-| Home order (site-map §3 LOCKED) | ✅ / ❌ | <deviation> |
+| Home order (site-map §3 v3.0 LOCKED, 9 sections) | ✅ / ❌ | <deviation> |
 | Page arc Problem→System→Effect | ✅ / ❌ | |
 | Single L3 / header = L3 Book | ✅ / ❌ | |
 | Intent badge on every card (§4) | ✅ / ❌ | |
