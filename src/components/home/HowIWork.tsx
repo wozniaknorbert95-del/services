@@ -37,9 +37,9 @@ const PHASES: Phase[] = [
   },
   {
     number: '03',
-    title: 'Build with an AI workforce',
+    title: 'Build',
     description:
-      'The system is assembled by AI agents I orchestrate — planner → coder → tester → review — against fixed rules. That\'s why it\'s faster and leaner than billable hours.',
+      'The system is assembled through a fixed, supervised workflow — faster and leaner than billable hours, with approval gates built in.',
     deliverable: 'working system in a test environment.',
   },
   {
@@ -85,9 +85,9 @@ export default function HowIWork() {
             A method, not a magic trick.
           </h2>
           <p className="mb-[var(--qf-sp-12)] max-w-[var(--qf-maxw-narrow)] text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">
-            Every project runs through the same workflow my own systems use internally — the same
-            one that runs a live multi-agent business. You always know what&apos;s happening, what
-            comes next, and where your approval is required.
+            Every project runs through the same workflow I use for my own business — clarity first,
+            safety by design, no lock-in. You always know what&apos;s happening, what comes next,
+            and where your approval is required.
           </p>
         </motion.div>
 
@@ -151,8 +151,8 @@ export default function HowIWork() {
           transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.2 }).transition}
           className="mt-[var(--qf-sp-8)] max-w-none border-l-2 border-[var(--qf-border)] pl-4 text-sm text-[var(--qf-text-dim)]"
         >
-          This is the same workflow — single source of truth, agent cards, fixed rules — that
-          runs my own production ecosystem. Not a process invented for the brochure.
+          The same workflow runs my own business in production — not a process invented for the
+          brochure. You see how it behaves before you commit to a build.
         </motion.p>
       </div>
     </section>
