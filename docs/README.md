@@ -2,7 +2,7 @@
 status: "[ACTIVE]"
 title: "Knowledge Map — services.flexgrafik.nl"
 owner: "Norbert Wozniak"
-updated: "2026-06-25"
+updated: "2026-06-29"
 classification: "L1 — documentation entry point"
 ---
 
@@ -40,6 +40,7 @@ L5  docs/operations/handoffs/      Session history (archive)
 9. [brain.md](../brain.md) — tech stack, deploy, guardrails
 10. Latest handoff in [operations/handoffs/](./operations/handoffs/) + [SESSION-ANCHOR.md](./operations/SESSION-ANCHOR.md)
 
+**Outbound / LinkedIn add:** [strategy/gtm/README.md](./strategy/gtm/README.md) → [gtm/audits/](./strategy/gtm/audits/linkedin-audit-2026-06-29.md) for live profile baseline  
 **UI work add:** [DESIGN-SYSTEM.md](../DESIGN-SYSTEM.md) + [canons/ux-rules.md](./canons/ux-rules.md)  
 **Proof work add:** [canons/proof-rules.md](./canons/proof-rules.md) + `src/content/proof.ts`  
 **Ecosystem truth add:** [architecture/ecosystem-bridge.md](./architecture/ecosystem-bridge.md) + meta `as-is-inventory.md`
@@ -56,6 +57,8 @@ L5  docs/operations/handoffs/      Session history (archive)
 
 → [canons/vision-system.md](./canons/vision-system.md) (HITL review) → [SESSION-ANCHOR.md](./operations/SESSION-ANCHOR.md) → approve or redirect.
 
+**Marketing / outbound:** [strategy/gtm/README.md](./strategy/gtm/README.md) — dual-brand, LinkedIn, 90-day roadmap (not site IA).
+
 ### Investor / partner
 
 → Live site `quietforge.flexgrafik.nl` → `/results/owner-ecosystem/` → meta [`investor-vision-angel.md`](../../flexgrafik-meta/docs/core/investor-vision-angel.md) → [`living-system-architecture.md`](../../flexgrafik-meta/docs/core/living-system-architecture.md).
@@ -67,7 +70,7 @@ L5  docs/operations/handoffs/      Session history (archive)
 | Folder | Purpose |
 |--------|---------|
 | [canons/](./canons/) | Vision + extracted HARD rules |
-| [strategy/](./strategy/) | Detailed strategy canon (L3) |
+| [strategy/](./strategy/) | Detailed strategy canon (L3) — site IA + [gtm/](./strategy/gtm/README.md) outbound pack |
 | [architecture/](./architecture/) | Bridges to meta + content SSoT |
 | [operations/](./operations/) | Live session pointer + handoffs |
 | [archive/](./archive/) | Audits, plans, legacy — **do not load by default** |

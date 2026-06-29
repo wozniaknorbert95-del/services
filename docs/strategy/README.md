@@ -20,6 +20,9 @@
 | 3 | [conversion-pipeline.md](./conversion-pipeline.md) | User flow, navigation, CTA tiers, qualification |
 | 4 | [ui-ux-principles.md](./ui-ux-principles.md) | Visual hierarchy, section composition, animation policy |
 
+**Outbound / GTM (channels, LinkedIn, roadmap):** [gtm/README.md](./gtm/README.md) — dual-brand, LinkedIn principles, 90-day content plan (documentation only).  
+**LinkedIn audit baseline:** [gtm/audits/linkedin-audit-2026-06-29.md](./gtm/audits/linkedin-audit-2026-06-29.md) + screenshots in `gtm/audits/assets/`.
+
 **Content data:** `src/content/ecosystem.ts` + `src/content/proof.ts` + `src/content/conversion-copy.ts` — see [content-ssot.md](../architecture/content-ssot.md)  
 **Visual tokens:** [DESIGN-SYSTEM.md](../../DESIGN-SYSTEM.md) + `src/app/globals.css`  
 **Project memory:** [brain.md](../../brain.md) (tech stack, deploy only)  
@@ -34,6 +37,16 @@
 **Quietforge** is positioned as a **Conversion Systems Architect** for NL small businesses. The site must answer one question: *"Can this person design and deploy a system that improves my business?"* — not *"Can they build a nice website?"*
 
 Implementation sessions MUST align copy, navigation, and section order to these documents before touching `src/`.
+
+---
+
+## Folder map (strategy layer)
+
+| Path | Purpose |
+|------|---------|
+| `marketing-strategy.md`, `site-map.md`, `conversion-pipeline.md`, `ui-ux-principles.md` | **Site canon** — IA, funnel, UX |
+| [gtm/](./gtm/README.md) | **Outbound** — dual-brand, channels, LinkedIn, content roadmap |
+| [gtm/audits/](./gtm/audits/linkedin-audit-2026-06-29.md) | GTM audits (LinkedIn baseline + assets) |
 
 ---
 
