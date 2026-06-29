@@ -65,13 +65,13 @@ Snapshot after **docs repo professionalization** (Fazy 1–4). Action key: **DON
 
 ---
 
-## Open / Faza 5
+## Open / follow-up
 
-| Item | Action |
+| Item | Status |
 |------|--------|
-| `docs/dla inwestorów.md` | MOVE → `archive/commander-private/` |
-| `docs/New Text Document.txt` | DELETE-CANDIDATE |
-| `docs/wizard video.mp4` | MOVE → `archive/operations/` if present |
+| `docs/dla inwestorów.md` | **N/A** — already absent from repo |
+| `docs/New Text Document.txt` | **N/A** — already absent |
+| `docs/wizard video.mp4` | **DONE** — moved to `docs/archive/operations/wizard-video-source.mp4` (gitignored) |
 | `src/` comments → route-content-patches | **OPEN** — separate session |
 
 ---

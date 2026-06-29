@@ -9,7 +9,7 @@ Session artifacts, legacy wireframes, and completed plans. **Do not load by defa
 | `legacy/` | Filar 2 wireframes, inspiracja pro, workspace snapshots |
 | `reference/` | COMMANDER_PLAN, portfolio-update-plan, AGENT-IMPLEMENTATION-PROMPT, route-content-patches |
 | `commander-private/` | Fundraising / strategic drafts (not site canon) |
-| `operations/` | Archived ops screenshots and artefacts |
+| `operations/` | Archived ops screenshots, artefacts, source video (`wizard-video-source.mp4`, gitignored) |
 
 Active work: [`docs/operations/SESSION-ANCHOR.md`](../operations/SESSION-ANCHOR.md)
 

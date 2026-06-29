@@ -53,9 +53,14 @@ Uporządkować warstwy dokumentacji services repo: site canon vs outbound GTM vs
 
 ---
 
-## Remaining (Faza 5 + follow-up)
+## Faza 5 (cleanup)
 
-- [ ] Faza 5: `dla inwestorów.md`, empty stub, wizard video.mp4
+- `docs/dla inwestorów.md`, `New Text Document.txt` — already absent (prior archive session)
+- `docs/wizard video.mp4` → `docs/archive/operations/wizard-video-source.mp4` (filesystem; gitignored via `docs/*.mp4`)
+- `gtm/08-investor-track.md` → link to `archive/commander-private/`
+
+## Remaining follow-up
+
 - [ ] Osobna sesja: `src/content/pricing.ts` + `solutions/page.tsx` comments → archive path
 - [ ] Push `master` when Commander approves (Zasada 11)
 - [ ] Update `SESSION-ANCHOR.md` on next feature session

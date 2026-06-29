@@ -161,3 +161,4 @@ Szczegóły faz: [06-roadmap-90-days.md](./06-roadmap-90-days.md) Phase 4.
 - [06-roadmap-90-days.md](./06-roadmap-90-days.md) Phase 4
 - [linkedin-audit-2026-06-29.md](./audits/linkedin-audit-2026-06-29.md) — POST 4 analysis
 - [proof-rules.md](../../canons/proof-rules.md) PR-07, PR-08
+- [commander-private README](../../../archive/commander-private/README.md) — fundraising drafts (not site canon)
