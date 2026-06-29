@@ -5,7 +5,7 @@ owner: "Norbert Wozniak"
 updated: "2026-06-29"
 classification: "Operations plan — src/ implementation"
 approved: "Commander HITL 2026-06-29 (GTM pack v2)"
-executed: "2026-06-29 — S1–S4 complete, commits de22608 + pending S2–S4"
+executed: "2026-06-29 — S1–S4 complete (de22608, 98727a0)"
 upstream:
   - "../../strategy/gtm/README.md"
   - "../../strategy/site-map.md"
