@@ -1,5 +1,5 @@
 ---
-status: "[VERIFIED — COMMANDER SIGN-OFF PENDING]"
+status: "[CLOSED — M0.2 OK 2026-06-29]"
 title: "Homepage GTM Critical Path — Faza 0"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
@@ -7,8 +7,10 @@ classification: "Operations plan — src/ implementation"
 approved: "Commander HITL 2026-06-29 (GTM pack v2)"
 executed: "2026-06-29 — kod S1–S4 shipped"
 deploy_commit: "c363d1f"
-verified: "2026-06-29 — agent prod smoke PASS (2 uwagi P2)"
+verified: "2026-06-29 — agent prod smoke PASS (B2 partial, 4 uwagi P2/P3 → Faza B)"
 verify_plan: "./2026-06-29-homepage-gtm-verify-action.md"
+commander_signoff: "M0.2 OK — 2026-06-29 (commit 8d6af0a)"
+closed: "2026-06-29 — M0.2 CLOSED"
 upstream:
   - "../../strategy/gtm/README.md"
   - "../../strategy/site-map.md"
@@ -18,17 +20,17 @@ upstream:
 
 # Homepage GTM Critical Path — Faza 0
 
-> **Stan:** Produkcja live · Agent smoke **PASS** (2026-06-29) · **Commander sign-off V1** → potem M1.1
+> **Stan:** Produkcja live · Agent smoke **PASS** · **Commander sign-off M0.2 OK** (2026-06-29, commit `8d6af0a`) · **M0.2 CLOSED** → V2 LinkedIn Featured → M1.1
 
 ---
 
-## Wynik weryfikacji agenta (2026-06-29)
+## Wynik weryfikacji agenta + Commander sign-off (2026-06-29)
 
-| B1–B7 | B8 sticky | C LinkedIn |
-|-------|-----------|------------|
-| ✅ PASS (B2 partial — hero L3 na krawędzi mobile; header L3 OK) | ⏳ scroll manual | ⏳ Commander |
+| B1–B7 | B8 sticky | C LinkedIn | Commander |
+|-------|-----------|------------|-----------|
+| ✅ PASS (B2 partial — hero L3 na krawędzi mobile; header L3 OK) | ⏳ scroll manual | ⏳ V2 | ✅ **M0.2 OK** |
 
-Szczegóły: [verify-action plan](./2026-06-29-homepage-gtm-verify-action.md)
+Szczegóły: [verify-action plan](./2026-06-29-homepage-gtm-verify-action.md) · Sign-off commit: `8d6af0a`
 
 ---
 
@@ -40,9 +42,10 @@ Szczegóły: [verify-action plan](./2026-06-29-homepage-gtm-verify-action.md)
 | Faza 0 kod (0.1–0.7) | ✅ DONE w repo | Agent — commity `de22608`, `98727a0` |
 | Build / typecheck | ✅ PASS lokalnie | Agent |
 | Deploy produkcja | ✅ LIVE | Agent — fetch + browser 2026-06-29 |
-| Smoke test 5s (live) | ✅ PASS (B2 partial) | Agent CDP; Commander V1.1 potwierdza |
-| LinkedIn Featured mirror | ⏳ **MANUAL** | Commander V2 |
-| Pierwszy post B2B (M1.1) | 🔓 **READY** po V1.5 sign-off | [verify-action](./2026-06-29-homepage-gtm-verify-action.md) |
+| Smoke test 5s (live) | ✅ PASS (B2 partial) | Agent CDP + Commander V1.1–V1.5 |
+| Commander sign-off (M0.2) | ✅ **M0.2 OK** (2026-06-29, `8d6af0a`) | Commander |
+| LinkedIn Featured mirror (V2) | ⏳ **MANUAL — P0 next** | Commander V2 |
+| Pierwszy post B2B (M1.1) | 🔓 **READY** (po V2) | [verify-action](./2026-06-29-homepage-gtm-verify-action.md) |
 
 ---
 
@@ -209,13 +212,17 @@ Wykonaj na **https://quietforge.flexgrafik.nl/** po deploy Vercel:
 | Spójność post ↔ home | N/A | ⏳ po LI Featured |
 | Investor język off home | ✅ (home) | ✅ |
 
-**Gate M0.2:** Agent = PASS · Commander sign-off V1.5 → M1.1 unlocked.
+**Gate M0.2:** Agent = PASS · Commander sign-off V1.5 ✅ **DONE** (2026-06-29) → M1.1 unlocked (po V2 LinkedIn Featured).
 
 ---
 
 ## Commity (referencja)
 
 ```
+8d6af0a docs(gtm): M0.2 Commander sign-off — unlock M1.1 Inbox Killer publish pack
+271c31b docs(gtm): sync gap tables with prod verification results
+6c2068b docs(plan): M0.2 prod verification results + action plan for M1.1
+c363d1f docs(plan): Homepage GTM Critical Path — done vs verify checklist (M0.2)
 3933c30 docs(handoff): homepage GTM Faza 0 complete — M0.2 ready for deploy
 98727a0 feat(home): complete GTM Faza 0 S2–S4 — hero, badges, IntentRouter
 de22608 feat(home): S1 — DualBrandBand + FeaturedStrip (GTM Faza 0)
@@ -227,10 +234,10 @@ de22608 feat(home): S1 — DualBrandBand + FeaturedStrip (GTM Faza 0)
 
 ## Po weryfikacji — następne kroki
 
-1. Commander zaznacza B1–B8 + C1–C4 (powyżej)
-2. **M1.5** — LinkedIn Featured live
-3. **M1.1** — post P1 Inbox Killer ([07-playbook #1](../../strategy/gtm/07-post-playbook.md))
-4. Opcjonalnie Faza B: Spearhead de-jargon, StickyCta amendment, pricing SSoT
+1. ~~Commander zaznacza B1–B8 + C1–C4~~ → **B1–B8 + V1.5 DONE** (M0.2 OK 2026-06-29); C1–C4 = V2 poniżej
+2. **V2** — LinkedIn Featured live (3 URL + Services €290) — Commander manual, ~10 min
+3. **M1.1** — post P1 Inbox Killer ([07-playbook #1](../../strategy/gtm/07-post-playbook.md)) — copy-paste: [`plans/2026-06-29-m1-inbox-killer-post.md`](./2026-06-29-m1-inbox-killer-post.md)
+4. Opcjonalnie Faza B: W1 ResultsTeaser de-jargon, W2 Spearhead terminal, W3 BuiltVsPlanned copy, W4 StickyCta Map-primary + site-map §3 amendment
 
 ---
 
@@ -243,4 +250,4 @@ de22608 feat(home): S1 — DualBrandBand + FeaturedStrip (GTM Faza 0)
 
 ---
 
-*Plan approved: 2026-06-29 · Executed: 2026-06-29 · Deploy: `3933c30` · Next gate: Commander smoke B1–B8*
+*Plan approved: 2026-06-29 · Executed: 2026-06-29 · Deploy: `3933c30` · M0.2 CLOSED: 2026-06-29 (`8d6af0a`) · Next gate: V2 LinkedIn Featured → M1.1*
