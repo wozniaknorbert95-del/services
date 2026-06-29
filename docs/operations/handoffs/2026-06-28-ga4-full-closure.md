@@ -46,7 +46,7 @@ Domknąć GA4 Quietforge bez półśrodków: property `543331587`, measurement `
 | `package.json` | `ga4:smoke`, `ga4:audit`, `ga4:gate` |
 | `config/ga4-quietforge.ids.json` | update |
 | `docs/architecture/ga4-property-map.md` | update — cutover COMPLETE |
-| `docs/operations/ga4-audit-2026-06-28-quietforge.json` | audit + MCP snapshot |
+| `docs/operations/artefacts/ga4-audit-2026-06-28-quietforge.json` | audit + MCP snapshot |
 | `docs/operations/handoffs/2026-06-28-ga4-full-closure.md` | this file |
 
 ## Weryfikacja / Verification
@@ -83,7 +83,7 @@ Lub: `node scripts/ga4-create-exploration.mjs` (zalogowany Chrome).
 GOOGLE_APPLICATION_CREDENTIALS=~/.config/quietforge-ga-sa.json npm run ga4:gate
 ```
 
-Prompt: [`RESTART-PROMPT-GA4-MCP.md`](../RESTART-PROMPT-GA4-MCP.md) · property **543331587**.
+Prompt: [`RESTART-PROMPT-GA4-MCP.md`](../runbooks/RESTART-PROMPT-GA4-MCP.md) · property **543331587**.
 
 ## Następny krok / Next steps
 

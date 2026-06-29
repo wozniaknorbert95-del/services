@@ -42,7 +42,7 @@ rg '14 leads' src/               # expect 0 (PR-07)
 
 ## Commander next
 
-1. ~~BL-02~~ → **partial** — see [`commercial-traction-2026-06-25.md`](../commercial-traction-2026-06-25.md) (private; public UNKNOWN)
+1. ~~BL-02~~ → **partial** — see [`../commander/commercial-traction-2026-06-25.md`](../commander/commercial-traction-2026-06-25.md) (private; public UNKNOWN)
 2. Record wizard Loom → [`bl03-wizard-video-commander.md`](./2026-06-25-bl03-wizard-video-commander.md)
 3. Outbound when BL-03 + partner alignment — [`07-remediation-plan-dod.md`](../audits/2026-06-25/07-remediation-plan-dod.md)
 

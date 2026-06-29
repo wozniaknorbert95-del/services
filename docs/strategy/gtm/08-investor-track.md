@@ -39,7 +39,7 @@ Start publicznej serii investor **nie wcześniej niż:**
 |------|-----------|--------|
 | G1 | Min. **8** postów Track A z quietforge CTA | Do zrobienia ([06-roadmap](./06-roadmap-90-days.md) M3.2) |
 | G2 | Feed B2B ≥ **80%** slotów P1–P4 (rolling 4 tyg.) | Do zrobienia |
-| G3 | Commercial traction ≥ **3** metryki Commander | UNKNOWN — [PR-08](../../operations/commercial-traction-template.md) |
+| G3 | Commercial traction ≥ **3** metryki Commander | UNKNOWN — [PR-08](../../operations/commander/commercial-traction-template.md) |
 | G4 | Investor deck / one-pager | UNKNOWN |
 | G5 | Świadoma decyzja Commander: start serii | Pending |
 

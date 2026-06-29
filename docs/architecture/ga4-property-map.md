@@ -81,7 +81,7 @@ Deferred: `book_payment_start`, `book_payment_complete`
 | `scripts/ga4-prod-smoke.mjs` | `G-LY0E7MW0HF` |
 | `scripts/ga4-api-audit.py` | `543331587` |
 | `config/ga4-quietforge.ids.json` | full ID bundle |
-| `docs/operations/RESTART-PROMPT-GA4-MCP.md` | property + measurement |
+| `docs/operations/runbooks/RESTART-PROMPT-GA4-MCP.md` | property + measurement |
 | `brain.md` §5 env table | measurement + property |
 
 ---

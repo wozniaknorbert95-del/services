@@ -11,7 +11,7 @@
 ## Co zrobiono / What changed
 
 - **Git ship:** commit + push wszystkich plików GA4 split (SSoT, skrypty smoke/audit, handoffs, plan EXECUTED, ops-rules, SESSION-ANCHOR).
-- **UX audit:** pełny audyt P0/P1/P2 na kanonach + `src/` → [`docs/audits/2026-06-26-ux-ui-pro-audit.md`](../../audits/2026-06-26-ux-ui-pro-audit.md).
+- **UX audit:** pełny audyt P0/P1/P2 na kanonach + `src/` → [`docs/audits/2026-06-26/ux-ui-pro-audit.md`](../../audits/2026-06-26/ux-ui-pro-audit.md).
 - **Werdykt audytu:** Book Discovery P0 z 25.06 naprawiony w kodzie; następny skok = Pain Grid + dyscyplina CTA w top funnel.
 - **Deploy:** auto via push `master` → Vercel (env `G-LY0E7MW0HF` już ustawione w poprzedniej sesji).
 
@@ -27,13 +27,13 @@
 | `scripts/ga4-provision-ui.mjs` | new |
 | `scripts/launch-chrome-devtools.ps1` | new — MCP Chrome helper |
 | `scripts/setup-ga-mcp-credentials.ps1` | update |
-| `docs/operations/RESTART-PROMPT-GA4-MCP.md` | update |
+| `docs/operations/runbooks/RESTART-PROMPT-GA4-MCP.md` | update |
 | `docs/operations/SESSION-ANCHOR.md` | update — CLOSED |
 | `docs/operations/plans/2026-06-26-ga4-quietforge-property-split.md` | new — EXECUTED |
 | `docs/operations/handoffs/2026-06-26-ga4-*.md` | new — split + closure |
-| `docs/operations/ga4-audit-2026-06-26*.json` | new — audit output |
+| `docs/operations/artefacts/ga4-audit-2026-06-26*.json` | new — audit output |
 | `docs/canons/ops-rules.md` | new |
-| `docs/audits/2026-06-26-ux-ui-pro-audit.md` | new — UX audit |
+| `docs/audits/2026-06-26/ux-ui-pro-audit.md` | new — UX audit |
 | `docs/operations/handoffs/2026-06-26-git-ship-ux-audit.md` | new — this file |
 | `brain.md`, `AGENTS.md`, `docs/canons/README.md` | update |
 | `docs/strategy/conversion-pipeline.md` | minor update |
@@ -52,7 +52,7 @@ node scripts/ga4-prod-smoke.mjs   # PASS (prod G-LY0E7MW0HF) — run post-push
 1. `node scripts/ga4-prod-smoke.mjs` → PASS, tylko `G-LY0E7MW0HF` w prod HTML.
 2. Live `/` — 13 sekcji home, sticky CTA po built-vs-planned (mobile).
 3. Vercel Production: `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-LY0E7MW0HF` (już ustawione).
-4. Weekly: [`RESTART-PROMPT-GA4-MCP.md`](../RESTART-PROMPT-GA4-MCP.md) na property **543331587**.
+4. Weekly: [`RESTART-PROMPT-GA4-MCP.md`](../runbooks/RESTART-PROMPT-GA4-MCP.md) na property **543331587**.
 
 ## Następny krok / Next steps
 

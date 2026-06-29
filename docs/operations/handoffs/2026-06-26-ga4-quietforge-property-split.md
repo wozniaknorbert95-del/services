@@ -35,8 +35,8 @@ Osobna usługa GA4 **Quietforge** — selektor GA pokazuje „Quietforge”, pro
 | `scripts/ga4-prod-smoke.mjs` | new — smoke `G-LY0E7MW0HF` |
 | `scripts/ga4-api-audit.py` | new — audit property `543331587` |
 | `scripts/setup-ga-mcp-credentials.ps1` | update — Quietforge property URL |
-| `docs/operations/RESTART-PROMPT-GA4-MCP.md` | update — new IDs |
-| `docs/operations/ga4-audit-2026-06-26-quietforge.json` | new — audit output |
+| `docs/operations/runbooks/RESTART-PROMPT-GA4-MCP.md` | update — new IDs |
+| `docs/operations/artefacts/ga4-audit-2026-06-26-quietforge.json` | new — audit output |
 | `docs/canons/ops-rules.md` | new — OR-01..OR-05 |
 | `brain.md` | update — env table |
 | `docs/operations/plans/2026-06-26-ga4-quietforge-property-split.md` | EXECUTED |
@@ -66,4 +66,4 @@ python scripts/ga4-api-audit.py   # exit 0 — property 543331587, location dim,
 
 ## Weekly (jedyna rekomendacja)
 
-Po 48h lag: uruchom prompt z [`RESTART-PROMPT-GA4-MCP.md`](../RESTART-PROMPT-GA4-MCP.md) — sprawdź canon events na property **543331587** (nie App).
+Po 48h lag: uruchom prompt z [`RESTART-PROMPT-GA4-MCP.md`](../runbooks/RESTART-PROMPT-GA4-MCP.md) — sprawdź canon events na property **543331587** (nie App).

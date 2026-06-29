@@ -103,7 +103,7 @@ Wszystkie linki z LinkedIn do quietforge:
 |------|--------|-----------------|
 | FB/TikTok/GMB cadence | UNKNOWN | Docelowy rytm postów consumer |
 | GA4 attribution per channel | UNKNOWN | Czy osobne UTM na FB vs LI |
-| Commercial traction z LinkedIn | UNKNOWN | [commercial-traction-template.md](../../operations/commercial-traction-template.md) PR-08 |
+| Commercial traction z LinkedIn | UNKNOWN | [commercial-traction-template.md](../../operations/commander/commercial-traction-template.md) PR-08 |
 
 ---
 

@@ -42,7 +42,7 @@ Bez faz wracasz do „jednego wiralowego posta o funding” co kwartał — zero
 | Post impressions (7d) | 531 | audyt |
 | Connections | 16 | audyt |
 | Posty z quietforge CTA | 0 / 9 | audyt |
-| Commercial traction public | UNKNOWN | [PR-08](../../operations/commercial-traction-template.md) |
+| Commercial traction public | UNKNOWN | [PR-08](../../operations/commander/commercial-traction-template.md) |
 
 ---
 

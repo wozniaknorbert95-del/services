@@ -34,7 +34,7 @@ rg '\[FILL:' src/   # 0 matches
 1. **`/solutions/sales-funnel/`** — video plays; journey ends Stap 9 checkout; **no client PII** in form fields
 2. **`GET /gratka/wizard-demo.mp4`** — HTTP 200, ~98s, visible UI changes (not static)
 3. **`/results/sales-funnel/`** — same video slot if wired
-4. If unacceptable → `ready: false` + re-record per [`wizard-video-manual.md`](../wizard-video-manual.md)
+4. If unacceptable → `ready: false` + re-record per [`wizard-video-manual.md`](../runbooks/wizard-video-manual.md)
 
 ## Następny krok / Next steps
 

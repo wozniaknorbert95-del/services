@@ -4,7 +4,7 @@
 **Scope:** Five pending video slots (`wizard`, `inboxKiller`, `ecosystem`, `leadMagnet`, `founder`)  
 **Done (reference):** `agentOs`, `vcms` — self-hosted MP4 in `public/gratka/`  
 **Policy:** **No Loom.** Self-hosted MP4 only (same pattern as `vcms-demo.mp4`).  
-**Handoffs:** [BL-03 wizard](./handoffs/2026-06-25-bl03-wizard-video-commander.md) · [BL-03b inbox](./handoffs/2026-06-25-bl03b-inbox-video-commander.md)
+**Handoffs:** [BL-03 wizard](../handoffs/2026-06-25-bl03-wizard-video-commander.md) · [BL-03b inbox](../handoffs/2026-06-25-bl03b-inbox-video-commander.md)
 
 ---
 
@@ -12,7 +12,7 @@
 
 | Key | Priority | Target | Filename | Pages (today) | Status |
 |-----|----------|--------|----------|---------------|--------|
-| `wizard` | **P0** | 45–60s | `wizard-demo.mp4` | `/solutions/sales-funnel/`, `/results/sales-funnel/` | **manual OBS** — [`wizard-video-manual.md`](./wizard-video-manual.md) |
+| `wizard` | **P0** | 45–60s | `wizard-demo.mp4` | `/solutions/sales-funnel/`, `/results/sales-funnel/` | **manual OBS** — [`wizard-video-manual.md`](../runbooks/wizard-video-manual.md) |
 | `inboxKiller` | **P0** | 60s | `inbox-killer-demo.mp4` | `/solutions/inbox-killer/`, `/results/inbox-killer/`, `/results/jadzia-coi/` | BL-03b open |
 | `ecosystem` | **P1** | 90s | `ecosystem-demo.mp4` | *Not wired yet* — future: `/results/owner-ecosystem/`, home Phase B | Manifest only |
 | `leadMagnet` | **P1** | 45s | `lead-magnet-demo.mp4` | `/results/lead-magnet/` | Poster ready |
@@ -30,7 +30,7 @@
 
 ## Reference — how VCMS was done (mirror this close)
 
-Source: `flex-vcms/docs/VCMS_DEMO_SCRIPT.md`, [2026-06-17 VCMS presentation handoff](./handoffs/2026-06-17-vcms-presentation.md).
+Source: `flex-vcms/docs/VCMS_DEMO_SCRIPT.md`, [2026-06-17 VCMS presentation handoff](../handoffs/2026-06-17-vcms-presentation.md).
 
 | Step | Who | Action |
 |------|-----|--------|
@@ -46,7 +46,7 @@ Source: `flex-vcms/docs/VCMS_DEMO_SCRIPT.md`, [2026-06-17 VCMS presentation hand
 
 **Agent OS (done):** `public/gratka/agent-os-demo.mp4` — 60s automated demo from `agent-os` portfolio pack; same self-host + `ready: true` pattern.
 
-**Pending five videos:** **Commander manual OBS / Win+G only** — see [`wizard-video-manual.md`](./wizard-video-manual.md). Playwright `record:*` scripts are **deprecated** (failed quality gate on wizard).
+**Pending five videos:** **Commander manual OBS / Win+G only** — see [`wizard-video-manual.md`](../runbooks/wizard-video-manual.md). Playwright `record:*` scripts are **deprecated** (failed quality gate on wizard).
 
 ---
 

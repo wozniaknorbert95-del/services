@@ -79,7 +79,7 @@ Wynik 2026-06-28: `traffic_28d`, `canon_events_28d`, `realtime` → **0 rows** (
 
 ### Faza D — Monitoring (weekly)
 
-- Prompt z `docs/operations/RESTART-PROMPT-GA4-MCP.md` na property **543331587**
+- Prompt z `docs/operations/runbooks/RESTART-PROMPT-GA4-MCP.md` na property **543331587**
 - Canon events: `cta_book_map_click`, `intake_submit`, `pricing_view`, `book_discovery_view`
 
 ---

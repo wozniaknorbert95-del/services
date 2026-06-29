@@ -20,13 +20,13 @@ Close the post-E-6 audit remediation program (solutions SSoT, proof integrity, B
 
 ### BL-02 commercial traction (Commander policy)
 
-- [`commercial-traction-2026-06-25.md`](../commercial-traction-2026-06-25.md) — public **UNKNOWN**; historical AOV €250–550 private note only
+- [`commercial-traction-2026-06-25.md`](../commander/commercial-traction-2026-06-25.md) — public **UNKNOWN**; historical AOV €250–550 private note only
 - No fabricated client counts on site (PR-07/PR-08)
 
 ### Video program
 
 - [`video-production-plan-2026-06-25.md`](../video-production-plan-2026-06-25.md) — self-hosted MP4 (VCMS pattern)
-- [`wizard-video-manual.md`](../wizard-video-manual.md) — Commander OBS fallback if auto quality rejected
+- [`wizard-video-manual.md`](../runbooks/wizard-video-manual.md) — Commander OBS fallback if auto quality rejected
 - Wizard v1 auto-capture **rejected** (static screen) → revert `12c9210`
 - Wizard v2 Playwright script — full funnel to Stap 9 checkout → `wizard-demo.mp4` 68s → `d08baa2`
 - `npm run record:*` **removed** from `package.json` (Commander prefers manual for remaining slots unless v2 approved)
@@ -45,8 +45,8 @@ Close the post-E-6 audit remediation program (solutions SSoT, proof integrity, B
 | `public/gratka/wizard-demo.mp4` | replace — v2 full-funnel (~7.8 MB) |
 | `scripts/record-wizard-demo.mjs` | rewrite — v2 funnel (optional re-run) |
 | `docs/audits/2026-06-25/*` | new — audit + remediation DoD |
-| `docs/operations/commercial-traction-2026-06-25.md` | new |
-| `docs/operations/wizard-video-manual.md` | new |
+| `docs/operations/commander/commercial-traction-2026-06-25.md` | new |
+| `docs/operations/runbooks/wizard-video-manual.md` | new |
 
 ## Weryfikacja / Verification
 

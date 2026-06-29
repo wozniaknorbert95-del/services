@@ -141,7 +141,7 @@ Szczegóły: [08-investor-track.md](./08-investor-track.md)
 | Ticket size / pre-money (angel) | Tylko prywatny deck / DM — nie w GTM docs bez sign-off |
 | Named investor persona (NL vs EU vs PL diaspora) | Doprecyzuje ton serii D |
 
-Template: [commercial-traction-template.md](../../operations/commercial-traction-template.md)
+Template: [commercial-traction-template.md](../../operations/commander/commercial-traction-template.md)
 
 ---
 

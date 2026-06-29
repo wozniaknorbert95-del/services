@@ -13,7 +13,7 @@ Commercial scale **not launched** — partner alignment in progress.
 |------|-------------|
 | No invented client counts on live site | e.g. forbidden: "15 clients" |
 | No fake GMV / conversion % on public pages | PR-07 |
-| Historical order economics | **Private only** — [`commercial-traction-2026-06-25.md`](../operations/commercial-traction-2026-06-25.md) |
+| Historical order economics | **Private only** — [`commercial-traction-2026-06-25.md`](../../operations/commander/commercial-traction-2026-06-25.md) |
 | Typical own-business AOV | €250–€550 (print/wizard) — **not** public traction claim |
 | Higher tier mix | ~1/4 at ~€1.490 framing — pricing alignment only, not portfolio proof |
 | Public pricing tiers | Allowed — structure, not traction |
@@ -25,7 +25,7 @@ Commercial scale **not launched** — partner alignment in progress.
 
 ## FIND-01 · BL-02 — Commercial traction
 
-**Owner:** Commander · **Notes:** [`commercial-traction-2026-06-25.md`](../operations/commercial-traction-2026-06-25.md)
+**Owner:** Commander · **Notes:** [`commercial-traction-2026-06-25.md`](../../operations/commander/commercial-traction-2026-06-25.md)
 
 - [x] PR-08 template + Commander private snapshot (honest UNKNOWN public)
 - [x] Pre-launch policy documented (this section)

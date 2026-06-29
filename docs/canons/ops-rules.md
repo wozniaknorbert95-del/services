@@ -51,7 +51,7 @@ Pattern: one product surface → one measurable boundary (Google Analytics 4 pro
 | Rule | Detail |
 |------|--------|
 | **Trigger** | New stream, new property, measurement ID change, MCP SA scope change. |
-| **Required** | Update `ga4-property-map.md`, `brain.md` §5 env table, `scripts/ga4-*`, `RESTART-PROMPT-GA4-MCP.md` in **same session**. |
+| **Required** | Update `ga4-property-map.md`, `brain.md` §5 env table, `scripts/ga4-*`, `docs/operations/runbooks/RESTART-PROMPT-GA4-MCP.md` in **same session**. |
 
 ---
 
