@@ -200,16 +200,16 @@ Wykonaj na **https://quietforge.flexgrafik.nl/** po deploy Vercel:
 
 | Wymaganie | Stan kod | Stan prod (VERIFY) |
 |-----------|----------|-------------------|
-| Dual-brand band | ✅ | ⏳ B3 |
-| Problem → System → Effect hero | ✅ | ⏳ B5 |
-| De-jargon above fold | ✅ | ⏳ B5 |
-| Featured paths | ✅ | ⏳ B4 + C1–C3 |
-| LIVE/PARTIAL badges | ✅ | ⏳ B6 |
-| L3 Map first screen | ✅ hero+featured | ⏳ B2 |
-| Spójność post ↔ home | N/A | ⏳ po C1–C4 |
-| Investor język off home | ✅ (home) | ⏳ /founder/ deep — low risk |
+| Dual-brand band | ✅ | ✅ B3 |
+| Problem → System → Effect hero | ✅ | ✅ B5 |
+| De-jargon above fold | ✅ | ✅ (W1 Faza B below fold) |
+| Featured paths | ✅ | ✅ B4 |
+| LIVE/PARTIAL badges | ✅ | ✅ B6 |
+| L3 Map first screen | ✅ hero+featured | ⚠️ B2 partial |
+| Spójność post ↔ home | N/A | ⏳ po LI Featured |
+| Investor język off home | ✅ (home) | ✅ |
 
-**Gate M0.2 DONE:** wszystkie **B1–B8** = ✓ → dopiero wtedy **M1.1** pierwszy post B2B.
+**Gate M0.2:** Agent = PASS · Commander sign-off V1.5 → M1.1 unlocked.
 
 ---
 

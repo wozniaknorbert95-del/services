@@ -73,16 +73,16 @@ parent: "../README.md"
 
 | Wymaganie (GTM v2) | Gdzie w docs | Stan kod (2026-06-29) | VERIFY prod (Commander) |
 |--------------------|--------------|----------------------|-------------------------|
-| Dual-brand band (QF sell / FG proof) | `01`, `03` P5 | ✅ `DualBrandBand` | ⏳ B3 |
-| Problem → System → Effect w hero | `04`, `05` P1 | ✅ `HERO.beats` + ResultsTeaser | ⏳ B5 |
-| De-jargon above fold (no 8-repo, terminal) | `03`, `04` | ✅ hero; spearhead terminal below fold | ⏳ B5 |
-| Featured paths (Map, /results/, how-it-works) | `02`, `03` P2 | ✅ `FeaturedStrip` | ⏳ B4 + LI Featured |
-| LIVE/PARTIAL na modułach | `05` P1, proof-rules | ✅ IntentRouter + Spearhead | ⏳ B6 |
-| L3 Map na pierwszym ekranie | `02`, conversion-pipeline | ✅ hero + Featured | ⏳ B2 mobile |
+| Dual-brand band (QF sell / FG proof) | `01`, `03` P5 | ✅ `DualBrandBand` | ✅ B3 |
+| Problem → System → Effect w hero | `04`, `05` P1 | ✅ `HERO.beats` + ResultsTeaser | ✅ B5 |
+| De-jargon above fold (no 8-repo, terminal) | `03`, `04` | ✅ hero; spearhead terminal below fold | ✅ B5 (W1 Faza B) |
+| Featured paths (Map, /results/, how-it-works) | `02`, `03` P2 | ✅ `FeaturedStrip` | ✅ B4 |
+| LIVE/PARTIAL na modułach | `05` P1, proof-rules | ✅ IntentRouter + Spearhead | ✅ B6 |
+| L3 Map na pierwszym ekranie | `02`, conversion-pipeline | ✅ hero + Featured | ⚠️ B2 partial |
 | Spójność post ↔ home | `07` checklist | N/A proces | ⏳ po LI Featured |
-| Investor język off home | `04`, `08` | ✅ home OK | ⏳ /founder/ low risk |
+| Investor język off home | `04`, `08` | ✅ home OK | ✅ |
 
-**Legenda:** ✅ = w repo/master · ⏳ = smoke test na quietforge.flexgrafik.nl · Gate M0.2 = wszystkie VERIFY przed M1.1.
+**Legenda:** ✅ = w repo + prod verified · ⚠️ = partial · ⏳ = Commander manual · Gate M0.2 = V1 sign-off → M1.1.
 
 ---
 
