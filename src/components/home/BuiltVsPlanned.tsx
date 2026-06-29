@@ -7,11 +7,10 @@ import StatusBadge from '@/components/ui/StatusBadge';
 import {
   READINESS_HEADER,
   READINESS_ROWS,
+  getHomeReadinessRows,
   type ReadinessStatus,
 } from '@/content/readiness';
 import { ROUTES } from '@/lib/constants';
-
-const COMPACT_ROW_LIMIT = 4;
 
 interface BuiltVsPlannedProps {
   variant?: 'default' | 'compact';
@@ -19,13 +18,14 @@ interface BuiltVsPlannedProps {
 
 /**
  * Built vs Planned readiness table — honest inventory per repo.
- * Compact on home (max 4 rows); full table on owner-ecosystem.
+ * Compact on home (4 rows per site-map §3 v3.0: Wizard, Jadzia COI, Agent OS, Governance);
+ * full 8-row table on owner-ecosystem.
  */
 export default function BuiltVsPlanned({ variant = 'default' }: BuiltVsPlannedProps) {
   const motionCfg = useMotion();
   const fade = motionCfg.fadeIn();
   const isCompact = variant === 'compact';
-  const rows = isCompact ? READINESS_ROWS.slice(0, COMPACT_ROW_LIMIT) : READINESS_ROWS;
+  const rows = isCompact ? getHomeReadinessRows() : READINESS_ROWS;
 
   return (
     <section
@@ -60,7 +60,7 @@ export default function BuiltVsPlanned({ variant = 'default' }: BuiltVsPlannedPr
                   <p className="font-semibold text-[var(--qf-text)]">{row.module}</p>
                   <StatusBadge status={row.status as ReadinessStatus} />
                 </div>
-                <p className="text-sm text-[var(--qf-text-dim)]">{row.capability}</p>
+                <p className="text-sm text-[var(--qf-text-dim)]">{row.homeCapability ?? row.capability}</p>
               </div>
             ))}
           </div>

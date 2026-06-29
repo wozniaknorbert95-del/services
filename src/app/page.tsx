@@ -6,7 +6,6 @@ import PainGrid from '@/components/home/PainGrid';
 import SpearheadSpotlight from '@/components/home/SpearheadSpotlight';
 import SystemMetrics from '@/components/home/SystemMetrics';
 import BuiltVsPlanned from '@/components/home/BuiltVsPlanned';
-import ResultsTeaser from '@/components/home/ResultsTeaser';
 import IntentRouter from '@/components/home/IntentRouter';
 import HowIWork from '@/components/home/HowIWork';
 import TrustAndObjections from '@/components/home/TrustAndObjections';
@@ -54,7 +53,6 @@ export default function Home() {
         <SpearheadSpotlight />
         <SystemMetrics variant="compact" />
         <BuiltVsPlanned variant="compact" />
-        <ResultsTeaser />
         <IntentRouter />
         <HowIWork />
         <TrustAndObjections />
