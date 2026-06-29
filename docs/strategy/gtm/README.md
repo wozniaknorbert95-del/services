@@ -30,7 +30,7 @@ parent: "../README.md"
 | **Homepage vs GTM** | ROZJAZD | Strona mówi „8-repo / terminal”; GTM mówi Problem→System→Effect |
 | **Book Discovery** | P0 drift | Copy „pay & slot” vs formularz enquiry — naprawa osobna (site-map / funnel) |
 
-**Jedno zdanie:** Dokumenty GTM v2 opisują **docelowy stan**; homepage **jeszcze go nie realizuje**. Najpierw synchronizujemy ten pack, potem kod (Faza 0 implementacja — defer).
+**Jedno zdanie:** GTM pack v2 = spec · **Faza 0 kod shipped** (`3933c30`) · **VERIFY na produkcji** (plan: [homepage-gtm-faza-0.md](../../operations/plans/2026-06-29-homepage-gtm-faza-0.md)) przed postami LinkedIn M1.1.
 
 ---
 
@@ -71,18 +71,18 @@ parent: "../README.md"
 
 ## Co wymaga aktualizacji: dokumenty vs strona (SSoT gap)
 
-| Wymaganie (GTM v2) | Gdzie w docs | Stan na stronie (2026-06-29) | Priorytet naprawy |
-|--------------------|--------------|------------------------------|-------------------|
-| Dual-brand band (QF sell / FG proof) | `01`, `03` P5 | Brak dedykowanej sekcji; tylko microTrust | P0 |
-| Problem → System → Effect w hero | `04`, `05` P1 | H1 outcome OK; brak 3-beat; ResultsTeaser bez P→S→E | P0 |
-| De-jargon above fold (no 8-repo, terminal) | `03`, `04` | Hero: terminal mock, „8-repo governance” strip | P0 |
-| Featured paths (Map, /results/, wizard) | `02`, `03` P2 | Rozproszone CTAs; brak 3-card strip | P0 |
-| LIVE/PARTIAL na modułach | `05` P1, proof-rules | BuiltVsPlanned OK (4); IntentRouter bez badge | P1 |
-| L3 Map na pierwszym ekranie | `02`, conversion-pipeline | Hero ma L3; mobile sticky dopiero po sekcji 5 | P1 |
-| Spójność post ↔ home | `07` checklist | N/A (proces) | Ongoing |
-| Investor język off home | `04`, `08` | Niski na home; ryzyko w /founder/ deep | P2 |
+| Wymaganie (GTM v2) | Gdzie w docs | Stan kod (2026-06-29) | VERIFY prod (Commander) |
+|--------------------|--------------|----------------------|-------------------------|
+| Dual-brand band (QF sell / FG proof) | `01`, `03` P5 | ✅ `DualBrandBand` | ⏳ B3 |
+| Problem → System → Effect w hero | `04`, `05` P1 | ✅ `HERO.beats` + ResultsTeaser | ⏳ B5 |
+| De-jargon above fold (no 8-repo, terminal) | `03`, `04` | ✅ hero; spearhead terminal below fold | ⏳ B5 |
+| Featured paths (Map, /results/, how-it-works) | `02`, `03` P2 | ✅ `FeaturedStrip` | ⏳ B4 + LI Featured |
+| LIVE/PARTIAL na modułach | `05` P1, proof-rules | ✅ IntentRouter + Spearhead | ⏳ B6 |
+| L3 Map na pierwszym ekranie | `02`, conversion-pipeline | ✅ hero + Featured | ⏳ B2 mobile |
+| Spójność post ↔ home | `07` checklist | N/A proces | ⏳ po LI Featured |
+| Investor język off home | `04`, `08` | ✅ home OK | ⏳ /founder/ low risk |
 
-**Legenda:** P0 = przed intensywnym ruchem LinkedIn; implementacja w `src/` dopiero po zamknięciu tej tabeli w docs.
+**Legenda:** ✅ = w repo/master · ⏳ = smoke test na quietforge.flexgrafik.nl · Gate M0.2 = wszystkie VERIFY przed M1.1.
 
 ---
 
@@ -101,10 +101,11 @@ parent: "../README.md"
 Masz **GTM pack v2** zsynchronizowany z **dwoma audytami**: LinkedIn (kim jesteś OK, feed słaby) i strona (mocny fundament, ale pokazuje architekturę zamiast bólu SMB). FlexGrafik nadal dowodzi na żywo; Quietforge sprzedaje Map → build — **homepage musi to pokazać w pierwszych 5 sekundach**, nie w sekcji 7 (IntentRouter).
 
 **Kolejność pracy:**
-1. **Ten pack (docs)** — czytasz / akceptujesz v2 ← **teraz**
-2. **Faza 0 kod** — DualBrand, Featured, de-jargon, badges — **po HITL na README**
-3. **LinkedIn Featured + posty** — dopiero gdy wiersze P0 w tabeli gap = DONE na produkcji
-4. **Investor track** — bez zmian priorytetu; gate + spójność strony w `08`
+1. ~~GTM pack v2 docs~~ ✅ Commander HITL 2026-06-29
+2. ~~Faza 0 kod~~ ✅ shipped `3933c30`
+3. **VERIFY prod B1–B8** ← **teraz** ([plan](../../operations/plans/2026-06-29-homepage-gtm-faza-0.md))
+4. **LinkedIn Featured + posty M1.x** — po VERIFY
+5. **Investor track** — bez zmian priorytetu; gate w `08`
 
 Audyt LinkedIn 2.4/5 B2B readiness **nie jest problemem tożsamości** — to problem **ścieżki konwersji** (profil + **strona docelowa**). Seria 4/4 zostaje; strategia idzie forward przez P1–P4 z CTA w komentarzu — **ale tylko jeśli landing nie psuje zaufania**.
 
