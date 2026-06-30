@@ -1,0 +1,45 @@
+Experience
+
+Conversion Systems Architect (Founder)
+Quietforge · Self-employed
+May 2026 - Present · Rotterdam, South Holland, Netherlands · Remote
+
+I design and deploy supervised conversion systems for ZZP and small businesses in the Netherlands.
+
+The work focuses on four common business leaks:
+- manual quotes that create days of email ping-pong
+- inbox chaos where leads, invoices and support requests sit in the same pile
+- websites that get traffic but do not create qualified pipeline
+- automation projects that move fast but remove too much control
+
+Quietforge solves these problems with practical systems that qualify leads, reduce repeated admin and keep human approval on important actions.
+
+Core systems I deliver:
+- Inbox triage and drafted replies with mandatory human approval
+- Guided quote flows and self-service onboarding
+- Lead capture and qualification systems
+- Website conversion upgrades with clear visitor paths
+- Governance and approval layers so changes stay controlled
+- Managed Automation for monitoring, tuning and support after launch
+
+Every engagement starts with an Automation Map.
+
+This is a paid 60–90 minute working session (€290, credited toward the build) where we identify the two or three biggest time-and-money leaks, score the likely ROI and decide the smallest useful system to build first.
+
+The goal is not to automate everything.
+The goal is to fix the right bottleneck first.
+
+My principle:
+the system proposes, the human approves.
+
+I work best with Netherlands-based ZZP and small BVs that want fewer missed leads, less manual work and a controlled path from enquiry to next step.
+
+Skills for Conversion Systems Architect (Founder) at Quietforge
+Conversion Systems Architecture
+Process Automation
+Workflow Automation
+AI-Assisted Development
+Conversion Rate Optimization
+Human-in-the-Loop Automation
+Business Process Mapping
+Lead Qualification

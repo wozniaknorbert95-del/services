@@ -494,3 +494,14 @@ a:hover {
     scroll-behavior: auto !important;
   }
 }
+
+/* CLS reduction: reserve space for animated sections */
+[data-home-section] {
+  contain: layout style;
+}
+
+/* Prevent layout shift from opacity:0 initial state */
+.qf-section-animate {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}

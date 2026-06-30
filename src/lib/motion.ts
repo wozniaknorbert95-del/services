@@ -5,20 +5,20 @@ export type MotionPreset = {
 };
 
 export const fadeIn: MotionPreset = {
-  initial: { opacity: 0, y: 16 },
+  initial: { opacity: 0, y: 0 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, ease: 'easeOut' as const },
 };
 
 /** Hero entrance: fade + 8px slide-up, 400ms */
 export const heroEntrance: MotionPreset = {
-  initial: { opacity: 0, y: 8 },
+  initial: { opacity: 0, y: 0 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.4, ease: 'easeOut' as const },
 };
 
 export const slideUp = {
-  initial: { opacity: 0, y: 32 },
+  initial: { opacity: 0, y: 0 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.5, ease: 'easeOut' as const },
 };
