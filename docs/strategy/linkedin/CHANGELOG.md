@@ -1,10 +1,84 @@
-# Change log — v2.0 outcome-first repair
+# Change log — LinkedIn channel canon
 
-Updated: 2026-06-29
+---
 
-## What changed
+## v3.1 — 9-post Module Series opener (2026-06-30)
 
-### 1. Strategic shift
+### Calendar
+
+- **9 opening posts (M0-A–M0-I)** inserted before Business Leak Series
+- Each post: metadata, EN body, media, first-comment CTA with UTM, competency signal
+- Publish order: Module Series first · then W1–W4 leak series
+- Total slots: 17 (9 + 8)
+
+### Strategy
+
+- **§19 Competency signals** — formalized from raw notes; posts demonstrate skills indirectly
+
+### Module mapping
+
+| Slot | Repo |
+|------|------|
+| M0-A | flexgrafik-meta (Automation Map) |
+| M0-B | zzpackage (Wizard) |
+| M0-C | jadzia-core (Jadzia COI) |
+| M0-D | agent-os |
+| M0-E | flex-vcms |
+| M0-F | app.flexgrafik.nl |
+| M0-G | agent-os-ui |
+| M0-H | flexgrafik-nl |
+| M0-I | Full ecosystem |
+
+---
+
+## v3.0 — professional repair (2026-06-30)
+
+### Strategic additions
+
+- **strategy.md §15–18:** Engagement strategy (daily 15 min routine), network growth plan (16 → 80+ connections in 8 weeks), content format guidance, structured review cadence (week 2, week 4, monthly, quarterly).
+- Baselines anchored to live audit: 16 connections, 531 imp/7d, B2B readiness 2.4/5.
+
+### File structure
+
+| Change | Detail |
+|--------|--------|
+| **README.md** | Rewritten as lean index — fixed broken markdown escaping; removed duplication with strategy.md |
+| **profile-copy.md** | NEW — consolidated About + Experience (Quietforge + FlexGrafik) with implementation checklist and proof metrics table |
+| **Deleted** | `linkedin-about me.txt`, `expirience main -linkedin.txt`, `expirience 2 -linkedin.txt` |
+| **strategy.md** | v3.0 — sections 15–18 added |
+| **rules.md** | Unchanged (v2.0 still valid) |
+| **calendar.md** | Unchanged (v2.0 still valid) |
+
+### Fact verification (cross-checked)
+
+| Claim | Verified against |
+|-------|------------------|
+| Automation Map €290 | `src/content/pricing.ts` |
+| Managed Automation €349–€890/mo | `src/content/pricing.ts` |
+| 142 messages/scan | `src/content/proof.ts` |
+| 161 SKUs | `src/content/proof.ts` |
+| Profile baseline 16 connections, 2.4/5 B2B | `gtm/audits/linkedin-audit-2026-06-29.md` |
+
+### profile-copy improvements vs v2.0 txt drafts
+
+- About: explicit €290 + `/book-discovery/` URL (was bare domain only).
+- FlexGrafik Experience: metrics with LIVE labels; Featured URLs moved to checklist table.
+- Warning: do not use OLD copies in `gtm/audits/assets/` (pre-v2.0 jargon).
+
+### Implementation order (Commander)
+
+1. Paste [profile-copy.md](./profile-copy.md) into LinkedIn.
+2. Add Featured (4 URLs) — audit L-A01.
+3. Complete Services setup + pricing €290 — audit L-A02–A04.
+4. Publish W1-A + W1-B from [calendar.md](./calendar.md).
+5. Start daily engagement per strategy.md §15.
+6. Week 2 review per strategy.md §18.
+
+---
+
+## v2.0 — outcome-first repair (2026-06-29)
+
+### Strategic shift
 
 Old framing:
 - 8 modules introduced one by one
@@ -16,75 +90,14 @@ New framing:
 - proof appears after the buyer recognises the problem
 - Automation Map remains the single first step
 
-### 2. README.md
+### Files changed in v2.0
 
-Rebuilt as a concise channel canon:
-- added one-liner
-- added four buyer leaks table
-- simplified rules and operating priority
-- removed over-complex upstream references from the working version
+- **README.md** — channel canon entry point
+- **strategy.md** — buyer psychology, ICP, four leaks, CTA ladder
+- **rules.md** — LI-R01 through LI-R16
+- **calendar.md** — 4-week, 8-post series with full EN copy
+- Profile txt drafts (now superseded by profile-copy.md in v3.0)
 
-### 3. strategy.md
+---
 
-Rebuilt around buyer psychology:
-- clearer ICP
-- Pain → Cost → Proof → Effect → Soft close framework
-- four business leaks
-- buyer-first terminology table
-- CTA ladder
-- profile structure
-- metrics that matter commercially
-
-### 4. rules.md
-
-Updated hard rules:
-- added buyer-first language enforcement
-- added technical language containment
-- stricter rule against module-first hooks
-- maintained CTA, UTM, proof honesty and FlexGrafik boundaries
-
-### 5. calendar.md
-
-Replaced 8-module introduction series with 4-week business leak series:
-- W1: manual quotes + inbox chaos
-- W2: weak lead capture + human-approved AI
-- W3: €290 filter + FlexGrafik proof story
-- W4: focused build process + Automation Map contents
-
-Each post now includes:
-- final English post body
-- media recommendation
-- first comment CTA with UTM
-
-### 6. LinkedIn About
-
-Rewritten to be shorter, clearer and more buyer-focused:
-- less technical vocabulary
-- stronger pain/outcome language
-- clear Automation Map entry
-- FlexGrafik as proof layer
-
-### 7. LinkedIn Experience — Quietforge
-
-Rewritten from technical service catalogue into commercial positioning:
-- four business leaks
-- practical systems
-- Automation Map as first step
-- human approval principle
-
-### 8. LinkedIn Experience — FlexGrafik
-
-Rewritten to position FlexGrafik correctly:
-- proof layer, not primary offer
-- self-as-client explanation
-- real operational context
-- links adjusted toward Quietforge/results where possible
-
-## Implementation order
-
-1. Replace LinkedIn About.
-2. Replace Quietforge Experience.
-3. Replace FlexGrafik Experience.
-4. Use new calendar.md for the next 4 weeks.
-5. Keep rules.md as publishing gate.
-6. Review results after 2 weeks.
+*Maintainer: update at end of every LinkedIn strategy session*

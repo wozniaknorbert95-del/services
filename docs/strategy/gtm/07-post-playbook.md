@@ -2,14 +2,16 @@
 status: "[ACTIVE]"
 title: "LinkedIn Post Playbook — B2B Briefs"
 owner: "Norbert Wozniak"
-updated: "2026-06-29"
-version: "2.0 — site-audit sync"
+updated: "2026-06-30"
+version: "2.1 — calendar SSoT pointer"
 classification: "L3 — GTM post templates"
 language_posts: "EN"
 language_meta: "PL sections CO/DLACZEGO"
 ---
 
 # Post Playbook
+
+> **Publish-ready post copy (full EN bodies + CTAs):** [`../linkedin/calendar.md`](../linkedin/calendar.md) — **użyj calendar.md do publikacji.** Ten playbook = briefy kontekstowe GTM + homepage alignment notes.
 
 ---
 

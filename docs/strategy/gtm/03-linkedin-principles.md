@@ -2,14 +2,16 @@
 status: "[ACTIVE]"
 title: "LinkedIn Principles — Quietforge GTM"
 owner: "Norbert Wozniak"
-updated: "2026-06-29"
-version: "2.0 — site-audit sync"
+updated: "2026-06-30"
+version: "2.1 — linkedin SSoT pointer"
 classification: "L3 — LinkedIn strategy"
 profile: "https://www.linkedin.com/in/flexgrafik-quietforge/"
 audit: "./audits/linkedin-audit-2026-06-29.md"
 ---
 
 # LinkedIn Principles
+
+> **Operational SSoT (strategy, rules, calendar, profile copy):** [`../linkedin/README.md`](../linkedin/README.md) — ten dokument = kontekst GTM i zasady profilu, nie kalendarz publikacji.
 
 ---
 

@@ -26,7 +26,7 @@ export const WHATSAPP = {
   offlineFallback: `mailto:${EMAIL}?subject=WhatsApp%20unavailable`,
 } as const;
 
-export const LINKEDIN_URL = 'https://www.linkedin.com/in/norbert-wozniak-172b76367';
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/flexgrafik-quietforge';
 export const FLEXGRAFIK_URL = 'https://flexgrafik.nl';
 
 /** External social / connect links — footer, about, JSON-LD sameAs */

@@ -2,8 +2,8 @@
 status: "[ACTIVE]"
 title: "LinkedIn Strategy — Quietforge B2B"
 owner: "Norbert Wozniak"
-updated: "2026-06-29"
-version: "2.0 — outcome-first repair"
+updated: "2026-06-30"
+version: "3.1 — module series + competency signals"
 classification: "L3 — LinkedIn strategy"
 ---
 
@@ -195,9 +195,9 @@ https://quietforge.flexgrafik.nl/how-it-works/?utm_source=linkedin&utm_medium=or
 |---|---|---|
 | Banner | Immediate category and proof | Quietforge identity + simple flow: Map → Build → Approve → Improve |
 | Headline | Buyer pain + outcome | Mention manual quotes, inbox chaos, weak lead capture, human-approved automation |
-| About | Trust and offer | Problem → systems → Automation Map → FlexGrafik proof |
-| Experience: Quietforge | Commercial offer | Outcome-first, less technical, clear entry product |
-| Experience: FlexGrafik | Proof layer | “My own NL business where systems run live” |
+| About | Trust and offer | Problem → systems → Automation Map → FlexGrafik proof — paste from [profile-copy.md](./profile-copy.md) |
+| Experience: Quietforge | Commercial offer | Outcome-first, less technical, clear entry product — [profile-copy.md](./profile-copy.md) |
+| Experience: FlexGrafik | Proof layer | “My own NL business where systems run live” — [profile-copy.md](./profile-copy.md) |
 | Featured | Conversion | Map, Results, How it works, Trust/Sample Map |
 | Activity | Demand creation | 2 posts/week around four leaks |
 
@@ -238,4 +238,163 @@ Avoid obsessing over likes. A quiet post that produces one qualified DM is bette
 
 ---
 
-*Established: 2026-06-29 · Updated to v2.0 outcome-first repair*
+## 15. Engagement strategy
+
+Posting alone does not reach buyers at 16 connections (audit baseline 2026-06-29). Engagement is how the algorithm and ICP discover you before organic reach exists.
+
+### Daily routine (15 minutes)
+
+| Step | Action | Rule |
+|------|--------|------|
+| 1 | Find 3–5 posts from NL SMB owners, ZZP, or professional services | Comment where you can add value — not pitch |
+| 2 | Reply to every comment on your own posts | Within 2h when possible (LI-R13) |
+| 3 | Scan notifications for DMs from business owners | Respond same day; qualify before Map offer |
+
+### Comment style
+
+- Share a specific experience from FlexGrafik operations ("We had the same inbox problem — sorting by intent changed how we start the day").
+- Ask one clarifying question about their situation.
+- Never drop a link or Map CTA in someone else's comment thread.
+
+### DM approach
+
+- Only after 2+ meaningful interactions (their post + your comment, or they commented on yours).
+- Open with context, not pitch: "You mentioned manual quoting — is that mostly email or phone?"
+- Map CTA only when they describe a leak that matches one of the four pillars.
+
+---
+
+## 16. Network growth plan
+
+Organic post reach on LinkedIn depends heavily on connection count and engagement rate. Target: **200+ relevant connections** before expecting consistent inbound from posts alone.
+
+### Phase 1 — Weeks 1–4 (foundation)
+
+| Action | Target | Notes |
+|--------|--------|-------|
+| Connect with NL SMB owners, ZZP, small BV founders | 10–15/week | Personalised note — never blank request |
+| Accept relevant inbound requests | All ICP-fit | Decline obvious spam or wrong ICP |
+| Join 2–3 relevant groups | NL entrepreneurship, SMB, automation (if active) | Lurk first; comment before posting |
+
+**Connection note template:**
+
+```text
+Hi [Name] — I work with NL small businesses on lead handling and inbox automation. Saw your post about [specific topic]. Happy to connect.
+```
+
+Keep under 300 characters. No link in connection request.
+
+### Phase 2 — Weeks 5–8 (visibility)
+
+| Action | Target | Notes |
+|--------|--------|-------|
+| Engage with 2nd-degree connections via comments | 5/week | Same ICP filter |
+| Publish 2 posts/week per calendar | 8 posts | Track which leak gets most comments |
+| Ask 1–2 existing contacts for Services review | After first delivery or pilot | Audit item L-B07 |
+
+### Baseline vs target (from audit)
+
+| Metric | Baseline (2026-06-29) | 8-week target |
+|--------|----------------------|---------------|
+| Connections | 16 | 80+ |
+| Profile views / week | ~10 | 30+ |
+| Posts with quietforge CTA | 0/9 | 8/8 calendar posts |
+| Automation Map attributed to LI | 0 | ≥ 1 |
+
+---
+
+## 17. Content format guidance
+
+Choose format by pillar and proof type — not by what is easiest to publish.
+
+| Format | Best for | Pillar | Notes |
+|--------|----------|--------|-------|
+| **Text-only** | Pain storytelling, objection posts | P2, P4 | Highest organic reach on LinkedIn; no media required |
+| **Image (screenshot)** | Live system proof | P1 | Required for proof posts — wizard flow, inbox lanes, before/after |
+| **Carousel / PDF document** | Process explanation, Map contents | P4 | Good for W3-A, W4-B; export from Figma or simple slides |
+| **Short video (<90s)** | Founder credibility, walkthrough | P3 | Max 1 per 4-post block; founder-to-camera or screen recording |
+| **Link in first comment only** | All posts with CTA | All | Never in post body (LI-R04) |
+
+### Media checklist per post type
+
+| Post type | Minimum media |
+|-----------|---------------|
+| P1 Business proof | 1 screenshot or metric with LIVE/PARTIAL label |
+| P2 Trust / objection | Optional diagram (HITL flow) |
+| P3 Founder credibility | Photo or short video preferred |
+| P4 Process / method | Diagram (Map → Build → Verify) or sample Map PDF |
+
+### After week 4
+
+Rotate using the table in [calendar.md](./calendar.md) § "After this 4-week series". Do not introduce new topics until all four leaks have been covered at least once with proof.
+
+---
+
+## 18. Review and iteration cadence
+
+Structured reviews prevent posting into a void without learning what converts.
+
+### Week 2 review (15 min)
+
+| Question | Source | Action if NO |
+|----------|--------|--------------|
+| Profile views trending up? | LinkedIn analytics | Check headline + Featured are live |
+| Any DMs or comments from business owners (not builders)? | Activity tab | Rewrite next hook — more pain, less tech |
+| First comment CTA posted within 2h on every post? | Self-check | Set phone reminder at publish time |
+| UTM links used on every CTA? | First comments | Fix before next post |
+
+### Week 4 review (30 min)
+
+| Question | Action |
+|----------|--------|
+| Which leak topic got most engagement? | Double down in week 5–6 |
+| Content mix: 40/25/20/15 P1–P4? | Count posts; adjust next 4 slots |
+| Any honesty drift (wrong SKU count, % complete)? | Sync with `src/content/proof.ts` |
+| Homepage 5-second test still passing? | Re-run LI-R10 on mobile |
+
+### Monthly review
+
+- Profile views, search appearances, post impressions (LinkedIn analytics).
+- GA4: `utm_source=linkedin` sessions on `/book-discovery/` (when analytics wired).
+- Update [CHANGELOG.md](./CHANGELOG.md) if strategy rules change.
+
+### Quarterly refresh
+
+- Re-read [linkedin-audit](../gtm/audits/linkedin-audit-2026-06-29.md) baseline vs current profile.
+- Refresh calendar.md with new proof assets as they ship.
+- Commander fills commercial traction per [proof-rules.md](../../canons/proof-rules.md) PR-07 before citing revenue metrics in posts.
+
+---
+
+## 19. Competency signals posts must demonstrate
+
+LinkedIn posts must show that Norbert **does** discovery, mapping, architecture and controlled implementation — not claim it as a CV keyword list.
+
+**Rule:** demonstrate through business language and proof. Never open with “I am skilled in BPMN / RAG / LangChain.”
+
+| Competency | What the buyer should infer | How posts show it (indirect) |
+|---|---|---|
+| Discovery & audit sessions | He investigates before building | Mapping session, current-state questions, paid Map filter |
+| Workflow analysis | He finds bottlenecks, not symptoms | Email ping-pong, inbox pile, missing handoff paths |
+| Technology audit | He evaluates what the client already uses | “Before adding another tool…” scattered CRM/inbox/site |
+| Automation architecture | He designs scalable workflows | One supervised system with controlled parts; fixed roles |
+| Practical AI implementation | AI only where it pays back | Draft/classify/propose — human approves before send/deploy |
+| API & webhook integration | Systems connect without chaos | Order sync, checkout, GA4, handoffs between modules |
+| Prompt / RAG judgment | Answers stay grounded in client context | Governance, SSoT, no black-box replies to customers |
+| Process mapping (BPMN-level) | Business language becomes system logic | Map → smallest useful build → verify → handover |
+| Change management | New habits stick after launch | Approval gates, operator cockpit, maintenance path |
+
+### Module series alignment
+
+The 9-post opening series in [calendar.md](./calendar.md) (M0-A–M0-I) maps one production module per post. Each post:
+
+1. Opens on a **business leak**, not a repo name.
+2. Introduces the module as **proof** after pain is recognised.
+3. Includes an honest **LIVE / PARTIAL / DEMO / PLANNED** label where relevant.
+4. Ends with soft close → Map CTA in first comment only.
+
+Technical detail (Agent OS, VCMS, LangGraph) appears **after** buyer context — per LI-R12.
+
+---
+
+*Established: 2026-06-29 · v2.0 outcome-first repair · v3.0 professional repair · v3.1 competency signals: 2026-06-30*

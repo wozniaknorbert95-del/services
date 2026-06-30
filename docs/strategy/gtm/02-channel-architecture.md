@@ -36,7 +36,7 @@ Ceny i pełny ICP: [marketing-strategy.md](../marketing-strategy.md) §3, §8.
 | Kanał | Primary brand | Secondary (proof) | Primary CTA | Język | Częstotliwość docelowa | Aktualny stan na stronie (2026-06-29) | NIE publikować |
 |-------|---------------|---------------------|-------------|-------|------------------------|---------------------------------------|----------------|
 | **LinkedIn** `flexgrafik-quietforge` | Quietforge B2B | FlexGrafik jako live ops | Book Automation Map → `quietforge.flexgrafik.nl/book-discovery/` | EN | ~2 posty / tydzień | Copy OK (~4.2/5); Featured brak; feed 0× quietforge link | Oferty druku, ceny ZZP druk, #investorready na feedzie B2B, prośby o capital w treści głównej |
-| **Facebook** | FlexGrafik | Wizard jako link | Zamów / wizard / strona flexgrafik | NL (UI klienta) | wg Twojego rytmu consumer | Poza scope audytu site | Długie LOS / 8-repo / LangGraph |
+| **Facebook** | FlexGrafik | Wizard als link | Wizard / flexgrafik.nl / WhatsApp | NL | 1–3 posty / tydzień | Canon: [../facebook/README.md](../facebook/README.md) | LOS / 8-repo / Quietforge Map / investor |
 | **TikTok** | FlexGrafik | — | Profil / link w bio | NL + krótki EN OK | short video | Poza scope | B2B Map, investor deck |
 | **Google Business** | FlexGrafik lokal | — | Telefon / wizyta / strona | NL | aktualizacje lokalne | Poza scope | Quietforge pricing tiers |
 | **quietforge.flexgrafik.nl** | Quietforge | FlexGrafik w /results/, /founder/ | L3 Book Map (header) | EN public | **Główny asset konwersyjny B2B** | ✅ v3.0: 9 sekcji, de-jargon, dual-brand, Featured strip, LIVE/PARTIAL, IntentRouter 6 kart, Lighthouse 100/100/100 A11y/BP/SEO | Consumer print jako hero CTA |
@@ -75,7 +75,7 @@ Kontekst stanu live: audyt 2.4/5 B2B readiness — copy OK, ścieżka konwersji 
 |---------|-----------|----------------|-----|
 | Automation Map | €290 | 60–90 min session · credited toward build | „Contact for pricing” |
 | Conversion system build | From €1,200 | Scoped after Map — link /pricing/ | Wymyślone widełki |
-| Managed automation | From €290/mo | Post-launch maintenance — link /pricing/ | 3 różne ceny maintenance (site drift) |
+| Managed automation | From €349/mo | Post-launch maintenance — link /pricing/ | 3 różne ceny maintenance (site drift) |
 
 **Sync z homepage:** Services pricing musi = [marketing-strategy §8](../marketing-strategy.md) — audyt site wykrył rozjazdy między /solutions/, /pricing/, home.
 
@@ -152,7 +152,7 @@ Wszystkie linki z LinkedIn do quietforge:
 
 | Pole | Status | Do uzupełnienia |
 |------|--------|-----------------|
-| FB/TikTok/GMB cadence | UNKNOWN | Docelowy rytm postów consumer |
+| FB cadence | 1–3 posts/week consumer | [../facebook/content-themes.md](../facebook/content-themes.md) |
 | GA4 attribution per channel | UNKNOWN | Czy osobne UTM na FB vs LI |
 | Commercial traction z LinkedIn | UNKNOWN | [commercial-traction-template.md](../../operations/commander/commercial-traction-template.md) PR-08 |
 
@@ -161,5 +161,6 @@ Wszystkie linki z LinkedIn do quietforge:
 ## Powiązane
 
 - [01-two-brand-model.md](./01-two-brand-model.md)
-- [03-linkedin-principles.md](./03-linkedin-principles.md)
+- [03-linkedin-principles.md](./03-linkedin-principles.md) — GTM context; **operational SSoT:** [../linkedin/README.md](../linkedin/README.md)
+- [../facebook/README.md](../facebook/README.md) — Facebook consumer canon
 - [conversion-pipeline.md](../conversion-pipeline.md) — CTA tiers L1/L2/L3

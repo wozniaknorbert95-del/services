@@ -2,8 +2,8 @@
 status: "[ACTIVE]"
 title: "Two-Brand Model — FlexGrafik × Quietforge"
 owner: "Norbert Wozniak"
-updated: "2026-06-29"
-version: "2.0 — site-audit sync"
+updated: "2026-06-30"
+version: "2.1 — v3.0 homepage closed"
 classification: "L3 — GTM foundation"
 upstream:
   - "../../canons/vision-system.md"
@@ -18,10 +18,10 @@ upstream:
 
 Dwa brandy, jedna rzeczywistość operacyjna:
 
-| Brand | Rola GTM | Jedno zdanie | Status na stronie głównej (2026-06-29) |
+| Brand | Rola GTM | Jedno zdanie | Status na stronie głównej (2026-06-30) |
 |-------|----------|--------------|----------------------------------------|
-| **FlexGrafik** | RUN + EARN + **PROOF** | Holenderska drukarnia / ZZP — na niej **działa** silnik (wizard, inbox, LOS). | **Niewidoczny jako proof band** — brak dedykowanej sekcji dual-brand; tylko microTrust w hero |
-| **Quietforge** | DEPLOY + EXPLAIN + **SELL B2B** | Conversion Systems Architect — **wdraża** ten sam typ systemu u innych NL SMB. | **Primary w hero** — ale ton = architektura (terminal, 8-repo) zamiast bólu SMB |
+| **FlexGrafik** | RUN + EARN + **PROOF** | Holenderska drukarnia / ZZP — na niej **działa** silnik (wizard, inbox, LOS). | **Proof layer** — `DualBrandBand` §2, `/results/`, founder story |
+| **Quietforge** | DEPLOY + EXPLAIN + **SELL B2B** | Conversion Systems Architect — **wdraża** ten sam typ systemu u innych NL SMB. | **Primary w hero** — Problem→System→Effect, de-jargon, L3 Map (v3.0 ✅) |
 
 Profil LinkedIn: [linkedin.com/in/flexgrafik-quietforge](https://www.linkedin.com/in/flexgrafik-quietforge) — **jedno konto**, oba brandy widoczne, ale **job sprzedażowy = Quietforge**.
 
@@ -113,7 +113,9 @@ flowchart LR
          L3 sticky / footer CTA → /book-discovery/
 ```
 
-**Stan live vs docelowy:** Hero ma L3, ale brakuje dual-brand band, Featured strip i de-jargon; IntentRouter z „Eight parts” jest za wcześnie w flow ([quietforge-ux-ia](../../audits/2026-06-25/quietforge-ux-ia.md) §1, §4).
+**Stan live (2026-06-30):** Homepage v3.0 shipped — dual-brand band, Featured strip, de-jargon hero, LIVE/PARTIAL badges. Szczegóły: [gtm/README.md](./README.md) gap table ✅.
+
+**Historyczny audyt (pre-v3.0):** [quietforge-ux-ia.md](../../audits/2026-06-25/quietforge-ux-ia.md) — użyj tylko jako before snapshot.
 
 ---
 
@@ -124,7 +126,7 @@ Pełna tabela: [02-channel-architecture.md](./02-channel-architecture.md).
 | Kanał | Główny brand | FlexGrafik na tym kanale |
 |-------|--------------|---------------------------|
 | LinkedIn | Quietforge B2B | Tylko jako **proof** i founder context |
-| Facebook | FlexGrafik | Primary — druk, ZZP, lokalnie |
+| Facebook | FlexGrafik | Primary — druk, ZZP, lokalnie | [../facebook/README.md](../facebook/README.md) |
 | TikTok | FlexGrafik | Primary — wizualny druk / ZZP |
 | Google Business | FlexGrafik | Primary — lokalne usługi |
 | quietforge.flexgrafik.nl | Quietforge | FlexGrafik w /results/, /founder/ |
@@ -139,7 +141,7 @@ Pełna tabela: [02-channel-architecture.md](./02-channel-architecture.md).
 | B2B readiness 2.4/5 | **Luka = konwersja i treść feedu**, nie „kim jesteś” |
 | Feed investor-heavy, 0× quietforge link | **Rozjazd kanału z priorytetem A** — naprawa przez **nową treść**, nie kasowanie historii |
 | Brak Featured / jawnego Map CTA | Strategia mówi *dokąd* prowadzić; wykonanie profilu osobno |
-| **Homepage dual-brand consistency** | **ROZJAZD:** strona nie oddziela QF sell vs FG proof w pierwszych 5 s; hero = terminal + „8-repo governance” zamiast Problem→System→Effect ([quietforge-ux-ia](../../audits/2026-06-25/quietforge-ux-ia.md) 7.2/10 flow, 6.5/10 konwersja) |
+| **Homepage dual-brand consistency** | **✅ CLOSED (v3.0):** dual-brand band, Featured strip, de-jargon hero — verify prod before LI scale |
 
 Źródła: [linkedin-audit-2026-06-29.md](./audits/linkedin-audit-2026-06-29.md) · [quietforge-ux-ia.md](../../audits/2026-06-25/quietforge-ux-ia.md)
 

@@ -2,8 +2,8 @@
 status: "[ACTIVE]"
 title: "GTM Roadmap — 90 Days"
 owner: "Norbert Wozniak"
-updated: "2026-06-29"
-version: "2.0 — site-audit sync"
+updated: "2026-06-30"
+version: "2.1 — v3.0 homepage closed"
 classification: "L3 — GTM roadmap"
 cadence: "2 LinkedIn posts / week · EN · Track A primary"
 ---
@@ -47,17 +47,21 @@ Bez faz wracasz do „jednego wiralowego posta o funding” co kwartał — zero
 | Posty z quietforge CTA | 0 / 9 | audyt |
 | Commercial traction public | UNKNOWN | [PR-08](../../operations/commander/commercial-traction-template.md) |
 
-### Strona (homepage)
+### Strona (homepage) — updated 2026-06-30
 
 | Metryka | Wartość | Źródło |
 |---------|---------|--------|
-| Home section flow | 7.2 / 10 | [quietforge-ux-ia](../../audits/2026-06-25/quietforge-ux-ia.md) |
-| Konwersja | 6.5 / 10 | audyt site |
-| Dual-brand visible above fold | Nie | audyt + live crawl |
-| Featured strip (Map/results/process) | Nie | audyt |
-| De-jargon hero (no 8-repo/terminal) | Nie | audyt |
-| Book Discovery copy match | Drift P0 | audyt site §2 |
-| Homepage ↔ LI Featured sync | 0% | brak Featured obu stron |
+| Home v3.0 structure | ✅ 9 sekcji shipped | [site-map.md](../site-map.md) §3 |
+| Dual-brand visible above fold | ✅ | `DualBrandBand` — Faza 1+2 |
+| Featured strip (Map/results/how-it-works) | ✅ | `FeaturedStrip` |
+| De-jargon hero (no 8-repo/terminal) | ✅ | Faza 1+2 commits |
+| Lighthouse A11y/BP/SEO | 100/100/100 | handoff 2026-06-30 |
+| Book Discovery copy match | ⏳ P0 drift | Form vs pay&slot — osobna sesja |
+| Homepage ↔ LI Featured sync | ⏳ | Commander manual Featured V2 |
+| LinkedIn channel canon | ✅ v3.0 | [../linkedin/README.md](../linkedin/README.md) |
+| Facebook channel canon | ✅ v1.0 | [../facebook/README.md](../facebook/README.md) |
+
+**Pre-v3.0 baseline (archived):** flow 7.2/10, konwersja 6.5/10 — [quietforge-ux-ia](../../audits/2026-06-25/quietforge-ux-ia.md)
 
 ---
 
@@ -100,7 +104,7 @@ gantt
 | M1.4 | UTM na linkach LI | Spójny pattern w komentarzach |
 | M1.5 | LinkedIn Featured = mirror homepage Featured | Commander manual + verify URLs |
 
-**Kolejność:** M0.1 → M0.2 → M0.3 → dopiero M1.x posty. **Nie publikować postów B2B zanim M0.2 minimum nie live.**
+**Kolejność:** M0.1 ✅ → M0.2 ✅ → M0.3 ⏳ → M1.x posty. **Homepage minimum live — B2B posts unblocked.** Featured V2 + first post = Commander manual.
 
 ### Tydzień po tygodniu (content only)
 
