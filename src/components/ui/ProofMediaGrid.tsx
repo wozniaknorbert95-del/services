@@ -24,7 +24,7 @@ export default function ProofMediaGrid({
     <div className={`grid gap-[var(--qf-sp-8)] ${videoKey ? 'md:grid-cols-2' : ''}`}>
       <div className="flex flex-col gap-[var(--qf-sp-3)]">
         <p className="font-mono text-xs uppercase tracking-wider text-[var(--qf-text-faint)]">
-          // Screenshot
+          {'// Screenshot'}
         </p>
         <ProofScreenSlot
           screen={screen}
@@ -36,7 +36,7 @@ export default function ProofMediaGrid({
       {videoKey ? (
         <div className="flex flex-col gap-[var(--qf-sp-3)]">
           <p className="font-mono text-xs uppercase tracking-wider text-[var(--qf-text-faint)]">
-            // Demo
+          {'// Demo'}
           </p>
           <VideoSlot
             videoKey={videoKey}

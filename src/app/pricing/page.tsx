@@ -7,7 +7,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import FaqItem from '@/components/ui/FaqItem';
 import AnalyticsPageView from '@/components/analytics/AnalyticsPageView';
-import { ROUTES, PRICING, PRODUCT_TIER_RANGES, SITE_URL } from '@/lib/constants';
+import { ROUTES, PRODUCT_TIER_RANGES, SITE_URL } from '@/lib/constants';
 import { PRICING_MATRIX } from '@/content/pricing';
 
 /* ── metadata ── */
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 const SETUP_TIERS = [
   { name: 'Automation Map', desc: 'A focused working session plus a written roadmap.', price: pricing.discovery.price, note: pricing.discovery.note, timeline: '60–90 min session' },
   { name: 'Single System Build', desc: 'One module live + handover', price: pricing.singleSystem.from !== null ? `from ${pricing.singleSystem.from}` : 'Quoted', note: 'after Map', timeline: pricing.singleSystem.timeline !== null ? pricing.singleSystem.timeline : 'Varies' },
-  { name: 'Ecosystem / Multi-System', desc: pricing.ecosystem.summary, price: pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : 'Quoted', note: 'after Map', timeline: pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : 'Varies' },
+  { name: 'Ecosystem / Multi-System', desc: pricing.ecosystem.summary, price: pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : 'Quoted', note: 'after Map', timeline: pricing.ecosystem.timeline !== null ? pricing.ecosystem.timeline : 'Varies', star: true },
 ];
 
 const MRR_TIERS = [
@@ -286,7 +286,7 @@ export default function PricingPage() {
               {SETUP_TIERS.map((tier) => (
                 <tr key={tier.name} className="border-b border-[var(--qf-border)]">
                   <td className="py-4 pr-4 font-semibold text-[var(--qf-text)]">
-                    {tier.name} {('star' in tier && Boolean((tier as any).star)) && <span className="text-[var(--qf-accent)]">★</span>}
+                    {tier.name} {('star' in tier && Boolean(tier.star)) && <span className="text-[var(--qf-accent)]">★</span>}
                   </td>
                   <td className="py-4 pr-4 text-[var(--qf-text-dim)] text-sm">{tier.desc}</td>
                   <td className="py-4 pr-4 text-[var(--qf-text)] font-bold text-right">{tier.price}</td>

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';

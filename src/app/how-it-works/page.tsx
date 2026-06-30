@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
-import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import FaqItem from '@/components/ui/FaqItem';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';

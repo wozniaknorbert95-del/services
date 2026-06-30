@@ -140,7 +140,7 @@ export default function IntentRouter() {
           layout
           className="relative mx-auto max-w-3xl overflow-hidden border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-[var(--qf-sp-8)] text-center"
         >
-          <p className="mb-3 font-mono text-xs text-[var(--qf-text-dim)]">// next_step</p>
+          <p className="mb-3 font-mono text-xs text-[var(--qf-text-dim)]">{'// next_step'}</p>
           <p className="mb-[var(--qf-sp-8)] text-[var(--qf-fs-lg)] font-semibold text-[var(--qf-text)]">
             {activeIntent && recommended
               ? INTENT_ROUTER_HEADER.nextStepRecommended(recommended.role)

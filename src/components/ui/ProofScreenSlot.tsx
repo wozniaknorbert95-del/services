@@ -12,6 +12,7 @@ interface ProofScreenSlotProps {
 
 export default function ProofScreenSlot({
   screen,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   screenKey,
   emptyCtaHref,
   priority = false,

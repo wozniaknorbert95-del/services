@@ -13,7 +13,7 @@ export default function Eyebrow({ children, className }: EyebrowProps) {
         className
       )}
     >
-      <span className="text-[var(--qf-text-faint)]">// </span>
+      <span className="text-[var(--qf-text-faint)]">{'// '}</span>
       {normalizeEyebrowChildren(children)}
     </span>
   );

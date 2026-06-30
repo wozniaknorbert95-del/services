@@ -4,7 +4,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -33,11 +32,7 @@ function readStoredIntent(): IntentId | null {
 }
 
 export function HomeIntentProvider({ children }: { children: ReactNode }) {
-  const [activeIntent, setActiveIntentState] = useState<IntentId | null>(null);
-
-  useEffect(() => {
-    setActiveIntentState(readStoredIntent());
-  }, []);
+  const [activeIntent, setActiveIntentState] = useState<IntentId | null>(() => readStoredIntent());
 
   const setActiveIntent = useCallback((intent: IntentId | null) => {
     setActiveIntentState(intent);
