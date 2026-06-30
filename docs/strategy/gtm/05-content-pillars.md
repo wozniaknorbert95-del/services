@@ -1,9 +1,9 @@
 ---
-status: "[ACTIVE]"
+status: "[ACTIVE — v3.0 homepage sync]"
 title: "Content Pillars — LinkedIn B2B"
 owner: "Norbert Wozniak"
-updated: "2026-06-29"
-version: "2.0 — site-audit sync"
+updated: "2026-06-30"
+version: "2.2 — v3.0 homepage sync"
 classification: "L3 — GTM content"
 cadence: "2 posts / week · EN"
 ---
@@ -32,13 +32,13 @@ Bez filarów feed wraca do tego, co „czujesz” — founder pity, investor, pr
 
 ## Proporcje feedu (90 dni, Track A)
 
-| Pillar | Udział | Cel | Jak to ma wyglądać na stronie głównej |
-|--------|--------|-----|----------------------------------------|
-| **P1 — Proof in production** | 40% | Wizard, inbox, Jadzia, Agent OS — Problem→System→Effect + screenshot | **ResultsTeaser + BuiltVsPlanned** z LIVE/PARTIAL badges; Featured card „Live systems” → /results/ |
-| **P2 — Qualification / objections** | 25% | HITL, EU/AVG, „not a chatbot”, €290 jako filter | **TrustAndObjections** + pricing integrity; Featured card #1 = Map €290 |
-| **P3 — Founder / builder** | 20% | Krótsza wersja arc (bez funding, bez %) | **Dual-brand band** + ABOUT story (founder narrative) — **nie** w hero jako pierwszy beat |
-| **P4 — Process / method** | 15% | Map → Architect → Build → Verify → Handover | Featured card #3 lub link „How it works”; ProcessSteps / HowItWorksSection |
-| **P5 — Investor** | **0%** na głównym feedzie | [08-investor-track](./08-investor-track.md) | **0%** above fold home — investor deep tylko /founder/ lub Phase B route |
+| Pillar | Udział | Cel | Jak wspiera homepage (v3.0) |
+|--------|--------|-----|---------------------------|
+| **P1 — Proof in production** | 40% | Wizard, inbox, Jadzia, Agent OS — Problem→System→Effect + screenshot | `SpearheadSpotlight` §5 (LIVE screenshot), `SystemMetrics` compact, `BuiltVsPlanned` §6 (honesty gate), Featured card „Live systems" → /results/ |
+| **P2 — Qualification / objections** | 25% | HITL, EU/AVG, „not a chatbot", €290 jako filter | `TrustAndObjections` §9a + pricing integrity (§9b); Featured card #1 = Map €290 (§3) |
+| **P3 — Founder / builder** | 20% | Krótsza wersja arc (bez funding, bez %) | `DualBrandBand` §2 + ABOUT story (founder narrative) — **nie** w hero jako pierwszy beat |
+| **P4 — Process / method** | 15% | Map → Architect → Build → Verify → Handover | `HowIWork` §8 (5 phases); Featured card #3 „How it works" (§3) |
+| **P5 — Investor** | **0%** na głównym feedzie | [08-investor-track](./08-investor-track.md) | **0%** above fold home — investor deep tylko /founder/ lub /results/owner-ecosystem/ |
 
 ### Przeliczenie na 2 posty/tydzień (orientacyjnie)
 
@@ -68,7 +68,7 @@ Bez filarów feed wraca do tego, co „czujesz” — founder pity, investor, pr
 
 **NIE:** % complete, „almost launched”, consumer product (magnesy).
 
-**Homepage:** P1 = dominujący proof layer — min. 2 moduły LIVE visible before IntentRouter; badges obowiązkowe.
+**Homepage:** P1 = dominujący proof layer — ✅ Spearhead §5 (screenshot LIVE) + SystemMetrics compact + BuiltVsPlanned §6 (honesty gate, 4 rows) + IntentRouter §7 (6 cards, LIVE/PARTIAL badges). Min. 2 moduły LIVE visible before IntentRouter — **ZAMKNIĘTE v3.0**.
 
 ---
 
@@ -89,7 +89,7 @@ Bez filarów feed wraca do tego, co „czujesz” — founder pity, investor, pr
 
 Źródło obiekcji: home TrustAndObjections / [conversion-copy.ts](../../../src/content/conversion-copy.ts)
 
-**Homepage:** P2 = Featured card Map + Trust section above fold; €290 jako filter musi być widoczne bez scroll do /pricing/.
+**Homepage:** P2 = ✅ Featured card Map + Trust section (§9a) above fold; €290 jako filter widoczne bez scroll do /pricing/ (hero L3 + Featured #1 + FinalCtaBand §9c). **ZAMKNIĘTE v3.0**.
 
 ---
 
@@ -127,7 +127,7 @@ Historia POST 4 = **lekcja** co nie powtarzać na Track A.
 
 ---
 
-## Homepage wspiera P1 i P2 (priorytet Faza 0)
+## Homepage wspiera P1 i P2 (v3.0 — ZAMKNIĘTE ✅)
 
 **CO:** Strona główna to **materializacja** 65% feedu (P1 40% + P2 25%) — nie osobna narracja.
 
@@ -135,16 +135,18 @@ Historia POST 4 = **lekcja** co nie powtarzać na Track A.
 
 **BO:** Kupujący Map klika z posta P1/P2 — ląduje na home — musi zobaczyć **ten sam beat** (problem, proof, filter €290).
 
-| Element homepage | Pillar | Stan live (2026-06-29) |
+| Element homepage | Pillar | Stan v3.0 (2026-06-30) |
 |----------------|--------|------------------------|
-| Hero Problem→System→Effect | P1 | Częściowy — brak 3-beat |
-| Dual-brand band | P1 + P3 | **Brak** |
-| Featured 3-card strip | P1 + P2 + P4 | **Brak** |
-| LIVE/PARTIAL badges | P1 | BuiltVsPlanned OK; IntentRouter bez badge |
-| Trust / objections | P2 | Sekcja istnieje — OK |
-| Map €290 visible | P2 | W hero L3 — OK; sync Book Discovery P0 |
+| Hero Problem→System→Effect | P1 | ✅ 3-beat complete |
+| Dual-brand band | P1 + P3 | ✅ `DualBrandBand` §2 |
+| Featured 3-card strip | P1 + P2 + P4 | ✅ `FeaturedStrip` §3 |
+| LIVE/PARTIAL badges | P1 | ✅ Spearhead §5 + IntentRouter §7 |
+| Trust / objections | P2 | ✅ `TrustAndObjections` §9a |
+| Map €290 visible | P2 | ✅ Hero L3 + Featured #1 + FinalCtaBand §9c |
+| Honesty gate (Built vs Planned) | P1 | ✅ `BuiltVsPlanned` compact §6 (4 rows, de-jargon) |
+| Process safety (How it works) | P4 | ✅ `HowIWork` §8 (5 phases, de-jargon) |
 
-**Proporcje feedu bez zmian** — audyt site nie wymaga zmiany 40/25/20/15; wymaga **odzwierciedlenia** na home.
+**Proporcje feedu bez zmian** — audyt site nie wymaga zmiany 40/25/20/15; wymaga **odzwierciedlenia** na home — **ZAMKNIĘTE v3.0**.
 
 ---
 

@@ -1,9 +1,9 @@
 ---
-status: "[ACTIVE]"
+status: "[ACTIVE — Faza 3 docs sync]"
 title: "GTM Strategy Pack — Quietforge × FlexGrafik"
 owner: "Norbert Wozniak"
-updated: "2026-06-29"
-version: "2.1 — channel split"
+updated: "2026-06-30"
+version: "2.2 — v3.0 homepage sync"
 classification: "L3 — outbound / channel strategy (documentation only)"
 parent: "../README.md"
 ---
@@ -29,11 +29,11 @@ parent: "../README.md"
 |---------|--------------|----------------------|
 | **LinkedIn profil** (copy) | ~4.2/5 positioning | Tożsamość OK — nie rebrand |
 | **LinkedIn B2B readiness** | 2.4/5 | Feed + brak Featured/CTA — nie homepage |
-| **Homepage UX/IA** | 7.2/10 flow, 6.5/10 konwersja | **Architektura za wcześnie**, jargon techniczny, dual-brand niewidoczny |
-| **Homepage vs GTM** | ROZJAZD | Strona mówi „8-repo / terminal”; GTM mówi Problem→System→Effect |
-| **Book Discovery** | P0 drift | Copy „pay & slot” vs formularz enquiry — naprawa osobna (site-map / funnel) |
+| **Homepage UX/IA** | **8.5/10** (v3.0, 9 sekcji) | ✅ Faza 1+2 zamknięte — de-jargon, compact, 6-card IntentRouter, CTA audit PASS, Lighthouse A11y/BP/SEO = 100 |
+| **Homepage vs GTM** | ✅ **SPÓJNE** | Strona: Problem→System→Effect, dual-band, LIVE/PARTIAL, zero jargonu above fold |
+| **Book Discovery** | P0 drift | Copy „pay & slot" vs formularz enquiry — naprawa osobna (site-map / funnel) |
 
-**Jedno zdanie:** GTM pack v2 = spec · **Faza 0 kod shipped** (`3933c30`) · **VERIFY na produkcji** (plan: [homepage-gtm-faza-0.md](../../operations/plans/2026-06-29-homepage-gtm-faza-0.md)) przed postami LinkedIn M1.1.
+**Jedno zdanie:** GTM pack v2 = spec · **Faza 1+2 kod shipped** (commits `0abeaf3`→`7b647d9`) · **VERIFY na produkcji** PASS · **Faza 3** = sync docs do v3.0 · Commander V1 sign-off → LinkedIn Featured V2 → Post M1.1.
 
 ---
 
@@ -73,18 +73,20 @@ parent: "../README.md"
 
 ## Co wymaga aktualizacji: dokumenty vs strona (SSoT gap)
 
-| Wymaganie (GTM v2) | Gdzie w docs | Stan kod (2026-06-29) | VERIFY prod (Commander) |
-|--------------------|--------------|----------------------|-------------------------|
-| Dual-brand band (QF sell / FG proof) | `01`, `03` P5 | ✅ `DualBrandBand` | ✅ B3 |
-| Problem → System → Effect w hero | `04`, `05` P1 | ✅ `HERO.beats` + ResultsTeaser | ✅ B5 |
-| De-jargon above fold (no 8-repo, terminal) | `03`, `04` | ✅ hero; spearhead terminal below fold | ✅ B5 (W1 Faza B) |
-| Featured paths (Map, /results/, how-it-works) | `02`, `03` P2 | ✅ `FeaturedStrip` | ✅ B4 |
-| LIVE/PARTIAL na modułach | `05` P1, proof-rules | ✅ IntentRouter + Spearhead | ✅ B6 |
-| L3 Map na pierwszym ekranie | `02`, conversion-pipeline | ✅ hero + Featured | ⚠️ B2 partial |
+| Wymaganie (GTM v2) | Gdzie w docs | Stan kod (2026-06-29 v3.0) | VERIFY prod |
+|--------------------|--------------|---------------------------|-------------|
+| Dual-brand band (QF sell / FG proof) | `01`, `03` P5 | ✅ `DualBrandBand` (§2) | ✅ LIVE |
+| Problem → System → Effect w hero | `04`, `05` P1 | ✅ `HERO.beats` (§1) | ✅ LIVE |
+| De-jargon above fold (no 8-repo, terminal) | `03`, `04` | ✅ hero + spearhead screenshot, BuiltVsPlanned de-jargon, IntentRouter 6 cards | ✅ LIVE |
+| Featured paths (Map, /results/, how-it-works) | `02`, `03` P2 | ✅ `FeaturedStrip` (§3) | ✅ LIVE |
+| LIVE/PARTIAL na modułach | `05` P1, proof-rules | ✅ IntentRouter + Spearhead (§5, §7) | ✅ LIVE |
+| L3 Map na pierwszym ekranie | `02`, conversion-pipeline | ✅ hero only (SR-04) | ✅ LIVE |
 | Spójność post ↔ home | `07` checklist | N/A proces | ⏳ po LI Featured |
-| Investor język off home | `04`, `08` | ✅ home OK | ✅ |
+| Investor język off home | `04`, `08` | ✅ home OK | ✅ LIVE |
+| 9-section structure (v3.0) | `site-map.md §3` | ✅ 13 components = 9 logical sections | ✅ LIVE |
+| Lighthouse A11y/BP/SEO ≥ 95 | `brain.md §6` | ✅ 100/100/100 | ✅ LIVE |
 
-**Legenda:** ✅ = w repo + prod verified · ⚠️ = partial · ⏳ = Commander manual · Gate M0.2 = V1 sign-off → M1.1.
+**Legenda:** ✅ = w repo + prod verified · ⏳ = Commander manual · Faza 1+2 CLOSED · Faza 3 = docs sync.
 
 ---
 
@@ -105,9 +107,13 @@ Masz **GTM pack v2** zsynchronizowany z **dwoma audytami**: LinkedIn (kim jeste�
 **Kolejność pracy:**
 1. ~~GTM pack v2 docs~~ ✅ Commander HITL 2026-06-29
 2. ~~Faza 0 kod~~ ✅ shipped `3933c30`
-3. **VERIFY prod** ✅ Agent PASS — **Commander V1 sign-off** ← **teraz** ([verify-action](../../operations/plans/2026-06-29-homepage-gtm-verify-action.md))
-4. **LinkedIn Featured V2** — po sign-off
-5. **Post M1.1** — Inbox Killer brief #1
+3. ~~VERIFY prod~~ ✅ Agent PASS (Faza 1+2)
+4. ~~Faza 1: Canon + struktura + komunikacja~~ ✅ 7 sesji shipped (`0abeaf3`→`025c497`)
+5. ~~Faza 2: UX + dead code + Lighthouse~~ ✅ 4 sesje shipped (`bcd0e7d`→`7b647d9`)
+6. **Faza 3: GTM docs sync do v3.0** ← TERAZ (ta sesja)
+7. **Faza 4: Final verification** — build + typecheck + lint + audit:links
+8. **LinkedIn Featured V2** — po sign-off
+9. **Post M1.1** — Inbox Killer brief #1
 
 Audyt LinkedIn 2.4/5 B2B readiness **nie jest problemem tożsamości** — to problem **ścieżki konwersji** (profil + **strona docelowa**). Seria 4/4 zostaje; strategia idzie forward przez P1–P4 z CTA w komentarzu — **ale tylko jeśli landing nie psuje zaufania**.
 

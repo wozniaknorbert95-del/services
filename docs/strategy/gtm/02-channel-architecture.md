@@ -1,9 +1,9 @@
 ---
-status: "[ACTIVE]"
+status: "[ACTIVE — v3.0 homepage sync]"
 title: "Channel Architecture — GTM"
 owner: "Norbert Wozniak"
-updated: "2026-06-29"
-version: "2.0 — site-audit sync"
+updated: "2026-06-30"
+version: "2.2 — v3.0 homepage sync"
 classification: "L3 — GTM channels"
 ---
 
@@ -39,7 +39,7 @@ Ceny i pełny ICP: [marketing-strategy.md](../marketing-strategy.md) §3, §8.
 | **Facebook** | FlexGrafik | Wizard jako link | Zamów / wizard / strona flexgrafik | NL (UI klienta) | wg Twojego rytmu consumer | Poza scope audytu site | Długie LOS / 8-repo / LangGraph |
 | **TikTok** | FlexGrafik | — | Profil / link w bio | NL + krótki EN OK | short video | Poza scope | B2B Map, investor deck |
 | **Google Business** | FlexGrafik lokal | — | Telefon / wizyta / strona | NL | aktualizacje lokalne | Poza scope | Quietforge pricing tiers |
-| **quietforge.flexgrafik.nl** | Quietforge | FlexGrafik w /results/, /founder/ | L3 Book Map (header) | EN public | **Główny asset konwersyjny B2B** | Hero jargon (terminal, 8-repo); brak dual-brand + Featured; konwersja 6.5/10; Book Discovery drift P0 | Consumer print jako hero CTA |
+| **quietforge.flexgrafik.nl** | Quietforge | FlexGrafik w /results/, /founder/ | L3 Book Map (header) | EN public | **Główny asset konwersyjny B2B** | ✅ v3.0: 9 sekcji, de-jargon, dual-brand, Featured strip, LIVE/PARTIAL, IntentRouter 6 kart, Lighthouse 100/100/100 A11y/BP/SEO | Consumer print jako hero CTA |
 | **zzpackage.flexgrafik.nl** | FlexGrafik product | — | Checkout wizard | NL | ciągły | LIVE — proof only dla LI | — |
 | **Email / DM LinkedIn** | Oba (kontekst) | — | Map lub rozmowa kwalifikacyjna | EN / NL | 1:1 | N/A | Masowe pitch bez kwalifikacji |
 
@@ -87,13 +87,14 @@ Kontekst stanu live: audyt 2.4/5 B2B readiness — copy OK, ścieżka konwersji 
 
 **DLACZEGO:** Audyt LinkedIn: 0 quietforge links w 9 postach. Audyt site: mocny fundament, ale landing **marnuje zaufanie** z profilu (jargon, brak dual-brand).
 
-**BO:** B2B readiness 2.4/5 to **para problemów**: feed nie prowadzi + landing nie domyka. Naprawa homepage (Faza 0 kod) jest **warunkiem** intensywnego ruchu z LI — patrz [README gap table](./README.md#co-wymaga-aktualizacji-dokumenty-vs-strona-ssot-gap).
+**BO:** B2B readiness 2.4/5 to **para problemów**: feed nie prowadzi + landing nie domyka. Naprawa homepage **ZAMKNIĘTA** (Faza 1+2, commits `0abeaf3`→`7b647d9`) — warunek intensywnego ruchu z LI spełniony.
 
-**Minimum homepage przed skalowaniem LI:**
-1. Dual-brand band (QF sell / FG proof)
-2. Problem → System → Effect w hero (de-jargon)
-3. Featured strip 3-card (Map · results · wizard proof)
-4. LIVE/PARTIAL na modułach above IntentRouter
+**Minimum homepage przed skalowaniem LI:** ✅ **ZAMKNIĘTE (v3.0, Faza 1+2)**
+1. ✅ Dual-brand band (QF sell / FG proof) — `DualBrandBand` §2
+2. ✅ Problem → System → Effect w hero (de-jargon) — `HeroSection` §1
+3. ✅ Featured strip 3-card (Map · results · wizard proof) — `FeaturedStrip` §3
+4. ✅ LIVE/PARTIAL na modułach above IntentRouter — `SpearheadSpotlight` §5, `BuiltVsPlanned` §6, `IntentRouter` §7
+5. ✅ Bonus: IntentRouter 6 kart (SR-06 amend), CTA audit PASS, dead code cleanup, Lighthouse A11y/BP/SEO = 100
 
 ---
 
