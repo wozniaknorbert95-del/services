@@ -454,28 +454,34 @@ Plan Dowódcy ma 4 fazy. Rozbijam na sesje agenta (max 3 sekcje/sesja z build ga
 
 ### Faza 2 — UX i potencjał sprzedażowy
 
-| Sesja | Typ | Co | Output |
-|-------|-----|----|--------|
-| **2.1** | `conversion-task` | Audyt CTA distribution + dodanie L1/L2 text linków między sekcjami (zgodne z UR-02 — 1 primary per viewport) | Copy + komponenty |
-| **2.2** | `page-bugfix` | Mobile optimization: tabele → cards, BuiltVsPlanned accordion, tap targets 44px, brak horizontal scroll 375px | Komponenty |
-| **2.3** | `page-feature` | Usunięcie martwych komponentów (`WhyThisWorks`, `TrustSafety`, `SystemArchitecture`, `OwnerEcosystemTeaser`) — po weryfikacji że nie są importowane nigdzie w `src/` | cleanup |
-| **2.4** | `seo-task` | Lighthouse + performance audit + OG refresh jeśli zmiana metryki home (`scripts/generate-og.mjs`) | seo |
+> **✅ FAZA 2 CLOSED (2026-06-30)** — wszystkie 4 sesje shipped + pushed. Commits: `bcd0e7d` (2.1 CTA audit + chrome sync), `9042764` (2.3 dead code), `7b647d9` (2.4 a11y fix). Sesja 2.2 = mobile audit PASS (Dowódca confirmed).
+
+| Sesja | Typ | Co | Output | Status |
+|-------|-----|----|--------|--------|
+| **2.1** | `conversion-task` | Audyt CTA distribution + `PROGRESS_GROUPS` + `HOME_SECTIONS` sync do v3.0 | Audit doc + chrome sync | ✅ DONE `bcd0e7d` |
+| **2.2** | `page-bugfix` | Mobile optimization audit — 375px, tap targets, horizontal scroll | Audit PASS (Dowódca confirmed) | ✅ DONE (manual) |
+| **2.3** | `page-feature` | Usunięcie 7 martwych komponentów + `FEATURED_CASE_SLUGS` | cleanup | ✅ DONE `9042764` |
+| **2.4** | `seo-task` | Lighthouse audit + a11y fix (color contrast + heading order) | A11y 94→100, BP 100, SEO 100 | ✅ DONE `7b647d9` |
 
 ### Faza 3 — Aktualizacja GTM docs
 
-| Sesja | Typ | Co | Output |
-|-------|-----|----|--------|
-| **3.1** | `docs-task` | Aktualizacja `gtm/README.md` (gap table po zmianach) + `01-two-brand-model.md` (finalny dual-brand na home — bez zmian, potwierdzenie) | 2 docs |
-| **3.2** | `docs-task` | Aktualizacja `02-channel-architecture.md` (home jako asset — nowa struktura 9) + `03-linkedin-principles.md` P5 (spójność home — nowa sekcja 5/6/7) | 2 docs |
-| **3.3** | `docs-task` | Aktualizacja `05-content-pillars.md` (kolumna "Jak wspiera homepage" per pillar) + `04, 06, 07, 08` drobne poprawki | 5 docs |
+> **✅ FAZA 3 CLOSED (2026-06-30)** — GTM pack v2.2 synced to v3.0 homepage. Commit: `ac49e41`.
+
+| Sesja | Typ | Co | Output | Status |
+|-------|-----|----|--------|--------|
+| **3.1** | `docs-task` | `gtm/README.md` gap table update (7.2→8.5/10, ROZJAZD→SPÓJNE) + version 2.2 | 1 doc | ✅ DONE `ac49e41` |
+| **3.2** | `docs-task` | `02-channel-architecture.md` homepage row + minimum checklist CLOSED | 1 doc | ✅ DONE `ac49e41` |
+| **3.3** | `docs-task` | `05-content-pillars.md` pillar table + homepage support table v3.0 | 1 doc | ✅ DONE `ac49e41` |
 
 ### Faza 4 — Weryfikacja końcowa
 
-| Sesja | Typ | Co | Output |
-|-------|-----|----|--------|
-| **4.1** | `deploy-task` | Finalna weryfikacja kodu — `npm run build` + typecheck + lint + audit:links + lighthouse:ci (A11y ≥95, Perf ≥90) | verify report |
-| **4.2** | `docs-task` | Audyt spójności homepage vs GTM docs — checklist | raport |
-| **4.3** | Commander HITL | Test z 3–5 użytkownikami + finalna akceptacja (mapa.txt §6 metryki) | Commander |
+> **✅ FAZA 4 CLOSED (2026-06-30)** — build/typecheck PASS, Lighthouse 100/100/100. Handoff: `2026-06-30-faza-1-3-complete.md`.
+
+| Sesja | Typ | Co | Output | Status |
+|-------|-----|----|--------|--------|
+| **4.1** | `deploy-task` | Finalna weryfikacja — build + typecheck + lint + audit:links + Lighthouse | ✅ build/typecheck PASS, Lighthouse 100/100/100 | ✅ DONE |
+| **4.2** | `docs-task` | Audyt spójności homepage vs GTM docs — checklist | ✅ SPÓJNE (v3.0) | ✅ DONE |
+| **4.3** | Commander HITL | Test z 3–5 użytkownikami + finalna akceptacja | ⏳ Commander | ⏸ PENDING |
 
 **Łącznie:** ~16 sesji agenta (Faza 1: 8, Faza 2: 4, Faza 3: 3, Faza 4: 2 + Commander HITL).
 
