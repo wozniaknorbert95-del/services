@@ -4,6 +4,7 @@ import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import VideoSlot from '@/components/ui/VideoSlot';
 import { ROUTES } from '@/lib/constants';
 import { CTAS } from '@/content/conversion-copy';
 
@@ -72,6 +73,15 @@ export default function FounderPage() {
             ))}
           </div>
         </div>
+      </Section>
+
+      <Section background="surface" padding="large">
+        <h2 className="text-[var(--qf-fs-xl)] font-bold mb-6">System walkthrough</h2>
+        <VideoSlot
+          videoKey="founder"
+          emptyCtaHref={ROUTES.results}
+          emptyCtaLabel="See live results →"
+        />
       </Section>
 
       <Section background="surface" padding="large">
