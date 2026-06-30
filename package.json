@@ -13,7 +13,7 @@
     "generate:og": "node scripts/generate-og.mjs",
     "lighthouse:ci": "node scripts/lighthouse-ci.mjs",
     "generate:artefacts": "node scripts/generate-artefact-pdfs.mjs",
-    "audit:links": "npx broken-link-checker https://services.flexgrafik.nl --ordered",
+    "audit:links": "npx broken-link-checker https://quietforge.flexgrafik.nl --ordered",
     "audit:navigation": "node scripts/audit-navigation.mjs",
     "audit:menu-footer": "node scripts/audit-menu-footer.mjs",
     "ga4:smoke": "node scripts/ga4-prod-smoke.mjs",

@@ -3,72 +3,101 @@ status: "[ACTIVE]"
 title: "LinkedIn Strategy — Quietforge B2B"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
-version: "1.0 — channel split"
+version: "2.0 — outcome-first repair"
 classification: "L3 — LinkedIn channel canon"
 ---
 
 # LinkedIn — Quietforge B2B Channel
 
-> **Primary CTA:** Book Automation Map (€290) → `quietforge.flexgrafik.nl/book-discovery/`  
-> **Profile:** [linkedin.com/in/flexgrafik-quietforge](https://www.linkedin.com/in/flexgrafik-quietforge)  
+> **Primary CTA:** Book Automation Map (€290, credited toward build) → `quietforge.flexgrafik.nl/book-discovery/`  
+> **Profile:** `linkedin.com/in/flexgrafik-quietforge`  
 > **Language:** EN only  
-> **Cadence:** 2 posts / week
+> **Cadence:** 2 posts / week  
+> **Core rule:** sell the business leak first; show the system as proof second.
 
 ---
 
 ## Read order
 
 | # | Document | Purpose |
-|---|----------|---------|
-| 1 | [strategy.md](./strategy.md) | Positioning, audience, messaging, content pillars |
-| 2 | [rules.md](./rules.md) | Hard rules — profile, feed, honesty, homepage sync |
-| 3 | [calendar.md](./calendar.md) | 4-week rolling calendar + post briefs |
-
-**Upstream (must read before changes):**
-- [`../marketing-strategy.md`](../marketing-strategy.md) — ICP, pricing, message hierarchy
-- [`../site-map.md`](../site-map.md) — routes, homepage order
-- [`../../canons/proof-rules.md`](../../canons/proof-rules.md) — honesty gate
-- [`../../canons/marketing-rules.md`](../../canons/marketing-rules.md) — copy rules
-
-**GTM context (reference):**
-- [`../gtm/01-two-brand-model.md`](../gtm/01-two-brand-model.md) — dual-brand foundation
-- [`../gtm/05-content-pillars.md`](../gtm/05-content-pillars.md) — pillar proportions
-- [`../gtm/06-roadmap-90-days.md`](../gtm/06-roadmap-90-days.md) — macro roadmap
-- [`../gtm/08-investor-track.md`](../gtm/08-investor-track.md) — investor track (deferred)
+|---|---|---|
+| 1 | `strategy.md` | Positioning, buyer psychology, messaging, content pillars |
+| 2 | `rules.md` | Hard rules for profile, feed, proof, CTA and homepage sync |
+| 3 | `calendar.md` | 4-week post calendar built around business leaks, not modules |
 
 ---
 
 ## CO / DLACZEGO / BO
 
 | | |
-|--|--|
-| **CO** | Jeden profil LinkedIn jako kanał **Quietforge B2B** — FlexGrafik wyłącznie jako proof layer |
-| **DLACZEGO** | LinkedIn to jedyny kanał, gdzie budujesz **Conversion Systems Architect** dla NL SMB. Audyt (2026-06-29): positioning ~4.2/5, feed readiness 2.4/5 — luka to konsystencja treści i ścieżka konwersji |
-| **BO** | Profil bez zasad = każdy post „wyjątkiem" (funding, magnesy, flexgrafik.nl). Kupujący B2B nie wie co kupić ani gdzie kliknąć |
+|---|---|
+| **CO** | Jeden profil LinkedIn jako kanał Quietforge B2B. FlexGrafik tylko jako proof layer. |
+| **DLACZEGO** | Klient kupuje mniej chaosu, szybsze leady, mniej ręcznej pracy i kontrolę — nie nazwy modułów ani architekturę. |
+| **BO** | Jeśli profil brzmi jak katalog systemów, buyer nie wie, co dokładnie ma kupić. Jeśli brzmi jak zamknięcie jego wycieku czasu/pieniędzy, rośnie intencja rozmowy. |
 
 ---
 
-## Nadrzędna zasada (LI-01)
+## Nadrzędna zasada LI-01
 
-> **LinkedIn nie sprzedaje druku** — pokazuje system działający na FlexGrafik jako proof. CTA = Quietforge B2B (Automation Map → build).
+> LinkedIn nie sprzedaje druku, AI ani architektury. LinkedIn sprzedaje zamknięcie konkretnego wycieku w małej firmie: manual quotes, inbox chaos, weak lead capture, automation without control.
+
+Quietforge = offer.  
+FlexGrafik = proof.  
+Automation Map = first step.
+
+---
+
+## One-liner
+
+```text
+I turn manual lead handling into supervised conversion systems for NL small businesses.
+```
+
+Alternate profile-friendly version:
+
+```text
+Conversion Systems Architect for NL small businesses — reducing manual quotes, inbox chaos and weak lead capture with human-approved automation.
+```
+
+---
+
+## Four buyer leaks
+
+| Leak | Buyer language | Proof layer |
+|---|---|---|
+| Manual quotes | “I lose time before I know if a lead is serious.” | Wizard / quote flow |
+| Inbox chaos | “Important messages sit next to noise.” | Inbox Killer / classification |
+| Weak lead capture | “People visit, then disappear.” | Trust Portal / lead game / site flow |
+| Automation risk | “I want speed, but not loss of control.” | HITL / Trust / Agent OS / governance |
 
 ---
 
 ## Quick reference
 
 | Element | Rule |
-|---------|------|
+|---|---|
 | Primary label | Conversion Systems Architect |
 | Company | Quietforge |
-| FlexGrafik on profile | About / Experience / proof — not headline |
+| FlexGrafik role | Production proof only |
 | Post language | EN |
-| Post structure | Problem → System → Effect → CTA (first comment) |
+| Post structure | Pain → Cost → Proof → Effect → Soft close |
 | CTA placement | First comment within 2h — never in post body |
-| Link in post body | Never (algorithm penalty) |
-| Hashtags | Max 3 — `#B2B` `#automation` `#buildinpublic` |
-| Investor content | 0% on main feed — [../gtm/08-investor-track.md](../gtm/08-investor-track.md) |
+| Link in post body | Never |
+| Hashtags | Max 3 |
+| Primary CTA | Book Automation Map (€290, credited toward build) |
+| Investor content | 0% on main feed |
 | UTM pattern | `?utm_source=linkedin&utm_medium=organic&utm_campaign=<slug>` |
 
 ---
 
-*Established: 2026-06-29 · Repo: services (quietforge.flexgrafik.nl)*
+## Current repair priority
+
+1. Replace the “8 modules introduction” calendar with a “4 business leaks” calendar.
+2. Rewrite LinkedIn About and Experience around buyer pain, not technical architecture.
+3. Keep proof honest, but translate metrics into business outcomes.
+4. Publish two test posts first: manual quotes and inbox chaos.
+5. Review after 2 weeks: profile views, DMs/comments from business owners, CTA clicks.
+
+---
+
+*Established: 2026-06-29 · Updated to outcome-first strategy v2.0*

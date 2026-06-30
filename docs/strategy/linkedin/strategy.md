@@ -3,220 +3,239 @@ status: "[ACTIVE]"
 title: "LinkedIn Strategy — Quietforge B2B"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
-version: "1.0 — channel split"
+version: "2.0 — outcome-first repair"
 classification: "L3 — LinkedIn strategy"
 ---
 
-# LinkedIn Strategy
-
----
+# LinkedIn Strategy — Quietforge B2B
 
 ## 1. Channel purpose
 
-LinkedIn is the **primary B2B acquisition channel** for Quietforge. It exists to:
+LinkedIn is the primary B2B acquisition channel for Quietforge. Its job is to make one thing obvious:
 
-1. Position Norbert as **Conversion Systems Architect** for NL small businesses
-2. Show **production proof** via FlexGrafik (live ops, not demo)
-3. Drive qualified traffic to **Automation Map** (€290) → `quietforge.flexgrafik.nl/book-discovery/`
+> Norbert helps Netherlands-based small businesses close specific leaks in their sales and operations using supervised conversion systems.
 
-**Not for:** selling print services, investor fundraising, consumer products, freelancer gigs.
+LinkedIn must not feel like a product catalogue or technical architecture tour. It must feel like a founder showing practical systems that solve recognisable business problems.
 
----
+**Primary commercial path:** LinkedIn post → first comment CTA → Automation Map (€290) → scoped build.
 
-## 2. Two-brand model on LinkedIn
-
-| Brand | Role on LinkedIn |
-|-------|------------------|
-| **Quietforge** | Primary identity — sells B2B conversion systems |
-| **FlexGrafik** | Proof layer only — "this system runs in my own business" |
-
-**Rule:** Every mention of FlexGrafik on LinkedIn must serve as **production evidence**, never as a consumer offer. The buyer must understand: *Norbert built this for his own print business first, now deploys the same pattern for other SMBs.*
+**Not for:** selling print services, investor fundraising, consumer products, generic AI consulting, freelancer positioning.
 
 ---
 
-## 3. Target audience (ICP)
+## 2. Positioning
+
+### Primary label
+
+```text
+Conversion Systems Architect
+```
+
+### Core one-liner
+
+```text
+I turn manual lead handling into supervised conversion systems for NL small businesses.
+```
+
+### Expanded positioning
+
+```text
+I help ZZP and small businesses in the Netherlands reduce manual quotes, inbox chaos and weak lead capture with automation that keeps humans in control.
+```
+
+### What the buyer should believe
+
+1. Norbert understands the operational mess inside a small business.
+2. He has built real systems in his own business before selling them.
+3. The systems improve revenue handling and reduce admin, not just “use AI”.
+4. The first step is safe and paid: Automation Map, not an open-ended sales call.
+
+---
+
+## 3. Two-brand model
+
+| Brand | Role on LinkedIn | Rule |
+|---|---|---|
+| Quietforge | Primary B2B offer | Sells Automation Map and conversion systems |
+| FlexGrafik | Proof layer | Shows systems running in a real NL business |
+
+**Rule:** FlexGrafik is never the offer on LinkedIn. It is the operating proof: “I run this in my own business before deploying the pattern for clients.”
+
+---
+
+## 4. ICP — target buyer
 
 | Attribute | Target |
 |---|---|
-| Geography | Netherlands; English-friendly SMB |
-| Entity | ZZP, small BV, professional services, specialist e-commerce |
-| Pain | Inbox chaos, manual quotes, weak lead capture, scattered tools, no repeatable sales process |
-| Budget signal | Willing to pay €290 for strategic mapping; project budget normally €1,200+ |
-| Decision style | Wants proof before call; values safety and control |
-| Not for | Pure brochure site, sub-€199 impulse buyers, enterprise procurement |
-
-Full ICP: [`../marketing-strategy.md`](../marketing-strategy.md) §3
-
----
-
-## 4. Core question
-
-Every post must help the buyer answer:
-
-> **Can Norbert design and deploy a system that improves my business?**
-
-Not: *"Can he build a nice website?"* or *"Is he looking for investors?"*
+| Geography | Netherlands |
+| Business type | ZZP, small BV, professional services, specialist e-commerce, local service providers |
+| Owner mindset | Practical, busy, proof-driven, wants control |
+| Pain | Manual quoting, inbox overload, weak website conversion, scattered tools, repeated admin |
+| Budget signal | Willing to pay €290 for strategic mapping; project budget usually €1,200+ |
+| Fear | Paying for a vague agency project, losing control to AI, technical complexity, hidden retainers |
+| Desire | Faster lead handling, fewer missed opportunities, clear next steps, safe automation |
+| Not for | Pure brochure-site buyers, sub-€199 impulse buyers, enterprise procurement, people wanting “AI magic” |
 
 ---
 
 ## 5. Message hierarchy
 
+Use this order in all posts and profile copy:
+
 ```text
-Problem → System → Effect
+Pain → Cost → Proof → Effect → Soft close
 ```
 
-Every post follows this structure:
-
-1. **Hook** — NL SMB pain (1–2 lines, no tech jargon)
-2. **System** — what was built (outcome-first, no repo dump)
-3. **Proof** — 1 number or screenshot + LIVE/PARTIAL status
-4. **Effect** — what changes for the business
-5. **CTA** — in first comment: Book Automation Map + URL + UTM
-
----
-
-## 6. Content pillars
-
-| Pillar | Proportion | Purpose |
-|--------|-----------|---------|
-| **P1 — Proof in production** | 40% | Wizard, inbox, Jadzia, Agent OS — live systems with screenshots |
-| **P2 — Qualification / objections** | 25% | HITL, EU/AVG, "not a chatbot", €290 as filter |
-| **P3 — Founder / builder** | 20% | Human story without funding ask |
-| **P4 — Process / method** | 15% | Map → Architect → Build → Verify → Handover |
-| **P5 — Investor** | 0% | Deferred — [`../gtm/08-investor-track.md`](../gtm/08-investor-track.md) |
-
-### Pillar rules
-
-- Never 2× P3 (founder) in a row — always sandwich with P1 or P2
-- P1 must include visual proof (screenshot, metric, diagram)
-- P2 must address a specific objection from `/trust/` or pricing
-- P4 must show process safety, not just speed
-
-Full pillars: [`../gtm/05-content-pillars.md`](../gtm/05-content-pillars.md)
+| Layer | Job | Example |
+|---|---|---|
+| Pain | Make the buyer recognise themselves | “Your inbox is not a CRM.” |
+| Cost | Show why it matters | “Important leads sit next to invoices and newsletters.” |
+| Proof | Show what exists | “LIVE in my own business: 142 messages sorted in one scan.” |
+| Effect | Translate into business value | “You start with priorities, not a pile.” |
+| Soft close | Prepare for CTA comment | “The first step is mapping the leak, not buying another tool.” |
 
 ---
 
-## 7. Buyer terminology
+## 6. Four business leaks
 
-Business outcome first. System name second. Tech stack third.
+All content should map to one of these four leaks.
 
-| Weak / too technical | Stronger framing |
+### Leak 1 — Manual quotes
+
+Buyer problem: “I answer the same questions before I know if the lead is serious.”  
+Business effect: faster qualification, less email ping-pong, clearer next step.  
+Proof assets: Wizard Cash Engine, self-service quote flow, checkout path.
+
+### Leak 2 — Inbox chaos
+
+Buyer problem: “Important messages sit next to noise.”  
+Business effect: fewer missed leads, faster prioritisation, less mental load.  
+Proof assets: Inbox Killer, classification, drafted replies, HITL approval.
+
+### Leak 3 — Weak lead capture
+
+Buyer problem: “People visit my site and disappear.”  
+Business effect: clearer paths, more qualified handoffs, better conversion.  
+Proof assets: Trust Portal, lead magnet game, website upgrade, results pages.
+
+### Leak 4 — Automation risk / lack of control
+
+Buyer problem: “I want speed, but I do not trust black-box AI.”  
+Business effect: safe automation, auditability, human approval, no lock-in.  
+Proof assets: Trust & Safety, HITL, Agent OS, governance, EU hosting, logs.
+
+---
+
+## 7. Content pillars
+
+| Pillar | Share | Purpose | Required proof |
+|---|---:|---|---|
+| P1 — Business proof | 40% | Show a real leak and live proof | Screenshot, number, flow or case |
+| P2 — Trust / objections | 25% | Reduce fear: AI, data, price, control | Specific objection answered |
+| P3 — Founder credibility | 20% | Show self-as-client and builder judgment | Personal but buyer-relevant |
+| P4 — Process / method | 15% | Explain Map → Build → Verify → Handover | Safety, fixed scope, no lock-in |
+| P5 — Investor | 0% | Deferred | Not allowed on main feed |
+
+**Enforcement:** never publish two P3 posts in a row. P1 posts need visual proof. P2 posts must address one specific fear.
+
+---
+
+## 8. Buyer-first terminology
+
+| Avoid as lead message | Use instead |
 |---|---|
-| Jadzia COI | Know which leads, orders and messages need action first — powered by Jadzia COI |
-| VCMS | Governance layer that catches drift before deploy |
-| Agent OS | Fixed agent workflow for build, test and review |
-| LangGraph / MCP / OpenRouter | Mention only in details, never as the headline value |
-| 8 repos | One supervised system with 8 production-touching parts |
+| Agent OS | Human-approved workflow that keeps AI controlled |
+| VCMS | Governance layer that catches drift before changes go live |
+| Jadzia COI | Operating brain that knows which orders, leads and messages need attention |
+| 8 repos | One supervised system with separate parts kept under control |
+| LangGraph / MCP / OpenRouter | Mention only if asked or in technical detail, never in hook |
+| Wizard Cash Engine | Guided quote flow / self-service quote system |
 
 ---
 
-## 8. CTA ladder
+## 9. CTA ladder
 
-| Level | Action | URL |
-|-------|--------|-----|
-| **L3 (primary)** | Book Automation Map | `/book-discovery/` |
-| **L2 (secondary)** | See live systems | `/results/` |
-| **L1 (exploration)** | How it works | `/how-it-works/` |
+| Level | Action | URL | Use |
+|---|---|---|---|
+| L3 primary | Book Automation Map | `/book-discovery/` | First comment in most posts |
+| L2 proof | See live systems | `/results/` | Second line in first comment when proof-heavy |
+| L1 education | How it works / Trust | `/how-it-works/`, `/trust/` | Objection/process posts |
 
-**CTA placement rule:** Always in the **first comment** within 2h of publishing — never in the post body (algorithm penalty).
+**Rule:** No links in post body. CTA goes in first comment within 2h.
 
 ---
 
-## 9. Comment CTA template
+## 10. First comment CTA templates
+
+### Standard
 
 ```text
 If this matches how your business runs today — start with a paid Automation Map (€290, credited toward your build):
 https://quietforge.flexgrafik.nl/book-discovery/?utm_source=linkedin&utm_medium=organic&utm_campaign=<slug>
 
-Live systems: https://quietforge.flexgrafik.nl/results/
+Live systems:
+https://quietforge.flexgrafik.nl/results/?utm_source=linkedin&utm_medium=organic&utm_campaign=<slug>
 ```
 
-Replace `<slug>` with post identifier: `inbox-killer`, `wizard-proof`, `lead-magnet`, etc.
+### Trust/process version
+
+```text
+If you want automation without losing control — start with a paid Automation Map (€290, credited toward your build):
+https://quietforge.flexgrafik.nl/book-discovery/?utm_source=linkedin&utm_medium=organic&utm_campaign=<slug>
+
+How it works:
+https://quietforge.flexgrafik.nl/how-it-works/?utm_source=linkedin&utm_medium=organic&utm_campaign=<slug>
+```
 
 ---
 
-## 10. UTM strategy
+## 11. Profile structure
 
-All links from LinkedIn to quietforge:
-
-`?utm_source=linkedin&utm_medium=organic&utm_campaign=<post_slug>`
-
-| Source | `utm_campaign` example | Landing |
-|--------|----------------------|---------|
-| Post P1 Inbox | `inbox-killer` | `/` or `/book-discovery/` |
-| Post P1 Wizard | `wizard-proof` | `/results/` |
-| Featured slot 1 | `featured-map` | `/book-discovery/` |
-| Featured slot 2 | `featured-results` | `/results/` |
-| Services click | `services-map` | `/book-discovery/` |
-
----
-
-## 11. Profile structure (strategic)
-
-| Element | Job | Quietforge | FlexGrafik |
-|---------|-----|------------|------------|
-| Banner | Identity + LOS diagram | Primary visual | Ecosystem proof in diagram |
-| Headline | SEO + first impression | Architect @ Quietforge | Not "drukarnia" in headline |
-| About | Dual-brand story | B2B offer | Founder + live stack |
-| Featured | Conversion | Quietforge links + Map + case studies | Owner ecosystem as proof |
-| Activity / feed | Reach + narrative | B2B pillar posts | Only as case / screenshot |
-| Services | Product ladder | Map + builds | Self-as-client framing |
-
-### Featured slots (recommended)
-
-| Slot | URL | Label |
-|------|-----|-------|
-| 1 | `/book-discovery/` | Book Automation Map — €290 |
-| 2 | `/results/` | Live systems on FlexGrafik |
-| 3 | `/how-it-works/` | How it works |
-| 4 (opt.) | `/artefacts/automation-map-sample.pdf` | Sample Automation Map |
-
-**Rule:** LinkedIn Featured = **mirror** homepage Featured strip — same order, same URLs.
+| Element | Job | Recommendation |
+|---|---|---|
+| Banner | Immediate category and proof | Quietforge identity + simple flow: Map → Build → Approve → Improve |
+| Headline | Buyer pain + outcome | Mention manual quotes, inbox chaos, weak lead capture, human-approved automation |
+| About | Trust and offer | Problem → systems → Automation Map → FlexGrafik proof |
+| Experience: Quietforge | Commercial offer | Outcome-first, less technical, clear entry product |
+| Experience: FlexGrafik | Proof layer | “My own NL business where systems run live” |
+| Featured | Conversion | Map, Results, How it works, Trust/Sample Map |
+| Activity | Demand creation | 2 posts/week around four leaks |
 
 ---
 
 ## 12. Homepage sync
 
-Every LinkedIn post with CTA in comments must land on a homepage section that **matches the post's message** within 5 seconds on mobile.
+Before every post with CTA:
 
-**5-second test:** Open URL from comment on mobile — can you see:
-- (a) What Quietforge sells
-- (b) Where FlexGrafik proves it
-- (c) Where to click for Map
-
-If any answer is "no" — do not publish the post until homepage is fixed.
-
----
-
-## 13. Investor track (deferred)
-
-**0% investor content on main feed** until all gates are met:
-
-| Gate | Requirement |
-|------|------------|
-| G1 | Min. 8 Track A posts with quietforge CTA |
-| G2 | Feed B2B ≥ 80% slots P1–P4 (rolling 4 weeks) |
-| G2b | Homepage sync complete (dual-brand, Featured, de-jargon) |
-| G3 | Commercial traction ≥ 3 metrics |
-| G4 | Investor deck / one-pager ready |
-| G5 | Conscious Commander decision to start series |
-
-Until gates met: investor conversations = **DM only**.
+1. Open the target URL on mobile.
+2. Within 5 seconds confirm:
+   - what Quietforge sells,
+   - where FlexGrafik proves it,
+   - where to book the Automation Map.
+3. If any answer is unclear, do not publish.
 
 ---
 
-## 14. Metrics of success
+## 13. Metrics of success
 
-| Metric | Baseline (2026-06-29) | Direction |
-|--------|----------------------|-----------|
-| B2B readiness score | 2.4 / 5 | ≥ 3.5 |
-| Posts with quietforge CTA | 0% | 100% of new posts |
-| Feed mix investor vs B2B | Investor-heavy | ≥ 80% P1–P4 |
-| Homepage conversion (audit) | 6.5 / 10 | ≥ 8 / 10 |
-| Homepage ↔ LI Featured sync | 0% | 1:1 mirror |
-| Connections | 16 | Trend up |
-| Map bookings attributed to LI | UNKNOWN | ≥ 1 |
+Measure only what helps the business.
+
+| Metric | Why it matters | Target direction |
+|---|---|---|
+| Profile views | Positioning resonance | Up |
+| Relevant comments/DMs | Buyer recognition | Up |
+| CTA clicks with UTM | Commercial intent | Up |
+| Automation Map requests | Revenue path | ≥ 1 attributed to LinkedIn |
+| Content mix | Strategy discipline | ≥ 80% P1–P4 B2B |
+
+Avoid obsessing over likes. A quiet post that produces one qualified DM is better than a viral technical post that attracts builders, not buyers.
 
 ---
 
-*Established: 2026-06-29 · Repo: services (quietforge.flexgrafik.nl)*
+## 14. Operating principle
+
+> Do not sell the architecture. Sell the closed leak. Use architecture as proof only after the buyer recognises the pain.
+
+---
+
+*Established: 2026-06-29 · Updated to v2.0 outcome-first repair*

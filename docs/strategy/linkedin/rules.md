@@ -3,231 +3,256 @@ status: "[ACTIVE]"
 title: "LinkedIn Hard Rules — Quietforge B2B"
 owner: "Norbert Wozniak"
 updated: "2026-06-29"
-version: "1.0 — channel split"
-classification: "L3 — LinkedIn hard rules (enterprise-grade)"
+version: "2.0 — outcome-first enforcement"
+classification: "L3 — LinkedIn hard rules"
 ---
 
 # LinkedIn Hard Rules
 
-> These are **non-negotiable** rules for all LinkedIn activity. Violation = post deletion and strategy review.
+These rules are non-negotiable. They exist to keep the channel commercially clear, buyer-friendly and proof-driven.
 
 ---
 
 ## LI-R01 — Identity integrity
 
 | Rule | Detail |
-|------|--------|
-| Primary label | **Conversion Systems Architect** — never "web designer", "AI expert", "freelancer" |
-| Company field | **Quietforge** |
-| FlexGrafik in headline | **Forbidden** — appears only in About and Experience sections |
-| Banner | Must show Quietforge identity + LOS/8-repo diagram (audit: 5/5 — keep) |
-| Self-description | First person for founder credibility; "we" only for delivery partnership |
+|---|---|
+| Primary label | Conversion Systems Architect |
+| Company field | Quietforge |
+| FlexGrafik in headline | Avoid as primary identity; mention only as proof if needed |
+| Self-description | First person for founder credibility |
+| Forbidden labels | web designer, AI guru, freelancer, agency, print shop owner as primary identity |
 
 ---
 
-## LI-R02 — Single CTA discipline
+## LI-R02 — Buyer-first language
 
-| Rule | Detail |
-|------|--------|
-| One primary action per post | **Book Automation Map** (€290) |
-| CTA location | **First comment only** — within 2h of publishing |
-| CTA in post body | **Forbidden** — algorithm penalty |
-| Link in post body | **Forbidden** — algorithm penalty |
-| Secondary CTA | `/results/` (live systems) — mention only if relevant to post |
-| Multiple CTAs | **Forbidden** — one post, one action |
+Every public post must start from a business leak, not a system name.
 
----
+Allowed opening topics:
+- manual quotes,
+- inbox chaos,
+- weak lead capture,
+- website traffic without pipeline,
+- automation without control,
+- approval and safety.
 
-## LI-R03 — Language and tone
-
-| Rule | Detail |
-|------|--------|
-| Post language | **EN only** — no Polish on public feed |
-| Tone | Professional, direct, founder voice — no agency-speak |
-| "Agency" as self-description | **Forbidden** |
-| Anonymous "we" in founder story | **Forbidden** |
-| First person | Required for founder credibility |
-| "We" usage | Only for delivery partnership: "We map your process. I design the system." |
+Forbidden as hook:
+- Agent OS,
+- VCMS,
+- LangGraph,
+- MCP,
+- repo counts,
+- architecture diagrams without business context.
 
 ---
 
-## LI-R04 — Message structure (mandatory)
+## LI-R03 — Mandatory post structure
 
 Every post must follow:
 
 ```text
-1. Hook — NL SMB problem (1–2 lines, zero tech jargon)
-2. System — what was built (outcome-first)
-3. Proof — 1 number or screenshot + LIVE/PARTIAL/DEMO status
+1. Pain — one recognisable SMB problem
+2. Cost — why it costs time, money or control
+3. Proof — one real system, screenshot or number, with status if needed
 4. Effect — what changes for the business
-5. CTA — in first comment (LI-R02)
+5. Soft close — map the leak before building
+6. CTA — first comment only
 ```
 
-**Forbidden patterns:**
-- Feature list without problem context
-- Tech stack in hook (LangGraph, MCP, OpenRouter)
-- Repo dump ("8 repos", terminal mock)
-- Investor language on B2B feed
+If the post does not clearly show the business effect, do not publish.
 
 ---
 
-## LI-R05 — Proof honesty gate
+## LI-R04 — Single CTA discipline
+
+| Rule | Detail |
+|---|---|
+| Primary action | Book Automation Map (€290, credited toward build) |
+| CTA location | First comment only, within 2h |
+| Link in post body | Forbidden |
+| Multiple CTAs in body | Forbidden |
+| Secondary URL | `/results/`, `/how-it-works/` or `/trust/` only when relevant, in first comment |
+| WhatsApp | Not a main LinkedIn CTA unless the post is explicitly conversational |
+
+---
+
+## LI-R05 — Language and tone
+
+| Rule | Detail |
+|---|---|
+| Public post language | EN only |
+| Tone | Professional, direct, founder voice |
+| Style | Short paragraphs, no corporate padding |
+| “We” usage | Only for delivery partnership; default is “I” |
+| Polish | Internal notes only, not public feed |
+
+---
+
+## LI-R06 — Proof honesty gate
 
 | Must say | Never say |
-|----------|-----------|
-| "Wizard checkout LIVE on zzpackage" | "System 80% complete" |
-| "Jadzia COI Phase A+B LIVE; Procurement Brain PLANNED" | "Almost finished, 2 months left" |
-| "161 SKUs" (site SSoT) | "200+ SKUs" if outdated |
-| LIVE / PARTIAL / DEMO / PLANNED labels | Fake testimonials, fake logos |
-| Real screenshots and metrics | Unlabelled demo fixtures |
+|---|---|
+| LIVE / PARTIAL / DEMO / PLANNED when status matters | “Almost done”, “80% complete”, vague future claims |
+| “Runs in my own business” | Fake clients, fake logos, fake testimonials |
+| Exact current metrics only | Inflated numbers |
+| Human approval before send/deploy | Autonomous claims that imply unsafe automation |
+| Planned parts named openly | Selling planned features as live |
 
-**Status labels (immutable):**
+Status labels:
 
 | Label | Meaning |
-|-------|---------|
+|---|---|
 | LIVE | Running in production |
 | PARTIAL | Useful parts live; planned parts named openly |
-| PILOT | Flow exists but not full production proof |
-| DEMO | Fixture or illustrative asset |
-| PLANNED | Not live; must not be sold as live |
+| PILOT | Flow exists but limited production proof |
+| DEMO | Illustrative or fixture asset |
+| PLANNED | Not live; do not sell as live |
 
 ---
 
-## LI-R06 — FlexGrafik usage rule
+## LI-R07 — FlexGrafik usage rule
 
-| Allowed | Forbidden |
-|---------|-----------|
-| "In my NL print business, this system handles X" | "Order print services at flexgrafik.nl" |
-| Screenshot of wizard/inbox/Jadzia from FlexGrafik ops | Consumer product offers (magnesy, oklejenie) |
-| "Same stack I run daily — not a demo" | FlexGrafik as primary offer on LinkedIn |
-| Link to `/results/` showing FlexGrafik proof | Link to flexgrafik.nl consumer pages |
+Allowed:
+- “I run this first in my own NL print business.”
+- Screenshots or flows from FlexGrafik operations.
+- Links to Quietforge `/results/` pages that explain the proof.
 
----
-
-## LI-R07 — Pillar proportion enforcement
-
-| Pillar | Target | Enforcement |
-|--------|--------|-------------|
-| P1 — Proof | 40% | Must include visual proof |
-| P2 — Objections | 25% | Must address specific objection |
-| P3 — Founder | 20% | Max 1 per 4-post block |
-| P4 — Process | 15% | Must show process safety |
-| P5 — Investor | 0% | **Forbidden** until gates met |
-
-**Anti-pattern:** Never 2× P3 (founder) in a row. Always sandwich with P1 or P2.
+Forbidden:
+- selling print services on LinkedIn,
+- linking to consumer FlexGrafik offers as main CTA,
+- making FlexGrafik the profile’s primary commercial identity,
+- consumer product posts without B2B conversion context.
 
 ---
 
-## LI-R08 — Hashtag discipline
+## LI-R08 — Content pillar enforcement
+
+| Pillar | Target | Rule |
+|---|---:|---|
+| P1 Business proof | 40% | Must include visual proof or a concrete number |
+| P2 Trust / objection | 25% | Must answer one specific buyer fear |
+| P3 Founder credibility | 20% | Max 1 per 4-post block |
+| P4 Process / method | 15% | Must show safety, scope or handover |
+| P5 Investor | 0% | Forbidden on main feed |
+
+---
+
+## LI-R09 — Hashtag discipline
 
 | Rule | Detail |
-|------|--------|
-| Maximum | **3 hashtags** per post |
-| Allowed | `#B2B`, `#automation`, `#buildinpublic`, problem-specific tags |
-| Forbidden | `#investorready`, `#techstartup`, `#indiehackers`, tag spam |
-| Placement | End of post body (before CTA comment) |
+|---|---|
+| Maximum | 3 hashtags |
+| Default | `#B2B`, `#automation`, `#buildinpublic` |
+| Allowed alternatives | problem-specific tags when relevant |
+| Forbidden | tag spam, investor hashtags, trend hijacking |
 
 ---
 
-## LI-R09 — Homepage sync gate
+## LI-R10 — Homepage sync gate
 
-Before publishing any post with CTA:
+Before publishing any CTA post:
 
-1. Open the landing URL from the comment on **mobile** (375px)
-2. Verify within **5 seconds**:
-   - (a) What Quietforge sells is clear
-   - (b) Where FlexGrafik proves it is visible
-   - (c) Where to click for Map is obvious
-3. If any check fails — **do not publish**
+1. Open the landing URL on mobile.
+2. Confirm in 5 seconds:
+   - offer is clear,
+   - proof is visible,
+   - Automation Map button is obvious.
+3. Check pricing consistency: €290 credited toward build.
+4. Check post promise matches landing page language.
 
-**Additional checks:**
-- Post language matches landing page language (EN)
-- Problem→System→Effect in post = same beat on landing
-- Dual-brand visible on landing (QF sell / FG proof)
-- Book Discovery copy matches post pricing (€290)
+If the 5-second test fails, do not publish.
 
 ---
 
-## LI-R10 — Pricing integrity
+## LI-R11 — Pricing integrity
 
 | Rule | Detail |
-|------|--------|
-| Automation Map price | **€290, credited toward build** — never "free", "contact for pricing" |
-| Project pricing | Reference [`../marketing-strategy.md`](../marketing-strategy.md) §8 — never invent numbers |
-| "From €99/mo" for Managed Automation | **Forbidden** — use €349–€890/mo |
-| Price consistency | LinkedIn Services = homepage `/pricing/` = post copy |
+|---|---|
+| Automation Map | €290, credited toward build |
+| Free discovery call | Forbidden as main framing |
+| Build pricing | Use only approved site/pricing numbers |
+| Managed Automation | €349–€890/mo |
+| Hidden fees | Never imply hidden setup or unclear retainers |
 
 ---
 
-## LI-R11 — Investor content ban (until gates)
+## LI-R12 — Technical language containment
+
+Technical terms may appear only after buyer context is clear.
+
+Use this order:
+
+```text
+business problem → business effect → proof name → technical detail if needed
+```
+
+Never this order:
+
+```text
+technology → module → architecture → buyer problem
+```
+
+---
+
+## LI-R13 — Post frequency and response
 
 | Rule | Detail |
-|------|--------|
-| Investor posts on main feed | **0% until all gates met** (LI-Strategy §13) |
-| #investorready hashtag | **Forbidden** |
-| "Seeking investors" in Services | **Forbidden** |
-| Capital ask in post body | **Forbidden** |
-| Investor conversations | DM only until gates met |
-| Mixing investor + B2B in one post | **Forbidden** |
-
----
-
-## LI-R12 — Post frequency and timing
-
-| Rule | Detail |
-|------|--------|
-| Cadence | **2 posts per week** |
-| Minimum gap | 2 days between posts |
-| Comment response | Within 2h of publishing |
-| CTA comment timing | Within 2h of publishing |
-| No posting | If homepage fails 5-second test (LI-R09) |
-
----
-
-## LI-R13 — Anti-patterns (forbidden behaviors)
-
-| Anti-pattern | Why forbidden |
-|--------------|---------------|
-| Selling print on LinkedIn | Wrong ICP — use Facebook for consumer |
-| Deleting the 4/4 founder series | History builds trust — pivot forward |
-| "80% complete" claims | Proof honesty violation (LI-R05) |
-| LangGraph / MCP in hook | Tech jargon before business value |
-| Posting in Polish | Audience is EN-friendly NL SMB |
-| Reposting consumer video from Facebook | Wrong audience, wrong context |
-| Two investor posts in a week | Dilutes B2B priority |
-| Feature list without problem | No buyer resonance |
-| "Free discovery call" | Devalues €290 Map |
-| Consumer print as hero CTA | Confuses B2B positioning |
+|---|---|
+| Cadence | 2 posts/week |
+| Gap | Minimum 2 days |
+| First comment CTA | Within 2h |
+| Reply to comments | Within 2h when possible |
+| Review cycle | Every 2 weeks |
 
 ---
 
 ## LI-R14 — UTM enforcement
 
-| Rule | Detail |
-|------|--------|
-| All links to quietforge | Must include UTM parameters |
-| Pattern | `?utm_source=linkedin&utm_medium=organic&utm_campaign=<slug>` |
-| Slug format | Kebab-case post identifier: `inbox-killer`, `wizard-proof` |
-| Tracking | GA4 property: `G-LY0E7MW0HF` (Quietforge only) |
+All Quietforge URLs in first comments must include:
+
+```text
+?utm_source=linkedin&utm_medium=organic&utm_campaign=<slug>
+```
+
+Slug must be short, descriptive and kebab-case.
+
+Examples:
+- `manual-quotes-wizard`
+- `inbox-approval-system`
+- `automation-map-filter`
+- `human-approved-ai`
 
 ---
 
-## LI-R15 — Post publication checklist
+## LI-R15 — Publication checklist
 
-Before hitting "Post":
+Before posting:
 
-- [ ] Hook = SMB problem (not technology)
-- [ ] Effect line present
-- [ ] LIVE/PARTIAL/DEMO status if mentioning a module
-- [ ] CTA prepared for first comment (not in body)
-- [ ] UTM slug set on all URLs
-- [ ] Homepage 5-second test passed (LI-R09)
-- [ ] Pricing matches [`../marketing-strategy.md`](../marketing-strategy.md) §8
-- [ ] Max 3 hashtags
-- [ ] EN language only
-- [ ] Track A only — no investor ask
-- [ ] No forbidden anti-patterns (LI-R13)
+- [ ] Hook starts with a buyer problem, not technology.
+- [ ] Cost of the problem is clear.
+- [ ] Proof is honest and labelled if needed.
+- [ ] Effect line exists.
+- [ ] No link in post body.
+- [ ] CTA comment is ready with UTM.
+- [ ] Max 3 hashtags.
+- [ ] EN only.
+- [ ] FlexGrafik used only as proof.
+- [ ] No investor content.
+- [ ] Homepage 5-second test passed.
 
 ---
 
-*Established: 2026-06-29 · Repo: services (quietforge.flexgrafik.nl)*
+## LI-R16 — Delete or rewrite if...
+
+Rewrite the post if:
+- it reads like a module announcement,
+- it requires technical knowledge to understand,
+- it mentions more than one major system without a clear business reason,
+- it has no concrete buyer pain,
+- it attracts builders but not business owners,
+- it could be posted by a generic AI agency.
+
+---
+
+*Established: 2026-06-29 · Updated to v2.0 outcome-first enforcement*
