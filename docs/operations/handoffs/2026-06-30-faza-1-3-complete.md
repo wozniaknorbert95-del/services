@@ -1,6 +1,6 @@
-# Handoff — Faza 1–3 COMPLETE + Faza 4 verification (2026-06-30)
+# Handoff — Faza 1–4 COMPLETE + Post-Plan Session A (2026-06-30)
 
-**Repo:** quietforge.flexgrafik.nl · **Build:** `npm run build` ✅ (34 routes)
+**Repo:** quietforge.flexgrafik.nl · **Build:** `npm run build` ✅ (34 routes) · **ESLint:** 0 problems
 
 ## Cel / Goal
 Dociągnięcie planu homepage refactor do końca — Faza 1 (canon + struktura), Faza 2 (UX + dead code + Lighthouse), Faza 3 (GTM docs sync), Faza 4 (final verification).
@@ -73,15 +73,20 @@ rg '\[FILL:' src/   # 0 matches
 4. OG images: all main routes ✅ (auto-regenerated on build)
 
 ## Następny krok / Next steps — OUTSIDE THIS PLAN
-- **Pricing drift audit** — osobna sesja (W4 verify-action z master-brief)
-- **`/results/whatsapp-discovery-pilot/` completion** — osobna sesja
-- **Founder page "agency" fix + video placeholder** — osobna sesja
-- **Book Discovery checkout + calendar** — P0 drift, osobna sesja
-- **LinkedIn Featured V2 + Post M1.1** — Commander manual (GTM docs ready)
-- **ESlint pre-existing errors** — 7 errors (jsx comments, any type, setState in effect) — osobna cleanup sesja
+
+### Post-Plan Session A (✅ DONE — commits `7a7e936`, `9508230`)
+- **ESLint cleanup**: 7 errors + 4 warnings → **0 problems** (all fixed)
+- **CLS fix**: font preconnect + display=optional (BP 96→100 after preload removal)
+- **Priority actions plan**: `docs/operations/plans/2026-06-30-post-plan-priority-actions.md`
+
+### Remaining (outside current scope)
+- **Book Discovery backend** (P0) — requires Commander Formspree setup first
+- **`/results/whatsapp-discovery-pilot/` completion** (P2) — expand content beyond hero
+- **Founder page video placeholder** (P2) — add VideoSlot component
+- **CLS 0.35 → <0.1** — remaining shift likely from Framer Motion animations
 - **`audit:links` domain fix** — script points to old `services.` domain
-- **CLS 0.35** — performance issue (font loading + animation shifts), pre-existing
+- **LinkedIn Featured V2 + Post M1.1** — Commander manual (GTM docs ready)
 
 ---
 
-*Faza 1-3 COMPLETE · 2026-06-30 · 10 commits shipped (`0abeaf3`→`ac49e41`) · Homepage v3.0 LIVE*
+*Faza 1-4 COMPLETE + Post-Plan Session A · 2026-06-30 · 13 commits shipped (`0abeaf3`→`9508230`) · Homepage v3.0 LIVE · ESLint 0 problems*
