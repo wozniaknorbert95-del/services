@@ -25,9 +25,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-[var(--qf-sp-4)] text-[var(--qf-text)] text-[var(--qf-fs-xs)] uppercase tracking-[0.1em]">
+            <span className="mb-[var(--qf-sp-4)] block text-[var(--qf-text)] text-[var(--qf-fs-xs)] uppercase tracking-[0.1em]">
               {FOOTER.columnSolutions}
-            </h4>
+            </span>
             <ul className="space-y-2">
               {FOOTER_SOLUTIONS.map((link) => (
                 <li key={link.label}>
@@ -40,9 +40,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-[var(--qf-sp-4)] text-[var(--qf-text)] text-[var(--qf-fs-xs)] uppercase tracking-[0.1em]">
+            <span className="mb-[var(--qf-sp-4)] block text-[var(--qf-text)] text-[var(--qf-fs-xs)] uppercase tracking-[0.1em]">
               {FOOTER.columnCompany}
-            </h4>
+            </span>
             <ul className="space-y-2">
               {FOOTER_COMPANY.map((link) => (
                 <li key={link.label}>
@@ -55,9 +55,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-[var(--qf-sp-4)] text-[var(--qf-text)] text-[var(--qf-fs-xs)] uppercase tracking-[0.1em]">
+            <span className="mb-[var(--qf-sp-4)] block text-[var(--qf-text)] text-[var(--qf-fs-xs)] uppercase tracking-[0.1em]">
               {FOOTER.columnGetStarted}
-            </h4>
+            </span>
             <p className="mb-2">
               <Link href={HEADER_CTA.href} className="text-[var(--qf-accent)]">
                 {HEADER_CTA.label} →
