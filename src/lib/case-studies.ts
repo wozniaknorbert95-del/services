@@ -142,10 +142,3 @@ export const CASE_STUDIES: CaseStudy[] = [
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   return CASE_STUDIES.find((c) => c.slug === slug);
 }
-
-/** Home ResultsTeaser — wizard + ecosystem first */
-export const FEATURED_CASE_SLUGS = [
-  'jadzia-coi',
-  'owner-ecosystem',
-  'sales-funnel',
-] as const;
