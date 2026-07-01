@@ -1,27 +1,30 @@
 ---
 status: "[ACTIVE]"
-title: "Facebook Strategy — FlexGrafik Consumer"
+title: "Facebook Strategy — FlexGrafik ZZP Branding Partner"
 owner: "Norbert Wozniak"
-updated: "2026-06-30"
-version: "1.0"
+updated: "2026-07-01"
+version: "2.0"
 classification: "L3 — Facebook strategy"
+page_url: "https://www.facebook.com/people/FlexGrafik/61568401273877/"
 ---
 
-# Facebook Strategy — FlexGrafik Consumer
+# Facebook Strategy — FlexGrafik ZZP Branding Partner
 
 ## 1. Channel purpose
 
-Facebook is the **consumer and local B2C/B2B-light** channel for FlexGrafik — print, graphic design, vehicle wrapping, and self-service ordering for Netherlands-based customers.
+Facebook is the **NL ZZP branding and print** channel for FlexGrafik — not a generic print shop, not B2B conversion systems.
 
 Its job is to make one thing obvious:
 
-> FlexGrafik levert betrouwbaar drukwerk en design in Rotterdam en omgeving — bestellen kan eenvoudig via de wizard.
+> FlexGrafik is jouw brandingpartner als ZZP'er — ontwerp, Mimaki-druk, montage en bestellen via wizard, overal in Nederland.
 
-**Primary commercial path:** Facebook post → flexgrafik.nl or wizard → order / enquiry.
+**Primary commercial path:** Facebook post → wizard (`zzpackage.flexgrafik.nl/wizard/`) → Mollie checkout.
 
-**Not for:** Automation Map (€290), conversion systems consulting, investor fundraising, technical architecture tours.
+**Secondary paths:** flexgrafik.nl (portal + live chat) · page message / WhatsApp for custom wrapping.
 
-Cross-channel rule from audit: consumer posts that appeared on LinkedIn (magnets promo, flexgrafik.nl brand video) **belong here**, not on LinkedIn.
+**Not for:** Quietforge, Automation Map, Agent OS, 8-repo architecture, investor fundraising.
+
+Cross-channel rule: consumer / ZZP print posts that appeared on LinkedIn belong **here**, not on LinkedIn ([`../linkedin/strategy.md`](../linkedin/strategy.md)).
 
 ---
 
@@ -30,53 +33,77 @@ Cross-channel rule from audit: consumer posts that appeared on LinkedIn (magnets
 ### Primary label
 
 ```text
-FlexGrafik — druk & design · Rotterdam
+FlexGrafik — brandingpartner voor ZZP'ers · Nederland
 ```
 
 ### Core one-liner (NL)
 
 ```text
-Drukwerk en design voor ZZP'ers en lokale bedrijven — bestel eenvoudig online via onze wizard.
+Stickers, belettering en bedrijfskleding voor ZZP'ers — Mimaki-kwaliteit, professionele montage, bestel online via onze wizard.
 ```
+
+### Geography framing
+
+| Layer | Rule |
+|-------|------|
+| **ICP reach** | ZZP'ers in **heel Nederland** (online wizard) |
+| **Trust anchor** | **Rotterdam** — oorsprong, echt bedrijf, workshop |
+| **Local-only offers** | Google Business / GMB — not Facebook's primary job |
+
+Do not imply “alleen Rotterdam” unless the post is explicitly local / GMB.
 
 ### What the buyer should believe
 
-1. FlexGrafik delivers real print and design work — not a generic online shop.
-2. They can see finished projects (wrapping, magnets, signage, etc.).
-3. Ordering is straightforward — wizard or contact, in Dutch.
-4. There is a real local business behind the page (Rotterdam area).
+1. FlexGrafik is a **ZZP brandingpartner** — not a discount print shop for everyone.
+2. Print quality is professional (Mimaki ecosolvent — UV- and weather-resistant).
+3. Installation is done by a **professional partner** — no DIY for vehicle wraps.
+4. Ordering is simple — wizard self-service or live chat on portal/wizard.
+5. There is a real business behind the page (Rotterdam origin, real projects).
 
 ---
 
-## 3. Two-brand model on Facebook
+## 3. Six USPs (v2.0 message map)
+
+Every post in the launch series communicates at least one:
+
+| # | USP | Proof standard |
+|---|-----|----------------|
+| 1 | **ZZP brandingpartner** | NL copy, ZZP examples — not generic B2C |
+| 2 | **Wizard** | 161 SKUs · 9 UI screens · Mollie checkout — SSoT `proof.ts` |
+| 3 | **Lead-magnet game** | 5 speelniveaus · 4-tier reward ladder · monthly season ranking · wizard bridge — `app.flexgrafik.nl` |
+| 4 | **Montagepartner** | Professional install — **never** name erkapremium |
+| 5 | **Mimaki ecosolvent** | UV-bestendig · weerbestendig — operational claim; no invented specs |
+| 6 | **Live sales chat** | customer_agent **LIVE** on flexgrafik.nl + wizard · dedicated qualification agent **PLANNED** |
+
+---
+
+## 4. Two-brand model on Facebook
 
 | Brand | Role on Facebook | Rule |
 |---|---|---|
-| FlexGrafik | Primary offer | Sells print, design, wizard ordering |
-| Quietforge | Hidden / absent | Never the main CTA or page focus |
+| FlexGrafik | Primary offer | ZZP branding, print, wizard, game as lead magnet |
+| Quietforge | Hidden / absent | Never main CTA or page focus |
 
-**Rule:** Quietforge exists operationally behind FlexGrafik (wizard, inbox automation) but Facebook visitors buy **print and design**, not conversion systems. If automation is mentioned, it is background context only (“we built our own order flow”) — never a sales pitch.
+**Rule:** Operational tools (wizard, chat) may be mentioned as customer-facing features — never as “conversion systems consulting” or Automation Map.
 
 LinkedIn handles B2B: [`../linkedin/strategy.md`](../linkedin/strategy.md).
 
 ---
 
-## 4. ICP — target buyer
+## 5. ICP — target buyer
 
 | Attribute | Target |
 |---|---|
-| Geography | Netherlands — Rotterdam region priority |
-| Customer type | ZZP, local SMB, vehicle owners, event organisers, retail |
-| Need | Stickers, wrapping, signage, magnets, business cards, branded materials |
-| Language | Dutch |
-| Budget signal | Product-level orders via wizard — not €290 Map sessions |
+| Geography | Netherlands — online; Rotterdam as trust anchor |
+| Customer type | **ZZP'ers** (trades, services, local professionals) |
+| Need | Vehicle branding, stickers, workwear, signage, consistent brand materials |
+| Language | Dutch only on page and posts |
+| Budget signal | Product orders via wizard (from €199 checkout path) — not €290 Map sessions |
 | Not for | Enterprise procurement, B2B automation buyers (→ LinkedIn), investor audience |
 
 ---
 
-## 5. Message hierarchy
-
-Use this order in consumer posts:
+## 6. Message hierarchy
 
 ```text
 Need → Solution → Proof → Action
@@ -84,86 +111,89 @@ Need → Solution → Proof → Action
 
 | Layer | Job | Example (NL) |
 |---|---|---|
-| Need | Recognise the situation | “Je bedrijfsauto verdient meer dan een sticker uit de bouwmarkt.” |
-| Solution | What FlexGrafik offers | “Volledige wrapping of stickerset — design + productie.” |
-| Proof | Show real work | Photo of completed project (with client permission) |
-| Action | Clear next step | “Bestel via de wizard of stuur een bericht.” |
+| Need | Recognise the situation | “Als ZZP'er wil je er professioneel uitzien — zonder vijf leveranciers.” |
+| Solution | What FlexGrafik offers | “Eén partner: design, Mimaki-druk, montage, wizard.” |
+| Proof | Show real work | Photo of completed wrap (client permission) |
+| Action | Clear next step | “Bestel via de wizard” or “Stuur een bericht” |
 
 ---
 
-## 6. Content pillars
+## 7. Content pillars
 
 | Pillar | Share | Purpose | Required proof |
 |---|---:|---|---|
 | P1 — Finished work | 40% | Portfolio trust | Real photo of delivered project |
-| P2 — Product / offer | 25% | Drive wizard or enquiry | Clear product + price range if public |
-| P3 — How to order | 20% | Reduce friction | Wizard screenshot or 3-step flow |
+| P2 — Product / offer | 25% | Drive wizard or enquiry | Real product or live feature screenshot |
+| P3 — How to order | 20% | Reduce friction | Wizard screenshot (NL UI) |
 | P4 — Local / human | 15% | Brand warmth | Founder, workshop, Rotterdam context |
 | P5 — B2B / investor | 0% | — | Forbidden — use LinkedIn |
 
 **Enforcement:** never publish two P4 posts in a row without P1 proof in between.
 
+**Launch series order:** see [content-themes.md](./content-themes.md) — proof before game promo.
+
 ---
 
-## 7. CTA ladder
+## 8. CTA ladder
 
 | Level | Action | URL / contact | Use |
 |---|---|---|---|
-| L1 primary | Bestel via wizard | `zzpackage.flexgrafik.nl/wizard/` | Product posts, self-service |
-| L2 website | Bekijk assortiment | `flexgrafik.nl` | General awareness |
-| L3 contact | WhatsApp / bericht | Business page contact button | Custom projects, wrapping |
+| L1 primary | Bestel via wizard | `https://zzpackage.flexgrafik.nl/wizard/` | Product posts, self-service |
+| L2 website | Bekijk assortiment / chat | `https://flexgrafik.nl` | Awareness, assistant demo |
+| L3 contact | Bericht / WhatsApp | Page contact button | Custom wrapping, maatwerk |
 
 **Rule:** One CTA per post. Dutch language in post body.
 
----
-
-## 8. Relationship to LinkedIn
-
-| Content type | Facebook | LinkedIn |
-|---|---|---|
-| Finished wrapping project photo | ✅ Primary | ❌ Unless reframed as B2B proof with pain hook |
-| Wizard ordering demo | ✅ NL consumer | ✅ EN B2B only as “manual quotes leak” proof |
-| Investor / funding ask | ❌ | ❌ (Track D separate) |
-| Automation Map €290 | ❌ | ✅ Primary CTA |
-| Magnets / consumer product promo | ✅ | ❌ (audit: wrong ICP on LI) |
-
-**Never cross-post** consumer FB content to LinkedIn without full rewrite per [`../linkedin/rules.md`](../linkedin/rules.md) LI-R02.
+**Marketing simplification:** “3 stappen” in consumer copy is OK; technical footnote = 9 UI screens (`proof.ts`).
 
 ---
 
 ## 9. Profile / page structure
 
-| Element | Job | Recommendation |
-|---|---|---|
-| Cover photo | Brand + locality | FlexGrafik visual — print/design, not Quietforge banner |
-| About | Consumer offer | NL — services, area, wizard link |
-| CTA button | Order or contact | Link to wizard or flexgrafik.nl |
-| Featured | Top products / wizard | 2–3 best project photos or wizard link |
-| Posts | Portfolio + offers | P1–P4 mix per pillar table |
+Paste-ready copy: **[profile-copy.md](./profile-copy.md)** — single source for bio, About, categories, CTA button.
 
-**UNKNOWN (Commander fills):** exact Facebook page URL, current follower count, WhatsApp number on page — add to profile-copy when available.
+| Element | Job | SSoT |
+|---|---|---|
+| Cover photo | Brand + ZZP positioning | [profile-copy.md § Cover](./profile-copy.md#cover-photo) |
+| About | NL offer + wizard + chat | [profile-copy.md](./profile-copy.md) |
+| CTA button | Order via wizard | `Nu bestellen` → wizard URL |
+| Featured / pinned | Relaunch post #1 | [content-themes.md § Post 1](./content-themes.md#post-1--wij-zijn-terug--en-anders) |
+| Posts | 10-post launch series | [content-themes.md](./content-themes.md) |
 
 ---
 
-## 10. Metrics of success
+## 10. Audit baseline (2026-07-01)
 
-Measure what helps the print business — not vanity likes alone.
+| Metric | Value | Source |
+|--------|-------|--------|
+| Page URL | [FlexGrafik FB](https://www.facebook.com/people/FlexGrafik/61568401273877/) | Live audit |
+| Followers | 14 | Live audit |
+| Reviews | 0 | Live audit |
+| Posts | 7 (last: May 2025) | Live audit |
+| Bio (pre-rebrand) | EN “Your Graphics, Our Passion” | Live audit |
+| Wizard / game / chat in feed | None | Live audit |
+
+**Post-rebrand target:** NL profile pasted · Post #1 pinned · cadence 2–3/week through 10-post series.
+
+---
+
+## 11. Metrics of success
 
 | Metric | Why it matters | Target direction |
 |---|---|---|
 | Wizard clicks from FB | Commercial intent | Up |
 | Messages / WhatsApp enquiries | Custom project pipeline | Up |
-| Reach in Rotterdam area | Local ICP | Up |
+| Reach NL (not only Rotterdam) | ZZP ICP online | Up |
 | Orders attributed to social | Revenue | ≥ 1/month when tracking wired |
 
 Do not compare Facebook metrics to LinkedIn B2B metrics — different funnel, different ICP.
 
 ---
 
-## 11. Operating principle
+## 12. Operating principle
 
-> Show the work, make ordering easy, stay local and human. Facebook is the shop window — LinkedIn is the architect's office.
+> Show the work, prove Mimaki + montage quality, make wizard ordering easy. Facebook is the ZZP shop window — LinkedIn is the architect's office.
 
 ---
 
-*Established: 2026-06-30 · v1.0*
+*Established: 2026-06-30 · v1.0 consumer · v2.0 ZZP rebrand: 2026-07-01*

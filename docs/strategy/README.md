@@ -24,7 +24,7 @@
 
 **LinkedIn channel canon (strategy, rules, calendar):** [linkedin/README.md](./linkedin/README.md) — single-source for LinkedIn B2B activity.
 
-**Facebook channel canon (FlexGrafik consumer):** [facebook/README.md](./facebook/README.md) — NL, wizard, portfolio.
+**Facebook channel canon (FlexGrafik ZZP v2.0):** [facebook/README.md](./facebook/README.md) — NL brandingpartner, wizard, 10-post launch.
 
 **LinkedIn audit baseline:** [gtm/audits/linkedin-audit-2026-06-29.md](./gtm/audits/linkedin-audit-2026-06-29.md) + screenshots in `gtm/audits/assets/`.
 
@@ -51,7 +51,7 @@ Implementation sessions MUST align copy, navigation, and section order to these 
 |------|---------|
 | `marketing-strategy.md`, `site-map.md`, `conversion-pipeline.md`, `ui-ux-principles.md` | **Site canon** — IA, funnel, UX |
 | [linkedin/](./linkedin/README.md) | **LinkedIn B2B** — strategy v3.0, hard rules, 4-week calendar, profile copy |
-| [facebook/](./facebook/README.md) | **Facebook consumer** — FlexGrafik NL, content themes, channel rules |
+| [facebook/](./facebook/README.md) | **Facebook ZZP v2.0** — profile copy, 10-post series, channel rules |
 | [gtm/](./gtm/README.md) | **GTM context** — dual-brand, channel architecture, pillars, 90-day roadmap, investor track |
 | [gtm/audits/](./gtm/audits/linkedin-audit-2026-06-29.md) | GTM audits (LinkedIn baseline + assets) |
 

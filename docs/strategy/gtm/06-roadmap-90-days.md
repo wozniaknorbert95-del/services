@@ -2,8 +2,8 @@
 status: "[ACTIVE]"
 title: "GTM Roadmap — 90 Days"
 owner: "Norbert Wozniak"
-updated: "2026-06-30"
-version: "2.1 — v3.0 homepage closed"
+updated: "2026-07-01"
+version: "2.2 — Facebook v2.0 sync"
 classification: "L3 — GTM roadmap"
 cadence: "2 LinkedIn posts / week · EN · Track A primary"
 ---
@@ -59,7 +59,19 @@ Bez faz wracasz do „jednego wiralowego posta o funding” co kwartał — zero
 | Book Discovery copy match | ⏳ P0 drift | Form vs pay&slot — osobna sesja |
 | Homepage ↔ LI Featured sync | ⏳ | Commander manual Featured V2 |
 | LinkedIn channel canon | ✅ v3.0 | [../linkedin/README.md](../linkedin/README.md) |
-| Facebook channel canon | ✅ v1.0 | [../facebook/README.md](../facebook/README.md) |
+| Facebook channel canon | ✅ v2.0 ZZP rebrand | [../facebook/README.md](../facebook/README.md) · [profile-copy.md](../facebook/profile-copy.md) |
+
+### Facebook (FlexGrafik ZZP)
+
+| Metryka | Wartość | Źródło |
+|---------|---------|--------|
+| Page URL | [FlexGrafik](https://www.facebook.com/people/FlexGrafik/61568401273877/) | Live audit 2026-07-01 |
+| Followers | 14 | Live audit |
+| Reviews | 0 | Live audit |
+| Posts | 7 (last: May 2025) | Live audit |
+| Pre-rebrand bio | EN “Your Graphics, Our Passion” | Live audit |
+| Canon status | v2.0 shipped | profile-copy + 10-post series |
+| Commander next | Paste profile · pin Post #1 | [content-themes.md](../facebook/content-themes.md) |
 
 **Pre-v3.0 baseline (archived):** flow 7.2/10, konwersja 6.5/10 — [quietforge-ux-ia](../../audits/2026-06-25/quietforge-ux-ia.md)
 

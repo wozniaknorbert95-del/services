@@ -126,7 +126,7 @@ Pełna tabela: [02-channel-architecture.md](./02-channel-architecture.md).
 | Kanał | Główny brand | FlexGrafik na tym kanale |
 |-------|--------------|---------------------------|
 | LinkedIn | Quietforge B2B | Tylko jako **proof** i founder context |
-| Facebook | FlexGrafik | Primary — druk, ZZP, lokalnie | [../facebook/README.md](../facebook/README.md) |
+| Facebook | FlexGrafik | Primary — ZZP brandingpartner NL, wizard | [../facebook/README.md](../facebook/README.md) |
 | TikTok | FlexGrafik | Primary — wizualny druk / ZZP |
 | Google Business | FlexGrafik | Primary — lokalne usługi |
 | quietforge.flexgrafik.nl | Quietforge | FlexGrafik w /results/, /founder/ |

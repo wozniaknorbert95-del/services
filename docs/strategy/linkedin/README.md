@@ -29,6 +29,8 @@ classification: "L3 — LinkedIn channel canon"
 
 **GTM context (dual-brand, channels, 90-day roadmap):** [`../gtm/README.md`](../gtm/README.md) — not operational SSoT for posts.
 
+**Facebook ZZP channel (not LinkedIn):** [`../facebook/README.md`](../facebook/README.md) — NL brandingpartner, wizard, 10-post launch.
+
 ---
 
 ## CO / DLACZEGO / BO

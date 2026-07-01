@@ -17,7 +17,7 @@ parent: "../README.md"
 
 **LinkedIn canon (strategy, rules, calendar):** [`../linkedin/`](../linkedin/README.md) — **single source** dla operacji LinkedIn.
 
-**Facebook canon (consumer NL):** [`../facebook/`](../facebook/README.md) — FlexGrafik print/design, wizard CTA.
+**Facebook canon (ZZP v2.0):** [`../facebook/`](../facebook/README.md) — FlexGrafik brandingpartner NL, profile copy, 10-post launch.
 
 **Audyty (obowiązkowe przed copy/post):**
 - LinkedIn: [audits/linkedin-audit-2026-06-29.md](./audits/linkedin-audit-2026-06-29.md)
