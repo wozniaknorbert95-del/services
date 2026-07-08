@@ -4,7 +4,7 @@ import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import VideoSlot from '@/components/ui/VideoSlot';
+import LivingSystemDiagram from '@/components/diagram/LivingSystemDiagram';
 import { ROUTES } from '@/lib/constants';
 import { CTAS } from '@/content/conversion-copy';
 
@@ -75,13 +75,29 @@ export default function FounderPage() {
         </div>
       </Section>
 
-      <Section background="surface" padding="large">
-        <h2 className="text-[var(--qf-fs-xl)] font-bold mb-6">System walkthrough</h2>
-        <VideoSlot
-          videoKey="founder"
-          emptyCtaHref={ROUTES.results}
-          emptyCtaLabel="See live results →"
-        />
+      <Section background="surface" padding="large" id="system-diagram" data-founder-section="system-diagram">
+        <h2 className="text-[var(--qf-fs-xl)] font-bold mb-4">
+          Living Operating System — interactive map
+        </h2>
+        <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+          Eight governed repos, three operational brains, one supervised loop — Sense through Learn
+          with human gates before production writes. Click any node for honest AS-IS vs TO-BE detail.
+        </p>
+        <LivingSystemDiagram variant="founder" defaultView="architecture" />
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Link
+            href={ROUTES.bookDiscovery}
+            className="text-sm font-semibold text-[var(--qf-accent)] hover:underline"
+          >
+            {CTAS.bookAutomationMap} →
+          </Link>
+          <Link
+            href={ROUTES.resultsOwnerEcosystem}
+            className="text-sm text-[var(--qf-text-dim)] hover:text-[var(--qf-accent)] hover:underline"
+          >
+            Full owner ecosystem →
+          </Link>
+        </div>
       </Section>
 
       <Section background="surface" padding="large">

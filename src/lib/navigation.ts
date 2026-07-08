@@ -84,7 +84,7 @@ export const FOOTER_COMPANY: readonly NavLink[] = [
 export const FOOTER_ARTEFACTS: readonly NavLink[] = [
   { label: 'Automation Map sample', href: ARTEFACTS.automationMapSample },
   { label: 'Data safety playbook', href: ARTEFACTS.dataSafetyPlaybook },
-  { label: 'LOS diagram', href: `${ROUTES.resultsOwnerEcosystem}#los` },
+  { label: 'LOS diagram', href: `${ROUTES.founder}#system-diagram` },
   { label: 'Handover policy', href: ARTEFACTS.maintenanceHandover },
 ] as const;
 

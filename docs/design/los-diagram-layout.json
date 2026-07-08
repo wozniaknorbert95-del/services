@@ -1,0 +1,34 @@
+{
+  "canvas": { "width": 1200, "height": 720 },
+  "designRef": "Quietforge DESIGN-SYSTEM.md — dark #0a0a0a, amber accent, mono labels",
+  "layers": {
+    "sense": { "y": 48, "height": 72, "label": "Sense" },
+    "think": { "y": 140, "height": 88, "label": "Think" },
+    "orchestrate": { "y": 248, "height": 88, "label": "Orchestrate" },
+    "act": { "y": 356, "height": 100, "label": "Act" },
+    "guard": { "y": 480, "height": 56, "label": "Guard" },
+    "memory": { "y": 560, "height": 72, "label": "Memory" }
+  },
+  "architecturePositions": {
+    "app.flexgrafik.nl": { "x": 100, "y": 72 },
+    "flexgrafik-nl": { "x": 280, "y": 72 },
+    "flex-vcms": { "x": 460, "y": 72 },
+    "jadzia-core": { "x": 380, "y": 200 },
+    "agent-os": { "x": 640, "y": 280 },
+    "agent-os-ui": { "x": 860, "y": 280 },
+    "zzpackage": { "x": 200, "y": 400 },
+    "flexgrafik-meta": { "x": 520, "y": 500 },
+    "quietforge": { "x": 720, "y": 620 }
+  },
+  "smbFunnelPositions": {
+    "flexgrafik-nl": { "x": 80, "y": 360 },
+    "app.flexgrafik.nl": { "x": 240, "y": 360 },
+    "zzpackage": { "x": 400, "y": 360 },
+    "jadzia-core": { "x": 560, "y": 360 },
+    "agent-os": { "x": 720, "y": 360 },
+    "flex-vcms": { "x": 880, "y": 360 },
+    "flexgrafik-meta": { "x": 1040, "y": 360 },
+    "agent-os-ui": { "x": 1040, "y": 480 },
+    "quietforge": { "x": 600, "y": 560 }
+  }
+}

@@ -45,7 +45,7 @@ Feature → Feature → Feature → Contact me
 | Solutions | dropdown | Problem/offer selection |
 | How It Works | `/how-it-works/` | Process trust |
 | Pricing | `/pricing/` | Commercial clarity |
-| Founder’s System | `/founder/` | Founder credibility + owner ecosystem story |
+| Founder’s System | `/founder/` | Founder credibility + interactive LOS diagram (`#system-diagram`) |
 | **Book Automation Map** | `/book-discovery/` | L3 conversion |
 
 ### Solutions dropdown
@@ -145,7 +145,7 @@ Tertiary text: `Ask on WhatsApp` → WhatsApp deep link
 /how-it-works/                   → Process trust
 /pricing/                        → Pricing clarity
 /book-discovery/                 → Paid Automation Map booking
-/founder/                        → Founder’s System
+/founder/                        → Founder’s System (interactive LOS diagram `#system-diagram`; replaces video walkthrough placeholder)
 /about/                          → Formal profile; footer only
 /trust/                          → Safety, AVG, HITL
 /legal/                          → Legal / privacy
@@ -278,7 +278,7 @@ Before shipping home:
 - [ ] Web Upgrade and Sales Funnel are not swapped.
 - [ ] Built vs Planned is compact on home and detailed on owner ecosystem page.
 - [ ] Every proof card uses Problem → System → Effect.
-- [ ] No unfinished video placeholders.
+- [x] Founder `/founder/` — interactive LOS diagram replaces unfinished video placeholder.
 - [ ] `/results/whatsapp-discovery-pilot/` is hidden or complete.
 - [ ] Mobile has no horizontal overflow.
 - [ ] Sticky CTA appears only after enough proof.

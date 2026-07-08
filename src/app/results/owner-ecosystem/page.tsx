@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Section from '@/components/ui/Section';
 import GratkaDiagram from '@/components/ui/GratkaDiagram';
+import LivingSystemDiagram from '@/components/diagram/LivingSystemDiagram';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Eyebrow from '@/components/ui/Eyebrow';
@@ -116,16 +117,23 @@ export default function OwnerEcosystemPage() {
           Living Operating System — full map
         </h2>
         <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
-          Same architecture as the home page — six layers, eight repos, governance-first. Forward to
-          a developer, partner or accountant.
+          Interactive architecture — six layers, eight repos, thirteen integration contracts. Click
+          nodes for AS-IS proof and TO-BE roadmap. Forward to a developer, partner or accountant.
         </p>
-        <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-4">
-          <GratkaDiagram
-            src={GRATKA.losArchitectureSvg}
-            alt="Living Operating System — six layers and eight repositories"
-            width={1200}
-            height={720}
-          />
+        <LivingSystemDiagram variant="full" defaultView="architecture" />
+        <div className="mt-10">
+          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--qf-text-faint)]">
+            Download static diagram
+          </h3>
+          <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-4 opacity-90">
+            <GratkaDiagram
+              src={GRATKA.losArchitectureSvg}
+              alt="Living Operating System — six layers and eight repositories"
+              width={1200}
+              height={720}
+              className="h-auto w-full min-w-[480px] max-h-[360px] object-contain object-left"
+            />
+          </div>
         </div>
       </Section>
 

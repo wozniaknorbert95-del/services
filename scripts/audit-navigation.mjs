@@ -24,6 +24,7 @@ const NAV_LINKS = [
   '/solutions/managed-automation/',
   '/pricing/',
   '/founder/',
+  '/founder/#system-diagram',
   '/book-discovery/',
   '/results/owner-ecosystem/#los',
   '/about/',
@@ -125,12 +126,31 @@ async function checkHomeAnchors(page) {
   return results;
 }
 
+async function checkFounderDiagram(page) {
+  await page.goto(`${BASE}/founder/#system-diagram`, { waitUntil: 'networkidle', timeout: 60000 });
+  await page.waitForTimeout(600);
+  const section = page.locator('#system-diagram').first();
+  const exists = (await section.count()) > 0;
+  const diagram = page.locator('[aria-label="Living Operating System interactive diagram"]').first();
+  const hasDiagram = (await diagram.count()) > 0;
+  let inView = false;
+  if (exists) {
+    inView = await section.evaluate((el) => {
+      const r = el.getBoundingClientRect();
+      return r.top >= -120 && r.top < window.innerHeight * 0.7;
+    });
+  }
+  return { exists, hasDiagram, inView };
+}
+
 async function checkOwnerEcosystemLos(page) {
   await page.goto(`${BASE}/results/owner-ecosystem/#los`, { waitUntil: 'networkidle', timeout: 60000 });
   await page.waitForTimeout(600);
   const los = page.locator('#los').first();
   const exists = (await los.count()) > 0;
-  const diagram = page.locator('img[alt*="Living Operating System"], img[alt*="LOS"]').first();
+  const diagram = page.locator(
+    '[aria-label="Living Operating System interactive diagram"], img[alt*="Living Operating System"]'
+  ).first();
   const hasDiagram = (await diagram.count()) > 0;
   let inView = false;
   if (exists) {
@@ -153,6 +173,7 @@ async function main() {
 
   const homeSections = await checkHomeSections(page);
   const homeAnchors = await checkHomeAnchors(page);
+  const founderDiagram = await checkFounderDiagram(page);
   const losAnchor = await checkOwnerEcosystemLos(page);
 
   // Header link smoke from home
@@ -174,12 +195,15 @@ async function main() {
     assets404: assetFails,
     homeSections,
     homeAnchors,
+    founderDiagram,
     ownerEcosystemLos: losAnchor,
     headerLinks,
     verdict:
       routeFails.length === 0 &&
       homeSections.missing.length === 0 &&
       homeAnchors.every((a) => a.exists && a.inView) &&
+      founderDiagram.exists &&
+      founderDiagram.hasDiagram &&
       losAnchor.exists &&
       losAnchor.inView
         ? 'PASS'
