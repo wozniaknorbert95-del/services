@@ -5,21 +5,33 @@ import type { DiagramView } from '@/content/system-diagram';
 interface DiagramViewToggleProps {
   view: DiagramView;
   onChange: (view: DiagramView) => void;
+  variant?: 'founder' | 'full';
 }
 
-const OPTIONS: { id: DiagramView; label: string }[] = [
+const FOUNDER_OPTIONS: { id: DiagramView; label: string }[] = [
+  { id: 'story', label: 'Customer journey' },
+  { id: 'architecture', label: 'Technical map' },
+];
+
+const FULL_OPTIONS: { id: DiagramView; label: string }[] = [
   { id: 'architecture', label: 'Architecture' },
   { id: 'smb_funnel', label: 'SMB Funnel' },
 ];
 
-export default function DiagramViewToggle({ view, onChange }: DiagramViewToggleProps) {
+export default function DiagramViewToggle({
+  view,
+  onChange,
+  variant = 'full',
+}: DiagramViewToggleProps) {
+  const options = variant === 'founder' ? FOUNDER_OPTIONS : FULL_OPTIONS;
+
   return (
     <div
       className="inline-flex rounded-full border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-1"
       role="tablist"
       aria-label="Diagram view"
     >
-      {OPTIONS.map((opt) => {
+      {options.map((opt) => {
         const selected = view === opt.id;
         return (
           <button

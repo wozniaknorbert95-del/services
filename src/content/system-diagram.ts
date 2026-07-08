@@ -5,6 +5,8 @@
 // ============================================================================
 
 import { ROUTES, EXTERNAL, SITE_URL } from '@/lib/constants';
+import { JADZIA_COI_CAPABILITIES } from '@/content/jadzia-coi';
+import { OWNER_FLOW_STEPS } from '@/content/owner-ecosystem';
 import layout from '../../docs/design/los-diagram-layout.json';
 
 export type DiagramNodeId =
@@ -18,7 +20,7 @@ export type DiagramNodeId =
   | 'agent-os-ui'
   | 'quietforge';
 
-export type DiagramView = 'architecture' | 'smb_funnel';
+export type DiagramView = 'story' | 'architecture' | 'smb_funnel';
 
 export type DiagramLayerId =
   | 'sense'
@@ -47,6 +49,8 @@ export interface DiagramNode {
   toBe: readonly string[];
   demoUrl?: string;
   proofRoute?: string;
+  /** Short capability chips for story view (e.g. Jadzia pillars) */
+  capabilityChips?: readonly { label: string; status: DiagramStatus }[];
   architecturePosition: { x: number; y: number };
   smbFunnelPosition: { x: number; y: number };
   smbFunnelOrder?: number;
@@ -62,13 +66,22 @@ export interface DiagramEdge {
   status: DiagramStatus | 'PARTIAL';
   architectureVisible: boolean;
   smbFunnelVisible: boolean;
+  /** Shown on architecture canvas by default (hero customer path) */
+  heroEdge?: boolean;
 }
 
 export const DIAGRAM_CANVAS = layout.canvas as { width: number; height: number };
 
+export const DIAGRAM_HEADER = {
+  title: (layout as { title?: string }).title ?? 'Living Operating System',
+  subtitle:
+    (layout as { subtitle?: string }).subtitle ??
+    'Governance-first · Sense → Think → Act · HITL before production writes',
+} as const;
+
 export const LOS_LAYER_BANDS = layout.layers as Record<
-  DiagramLayerId,
-  { y: number; height: number; label: string }
+  Exclude<DiagramLayerId, 'service'>,
+  { y: number; height: number; label: string; subtitle?: string }
 >;
 
 const archPos = layout.architecturePositions as Record<string, { x: number; y: number }>;
@@ -151,7 +164,7 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
       'Homepage chat → customer_agent via INT-001 proxy',
       'Asset sync from zzpackage',
     ],
-    toBe: ['Portal Qualification Agent (INT-012 post-angel)', 'SEO/blog playbook'],
+    toBe: ['Portal qualification rollout polish', 'SEO/blog playbook'],
     demoUrl: 'https://flexgrafik.nl/',
     proofRoute: ROUTES.webUpgrade,
     architecturePosition: archPos['flexgrafik-nl'],
@@ -166,22 +179,21 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     shortLabel: 'jadzia',
     layer: 'think',
     brain: 'operations',
-    status: 'PARTIAL',
-    readiness: '~55%',
-    northStar: 'Chief Operating Intelligence — sense signals, propose actions, delegate with HITL.',
-    hoverLine: 'Orders · leads · analytics LIVE · strategist brief PLANNED',
-    asIs: [
-      'FastAPI on EU VPS :8000',
-      'order_node + WC webhook (INT-002)',
-      'lead_node (INT-004)',
-      'analytics_node + GA4 (INT-009)',
-      'WP SSH agent + sales chat + worker HITL',
-    ],
+    status: 'LIVE',
+    readiness: '~85%',
+    northStar:
+      'Chief Operating Intelligence — orders, leads, analytics, content and supervised ops in one loop with human gates.',
+    hoverLine: 'Phase A+B LIVE · orders · leads · GA4 · calendar · chat · WP agent',
+    asIs: JADZIA_COI_CAPABILITIES.filter((c) => c.status === 'LIVE').map((c) => c.title),
     toBe: [
       'Jadzia-Strategist weekly brief',
       'Automated Agent OS spawn (INT-006)',
-      'Portal qualification node (INT-012)',
+      'Procurement Brain (Phase C)',
     ],
+    capabilityChips: JADZIA_COI_CAPABILITIES.map((c) => ({
+      label: c.title,
+      status: c.status,
+    })),
     proofRoute: ROUTES.resultsJadziaCoi,
     architecturePosition: archPos['jadzia-core'],
     smbFunnelPosition: smbPos['jadzia-core'],
@@ -322,10 +334,11 @@ export const DIAGRAM_EDGES: readonly DiagramEdge[] = [
     id: 'INT-002',
     from: 'zzpackage',
     to: 'jadzia-core',
-    label: 'WC order webhook',
+    label: 'Order webhook',
     status: 'LIVE',
     architectureVisible: true,
     smbFunnelVisible: true,
+    heroEdge: true,
   },
   {
     id: 'INT-003',
@@ -335,6 +348,7 @@ export const DIAGRAM_EDGES: readonly DiagramEdge[] = [
     status: 'LIVE',
     architectureVisible: true,
     smbFunnelVisible: true,
+    heroEdge: true,
   },
   {
     id: 'INT-004',
@@ -349,28 +363,31 @@ export const DIAGRAM_EDGES: readonly DiagramEdge[] = [
     id: 'INT-005',
     from: 'flexgrafik-nl',
     to: 'zzpackage',
-    label: 'Portal CTAs',
+    label: 'Portal → Wizard',
     status: 'LIVE',
     architectureVisible: true,
     smbFunnelVisible: true,
+    heroEdge: true,
   },
   {
     id: 'INT-006',
     from: 'jadzia-core',
     to: 'agent-os',
-    label: 'Verification spawn',
+    label: 'Delegate changes',
     status: 'PARTIAL',
     architectureVisible: true,
     smbFunnelVisible: false,
+    heroEdge: true,
   },
   {
     id: 'INT-007',
     from: 'flex-vcms',
     to: 'flexgrafik-meta',
-    label: 'Repo scan',
+    label: 'Governance scan',
     status: 'LIVE',
     architectureVisible: true,
     smbFunnelVisible: false,
+    heroEdge: true,
   },
   {
     id: 'INT-008',
@@ -395,7 +412,7 @@ export const DIAGRAM_EDGES: readonly DiagramEdge[] = [
     from: 'jadzia-core',
     to: 'jadzia-core',
     label: 'Content calendar',
-    status: 'PARTIAL',
+    status: 'LIVE',
     architectureVisible: false,
     smbFunnelVisible: false,
   },
@@ -413,7 +430,7 @@ export const DIAGRAM_EDGES: readonly DiagramEdge[] = [
     from: 'flexgrafik-nl',
     to: 'jadzia-core',
     label: 'Qualification agent',
-    status: 'PLANNED',
+    status: 'LIVE',
     architectureVisible: true,
     smbFunnelVisible: false,
   },
@@ -428,7 +445,19 @@ export const DIAGRAM_EDGES: readonly DiagramEdge[] = [
   },
 ] as const;
 
+export const STORY_NODE_BY_STEP: Record<string, DiagramNodeId> = {
+  '01': 'flexgrafik-nl',
+  '02': 'zzpackage',
+  '03': 'app.flexgrafik.nl',
+  '04': 'jadzia-core',
+  '05': 'agent-os',
+  '06': 'flex-vcms',
+} as const;
+
+export const DIAGRAM_STORY_STEPS = OWNER_FLOW_STEPS;
+
 export function getVisibleNodes(view: DiagramView): DiagramNode[] {
+  if (view === 'story') return [];
   return DIAGRAM_NODES.filter((n) =>
     view === 'architecture' ? n.architectureVisible : n.smbFunnelVisible
   ).sort((a, b) => {
@@ -439,14 +468,19 @@ export function getVisibleNodes(view: DiagramView): DiagramNode[] {
   });
 }
 
-export function getVisibleEdges(view: DiagramView): DiagramEdge[] {
+export function getVisibleEdges(view: DiagramView, showIntegrations = false): DiagramEdge[] {
   const visibleIds = new Set(getVisibleNodes(view).map((n) => n.id));
   return DIAGRAM_EDGES.filter((e) => {
     const viewOk = view === 'architecture' ? e.architectureVisible : e.smbFunnelVisible;
     if (!viewOk) return false;
+    if (view === 'architecture' && !showIntegrations && !e.heroEdge) return false;
     if (e.from === e.to) return visibleIds.has(e.from);
     return visibleIds.has(e.from) && visibleIds.has(e.to);
   });
+}
+
+export function getHeroEdges(): DiagramEdge[] {
+  return DIAGRAM_EDGES.filter((e) => e.heroEdge && e.architectureVisible);
 }
 
 export function getNodeById(id: DiagramNodeId): DiagramNode | undefined {

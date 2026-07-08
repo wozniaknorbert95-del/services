@@ -10,16 +10,24 @@ interface DiagramDetailPanelProps {
   node: DiagramNode;
   onClose: () => void;
   variant?: 'founder' | 'full';
+  layout?: 'side' | 'below';
 }
 
-export default function DiagramDetailPanel({ node, onClose, variant = 'full' }: DiagramDetailPanelProps) {
+export default function DiagramDetailPanel({
+  node,
+  onClose,
+  variant = 'full',
+  layout = 'side',
+}: DiagramDetailPanelProps) {
   const ownerAnchor = `${ROUTES.resultsOwnerEcosystem}#repo-${node.shortLabel}`;
 
   return (
     <div
       role="dialog"
       aria-labelledby={`diagram-panel-${node.id}`}
-      className="flex h-full flex-col border-l border-[var(--qf-border)] bg-[var(--qf-bg-raised)]"
+      className={`flex flex-col bg-[var(--qf-bg-raised)] ${
+        layout === 'side' ? 'h-full border-l border-[var(--qf-border)]' : ''
+      }`}
     >
       <div className="flex items-start justify-between gap-3 border-b border-[var(--qf-border)] p-4">
         <div>
@@ -46,6 +54,30 @@ export default function DiagramDetailPanel({ node, onClose, variant = 'full' }: 
 
       <div className="flex-1 overflow-y-auto p-4">
         <p className="mb-6 text-sm text-[var(--qf-text-dim)]">{node.northStar}</p>
+
+        {node.capabilityChips && node.capabilityChips.length > 0 && (
+          <div className="mb-6">
+            <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-[var(--qf-accent)]">
+              Capabilities
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {node.capabilityChips.map((chip) => (
+                <span
+                  key={chip.label}
+                  className={`rounded-full border px-2.5 py-1 text-[10px] font-medium ${
+                    chip.status === 'LIVE'
+                      ? 'border-emerald-500/30 text-emerald-500'
+                      : chip.status === 'PARTIAL'
+                        ? 'border-amber-500/30 text-amber-500'
+                        : 'border-[var(--qf-border)] text-[var(--qf-text-faint)]'
+                  }`}
+                >
+                  {chip.label}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="mb-6">
           <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-emerald-500">

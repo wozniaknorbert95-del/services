@@ -51,10 +51,11 @@ export const READINESS_ROWS: readonly ReadinessRow[] = [
   {
     module: 'Jadzia COI',
     repoKey: 'jadzia-core',
-    readiness: '~55%',
-    capability: 'Phase A+B LIVE: orders INT-002, leads, GA4, content calendar · Procurement Brain Phase C',
-    homeCapability: 'Orders, leads and content tracked live — procurement brain on roadmap.',
-    status: 'PARTIAL',
+    readiness: '~85%',
+    capability:
+      'Phase A+B LIVE: orders INT-002, leads, GA4, content calendar, chat, WP agent, worker HITL · Procurement Phase C',
+    homeCapability: 'Orders, leads, analytics and content tracked live — procurement brain on roadmap.',
+    status: 'LIVE',
   },
   {
     module: 'Agent OS',

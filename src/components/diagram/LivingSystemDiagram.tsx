@@ -9,9 +9,9 @@ import {
   type DiagramView,
   DIAGRAM_CANVAS,
   DIAGRAM_EDGES,
+  DIAGRAM_HEADER,
   LIFE_LOOP_PHASES,
   LOS_LAYER_BANDS,
-  THREE_BRAINS,
   getNodeById,
   getNodePosition,
   getVisibleEdges,
@@ -20,13 +20,24 @@ import {
 import { GRATKA } from '@/lib/gratka';
 import { ROUTES } from '@/lib/constants';
 import { useMotion } from '@/lib/useMotion';
-import StatusBadge from '@/components/ui/StatusBadge';
 import DiagramViewToggle from './DiagramViewToggle';
 import DiagramDetailPanel from './DiagramDetailPanel';
 import DiagramMobileAccordion from './DiagramMobileAccordion';
+import DiagramStoryView from './DiagramStoryView';
 
-const NODE_W = 148;
-const NODE_H = 52;
+const NODE_W = 172;
+const NODE_H = 68;
+
+const LAYER_STYLE: Record<string, { fill: string; stroke: string }> = {
+  guard: { fill: 'rgba(16,185,129,0.06)', stroke: 'rgba(16,185,129,0.35)' },
+  sense: { fill: 'rgba(255,255,255,0.03)', stroke: 'rgba(255,255,255,0.1)' },
+  think: { fill: 'rgba(245,158,11,0.05)', stroke: 'rgba(245,158,11,0.25)' },
+  orchestrate: { fill: 'rgba(255,255,255,0.03)', stroke: 'rgba(255,255,255,0.1)' },
+  act: { fill: 'rgba(245,158,11,0.08)', stroke: 'rgba(245,158,11,0.35)' },
+  memory: { fill: 'rgba(96,165,250,0.05)', stroke: 'rgba(96,165,250,0.3)' },
+};
+
+const LAYER_ORDER = ['guard', 'sense', 'think', 'orchestrate', 'act', 'memory'] as const;
 
 interface LivingSystemDiagramProps {
   variant?: 'founder' | 'full';
@@ -40,48 +51,54 @@ function edgePath(
 ): string {
   if (selfLoop) {
     const cx = from.x;
-    const cy = from.y - NODE_H / 2 - 20;
-    return `M ${cx - 24} ${from.y - NODE_H / 2} Q ${cx} ${cy} ${cx + 24} ${from.y - NODE_H / 2}`;
+    const cy = from.y - NODE_H / 2 - 24;
+    return `M ${cx - 28} ${from.y - NODE_H / 2} Q ${cx} ${cy} ${cx + 28} ${from.y - NODE_H / 2}`;
   }
   const dx = to.x - from.x;
   const dy = to.y - from.y;
   const dist = Math.hypot(dx, dy) || 1;
-  const nx = (dx / dist) * (NODE_W / 2 + 4);
-  const ny = (dy / dist) * (NODE_H / 2 + 4);
+  const nx = (dx / dist) * (NODE_W / 2 + 6);
+  const ny = (dy / dist) * (NODE_H / 2 + 6);
   const sx = from.x + nx;
   const sy = from.y + ny;
   const ex = to.x - nx;
   const ey = to.y - ny;
   const mx = (sx + ex) / 2;
-  const my = (sy + ey) / 2 - Math.min(60, dist * 0.15);
+  const my = (sy + ey) / 2 - Math.min(48, dist * 0.12);
   return `M ${sx} ${sy} Q ${mx} ${my} ${ex} ${ey}`;
 }
 
-function edgeStroke(status: string, highlighted: boolean): string {
-  if (status === 'PLANNED') return highlighted ? 'rgba(245,158,11,0.35)' : 'rgba(255,255,255,0.12)';
-  if (status === 'PARTIAL') return highlighted ? 'rgba(245,158,11,0.7)' : 'rgba(245,158,11,0.35)';
-  return highlighted ? '#f59e0b' : 'rgba(245,158,11,0.45)';
-}
-
-function edgeDash(status: string): string | undefined {
-  return status === 'PLANNED' ? '6 4' : undefined;
+function edgeStroke(status: string, highlighted: boolean, isHero: boolean): string {
+  if (!isHero && !highlighted) return 'rgba(255,255,255,0.08)';
+  if (status === 'PLANNED') return highlighted ? 'rgba(245,158,11,0.4)' : 'rgba(255,255,255,0.15)';
+  if (status === 'PARTIAL') return highlighted ? '#f59e0b' : 'rgba(245,158,11,0.55)';
+  return highlighted ? '#f59e0b' : isHero ? 'rgba(245,158,11,0.75)' : 'rgba(245,158,11,0.45)';
 }
 
 export default function LivingSystemDiagram({
   variant = 'full',
   defaultView = 'architecture',
 }: LivingSystemDiagramProps) {
+  const resolvedDefault = variant === 'founder' && defaultView === 'architecture' ? 'story' : defaultView;
   const { prefersReduced } = useMotion();
-  const [view, setView] = useState<DiagramView>(defaultView);
+  const [view, setView] = useState<DiagramView>(resolvedDefault);
   const [selectedId, setSelectedId] = useState<DiagramNodeId | null>(null);
   const [hoveredId, setHoveredId] = useState<DiagramNodeId | null>(null);
   const [hoveredEdge, setHoveredEdge] = useState<string | null>(null);
+  const [showIntegrations, setShowIntegrations] = useState(false);
+  const [loopOpen, setLoopOpen] = useState(variant !== 'founder');
   const [loopPhase, setLoopPhase] = useState(0);
   const [walking, setWalking] = useState(false);
 
   const nodes = useMemo(() => getVisibleNodes(view), [view]);
-  const edges = useMemo(() => getVisibleEdges(view), [view]);
+  const edges = useMemo(
+    () => getVisibleEdges(view, showIntegrations),
+    [view, showIntegrations]
+  );
   const selectedNode = selectedId ? getNodeById(selectedId) : undefined;
+  const integrationCount = DIAGRAM_EDGES.filter(
+    (e) => e.architectureVisible && !e.heroEdge
+  ).length;
 
   const connectedNodeIds = useMemo(() => {
     const focus = hoveredId ?? selectedId;
@@ -122,250 +139,280 @@ export default function LivingSystemDiagram({
     setSelectedId((prev) => (prev === id ? null : id));
   }, []);
 
-  const layerBands =
-    view === 'architecture'
-      ? (['sense', 'think', 'orchestrate', 'act', 'guard', 'memory'] as const)
-      : ([] as const);
+  const panelBelow = variant === 'founder';
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <DiagramViewToggle view={view} onChange={setView} />
-        <button
-          type="button"
-          onClick={() => {
-            setWalking((w) => !w);
-            if (!walking) setLoopPhase(0);
-          }}
-          className="rounded-full border border-[var(--qf-border)] px-4 py-1.5 text-xs font-semibold text-[var(--qf-text-dim)] hover:border-[var(--qf-accent)] hover:text-[var(--qf-accent)]"
-        >
-          {walking ? 'Stop loop' : 'Walk the loop'}
-        </button>
-      </div>
-
-      {/* Life loop strip */}
-      <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg)] p-3">
-        <div className="flex min-w-max items-center gap-1">
-          {LIFE_LOOP_PHASES.map((phase, i) => {
-            const active = walking && loopPhase === i;
-            return (
-              <div key={phase.id} className="flex items-center gap-1">
-                <motion.span
-                  className={`rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-wide ${
-                    active
-                      ? 'bg-[var(--qf-accent)] text-black'
-                      : phase.id === 'hitl'
-                        ? 'border border-emerald-500/40 text-emerald-500'
-                        : 'border border-[var(--qf-border)] text-[var(--qf-text-faint)]'
-                  }`}
-                  animate={active && !prefersReduced ? { scale: [1, 1.05, 1] } : { scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {phase.label}
-                </motion.span>
-                {i < LIFE_LOOP_PHASES.length - 1 && (
-                  <span className="text-[var(--qf-text-faint)]">→</span>
-                )}
-              </div>
-            );
-          })}
+        <DiagramViewToggle view={view} onChange={setView} variant={variant} />
+        <div className="flex flex-wrap items-center gap-3">
+          {view === 'architecture' && (
+            <button
+              type="button"
+              onClick={() => setShowIntegrations((v) => !v)}
+              className={`rounded-full border px-4 py-1.5 text-xs font-semibold transition-colors ${
+                showIntegrations
+                  ? 'border-[var(--qf-accent)] text-[var(--qf-accent)]'
+                  : 'border-[var(--qf-border)] text-[var(--qf-text-dim)] hover:text-[var(--qf-text)]'
+              }`}
+            >
+              {showIntegrations ? 'Hide' : 'Show'} integrations ({integrationCount})
+            </button>
+          )}
+          {loopOpen && (
+            <button
+              type="button"
+              onClick={() => {
+                setWalking((w) => !w);
+                if (!walking) setLoopPhase(0);
+              }}
+              className="rounded-full border border-[var(--qf-border)] px-4 py-1.5 text-xs font-semibold text-[var(--qf-text-dim)] hover:border-[var(--qf-accent)] hover:text-[var(--qf-accent)]"
+            >
+              {walking ? 'Stop loop' : 'Walk the loop'}
+            </button>
+          )}
         </div>
-        <p className="mt-2 text-xs text-[var(--qf-text-faint)]">
-          Guard layer (VCMS + meta) stays visible throughout — HITL before any production write.
-        </p>
       </div>
 
-      {/* Desktop SVG */}
-      <div className="hidden md:grid md:grid-cols-[1fr_auto] md:gap-0">
-        <div className="overflow-x-auto rounded-l-[var(--qf-radius)] border border-[var(--qf-border)] bg-[#0a0a0a] p-2">
-          <svg
-            viewBox={`0 0 ${DIAGRAM_CANVAS.width} ${DIAGRAM_CANVAS.height}`}
-            className="h-auto min-w-[720px] w-full"
-            role="img"
-            aria-label="Living Operating System interactive diagram"
-          >
-            <defs>
-              <marker
-                id="arrow-amber"
-                markerWidth="8"
-                markerHeight="8"
-                refX="6"
-                refY="3"
-                orient="auto"
-              >
-                <path d="M0,0 L6,3 L0,6 Z" fill="#f59e0b" />
-              </marker>
-              <marker
-                id="arrow-faint"
-                markerWidth="8"
-                markerHeight="8"
-                refX="6"
-                refY="3"
-                orient="auto"
-              >
-                <path d="M0,0 L6,3 L0,6 Z" fill="rgba(255,255,255,0.2)" />
-              </marker>
-            </defs>
+      {/* Life loop — collapsible on founder */}
+      <details
+        open={loopOpen}
+        onToggle={(e) => setLoopOpen((e.target as HTMLDetailsElement).open)}
+        className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg)]"
+      >
+        <summary className="cursor-pointer px-4 py-3 text-sm font-semibold text-[var(--qf-text-dim)] hover:text-[var(--qf-text)]">
+          How the operating loop works (Sense → Learn)
+        </summary>
+        <div className="border-t border-[var(--qf-border)] p-3">
+          <div className="overflow-x-auto">
+            <div className="flex min-w-max items-center gap-1">
+              {LIFE_LOOP_PHASES.map((phase, i) => {
+                const active = walking && loopPhase === i;
+                return (
+                  <div key={phase.id} className="flex items-center gap-1">
+                    <motion.span
+                      className={`rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-wide ${
+                        active
+                          ? 'bg-[var(--qf-accent)] text-black'
+                          : phase.id === 'hitl'
+                            ? 'border border-emerald-500/40 text-emerald-500'
+                            : 'border border-[var(--qf-border)] text-[var(--qf-text-faint)]'
+                      }`}
+                      animate={active && !prefersReduced ? { scale: [1, 1.05, 1] } : { scale: 1 }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      {phase.label}
+                    </motion.span>
+                    {i < LIFE_LOOP_PHASES.length - 1 && (
+                      <span className="text-[var(--qf-text-faint)]">→</span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <p className="mt-2 text-xs text-[var(--qf-text-faint)]">
+            Guard layer stays on throughout — human approval before any production write.
+          </p>
+        </div>
+      </details>
 
-            {view === 'architecture' &&
-              layerBands.map((layerId) => {
+      {/* Story view (founder default) */}
+      {view === 'story' && (
+        <div className="hidden md:block">
+          <DiagramStoryView selectedId={selectedId} onSelect={handleNodeClick} />
+        </div>
+      )}
+
+      {/* Architecture / funnel SVG */}
+      {view !== 'story' && (
+        <div
+          className={
+            panelBelow
+              ? 'space-y-0'
+              : 'hidden md:grid md:grid-cols-[1fr_auto] md:gap-0'
+          }
+        >
+          <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[#0a0a0a] p-3">
+            <svg
+              viewBox={`0 0 ${DIAGRAM_CANVAS.width} ${DIAGRAM_CANVAS.height}`}
+              className="h-auto min-w-[800px] w-full"
+              role="img"
+              aria-label="Living Operating System interactive diagram"
+            >
+              <defs>
+                <marker id="arrow-amber" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                  <path d="M0,0 L8,3 L0,6 Z" fill="#f59e0b" />
+                </marker>
+                <marker id="arrow-faint" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                  <path d="M0,0 L8,3 L0,6 Z" fill="rgba(255,255,255,0.25)" />
+                </marker>
+              </defs>
+
+              <text x={600} y={36} textAnchor="middle" fill="#fafafa" fontSize={16} fontWeight={700}>
+                {DIAGRAM_HEADER.title}
+              </text>
+              <text x={600} y={56} textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize={11}>
+                {DIAGRAM_HEADER.subtitle}
+              </text>
+
+              {LAYER_ORDER.map((layerId) => {
                 const band = LOS_LAYER_BANDS[layerId];
                 if (!band) return null;
+                const style = LAYER_STYLE[layerId];
                 return (
                   <g key={layerId}>
                     <rect
-                      x={24}
+                      x={32}
                       y={band.y}
-                      width={DIAGRAM_CANVAS.width - 48}
+                      width={DIAGRAM_CANVAS.width - 64}
                       height={band.height}
-                      rx={8}
-                      fill="rgba(255,255,255,0.02)"
-                      stroke={
-                        layerId === 'act'
-                          ? 'rgba(245,158,11,0.25)'
-                          : layerId === 'guard'
-                            ? 'rgba(16,185,129,0.2)'
-                            : 'rgba(255,255,255,0.06)'
-                      }
+                      rx={6}
+                      fill={style.fill}
+                      stroke={style.stroke}
                     />
-                    <text
-                      x={36}
-                      y={band.y + 18}
-                      className="fill-[var(--qf-text-faint)]"
-                      fontSize={10}
-                      fontFamily="ui-monospace, monospace"
-                    >
+                    <text x={48} y={band.y + 20} fill="#f59e0b" fontSize={11} fontWeight={700} fontFamily="ui-monospace, monospace">
                       {band.label.toUpperCase()}
                     </text>
+                    {band.subtitle && (
+                      <text x={48} y={band.y + 36} fill="rgba(255,255,255,0.4)" fontSize={9} fontFamily="ui-monospace, monospace">
+                        {band.subtitle}
+                      </text>
+                    )}
                   </g>
                 );
               })}
 
-            {view === 'architecture' &&
-              THREE_BRAINS.map((brain) => (
-                <text
-                  key={brain.id}
-                  x={DIAGRAM_CANVAS.width - 200}
-                  y={
-                    brain.id === 'governance' ? 520 : brain.id === 'operations' ? 220 : 300
+              {edges.map((edge) => {
+                const fromNode = getNodeById(edge.from);
+                const toNode = getNodeById(edge.to);
+                if (!fromNode || !toNode) return null;
+                const from = getNodePosition(fromNode, view);
+                const to = getNodePosition(toNode, view);
+                const selfLoop = edge.from === edge.to;
+                const highlighted = highlightedEdges.has(edge.id) || hoveredEdge === edge.id;
+                const isHero = !!edge.heroEdge;
+                const d = edgePath(from, to, selfLoop);
+                const midX = (from.x + to.x) / 2;
+                const midY = (from.y + to.y) / 2;
+                return (
+                  <g key={edge.id}>
+                    <path
+                      d={d}
+                      fill="none"
+                      stroke={edgeStroke(edge.status, highlighted, isHero)}
+                      strokeWidth={highlighted ? 3 : isHero ? 2.5 : 1.5}
+                      strokeDasharray={edge.status === 'PLANNED' ? '6 4' : undefined}
+                      markerEnd={isHero || highlighted ? 'url(#arrow-amber)' : 'url(#arrow-faint)'}
+                      onMouseEnter={() => setHoveredEdge(edge.id)}
+                      onMouseLeave={() => setHoveredEdge(null)}
+                      style={{ pointerEvents: 'stroke' }}
+                    />
+                    {(isHero || hoveredEdge === edge.id) && (
+                      <text
+                        x={midX}
+                        y={midY - 10}
+                        textAnchor="middle"
+                        fontSize={10}
+                        fill="#f59e0b"
+                        fontWeight={600}
+                        fontFamily="ui-monospace, monospace"
+                      >
+                        {edge.label}
+                      </text>
+                    )}
+                  </g>
+                );
+              })}
+
+              {nodes.map((node) => (
+                <DiagramSvgNode
+                  key={node.id}
+                  node={node}
+                  view={view}
+                  selected={selectedId === node.id}
+                  dimmed={
+                    connectedNodeIds.size > 0 &&
+                    !connectedNodeIds.has(node.id) &&
+                    (hoveredId !== null || selectedId !== null)
                   }
-                  fontSize={9}
-                  fill="rgba(245,158,11,0.5)"
-                  fontFamily="ui-monospace, monospace"
-                >
-                  {brain.label}
-                </text>
+                  onHover={setHoveredId}
+                  onClick={handleNodeClick}
+                />
               ))}
 
-            {edges.map((edge) => {
-              const fromNode = getNodeById(edge.from);
-              const toNode = getNodeById(edge.to);
-              if (!fromNode || !toNode) return null;
-              const from = getNodePosition(fromNode, view);
-              const to = getNodePosition(toNode, view);
-              const selfLoop = edge.from === edge.to;
-              const highlighted = highlightedEdges.has(edge.id) || hoveredEdge === edge.id;
-              const d = edgePath(from, to, selfLoop);
-              return (
-                <g key={edge.id}>
-                  <path
-                    d={d}
-                    fill="none"
-                    stroke={edgeStroke(edge.status, highlighted)}
-                    strokeWidth={highlighted ? 2.5 : 1.5}
-                    strokeDasharray={edgeDash(edge.status)}
-                    markerEnd={
-                      edge.status === 'PLANNED' ? 'url(#arrow-faint)' : 'url(#arrow-amber)'
-                    }
-                    onMouseEnter={() => setHoveredEdge(edge.id)}
-                    onMouseLeave={() => setHoveredEdge(null)}
-                    style={{ pointerEvents: 'stroke' }}
-                  />
-                  {hoveredEdge === edge.id && (
-                    <text
-                      x={(from.x + to.x) / 2}
-                      y={(from.y + to.y) / 2 - 8}
-                      textAnchor="middle"
-                      fontSize={10}
-                      fill="#f59e0b"
-                      fontFamily="ui-monospace, monospace"
-                    >
-                      {edge.id}: {edge.label}
-                    </text>
-                  )}
-                </g>
-              );
-            })}
+              <text x={600} y={DIAGRAM_CANVAS.height - 16} textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize={10}>
+                Click any module · {showIntegrations ? 'All integrations visible' : 'Hero path only — toggle for full INT map'}
+              </text>
+            </svg>
+          </div>
 
-            {nodes.map((node) => (
-              <DiagramSvgNode
-                key={node.id}
-                node={node}
-                view={view}
-                selected={selectedId === node.id}
-                dimmed={
-                  connectedNodeIds.size > 0 &&
-                  !connectedNodeIds.has(node.id) &&
-                  (hoveredId !== null || selectedId !== null)
-                }
-                onHover={setHoveredId}
-                onClick={handleNodeClick}
-              />
-            ))}
-          </svg>
+          {!panelBelow && (
+            <AnimatePresence mode="wait">
+              {selectedNode ? (
+                <motion.div
+                  key={selectedNode.id}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: prefersReduced ? 0 : 0.2 }}
+                  className="w-full min-w-[300px] max-w-sm rounded-r-[var(--qf-radius)] border border-l-0 border-[var(--qf-border)]"
+                >
+                  <DiagramDetailPanel node={selectedNode} onClose={() => setSelectedId(null)} variant={variant} />
+                </motion.div>
+              ) : (
+                <div className="hidden w-72 items-center justify-center rounded-r-[var(--qf-radius)] border border-l-0 border-dashed border-[var(--qf-border)] bg-[var(--qf-bg)] p-6 text-center text-sm text-[var(--qf-text-faint)] lg:flex">
+                  Click a module for AS-IS proof, live demos and roadmap detail.
+                </div>
+              )}
+            </AnimatePresence>
+          )}
         </div>
+      )}
 
+      {/* Story on mobile */}
+      {view === 'story' && (
+        <div className="md:hidden">
+          <DiagramStoryView selectedId={selectedId} onSelect={handleNodeClick} />
+        </div>
+      )}
+
+      {/* Panel below diagram (founder) or story selection */}
+      {(panelBelow || view === 'story') && (
         <AnimatePresence mode="wait">
-          {selectedNode ? (
+          {selectedNode && (
             <motion.div
               key={selectedNode.id}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 12 }}
               transition={{ duration: prefersReduced ? 0 : 0.2 }}
-              className="w-full min-w-[300px] max-w-sm rounded-r-[var(--qf-radius)] border border-l-0 border-[var(--qf-border)]"
+              className="overflow-hidden rounded-[var(--qf-radius)] border border-[var(--qf-border)]"
             >
               <DiagramDetailPanel
                 node={selectedNode}
                 onClose={() => setSelectedId(null)}
                 variant={variant}
+                layout="below"
               />
             </motion.div>
-          ) : (
-            <div className="hidden w-72 items-center justify-center rounded-r-[var(--qf-radius)] border border-l-0 border-dashed border-[var(--qf-border)] bg-[var(--qf-bg)] p-6 text-center text-sm text-[var(--qf-text-faint)] lg:flex">
-              Click a node for AS-IS / TO-BE detail, proof links and live demos.
-            </div>
           )}
         </AnimatePresence>
-      </div>
+      )}
 
-      <DiagramMobileAccordion view={view} variant={variant} />
+      {(view === 'architecture' || view === 'smb_funnel') && (
+        <DiagramMobileAccordion view={view} variant={variant} />
+      )}
 
-      {/* Static fallback */}
-      <noscript>
-        <p>
-          <a href={GRATKA.losArchitectureSvg}>Download static LOS diagram (SVG)</a>
-        </p>
-      </noscript>
       <div className="flex flex-wrap gap-4 text-sm">
-        <a
-          href={GRATKA.losArchitectureSvg}
-          download
-          className="font-semibold text-[var(--qf-accent)] hover:underline"
-        >
+        <a href={GRATKA.losArchitectureSvg} download className="font-semibold text-[var(--qf-accent)] hover:underline">
           Download static SVG →
         </a>
-        <a
-          href={GRATKA.losArchitecturePdf}
-          className="font-semibold text-[var(--qf-accent)] hover:underline"
-        >
+        <a href={GRATKA.losArchitecturePdf} className="font-semibold text-[var(--qf-accent)] hover:underline">
           Download PDF map →
         </a>
         {variant === 'founder' && (
-          <Link
-            href={ROUTES.resultsOwnerEcosystem}
-            className="text-[var(--qf-text-dim)] hover:text-[var(--qf-accent)] hover:underline"
-          >
+          <Link href={ROUTES.resultsOwnerEcosystem} className="text-[var(--qf-text-dim)] hover:text-[var(--qf-accent)] hover:underline">
             Full owner ecosystem →
           </Link>
         )}
@@ -387,6 +434,8 @@ function DiagramSvgNode({ node, view, selected, dimmed, onHover, onClick }: Diag
   const pos = getNodePosition(node, view);
   const x = pos.x - NODE_W / 2;
   const y = pos.y - NODE_H / 2;
+  const statusColor =
+    node.status === 'LIVE' ? '#10b981' : node.status === 'PARTIAL' ? '#f59e0b' : 'rgba(255,255,255,0.35)';
 
   return (
     <g
@@ -394,7 +443,7 @@ function DiagramSvgNode({ node, view, selected, dimmed, onHover, onClick }: Diag
       tabIndex={0}
       aria-label={`${node.label}, ${node.status}. ${node.hoverLine}`}
       aria-pressed={selected}
-      opacity={dimmed ? 0.35 : 1}
+      opacity={dimmed ? 0.3 : 1}
       onMouseEnter={() => onHover(node.id)}
       onMouseLeave={() => onHover(null)}
       onClick={() => onClick(node.id)}
@@ -404,37 +453,26 @@ function DiagramSvgNode({ node, view, selected, dimmed, onHover, onClick }: Diag
           onClick(node.id);
         }
       }}
-      className="cursor-pointer outline-none focus-visible:[&_rect]:stroke-[#f59e0b]"
+      className="cursor-pointer outline-none"
     >
       <rect
         x={x}
         y={y}
         width={NODE_W}
         height={NODE_H}
-        rx={8}
-        fill={selected ? 'rgba(245,158,11,0.12)' : 'rgba(255,255,255,0.04)'}
-        stroke={selected ? '#f59e0b' : 'rgba(255,255,255,0.15)'}
-        strokeWidth={selected ? 2 : 1}
+        rx={10}
+        fill={selected ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.06)'}
+        stroke={selected ? '#f59e0b' : 'rgba(255,255,255,0.2)'}
+        strokeWidth={selected ? 2.5 : 1.5}
       />
-      <text
-        x={pos.x}
-        y={y + 20}
-        textAnchor="middle"
-        fontSize={11}
-        fontWeight={600}
-        fill="#fafafa"
-        fontFamily="system-ui, sans-serif"
-      >
-        {node.label.length > 18 ? node.shortLabel : node.label}
+      <circle cx={x + 14} cy={y + 14} r={5} fill={statusColor} />
+      <text x={pos.x} y={y + 28} textAnchor="middle" fontSize={12} fontWeight={700} fill="#fafafa">
+        {node.label}
       </text>
-      <text
-        x={pos.x}
-        y={y + 36}
-        textAnchor="middle"
-        fontSize={9}
-        fill="rgba(255,255,255,0.5)"
-        fontFamily="ui-monospace, monospace"
-      >
+      <text x={pos.x} y={y + 44} textAnchor="middle" fontSize={9} fill="rgba(255,255,255,0.55)">
+        {node.hoverLine.length > 42 ? `${node.hoverLine.slice(0, 40)}…` : node.hoverLine}
+      </text>
+      <text x={pos.x} y={y + 58} textAnchor="middle" fontSize={9} fill={statusColor} fontWeight={600} fontFamily="ui-monospace, monospace">
         {node.status} · {node.readiness}
       </text>
       <title>{`${node.hoverLine} (${node.status})`}</title>

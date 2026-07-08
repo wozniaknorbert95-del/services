@@ -50,11 +50,19 @@ npm run audit:navigation   # requires dev server on :3000
 | Home `/` | No `LivingSystemDiagram` (SR-02) |
 | Static fallback | SVG + PDF links under diagram |
 
+## Update 2026-07-08 PM — Founder UX polish (Audience A)
+
+- Default view: **Customer journey** (6 steps) on `/founder/`
+- **Technical map**: swimlane layout, hero edges, integrations toggle
+- **Jadzia**: LIVE ~85%, capability chips from `jadzia-coi.ts`
+- Life loop collapsible; panel below diagram on founder
+- Spec: `docs/superpowers/specs/2026-07-08-los-diagram-founder-optimization-design.md`
+- Audit: `docs/audits/2026-07-08-los-diagram-ux-audit.md`
+
 ## NASTĘPNY KROK
 
 - Commander HITL on `system-description-master.md` traction §2.2 (separate task)  
-- Optional: Figma PNG ref export to `docs/design/los-diagram-figma-ref.png`  
-- Deploy manual only (Zasada 11)
+- P1 polish: StatusBadge in SVG nodes, readiness table sync site-wide
 
 ## Files touched
 

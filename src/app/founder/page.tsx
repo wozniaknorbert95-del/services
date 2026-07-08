@@ -80,10 +80,10 @@ export default function FounderPage() {
           Living Operating System — interactive map
         </h2>
         <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
-          Eight governed repos, three operational brains, one supervised loop — Sense through Learn
-          with human gates before production writes. Click any node for honest AS-IS vs TO-BE detail.
+          Six supervised steps from first visit to governed execution — click any step for honest
+          LIVE proof. Switch to Technical map for the full architecture.
         </p>
-        <LivingSystemDiagram variant="founder" defaultView="architecture" />
+        <LivingSystemDiagram variant="founder" defaultView="story" />
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
             href={ROUTES.bookDiscovery}
