@@ -30,12 +30,12 @@ const NODE_W = 172;
 const NODE_H = 68;
 
 const LAYER_STYLE: Record<string, { fill: string; stroke: string }> = {
-  guard: { fill: 'var(--qf-layer-guard-fill)', stroke: 'var(--qf-layer-guard-stroke)' },
-  sense: { fill: 'var(--qf-layer-sense-fill)', stroke: 'rgba(255,255,255,0.1)' },
-  think: { fill: 'var(--qf-layer-think-fill)', stroke: 'rgba(245,158,11,0.25)' },
-  orchestrate: { fill: 'var(--qf-layer-orchestrate-fill)', stroke: 'rgba(255,255,255,0.1)' },
-  act: { fill: 'var(--qf-layer-act-fill)', stroke: 'var(--qf-layer-act-stroke)' },
-  memory: { fill: 'var(--qf-layer-memory-fill)', stroke: 'var(--qf-layer-memory-stroke)' },
+  guard: { fill: 'rgba(16, 185, 129, 0.06)', stroke: 'rgba(16, 185, 129, 0.35)' },
+  sense: { fill: 'rgba(255, 255, 255, 0.03)', stroke: 'rgba(255, 255, 255, 0.1)' },
+  think: { fill: 'rgba(245, 158, 11, 0.05)', stroke: 'rgba(245, 158, 11, 0.25)' },
+  orchestrate: { fill: 'rgba(255, 255, 255, 0.03)', stroke: 'rgba(255, 255, 255, 0.1)' },
+  act: { fill: 'rgba(245, 158, 11, 0.08)', stroke: 'rgba(245, 158, 11, 0.35)' },
+  memory: { fill: 'rgba(96, 165, 250, 0.05)', stroke: 'rgba(96, 165, 250, 0.3)' },
 };
 
 const LAYER_ORDER = ['guard', 'sense', 'think', 'orchestrate', 'act', 'memory'] as const;
@@ -71,9 +71,9 @@ function edgePath(
 
 function edgeStroke(status: string, highlighted: boolean, isHero: boolean): string {
   if (!isHero && !highlighted) return 'rgba(255,255,255,0.08)';
-  if (status === 'PLANNED') return highlighted ? 'var(--qf-accent)' : 'rgba(245,158,11,0.4)';
-  if (status === 'PARTIAL') return highlighted ? 'var(--qf-accent)' : 'rgba(245,158,11,0.55)';
-  return highlighted ? 'var(--qf-accent)' : isHero ? 'rgba(245,158,11,0.75)' : 'rgba(245,158,11,0.45)';
+  if (status === 'PLANNED') return highlighted ? '#e8a33d' : 'rgba(245,158,11,0.4)';
+  if (status === 'PARTIAL') return highlighted ? '#e8a33d' : 'rgba(245,158,11,0.55)';
+  return highlighted ? '#e8a33d' : isHero ? 'rgba(245,158,11,0.75)' : 'rgba(245,158,11,0.45)';
 }
 
 export default function LivingSystemDiagram({
@@ -258,17 +258,17 @@ export default function LivingSystemDiagram({
             >
               <defs>
                 <marker id="arrow-amber" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-                  <path d="M0,0 L8,3 L0,6 Z" fill="var(--qf-accent)" />
+                  <path d="M0,0 L8,3 L0,6 Z" fill="#e8a33d" />
                 </marker>
                 <marker id="arrow-faint" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
                   <path d="M0,0 L8,3 L0,6 Z" fill="rgba(255,255,255,0.25)" />
                 </marker>
               </defs>
 
-              <text x={600} y={36} textAnchor="middle" fill="var(--qf-text)" fontSize={16} fontWeight={700}>
+              <text x={600} y={36} textAnchor="middle" fill="#e5e7ef" fontSize={16} fontWeight={700}>
                 {DIAGRAM_HEADER.title}
               </text>
-              <text x={600} y={56} textAnchor="middle" fill="var(--qf-text-dim)" fontSize={11}>
+              <text x={600} y={56} textAnchor="middle" fill="#9ca3c7" fontSize={11}>
                 {DIAGRAM_HEADER.subtitle}
               </text>
 
@@ -287,11 +287,11 @@ export default function LivingSystemDiagram({
                       fill={style.fill}
                       stroke={style.stroke}
                     />
-                    <text x={48} y={band.y + 20} fill="var(--qf-accent)" fontSize={11} fontWeight={700} fontFamily="ui-monospace, monospace">
+                    <text x={48} y={band.y + 20} fill="#e8a33d" fontSize={11} fontWeight={700} fontFamily="ui-monospace, monospace">
                       {band.label.toUpperCase()}
                     </text>
                     {band.subtitle && (
-                      <text x={48} y={band.y + 36} fill="var(--qf-text-faint)" fontSize={9} fontFamily="ui-monospace, monospace">
+                      <text x={48} y={band.y + 36} fill="#9ca3af" fontSize={9} fontFamily="ui-monospace, monospace">
                         {band.subtitle}
                       </text>
                     )}
@@ -330,7 +330,7 @@ export default function LivingSystemDiagram({
                         y={midY - 10}
                         textAnchor="middle"
                         fontSize={10}
-                        fill="var(--qf-accent)"
+                        fill="#e8a33d"
                         fontWeight={600}
                         fontFamily="ui-monospace, monospace"
                       >
@@ -357,7 +357,7 @@ export default function LivingSystemDiagram({
                 />
               ))}
 
-              <text x={600} y={DIAGRAM_CANVAS.height - 16} textAnchor="middle" fill="var(--qf-text-faint)" fontSize={10}>
+              <text x={600} y={DIAGRAM_CANVAS.height - 16} textAnchor="middle" fill="#9ca3af" fontSize={10}>
                 Click any module · {showIntegrations ? 'All integrations visible' : 'Hero path only — toggle for full INT map'}
               </text>
             </svg>
@@ -453,7 +453,7 @@ function DiagramSvgNode({ node, view, selected, dimmed, onHover, onClick }: Diag
   const x = pos.x - NODE_W / 2;
   const y = pos.y - NODE_H / 2;
   const statusColor =
-    node.status === 'LIVE' ? 'var(--qf-ok)' : node.status === 'PARTIAL' ? 'var(--qf-accent)' : 'var(--qf-text-faint)';
+    node.status === 'LIVE' ? '#6fae6f' : node.status === 'PARTIAL' ? '#e8a33d' : '#9ca3af';
 
   return (
     <g
@@ -480,11 +480,11 @@ function DiagramSvgNode({ node, view, selected, dimmed, onHover, onClick }: Diag
         height={NODE_H}
         rx={2}
         fill={selected ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.06)'}
-        stroke={selected ? 'var(--qf-accent)' : 'rgba(255,255,255,0.2)'}
+        stroke={selected ? '#e8a33d' : 'rgba(255,255,255,0.2)'}
         strokeWidth={selected ? 2.5 : 1.5}
       />
       <circle cx={x + 14} cy={y + 14} r={5} fill={statusColor} />
-      <text x={pos.x} y={y + 28} textAnchor="middle" fontSize={12} fontWeight={700} fill="var(--qf-text)">
+      <text x={pos.x} y={y + 28} textAnchor="middle" fontSize={12} fontWeight={700} fill="#e5e7ef">
         {node.label}
       </text>
       <text x={pos.x} y={y + 44} textAnchor="middle" fontSize={9} fill="rgba(255,255,255,0.55)">
