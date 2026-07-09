@@ -1,5 +1,14 @@
 'use client';
 
+// NOTE: SVG attributes (fill, stroke) do NOT support CSS custom properties (var(--x)).
+// All colors in SVG elements must be hardcoded to match design tokens:
+//   --qf-accent: #e8a33d
+//   --qf-text: #e5e7ef
+//   --qf-text-dim: #9ca3c7
+//   --qf-text-faint: #9ca3af
+//   --qf-ok: #6fae6f
+// HTML/Tailwind classes use CSS vars as normal.
+
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
