@@ -1,55 +1,102 @@
 {
-  "canvas": { "width": 1200, "height": 780 },
+  "canvas": { "width": 1200, "height": 720 },
   "title": "Living Operating System",
   "subtitle": "Governance-first · Sense → Think → Act · HITL before production writes",
+  "leftRail": { "width": 120 },
+  "nodeSize": { "width": 130, "height": 28 },
+  "grid": {
+    "nodeAreaX": 120,
+    "nodeAreaWidth": 1080,
+    "colGap": 10,
+    "rowPaddingBottom": 18,
+    "gutter": 14
+  },
+  "guardBanner": {
+    "y": 72,
+    "height": 56,
+    "x": 40,
+    "width": 1120,
+    "label": "GUARD — global-rules, Kaizen, HITL, Zasada 11"
+  },
   "layers": {
-    "guard": {
-      "y": 64,
-      "height": 52,
-      "label": "Guard",
-      "subtitle": "VCMS scan · global-rules · HITL · Zasada 11"
-    },
     "sense": {
-      "y": 128,
-      "height": 100,
+      "y": 148,
+      "height": 88,
+      "x": 40,
+      "width": 1120,
       "label": "Sense",
-      "subtitle": "Portal · Game · GA4 · read-only signals"
+      "subtitle": "GA4, WooCommerce, Game, Portal, VCMS scan"
     },
     "think": {
-      "y": 244,
-      "height": 96,
+      "y": 252,
+      "height": 88,
+      "x": 40,
+      "width": 520,
       "label": "Think",
-      "subtitle": "Jadzia COI — orders, leads, analytics, content"
+      "subtitle": "Jadzia Strategist, weekly brief, Kaizen guard",
+      "split": "left"
     },
     "orchestrate": {
-      "y": 356,
-      "height": 96,
+      "y": 252,
+      "height": 88,
+      "x": 580,
+      "width": 580,
       "label": "Orchestrate",
-      "subtitle": "Agent OS · Mission Control · supervised code changes"
+      "subtitle": "Planner, Agent OS, VCMS governance",
+      "split": "right"
     },
     "act": {
-      "y": 468,
-      "height": 96,
+      "y": 356,
+      "height": 88,
+      "x": 40,
+      "width": 1120,
       "label": "Act",
       "subtitle": "Bounded writes — checkout, deploy, publish"
     },
     "memory": {
-      "y": 580,
+      "y": 460,
       "height": 72,
+      "x": 40,
+      "width": 1120,
       "label": "Memory",
-      "subtitle": "jadzia.db · handoffs · constitution · learn loop"
+      "subtitle": "jadzia.db, handoffs, SESSION-ANCHOR, meta docs core"
     }
   },
-  "architecturePositions": {
-    "flex-vcms": { "x": 280, "y": 90 },
-    "flexgrafik-meta": { "x": 920, "y": 90 },
-    "flexgrafik-nl": { "x": 200, "y": 178 },
-    "app.flexgrafik.nl": { "x": 480, "y": 178 },
-    "zzpackage": { "x": 760, "y": 178 },
-    "jadzia-core": { "x": 600, "y": 292 },
-    "agent-os": { "x": 520, "y": 404 },
-    "agent-os-ui": { "x": 820, "y": 404 },
-    "quietforge": { "x": 600, "y": 616 }
+  "slots": [
+    { "id": "zzpackage-sense", "nodeId": "zzpackage", "layer": "sense", "col": 0, "tier": "spearhead" },
+    { "id": "app-sense", "nodeId": "app.flexgrafik.nl", "layer": "sense", "col": 1 },
+    { "id": "portal-sense", "nodeId": "flexgrafik-nl", "layer": "sense", "col": 2 },
+    { "id": "vcms-sense", "nodeId": "flex-vcms", "layer": "sense", "col": 3 },
+    { "id": "jadzia-think", "nodeId": "jadzia-core", "layer": "think", "col": 0, "tier": "spine" },
+    { "id": "agent-os-orch", "nodeId": "agent-os", "layer": "orchestrate", "col": 0 },
+    { "id": "mission-orch", "nodeId": "agent-os-ui", "layer": "orchestrate", "col": 1 },
+    { "id": "vcms-orch", "nodeId": "flex-vcms", "layer": "orchestrate", "col": 2 },
+    { "id": "zzpackage-act", "nodeId": "zzpackage", "layer": "act", "col": 0, "tier": "spearhead" },
+    { "id": "jadzia-act", "nodeId": "jadzia-core", "layer": "act", "col": 1, "tier": "spine" },
+    { "id": "agent-os-act", "nodeId": "agent-os", "layer": "act", "col": 2 },
+    { "id": "meta-memory", "nodeId": "flexgrafik-meta", "layer": "memory", "col": 6 }
+  ],
+  "primaryBuses": [
+    { "id": "FLOW-1", "class": "primary", "fromLayer": "sense", "toLayer": "think", "xAnchor": 600 },
+    { "id": "FLOW-2", "class": "primary", "fromLayer": "think", "toLayer": "act", "xAnchor": 300 },
+    { "id": "FLOW-3", "class": "primary", "fromLayer": "orchestrate", "toLayer": "act", "xAnchor": 870 },
+    { "id": "FLOW-4", "class": "primary", "fromLayer": "act", "toLayer": "memory", "xAnchor": 600 },
+    {
+      "id": "FLOW-MEMORY",
+      "class": "feedback",
+      "fromLayer": "memory",
+      "toLayer": "think",
+      "path": "M 200 496 Q 200 560 300 600",
+      "label": "Memory → Think feedback"
+    }
+  ],
+  "footer": {
+    "lines": [
+      "Applications (touchpoints) · Governance (Jadzia + VCMS + Meta) · AI Services (MCP)",
+      "8 repositories, one supervised LOS",
+      "quietforge.flexgrafik.nl — portfolio truth"
+    ],
+    "yStart": 560
   },
   "smbFunnelPositions": {
     "flexgrafik-nl": { "x": 120, "y": 360 },

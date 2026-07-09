@@ -13,6 +13,7 @@ function record(severity, area, message, detail = {}) {
 }
 
 async function auditFounder(page) {
+  await page.setViewportSize({ width: 1280, height: 900 });
   const url = `${BASE}/founder/#system-diagram`;
   const consoleErrors = [];
   page.on('console', (msg) => {
@@ -46,37 +47,66 @@ async function auditFounder(page) {
   }
 
   const svg = page.locator('[aria-label="Living Operating System interactive diagram"]');
-  const svgVisible = await svg.isVisible().catch(() => false);
-  if (svgVisible) record('medium', 'founder', 'Architecture SVG visible on founder — story should be default');
+  const svgOnStory = await svg.count();
+  if (svgOnStory > 0) {
+    record('high', 'founder', 'SVG present on story default — should be hidden until Technical map');
+  }
 
-  // Click Operations (Jadzia) step
   const opsStep = page.getByRole('button', { name: /Operations/ }).first();
   if ((await opsStep.count()) > 0) {
     await opsStep.click();
     await page.waitForTimeout(300);
-    const jadziaPanel = page.locator('[role="dialog"]').filter({ hasText: /Jadzia/ });
+    const jadziaPanel = page.locator('text=Jadzia COI').first();
     if ((await jadziaPanel.count()) === 0) {
       record('high', 'founder', 'Jadzia story step did not open detail panel');
-    } else {
-      const chips = await jadziaPanel.locator('text=Order intelligence').count();
-      if (chips === 0) record('medium', 'founder', 'Jadzia capability chips missing in panel');
     }
   }
 
-  // Technical map toggle
   await page.getByRole('tab', { name: 'Technical map' }).click();
   await page.waitForTimeout(500);
+
   if ((await svg.count()) === 0) {
     record('critical', 'founder', 'Technical map SVG missing after toggle');
+    return;
   }
 
-  const nodes = page.locator('[aria-label="Living Operating System interactive diagram"] [role="button"]');
+  const nodes = svg.locator('[role="button"]');
   const nodeCount = await nodes.count();
-  if (nodeCount < 7) {
-    record('high', 'founder', `Technical map expected 7+ nodes, found ${nodeCount}`);
+  if (nodeCount < 10) {
+    record('high', 'founder', `Technical map expected 10+ slot nodes, found ${nodeCount}`);
   }
 
-  // Click first node on technical map
+  const actNodeCount = await svg.evaluate((el) => {
+    const actMin = 370;
+    const actMax = 430;
+    let count = 0;
+    el.querySelectorAll('[role="button"] rect').forEach((rect) => {
+      const y = parseFloat(rect.getAttribute('y') ?? '0');
+      const h = parseFloat(rect.getAttribute('height') ?? '0');
+      const cy = y + h / 2;
+      if (cy >= actMin && cy <= actMax) count += 1;
+    });
+    return count;
+  });
+  if (actNodeCount < 3) {
+    record('high', 'founder', `ACT layer expected 3+ nodes, found ${actNodeCount}`);
+  }
+
+  const guardBanner = await svg.locator('text=GUARD').count();
+  if (guardBanner === 0) {
+    record('medium', 'founder', 'Guard banner text missing from Technical map');
+  }
+
+  const wizardSlots = await svg.locator('text=Wizard').count();
+  if (wizardSlots < 2) {
+    record('high', 'founder', `Expected Wizard in Sense+Act slots, found ${wizardSlots}`);
+  }
+
+  const desktopOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 2);
+  if (desktopOverflow) {
+    record('high', 'founder', 'Horizontal page overflow at 1280px on Technical map');
+  }
+
   if (nodeCount > 0) {
     await nodes.first().click();
     await page.waitForTimeout(300);
@@ -86,13 +116,14 @@ async function auditFounder(page) {
     }
   }
 
-  // SMB Funnel toggle — skip on founder (no smb tab)
-  await page.getByRole('button', { name: 'Walk the loop' }).click();
-  await page.waitForTimeout(2500);
-  const activePhase = await page.locator('.bg-\\[var\\(--qf-accent\\)\\].text-black').count();
-  if (activePhase === 0) record('low', 'founder', 'Walk the loop may not highlight phases');
+  const walkBtn = page.getByRole('button', { name: 'Walk the loop' });
+  if ((await walkBtn.count()) > 0) {
+    await walkBtn.click();
+    await page.waitForTimeout(2500);
+    const activePhase = await page.locator('.bg-\\[var\\(--qf-accent\\)\\].text-black').count();
+    if (activePhase === 0) record('low', 'founder', 'Walk the loop may not highlight phases');
+  }
 
-  // Static fallback links
   const svgLink = page.getByRole('link', { name: /Download static SVG/i });
   if ((await svgLink.count()) === 0) record('medium', 'founder', 'Missing static SVG download link');
 
@@ -104,17 +135,37 @@ async function auditFounder(page) {
   }
 }
 
-async function auditFounderMobile(page) {
+async function auditFounderMobile(browser) {
+  const page = await browser.newPage();
   await page.setViewportSize({ width: 375, height: 812 });
-  await page.goto(`${BASE}/founder/#system-diagram`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.goto(`${BASE}/founder/#system-diagram`, { waitUntil: 'networkidle', timeout: 60000 });
   await page.waitForSelector('#system-diagram', { timeout: 15000 });
-  await page.waitForTimeout(500);
+  await page.waitForSelector('button:has-text("Entry")', { timeout: 10000 }).catch(() => {});
 
-  const storySteps = await page.getByRole('button', { name: /Entry|Revenue|Leads/ }).count();
-  if (storySteps < 3) record('high', 'mobile', `Mobile story steps missing (found ${storySteps})`);
+  const storySteps = await page.locator('button').filter({ hasText: /^0?1/ }).count();
+  if (storySteps < 1) {
+    const alt = await page.getByRole('button', { name: /Entry/ }).count();
+    if (alt < 1) record('high', 'mobile', `Mobile story steps missing (found ${alt})`);
+  }
+
+  await page.getByRole('tab', { name: 'Technical map' }).click();
+  await page.waitForTimeout(400);
+
+  const svg = page.locator('[aria-label="Living Operating System interactive diagram"]');
+  const svgVisible = await svg.isVisible().catch(() => false);
+  if (svgVisible) {
+    record('high', 'mobile', 'Technical map SVG visible on mobile — accordion only expected');
+  }
+
+  const accordionButtons = await page.locator('#system-diagram [aria-expanded]').count();
+  if (accordionButtons < 5) {
+    record('medium', 'mobile', `Mobile accordion expected 5+ modules, found ${accordionButtons}`);
+  }
 
   const bodyOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 2);
   if (bodyOverflow) record('high', 'mobile', 'Horizontal page overflow at 375px');
+
+  await page.close();
 }
 
 async function auditOwnerEcosystem(page) {
@@ -147,7 +198,7 @@ async function main() {
   const page = await browser.newPage();
 
   await auditFounder(page);
-  await auditFounderMobile(page);
+  await auditFounderMobile(browser);
   await auditOwnerEcosystem(page);
   await auditHomeNoDiagram(page);
 
@@ -163,7 +214,12 @@ async function main() {
       {
         base: BASE,
         verdict,
-        summary: { critical: critical.length, high: high.length, medium: findings.filter((f) => f.severity === 'medium').length, low: findings.filter((f) => f.severity === 'low').length },
+        summary: {
+          critical: critical.length,
+          high: high.length,
+          medium: findings.filter((f) => f.severity === 'medium').length,
+          low: findings.filter((f) => f.severity === 'low').length,
+        },
         findings,
       },
       null,

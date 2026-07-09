@@ -66,8 +66,48 @@ export interface DiagramEdge {
   status: DiagramStatus | 'PARTIAL';
   architectureVisible: boolean;
   smbFunnelVisible: boolean;
-  /** Shown on architecture canvas by default (hero customer path) */
+  /** @deprecated Primary flow uses PRIMARY_BUSES — INT edges are integration layer only */
   heroEdge?: boolean;
+}
+
+export type DiagramBusClass = 'primary' | 'governance' | 'feedback';
+
+export type DiagramSlotTier = 'spearhead' | 'spine';
+
+export interface DiagramSlot {
+  id: string;
+  nodeId: DiagramNodeId;
+  layer: Exclude<DiagramLayerId, 'guard' | 'service'>;
+  col: number;
+  tier?: DiagramSlotTier;
+}
+
+export interface DiagramLayerBand {
+  y: number;
+  height: number;
+  x: number;
+  width: number;
+  label: string;
+  subtitle?: string;
+  split?: 'left' | 'right';
+}
+
+export interface DiagramPrimaryBus {
+  id: string;
+  class: DiagramBusClass;
+  fromLayer: string;
+  toLayer: string;
+  xAnchor?: number;
+  path?: string;
+  label?: string;
+}
+
+interface LayoutGrid {
+  nodeAreaX: number;
+  nodeAreaWidth: number;
+  colGap: number;
+  rowPaddingBottom: number;
+  gutter: number;
 }
 
 export const DIAGRAM_CANVAS = layout.canvas as { width: number; height: number };
@@ -79,13 +119,96 @@ export const DIAGRAM_HEADER = {
     'Governance-first · Sense → Think → Act · HITL before production writes',
 } as const;
 
+export const DIAGRAM_LEFT_RAIL = (layout as { leftRail: { width: number } }).leftRail;
+
+export const DIAGRAM_NODE_SIZE = (layout as { nodeSize: { width: number; height: number } }).nodeSize;
+
+export const DIAGRAM_GRID = (layout as { grid: LayoutGrid }).grid;
+
+export const GUARD_BANNER = (
+  layout as {
+    guardBanner: { y: number; height: number; x: number; width: number; label: string };
+  }
+).guardBanner;
+
+export const DIAGRAM_FOOTER = (
+  layout as { footer: { lines: string[]; yStart: number } }
+).footer;
+
 export const LOS_LAYER_BANDS = layout.layers as Record<
-  Exclude<DiagramLayerId, 'service'>,
-  { y: number; height: number; label: string; subtitle?: string }
+  Exclude<DiagramLayerId, 'guard' | 'service'>,
+  DiagramLayerBand
 >;
 
-const archPos = layout.architecturePositions as Record<string, { x: number; y: number }>;
+export const DIAGRAM_SLOTS = (layout as { slots: DiagramSlot[] }).slots;
+
+export const PRIMARY_BUSES = (layout as { primaryBuses: DiagramPrimaryBus[] }).primaryBuses;
+
 const smbPos = layout.smbFunnelPositions as Record<string, { x: number; y: number }>;
+
+/** Resolve slot center from layer band + column grid */
+export function resolveSlotPosition(slot: DiagramSlot): { x: number; y: number } {
+  const band = LOS_LAYER_BANDS[slot.layer];
+  const { width, height } = DIAGRAM_NODE_SIZE;
+  const { colGap, rowPaddingBottom } = DIAGRAM_GRID;
+  const startX = band.x + 16;
+  const x = startX + slot.col * (width + colGap) + width / 2;
+  const y = band.y + band.height - rowPaddingBottom - height / 2;
+  return { x, y };
+}
+
+function archPosFor(nodeId: DiagramNodeId): { x: number; y: number } {
+  const slot = DIAGRAM_SLOTS.find((s) => s.nodeId === nodeId);
+  return slot ? resolveSlotPosition(slot) : { x: 600, y: 360 };
+}
+
+/** Vertical bus path through inter-layer gutter */
+export function routeBusPath(bus: DiagramPrimaryBus): string {
+  if (bus.path) return bus.path;
+  const fromBand = LOS_LAYER_BANDS[bus.fromLayer as keyof typeof LOS_LAYER_BANDS];
+  const toBand = LOS_LAYER_BANDS[bus.toLayer as keyof typeof LOS_LAYER_BANDS];
+  if (!fromBand || !toBand || bus.xAnchor == null) return '';
+  const { gutter } = DIAGRAM_GRID;
+  const y1 = fromBand.y + fromBand.height + gutter / 2;
+  const y2 = toBand.y - gutter / 2;
+  return `M ${bus.xAnchor} ${y1} L ${bus.xAnchor} ${y2}`;
+}
+
+/** L-shaped integration edge between two slot positions */
+export function routeIntegrationPath(
+  from: { x: number; y: number },
+  to: { x: number; y: number }
+): string {
+  const { width, height } = DIAGRAM_NODE_SIZE;
+  const halfW = width / 2 + 4;
+  const halfH = height / 2 + 4;
+  const sx = from.x + (to.x >= from.x ? halfW : -halfW);
+  const sy = from.y;
+  const ex = to.x;
+  const ey = to.y - (to.y >= from.y ? halfH : -halfH);
+  const midY = (sy + ey) / 2;
+  return `M ${sx} ${sy} L ${sx} ${midY} L ${ex} ${midY} L ${ex} ${ey}`;
+}
+
+export function getArchitectureSlots(): DiagramSlot[] {
+  const visibleNodeIds = new Set(
+    DIAGRAM_NODES.filter((n) => n.architectureVisible && n.id !== 'quietforge').map((n) => n.id)
+  );
+  return DIAGRAM_SLOTS.filter((s) => visibleNodeIds.has(s.nodeId));
+}
+
+export function getSlotById(slotId: string): DiagramSlot | undefined {
+  return DIAGRAM_SLOTS.find((s) => s.id === slotId);
+}
+
+export function getIntegrationEdges(showIntegrations: boolean): DiagramEdge[] {
+  if (!showIntegrations) return [];
+  return DIAGRAM_EDGES.filter((e) => e.architectureVisible);
+}
+
+export function getIntegrationCount(): number {
+  return DIAGRAM_EDGES.filter((e) => e.architectureVisible).length;
+}
 
 export const LIFE_LOOP_PHASES = [
   { id: 'sense', label: 'Sense' },
@@ -118,7 +241,7 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     toBe: ['Deeper COI revenue analytics', 'Qualification scoring in wizard session'],
     demoUrl: EXTERNAL.zzpackageWizard,
     proofRoute: ROUTES.resultsSalesFunnel,
-    architecturePosition: archPos.zzpackage,
+    architecturePosition: archPosFor('zzpackage'),
     smbFunnelPosition: smbPos.zzpackage,
     smbFunnelOrder: 3,
     architectureVisible: true,
@@ -144,7 +267,7 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     toBe: ['TikTok growth attribution loop (INT-013)'],
     demoUrl: EXTERNAL.leadMagnetGame,
     proofRoute: ROUTES.resultsLeadMagnet,
-    architecturePosition: archPos['app.flexgrafik.nl'],
+    architecturePosition: archPosFor('app.flexgrafik.nl'),
     smbFunnelPosition: smbPos['app.flexgrafik.nl'],
     smbFunnelOrder: 2,
     architectureVisible: true,
@@ -167,7 +290,7 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     toBe: ['Portal qualification rollout polish', 'SEO/blog playbook'],
     demoUrl: 'https://flexgrafik.nl/',
     proofRoute: ROUTES.webUpgrade,
-    architecturePosition: archPos['flexgrafik-nl'],
+    architecturePosition: archPosFor('flexgrafik-nl'),
     smbFunnelPosition: smbPos['flexgrafik-nl'],
     smbFunnelOrder: 1,
     architectureVisible: true,
@@ -195,7 +318,7 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
       status: c.status,
     })),
     proofRoute: ROUTES.resultsJadziaCoi,
-    architecturePosition: archPos['jadzia-core'],
+    architecturePosition: archPosFor('jadzia-core'),
     smbFunnelPosition: smbPos['jadzia-core'],
     smbFunnelOrder: 4,
     architectureVisible: true,
@@ -219,7 +342,7 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     ],
     toBe: ['Automated spawn from Jadzia-Planner (INT-006)'],
     proofRoute: ROUTES.resultsAgentOrchestrator,
-    architecturePosition: archPos['agent-os'],
+    architecturePosition: archPosFor('agent-os'),
     smbFunnelPosition: smbPos['agent-os'],
     smbFunnelOrder: 5,
     architectureVisible: true,
@@ -243,7 +366,7 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     ],
     toBe: ['Business roles on repo pages', 'Optional services repo registration'],
     proofRoute: ROUTES.resultsOwnerEcosystem,
-    architecturePosition: archPos['flex-vcms'],
+    architecturePosition: archPosFor('flex-vcms'),
     smbFunnelPosition: smbPos['flex-vcms'],
     smbFunnelOrder: 6,
     architectureVisible: true,
@@ -266,7 +389,7 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     ],
     toBe: ['master-plan sync', 'Full investor data room'],
     proofRoute: ROUTES.howItWorks,
-    architecturePosition: archPos['flexgrafik-meta'],
+    architecturePosition: archPosFor('flexgrafik-meta'),
     smbFunnelPosition: smbPos['flexgrafik-meta'],
     smbFunnelOrder: 7,
     architectureVisible: true,
@@ -289,7 +412,7 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     ],
     toBe: ['Standalone ADR', 'Deeper UX audit integration'],
     proofRoute: ROUTES.trust,
-    architecturePosition: archPos['agent-os-ui'],
+    architecturePosition: archPosFor('agent-os-ui'),
     smbFunnelPosition: smbPos['agent-os-ui'],
     smbFunnelOrder: 8,
     architectureVisible: true,
@@ -312,10 +435,10 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     toBe: ['Interactive diagram (this map)', 'Investor pack redirect'],
     demoUrl: SITE_URL,
     proofRoute: ROUTES.founder,
-    architecturePosition: archPos.quietforge,
-    smbFunnelPosition: smbPos.quietforge,
+    architecturePosition: archPosFor('quietforge'),
+    smbFunnelPosition: smbPos.quietforge ?? { x: 600, y: 360 },
     smbFunnelOrder: 9,
-    architectureVisible: true,
+    architectureVisible: false,
     smbFunnelVisible: false,
   },
 ] as const;
@@ -469,13 +592,32 @@ export function getVisibleNodes(view: DiagramView): DiagramNode[] {
 }
 
 export function getVisibleEdges(view: DiagramView, showIntegrations = false): DiagramEdge[] {
+  if (view === 'architecture') {
+    return getIntegrationEdges(showIntegrations);
+  }
   const visibleIds = new Set(getVisibleNodes(view).map((n) => n.id));
   return DIAGRAM_EDGES.filter((e) => {
-    const viewOk = view === 'architecture' ? e.architectureVisible : e.smbFunnelVisible;
+    const viewOk = e.smbFunnelVisible;
     if (!viewOk) return false;
-    if (view === 'architecture' && !showIntegrations && !e.heroEdge) return false;
     if (e.from === e.to) return visibleIds.has(e.from);
     return visibleIds.has(e.from) && visibleIds.has(e.to);
+  });
+}
+
+/** First architecture slot for a node (used for integration edge anchors) */
+export function getPrimarySlotForNode(nodeId: DiagramNodeId): DiagramSlot | undefined {
+  return getArchitectureSlots().find((s) => s.nodeId === nodeId);
+}
+
+const SLOT_LAYER_ORDER = ['sense', 'think', 'orchestrate', 'act', 'memory'] as const;
+
+/** Keyboard navigation order: Sense L→R, then Think, Orchestrate, Act, Memory */
+export function getSlotFlowOrder(): DiagramSlot[] {
+  return getArchitectureSlots().sort((a, b) => {
+    const la = SLOT_LAYER_ORDER.indexOf(a.layer as (typeof SLOT_LAYER_ORDER)[number]);
+    const lb = SLOT_LAYER_ORDER.indexOf(b.layer as (typeof SLOT_LAYER_ORDER)[number]);
+    if (la !== lb) return la - lb;
+    return a.col - b.col;
   });
 }
 
