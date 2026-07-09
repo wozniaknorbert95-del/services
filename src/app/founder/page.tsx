@@ -76,6 +76,7 @@ export default function FounderPage() {
       </Section>
 
       <Section background="surface" padding="large" id="system-diagram" data-founder-section="system-diagram">
+        <Eyebrow>System Diagram</Eyebrow>
         <h2 className="text-[var(--qf-fs-xl)] font-bold mb-4">
           Living Operating System — interactive map
         </h2>

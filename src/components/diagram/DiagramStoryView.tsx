@@ -39,7 +39,7 @@ export default function DiagramStoryView({ selectedId, onSelect }: DiagramStoryV
             >
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="flex min-w-0 flex-1 items-start gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--qf-accent)]/50 bg-[var(--qf-bg)] font-mono text-sm font-bold text-[var(--qf-accent)]">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--qf-radius)] border border-[var(--qf-accent)]/50 bg-[var(--qf-bg)] font-mono text-sm font-bold text-[var(--qf-accent)]">
                     {step.step}
                   </span>
                   <div className="min-w-0 flex-1">
@@ -61,7 +61,7 @@ export default function DiagramStoryView({ selectedId, onSelect }: DiagramStoryV
                           .map((chip) => (
                             <span
                               key={chip.label}
-                              className="rounded-full border border-emerald-500/30 bg-emerald-500/5 px-2 py-0.5 text-[10px] font-medium text-emerald-500"
+                              className="rounded-[var(--qf-radius)] border border-[var(--qf-ok)]/30 bg-[var(--qf-ok)]/5 px-2 py-0.5 text-[10px] font-medium text-[var(--qf-ok)]"
                             >
                               {chip.label}
                             </span>

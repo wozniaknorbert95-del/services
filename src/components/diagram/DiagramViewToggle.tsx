@@ -27,7 +27,7 @@ export default function DiagramViewToggle({
 
   return (
     <div
-      className="inline-flex rounded-full border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-1"
+      className="inline-flex rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-1"
       role="tablist"
       aria-label="Diagram view"
     >
@@ -40,7 +40,7 @@ export default function DiagramViewToggle({
             role="tab"
             aria-selected={selected}
             onClick={() => onChange(opt.id)}
-            className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-colors ${
+            className={`rounded-[var(--qf-radius)] px-4 py-1.5 text-xs font-semibold transition-colors ${
               selected
                 ? 'bg-[var(--qf-accent)] text-black'
                 : 'text-[var(--qf-text-dim)] hover:text-[var(--qf-text)]'

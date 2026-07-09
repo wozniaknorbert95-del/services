@@ -53,6 +53,17 @@
   --qf-info:          #5a9bd4;
   --qf-warn:          #d98f4a;
 
+  /* Diagram layer bands */
+  --qf-layer-guard-fill: rgba(16, 185, 129, 0.06);
+  --qf-layer-guard-stroke: rgba(16, 185, 129, 0.35);
+  --qf-layer-sense-fill: rgba(255, 255, 255, 0.03);
+  --qf-layer-think-fill: rgba(245, 158, 11, 0.05);
+  --qf-layer-orchestrate-fill: rgba(255, 255, 255, 0.03);
+  --qf-layer-act-fill: rgba(245, 158, 11, 0.08);
+  --qf-layer-act-stroke: rgba(245, 158, 11, 0.35);
+  --qf-layer-memory-fill: rgba(96, 165, 250, 0.05);
+  --qf-layer-memory-stroke: rgba(96, 165, 250, 0.3);
+
   /* Typography */
   --qf-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Fira Code',
              ui-monospace, 'Menlo', 'Consolas', monospace;

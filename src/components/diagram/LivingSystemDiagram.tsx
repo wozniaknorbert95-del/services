@@ -24,17 +24,18 @@ import DiagramViewToggle from './DiagramViewToggle';
 import DiagramDetailPanel from './DiagramDetailPanel';
 import DiagramMobileAccordion from './DiagramMobileAccordion';
 import DiagramStoryView from './DiagramStoryView';
+import DiagramStatusLegend from './DiagramStatusLegend';
 
 const NODE_W = 172;
 const NODE_H = 68;
 
 const LAYER_STYLE: Record<string, { fill: string; stroke: string }> = {
-  guard: { fill: 'rgba(16,185,129,0.06)', stroke: 'rgba(16,185,129,0.35)' },
-  sense: { fill: 'rgba(255,255,255,0.03)', stroke: 'rgba(255,255,255,0.1)' },
-  think: { fill: 'rgba(245,158,11,0.05)', stroke: 'rgba(245,158,11,0.25)' },
-  orchestrate: { fill: 'rgba(255,255,255,0.03)', stroke: 'rgba(255,255,255,0.1)' },
-  act: { fill: 'rgba(245,158,11,0.08)', stroke: 'rgba(245,158,11,0.35)' },
-  memory: { fill: 'rgba(96,165,250,0.05)', stroke: 'rgba(96,165,250,0.3)' },
+  guard: { fill: 'var(--qf-layer-guard-fill)', stroke: 'var(--qf-layer-guard-stroke)' },
+  sense: { fill: 'var(--qf-layer-sense-fill)', stroke: 'rgba(255,255,255,0.1)' },
+  think: { fill: 'var(--qf-layer-think-fill)', stroke: 'rgba(245,158,11,0.25)' },
+  orchestrate: { fill: 'var(--qf-layer-orchestrate-fill)', stroke: 'rgba(255,255,255,0.1)' },
+  act: { fill: 'var(--qf-layer-act-fill)', stroke: 'var(--qf-layer-act-stroke)' },
+  memory: { fill: 'var(--qf-layer-memory-fill)', stroke: 'var(--qf-layer-memory-stroke)' },
 };
 
 const LAYER_ORDER = ['guard', 'sense', 'think', 'orchestrate', 'act', 'memory'] as const;
@@ -70,9 +71,9 @@ function edgePath(
 
 function edgeStroke(status: string, highlighted: boolean, isHero: boolean): string {
   if (!isHero && !highlighted) return 'rgba(255,255,255,0.08)';
-  if (status === 'PLANNED') return highlighted ? 'rgba(245,158,11,0.4)' : 'rgba(255,255,255,0.15)';
-  if (status === 'PARTIAL') return highlighted ? '#f59e0b' : 'rgba(245,158,11,0.55)';
-  return highlighted ? '#f59e0b' : isHero ? 'rgba(245,158,11,0.75)' : 'rgba(245,158,11,0.45)';
+  if (status === 'PLANNED') return highlighted ? 'var(--qf-accent)' : 'rgba(245,158,11,0.4)';
+  if (status === 'PARTIAL') return highlighted ? 'var(--qf-accent)' : 'rgba(245,158,11,0.55)';
+  return highlighted ? 'var(--qf-accent)' : isHero ? 'rgba(245,158,11,0.75)' : 'rgba(245,158,11,0.45)';
 }
 
 export default function LivingSystemDiagram({
@@ -89,6 +90,7 @@ export default function LivingSystemDiagram({
   const [loopOpen, setLoopOpen] = useState(variant !== 'founder');
   const [loopPhase, setLoopPhase] = useState(0);
   const [walking, setWalking] = useState(false);
+  const [loopSpeed, setLoopSpeed] = useState(2000);
 
   const nodes = useMemo(() => getVisibleNodes(view), [view]);
   const edges = useMemo(
@@ -123,9 +125,9 @@ export default function LivingSystemDiagram({
     if (!walking || prefersReduced) return;
     const timer = window.setInterval(() => {
       setLoopPhase((p) => (p + 1) % LIFE_LOOP_PHASES.length);
-    }, 2000);
+    }, loopSpeed);
     return () => window.clearInterval(timer);
-  }, [walking, prefersReduced]);
+  }, [walking, prefersReduced, loopSpeed]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -150,7 +152,7 @@ export default function LivingSystemDiagram({
             <button
               type="button"
               onClick={() => setShowIntegrations((v) => !v)}
-              className={`rounded-full border px-4 py-1.5 text-xs font-semibold transition-colors ${
+              className={`rounded-[var(--qf-radius)] border px-4 py-1.5 text-xs font-semibold transition-colors ${
                 showIntegrations
                   ? 'border-[var(--qf-accent)] text-[var(--qf-accent)]'
                   : 'border-[var(--qf-border)] text-[var(--qf-text-dim)] hover:text-[var(--qf-text)]'
@@ -160,16 +162,30 @@ export default function LivingSystemDiagram({
             </button>
           )}
           {loopOpen && (
-            <button
-              type="button"
-              onClick={() => {
-                setWalking((w) => !w);
-                if (!walking) setLoopPhase(0);
-              }}
-              className="rounded-full border border-[var(--qf-border)] px-4 py-1.5 text-xs font-semibold text-[var(--qf-text-dim)] hover:border-[var(--qf-accent)] hover:text-[var(--qf-accent)]"
-            >
-              {walking ? 'Stop loop' : 'Walk the loop'}
-            </button>
+            <>
+              <button
+                type="button"
+                onClick={() => {
+                  setWalking((w) => !w);
+                  if (!walking) setLoopPhase(0);
+                }}
+                className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] px-4 py-1.5 text-xs font-semibold text-[var(--qf-text-dim)] hover:border-[var(--qf-accent)] hover:text-[var(--qf-accent)]"
+              >
+                {walking ? 'Stop loop' : 'Walk the loop'}
+              </button>
+              {walking && (
+                <select
+                  value={loopSpeed}
+                  onChange={(e) => setLoopSpeed(Number(e.target.value))}
+                  className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] px-2 py-1 text-xs text-[var(--qf-text-dim)]"
+                  aria-label="Loop speed"
+                >
+                  <option value={4000}>Slow</option>
+                  <option value={2000}>Normal</option>
+                  <option value={1000}>Fast</option>
+                </select>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -191,11 +207,11 @@ export default function LivingSystemDiagram({
                 return (
                   <div key={phase.id} className="flex items-center gap-1">
                     <motion.span
-                      className={`rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-wide ${
+                      className={`rounded-[var(--qf-radius)] px-3 py-1 font-mono text-[10px] uppercase tracking-wide ${
                         active
                           ? 'bg-[var(--qf-accent)] text-black'
                           : phase.id === 'hitl'
-                            ? 'border border-emerald-500/40 text-emerald-500'
+                            ? 'border border-[var(--qf-ok)]/40 text-[var(--qf-ok)]'
                             : 'border border-[var(--qf-border)] text-[var(--qf-text-faint)]'
                       }`}
                       animate={active && !prefersReduced ? { scale: [1, 1.05, 1] } : { scale: 1 }}
@@ -233,26 +249,26 @@ export default function LivingSystemDiagram({
               : 'hidden md:grid md:grid-cols-[1fr_auto] md:gap-0'
           }
         >
-          <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[#0a0a0a] p-3">
+          <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg)] p-3">
             <svg
               viewBox={`0 0 ${DIAGRAM_CANVAS.width} ${DIAGRAM_CANVAS.height}`}
-              className="h-auto min-w-[800px] w-full"
+              className="h-auto w-full"
               role="img"
               aria-label="Living Operating System interactive diagram"
             >
               <defs>
                 <marker id="arrow-amber" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-                  <path d="M0,0 L8,3 L0,6 Z" fill="#f59e0b" />
+                  <path d="M0,0 L8,3 L0,6 Z" fill="var(--qf-accent)" />
                 </marker>
                 <marker id="arrow-faint" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
                   <path d="M0,0 L8,3 L0,6 Z" fill="rgba(255,255,255,0.25)" />
                 </marker>
               </defs>
 
-              <text x={600} y={36} textAnchor="middle" fill="#fafafa" fontSize={16} fontWeight={700}>
+              <text x={600} y={36} textAnchor="middle" fill="var(--qf-text)" fontSize={16} fontWeight={700}>
                 {DIAGRAM_HEADER.title}
               </text>
-              <text x={600} y={56} textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize={11}>
+              <text x={600} y={56} textAnchor="middle" fill="var(--qf-text-dim)" fontSize={11}>
                 {DIAGRAM_HEADER.subtitle}
               </text>
 
@@ -271,11 +287,11 @@ export default function LivingSystemDiagram({
                       fill={style.fill}
                       stroke={style.stroke}
                     />
-                    <text x={48} y={band.y + 20} fill="#f59e0b" fontSize={11} fontWeight={700} fontFamily="ui-monospace, monospace">
+                    <text x={48} y={band.y + 20} fill="var(--qf-accent)" fontSize={11} fontWeight={700} fontFamily="ui-monospace, monospace">
                       {band.label.toUpperCase()}
                     </text>
                     {band.subtitle && (
-                      <text x={48} y={band.y + 36} fill="rgba(255,255,255,0.4)" fontSize={9} fontFamily="ui-monospace, monospace">
+                      <text x={48} y={band.y + 36} fill="var(--qf-text-faint)" fontSize={9} fontFamily="ui-monospace, monospace">
                         {band.subtitle}
                       </text>
                     )}
@@ -314,7 +330,7 @@ export default function LivingSystemDiagram({
                         y={midY - 10}
                         textAnchor="middle"
                         fontSize={10}
-                        fill="#f59e0b"
+                        fill="var(--qf-accent)"
                         fontWeight={600}
                         fontFamily="ui-monospace, monospace"
                       >
@@ -341,7 +357,7 @@ export default function LivingSystemDiagram({
                 />
               ))}
 
-              <text x={600} y={DIAGRAM_CANVAS.height - 16} textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize={10}>
+              <text x={600} y={DIAGRAM_CANVAS.height - 16} textAnchor="middle" fill="var(--qf-text-faint)" fontSize={10}>
                 Click any module · {showIntegrations ? 'All integrations visible' : 'Hero path only — toggle for full INT map'}
               </text>
             </svg>
@@ -404,6 +420,8 @@ export default function LivingSystemDiagram({
         <DiagramMobileAccordion view={view} variant={variant} />
       )}
 
+      {view !== 'story' && <DiagramStatusLegend />}
+
       <div className="flex flex-wrap gap-4 text-sm">
         <a href={GRATKA.losArchitectureSvg} download className="font-semibold text-[var(--qf-accent)] hover:underline">
           Download static SVG →
@@ -435,7 +453,7 @@ function DiagramSvgNode({ node, view, selected, dimmed, onHover, onClick }: Diag
   const x = pos.x - NODE_W / 2;
   const y = pos.y - NODE_H / 2;
   const statusColor =
-    node.status === 'LIVE' ? '#10b981' : node.status === 'PARTIAL' ? '#f59e0b' : 'rgba(255,255,255,0.35)';
+    node.status === 'LIVE' ? 'var(--qf-ok)' : node.status === 'PARTIAL' ? 'var(--qf-accent)' : 'var(--qf-text-faint)';
 
   return (
     <g
@@ -453,20 +471,20 @@ function DiagramSvgNode({ node, view, selected, dimmed, onHover, onClick }: Diag
           onClick(node.id);
         }
       }}
-      className="cursor-pointer outline-none"
+      className="cursor-pointer outline-none focus-visible:stroke-[var(--qf-accent)] focus-visible:stroke-[3px]"
     >
       <rect
         x={x}
         y={y}
         width={NODE_W}
         height={NODE_H}
-        rx={10}
+        rx={2}
         fill={selected ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.06)'}
-        stroke={selected ? '#f59e0b' : 'rgba(255,255,255,0.2)'}
+        stroke={selected ? 'var(--qf-accent)' : 'rgba(255,255,255,0.2)'}
         strokeWidth={selected ? 2.5 : 1.5}
       />
       <circle cx={x + 14} cy={y + 14} r={5} fill={statusColor} />
-      <text x={pos.x} y={y + 28} textAnchor="middle" fontSize={12} fontWeight={700} fill="#fafafa">
+      <text x={pos.x} y={y + 28} textAnchor="middle" fontSize={12} fontWeight={700} fill="var(--qf-text)">
         {node.label}
       </text>
       <text x={pos.x} y={y + 44} textAnchor="middle" fontSize={9} fill="rgba(255,255,255,0.55)">
