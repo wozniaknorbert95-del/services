@@ -133,7 +133,7 @@ export default function CaseStudyLayout({
         {showLosFootnote ? (
           <p className="qf-hint mt-4 text-sm">
             This module sits inside the{' '}
-            <Link href="/#los-teaser" className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
+            <Link href={ROUTES.founderSystemDiagram} className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
               Living Operating System
             </Link>
             {' '}→{' '}

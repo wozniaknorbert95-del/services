@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 /**
  * Next.js App Router does not always scroll to hash targets after client hydration.
- * Re-run scroll until the target is in view (footer Architecture LOS, /#los-teaser, etc.).
+ * Re-run scroll until the target is in view (footer Architecture LOS, /founder/#system-diagram, etc.).
  */
 export default function HashScroll() {
   useEffect(() => {

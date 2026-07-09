@@ -182,7 +182,7 @@ export default function ResultsPage() {
                 {c.slug && c.slug !== 'owner-ecosystem' ? (
                   <p className="qf-hint mb-4 text-xs">
                     Part of the{' '}
-                    <Link href="/#los-teaser" className="text-[var(--qf-accent)]">
+                    <Link href={ROUTES.founderSystemDiagram} className="text-[var(--qf-accent)]">
                       Living Operating System
                     </Link>
                   </p>

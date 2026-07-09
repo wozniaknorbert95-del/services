@@ -35,23 +35,21 @@ const NAV_LINKS = [
 
 const HOME_SECTIONS = [
   'hero',
-  'los-teaser',
-  'built-vs-planned',
-  'repo-router',
+  'dual-brand',
+  'featured-strip',
   'pain-grid',
   'spearhead',
-  'owner-ecosystem',
   'system-metrics',
-  'results-teaser',
-  'behind-the-scenes',
+  'built-vs-planned',
+  'repo-router',
   'how-i-work',
-  'why-this-works',
   'trust-safety',
+  'why-this-works',
   'pricing',
   'final-cta',
 ];
 
-const HOME_ANCHORS = ['los-teaser', 'repo-router', 'owner-ecosystem', 'trust-safety', 'how-i-work'];
+const HOME_ANCHORS = ['built-vs-planned', 'repo-router', 'how-i-work', 'trust-safety'];
 
 function pathOf(url) {
   try {

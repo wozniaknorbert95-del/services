@@ -1,8 +1,9 @@
 /**
- * Expert audit slice — interactive LOS diagram (founder + owner-ecosystem).
+ * Expert audit slice — interactive LOS diagram (founder + owner-ecosystem) + static SSoT.
  * Usage: node scripts/audit-los-diagram.mjs [baseUrl]
  */
 import { chromium } from 'playwright';
+import { runStaticLosAudit, staticLosVerdict } from './validate-static-los.mjs';
 
 const BASE = process.argv[2] ?? 'http://localhost:3000';
 
@@ -193,26 +194,72 @@ async function auditHomeNoDiagram(page) {
   }
 }
 
+async function auditHowItWorks(page) {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(`${BASE}/how-it-works/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForTimeout(500);
+
+  const img = page.locator('img[alt*="Living Operating System"]');
+  if ((await img.count()) === 0) {
+    record('high', 'how-it-works', 'Static LOS diagram image missing');
+    return;
+  }
+
+  const src = await img.first().getAttribute('src');
+  if (!src?.includes('los-architecture.svg')) {
+    record('high', 'how-it-works', 'Expected los-architecture.svg on how-it-works', { src });
+  }
+
+  const deadLink = page.getByRole('link', { name: /los-teaser|See full LOS on home/i });
+  if ((await deadLink.count()) > 0) {
+    record('high', 'how-it-works', 'Stale los-teaser link still present');
+  }
+
+  const founderLink = page.getByRole('link', { name: /interactive Technical map/i });
+  if ((await founderLink.count()) === 0) {
+    record('medium', 'how-it-works', 'Missing link to /founder/#system-diagram');
+  } else {
+    const href = await founderLink.first().getAttribute('href');
+    if (!href?.includes('founder') || !href?.includes('system-diagram')) {
+      record('high', 'how-it-works', 'Technical map link href incorrect', { href });
+    }
+  }
+}
+
 async function main() {
+  const staticFindings = runStaticLosAudit();
+  for (const f of staticFindings) {
+    record(f.severity, f.area ?? 'static', f.message, f);
+  }
+
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
 
   await auditFounder(page);
   await auditFounderMobile(browser);
   await auditOwnerEcosystem(page);
+  await auditHowItWorks(page);
   await auditHomeNoDiagram(page);
 
   await browser.close();
 
   const critical = findings.filter((f) => f.severity === 'critical');
   const high = findings.filter((f) => f.severity === 'high');
+  const staticVerdict = staticLosVerdict(staticFindings);
   const verdict =
-    critical.length > 0 ? 'FAIL' : high.length > 0 ? 'CONDITIONAL' : findings.length > 0 ? 'CONDITIONAL_PASS' : 'PASS';
+    staticVerdict === 'FAIL' || critical.length > 0
+      ? 'FAIL'
+      : high.length > 0
+        ? 'CONDITIONAL'
+        : findings.length > 0
+          ? 'CONDITIONAL_PASS'
+          : 'PASS';
 
   console.log(
     JSON.stringify(
       {
         base: BASE,
+        staticVerdict,
         verdict,
         summary: {
           critical: critical.length,

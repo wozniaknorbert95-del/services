@@ -59,6 +59,8 @@ export const ROUTES = {
   resultsWhatsappPilot: '/results/whatsapp-discovery-pilot/',
   about: '/about/',
   founder: '/founder/',
+  /** Interactive Technical map — canonical LOS drill-down anchor */
+  founderSystemDiagram: '/founder/#system-diagram',
   blog: '/blog/',
   bookDiscovery: '/book-discovery/',
   legal: '/legal/',

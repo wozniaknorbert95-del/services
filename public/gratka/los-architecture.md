@@ -1,6 +1,6 @@
 # Living Operating System — FlexGrafik (1 page)
 
-> Forward to a partner, developer or accountant. Same diagram as quietforge.flexgrafik.nl home — **governance-first**, not full autonomy.
+> Forward to a partner, developer or accountant. Same diagram as quietforge Technical map — **governance-first**, not full autonomy.
 
 ---
 
@@ -12,14 +12,14 @@ A living system runs: **Sense → Interpret → Propose → Verify → HITL → 
 
 ## Six layers (+ Guard always on)
 
-| Layer | Role | Repos (examples) |
-|-------|------|------------------|
-| **Sense** | Read-only signals | GA4, WooCommerce, Game, Portal, VCMS scan — zzpackage, app, flexgrafik-nl, flex-vcms |
-| **Think** | Strategy & anomalies | Jadzia Strategist — jadzia-core |
-| **Orchestrate** | Governed pipelines | Planner, Agent OS, VCMS — agent-os, agent-os-ui, flex-vcms |
-| **Act** | Bounded writes (HITL) | Operational nodes, code changes — zzpackage, jadzia-core, agent-os |
+| Layer | Role | Modules (examples) |
+|-------|------|-------------------|
+| **Sense** | Read-only signals | GA4, WooCommerce, Game, Portal, VCMS scan — Wizard, Lead Game, Trust Portal, VCMS |
+| **Think** | Operating intelligence | Jadzia COI — orders, leads, analytics, content (HITL) |
+| **Orchestrate** | Governed pipelines | Planner, Agent OS, VCMS — Agent OS, Mission Ctrl, VCMS |
+| **Act** | Bounded writes (HITL) | Checkout, deploy, publish — Wizard, Jadzia COI, Agent OS |
 | **Guard** | Always on | global-rules, Kaizen, HITL, Zasada 11 — flexgrafik-meta DNA |
-| **Memory** | Feedback loop | jadzia.db, handoffs, meta docs |
+| **Memory** | Feedback loop | jadzia.db, handoffs, meta docs — Constitution (flexgrafik-meta) |
 
 ---
 
@@ -45,7 +45,7 @@ A living system runs: **Sense → Interpret → Propose → Verify → HITL → 
 ---
 
 **SVG diagram:** `/gratka/los-architecture.svg`  
-**Live proof:** https://quietforge.flexgrafik.nl/#los-teaser  
-**Full map:** https://quietforge.flexgrafik.nl/results/owner-ecosystem/#los  
+**Interactive map:** https://quietforge.flexgrafik.nl/founder/#system-diagram  
+**Full proof:** https://quietforge.flexgrafik.nl/results/owner-ecosystem/#los  
 
 Norbert Wozniak · Conversion Systems Architect · Quietforge

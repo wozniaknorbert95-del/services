@@ -106,8 +106,8 @@ export default function OwnerEcosystemPage() {
           <Button href={GRATKA.losArchitecturePdf} target="_blank" rel="noopener noreferrer" variant="secondary">
             LOS map (PDF) ↓
           </Button>
-          <Button href={`${ROUTES.home}#los-teaser`} variant="ghost">
-            See on home →
+          <Button href={ROUTES.founderSystemDiagram} variant="ghost">
+            Interactive Technical map →
           </Button>
         </div>
       </Section>

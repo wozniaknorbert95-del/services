@@ -93,15 +93,15 @@ export default function HowItWorksPage() {
         <div className="overflow-x-auto rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-4">
           <GratkaDiagram
             src={GRATKA.losArchitectureSvg}
-            alt="Living Operating System — six layers and eight repositories"
+            alt="Living Operating System — six layers and eight supervised modules"
             width={1200}
             height={720}
             className="h-auto w-full min-w-[320px]"
           />
         </div>
         <p className="qf-hint mt-4 text-sm">
-          <Link href="/#los-teaser" className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
-            See full LOS on home
+          <Link href={ROUTES.founderSystemDiagram} className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
+            See interactive Technical map
           </Link>
           {' · '}
           <Link
