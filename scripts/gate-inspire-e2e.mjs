@@ -1,5 +1,5 @@
 /**
- * E2E gate — one live Schilder Janssen session on prod (no fallback).
+ * E2E gate — orchestrator chat flow with explicit budget (no 'Hoi' opening).
  * Usage: node scripts/gate-inspire-e2e.mjs
  */
 import { chromium } from 'playwright';
@@ -12,20 +12,6 @@ const LOGO = join(OUT, 'schilder-janssen-logo.png');
 const TIMEOUT = 180_000;
 const GEN_TIMEOUT = 300_000;
 const PAUSE = 2200;
-
-const MESSAGES = [
-  'Hoi! Ik wil voertuigreclame voor mijn schildersbedrijf.',
-  'Bedrijfsnaam: Schilder Janssen. Branche: schilder. Diensten: binnen- en buitenschilderwerk en behangen. Doelgroep: woningeigenaren en VvE\'s in Noord-Brabant.',
-  'Strakke betrouwbare uitstraling — balanced.',
-  'Bestelbus L (bus_l), zakelijk gebruik.',
-  'Telefoon: 06-98765432. Website: www.janssen-schilder.nl.',
-];
-
-const PHASE_NUDGES = [
-  'Logo staat erop. Telefoon 06-98765432 en website www.janssen-schilder.nl.',
-  'Kun je mijn briefing samenvatten voor de mock-ups?',
-  'Is alles compleet voor de twee mock-ups?',
-];
 
 async function waitForConfirmOrGenerate(page, timeoutMs = 90_000) {
   const confirm = page.locator('#da-confirm-yes');
@@ -54,14 +40,28 @@ async function dismissCookies(page) {
   }
 }
 
+async function waitTypingDone(page) {
+  await page.waitForFunction(() => !document.getElementById('da-typing'), { timeout: TIMEOUT }).catch(() => {});
+  await page.waitForTimeout(PAUSE);
+}
+
 async function sendMessage(page, text) {
   const input = page.locator('#da-chat-input');
   await input.waitFor({ state: 'visible', timeout: TIMEOUT });
-  await page.waitForFunction(() => !document.getElementById('da-typing'), { timeout: TIMEOUT }).catch(() => {});
+  await waitTypingDone(page);
   await input.fill(text);
   await page.locator('#da-send-btn').click();
-  await page.waitForSelector('#da-typing', { state: 'detached', timeout: TIMEOUT }).catch(() => {});
-  await page.waitForTimeout(PAUSE);
+  await waitTypingDone(page);
+}
+
+async function clickChip(page, pattern) {
+  const chip = page.locator('.da-quick-reply').filter({ hasText: pattern });
+  if (await chip.first().isVisible({ timeout: 5000 }).catch(() => false)) {
+    await chip.first().click();
+    await waitTypingDone(page);
+    return true;
+  }
+  return false;
 }
 
 async function main() {
@@ -91,12 +91,32 @@ async function main() {
   }
 
   await page.waitForSelector('#da-chat-input', { timeout: TIMEOUT });
-  for (const msg of MESSAGES) await sendMessage(page, msg);
+  await page.waitForSelector('.da-msg--bot', { timeout: TIMEOUT });
+  const openingText = await page.locator('.da-msg--bot').first().textContent().catch(() => '');
+  if (/helpen/i.test(openingText || '')) {
+    gate.pass = false;
+    gate.errors.push('opening contains helpen');
+  } else gate.dom_checks.push('opening_no_helpen');
+  if (!/Standard/i.test(openingText || '') || !/Premium/i.test(openingText || '')) {
+    gate.pass = false;
+    gate.errors.push('opening missing Standard/Premium');
+  } else gate.dom_checks.push('opening_standard_premium');
+
+  // Stap flow — orchestrator-first (no 'Hoi!')
+  await sendMessage(page, 'Schilder Janssen');
+  await clickChip(page, /Bouw|schilder/i);
+  await sendMessage(page, 'Noord-Brabant');
+  await clickChip(page, /Bestelbus L|bus_l/i);
+  await clickChip(page, /zakelijk/i);
+  await sendMessage(page, "Woningeigenaren en VvE's in Noord-Brabant");
+  await sendMessage(page, 'Binnen- en buitenschilderwerk en behangen');
+  await clickChip(page, /Strak/i);
+  await clickChip(page, /Bellen|telefoon/i);
+  await sendMessage(page, '06-98765432. Website: www.janssen-schilder.nl');
 
   await page.locator('#da-logo-btn').click();
   await page.locator('#da-logo-input').setInputFiles(LOGO);
-  await page.waitForSelector('#da-typing', { state: 'detached', timeout: TIMEOUT }).catch(() => {});
-  await page.waitForTimeout(PAUSE);
+  await waitTypingDone(page);
 
   const lastBot = await page.locator('.da-msg--bot').last().textContent().catch(() => '');
   if (/failed to fetch|niet bereikbaar|tijdelijk beperkt|te veel verzoeken/i.test(lastBot || '')) {
@@ -104,10 +124,12 @@ async function main() {
     gate.errors.push(`logo/chat error: ${lastBot?.slice(0, 120)}`);
   }
 
-  let flowState = await waitForConfirmOrGenerate(page, 45_000);
-  for (const nudge of PHASE_NUDGES) {
-    if (flowState !== 'none') break;
-    await sendMessage(page, nudge);
+  await clickChip(page, /€300|300.*600/i);
+  await clickChip(page, /Flexibel|flexibel/i);
+
+  let flowState = await waitForConfirmOrGenerate(page, 90_000);
+  if (flowState === 'none') {
+    await sendMessage(page, 'Kun je mijn briefing samenvatten voor de mock-ups?');
     flowState = await waitForConfirmOrGenerate(page, 60_000);
   }
 
@@ -159,7 +181,6 @@ async function main() {
     gate.errors.push(`mockups: ${mockupCount}`);
   }
 
-  /** Stub = tiny file or 640x360 solid block (Node fetch — avoids page CORS flake). */
   async function isStubImageUrl(url) {
     if (!url || url.startsWith('data:,')) return true;
     try {
@@ -266,6 +287,8 @@ async function main() {
             engine_mode: 'inspirationOnly',
             generator_provider: 'openrouter',
             mockup_count: mockupCount,
+            chat_engine: 'orchestrator',
+            budget_explicit: true,
           },
           response: {
             engine_mode: 'inspirationOnly',
