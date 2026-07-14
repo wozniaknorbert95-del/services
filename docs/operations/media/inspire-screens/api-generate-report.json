@@ -1,14 +1,14 @@
 {
   "pass": true,
-  "errors": [],
-  "warnings": [],
-  "at": "2026-07-14T04:29:00.446Z",
-  "mode": "chat-only",
+  "at": "2026-07-14T10:36:10.302Z",
+  "mode": "e2e-proxy",
   "checks": {
     "proxy_mode": true,
-    "reused_generate_report": true,
     "engine_mode": "inspirationOnly",
-    "generator_provider": "openrouter"
+    "generator_provider": "openrouter",
+    "mockup_count": 2,
+    "chat_engine": "orchestrator",
+    "budget_explicit": true
   },
   "response": {
     "engine_mode": "inspirationOnly",
