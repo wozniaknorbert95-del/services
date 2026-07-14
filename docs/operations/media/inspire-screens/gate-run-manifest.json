@@ -1,0 +1,30 @@
+﻿{
+    "at":  "2026-07-14T04:27:47.3294555Z",
+    "git_sha":  "ce7c810",
+    "pass":  true,
+    "human_path_gate":  "DEVTOOLS_PASS",
+    "conditional_go_reason":  "Awaiting Dowodca manual HITL PASS on human path",
+    "e2e_gate":  "SCRIPTED_ONLY",
+    "layers":  {
+                   "L6":  {
+                              "pass":  true,
+                              "note":  "PNG + parity"
+                          },
+                   "L4":  {
+                              "pass":  true,
+                              "note":  "API chat-only via E2E report"
+                          },
+                   "HUMAN":  {
+                                 "pass":  true,
+                                 "note":  "DevTools HITL evidence generate_post_count=1"
+                             },
+                   "L5":  {
+                              "pass":  true,
+                              "note":  "E2E proxy path"
+                          },
+                   "L7":  {
+                              "pass":  true,
+                              "note":  "go-visual-comparison.png"
+                          }
+               }
+}

@@ -1,0 +1,175 @@
+{
+  "at": "2026-07-14T04:29:01.126484+00:00",
+  "pass": true,
+  "errors": [],
+  "provider_source": "api-report",
+  "provider": "openrouter",
+  "prod": {
+    "standard": {
+      "file": "C:\\Users\\FlexGrafik\\FlexGrafik\\github\\services\\docs\\operations\\media\\inspire-screens\\prod-mockup-standard.png",
+      "pass": true,
+      "checks": {
+        "not_stub": {
+          "pass": true,
+          "bytes": 85166
+        },
+        "min_bytes": {
+          "pass": true,
+          "bytes": 85166
+        },
+        "min_dimensions": {
+          "pass": true,
+          "width": 1024,
+          "height": 1024
+        },
+        "color_variance": {
+          "pass": true,
+          "stddev_rgb": 53.97
+        },
+        "provider_tag": {
+          "pass": true,
+          "provider": "openrouter"
+        }
+      },
+      "bytes": 85166,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    "premium": {
+      "file": "C:\\Users\\FlexGrafik\\FlexGrafik\\github\\services\\docs\\operations\\media\\inspire-screens\\prod-mockup-premium.png",
+      "pass": true,
+      "checks": {
+        "not_stub": {
+          "pass": true,
+          "bytes": 467619
+        },
+        "min_bytes": {
+          "pass": true,
+          "bytes": 467619
+        },
+        "min_dimensions": {
+          "pass": true,
+          "width": 1024,
+          "height": 1024
+        },
+        "color_variance": {
+          "pass": true,
+          "stddev_rgb": 55.18
+        },
+        "provider_tag": {
+          "pass": true,
+          "provider": "openrouter"
+        }
+      },
+      "bytes": 467619,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  },
+  "bench_reference": {
+    "standard": {
+      "file": "C:\\Users\\FlexGrafik\\FlexGrafik\\github\\flexgrafik-inspire\\ops\\benchmarks\\inspiration-v2\\schilder\\bus_l-tier-v2\\standard.png",
+      "pass": true,
+      "checks": {
+        "not_stub": {
+          "pass": true,
+          "bytes": 447431
+        },
+        "min_bytes": {
+          "pass": true,
+          "bytes": 447431
+        },
+        "min_dimensions": {
+          "pass": true,
+          "width": 1024,
+          "height": 1024
+        },
+        "color_variance": {
+          "pass": true,
+          "stddev_rgb": 53.18
+        },
+        "provider_tag": {
+          "pass": true,
+          "provider": "openrouter"
+        }
+      },
+      "bytes": 447431,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    "premium": {
+      "file": "C:\\Users\\FlexGrafik\\FlexGrafik\\github\\flexgrafik-inspire\\ops\\benchmarks\\inspiration-v2\\schilder\\bus_l-tier-v2\\premium.png",
+      "pass": true,
+      "checks": {
+        "not_stub": {
+          "pass": true,
+          "bytes": 467787
+        },
+        "min_bytes": {
+          "pass": true,
+          "bytes": 467787
+        },
+        "min_dimensions": {
+          "pass": true,
+          "width": 1024,
+          "height": 1024
+        },
+        "color_variance": {
+          "pass": true,
+          "stddev_rgb": 54.94
+        },
+        "provider_tag": {
+          "pass": true,
+          "provider": "openrouter"
+        }
+      },
+      "bytes": 467787,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  },
+  "parity": {
+    "standard": {
+      "pass": true,
+      "bytes_ratio": 0.19,
+      "bytes_ratio_pass": true,
+      "dimensions_pass": true,
+      "aspect_ratio_pass": true,
+      "prod_bytes": 85166,
+      "bench_bytes": 447431,
+      "prod_dims": [
+        1024,
+        1024
+      ],
+      "bench_dims": [
+        1024,
+        1024
+      ]
+    },
+    "premium": {
+      "pass": true,
+      "bytes_ratio": 1.0,
+      "bytes_ratio_pass": true,
+      "dimensions_pass": true,
+      "aspect_ratio_pass": true,
+      "prod_bytes": 467619,
+      "bench_bytes": 467787,
+      "prod_dims": [
+        1024,
+        1024
+      ],
+      "bench_dims": [
+        1024,
+        1024
+      ]
+    }
+  }
+}

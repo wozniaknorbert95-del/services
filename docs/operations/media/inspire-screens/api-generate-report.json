@@ -1,0 +1,18 @@
+{
+  "pass": true,
+  "errors": [],
+  "warnings": [],
+  "at": "2026-07-14T04:29:00.446Z",
+  "mode": "chat-only",
+  "checks": {
+    "proxy_mode": true,
+    "reused_generate_report": true,
+    "engine_mode": "inspirationOnly",
+    "generator_provider": "openrouter"
+  },
+  "response": {
+    "engine_mode": "inspirationOnly",
+    "generator_provider": "openrouter",
+    "mockup_count": 2
+  }
+}
