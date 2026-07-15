@@ -1,59 +1,68 @@
-# Handoff — 2026-07-15 — Intake Email Integration
+# Handoff — Intake Email Integration (2026-07-15)
 
-## Goal
-Connect BookDiscoveryForm and WaitlistForm to real SMTP email delivery (quietforge@flexgrafik.nl) via Nodemailer, replacing the previous `setSubmitted(true)` that silently discarded submissions.
+**Repo:** services.flexgrafik.nl · **Build:** `npm run build` ✅ (36 routes, 2 dynamic API)
 
-## Files changed
+## Cel / Goal
+Connect BookDiscoveryForm and WaitlistForm to real SMTP email delivery (`quietforge@flexgrafik.nl`) via Nodemailer, replacing the previous `setSubmitted(true)` that silently discarded submissions.
 
-| File | Change |
-|---|---|
-| `src/lib/email.ts` | **NEW** — SMTP transport singleton, rate-limit (3/10min/IP), honeypot check, `sendIntakeEmail`, `sendWaitlistEmail` |
-| `src/app/api/intake/route.ts` | **NEW** — POST endpoint for BookDiscovery: JSON validation, honeypot guard, rate-limit, SMTP send |
-| `src/app/api/waitlist/route.ts` | **NEW** — POST endpoint for Waitlist: email validation, rate-limit, SMTP send |
-| `src/app/book-discovery/BookDiscoveryForm.tsx` | **EDIT** — state machine (`idle/submitting/success/error`), `fetch('/api/intake')`, honeypot hidden input, error fallback with `mailto:` link |
-| `src/components/WaitlistForm.tsx` | **EDIT** — email state, `fetch('/api/waitlist')`, `idle/submitting/success/error` states, disabled during submit |
-| `src/components/ui/Button.tsx` | **EDIT** — added `disabled` prop to interface + button element |
-| `src/app/globals.css` | **EDIT** — added `--qf-error: var(--text-danger)` functional accent token |
-| `brain.md` | **EDIT** — §2 tech stack (nodemailer), §4 guardrail 14 (form intake), §5 env table (8 SMTP/intake vars), date |
+## Co zrobiono / What changed
+- Dodano `src/lib/email.ts` — SMTP transport singleton (Cyberfolks s34.cyber-folks.pl:465), rate-limit 3/10min/IP, honeypot check, `sendIntakeEmail` + `sendWaitlistEmail`
+- Dodano 2 endpointy API: `/api/intake` (BookDiscovery) + `/api/waitlist` — POST, JSON validation, honeypot guard (422), rate-limit (429), SMTP send (502 on failure)
+- BookDiscoveryForm: maszyna stanów `idle/submitting/success/error`, `fetch('/api/intake')`, ukryte pole honeypot `website`, fallback `mailto:` przy błędzie
+- WaitlistForm: email state, `fetch('/api/waitlist')`, disabled during submit
+- Button: dodano `disabled` prop
+- globals.css: dodano token `--qf-error: var(--text-danger)`
+- brain.md: §2 tech stack (nodemailer), §4 guardrail 14 (form intake), §5 env table (8 vars), date
 
-## Verification
+## Pliki / Files
 
-| Check | Result |
-|---|---|
-| `npm run typecheck` | PASS |
-| `npm run build` | PASS (36 routes, 2 dynamic API: `/api/intake`, `/api/waitlist`) |
-| `npx eslint src/` | 1 pre-existing error in `LivingSystemDiagram.tsx` (not from this change) |
-| Routes visible in build output | `ƒ /api/intake`, `ƒ /api/waitlist` confirmed |
+| File | Action |
+|------|--------|
+| `src/lib/email.ts` | new |
+| `src/app/api/intake/route.ts` | new |
+| `src/app/api/waitlist/route.ts` | new |
+| `src/app/book-discovery/BookDiscoveryForm.tsx` | rewrite |
+| `src/components/WaitlistForm.tsx` | rewrite |
+| `src/components/ui/Button.tsx` | update |
+| `src/app/globals.css` | update |
+| `brain.md` | update |
+| `package.json` | update (+nodemailer, +@types/nodemailer) |
+| `package-lock.json` | update |
+| `docs/operations/handoffs/2026-07-15-intake-email.md` | new |
 
-## Env required (Vercel dashboard + .env.local)
+## Weryfikacja / Verification
+```bash
+npm run typecheck   # pass
+npm run build       # pass (36 routes, 2 dynamic API)
+npx eslint src/     # 1 pre-existing error in LivingSystemDiagram.tsx (not from this change)
+```
 
+## Post-deploy smoke (Dowódca) — WERYFIKOWANE
+| Test | Endpoint | Oczekiwany | Wynik |
+|---|---|---|---|
+| Intake POST | `/api/intake/` | 200 | **200 OK** ✅ |
+| Waitlist POST | `/api/waitlist/` | 200 | **200 OK** ✅ |
+| Honeypot (bot fill) | `/api/intake/` | 422 | **422 BOT_DETECTED** ✅ |
+| Validation (puste pola) | `/api/intake/` | 422 | **422 VALIDATION** ✅ |
+| Rate limit (przekroczony) | `/api/intake/` | 429 | **429 RATE_LIMIT** ✅ |
+| Home page | `/` | 200 | **200 OK** ✅ |
+| Book Discovery page | `/book-discovery/` | 200 | **200 OK** ✅ |
+
+## Env vars (Vercel — Production + Preview) — USTAWIONE ✅
 | Variable | Value |
 |---|---|
-| `SMTP_HOST` | `s34.cyber-folks.pl` |
-| `SMTP_PORT` | `465` |
-| `SMTP_SECURE` | `true` |
-| `SMTP_USER` | `quietforge@flexgrafik.nl` |
-| `SMTP_PASS` | _(mailbox password — set in Vercel dashboard)_ |
-| `INTAKE_FROM` | `quietforge@flexgrafik.nl` |
-| `INTAKE_TO` | `quietforge@flexgrafik.nl` |
-| `INTAKE_DISABLED` | `false` (set `true` to kill submissions) |
+| `SMTP_HOST` | `s34.cyber-folks.pl` ✅ |
+| `SMTP_PORT` | `465` ✅ |
+| `SMTP_SECURE` | `true` ✅ |
+| `SMTP_USER` | `quietforge@flexgrafik.nl` ✅ |
+| `SMTP_PASS` | _(hasło mailboxa — ustawione w Vercel)_ ✅ |
+| `INTAKE_FROM` | `quietforge@flexgrafik.nl` ✅ |
+| `INTAKE_TO` | `quietforge@flexgrafik.nl` ✅ |
+| `INTAKE_DISABLED` | `false` ✅ |
 
-## Post-deploy smoke test
-
-1. Deploy to Vercel (push to master)
-2. Navigate to `/book-discovery`
-3. Fill form with test data, submit
-4. Check mailbox `quietforge@flexgrafik.nl` — should receive email with subject `[Automation Map] {company} — {name}`
-5. Verify email contains all form fields, reply-to set to customer email
-6. Test WaitlistForm similarly — subject `[Waitlist] {email}`
-7. Test honeypot: fill hidden `website` field → should get 422 rejection
-8. Test rate-limit: 4 rapid submissions → 4th should get 429
-
-## Next steps
-
-- [ ] Set SMTP_PASS in Vercel env (Production + Preview)
-- [ ] Set remaining SMTP/intake vars in Vercel env
-- [ ] Run post-deploy smoke test
-- [ ] Monitor first real submissions for formatting/delivery issues
-- [ ] Consider adding email delivery logging/metrics for GA4 tracking
-- [ ] Pre-existing lint error in `LivingSystemDiagram.tsx:196` — separate fix
+## Następny krok / Next steps
+- [ ] Sprawdź mailbox `quietforge@flexgrafik.nl` — powinny przyjść testowe maile z smoke testów
+- [ ] Test end-to-end przez formularz na `/book-discovery/` z rzeczywistymi danymi
+- [ ] Monitoruj pierwsze realne zgłoszenia pod kątem formatowania/dostarczalności
+- [ ] Rozważ dodanie email delivery logging/metrics dla GA4 tracking
+- [ ] Pre-existing lint error w `LivingSystemDiagram.tsx:196` — osobna sesja
