@@ -52,6 +52,7 @@
   --qf-ok:            #6fae6f;
   --qf-info:          #5a9bd4;
   --qf-warn:          #d98f4a;
+  --qf-error:         var(--text-danger);
 
   /* Diagram layer bands */
   --qf-layer-guard-fill: rgba(16, 185, 129, 0.06);

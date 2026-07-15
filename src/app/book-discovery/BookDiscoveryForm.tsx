@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Button from '@/components/ui/Button';
 import { trackEvent } from '@/lib/analytics';
+import { EMAIL } from '@/lib/constants';
 
 const PAIN_OPTIONS = [
   'Drowning in email',
@@ -19,8 +20,11 @@ const BUDGET_OPTIONS = [
   '€3,500+',
 ];
 
+type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 export default function BookDiscoveryForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<SubmitStatus>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -30,6 +34,7 @@ export default function BookDiscoveryForm() {
     budget: 'Not sure yet',
     availability: '',
     other: '',
+    website: '',
   });
 
   const handlePainToggle = (pain: string) => {
@@ -41,13 +46,33 @@ export default function BookDiscoveryForm() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus('submitting');
     trackEvent('intake_submit', { location: 'book_discovery_form' });
-    setSubmitted(true);
+
+    try {
+      const res = await fetch('/api/intake', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, referrer: window.location.href }),
+      });
+
+      if (res.ok) {
+        setStatus('success');
+        return;
+      }
+
+      const data = (await res.json().catch(() => ({}))) as { error?: string };
+      setErrorMessage(data.error ?? 'send_failed');
+      setStatus('error');
+    } catch {
+      setErrorMessage('network_error');
+      setStatus('error');
+    }
   };
 
-  if (submitted) {
+  if (status === 'success') {
     return (
       <div className="rounded-[var(--qf-radius)] border border-[var(--qf-ok)] bg-[var(--qf-bg-raised)] p-8 max-w-2xl">
         <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-ok)] mb-2">
@@ -57,6 +82,36 @@ export default function BookDiscoveryForm() {
           Thank you — if the fit is right, I will send a payment link and available session times
           within 24 hours.
         </p>
+      </div>
+    );
+  }
+
+  if (status === 'error') {
+    return (
+      <div className="rounded-[var(--qf-radius)] border border-[var(--qf-error)] bg-[var(--qf-bg-raised)] p-8 max-w-2xl">
+        <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-error)] mb-2">
+          Something went wrong.
+        </h3>
+        <p className="text-[var(--qf-text-dim)] mb-4">
+          Your request could not be sent right now. Please try again, or email me directly at{' '}
+          <a
+            href={`mailto:${EMAIL}?subject=Automation%20Map%20request`}
+            className="text-[var(--qf-accent)] hover:underline"
+          >
+            {EMAIL}
+          </a>
+          .
+        </p>
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={() => {
+            setStatus('idle');
+            setErrorMessage('');
+          }}
+        >
+          Try again
+        </Button>
       </div>
     );
   }
@@ -195,9 +250,33 @@ export default function BookDiscoveryForm() {
         />
       </div>
 
-      <Button type="submit" size="lg" analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'book_discovery_submit' }}>
-        Request my Automation Map slot
+      {/* Honeypot — must stay empty; bot fill = rejected server-side */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={formData.website}
+        onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
+
+      <Button
+        type="submit"
+        size="lg"
+        disabled={status === 'submitting'}
+        analyticsEvent="cta_book_map_click"
+        analyticsDetail={{ location: 'book_discovery_submit' }}
+      >
+        {status === 'submitting' ? 'Sending…' : 'Request my Automation Map slot'}
       </Button>
+
+      {errorMessage && (
+        <p className="text-xs text-[var(--qf-error)]">
+          Error: {errorMessage}
+        </p>
+      )}
 
       <p className="text-xs text-[var(--qf-text-faint)]">
         If the fit is right, I&apos;ll send a payment link and available times within 24 hours. No spam.

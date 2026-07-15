@@ -15,6 +15,7 @@ interface ButtonProps {
   rel?: string;
   onClick?: () => void;
   type?: 'button' | 'submit';
+  disabled?: boolean;
   analyticsEvent?: AnalyticsEvent;
   analyticsDetail?: Record<string, string>;
 }
@@ -30,6 +31,7 @@ export default function Button({
   rel,
   onClick,
   type = 'button',
+  disabled = false,
   analyticsEvent,
   analyticsDetail,
 }: ButtonProps) {
@@ -84,7 +86,7 @@ export default function Button({
   }
 
   return (
-    <button type={type} className={classes} onClick={handleClick}>
+    <button type={type} className={classes} disabled={disabled} onClick={handleClick}>
       {content}
     </button>
   );

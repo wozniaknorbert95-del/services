@@ -44,6 +44,7 @@
 | Styling | Tailwind CSS v4 (utility-first) |
 | Animation | Framer Motion + `prefers-reduced-motion` |
 | Icons | Lucide React |
+| Email | Nodemailer (SMTP via Cyberfolks: `s34.cyber-folks.pl:465`) |
 | Deploy | Vercel static export (`output: 'export'`) |
 | Build artifact | `dist/` (not `.next/`) |
 
@@ -76,6 +77,7 @@
 11. **WhatsApp AVG:** opt-in, 90-day retention, delete webhook, privacy before agent launch.
 12. **Build fail = PR blocked.** Missing prod env blocks deploy.
 13. **Images:** WebP preferred; screenshots max 1600px; lazy below fold.
+14. **Form intake:** BookDiscovery + Waitlist POST to `/api/intake` and `/api/waitlist` — SMTP via Nodemailer to `quietforge@flexgrafik.nl`. Honeypot + rate-limit (3/10min/IP). Env `INTAKE_DISABLED=true` kills submissions server-side.
 
 ---
 
@@ -97,6 +99,14 @@ npx vercel dist --prod --yes
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Development | `G-LY0E7MW0HF` |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Preview | **Dashboard** — CLI blocked; see [`vercel-ga-preview-env.ps1`](scripts/vercel-ga-preview-env.ps1) |
 | `NEXT_PUBLIC_WHATSAPP_URL` | Production | WhatsApp deep link override |
+| `SMTP_HOST` | Production + Preview | `s34.cyber-folks.pl` |
+| `SMTP_PORT` | Production + Preview | `465` |
+| `SMTP_SECURE` | Production + Preview | `true` |
+| `SMTP_USER` | Production + Preview | `quietforge@flexgrafik.nl` |
+| `SMTP_PASS` | Production + Preview | **Dashboard** — mailbox password (never committed) |
+| `INTAKE_FROM` | Production + Preview | `quietforge@flexgrafik.nl` |
+| `INTAKE_TO` | Production + Preview | `quietforge@flexgrafik.nl` |
+| `INTAKE_DISABLED` | Production + Preview | `false` (set `true` to kill submissions) |
 
 **GA weekly gate:** `npm run ga4:gate` (requires `GOOGLE_APPLICATION_CREDENTIALS` for audit step).
 
@@ -166,4 +176,4 @@ npm run lighthouse:ci   # A11y <95 or Perf <85 blocks merge
 
 ---
 
-*Last updated: 2026-06-25 · Owner: Norbert Wozniak · Next review: quarterly or post-Phase B*
+*Last updated: 2026-07-15 · Owner: Norbert Wozniak · Next review: quarterly or post-Phase B*

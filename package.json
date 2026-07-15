@@ -20,7 +20,8 @@
     "audit:menu-footer": "node scripts/audit-menu-footer.mjs",
     "ga4:smoke": "node scripts/ga4-prod-smoke.mjs",
     "ga4:audit": "python scripts/ga4-api-audit.py",
-    "ga4:gate": "node scripts/ga4-prod-smoke.mjs && python scripts/ga4-api-audit.py --strict --output docs/operations/ga4-audit-2026-06-28-quietforge.json"
+    "ga4:gate": "node scripts/ga4-prod-smoke.mjs && python scripts/ga4-api-audit.py --strict --output docs/operations/ga4-audit-2026-06-28-quietforge.json",
+    "media:inspire-pro": "node scripts/capture-inspire-pro-screens.mjs && node scripts/render-inspire-slides.mjs && node scripts/assemble-linkedin-inspire-pro.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
@@ -30,13 +31,16 @@
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.17.0",
     "next": "^16.2.9",
+    "nodemailer": "^9.0.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
@@ -44,7 +48,6 @@
     "lighthouse": "^13.4.0",
     "md-to-pdf": "^5.2.5",
     "playwright": "^1.61.1",
-    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
