@@ -22,12 +22,12 @@
 
 ## NASTĘPNY KROK (Commander)
 
-1. **Ship email unification** — commit + push `master`, smoke footer/legal/book-discovery on prod
+1. **Ship email unification** — ✅ deployed `a8132e5` · smoke PASS
 2. **Facebook profile paste** — [`../strategy/facebook/profile-copy.md`](../strategy/facebook/profile-copy.md) checklist
-2. **Facebook Post #1** — publish + pin [`../strategy/facebook/content-themes.md`](../strategy/facebook/content-themes.md)
-3. **LinkedIn profile** — paste [`../strategy/linkedin/profile-copy.md`](../strategy/linkedin/profile-copy.md)
-4. **LinkedIn Featured V2** — 4 URLs (~10 min)
-5. **LinkedIn M0-F** — game post (film ready) · FB Post #7 ≥1 week later
+3. **Facebook Post #1** — publish + pin [`../strategy/facebook/content-themes.md`](../strategy/facebook/content-themes.md)
+4. **LinkedIn profile** — paste [`../strategy/linkedin/profile-copy.md`](../strategy/linkedin/profile-copy.md)
+5. **LinkedIn Featured V2** — 4 URLs (~10 min)
+6. **LinkedIn M0-F** — game post (film ready) · FB Post #7 ≥1 week later
 
 ---
 

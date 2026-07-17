@@ -33,13 +33,21 @@ npm run build       # pass (36 routes, 2 dynamic API)
 rg 'hello@flexgrafik' # 0 matches repo-wide
 ```
 
-## Post-deploy smoke (Dowódca)
-1. Footer + `/legal/` — contact shows `quietforge@flexgrafik.nl`
-2. `/book-discovery/` — submit test form → mailbox `quietforge@flexgrafik.nl` receives email
-3. Waitlist form (if visible) — same delivery check
-4. JSON-LD in page source — `email` field = `quietforge@flexgrafik.nl`
+## Post-deploy smoke (Dowódca) — WERYFIKOWANE 2026-07-17
+| Test | Target | Oczekiwany | Wynik |
+|---|---|---|---|
+| Home email grep | `/` | hello=0, quietforge>0 | **hello=0 quietforge=8** ✅ |
+| Legal email grep | `/legal/` | hello=0, quietforge>0 | **hello=0 quietforge=16** ✅ |
+| Book Discovery grep | `/book-discovery/` | hello=0, quietforge>0 | **hello=0 quietforge=12** ✅ |
+| JSON-LD email | `/` view-source | quietforge@flexgrafik.nl | **quietforge@flexgrafik.nl** ✅ |
+| Intake POST | `/api/intake/` | 200 ok:true | **200 {"ok":true}** ✅ |
+| Waitlist POST | `/api/waitlist/` | 200 ok:true | **200 {"ok":true}** ✅ |
+| 404 audit | `node scripts/audit-404s.mjs` | failed:[] per route | **PASS** (pre-existing PDF RSC link on book-discovery — unrelated) |
+
+**Deploy:** `a8132e5` pushed to `master` → Vercel CD → production live ~45s after push.
 
 ## Następny krok / Next steps
-- [ ] Commit + push to `master` (Vercel auto-deploy)
-- [ ] Live smoke on production after deploy
+- [x] Commit + push to `master` (Vercel auto-deploy)
+- [x] Live smoke on production after deploy
+- [ ] Sprawdź mailbox `quietforge@flexgrafik.nl` — 2 testowe maile ze smoke (intake + waitlist)
 - [ ] Optional: regenerate PDF artefacts if downloaded copies still show old email
