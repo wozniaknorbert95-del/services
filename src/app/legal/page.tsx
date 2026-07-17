@@ -96,10 +96,10 @@ export default function LegalPage() {
             <p className="mt-4 text-[var(--qf-text-dim)]">
               For any legal or privacy questions, contact us at{' '}
               <a
-                href="mailto:hello@flexgrafik.nl"
+                href={`mailto:${EMAIL}`}
                 className="text-[var(--qf-accent)] hover:underline"
               >
-                hello@flexgrafik.nl
+                {EMAIL}
               </a>
               .
             </p>

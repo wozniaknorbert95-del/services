@@ -8,6 +8,7 @@
  * Optional kill-switch: INTAKE_DISABLED='true' disables submission server-side.
  */
 import nodemailer from 'nodemailer';
+import { EMAIL } from '@/lib/constants';
 
 export type SendResult = { ok: true } | { ok: false; error: string };
 
@@ -46,10 +47,16 @@ export function hasSmtpConfig(): boolean {
   return Boolean(
     process.env.SMTP_HOST &&
       process.env.SMTP_USER &&
-      process.env.SMTP_PASS &&
-      process.env.INTAKE_FROM &&
-      process.env.INTAKE_TO
+      process.env.SMTP_PASS
   );
+}
+
+function intakeFrom(): string {
+  return process.env.INTAKE_FROM ?? EMAIL;
+}
+
+function intakeTo(): string {
+  return process.env.INTAKE_TO ?? EMAIL;
 }
 
 /**
@@ -151,8 +158,8 @@ export async function sendIntakeEmail(payload: IntakePayload): Promise<SendResul
 
   try {
     await transport.sendMail({
-      from: process.env.INTAKE_FROM,
-      to: process.env.INTAKE_TO,
+      from: intakeFrom(),
+      to: intakeTo(),
       replyTo: payload.email,
       subject: `[Automation Map] ${payload.company} — ${payload.name}`,
       text: composeIntakeText(payload),
@@ -173,8 +180,8 @@ export async function sendWaitlistEmail(payload: WaitlistPayload): Promise<SendR
 
   try {
     await transport.sendMail({
-      from: process.env.INTAKE_FROM,
-      to: process.env.INTAKE_TO,
+      from: intakeFrom(),
+      to: intakeTo(),
       replyTo: payload.email,
       subject: `[Waitlist] ${payload.email}`,
       text: `New waitlist sign-up\n\nEmail:     ${payload.email}\nSubmitted: ${new Date().toISOString()}\nReferrer: ${payload.referrer || '—'}\n`,

@@ -57,4 +57,4 @@ Not sure if your inbox is worth automating first? Book a paid **Automation Map**
 **Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
-*Norbert — AI Systems Architect · Quietforge · hello@flexgrafik.nl*
+*Norbert — AI Systems Architect · Quietforge · quietforge@flexgrafik.nl*

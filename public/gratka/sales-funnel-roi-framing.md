@@ -87,4 +87,4 @@ Book a paid **Automation Map** (60–90 min). We map your quoting leaks, score R
 **Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
-*Norbert — AI Systems Architect · Quietforge · hello@flexgrafik.nl*
+*Norbert — AI Systems Architect · Quietforge · quietforge@flexgrafik.nl*

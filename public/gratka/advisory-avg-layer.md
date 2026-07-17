@@ -75,4 +75,4 @@ Want the same rigour applied to your firm? Book a paid **Automation Map** — we
 **Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
-*Norbert — AI Systems Architect · Quietforge · hello@flexgrafik.nl*
+*Norbert — AI Systems Architect · Quietforge · quietforge@flexgrafik.nl*

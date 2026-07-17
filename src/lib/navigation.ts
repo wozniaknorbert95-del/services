@@ -5,7 +5,7 @@
 // Routes: src/lib/constants.ts (ROUTES)
 // ============================================================================
 
-import { ARTEFACTS, ROUTES } from '@/lib/constants';
+import { ARTEFACTS, EMAIL, ROUTES } from '@/lib/constants';
 import { PRICING_MATRIX } from '@/content/pricing';
 import { CTAS } from '@/content/conversion-copy';
 
@@ -91,7 +91,7 @@ export const FOOTER_ARTEFACTS: readonly NavLink[] = [
 export const FOOTER_LEGAL: readonly NavLink[] = [
   { label: 'Privacy', href: ROUTES.legal },
   { label: 'Terms', href: ROUTES.legal },
-  { label: 'Contact', href: `mailto:hello@flexgrafik.nl` },
+  { label: 'Contact', href: `mailto:${EMAIL}` },
 ] as const;
 
 export const HEADER_CTA = {

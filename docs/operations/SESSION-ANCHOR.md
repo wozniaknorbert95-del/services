@@ -1,6 +1,6 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-07-01 · **Status:** ACTIVE · **Gate:** M0.2 CLOSED ✅ · **Outbound canon:** LinkedIn v3.1 + Facebook v2.0 ✅
+**Updated:** 2026-07-17 · **Status:** ACTIVE · **Gate:** M0.2 CLOSED ✅ · **Outbound canon:** LinkedIn v3.1 + Facebook v2.0 ✅
 
 ---
 
@@ -16,13 +16,14 @@
 | GTM drift | ✅ gtm/01, 02, 06 synced |
 | `LINKEDIN_URL` in code | ✅ flexgrafik-quietforge |
 
-**Handoff:** [`handoffs/2026-07-01-facebook-zzp-rebrand.md`](./handoffs/2026-07-01-facebook-zzp-rebrand.md)
+**Handoff:** [`handoffs/2026-07-17-quietforge-email-unification.md`](./handoffs/2026-07-17-quietforge-email-unification.md)
 
 ---
 
 ## NASTĘPNY KROK (Commander)
 
-1. **Facebook profile paste** — [`../strategy/facebook/profile-copy.md`](../strategy/facebook/profile-copy.md) checklist
+1. **Ship email unification** — commit + push `master`, smoke footer/legal/book-discovery on prod
+2. **Facebook profile paste** — [`../strategy/facebook/profile-copy.md`](../strategy/facebook/profile-copy.md) checklist
 2. **Facebook Post #1** — publish + pin [`../strategy/facebook/content-themes.md`](../strategy/facebook/content-themes.md)
 3. **LinkedIn profile** — paste [`../strategy/linkedin/profile-copy.md`](../strategy/linkedin/profile-copy.md)
 4. **LinkedIn Featured V2** — 4 URLs (~10 min)

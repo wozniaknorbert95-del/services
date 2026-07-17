@@ -14,7 +14,8 @@ export const BRAND_LOGO = {
   width: 1024,
   height: 1024,
 } as const;
-export const EMAIL = 'hello@flexgrafik.nl';
+/** Public contact + intake destination mailbox */
+export const EMAIL = 'quietforge@flexgrafik.nl';
 export const CREATOR = 'Norbert Wozniak';
 
 /** WhatsApp discovery — override via NEXT_PUBLIC_WHATSAPP_URL in Vercel if needed */

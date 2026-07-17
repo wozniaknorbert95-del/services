@@ -26,4 +26,4 @@
 - You receive a **README** and can hand the system to any developer. This is never a trap.
 
 ---
-*Norbert — AI Systems Architect · Quietforge · hello@flexgrafik.nl*
+*Norbert — AI Systems Architect · Quietforge · quietforge@flexgrafik.nl*
