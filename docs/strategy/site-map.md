@@ -75,10 +75,10 @@ These must never be swapped on `/solutions/`, cards, pricing or metadata.
 
 | # | Section | Component(s) | Funnel job | Primary content rule |
 |---|---|---|---|---|
-| 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / outcome / proof strip / L3 CTA — no terminal, no 8-repo |
+| 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / dual-brand 1-liner / **Book Map CTA above fold (incl. mobile)** / de-jargon proof strip — beats desktop-only; no terminal, no 8-repo |
 | 2 | Dual-brand | `DualBrandBand` | QF sell vs FG proof | Quietforge deploys B2B · FlexGrafik live proof — no print pitch |
 | 3 | Featured paths | `FeaturedStrip` | Mirror LinkedIn Featured | Map €290 · /results/ · /how-it-works/ — 3 equal cards |
-| 4 | Pain router | `PainGrid` | Recognition | "Choose your leak" quote-first: quotes → website → traffic → inbox (Wizard spearhead first) |
+| 4 | Pain router | `PainGrid` | Recognition | Quote-first cards (Next Link); lead card “Quote first”; quotes → website → traffic → inbox |
 | 5 | Live proof — Wizard | `SpearheadSpotlight` + `SystemMetrics` compact | Live system proof #1 | Wizard Cash Engine LIVE — 4–5 bullets + 1 screenshot, **no terminal mock**, no Mollie/SKU details; 4 verified numbers |
 | 6 | Honesty gate | `BuiltVsPlanned` compact | Trust | **4 rows: Wizard, Jadzia COI, Agent OS, Governance** — de-jargonised capabilities, no LangGraph/Paramiko/Langfuse; link to `/results/owner-ecosystem/` |
 | 7 | Pick your module | `IntentRouter` | Self-segmentation | **6 business-relevant cards** (hide `flex-vcms` + `flexgrafik-meta`); outcome-first labels, 1–2 sentence descriptions, StatusBadge LIVE/PARTIAL, no repo keys/diagrams; filter dims only |
@@ -90,8 +90,8 @@ These must never be swapped on `/solutions/`, cards, pricing or metadata.
 ### Home chrome
 
 - `SectionProgress`: allowed if non-distracting.
-- `StickyCta`: mobile only, appears after honesty gate (section 6).
-- Sticky mobile primary: **Ask on WhatsApp**; secondary: **Book Automation Map**.
+- `StickyCta`: mobile only, appears after hero leaves viewport (sales lift 2026-07-19).
+- Sticky mobile: **Book Automation Map** (filled) + **Ask on WhatsApp** (outline).
 - Desktop primary CTA remains **Book Automation Map**.
 
 ---
@@ -102,9 +102,10 @@ Every home hero must include exactly these elements in order:
 
 1. Eyebrow: `// Conversion Systems Architect for NL small business`
 2. H1: outcome-first, no “AI-powered” headline.
-3. Lead: max 2 sentences.
-4. Proof strip: 3–4 short verified claims.
-5. CTA row: one primary, one secondary, optional WhatsApp text link.
+3. Lead: max 2 sentences + dual-brand 1-liner (`Quietforge deploys · FlexGrafik is the live proof.`).
+4. **CTA band first (esp. mobile):** primary Book Map with price meta, secondary See live systems, WhatsApp text link — must be in first viewport on mobile.
+5. Proof strip: plain-language claims (no HITL/VCMS jargon).
+6. Problem/System/Effect beats: optional below CTA; hidden on small screens to protect fold.
 
 ### Recommended hero copy
 

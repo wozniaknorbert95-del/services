@@ -12,14 +12,15 @@ export default function StickyCta() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const target = document.querySelector('[data-home-section="built-vs-planned"]');
+    const target = document.querySelector('[data-home-section="hero"]');
     if (!target) {
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setVisible(entry.isIntersecting || entry.boundingClientRect.top < 0);
+        // Show after hero leaves the viewport (sales lift — earlier sticky access)
+        setVisible(!entry.isIntersecting && entry.boundingClientRect.top < 0);
       },
       { rootMargin: OBSERVER_ROOT_MARGIN, threshold: 0 }
     );
@@ -44,14 +45,14 @@ export default function StickyCta() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackEvent('cta_whatsapp_click', { location: 'sticky_mobile' })}
-          className="flex flex-1 items-center justify-center border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-4 py-3 text-sm font-semibold text-[var(--qf-bg)]"
+          className="flex flex-1 items-center justify-center border border-[var(--qf-border)] px-4 py-3 text-sm font-semibold text-[var(--qf-text)]"
         >
           {WHATSAPP.label}
         </a>
         <Link
           href={HEADER_CTA.href}
           onClick={() => trackEvent('cta_book_map_click', { location: 'sticky_mobile' })}
-          className="flex items-center justify-center border border-[var(--qf-border)] px-4 py-3 text-sm font-semibold text-[var(--qf-text)]"
+          className="flex flex-[1.4] items-center justify-center border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-4 py-3 text-sm font-semibold text-[var(--qf-bg)]"
         >
           {HEADER_CTA.label}
         </Link>

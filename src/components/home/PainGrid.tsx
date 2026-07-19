@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Mail, Monitor, Quote, Users } from 'lucide-react';
 import { useMotion } from '@/lib/useMotion';
@@ -37,23 +38,23 @@ export default function PainGrid() {
     : `Showing all ${PAIN_GRID.length} pain points — filter by what matters most`;
 
   return (
-    <section data-home-section="pain-grid" className="py-[var(--qf-sp-16)]">
-      <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
+    <section data-home-section="pain-grid" className="qf-pain-section">
+      <div className="qf-pain-inner">
         <motion.div
           initial={fade.initial}
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
-          className="mb-[var(--qf-sp-8)]"
+          className="qf-pain-header"
         >
           <Eyebrow>{PAIN_GRID_HEADER.eyebrow}</Eyebrow>
-          <h2 className="mb-[var(--qf-sp-2)]">{PAIN_GRID_HEADER.title}</h2>
+          <h2 className="qf-pain-title">{PAIN_GRID_HEADER.title}</h2>
           <p className="qf-lead max-w-2xl">{PAIN_GRID_HEADER.lead}</p>
         </motion.div>
 
-        <div className="mb-[var(--qf-sp-6)] space-y-[var(--qf-sp-3)]">
+        <div className="qf-pain-filters">
           <IntentFilterChips />
-          <p className="text-center font-mono text-xs text-[var(--qf-text-dim)]">{filterLabel}</p>
+          <p className="qf-pain-filter-label">{filterLabel}</p>
           {isFiltering ? (
             <p className="text-center">
               <button
@@ -72,42 +73,40 @@ export default function PainGrid() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-[var(--qf-sp-4)] sm:grid-cols-2 lg:grid-cols-4"
+          className="qf-pain-grid"
         >
           {pains.map((pain) => {
             const Icon = PAIN_ICONS[pain.id as keyof typeof PAIN_ICONS] ?? Mail;
             const primaryIntent = pain.intents[0];
             const accent = getIntentMeta(primaryIntent);
             const matches = matchesHomeIntent(pain.intents, activeIntent);
+            const isLead = pain.id === 'pain-quotes' && !isFiltering;
 
             return (
-              <motion.a
-                key={pain.id}
-                href={pain.href}
-                variants={motionCfg.childFade}
-                className={`group block rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-6 transition-opacity duration-[var(--qf-transition)] hover:border-[var(--qf-border-bright)] ${intentHighlightClass(matches, isFiltering)}`}
-                style={{ borderLeftWidth: '3px', borderLeftColor: accent.cssVar }}
-              >
-                <Icon
-                  className="mb-4 h-6 w-6"
-                  style={{ color: accent.cssVar }}
-                  strokeWidth={1.5}
-                />
-                <div className="mb-3">
-                  <IntentBadges intents={[...pain.intents]} />
-                </div>
-                <h3 className="mb-2 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
-                  {pain.title}
-                </h3>
-                <p className="qf-pain-cost mb-2">{pain.costLine}</p>
-                <p className="mb-4 text-sm text-[var(--qf-text-dim)]">{pain.description}</p>
-                <span
-                  className="inline-flex items-center text-sm transition-colors"
-                  style={{ color: accent.cssVar }}
+              <motion.div key={pain.id} variants={motionCfg.childFade}>
+                <Link
+                  href={pain.href}
+                  className={`qf-pain-card ${isLead ? 'qf-pain-card--lead' : ''} ${intentHighlightClass(matches, isFiltering)}`}
+                  style={{ borderLeftColor: accent.cssVar }}
                 >
-                  See the fix →
-                </span>
-              </motion.a>
+                  {isLead ? <span className="qf-pain-card-badge">Quote first</span> : null}
+                  <Icon
+                    className="qf-pain-card-icon"
+                    style={{ color: accent.cssVar }}
+                    strokeWidth={1.5}
+                    aria-hidden
+                  />
+                  <div className="qf-pain-card-badges">
+                    <IntentBadges intents={[...pain.intents]} />
+                  </div>
+                  <h3 className="qf-pain-card-title">{pain.title}</h3>
+                  <p className="qf-pain-cost">{pain.costLine}</p>
+                  <p className="qf-pain-card-body">{pain.description}</p>
+                  <span className="qf-pain-card-cta" style={{ color: accent.cssVar }}>
+                    See the fix →
+                  </span>
+                </Link>
+              </motion.div>
             );
           })}
         </motion.div>

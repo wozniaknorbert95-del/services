@@ -283,7 +283,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     outcomeLabel: 'Know which leads, orders and ops need action',
     role: 'Operations Command Layer',
     statusNote: 'LIVE (~93% spine): Commander cockpit · orders INT-002 · leads · GA4 · weekly HITL brief · supervised content publish',
-    homeStatusNote: 'Commander cockpit, operational spine and weekly brief LIVE — not full autonomy.',
+    homeStatusNote: 'Owner cockpit for leads, orders and weekly brief — not full autonomy.',
     intents: ['time', 'calm', 'order', 'efficiency'],
     losLayers: ['think', 'act'],
     screenKey: 'workflowMap',
@@ -296,6 +296,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'agent-os',
     outcomeLabel: 'Build and test changes through a fixed agent workflow',
     role: 'Agent OS',
+    homeStatusNote: 'Supervised build steps — you approve before anything ships.',
     intents: ['time', 'efficiency'],
     losLayers: ['orchestrate', 'act'],
     screenKey: 'agentCards',
@@ -320,7 +321,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     outcomeLabel: 'Give visitors a trustworthy conversion portal',
     role: 'Trust Portal',
     statusNote: 'LIVE: generic supervised sales chat · PARTIAL: qualification API LIVE, portal UX remains generic (INT-012)',
-    homeStatusNote: 'Generic supervised chat LIVE — qualification-ready architecture is PARTIAL.',
+    homeStatusNote: 'Supervised chat LIVE — full qualification portal still in progress.',
     intents: ['money', 'order'],
     losLayers: ['sense'],
     screenKey: 'portalAssistant',
@@ -342,6 +343,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'agent-os-ui',
     outcomeLabel: 'See tasks, approvals, history and cost',
     role: 'Mission Control',
+    homeStatusNote: 'Task queue, approvals and cost in one owner view.',
     intents: ['order', 'efficiency'],
     losLayers: ['orchestrate'],
     screenKey: 'adminDashboard',
@@ -384,7 +386,7 @@ export interface PainCard {
 export const PAIN_GRID_HEADER = {
   eyebrow: 'Choose your leak',
   title: 'Where is the business leaking time or money?',
-  lead: 'Start with the operational pain. The architecture comes after we know which leak is worth fixing.',
+  lead: 'Tap the pain that costs you most. We start there — quotes first when the leak is ping-pong.',
 } as const;
 
 export const PAIN_GRID: readonly PainCard[] = [

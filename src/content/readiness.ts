@@ -21,7 +21,7 @@ export const READINESS_HEADER = {
   eyebrow: 'honesty_gate',
   title: 'What is live today vs what is on the roadmap.',
   lead:
-    'No inflated metrics — evidence from production code and governance scans (Conflicts: 0). Percentages reflect AS-IS inventory, not revenue claims.',
+    'No inflated metrics — evidence from systems that already run a real business. Percentages reflect inventory, not revenue claims.',
 } as const;
 
 /**
@@ -54,7 +54,7 @@ export const READINESS_ROWS: readonly ReadinessRow[] = [
     readiness: '~93%',
     capability:
       'Commander cockpit, lead/order/GA4 spine, weekly HITL brief and supervised content publish LIVE · full autonomous COI out of scope',
-    homeCapability: 'Commander cockpit, operational spine and weekly brief LIVE — full autonomy is not offered.',
+    homeCapability: 'Owner cockpit for leads, orders and weekly brief — autonomy is not offered.',
     status: 'LIVE',
   },
   {
@@ -62,7 +62,7 @@ export const READINESS_ROWS: readonly ReadinessRow[] = [
     repoKey: 'agent-os',
     readiness: '~90%',
     capability: '5-node LangGraph HITL pipeline, hybrid VPS',
-    homeCapability: '5-step supervised workflow with human approval before deploy — EU VPS.',
+    homeCapability: 'Supervised build workflow — you approve before anything goes live.',
     status: 'LIVE',
   },
   {
@@ -84,7 +84,7 @@ export const READINESS_ROWS: readonly ReadinessRow[] = [
     repoKey: 'flex-vcms',
     readiness: '~85%',
     capability: '8-repo scan, KODA assistant, conflict detection, audit trail',
-    homeCapability: 'Catches content and repo drift before deploy — Conflicts: 0 target.',
+    homeCapability: 'Catches content drift before deploy — clean handoffs, clear audit trail.',
     status: 'LIVE',
   },
   {
@@ -92,6 +92,7 @@ export const READINESS_ROWS: readonly ReadinessRow[] = [
     repoKey: 'agent-os-ui',
     readiness: '~85%',
     capability: 'Task queue, HITL dashboard, cost tracking',
+    homeCapability: 'See tasks, approvals, history and cost in one place.',
     status: 'LIVE',
   },
 ] as const;

@@ -120,7 +120,7 @@ export default function IntentRouter() {
                     </p>
                   ) : (
                     <p className="mb-4 flex-grow text-sm text-[var(--qf-text-dim)]">
-                      Running on FlexGrafik operations — see live proof.
+                      Live on FlexGrafik — open the proof page for details.
                     </p>
                   )}
 

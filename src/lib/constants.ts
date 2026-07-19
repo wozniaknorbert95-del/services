@@ -23,7 +23,12 @@ export const WHATSAPP = {
   url:
     process.env.NEXT_PUBLIC_WHATSAPP_URL ??
     'https://wa.me/31687286151?text=Hi%20Norbert%2C%20I%27d%20like%20to%20explore%20conversion%20systems%20for%20my%20business.',
+  /** Fast path: ready buyer asking for Map payment link */
+  bookMapUrl:
+    process.env.NEXT_PUBLIC_WHATSAPP_BOOK_MAP_URL ??
+    'https://wa.me/31687286151?text=Hi%20Norbert%2C%20I%20want%20to%20book%20the%20Automation%20Map%20(%E2%82%AC290)%20%E2%80%94%20please%20send%20the%20payment%20link%20and%20available%20slots.',
   label: 'Ask on WhatsApp',
+  bookMapLabel: 'WhatsApp — send me the €290 link',
   offlineFallback: `mailto:${EMAIL}?subject=WhatsApp%20unavailable`,
 } as const;
 

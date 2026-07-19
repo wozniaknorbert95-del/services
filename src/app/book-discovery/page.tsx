@@ -3,7 +3,7 @@ import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Link from 'next/link';
 import AnalyticsPageView from '@/components/analytics/AnalyticsPageView';
-import { PRICING, EMAIL, SITE_URL, ROUTES, ARTEFACTS } from '@/lib/constants';
+import { PRICING, EMAIL, SITE_URL, ROUTES, ARTEFACTS, WHATSAPP } from '@/lib/constants';
 import BookDiscoveryForm from './BookDiscoveryForm';
 
 /* ── metadata ── */
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Book Automation Map — €${PRICING.discovery} Credited`,
     description:
-      'Request your Automation Map slot: 60–90 minutes to find your biggest leaks. Payment link follows after fit check.',
+      'Request your Automation Map slot: 60–90 minutes to find your biggest leaks. Payment link follows after fit check — or ask on WhatsApp.',
     url: `${SITE_URL}/book-discovery`,
     images: [
       {
@@ -39,18 +39,46 @@ export default function BookDiscoveryPage() {
     <>
       <AnalyticsPageView event="book_discovery_view" />
       <Section padding="large">
-        <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
+        <p className="mb-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+          // paid first step
+        </p>
+        <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-4 max-w-3xl">
           Request your Automation Map slot — €{PRICING.discovery}, credited.
         </h1>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-4">
           In 60–90 minutes we find your two or three biggest time-and-money leaks, calculate the
           likely ROI, and decide the right first system to build. You keep the written Map either way.
         </p>
-        <p className="text-[var(--qf-text-dim)] text-sm max-w-[var(--qf-maxw-narrow)] mb-4 border-l-2 border-[var(--qf-accent)] pl-4">
+        <p className="text-[var(--qf-text-dim)] text-sm max-w-[var(--qf-maxw-narrow)] mb-2 border-l-2 border-[var(--qf-accent)] pl-4">
           The €{PRICING.discovery} fee is credited toward your first project. If there is nothing worth
           automating, you stop there and keep the document.
         </p>
-        <p className="text-sm text-[var(--qf-text-faint)] max-w-[var(--qf-maxw-narrow)] mb-8">
+
+        <div className="qf-book-hero-cta max-w-xl">
+          <p className="qf-book-hero-cta-title">Ready to book?</p>
+          <p className="qf-book-hero-cta-lead">
+            Fast path: WhatsApp me for the payment link and slots. Or fill the form below — fit check
+            within 24 hours.
+          </p>
+          <div className="qf-book-hero-cta-actions">
+            <a
+              href={WHATSAPP.bookMapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="qf-book-fast-path"
+            >
+              {WHATSAPP.bookMapLabel} →
+            </a>
+            <Link
+              href="#request-slot"
+              className="inline-flex min-h-12 items-center border border-[var(--qf-border)] px-5 text-sm font-semibold text-[var(--qf-text)] hover:border-[var(--qf-accent)] hover:text-[var(--qf-accent)]"
+            >
+              Prefer the form ↓
+            </Link>
+          </div>
+        </div>
+
+        <p className="text-sm text-[var(--qf-text-faint)] max-w-[var(--qf-maxw-narrow)]">
           <Link href={ARTEFACTS.automationMapSample} className="text-[var(--qf-accent)] hover:underline">
             Download sample Map
           </Link>
@@ -116,12 +144,12 @@ export default function BookDiscoveryPage() {
             {
               step: '1',
               title: 'Request your slot',
-              body: 'Share your business context and biggest bottleneck.',
+              body: 'WhatsApp for a payment link, or share context in the form.',
             },
             {
               step: '2',
-              title: 'Fit check & payment link',
-              body: 'If the fit is right, I send a payment link and available times within 24 hours.',
+              title: 'Fit check & payment',
+              body: 'If the fit is right, you get a payment link and available times — often same day via WhatsApp.',
             },
             {
               step: '3',
@@ -178,12 +206,21 @@ export default function BookDiscoveryPage() {
         </p>
       </Section>
 
-      <Section padding="large">
+      <Section padding="large" id="request-slot">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-2">
           Request your slot
         </h2>
-        <p className="text-sm text-[var(--qf-text-dim)] mb-8 max-w-2xl">
-          If the fit is right, I&apos;ll send a payment link and available times within 24 hours.
+        <p className="text-sm text-[var(--qf-text-dim)] mb-4 max-w-2xl">
+          Prefer WhatsApp?{' '}
+          <a
+            href={WHATSAPP.bookMapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--qf-accent)] font-semibold hover:underline"
+          >
+            {WHATSAPP.bookMapLabel}
+          </a>
+          . Or use the form — if the fit is right, I&apos;ll send a payment link within 24 hours.
         </p>
         <BookDiscoveryForm />
       </Section>

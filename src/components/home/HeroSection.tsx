@@ -19,22 +19,50 @@ export default function HeroSection() {
   });
 
   return (
-    <section data-home-section="hero" className="relative py-[var(--qf-sp-24)]">
+    <section data-home-section="hero" className="qf-hero">
       <BrandWatermark />
-      <div className="relative z-[1] mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
-        <div className="grid items-center gap-[var(--qf-sp-12)] lg:grid-cols-2">
+      <div className="qf-hero-inner">
+        <div className="qf-hero-grid">
           <motion.div
             initial={fade.initial}
             animate={fade.animate}
             transition={fade.transition}
           >
-            <p className="mb-[var(--qf-sp-2)] font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-              {HERO.eyebrow}
-            </p>
-            <h1 className="mb-[var(--qf-sp-4)]">{HERO.headline}</h1>
-            <p className="text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">{HERO.subline}</p>
+            <p className="qf-hero-eyebrow">{HERO.eyebrow}</p>
+            <h1 className="qf-hero-headline">{HERO.headline}</h1>
+            <p className="qf-hero-subline">{HERO.subline}</p>
+            <p className="qf-hero-dual">{HERO.dualBrandLine}</p>
 
-            <ul className="qf-hero-beats mt-[var(--qf-sp-6)]">
+            <div className="qf-hero-cta-band">
+              <Link
+                href={ROUTES.bookDiscovery}
+                onClick={() => trackEvent('cta_book_map_click', { location: 'hero_primary' })}
+                className="qf-hero-cta-primary"
+              >
+                <span className="qf-hero-cta-primary-label">
+                  {HERO.primaryCta} <span aria-hidden="true">→</span>
+                </span>
+                <span className="qf-hero-cta-primary-meta">{HERO.primaryCtaMeta}</span>
+              </Link>
+              <div className="qf-hero-cta-secondary-row">
+                <Link href={HERO.secondaryHref} className="qf-hero-cta-secondary">
+                  {HERO.secondaryCta}
+                </Link>
+                <a
+                  href={WHATSAPP.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackEvent('cta_whatsapp_click', { location: 'hero_whatsapp' })}
+                  className="qf-hero-cta-whatsapp"
+                >
+                  {HERO.whatsappCta}
+                </a>
+              </div>
+            </div>
+
+            <p className="qf-hero-proof-strip">{HERO.proofStrip}</p>
+
+            <ul className="qf-hero-beats">
               {Object.values(HERO.beats).map((beat) => (
                 <li key={beat.label} className="qf-hero-beat">
                   <span className="qf-hero-beat-label">{beat.label}</span>
@@ -42,40 +70,13 @@ export default function HeroSection() {
                 </li>
               ))}
             </ul>
-
-            <p className="mt-[var(--qf-sp-4)] font-mono text-xs text-[var(--qf-text-dim)]">
-              {HERO.proofStrip}
-            </p>
-            <div className="mt-[var(--qf-sp-6)] flex flex-wrap items-center gap-[var(--qf-sp-3)]">
-              <Link
-                href={ROUTES.bookDiscovery}
-                onClick={() => trackEvent('cta_book_map_click', { location: 'hero_primary' })}
-                className="inline-flex items-center gap-[var(--qf-sp-2)] border border-[var(--qf-accent)] bg-[var(--qf-accent)] px-6 py-3 text-sm font-semibold text-[var(--qf-bg)] transition-all duration-[var(--qf-transition)] hover:border-[var(--qf-accent-soft)] hover:bg-[var(--qf-accent-soft)]"
-              >
-                {HERO.primaryCta} <span aria-hidden="true">→</span>
-              </Link>
-              <Link
-                href={HERO.secondaryHref}
-                className="inline-flex items-center border border-[var(--qf-border)] px-6 py-3 text-sm font-semibold text-[var(--qf-text)] transition-colors hover:border-[var(--qf-accent)] hover:text-[var(--qf-accent)]"
-              >
-                {HERO.secondaryCta}
-              </Link>
-              <a
-                href={WHATSAPP.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent('cta_whatsapp_click', { location: 'hero_whatsapp' })}
-                className="text-sm font-semibold text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-accent)]"
-              >
-                {HERO.whatsappCta}
-              </a>
-            </div>
           </motion.div>
 
           <motion.div
             initial={slide.initial}
             animate={slide.animate}
             transition={slide.transition}
+            className="qf-hero-visual-wrap"
           >
             <div className="qf-hero-proof-visual">
               <div className="qf-hero-proof-visual-header">

@@ -16,7 +16,8 @@ export const HERO = {
   headline:
     'Conversion systems that qualify leads, reduce admin and keep humans in control.',
   subline:
-    'For Dutch small businesses tired of manual quotes, inbox chaos and websites that do not turn visitors into pipeline. I design the system, wire the workflow, and keep approval gates where they belong.',
+    'For Dutch small businesses tired of manual quotes, inbox chaos and websites that do not turn visitors into pipeline.',
+  dualBrandLine: 'Quietforge deploys · FlexGrafik is the live proof.',
   beats: {
     problem: {
       label: 'Problem',
@@ -31,11 +32,12 @@ export const HERO = {
       text: 'Fewer missed leads, less admin, humans stay in control.',
     },
   },
-  proofStrip: 'Live wizard checkout · HITL approval · EU-hosted · inbox classified',
-  proofLine: 'Live wizard checkout · HITL approval · EU-hosted · inbox classified',
+  proofStrip: 'Live wizard checkout · you approve every send · EU-hosted',
+  proofLine: 'Live wizard checkout · you approve every send · EU-hosted',
   microTrust:
     'Quietforge deploys the same architecture that runs FLEXGRAFIK — my registered company, not a demo.',
   primaryCta: 'Book Automation Map',
+  primaryCtaMeta: `${formatEuro(PRICING_NUMBERS.discovery)} · credited · 60–90 min`,
   secondaryCta: 'See live systems',
   secondaryHref: '/results/',
   wizardCta: 'Try the wizard (2 min)',
@@ -148,7 +150,7 @@ export const DUAL_BRAND = {
 
 /** GTM Faza 0 — Featured strip mirror for LinkedIn Featured (02-channel-architecture). */
 export const FEATURED_STRIP = {
-  eyebrow: 'start here',
+  eyebrow: 'three paths',
   headline: 'Three paths — same stack I run daily.',
   cards: [
     {

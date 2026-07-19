@@ -52,9 +52,24 @@ export default function SolutionLayout({
     <>
       <Section padding="large">
         <Eyebrow>Solution</Eyebrow>
-        <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-6 max-w-3xl">
+        <h1 className="text-[var(--qf-fs-3xl)] font-bold tracking-tight leading-[var(--qf-lh-tight)] mb-4 max-w-3xl">
           {title}
         </h1>
+        <p className="mb-4 font-mono text-xs text-[var(--qf-text-dim)]">{priceLabel}</p>
+        <div className="mb-10 flex flex-wrap items-center gap-3">
+          <Button
+            href={ROUTES.bookDiscovery}
+            withArrow
+            size="lg"
+            analyticsEvent="cta_book_map_click"
+            analyticsDetail={{ location: 'solution_hero' }}
+          >
+            {CTAS.bookAutomationMap}
+          </Button>
+          <Button href={caseStudyHref} variant="secondary" withArrow>
+            See live proof
+          </Button>
+        </div>
 
         <div className="mb-12 rounded-[var(--qf-radius)] border-l-4 border-[var(--qf-warn)] bg-[var(--qf-bg-inset)] p-6">
           <p className="font-mono text-xs uppercase tracking-wider text-[var(--qf-warn)] mb-2">The Problem</p>

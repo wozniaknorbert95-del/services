@@ -137,7 +137,16 @@ export default function SolutionsPage() {
               </ul>
 
               <div className="flex flex-wrap items-center gap-4">
-                <Button href={SPEARHEAD.href} withArrow size="lg">
+                <Button
+                  href={ROUTES.bookDiscovery}
+                  withArrow
+                  size="lg"
+                  analyticsEvent="cta_book_map_click"
+                  analyticsDetail={{ location: 'solutions_spearhead' }}
+                >
+                  {CTAS.bookAutomationMap}
+                </Button>
+                <Button href={SPEARHEAD.href} variant="secondary" withArrow>
                   Learn more
                 </Button>
                 <span className="text-[var(--qf-text-faint)] text-sm font-mono">{SPEARHEAD.price}</span>
