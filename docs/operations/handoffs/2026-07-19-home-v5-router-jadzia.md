@@ -2,7 +2,7 @@
 
 **Repo:** quietforge.flexgrafik.nl (services) · **Build:** `npm run build` ✅ (26 sitemap routes)  
 **Status:** CLOSED — prod verified 2026-07-19  
-**Ship:** `b7bf240` · hotfix solutions nav-by-href after Ops insert  
+**Ship:** `b7bf240` + hotfix `26cca8c` (solutions nav-by-href)  
 **Canon:** `docs/strategy/site-map.md` §3 **v5.0**
 
 ## Cel / Goal
