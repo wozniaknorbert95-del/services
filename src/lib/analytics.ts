@@ -8,6 +8,7 @@ export type AnalyticsEvent =
   | 'cta_results_click'
   | 'cta_how_it_works_click'
   | 'cta_whatsapp_click'
+  | 'cta_jadzia_proof_click'
   | 'sample_map_download'
   | 'wizard_demo_click'
   | 'case_study_open'

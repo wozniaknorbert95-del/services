@@ -1,27 +1,22 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-07-19 · **Status:** READY TO SHIP · **Home polish v4**  
-**Build:** `npm run typecheck` ✅ · `npm run build` ✅  
-**Handoff:** [`handoffs/2026-07-19-home-polish-v4.md`](./handoffs/2026-07-19-home-polish-v4.md)  
-**Prior ship:** `750da9a` Home IA v4
+**Updated:** 2026-07-19 · **Status:** Home v5 READY TO SHIP  
+**Canon:** [`../strategy/site-map.md`](../strategy/site-map.md) §3 v5.0  
+**Handoff:** [`handoffs/2026-07-19-home-v5-router-jadzia.md`](handoffs/2026-07-19-home-v5-router-jadzia.md)
 
 ---
 
-## WYNIK (lokalnie)
+## CO
 
-| Item | Status |
-|------|--------|
-| Pain router polish (no inline styles) | ✅ |
-| All home sections qf-* polish | ✅ |
-| Copy tighten (pain/spearhead/why/pricing) | ✅ |
-| Pricing shadow removed | ✅ |
+Home v5 (Router + Jadzia-first) zaimplementowane lokalnie: IntentRouter+chipy na `/`, PainGrid ×6, Jadzia Spearhead #1, VCMS strip, Wizard+Visualizer compact, Ops Command w nav.
 
 ---
 
 ## NASTĘPNY KROK (Commander)
 
-1. **Ship** — commit + push  
-2. Smoke home scroll desktop + mobile  
+1. Smoke lokalny / przeglądarka `/` + `/solutions/`
+2. Jawne **ship** → commit + push master (Vercel CD)
+3. Post-deploy smoke z handoffu
 
 ---
 

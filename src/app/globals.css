@@ -725,7 +725,7 @@ a:hover {
 
 @media (min-width: 1024px) {
   .qf-pain-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -948,6 +948,51 @@ a:hover {
   border-radius: var(--qf-radius);
   background: var(--qf-bg-raised);
   padding: var(--qf-sp-6);
+}
+
+.qf-spearhead-card--muted {
+  border-color: var(--qf-border);
+}
+
+.qf-wizard-viz-grid {
+  display: grid;
+  gap: var(--qf-sp-4);
+}
+
+@media (min-width: 640px) {
+  .qf-wizard-viz-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.qf-wizard-viz-shot {
+  overflow: hidden;
+  border: var(--qf-border-w) solid var(--qf-border);
+  border-radius: var(--qf-radius);
+  background: var(--qf-bg-inset);
+}
+
+.qf-wizard-viz-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.qf-wizard-viz-caption {
+  margin: var(--qf-sp-2) 0 0;
+  font-family: var(--qf-mono);
+  font-size: var(--qf-fs-xs);
+  color: var(--qf-text-faint);
+}
+
+.qf-wizard-viz-badge {
+  display: inline-block;
+  margin-bottom: var(--qf-sp-2);
+  font-family: var(--qf-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--qf-accent);
 }
 
 .qf-spearhead-card-head {

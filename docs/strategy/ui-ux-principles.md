@@ -134,9 +134,9 @@ Home must follow:
 
 ### Spearhead rule
 
-Only one section on home gets full flagship treatment: **Wizard Cash Engine**.
+Only one section on home gets full flagship treatment: **Jadzia — Operations Command Layer** (site-map §3 v5.0).
 
-Governance/VCMS is the second proof, visually smaller but trust-heavy.
+VCMS is the second proof (trust strip). Wizard Cash Engine + Design Intake are compact secondary proof — not flagship.
 
 ---
 

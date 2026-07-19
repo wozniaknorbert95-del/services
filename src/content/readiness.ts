@@ -29,7 +29,8 @@ export const READINESS_HEADER = {
  * Order: Wizard, Jadzia COI, Agent OS, Governance (T4: replaced Lead Magnet with Governance).
  * Full 8-row table on `/results/owner-ecosystem/`.
  */
-export const HOME_ROW_KEYS = ['zzpackage', 'jadzia-core', 'agent-os', 'flex-vcms'] as const;
+/** Home compact — site-map §3 v5.0: Jadzia → VCMS → Wizard → Agent OS */
+export const HOME_ROW_KEYS = ['jadzia-core', 'flex-vcms', 'zzpackage', 'agent-os'] as const;
 
 /** Eight-repo readiness — sync with flexgrafik-meta as-is-inventory.md */
 export const READINESS_ROWS: readonly ReadinessRow[] = [

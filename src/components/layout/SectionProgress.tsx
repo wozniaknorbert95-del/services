@@ -3,12 +3,17 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Progress groups — site-map.md §3 v4.0 (7 logical sections, 2026-07-19).
- * Groups: Start (recognition) → Proof (live + honesty) → Close (why/how + commercial).
+ * Progress groups — site-map.md §3 v5.0 (Router + Jadzia-first, 2026-07-19).
+ * Groups: Start → Pick → Proof → Close.
  */
 const PROGRESS_GROUPS = [
   { id: 'start', label: 'Start', sections: ['hero', 'pain-grid'] },
-  { id: 'proof', label: 'Proof', sections: ['spearhead', 'built-vs-planned'] },
+  { id: 'pick', label: 'Pick', sections: ['repo-router'] },
+  {
+    id: 'proof',
+    label: 'Proof',
+    sections: ['jadzia-spearhead', 'vcms-trust', 'wizard-visualizer', 'built-vs-planned'],
+  },
   { id: 'close', label: 'Close', sections: ['why-it-works', 'pricing', 'final-cta'] },
 ] as const;
 

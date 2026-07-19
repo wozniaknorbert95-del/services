@@ -32,8 +32,8 @@ export const HERO = {
       text: 'Fewer missed leads, less admin, humans stay in control.',
     },
   },
-  proofStrip: 'Live wizard checkout · you approve every send · EU-hosted',
-  proofLine: 'Live wizard checkout · you approve every send · EU-hosted',
+  proofStrip: 'Ops cockpit live · governance scan · wizard checkout · you approve',
+  proofLine: 'Ops cockpit live · governance scan · wizard checkout · you approve',
   microTrust:
     'Quietforge deploys the same architecture that runs FLEXGRAFIK — my registered company, not a demo.',
   primaryCta: 'Book Automation Map',
@@ -97,25 +97,86 @@ export const WEBSITE_ONLY_EXCEPTION =
 export const SITE_GOAL =
   'Can this person design and deploy a system that improves my business?';
 
-export const SPEARHEAD = {
-  eyebrow: 'live proof',
-  headline: 'Wizard Cash Engine — live checkout for real quotes.',
+/** Home Live proof #1 — Jadzia Ops Command (site-map §3 v5.0). */
+export const JADZIA_SPEARHEAD = {
+  eyebrow: 'live proof · operations',
+  headline: 'Operations Command Layer — see what needs action.',
   body:
-    'Self-service configurator with open pricing and checkout — live today. For custom jobs, a supervised Design Intake (PARTIAL) turns a brief into visual direction before price.',
+    'Jadzia is the owner cockpit for leads, orders and weekly decisions — running on the same stack as FlexGrafik. Humans approve consequential actions. Autonomy is not offered.',
+  bullets: [
+    'One spine for orders, leads and analytics — not three silos.',
+    'Weekly owner brief as a draft you approve.',
+    'Supervised content publish — nothing goes out without you.',
+  ],
+  statusMeta: 'LIVE · ~93% spine',
+  primaryCta: 'See Jadzia proof',
+  primaryHref: '/results/jadzia-coi/',
+  secondaryCta: 'Book Automation Map',
+  secondaryHref: '/book-discovery/',
+  screenshot: {
+    src: '/gratka/jadzia-coi-architecture.svg',
+    alt: 'Jadzia Operations Command Layer — Commander cockpit and operational spine',
+    caption: 'Sense → review → approve — operational spine ~93% LIVE.',
+  },
+} as const;
+
+/** Home VCMS trust strip — site-map §3 v5.0 #5. */
+export const VCMS_STRIP = {
+  eyebrow: 'governance',
+  title: 'VCMS keeps the system honest.',
+  lead:
+    'It scans repos and content, flags conflicts before deploy, and gives you a read-only assistant (KODA) so you can learn and control what the system knows.',
+  bullets: [
+    'Eight-repo scan with conflict detection before anything ships.',
+    'KODA — read-only assistant to learn the operating map.',
+    'Audit trail for clean handoffs and reviews.',
+  ],
+  cta: 'See governance proof →',
+  href: '/results/owner-ecosystem/#why-vcms',
+  visual: {
+    src: '/gratka/vcms-dashboard.svg',
+    alt: 'VCMS governance dashboard — repo scan and conflict status',
+    caption: 'Conflicts: 0 target — governance command center.',
+  },
+} as const;
+
+/** Wizard + Design Intake compact (demoted from flagship) — site-map §3 v5.0 #6. */
+export const WIZARD_VISUALIZER = {
+  eyebrow: 'cash engine · secondary',
+  title: 'Wizard checkout live — Design Intake when the job is complex.',
+  lead:
+    'Self-service configurator with open pricing and Mollie checkout. For vehicle branding and custom jobs, supervised Design Intake (PARTIAL) turns a brief into visual direction before price.',
+  wizardCta: 'Try the wizard (2 min)',
+  wizardHref: 'https://zzpackage.flexgrafik.nl/wizard/',
+  intakeCta: 'See Design Intake (PARTIAL)',
+  intakeHref: '/solutions/sales-funnel/',
+  wizardShot: {
+    src: '/gratka/wizard-checkout.png',
+    alt: 'Wizard Cash Engine checkout — live configurator',
+    caption: 'Configure → see price → pay.',
+  },
+  intakeShot: {
+    src: '/gratka/inspire/mockups.png',
+    alt: 'Standard and Premium inspiration mockups — Design Intake PARTIAL',
+    caption: 'Inspiration mockups — not print-ready finals. PARTIAL lab proof.',
+  },
+} as const;
+
+/** @deprecated Prefer JADZIA_SPEARHEAD / WIZARD_VISUALIZER — kept for any legacy imports */
+export const SPEARHEAD = {
+  eyebrow: 'cash engine',
+  headline: WIZARD_VISUALIZER.title,
+  body: WIZARD_VISUALIZER.lead,
   bullets: [
     'Live on zzpackage.flexgrafik.nl — try checkout in two minutes.',
-    'Optional Design Intake — brief → Standard/Premium direction → Wizard.',
+    'Optional Design Intake — brief → Standard/Premium direction → Wizard (PARTIAL).',
     'Same stack Quietforge deploys for SMB clients — human approval on critical steps.',
   ],
-  primaryCta: 'Try the wizard (2 min)',
-  primaryHref: 'https://zzpackage.flexgrafik.nl/wizard/',
-  secondaryCta: 'See Design Intake + case',
-  secondaryHref: '/solutions/sales-funnel/',
-  screenshot: {
-    src: '/gratka/wizard-checkout.png',
-    alt: 'Wizard Cash Engine checkout — live configurator with open pricing',
-    caption: 'Configure → see price → pay. Design Intake available as PARTIAL.',
-  },
+  primaryCta: WIZARD_VISUALIZER.wizardCta,
+  primaryHref: WIZARD_VISUALIZER.wizardHref,
+  secondaryCta: WIZARD_VISUALIZER.intakeCta,
+  secondaryHref: WIZARD_VISUALIZER.intakeHref,
+  screenshot: WIZARD_VISUALIZER.wizardShot,
 } as const;
 
 /** Home WhyItWorks — site-map §3 v4.0 #5 (method + safety + objections). */

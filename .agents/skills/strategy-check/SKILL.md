@@ -1,6 +1,6 @@
 ---
 name: strategy-check
-description: Verify changes comply with the strategy canon for services.flexgrafik.nl — LOCKED home order (site-map §3 v4.0, 7 sections), intent colors (§4), single-L3 rule, Problem→System→Effect arc, CTA tiers, IntentRouter 6 cards on /solutions/. Flags drift and enforces the anti-chaos rule (update site-map.md when page.tsx changes). Invoke before/after any home or money-page work.
+description: Verify changes comply with the strategy canon for services.flexgrafik.nl — LOCKED home order (site-map §3 v5.0, Jadzia-first + IntentRouter on home), intent colors (§4), single-L3 rule, Problem→System→Effect arc, CTA tiers. Flags drift and enforces the anti-chaos rule (update site-map.md when page.tsx changes). Invoke before/after any home or money-page work.
 ---
 
 # strategy-check — Strategy Canon Compliance
@@ -23,7 +23,7 @@ Invoke this skill when:
 
 ### Step 2 — Check against binding rules
 
-**Home order (site-map §3 v4.0 — LOCKED):** 7 sections — Hero → PainGrid (only router, no IntentFilterChips) → SpearheadSpotlight (metrics strip inside, no separate SystemMetrics) → BuiltVsPlanned (compact, 4 rows: Wizard/Jadzia/Agent OS/Governance) → WhyItWorks (method + safety + objections, one H2) → Pricing → FinalCtaBand. IntentRouter (6 business cards) lives on `/solutions/`, not home. Forbidden on home: `DualBrandBand`, `FeaturedStrip`, standalone `SystemMetrics`, `IntentRouter`, `EcosystemVideo`, `OwnerEcosystemTeaser`, `LivingSystemTeaser`, `BehindTheScenes`, `ResultsTeaser` (standalone), `SystemArchitecture`, second hero rewrite, "AI Systems Architect" label, terminal mock blocks, full LOS/8-repo/governance sections. Full LOS + 8-repo + governance on `/results/owner-ecosystem/`.
+**Home order (site-map §3 v5.0 — LOCKED):** Hero → PainGrid (6 cards, no chips; highlight via shared intent) → IntentRouter + 5 intent chips (≥7 cards incl. VCMS) → JadziaSpearhead (Live proof #1) → VcmsTrustStrip → WizardVisualizerCompact → BuiltVsPlanned (Jadzia → VCMS → Wizard → Agent OS) → WhyItWorks → Pricing → FinalCtaBand. IntentRouter also mirrored on `/solutions/`. Forbidden on home: `DualBrandBand`, `FeaturedStrip`, Wizard as sole flagship Spearhead, standalone `SystemMetrics`, `EcosystemVideo`, `LivingSystemTeaser`, `BehindTheScenes`, full LOS sections, second hero rewrite, "AI Systems Architect" label, terminal mocks. Full LOS on `/results/owner-ecosystem/`.
 
 **Page arc:** every money page is **Problem → System → Effect**, never Feature → Feature → Feature.
 

@@ -37,8 +37,14 @@ export const SOLUTIONS_NAV: readonly SolutionNavItem[] = [
   {
     label: 'Sales Funnel / Wizard Cash Engine',
     href: ROUTES.salesFunnel,
-    badge: 'Spearhead',
+    badge: 'Cash',
     price: PRICING_MATRIX.salesFunnel.range,
+  },
+  {
+    label: 'Ops Command Layer',
+    href: ROUTES.resultsJadziaCoi,
+    badge: 'Ops',
+    price: undefined,
   },
   {
     label: 'Web Upgrade',

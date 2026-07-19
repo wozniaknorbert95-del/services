@@ -71,26 +71,29 @@ These must never be swapped on `/solutions/`, cards, pricing or metadata.
 
 ## §3 HOME — section order
 
-> **Version 4.0 (2026-07-19):** Research-backed IA cut — ~13 DOM markers → **7 logical sections**. One pain router; dual-brand = hero 1-liner only; metrics ⊂ Spearhead; Why/How merged (method + safety + objections). IntentRouter lives on `/solutions/`. See [brainstorm research](../audits/2026-07-19-home-brainstorm-research-reco.md).
+> **Version 5.0 (2026-07-19):** Router colors back on home + **Jadzia-first** proof hierarchy. PainGrid (buyer pain) + IntentRouter (intent chips + modules). Promotion: Jadzia → VCMS → Wizard → Visualizer → Inbox. Inventory: [home-router-jadzia-research-inventory](../audits/2026-07-19-home-router-jadzia-research-inventory.md).
 
 | # | Section | Component(s) | Funnel job | Primary content rule |
 |---|---|---|---|---|
-| 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / dual-brand 1-liner / **Book Map CTA above fold (incl. mobile)** / de-jargon proof strip — beats desktop-only; no terminal, no 8-repo |
-| 2 | Pain router | `PainGrid` | **Only** home router | Quote-first cards (Next Link); lead card “Quote first”; **no IntentFilterChips** — quotes → website → traffic → inbox |
-| 3 | Live proof — Wizard | `SpearheadSpotlight` (+ metrics strip inside) | Live system proof #1 | Wizard Cash Engine LIVE — bullets + screenshot + **4 verified numbers in same H2**; no separate SystemMetrics section; no terminal mock |
-| 4 | Honesty gate | `BuiltVsPlanned` compact | Trust | **4 rows: Wizard, Jadzia COI, Agent OS, Governance** — de-jargonised; link to `/results/owner-ecosystem/` |
-| 5 | Why / How it works | `WhyItWorks` | Delivery + safety (KEEP) | Map → Architect → Build → Verify → Handover + 3 safety cards + objections — **one H2**; link to `/trust/` |
-| 6 | Pricing | `Pricing` | Commercial | Map Most popular · builds · Managed |
-| 7 | Final CTA | `FinalCtaBand` | Close | Strong L3 Book Map + sample Map |
+| 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / dual-brand 1-liner / **Book Map CTA above fold** / proof strip: ops cockpit · governance · wizard — beats desktop-only |
+| 2 | Pain router | `PainGrid` | Recognition (pain language) | **6 cards**; Quote first lead; **no chips**; highlight when IntentRouter filter active — quotes → site → leads → inbox → ops-blind → drift |
+| 3 | Intent router | `IntentRouter` + chips | Benefit / module awareness | **5 intent chips** (`--fx-*`); ≥7 module cards incl. **VCMS**; dim non-match; also mirrored on `/solutions/` |
+| 4 | Live proof #1 — Jadzia | `JadziaSpearhead` | Ops pearl | Operations Command Layer ~93% LIVE — cockpit narrative, no full autonomy claim; CTA → `/results/jadzia-coi/` |
+| 5 | VCMS trust | `VcmsTrustStrip` | Control + knowledge | Scan / conflicts / KODA buyer language; link `#why-vcms` |
+| 6 | Wizard + Visualizer | `WizardVisualizerCompact` | Cash + PARTIAL intake | Wizard try-demo LIVE + Design Intake PARTIAL in one H2 — not flagship |
+| 7 | Honesty gate | `BuiltVsPlanned` compact | Trust | **4 rows: Jadzia → VCMS → Wizard → Agent OS**; link owner-ecosystem |
+| 8 | Why / How it works | `WhyItWorks` | Delivery + safety | Method + safety + objections — one H2 |
+| 9 | Pricing | `Pricing` | Commercial | Map Most popular · builds · Managed |
+| 10 | Final CTA | `FinalCtaBand` | Close | Strong L3 Book Map + sample Map |
 
-**Removed from home (components kept in repo):** `DualBrandBand` (hero 1-liner covers), `FeaturedStrip` (nav + LI Featured URLs), standalone `SystemMetrics` (strip in Spearhead; full on `/results/`), `IntentRouter` → **`/solutions/`**, separate `HowIWork` + `TrustAndObjections` mounts (merged into `WhyItWorks`).
+**Removed from home (kept in repo):** `DualBrandBand`, `FeaturedStrip`, standalone `SystemMetrics`, Wizard-as-Spearhead (`SpearheadSpotlight` demoted to compact).
 
-**Still off home (full content on `/results/owner-ecosystem/`):** `LivingSystemTeaser`, `BehindTheScenes`, standalone `ResultsTeaser`.
+**Still off home:** full LOS / LivingSystemTeaser / BehindTheScenes → `/results/owner-ecosystem/`.
 
 ### Home chrome
 
-- `SectionProgress`: Start → Proof → Close (no Pick group).
-- `StickyCta`: mobile only, appears after hero leaves viewport (sales lift 2026-07-19).
+- `SectionProgress`: Start → Pick → Proof → Close.
+- `StickyCta`: mobile only, after hero exits viewport.
 - Sticky mobile: **Book Automation Map** (filled) + **Ask on WhatsApp** (outline).
 - Desktop primary CTA remains **Book Automation Map**.
 

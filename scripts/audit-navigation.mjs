@@ -33,11 +33,14 @@ const NAV_LINKS = [
   '/legal/',
 ];
 
-/** site-map.md §3 v4.0 — home data-home-section markers */
+/** site-map.md §3 v5.0 — home data-home-section markers */
 const HOME_SECTIONS = [
   'hero',
   'pain-grid',
-  'spearhead',
+  'repo-router',
+  'jadzia-spearhead',
+  'vcms-trust',
+  'wizard-visualizer',
   'built-vs-planned',
   'why-it-works',
   'pricing',

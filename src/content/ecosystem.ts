@@ -51,22 +51,28 @@ export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
   'whatsapp-discovery-pilot': 'whatsappPilot',
 } as const;
 
-/** Locked home stack — site-map.md §3 v4.0 (7 logical sections, 2026-07-19) */
+/** Locked home stack — site-map.md §3 v5.0 (Jadzia-first + IntentRouter on home) */
 export const HOME_SECTIONS = [
   'HeroSection',
   'PainGrid',
-  'SpearheadSpotlight',
+  'IntentRouter',
+  'JadziaSpearhead',
+  'VcmsTrustStrip',
+  'WizardVisualizerCompact',
   'BuiltVsPlanned',
   'WhyItWorks',
   'Pricing',
   'FinalCtaBand',
 ] as const;
 
-/** Home section markers — site-map.md §3 v4.0 (DOM verification) */
+/** Home section markers — site-map.md §3 v5.0 (DOM verification) */
 export const HOME_SECTION_MARKERS: Record<(typeof HOME_SECTIONS)[number], string> = {
   HeroSection: 'hero',
   PainGrid: 'pain-grid',
-  SpearheadSpotlight: 'spearhead',
+  IntentRouter: 'repo-router',
+  JadziaSpearhead: 'jadzia-spearhead',
+  VcmsTrustStrip: 'vcms-trust',
+  WizardVisualizerCompact: 'wizard-visualizer',
   BuiltVsPlanned: 'built-vs-planned',
   WhyItWorks: 'why-it-works',
   Pricing: 'pricing',
@@ -172,7 +178,6 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
     route: JADZIA_COI_ROUTE,
     repoKey: 'jadzia-core',
     screenKey: 'workflowMap',
-    videoKey: 'inboxKiller',
   },
   {
     id: 'm4',
@@ -237,7 +242,7 @@ export interface EcosystemRepo {
   screenKey?: ScreenKey;
   proofRoute: string;
   flagship?: boolean;
-  /** Whether to show in IntentRouter on `/solutions/` (6 business cards). Default true. */
+  /** Whether to show in IntentRouter (home + /solutions/). Default true. */
   homeVisible?: boolean;
 }
 
@@ -298,12 +303,14 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'flex-vcms',
     outcomeLabel: 'Stop content and repo drift before deploy',
     role: 'Governance layer',
+    statusNote: 'LIVE (~85%): 8-repo scan · conflict detection · KODA read-only assistant · audit trail',
+    homeStatusNote: 'Catches drift before deploy — scan, conflicts, KODA helps you learn the system.',
     intents: ['order', 'calm'],
     losLayers: ['sense', 'guard'],
     screenKey: 'vcmsDashboard',
     proofRoute: ROUTES.resultsOwnerEcosystemWhyVcms,
     flagship: true,
-    homeVisible: false,
+    homeVisible: true,
   },
   {
     number: 6,
@@ -343,9 +350,8 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
 ] as const;
 
 /**
- * IntentRouter selection for `/solutions/` (moved off home in site-map §3 v4.0).
- * Hides `flex-vcms` + `flexgrafik-meta`. Full 8 repos on `/results/owner-ecosystem/`
- * and `/founder/`.
+ * IntentRouter selection for home + `/solutions/` (site-map §3 v5.0).
+ * Hides `flexgrafik-meta` only. VCMS visible. Full 8 on owner-ecosystem / founder.
  */
 export function getHomeRepos(): readonly EcosystemRepo[] {
   return ECOSYSTEM_REPOS.filter((r) => r.homeVisible !== false);
@@ -415,5 +421,23 @@ export const PAIN_GRID: readonly PainCard[] = [
     costLine: '~12 hours/week lost to triage',
     href: ROUTES.inboxKiller,
     intents: ['time', 'calm'],
+  },
+  {
+    id: 'pain-ops-blind',
+    title: 'No view of what needs action',
+    description:
+      'Orders, leads and weekly decisions live in separate tools. An operations cockpit shows what needs you — then you approve.',
+    costLine: 'Three silos — no single next-action list',
+    href: ROUTES.resultsJadziaCoi,
+    intents: ['time', 'calm', 'order'],
+  },
+  {
+    id: 'pain-drift',
+    title: 'Docs and systems drift apart',
+    description:
+      'Repos and content diverge before anyone notices. Governance scan flags conflicts before deploy — and helps you learn what the system knows.',
+    costLine: 'Silent drift until something breaks in production',
+    href: ROUTES.resultsOwnerEcosystemWhyVcms,
+    intents: ['order', 'calm'],
   },
 ] as const;
