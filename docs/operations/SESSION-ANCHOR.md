@@ -1,7 +1,7 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-07-19 · **Status:** SHIPPING · **Program:** Quietforge System Coherence × Sales Lift  
-**Gate:** DoD closure + HITL approved · deploy via Vercel CD on push to `master`
+**Updated:** 2026-07-19 · **Status:** CLOSED ✅ · **Program:** Quietforge System Coherence × Sales Lift  
+**Shipped:** `59d88be` → `master` · Vercel CD **success** · prod smoke OK
 
 ---
 

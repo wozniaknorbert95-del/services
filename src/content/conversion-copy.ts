@@ -164,7 +164,7 @@ export const FEATURED_STRIP = {
       id: 'results',
       title: 'Live systems on FlexGrafik',
       description:
-        'Wizard checkout, inbox automation and governance — on my company, not a slide deck.',
+        'Wizard checkout, Design Intake proof, inbox automation and governance — live on my company.',
       href: '/results/',
       analyticsLocation: 'featured_2',
       analyticsEvent: 'cta_results_click' as const,
