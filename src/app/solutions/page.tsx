@@ -6,6 +6,8 @@ import Section from '@/components/ui/Section';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import IntentRouter from '@/components/home/IntentRouter';
+import { HomeIntentProvider } from '@/lib/home-intent';
 import { fadeIn, slideUp, staggerContainer } from '@/lib/motion';
 import { ROUTES, PRICING } from '@/lib/constants';
 import { formatRange } from '@/content/pricing';
@@ -108,6 +110,11 @@ export default function SolutionsPage() {
           </div>
         </M.div>
       </Section>
+
+      {/* Module picker — moved off home (site-map §3 v4.0) */}
+      <HomeIntentProvider>
+        <IntentRouter />
+      </HomeIntentProvider>
 
       {/* Spearhead: Wizard */}
       <Section background="surface" padding="large">

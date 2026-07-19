@@ -51,18 +51,24 @@ export const CASE_MEASUREMENT_KEYS: Record<string, CaseMeasurementKey> = {
   'whatsapp-discovery-pilot': 'whatsappPilot',
 } as const;
 
-/** Home section markers — site-map.md §3 v3.0 (DOM verification, 2026-06-29) */
+/** Locked home stack — site-map.md §3 v4.0 (7 logical sections, 2026-07-19) */
+export const HOME_SECTIONS = [
+  'HeroSection',
+  'PainGrid',
+  'SpearheadSpotlight',
+  'BuiltVsPlanned',
+  'WhyItWorks',
+  'Pricing',
+  'FinalCtaBand',
+] as const;
+
+/** Home section markers — site-map.md §3 v4.0 (DOM verification) */
 export const HOME_SECTION_MARKERS: Record<(typeof HOME_SECTIONS)[number], string> = {
   HeroSection: 'hero',
-  DualBrandBand: 'dual-brand',
-  FeaturedStrip: 'featured-strip',
   PainGrid: 'pain-grid',
   SpearheadSpotlight: 'spearhead',
-  SystemMetrics: 'system-metrics',
   BuiltVsPlanned: 'built-vs-planned',
-  IntentRouter: 'repo-router',
-  HowIWork: 'how-i-work',
-  TrustAndObjections: 'trust-safety',
+  WhyItWorks: 'why-it-works',
   Pricing: 'pricing',
   FinalCtaBand: 'final-cta',
 };
@@ -125,22 +131,6 @@ export function getIntentMeta(id: IntentId) {
   if (!found) throw new Error(`Unknown intent: ${id}`);
   return found;
 }
-
-/** Locked home stack — site-map.md §3 v3.0 (9 logical sections, 13 rendered components, 2026-06-29) */
-export const HOME_SECTIONS = [
-  'HeroSection',
-  'DualBrandBand',
-  'FeaturedStrip',
-  'PainGrid',
-  'SpearheadSpotlight',
-  'SystemMetrics',
-  'BuiltVsPlanned',
-  'IntentRouter',
-  'HowIWork',
-  'TrustAndObjections',
-  'Pricing',
-  'FinalCtaBand',
-] as const;
 
 export interface EcosystemModule {
   id: string;
@@ -240,14 +230,14 @@ export interface EcosystemRepo {
   outcomeLabel: string;
   role: string;
   statusNote?: string;
-  /** De-jargonised short statusNote for home compact (site-map §3 v3.0 #7). Falls back to `statusNote`. */
+  /** De-jargonised short statusNote for IntentRouter / BuiltVsPlanned. Falls back to `statusNote`. */
   homeStatusNote?: string;
   intents: IntentId[];
   losLayers: readonly LosLayerId[];
   screenKey?: ScreenKey;
   proofRoute: string;
   flagship?: boolean;
-  /** Whether to show on home IntentRouter (site-map §3 v3.0 #7: 6 business cards). Default true. */
+  /** Whether to show in IntentRouter on `/solutions/` (6 business cards). Default true. */
   homeVisible?: boolean;
 }
 
@@ -353,9 +343,9 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
 ] as const;
 
 /**
- * Home IntentRouter selection — site-map.md §3 v3.0 #7 (6 business cards per
- * Commander decision mapa.txt). Hides `flex-vcms` + `flexgrafik-meta` (governance
- * + method — internal). Full 8 repos on `/results/owner-ecosystem/` and `/founder/`.
+ * IntentRouter selection for `/solutions/` (moved off home in site-map §3 v4.0).
+ * Hides `flex-vcms` + `flexgrafik-meta`. Full 8 repos on `/results/owner-ecosystem/`
+ * and `/founder/`.
  */
 export function getHomeRepos(): readonly EcosystemRepo[] {
   return ECOSYSTEM_REPOS.filter((r) => r.homeVisible !== false);

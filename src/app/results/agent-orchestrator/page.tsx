@@ -165,7 +165,7 @@ export default function AgentOrchestratorCaseStudyPage() {
       buildDescription={
         <p>
           Five delivery phases — same as{' '}
-          <Link href="/#how-i-work" className="text-[var(--qf-accent)]">
+          <Link href="/#why-it-works" className="text-[var(--qf-accent)]">
             How I work
           </Link>{' '}
           on the home page. Client-facing workflow, separate from the LangGraph pipeline above.

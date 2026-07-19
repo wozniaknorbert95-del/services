@@ -759,6 +759,56 @@ a:hover {
   color: var(--qf-accent);
 }
 
+/* Spearhead metrics strip — site-map §3 v4.0 (inside spearhead, no second H2) */
+.qf-spearhead-metrics {
+  display: grid;
+  gap: var(--qf-sp-4);
+  margin-top: var(--qf-sp-12);
+  padding-top: var(--qf-sp-8);
+  border-top: var(--qf-border-w) solid var(--qf-border);
+}
+
+@media (min-width: 640px) {
+  .qf-spearhead-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .qf-spearhead-metrics {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.qf-spearhead-metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--qf-sp-1);
+  padding: var(--qf-sp-4);
+  border: var(--qf-border-w) solid var(--qf-border);
+  border-radius: var(--qf-radius);
+  background: var(--qf-bg-raised);
+}
+
+.qf-spearhead-metric-value {
+  font-family: var(--qf-mono);
+  font-size: var(--qf-fs-xl);
+  font-weight: 700;
+}
+
+.qf-spearhead-metric-label {
+  font-family: var(--qf-mono);
+  font-size: var(--qf-fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--qf-text-faint);
+}
+
+.qf-spearhead-metric-outcome {
+  font-size: var(--qf-fs-sm);
+  color: var(--qf-text-dim);
+}
+
 .qf-hero-beat {
   border-left: 2px solid var(--qf-border);
   padding-left: var(--qf-sp-4);

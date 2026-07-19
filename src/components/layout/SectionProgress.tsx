@@ -3,14 +3,13 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Progress groups — site-map.md §3 v3.0 (9 logical sections, 12 markers, 2026-06-29).
- * Groups: Start (recognition + entry) → Proof (live proof + honesty) → Pick (self-segment) → Close (method + trust + commercial).
+ * Progress groups — site-map.md §3 v4.0 (7 logical sections, 2026-07-19).
+ * Groups: Start (recognition) → Proof (live + honesty) → Close (why/how + commercial).
  */
 const PROGRESS_GROUPS = [
-  { id: 'start', label: 'Start', sections: ['hero', 'dual-brand', 'featured-strip', 'pain-grid'] },
-  { id: 'proof', label: 'Proof', sections: ['spearhead', 'system-metrics', 'built-vs-planned'] },
-  { id: 'pick', label: 'Pick', sections: ['repo-router'] },
-  { id: 'close', label: 'Close', sections: ['how-i-work', 'trust-safety', 'pricing', 'final-cta'] },
+  { id: 'start', label: 'Start', sections: ['hero', 'pain-grid'] },
+  { id: 'proof', label: 'Proof', sections: ['spearhead', 'built-vs-planned'] },
+  { id: 'close', label: 'Close', sections: ['why-it-works', 'pricing', 'final-cta'] },
 ] as const;
 
 export default function SectionProgress() {

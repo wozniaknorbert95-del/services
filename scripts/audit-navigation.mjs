@@ -33,23 +33,18 @@ const NAV_LINKS = [
   '/legal/',
 ];
 
+/** site-map.md §3 v4.0 — home data-home-section markers */
 const HOME_SECTIONS = [
   'hero',
-  'dual-brand',
-  'featured-strip',
   'pain-grid',
   'spearhead',
-  'system-metrics',
   'built-vs-planned',
-  'repo-router',
-  'how-i-work',
-  'trust-safety',
-  'why-this-works',
+  'why-it-works',
   'pricing',
   'final-cta',
 ];
 
-const HOME_ANCHORS = ['built-vs-planned', 'repo-router', 'how-i-work', 'trust-safety'];
+const HOME_ANCHORS = ['built-vs-planned', 'why-it-works'];
 
 function pathOf(url) {
   try {

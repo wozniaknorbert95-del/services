@@ -1,32 +1,29 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-07-19 · **Status:** CLOSED ✅ · **Sales lift EN shipped**  
-**Shipped:** `0caf8f4` → `master` · Vercel Deploy success · prod smoke OK
+**Updated:** 2026-07-19 · **Status:** READY TO SHIP · **Home IA v4.0**  
+**Build:** `npm run typecheck` ✅ · `npm run build` ✅ (26 sitemap routes)  
+**Handoff:** [`handoffs/2026-07-19-home-ia-v4.md`](./handoffs/2026-07-19-home-ia-v4.md)
 
 ---
 
-## WYNIK
+## WYNIK (lokalnie)
 
 | Item | Status |
 |------|--------|
-| Hero Book Map above fold + dual-brand + €290 meta | ✅ |
-| PainGrid quote-first + Next Link | ✅ |
-| De-jargon proof strip | ✅ |
-| Book Map WhatsApp fast path | ✅ |
-| Solutions / SolutionLayout L3 first screen | ✅ |
-| Sticky Book Map primary after hero | ✅ |
-| EN only (no NL) | ✅ |
-
-**Handoff:** [`handoffs/2026-07-19-sales-lift-hero-pain-book.md`](./handoffs/2026-07-19-sales-lift-hero-pain-book.md)  
-**Audit:** [`../audits/2026-07-19-sales-effectiveness-auditor-report.md`](../audits/2026-07-19-sales-effectiveness-auditor-report.md)
+| site-map §3 v4.0 | ✅ |
+| Home 7 sections (Pain only router) | ✅ |
+| Spearhead + metrics strip | ✅ |
+| WhyItWorks merged KEEP | ✅ |
+| IntentRouter on `/solutions/` | ✅ |
+| DualBrand / Featured off home | ✅ |
 
 ---
 
 ## NASTĘPNY KROK (Commander)
 
-1. Smoke mobile fold on phone  
-2. LI/FB profile paste **167** · Featured V2  
-3. Optional later: real Mollie Map payment URL  
+1. **Ship** — commit + push do `master` (Vercel CD)  
+2. Post-deploy smoke z handoffu  
+3. Smoke mobile fold na telefonie  
 
 ---
 

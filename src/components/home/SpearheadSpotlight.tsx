@@ -5,14 +5,18 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useMotion } from '@/lib/useMotion';
 import { SPEARHEAD } from '@/content/conversion-copy';
+import { METRIC_DISPLAY_CARDS, getMetricValue } from '@/content/metrics-display';
+import { getIntentMeta } from '@/content/ecosystem';
 import { trackEvent } from '@/lib/analytics';
 import Eyebrow from '@/components/ui/Eyebrow';
 import StatusBadge from '@/components/ui/StatusBadge';
 import { ShoppingCart } from 'lucide-react';
 
+const METRICS_STRIP = METRIC_DISPLAY_CARDS.slice(0, 4);
+
 /**
  * Spearhead spotlight — Wizard Cash Engine as primary live proof.
- * Used in: src/app/page.tsx (home) — sekcja 5 per site-map.md §3 v3.0
+ * Metrics strip embedded (site-map.md §3 v4.0 #3) — no separate SystemMetrics H2.
  */
 export default function SpearheadSpotlight() {
   const motionCfg = useMotion();
@@ -95,6 +99,28 @@ export default function SpearheadSpotlight() {
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          variants={motionCfg.staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: '-80px' }}
+          className="qf-spearhead-metrics"
+          aria-label="Verified proof numbers"
+        >
+          {METRICS_STRIP.map((card) => {
+            const intent = getIntentMeta(card.intent);
+            return (
+              <motion.div key={card.metricKey} variants={motionCfg.childFade} className="qf-spearhead-metric">
+                <span className={`qf-spearhead-metric-value ${intent.textClass}`}>
+                  {getMetricValue(card.metricKey)}
+                </span>
+                <span className="qf-spearhead-metric-label">{card.label}</span>
+                <span className="qf-spearhead-metric-outcome">{card.outcome}</span>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
