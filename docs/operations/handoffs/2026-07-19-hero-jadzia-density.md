@@ -1,7 +1,7 @@
 # Handoff — Hero Jadzia visual + density (2026-07-19)
 
 **Repo:** quietforge.flexgrafik.nl · **Build:** `npm run build` ✅ (36 routes / sitemap 26)  
-**Shipped:** `1312301` · **Close:** `86301e9` · **Branch:** `master` (origin in sync)
+**Shipped:** `1312301` · **Close:** `5e7ad15` · **Branch:** `master` (origin in sync)
 
 ## Cel / Goal
 Home hero must tell one story: ops cockpit live + Book Map, with Jadzia (not Wizard) as the proof visual, and PSE beats that do not eat the first viewport.
