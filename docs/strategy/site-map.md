@@ -71,13 +71,13 @@ These must never be swapped on `/solutions/`, cards, pricing or metadata.
 
 ## §3 HOME — section order
 
-> **Version 5.1 (2026-07-19):** Pain section = **true intent router** (chips + leaks). IntentRouter below = modules only on home (no second chip row). Jadzia-first proof hierarchy unchanged.
+> **Version 5.2 (2026-07-19):** Pain = intent router (chips + leaks + hide). Filter polish: sticky chips, `?intent=` URL, Losing/You get hierarchy, mobile compact cards, calm contrast, modules H2 bridge. Jadzia-first proof hierarchy unchanged.
 
 | # | Section | Component(s) | Funnel job | Primary content rule |
 |---|---|---|---|---|
 | 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / dual-brand 1-liner / **Book Map CTA above fold** / proof strip: ops cockpit · governance · wizard — beats desktop-only |
-| 2 | Pain router | `PainGrid` + chips | Recognition + intent filter | **9 leak cards** + **5 intent chips**; Quote first lead; costLine + fixLine per card; shared intent filters modules below |
-| 3 | Intent router | `IntentRouter` | Module awareness | ≥7 module cards incl. **VCMS**; **no chips on home** (chips live in Pain); `/solutions/` keeps chips |
+| 2 | Pain router | `PainGrid` + chips (+ sticky) | Recognition + intent filter | **9 leak cards** + **5 short chips** (Time/Money/Calm/Team/Order); hide non-matches; Clear + See modules; `?intent=` shareable |
+| 3 | Intent router | `IntentRouter` | Module awareness | ≥7 module cards incl. **VCMS**; **no chips on home**; same filter hides modules; filtered H2 “Matching modules”; `/solutions/` keeps chips |
 | 4 | Live proof #1 — Jadzia | `JadziaSpearhead` | Ops pearl | Operations Command Layer ~93% LIVE — cockpit narrative, no full autonomy claim; CTA → `/results/jadzia-coi/` |
 | 5 | VCMS trust | `VcmsTrustStrip` | Control + knowledge | Scan / conflicts / KODA buyer language; link `#why-vcms` |
 | 6 | Wizard + Visualizer | `WizardVisualizerCompact` | Cash + PARTIAL intake | Wizard try-demo LIVE + Design Intake PARTIAL in one H2 — not flagship |

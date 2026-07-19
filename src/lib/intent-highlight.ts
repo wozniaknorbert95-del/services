@@ -36,6 +36,17 @@ export function sortByIntentMatch<T extends IntentBindable>(
   });
 }
 
+/** Hide non-matches when an intent chip is active (Pain + IntentRouter). */
+export function filterByIntentMatch<T extends IntentBindable>(
+  items: readonly T[],
+  activeIntent: IntentId | null
+): T[] {
+  if (!activeIntent) {
+    return [...items];
+  }
+  return items.filter((item) => getItemIntents(item).includes(activeIntent));
+}
+
 export function itemMatchesIntent(item: IntentBindable, activeIntent: IntentId | null): boolean {
   if (!activeIntent) {
     return true;

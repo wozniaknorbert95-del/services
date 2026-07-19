@@ -1,6 +1,6 @@
 ---
 name: strategy-check
-description: Verify changes comply with the strategy canon for services.flexgrafik.nl — LOCKED home order (site-map §3 v5.1, Pain chips + 9 leaks, Jadzia-first), intent colors (§4), single-L3 rule, Problem→System→Effect arc, CTA tiers. Flags drift and enforces the anti-chaos rule (update site-map.md when page.tsx changes). Invoke before/after any home or money-page work.
+description: Verify changes comply with the strategy canon for services.flexgrafik.nl — LOCKED home order (site-map §3 v5.2, Pain chips + 9 leaks + filter polish, Jadzia-first), intent colors (§4), single-L3 rule, Problem→System→Effect arc, CTA tiers. Flags drift and enforces the anti-chaos rule (update site-map.md when page.tsx changes). Invoke before/after any home or money-page work.
 ---
 
 # strategy-check — Strategy Canon Compliance
@@ -23,7 +23,7 @@ Invoke this skill when:
 
 ### Step 2 — Check against binding rules
 
-**Home order (site-map §3 v5.1 — LOCKED):** Hero → PainGrid (**9 leak cards** + **5 intent chips**; Quote first; costLine + fixLine) → IntentRouter (**modules only on home**, no chips; ≥7 cards incl. VCMS; shared intent from Pain) → JadziaSpearhead (Live proof #1) → VcmsTrustStrip → WizardVisualizerCompact → BuiltVsPlanned (Jadzia → VCMS → Wizard → Agent OS) → WhyItWorks → Pricing → FinalCtaBand. IntentRouter on `/solutions/` keeps chips. Forbidden on home: `DualBrandBand`, `FeaturedStrip`, Wizard as sole flagship Spearhead, standalone `SystemMetrics`, `EcosystemVideo`, `LivingSystemTeaser`, `BehindTheScenes`, full LOS sections, second hero rewrite, "AI Systems Architect" label, terminal mocks. Full LOS on `/results/owner-ecosystem/`.
+**Home order (site-map §3 v5.2 — LOCKED):** Hero → PainGrid (**9 leak cards** + **5 short chips**; hide non-matches; sticky filter; `?intent=` URL; Losing/You get; mobile compact) → IntentRouter (**modules only on home**, no chips; ≥7 cards incl. VCMS; filtered H2 bridge; same hide) → JadziaSpearhead (Live proof #1) → VcmsTrustStrip → WizardVisualizerCompact → BuiltVsPlanned (Jadzia → VCMS → Wizard → Agent OS) → WhyItWorks → Pricing → FinalCtaBand. IntentRouter on `/solutions/` keeps chips. Forbidden on home: `DualBrandBand`, `FeaturedStrip`, Wizard as sole flagship Spearhead, standalone `SystemMetrics`, `EcosystemVideo`, `LivingSystemTeaser`, `BehindTheScenes`, full LOS sections, second hero rewrite, "AI Systems Architect" label, terminal mocks. Full LOS on `/results/owner-ecosystem/`.
 
 **Page arc:** every money page is **Problem → System → Effect**, never Feature → Feature → Feature.
 

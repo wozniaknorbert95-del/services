@@ -90,6 +90,9 @@ export type VideoKey =
 
 export const INTENT_LEGEND: ReadonlyArray<{
   id: IntentId;
+  /** Short chip label (toolbar) */
+  shortLabel: string;
+  /** Full label for title / aria */
   label: string;
   legend: string;
   cssVar: string;
@@ -97,6 +100,7 @@ export const INTENT_LEGEND: ReadonlyArray<{
 }> = [
   {
     id: 'time',
+    shortLabel: 'Time',
     label: 'Save time',
     legend: 'Saves your time',
     cssVar: 'var(--fx-time)',
@@ -104,6 +108,7 @@ export const INTENT_LEGEND: ReadonlyArray<{
   },
   {
     id: 'money',
+    shortLabel: 'Money',
     label: 'Earn more',
     legend: 'Raises revenue / profit',
     cssVar: 'var(--fx-money)',
@@ -111,6 +116,7 @@ export const INTENT_LEGEND: ReadonlyArray<{
   },
   {
     id: 'calm',
+    shortLabel: 'Calm',
     label: 'Less chaos and stress',
     legend: 'Reduces stress and chaos',
     cssVar: 'var(--fx-calm)',
@@ -118,6 +124,7 @@ export const INTENT_LEGEND: ReadonlyArray<{
   },
   {
     id: 'efficiency',
+    shortLabel: 'Team',
     label: 'Raise team efficiency',
     legend: 'Increases team efficiency',
     cssVar: 'var(--fx-efficiency)',
@@ -125,6 +132,7 @@ export const INTENT_LEGEND: ReadonlyArray<{
   },
   {
     id: 'order',
+    shortLabel: 'Order',
     label: 'Order systems and tech',
     legend: 'Orders systems and processes',
     cssVar: 'var(--fx-order)',
@@ -360,14 +368,16 @@ export function getHomeRepos(): readonly EcosystemRepo[] {
 export const INTENT_ROUTER_HEADER = {
   eyebrow: 'pick your module',
   title: 'Pick your leak — see the production module that fixes it.',
+  titleFiltered: (label: string) => `Matching modules — ${label}`,
   lead:
     'Business outcome first. Each card links to live proof with honest status labels.',
+  leadFiltered: 'Same filter as Your leak above. Open the proof that fits.',
   filterAll: (count: number) =>
     `Showing ${count} production modules · filter by intent above`,
   filterAllHome: (count: number) =>
     `Showing ${count} production modules · intent filter is in Your leak above`,
   filterActive: (label: string, count: number) =>
-    `Highlighting modules for "${label}" — all ${count} stay visible`,
+    `Showing ${count} modules for "${label}"`,
   nextStepDefault: 'Start with a paid Automation Map — then we pick the right module.',
   nextStepRecommended: (role: string) => `Recommended next: ${role}`,
 } as const;
@@ -389,9 +399,14 @@ export const PAIN_GRID_HEADER = {
   title: 'Where is time or money leaking?',
   lead:
     'Filter by what you want to protect — time, money, calm, team, order. Each leak shows what you lose and which live module fixes it.',
+  losingLabel: 'Losing',
+  fixLabel: 'You get',
+  clearFilter: 'Clear filter',
+  seeModules: 'See matching modules ↓',
   filterAll: (count: number) => `Showing ${count} leaks · filter by intent`,
   filterActive: (label: string, count: number) =>
-    `Showing leaks for "${label}" · ${count} stay visible`,
+    `Showing ${count} leaks for "${label}"`,
+  filterEmpty: (label: string) => `No leaks for "${label}" · clear the filter`,
 } as const;
 
 /** Home pain router — site-map §3 v5.1 (9 leaks + chips in PainGrid). */

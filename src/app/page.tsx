@@ -11,7 +11,8 @@ import Pricing from '@/components/sections/Pricing';
 import FinalCtaBand from '@/components/home/FinalCtaBand';
 import StickyCta from '@/components/layout/StickyCta';
 import SectionProgress from '@/components/layout/SectionProgress';
-import { HomeIntentProvider } from '@/lib/home-intent';
+import HomeIntentBoundary from '@/components/home/HomeIntentBoundary';
+import IntentFilterSticky from '@/components/home/IntentFilterSticky';
 
 export const metadata: Metadata = {
   title: 'Conversion Systems Architect for Small Business',
@@ -38,12 +39,13 @@ export const metadata: Metadata = {
   },
 };
 
-/** Home section order: docs/strategy/site-map.md §3 v5.1 (Pain chips + Jadzia-first) */
+/** Home section order: docs/strategy/site-map.md §3 v5.2 (Pain chips + filter polish) */
 export default function Home() {
   return (
-    <HomeIntentProvider>
+    <HomeIntentBoundary>
       <div className="pb-20 lg:pb-0">
         <SectionProgress />
+        <IntentFilterSticky />
         <HeroSection />
         <PainGrid />
         <IntentRouter showChips={false} />
@@ -56,6 +58,6 @@ export default function Home() {
         <FinalCtaBand />
         <StickyCta />
       </div>
-    </HomeIntentProvider>
+    </HomeIntentBoundary>
   );
 }

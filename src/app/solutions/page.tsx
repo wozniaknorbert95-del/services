@@ -7,7 +7,7 @@ import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import IntentRouter from '@/components/home/IntentRouter';
-import { HomeIntentProvider } from '@/lib/home-intent';
+import HomeIntentBoundary from '@/components/home/HomeIntentBoundary';
 import { fadeIn, slideUp, staggerContainer } from '@/lib/motion';
 import { ROUTES, PRICING } from '@/lib/constants';
 import { formatRange } from '@/content/pricing';
@@ -124,10 +124,10 @@ export default function SolutionsPage() {
         </M.div>
       </Section>
 
-      {/* Module picker — chips live in Pain on home; solutions keeps chips (site-map §3 v5.1) */}
-      <HomeIntentProvider>
+      {/* Module picker — chips live in Pain on home; solutions keeps chips (site-map §3 v5.2) */}
+      <HomeIntentBoundary>
         <IntentRouter />
-      </HomeIntentProvider>
+      </HomeIntentBoundary>
 
       {/* Spearhead: Wizard */}
       <Section background="surface" padding="large">
