@@ -16,6 +16,9 @@ page_url: "https://www.facebook.com/people/FlexGrafik/61568401273877/"
 > **Cadence:** 2–3 posts / week during 10-post launch · then 1–3 / week  
 > **Core rule:** ZZP brandingpartner for NL — not B2B automation, not generic print shop.
 
+**2026-07-19 — Marketing OS split:** FlexGrafik **demand gen / unit economics / learning ads** SoT = `jadzia-core/docs/ops/marketing/`.  
+QuietForge proof-from-lab (no FG ad spend): [`quietforge-from-flexgrafik-lab.md`](./quietforge-from-flexgrafik-lab.md) · case template [`../CASE-STUDY-TEMPLATE.md`](../CASE-STUDY-TEMPLATE.md).
+
 **LinkedIn B2B lives on LinkedIn only:** [`../linkedin/README.md`](../linkedin/README.md)
 
 **Channel context (dual-brand map):** [`../gtm/02-channel-architecture.md`](../gtm/02-channel-architecture.md)
