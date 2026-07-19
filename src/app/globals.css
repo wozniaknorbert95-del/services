@@ -570,7 +570,7 @@ a:hover {
 }
 
 .qf-hero-proof-strip {
-  margin: 0 0 var(--qf-sp-5);
+  margin: 0 0 var(--qf-sp-3);
   font-family: var(--qf-mono);
   font-size: var(--qf-fs-xs);
   color: var(--qf-text-dim);
@@ -578,11 +578,10 @@ a:hover {
 
 .qf-hero-beats {
   display: none;
-  flex-direction: column;
-  gap: var(--qf-sp-3);
   list-style: none;
   margin: 0;
   padding: 0;
+  gap: var(--qf-sp-3);
 }
 
 @media (min-width: 640px) {
@@ -591,7 +590,8 @@ a:hover {
   }
 
   .qf-hero-beats {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1688,7 +1688,7 @@ a:hover {
 
 .qf-hero-beat {
   border-left: 2px solid var(--qf-border);
-  padding-left: var(--qf-sp-4);
+  padding-left: var(--qf-sp-3);
 }
 
 .qf-hero-beat-label {
@@ -1703,7 +1703,8 @@ a:hover {
 
 .qf-hero-beat-text {
   display: block;
-  font-size: var(--qf-fs-sm);
+  font-size: var(--qf-fs-xs);
+  line-height: 1.4;
   color: var(--qf-text-dim);
 }
 
@@ -1734,6 +1735,15 @@ a:hover {
   display: block;
   width: 100%;
   height: auto;
+  max-height: min(420px, 55vh);
+  object-fit: contain;
+  background: var(--qf-bg-inset);
+}
+
+@media (min-width: 1024px) {
+  .qf-hero-proof-visual-img {
+    max-height: 480px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

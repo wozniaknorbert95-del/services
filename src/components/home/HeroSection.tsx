@@ -86,8 +86,8 @@ export default function HeroSection() {
               <Image
                 src={HERO.proofVisual.src}
                 alt={HERO.proofVisual.alt}
-                width={1200}
-                height={750}
+                width={994}
+                height={909}
                 className="qf-hero-proof-visual-img"
                 priority
               />

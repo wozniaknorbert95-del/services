@@ -1,21 +1,20 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-07-19 · **Status:** Jadzia Proof Commander + workflow CLOSED  
-**Commit:** `7988d9b`  
-**Canon:** site-map §3 v6.0  
-**Handoff:** [`handoffs/2026-07-19-jadzia-proof-commander.md`](handoffs/2026-07-19-jadzia-proof-commander.md)
+**Updated:** 2026-07-19 · **Status:** Hero Jadzia density — SHIPPING  
+**Canon:** site-map §3 v6.0 · §4 hero contract (Jadzia proof visual)  
+**Handoff:** [`handoffs/2026-07-19-hero-jadzia-density.md`](handoffs/2026-07-19-hero-jadzia-density.md)
 
 ---
 
 ## CO
 
-Jadzia case study Proof = Commander screenshots + interactive workflow (no fake Agent OS / Inbox video).
+Home hero: ops-cockpit story + Jadzia Commander visual (not Wizard); compact PSE 3-col row.
 
 ---
 
 ## NASTĘPNY KROK (Commander)
 
-Smoke `/results/jadzia-coi/#proof` po Vercel. Opcjonalnie re-capture gdy API priorytetów wróci LIVE.
+Post-deploy hard refresh `/` — confirm Jadzia in hero + PSE one row. Optional landscape crop later.
 
 ---
 

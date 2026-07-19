@@ -112,11 +112,14 @@ Every home hero must include exactly these elements in order:
 **H1**  
 Conversion systems that qualify leads, reduce admin and keep humans in control.
 
-**Lead**  
-For Dutch small businesses that are tired of manual quotes, inbox chaos and websites that do not turn visitors into pipeline. I design the system, wire the workflow, and keep approval gates where they belong.
+**Lead** (live = `HERO.subline`)  
+For Dutch small businesses tired of manual quotes, inbox chaos and sites that do not become pipeline.
 
 **Proof strip**  
-Live wizard checkout · HITL approval · EU-hosted · inbox classified
+Ops cockpit live · modules with honest status · you approve
+
+**Proof visual**  
+Jadzia COI Commander Start (`/gratka/jadzia-commander-home.png`) — not Wizard checkout.
 
 **CTA**  
 Primary: `Book Automation Map` → `/book-discovery/`  

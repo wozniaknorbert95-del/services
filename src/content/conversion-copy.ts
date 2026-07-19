@@ -16,20 +16,20 @@ export const HERO = {
   headline:
     'Conversion systems that qualify leads, reduce admin and keep humans in control.',
   subline:
-    'For Dutch small businesses tired of manual quotes, inbox chaos and websites that do not turn visitors into pipeline.',
+    'For Dutch small businesses tired of manual quotes, inbox chaos and sites that do not become pipeline.',
   dualBrandLine: 'Quietforge deploys · FlexGrafik is the live proof',
   beats: {
     problem: {
       label: 'Problem',
-      text: 'Manual quotes, inbox chaos, and traffic that never becomes pipeline.',
+      text: 'Manual quotes, inbox chaos, no pipeline.',
     },
     system: {
       label: 'System',
-      text: 'Supervised conversion workflow — qualify, route, and approve before anything sends.',
+      text: 'Qualify → route → approve before send.',
     },
     effect: {
       label: 'Effect',
-      text: 'Fewer missed leads, less admin, humans stay in control.',
+      text: 'Fewer missed leads. Less admin. You decide.',
     },
   },
   proofStrip: 'Ops cockpit live · modules with honest status · you approve',
@@ -44,9 +44,9 @@ export const HERO = {
   wizardHref: 'https://zzpackage.flexgrafik.nl/',
   whatsappCta: 'Ask on WhatsApp',
   proofVisual: {
-    src: '/gratka/wizard-checkout.png',
-    alt: 'Wizard Cash Engine checkout — live proof on FlexGrafik operations',
-    caption: 'Live on zzpackage.flexgrafik.nl — try in two minutes',
+    src: '/gratka/jadzia-commander-home.png',
+    alt: 'COI Commander Start — live ops cockpit on FlexGrafik',
+    caption: 'Live ops cockpit — pick one action; you approve',
   },
 } as const;
 
