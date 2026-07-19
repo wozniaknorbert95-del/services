@@ -800,7 +800,7 @@ a:hover {
 }
 
 .qf-pain-card-body {
-  margin: 0 0 var(--qf-sp-5);
+  margin: 0 0 var(--qf-sp-3);
   flex: 1;
   font-size: var(--qf-fs-sm);
   color: var(--qf-text-dim);
@@ -869,6 +869,23 @@ a:hover {
   font-family: var(--qf-mono);
   font-size: var(--qf-fs-xs);
   color: var(--pain-accent, var(--qf-accent));
+}
+
+.qf-pain-fix {
+  margin: 0 0 var(--qf-sp-5);
+  font-size: var(--qf-fs-sm);
+  line-height: var(--qf-lh-snug);
+  color: var(--qf-text);
+}
+
+.qf-pain-module {
+  display: block;
+  margin-bottom: var(--qf-sp-1);
+  font-family: var(--qf-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--qf-accent);
 }
 
 /* Spearhead — live proof + metrics strip */

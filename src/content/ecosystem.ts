@@ -361,9 +361,11 @@ export const INTENT_ROUTER_HEADER = {
   eyebrow: 'pick your module',
   title: 'Pick your leak — see the production module that fixes it.',
   lead:
-    'Business outcome first. Filter by what matters — each card links to live proof with honest status labels.',
+    'Business outcome first. Each card links to live proof with honest status labels.',
   filterAll: (count: number) =>
     `Showing ${count} production modules · filter by intent above`,
+  filterAllHome: (count: number) =>
+    `Showing ${count} production modules · intent filter is in Your leak above`,
   filterActive: (label: string, count: number) =>
     `Highlighting modules for "${label}" — all ${count} stay visible`,
   nextStepDefault: 'Start with a paid Automation Map — then we pick the right module.',
@@ -375,6 +377,9 @@ export interface PainCard {
   title: string;
   description: string;
   costLine: string;
+  /** What the live module does — one line, buyer language */
+  fixLine: string;
+  moduleLabel: string;
   href: string;
   intents: IntentId[];
 }
@@ -382,25 +387,34 @@ export interface PainCard {
 export const PAIN_GRID_HEADER = {
   eyebrow: 'your leak',
   title: 'Where is time or money leaking?',
-  lead: 'Pick the pain that costs you most. We start there — quote ping-pong first when that is the leak.',
+  lead:
+    'Filter by what you want to protect — time, money, calm, team, order. Each leak shows what you lose and which live module fixes it.',
+  filterAll: (count: number) => `Showing ${count} leaks · filter by intent`,
+  filterActive: (label: string, count: number) =>
+    `Showing leaks for "${label}" · ${count} stay visible`,
 } as const;
 
+/** Home pain router — site-map §3 v5.1 (9 leaks + chips in PainGrid). */
 export const PAIN_GRID: readonly PainCard[] = [
   {
     id: 'pain-quotes',
     title: 'Quotes by hand',
     description:
-      'Same questions, same email tennis — before you know if the lead is serious. The wizard structures quote, price and next step.',
+      'Same questions, same email tennis — before you know if the lead is serious.',
     costLine: '3-day ping-pong before you know if they are serious',
+    fixLine: 'Configure → open price → Mollie checkout in one guided flow.',
+    moduleLabel: 'Wizard',
     href: ROUTES.salesFunnel,
     intents: ['money', 'efficiency'],
   },
   {
     id: 'pain-site',
-    title: 'An outdated website',
+    title: 'Website that does not convert',
     description:
-      'Visitors arrive with no trust signal, no clear route and no reason to act. Turn the site into a conversion path.',
+      'Visitors arrive with no trust signal, no clear route and no reason to act.',
     costLine: 'Visitors leave — enquiries stay flat',
+    fixLine: 'Trust path and clear CTAs into quoting — not a brochure.',
+    moduleLabel: 'Web Upgrade',
     href: ROUTES.webUpgrade,
     intents: ['money', 'order'],
   },
@@ -408,17 +422,20 @@ export const PAIN_GRID: readonly PainCard[] = [
     id: 'pain-leads',
     title: 'Traffic, but no leads',
     description:
-      'People visit and disappear. Earn attention first, then hand qualified contacts into the quoting path.',
+      'People visit and disappear before anyone captures a qualified contact.',
     costLine: 'Paid clicks with nothing in the CRM',
+    fixLine: 'Play → reward → Wizard handoff — selective acquisition.',
+    moduleLabel: 'Lead magnet',
     href: ROUTES.leadMagnetGame,
     intents: ['money'],
   },
   {
     id: 'pain-inbox',
     title: 'Drowning in email',
-    description:
-      'Leads, invoices and noise in one pile. Classify, draft and queue replies — you approve every send.',
+    description: 'Leads, invoices and noise in one pile every morning.',
     costLine: '~12 hours/week lost to triage',
+    fixLine: 'Lanes + draft replies — you approve every send.',
+    moduleLabel: 'Inbox Killer',
     href: ROUTES.inboxKiller,
     intents: ['time', 'calm'],
   },
@@ -426,18 +443,52 @@ export const PAIN_GRID: readonly PainCard[] = [
     id: 'pain-ops-blind',
     title: 'No view of what needs action',
     description:
-      'Orders, leads and weekly decisions live in separate tools. An operations cockpit shows what needs you — then you approve.',
+      'Orders, leads and weekly decisions live in separate tools.',
     costLine: 'Three silos — no single next-action list',
+    fixLine: 'One cockpit for leads and orders — you approve the actions.',
+    moduleLabel: 'Jadzia',
     href: ROUTES.resultsJadziaCoi,
     intents: ['time', 'calm', 'order'],
+  },
+  {
+    id: 'pain-ops-brief',
+    title: 'Decisions scattered all week',
+    description: 'Owner decisions live in notes, chat and memory — nothing synthesised.',
+    costLine: 'Strategy lives in scattered notes and inbox',
+    fixLine: 'Weekly owner brief as a draft you review and approve.',
+    moduleLabel: 'Jadzia',
+    href: ROUTES.resultsJadziaCoi,
+    intents: ['time', 'order'],
+  },
+  {
+    id: 'pain-publish',
+    title: 'Content goes out without a gate',
+    description: 'Posts and edits leave without a clear approve trail.',
+    costLine: 'No trail for who published what — or whether you said yes',
+    fixLine: 'Prepare → approve → publish — nothing goes out without you.',
+    moduleLabel: 'Jadzia',
+    href: ROUTES.resultsJadziaCoi,
+    intents: ['calm', 'order'],
   },
   {
     id: 'pain-drift',
     title: 'Docs and systems drift apart',
     description:
-      'Repos and content diverge before anyone notices. Governance scan flags conflicts before deploy — and helps you learn what the system knows.',
+      'Repos and content diverge before anyone notices.',
     costLine: 'Silent drift until something breaks in production',
+    fixLine: 'Scan, conflict flags, and KODA so you learn what the system knows.',
+    moduleLabel: 'VCMS',
     href: ROUTES.resultsOwnerEcosystemWhyVcms,
     intents: ['order', 'calm'],
+  },
+  {
+    id: 'pain-agent-queue',
+    title: 'Changes without an approve path',
+    description: 'Ad-hoc builds with no logged gate before anything ships.',
+    costLine: 'Ad-hoc changes — no logged gate before ship',
+    fixLine: 'Fixed supervised workflow — you approve before anything goes live.',
+    moduleLabel: 'Agent OS',
+    href: ROUTES.resultsAgentOrchestrator,
+    intents: ['time', 'efficiency'],
   },
 ] as const;

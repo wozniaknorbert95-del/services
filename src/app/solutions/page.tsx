@@ -124,7 +124,7 @@ export default function SolutionsPage() {
         </M.div>
       </Section>
 
-      {/* Module picker — mirrored on home (site-map §3 v5.0) */}
+      {/* Module picker — chips live in Pain on home; solutions keeps chips (site-map §3 v5.1) */}
       <HomeIntentProvider>
         <IntentRouter />
       </HomeIntentProvider>

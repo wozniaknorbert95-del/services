@@ -71,13 +71,13 @@ These must never be swapped on `/solutions/`, cards, pricing or metadata.
 
 ## §3 HOME — section order
 
-> **Version 5.0 (2026-07-19):** Router colors back on home + **Jadzia-first** proof hierarchy. PainGrid (buyer pain) + IntentRouter (intent chips + modules). Promotion: Jadzia → VCMS → Wizard → Visualizer → Inbox. Inventory: [home-router-jadzia-research-inventory](../audits/2026-07-19-home-router-jadzia-research-inventory.md).
+> **Version 5.1 (2026-07-19):** Pain section = **true intent router** (chips + leaks). IntentRouter below = modules only on home (no second chip row). Jadzia-first proof hierarchy unchanged.
 
 | # | Section | Component(s) | Funnel job | Primary content rule |
 |---|---|---|---|---|
 | 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / dual-brand 1-liner / **Book Map CTA above fold** / proof strip: ops cockpit · governance · wizard — beats desktop-only |
-| 2 | Pain router | `PainGrid` | Recognition (pain language) | **6 cards**; Quote first lead; **no chips**; highlight when IntentRouter filter active — quotes → site → leads → inbox → ops-blind → drift |
-| 3 | Intent router | `IntentRouter` + chips | Benefit / module awareness | **5 intent chips** (`--fx-*`); ≥7 module cards incl. **VCMS**; dim non-match; also mirrored on `/solutions/` |
+| 2 | Pain router | `PainGrid` + chips | Recognition + intent filter | **9 leak cards** + **5 intent chips**; Quote first lead; costLine + fixLine per card; shared intent filters modules below |
+| 3 | Intent router | `IntentRouter` | Module awareness | ≥7 module cards incl. **VCMS**; **no chips on home** (chips live in Pain); `/solutions/` keeps chips |
 | 4 | Live proof #1 — Jadzia | `JadziaSpearhead` | Ops pearl | Operations Command Layer ~93% LIVE — cockpit narrative, no full autonomy claim; CTA → `/results/jadzia-coi/` |
 | 5 | VCMS trust | `VcmsTrustStrip` | Control + knowledge | Scan / conflicts / KODA buyer language; link `#why-vcms` |
 | 6 | Wizard + Visualizer | `WizardVisualizerCompact` | Cash + PARTIAL intake | Wizard try-demo LIVE + Design Intake PARTIAL in one H2 — not flagship |

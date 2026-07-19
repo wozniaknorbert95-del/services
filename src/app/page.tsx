@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
 };
 
-/** Home section order: docs/strategy/site-map.md §3 v5.0 (Router + Jadzia-first, 2026-07-19) */
+/** Home section order: docs/strategy/site-map.md §3 v5.1 (Pain chips + Jadzia-first) */
 export default function Home() {
   return (
     <HomeIntentProvider>
@@ -46,7 +46,7 @@ export default function Home() {
         <SectionProgress />
         <HeroSection />
         <PainGrid />
-        <IntentRouter />
+        <IntentRouter showChips={false} />
         <JadziaSpearhead />
         <VcmsTrustStrip />
         <WizardVisualizerCompact />

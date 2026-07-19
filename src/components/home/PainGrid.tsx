@@ -3,13 +3,28 @@
 import { useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Mail, Monitor, Quote, Users, EyeOff, GitBranch } from 'lucide-react';
+import {
+  Mail,
+  Monitor,
+  Quote,
+  Users,
+  EyeOff,
+  GitBranch,
+  CalendarCheck,
+  ShieldCheck,
+  Workflow,
+} from 'lucide-react';
 import { useMotion } from '@/lib/useMotion';
-import { PAIN_GRID, PAIN_GRID_HEADER } from '@/content/ecosystem';
+import {
+  PAIN_GRID,
+  PAIN_GRID_HEADER,
+  getIntentMeta,
+} from '@/content/ecosystem';
 import { useHomeIntent, matchesHomeIntent } from '@/lib/home-intent';
 import { intentHighlightClass, sortByIntentMatch } from '@/lib/intent-highlight';
 import Eyebrow from '@/components/ui/Eyebrow';
 import IntentBadges from '@/components/ui/IntentBadges';
+import IntentFilterChips from '@/components/home/IntentFilterChips';
 
 const PAIN_ICONS = {
   'pain-inbox': Mail,
@@ -17,10 +32,13 @@ const PAIN_ICONS = {
   'pain-quotes': Quote,
   'pain-leads': Users,
   'pain-ops-blind': EyeOff,
+  'pain-ops-brief': CalendarCheck,
+  'pain-publish': ShieldCheck,
   'pain-drift': GitBranch,
+  'pain-agent-queue': Workflow,
 } as const;
 
-/** Pain router — site-map §3 v5.0 #2. Six cards; highlight via IntentRouter filter; no chips. */
+/** Pain router — site-map §3 v5.1: chips + 9 leaks (true home intent router). */
 export default function PainGrid() {
   const motionCfg = useMotion();
   const fade = motionCfg.fadeIn();
@@ -30,6 +48,10 @@ export default function PainGrid() {
     () => sortByIntentMatch(PAIN_GRID, activeIntent),
     [activeIntent]
   );
+
+  const filterLabel = activeIntent
+    ? PAIN_GRID_HEADER.filterActive(getIntentMeta(activeIntent).label, PAIN_GRID.length)
+    : PAIN_GRID_HEADER.filterAll(PAIN_GRID.length);
 
   return (
     <section data-home-section="pain-grid" className="qf-pain-section" aria-labelledby="pain-grid-title">
@@ -47,6 +69,11 @@ export default function PainGrid() {
           </h2>
           <p className="qf-lead max-w-2xl">{PAIN_GRID_HEADER.lead}</p>
         </motion.div>
+
+        <div className="qf-pain-filters">
+          <IntentFilterChips />
+          <p className="qf-pain-filter-label">{filterLabel}</p>
+        </div>
 
         <motion.div
           variants={motionCfg.staggerContainer}
@@ -76,7 +103,11 @@ export default function PainGrid() {
                   <h3 className="qf-pain-card-title">{pain.title}</h3>
                   <p className="qf-pain-cost">{pain.costLine}</p>
                   <p className="qf-pain-card-body">{pain.description}</p>
-                  <span className="qf-pain-card-cta">See the fix →</span>
+                  <p className="qf-pain-fix">
+                    <span className="qf-pain-module">{pain.moduleLabel}</span>
+                    {pain.fixLine}
+                  </p>
+                  <span className="qf-pain-card-cta">See how it works →</span>
                 </Link>
               </motion.div>
             );

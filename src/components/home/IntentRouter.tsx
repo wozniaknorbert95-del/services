@@ -54,7 +54,7 @@ function sortReposForIntent(repos: readonly EcosystemRepo[], intent: IntentId) {
   });
 }
 
-export default function IntentRouter() {
+export default function IntentRouter({ showChips = true }: { showChips?: boolean }) {
   const { activeIntent, isFiltering } = useHomeIntent();
   const homeRepos = useMemo(() => getHomeRepos(), []);
 
@@ -71,12 +71,15 @@ export default function IntentRouter() {
     return sortedRepos.find((r) => r.intents.includes(activeIntent)) ?? sortedRepos[0];
   }, [activeIntent, sortedRepos, homeRepos]);
 
-  const filterLabel = activeIntent
-    ? INTENT_ROUTER_HEADER.filterActive(
-        getIntentMeta(activeIntent).label,
-        homeRepos.length
-      )
-    : INTENT_ROUTER_HEADER.filterAll(homeRepos.length);
+  const filterLabel =
+    activeIntent
+      ? INTENT_ROUTER_HEADER.filterActive(
+          getIntentMeta(activeIntent).label,
+          homeRepos.length
+        )
+      : showChips
+        ? INTENT_ROUTER_HEADER.filterAll(homeRepos.length)
+        : INTENT_ROUTER_HEADER.filterAllHome(homeRepos.length);
 
   return (
     <section
@@ -91,7 +94,7 @@ export default function IntentRouter() {
           <p className="qf-lead mx-auto mt-[var(--qf-sp-4)]">{INTENT_ROUTER_HEADER.lead}</p>
         </div>
 
-        <IntentFilterChips />
+        {showChips ? <IntentFilterChips /> : null}
 
         <p className="text-center font-mono text-xs text-[var(--qf-text-dim)]">{filterLabel}</p>
 
