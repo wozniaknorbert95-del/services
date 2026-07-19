@@ -1,7 +1,8 @@
 # Handoff — Home v5 Router + Jadzia-first (2026-07-19)
 
 **Repo:** quietforge.flexgrafik.nl (services) · **Build:** `npm run build` ✅ (26 sitemap routes)  
-**Status:** READY TO SHIP (no commit/push until Commander says **ship**)  
+**Status:** CLOSED — prod verified 2026-07-19  
+**Ship:** `b7bf240` · hotfix solutions nav-by-href after Ops insert  
 **Canon:** `docs/strategy/site-map.md` §3 **v5.0**
 
 ## Cel / Goal

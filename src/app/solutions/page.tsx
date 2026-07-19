@@ -18,12 +18,25 @@ const M = {
   div: motion.div,
 };
 
-const [SALES_NAV, WEB_NAV, LEAD_NAV, INBOX_NAV, MRR_NAV] = SOLUTIONS_NAV;
+/** Resolve by href — never by array index (Ops Command sits between Cash and Capture). */
+function navByHref(href: string) {
+  const item = SOLUTIONS_NAV.find((entry) => entry.href === href);
+  if (!item) {
+    throw new Error(`SOLUTIONS_NAV missing href: ${href}`);
+  }
+  return item;
+}
+
+const SALES_NAV = navByHref(ROUTES.salesFunnel);
+const WEB_NAV = navByHref(ROUTES.webUpgrade);
+const LEAD_NAV = navByHref(ROUTES.leadMagnetGame);
+const INBOX_NAV = navByHref(ROUTES.inboxKiller);
+const MRR_NAV = navByHref(ROUTES.managedAutomation);
 
 const SPEARHEAD = {
-  label: 'QUOTE & CLOSE — Live proof #1',
+  label: 'QUOTE & CLOSE — Cash engine',
   title: SALES_NAV.label,
-  badge: SALES_NAV.badge ?? 'Spearhead',
+  badge: SALES_NAV.badge ?? 'Cash',
   who: 'Owners stuck in quote ping-pong — print, branding, trades, and any custom product that needs a priced path to payment.',
   what: 'A guided configurator with open pricing and checkout — plus an optional Complex Quote & Design Intake (INSPIRE pattern): structured request → visual direction → priced Wizard handoff.',
   outcomes: [
@@ -111,7 +124,7 @@ export default function SolutionsPage() {
         </M.div>
       </Section>
 
-      {/* Module picker — moved off home (site-map §3 v4.0) */}
+      {/* Module picker — mirrored on home (site-map §3 v5.0) */}
       <HomeIntentProvider>
         <IntentRouter />
       </HomeIntentProvider>
