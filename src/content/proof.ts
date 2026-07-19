@@ -205,9 +205,9 @@ export const screens: Record<ScreenKey, ScreenShot> = {
   adminDashboard:  { src: "/gratka/agent-os-mission-control.png", alt: "Mission Control dashboard — tasks, queue, history and cost tabs", caption: "Mission Control — tasks, queue, history and cost tabs. LIVE on os.flexgrafik.nl.", ready: true },
   jadziaCommander: {
     src: '/gratka/jadzia-commander-home.png',
-    alt: 'COI Commander Start — priorities and action queue',
+    alt: 'COI Commander Start — queue actions and system map',
     caption:
-      'Live Commander chrome on FlexGrafik — pick one priority; humans confirm before consequential action. Portfolio view redacted (no client PII).',
+      'Live COI Commander Start on FlexGrafik — owner picks one queued action (e.g. CS follow-up); confirm before anything consequential. No client PII in this view.',
     ready: true,
   },
   jadziaDataHealth: {

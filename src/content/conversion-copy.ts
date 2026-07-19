@@ -116,8 +116,9 @@ export const JADZIA_SPEARHEAD = {
   secondaryHref: '/book-discovery/',
   screenshot: {
     src: '/gratka/jadzia-commander-home.png',
-    alt: 'COI Commander Start — priorities and action queue',
-    caption: 'Live Commander cockpit — pick a priority; humans approve before Act.',
+    alt: 'COI Commander Start — queue actions and system map',
+    caption:
+      'Live COI Commander Start — pick one queued action; humans approve before Act.',
   },
 } as const;
 
