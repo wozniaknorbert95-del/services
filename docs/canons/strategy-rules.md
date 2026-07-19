@@ -67,8 +67,8 @@ On violation: cite rule ID, winner doc, proposed fix. Do not ship silent drift.
 **SR-11 (HARD)** — `portfolio.flexgrafik.nl` content (enterprise AI) MUST NOT appear on quietforge.  
 *Source:* vision-system §2, marketing-rules MR-12
 
-**SR-12 (HARD)** — quietforge shows governed ecosystem proof: on home = `BuiltVsPlanned` compact (4 rows: Wizard, Jadzia COI, Agent OS, Governance) + "See full architecture →" link in section 9; full LOS + 8-repo + governance details on `/results/owner-ecosystem/`. Not zero-repo mode — governance proof is compact on home, full on owner-ecosystem page.  
-*Source:* site-map §3 (v3.0 #6, #9), portfolio truth-sync 2026-06-25, Commander decision `mapa.txt` 2026-06-29
+**SR-12 (HARD)** — quietforge shows governed ecosystem proof: on home = `IntentRouter` with honest LIVE/PARTIAL status badges (≥7 modules incl. VCMS) + `JadziaSpearhead` as the deep live-ops proof; full Built vs Planned + LOS + 8-repo + governance details on `/results/owner-ecosystem/`. Not zero-repo mode — modules stay visible in the router; compact BuiltVsPlanned is **not** required on home.  
+*Source:* site-map §3 v6.0, Commander home proof truth sync 2026-07-19
 
 ---
 
@@ -90,10 +90,10 @@ On violation: cite rule ID, winner doc, proposed fix. Do not ship silent drift.
 
 ## Ecosystem display
 
-**SR-16 (HARD)** — Built vs Planned on home is **compact** (4 rows: Wizard, Jadzia COI, Agent OS, Governance + link to full map on owner-ecosystem); full 8-row table on `/results/owner-ecosystem/`. Data from `readiness.ts` — honest LIVE/PARTIAL/PLANNED labels, de-jargonised capabilities (no LangGraph/Paramiko/Langfuse).  
-*Source:* site-map §3 (v3.0 #6), proof-rules, Commander decision `mapa.txt` 2026-06-29
+**SR-16 (HARD)** — Built vs Planned full map lives on `/results/owner-ecosystem/` (data from `readiness.ts` — honest LIVE/PARTIAL/PLANNED, de-jargonised). Compact 4-row `BuiltVsPlanned` is **not** required on home; home honesty is IntentRouter status badges + Jadzia spearhead limits.  
+*Source:* site-map §3 v6.0, proof-rules, Commander home proof truth sync 2026-07-19
 
-**SR-17 (SOFT)** — Home arc is buyer-first: pain → proof → honesty gate → module pick → method → close — do not revert to full LOS/architecture sections without Commander + site-map update.
+**SR-17 (SOFT)** — Home arc is buyer-first: pain → module pick → live ops proof → method → close — do not revert to full LOS/architecture sections or re-add cash-engine/governance/honesty strips without Commander + site-map update.
 
 ---
 

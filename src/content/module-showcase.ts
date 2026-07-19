@@ -32,7 +32,7 @@ export const MODULE_SHOWCASE: Record<string, ModuleShowcase> = {
     repoKey: 'jadzia-core',
     portfolioLabel: 'Operations Command Layer',
     effect:
-      'Operations Command Layer — ~93% LIVE operational spine: Commander cockpit, orders, leads, GA4, weekly owner brief and supervised content publishing. Not a fully autonomous COI.',
+      'Operations Command Layer — LIVE ops spine + Marketing Brain shadow (F0–F3): Commander cockpit, margin facts, weekly brief, HITL publish. Not autonomous Act or auto ad spend.',
     highlights: ['Commander cockpit LIVE', 'Order/lead spine LIVE', 'Weekly brief + publish HITL'],
   },
   'agent-os': {

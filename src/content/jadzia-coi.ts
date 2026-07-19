@@ -15,9 +15,9 @@ export const JADZIA_COI = {
   packageName: 'Operations Command Layer',
   tagline: 'The operations cockpit — not a chatbot.',
   summary:
-    'Jadzia is FlexGrafik’s Operations Command Layer: a Commander cockpit, lead/order/analytics spine and weekly owner brief. The operational spine is ~93% LIVE; consequential actions stay behind human approval.',
+    'Jadzia is FlexGrafik’s Operations Command Layer: a Commander cockpit, lead/order/analytics spine, weekly owner brief, and Marketing Brain in shadow (F0–F3). Consequential actions stay behind human approval — Act and auto ad spend are not offered.',
   oneLiner:
-    'Operations Command Layer for the whole stack — a ~93% LIVE operational spine with a Commander cockpit, weekly brief and supervised content publishing.',
+    'Operations Command Layer — LIVE ops spine plus Marketing Brain shadow with Telegram HITL; humans approve before Act or publish.',
 } as const;
 
 export type JadziaCoiCapabilityStatus = 'LIVE' | 'PARTIAL' | 'PLANNED';
@@ -86,6 +86,13 @@ export const JADZIA_COI_CAPABILITIES: readonly JadziaCoiCapability[] = [
     id: 'worker',
     title: 'Approval queue + HITL',
     detail: 'Operational actions remain visible and approval-gated; Jadzia is not a fully autonomous business system.',
+    status: 'LIVE',
+  },
+  {
+    id: 'marketing-brain',
+    title: 'Marketing Brain (shadow)',
+    detail:
+      'Data Truth, shadow decisions, circuit breakers and Brain Bus (F0–F3 LIVE). Proposals only — MB_MODE=shadow; Act and Meta Ads create remain blocked until Commander GO.',
     status: 'LIVE',
   },
   {

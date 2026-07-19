@@ -1,21 +1,20 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-07-19 · **Status:** Pain filter UX v5.2 CLOSED (shipped)  
-**Commit:** `85512cf`  
-**Canon:** [`../strategy/site-map.md`](../strategy/site-map.md) §3 v5.2  
-**Handoff:** [`handoffs/2026-07-19-pain-filter-ux-v52.md`](handoffs/2026-07-19-pain-filter-ux-v52.md)
+**Updated:** 2026-07-19 · **Status:** Home proof truth sync v6.0 SHIPPING  
+**Canon:** [`../strategy/site-map.md`](../strategy/site-map.md) §3 v6.0  
+**Handoff:** [`handoffs/2026-07-19-home-v6-proof-truth.md`](handoffs/2026-07-19-home-v6-proof-truth.md)
 
 ---
 
 ## CO
 
-Pain router polish LIVE: sticky chips, `?intent=` URL, hide filter, Losing/You get, mobile compact, calm contrast, modules H2 bridge.
+Home bez cash/governance/honesty strips. Jadzia = sole deep proof (MB shadow). Design Intake copy = live supervised PARTIAL.
 
 ---
 
 ## NASTĘPNY KROK (Commander)
 
-Post-deploy smoke z handoffu v5.2.
+Post-deploy smoke z handoffu v6.0.
 
 ---
 

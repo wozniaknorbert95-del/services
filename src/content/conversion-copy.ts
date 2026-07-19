@@ -32,8 +32,8 @@ export const HERO = {
       text: 'Fewer missed leads, less admin, humans stay in control.',
     },
   },
-  proofStrip: 'Ops cockpit live · governance scan · wizard checkout · you approve',
-  proofLine: 'Ops cockpit live · governance scan · wizard checkout · you approve',
+  proofStrip: 'Ops cockpit live · modules with honest status · you approve',
+  proofLine: 'Ops cockpit live · modules with honest status · you approve',
   microTrust:
     'Quietforge deploys the same architecture that runs FLEXGRAFIK — my registered company, not a demo.',
   primaryCta: 'Book Automation Map',
@@ -97,18 +97,19 @@ export const WEBSITE_ONLY_EXCEPTION =
 export const SITE_GOAL =
   'Can this person design and deploy a system that improves my business?';
 
-/** Home Live proof #1 — Jadzia Ops Command (site-map §3 v5.0). */
+/** Home sole deep proof — Jadzia Ops + Marketing Brain (site-map §3 v6.0). SSoT: jadzia-core MKT-BRAIN-PRO. */
 export const JADZIA_SPEARHEAD = {
   eyebrow: 'live proof · operations',
-  headline: 'Operations Command Layer — see what needs action.',
+  headline: 'Operations Command Layer — margin, leads and decisions under human lock.',
   body:
-    'Jadzia is the owner cockpit for leads, orders and weekly decisions — running on the same stack as FlexGrafik. Humans approve consequential actions. Autonomy is not offered.',
+    'Jadzia is the live ops cockpit on FlexGrafik: orders, leads, margin facts and a weekly owner brief. Marketing Brain runs in shadow — it proposes, you approve. Autonomy and auto ad spend are not offered.',
   bullets: [
-    'One spine for orders, leads and analytics — not three silos.',
-    'Weekly owner brief as a draft you approve.',
-    'Supervised content publish — nothing goes out without you.',
+    'One truth layer for orders, leads and marketing facts — not vanity dashboards.',
+    'Marketing Brain LIVE in shadow (F0–F3): proposals with Telegram HITL before any Act.',
+    'Circuit breakers pause risky scale when data is stale or the stack is degraded.',
+    'Supervised content publish — nothing goes out without approval.',
   ],
-  statusMeta: 'LIVE · ~93% spine',
+  statusMeta: 'LIVE · Marketing Brain shadow (F0–F3) · HITL',
   primaryCta: 'See Jadzia proof',
   primaryHref: '/results/jadzia-coi/',
   secondaryCta: 'Book Automation Map',
@@ -116,7 +117,7 @@ export const JADZIA_SPEARHEAD = {
   screenshot: {
     src: '/gratka/jadzia-coi-architecture.svg',
     alt: 'Jadzia Operations Command Layer — Commander cockpit and operational spine',
-    caption: 'Sense → review → approve — operational spine ~93% LIVE.',
+    caption: 'Sense → propose in shadow → you approve — no autonomous Act.',
   },
 } as const;
 
@@ -158,7 +159,7 @@ export const WIZARD_VISUALIZER = {
   intakeShot: {
     src: '/gratka/inspire/mockups.png',
     alt: 'Standard and Premium inspiration mockups — Design Intake PARTIAL',
-    caption: 'Inspiration mockups — not print-ready finals. PARTIAL lab proof.',
+    caption: 'Inspiration mockups — not print-ready finals. PARTIAL live path.',
   },
 } as const;
 

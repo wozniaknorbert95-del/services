@@ -42,7 +42,7 @@ const SPEARHEAD = {
   outcomes: [
     'End repeated manual quoting',
     'Prospects see price and next step without phone tennis',
-    'Optional design intake before checkout (supervised lab proof)',
+    'Optional design intake before checkout (live supervised path · PARTIAL)',
   ],
   price: SALES_NAV.price ?? formatRange(PRICING.salesFunnel.from, PRICING.salesFunnel.to),
   href: SALES_NAV.href,

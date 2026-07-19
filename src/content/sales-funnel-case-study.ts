@@ -118,7 +118,7 @@ export const salesFunnelHubTitle = 'Self-service quote & onboarding';
 export const salesFunnelSolutionMeta = {
   title: 'Wizard Cash Engine — quotes, design intake & checkout',
   description:
-    `Self-service configurator on zzpackage.flexgrafik.nl — ${metrics.wizardSteps} screens, ${metrics.skus} SKUs, Mollie checkout from €199, plus Complex Quote & Design Intake (INSPIRE) as supervised lab proof.`,
+    `Self-service configurator on zzpackage.flexgrafik.nl — ${metrics.wizardSteps} screens, ${metrics.skus} SKUs, Mollie checkout from €199, plus Complex Quote & Design Intake (INSPIRE) as a live supervised path (PARTIAL).`,
   openGraphTitle: 'Wizard Cash Engine — quotes & design intake | Quietforge',
   openGraphDescription:
     `${metrics.wizardStepsFootnote} · ${metrics.skus} SKUs · Mollie · optional design intake before price.`,
@@ -152,13 +152,13 @@ export const salesFunnelSolutionSystemItems = [
   },
 ] as const;
 
-/** Complex Quote & Design Intake — INSPIRE extension (PARTIAL). */
+/** Complex Quote & Design Intake — INSPIRE extension (PARTIAL). SSoT: flexgrafik-inspire TRUTH-SNAPSHOT. */
 export const salesFunnelInspireExtension = {
   eyebrow: 'Extension · PARTIAL',
   title: 'Complex Quote & Design Intake',
   lead:
-    'For vehicle branding and other custom jobs: prospects describe the job, confirm a structured brief, see Standard/Premium visual direction, then continue into the priced Wizard. Live lab proof on FlexGrafik — Quietforge deploys the same pattern for custom-product quoting.',
-  statusBadge: 'PARTIAL — supervised lab proof',
+    'For vehicle branding and other custom jobs: NL chat intake, confirmed brief, Standard/Premium inspiration mockups, then priced Wizard checkout. Live supervised path on FlexGrafik — Quietforge deploys the same pattern for custom-product quoting.',
+  statusBadge: 'PARTIAL — live supervised path',
   steps: [
     'Structured intake (vehicle branding request)',
     'Confirmed DesignBrief',
@@ -166,11 +166,11 @@ export const salesFunnelInspireExtension = {
     'Handoff into priced Wizard checkout',
   ],
   limitations: [
-    'Inspiration mockups are not print-ready final artwork',
-    'Sales chat persona gate not yet GO — treat as supervised prototype',
+    'Inspiration mockups are not print-ready final artwork (drukklare = Illustrator)',
+    'Sales-chat formal GO still human-gated — Trust Pack smoke PASS; subjective stamp optional',
     'No invented conversion uplift claims',
   ],
-  demoLabel: 'Try Design Intake (live) →',
+  demoLabel: 'Open Design Intake →',
   demoHref: EXTERNAL.inspireDesignAgent,
   wizardLabel: 'Open Wizard checkout →',
   wizardHref: EXTERNAL.zzpackageWizardPath,

@@ -71,24 +71,21 @@ These must never be swapped on `/solutions/`, cards, pricing or metadata.
 
 ## §3 HOME — section order
 
-> **Version 5.2 (2026-07-19):** Pain = intent router (chips + leaks + hide). Filter polish: sticky chips, `?intent=` URL, Losing/You get hierarchy, mobile compact cards, calm contrast, modules H2 bridge. Jadzia-first proof hierarchy unchanged.
+> **Version 6.0 (2026-07-19):** Home prune — cash engine / governance / honesty strips **out**. IntentRouter carries module status; Jadzia = sole deep proof (Marketing Brain shadow + HITL). Pain filter polish from v5.2 kept.
 
 | # | Section | Component(s) | Funnel job | Primary content rule |
 |---|---|---|---|---|
-| 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / dual-brand 1-liner / **Book Map CTA above fold** / proof strip: ops cockpit · governance · wizard — beats desktop-only |
-| 2 | Pain router | `PainGrid` + chips (+ sticky) | Recognition + intent filter | **9 leak cards** + **5 short chips** (Time/Money/Calm/Team/Order); hide non-matches; Clear + See modules; `?intent=` shareable |
-| 3 | Intent router | `IntentRouter` | Module awareness | ≥7 module cards incl. **VCMS**; **no chips on home**; same filter hides modules; filtered H2 “Matching modules”; `/solutions/` keeps chips |
-| 4 | Live proof #1 — Jadzia | `JadziaSpearhead` | Ops pearl | Operations Command Layer ~93% LIVE — cockpit narrative, no full autonomy claim; CTA → `/results/jadzia-coi/` |
-| 5 | VCMS trust | `VcmsTrustStrip` | Control + knowledge | Scan / conflicts / KODA buyer language; link `#why-vcms` |
-| 6 | Wizard + Visualizer | `WizardVisualizerCompact` | Cash + PARTIAL intake | Wizard try-demo LIVE + Design Intake PARTIAL in one H2 — not flagship |
-| 7 | Honesty gate | `BuiltVsPlanned` compact | Trust | **4 rows: Jadzia → VCMS → Wizard → Agent OS**; link owner-ecosystem |
-| 8 | Why / How it works | `WhyItWorks` | Delivery + safety | Method + safety + objections — one H2 |
-| 9 | Pricing | `Pricing` | Commercial | Map Most popular · builds · Managed |
-| 10 | Final CTA | `FinalCtaBand` | Close | Strong L3 Book Map + sample Map |
+| 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / dual-brand 1-liner / **Book Map CTA above fold** / proof strip: ops cockpit · honest module status · you approve |
+| 2 | Pain router | `PainGrid` + chips (+ sticky) | Recognition + intent filter | **9 leak cards** + **5 short chips**; hide non-matches; Clear + See modules; `?intent=` shareable |
+| 3 | Intent router | `IntentRouter` | Module awareness | ≥7 module cards incl. **VCMS** + Wizard; **no chips on home**; status badges = home honesty; `/solutions/` keeps chips |
+| 4 | Live proof — Jadzia | `JadziaSpearhead` | Ops pearl | Operations Command + Marketing Brain **shadow** F0–F3 · HITL · no Act/autonomy claim; CTA → `/results/jadzia-coi/` |
+| 5 | Why / How it works | `WhyItWorks` | Delivery + safety | Method + safety + objections — one H2 |
+| 6 | Pricing | `Pricing` | Commercial | Map Most popular · builds · Managed |
+| 7 | Final CTA | `FinalCtaBand` | Close | Strong L3 Book Map + sample Map |
 
-**Removed from home (kept in repo):** `DualBrandBand`, `FeaturedStrip`, standalone `SystemMetrics`, Wizard-as-Spearhead (`SpearheadSpotlight` demoted to compact).
+**Removed from home (kept in repo):** `VcmsTrustStrip`, `WizardVisualizerCompact`, `BuiltVsPlanned` compact, `DualBrandBand`, `FeaturedStrip`, standalone `SystemMetrics`, Wizard-as-Spearhead.
 
-**Still off home:** full LOS / LivingSystemTeaser / BehindTheScenes → `/results/owner-ecosystem/`.
+**Still off home:** full LOS / Built vs Planned table / LivingSystemTeaser / BehindTheScenes → `/results/owner-ecosystem/`.
 
 ### Home chrome
 

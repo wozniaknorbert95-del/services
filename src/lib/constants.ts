@@ -78,7 +78,7 @@ export const EXTERNAL = {
   zzpackageWizard: 'https://zzpackage.flexgrafik.nl/',
   /** Wizard entry — prefer /wizard/ when linking demo CTAs */
   zzpackageWizardPath: 'https://zzpackage.flexgrafik.nl/wizard/',
-  /** Complex Quote & Design Intake (INSPIRE) — PARTIAL supervised lab proof */
+  /** Complex Quote & Design Intake (INSPIRE) — PARTIAL live supervised path on FlexGrafik */
   inspireDesignAgent: 'https://zzpackage.flexgrafik.nl/voertuigreclame-ontwerp/',
   leadMagnetGame: 'https://app.flexgrafik.nl/',
 } as const;

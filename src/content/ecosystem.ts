@@ -285,8 +285,10 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'jadzia-core',
     outcomeLabel: 'Know which leads, orders and ops need action',
     role: 'Operations Command Layer',
-    statusNote: 'LIVE (~93% spine): Commander cockpit · orders INT-002 · leads · GA4 · weekly HITL brief · supervised content publish',
-    homeStatusNote: 'Owner cockpit for leads, orders and weekly brief — not full autonomy.',
+    statusNote:
+      'LIVE: Commander cockpit · Marketing Brain shadow F0–F3 · orders INT-002 · weekly HITL brief · no Act without approval',
+    homeStatusNote:
+      'Ops cockpit + Marketing Brain shadow (F0–F3) — HITL before Act; autonomy not offered.',
     intents: ['time', 'calm', 'order', 'efficiency'],
     losLayers: ['think', 'act'],
     screenKey: 'workflowMap',

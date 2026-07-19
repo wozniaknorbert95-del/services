@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Progress groups — site-map.md §3 v5.0 (Router + Jadzia-first, 2026-07-19).
+ * Progress groups — site-map.md §3 v6.0 (Jadzia sole deep proof).
  * Groups: Start → Pick → Proof → Close.
  */
 const PROGRESS_GROUPS = [
@@ -12,7 +12,7 @@ const PROGRESS_GROUPS = [
   {
     id: 'proof',
     label: 'Proof',
-    sections: ['jadzia-spearhead', 'vcms-trust', 'wizard-visualizer', 'built-vs-planned'],
+    sections: ['jadzia-spearhead'],
   },
   { id: 'close', label: 'Close', sections: ['why-it-works', 'pricing', 'final-cta'] },
 ] as const;

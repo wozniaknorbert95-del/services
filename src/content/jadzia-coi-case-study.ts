@@ -13,9 +13,9 @@ export const jadziaCoiCaseMeta = {
     'How an Operations Command Layer combines a Commander cockpit, operational spine and weekly owner brief — with human approval for consequential actions.',
   openGraphTitle: 'Case study — Jadzia COI',
   openGraphDescription:
-    'Operations Command Layer for a live 8-repo stack — ~93% operational spine, Commander cockpit, weekly brief and supervised content publishing.',
+    'Operations Command Layer — LIVE ops spine, Marketing Brain shadow (F0–F3), Commander cockpit, weekly brief and HITL publish.',
   twitterDescription:
-    'Jadzia COI — Operations Command Layer with a ~93% LIVE spine, Commander cockpit and HITL gates.',
+    'Jadzia COI — ops cockpit + Marketing Brain shadow with human approval before Act.',
   ogAlt: 'Case study — Jadzia COI',
 } as const;
 
@@ -113,6 +113,8 @@ export type JadziaCoiVerifiedMetric = {
 
 export const jadziaCoiVerifiedMetrics: readonly JadziaCoiVerifiedMetric[] = [
   { label: 'Operational spine', value: '~93% LIVE', status: 'LIVE' },
+  { label: 'Marketing Brain', value: 'Shadow F0–F3 LIVE · HITL', status: 'LIVE' },
+  { label: 'MB Act / Ads create', value: 'Blocked (shadow)', status: 'PARTIAL' },
   { label: 'API', value: 'FastAPI :8000 EU VPS', status: 'INFO' },
   { label: 'Commander cockpit', value: 'LIVE', status: 'LIVE' },
   { label: 'Order sync', value: 'LIVE (INT-002)', status: 'LIVE' },
@@ -137,4 +139,4 @@ export const jadziaCoiStack = [
 ] as const;
 
 export const jadziaCoiSupervisionNote =
-  'Agent OS handles the separate engineering execution workflow. Jadzia handles business operations: the Commander cockpit, orders, leads, analytics, weekly briefs and supervised content publishing. It does not run on LangGraph, does not commit product code, and does not act as a fully autonomous business system. VCMS governs both from outside the runtime.';
+  'Agent OS handles the separate engineering execution workflow. Jadzia handles business operations: the Commander cockpit, orders, leads, analytics, weekly briefs, supervised content publishing, and Marketing Brain in shadow (propose only — no Act, no Meta Ads create). It does not run on LangGraph, does not commit product code, and does not act as a fully autonomous business system. VCMS governs both from outside the runtime.';

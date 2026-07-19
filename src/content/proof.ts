@@ -199,7 +199,7 @@ export const screens: Record<ScreenKey, ScreenShot> = {
   vcmsDashboard:   { src: "/gratka/vcms-dashboard.svg", alt: "VCMS governance dashboard", caption: "8-repo scan status with Conflicts: 0 target — governance command center (live).", ready: true },
   conflictReport:  { src: "/gratka/conflict-report.svg", alt: "VCMS conflict report (demo fixture)", caption: "Example SSoT mismatch flagged before deploy — DEMO fixture; live scan target is Conflicts: 0.", ready: true },
   portalAssistant: { src: "/gratka/portal-assistant.png", alt: "Customer-facing portal assistant", caption: "Generic supervised sales chat LIVE. Qualification API proven; portal UX rollout PARTIAL.", ready: true },
-  inspireIntake:   { src: "/gratka/inspire/intake.png", alt: "Design Intake — vehicle branding request form", caption: "Complex Quote & Design Intake — structured request (PARTIAL lab proof).", ready: true },
+  inspireIntake:   { src: "/gratka/inspire/intake.png", alt: "Design Intake — vehicle branding request form", caption: "Complex Quote & Design Intake — live supervised path (PARTIAL).", ready: true },
   inspireMockups:  { src: "/gratka/inspire/mockups.png", alt: "Standard and Premium inspiration mockups", caption: "Visual direction before price — mockups are not print-ready finals.", ready: true },
   inspireHandoff:  { src: "/gratka/inspire/wizard-handoff.png", alt: "Design Intake handoff into Wizard", caption: "Confirmed brief continues into the priced Wizard path.", ready: true },
   adminDashboard:  { src: "/gratka/agent-os-mission-control.png", alt: "Mission Control dashboard — tasks, queue, history and cost tabs", caption: "Mission Control — tasks, queue, history and cost tabs. LIVE on os.flexgrafik.nl.", ready: true },
@@ -217,7 +217,8 @@ export const caseMeasurements: Record<
   advisory:    { value: "6-phase delivery, AVG layer specified · anonymised · in delivery.", ready: true },
   ownerEcosystem: { value: "8-repo governance + Jadzia Operations Command Layer with a ~93% LIVE operational spine.", ready: true },
   jadziaCoi: {
-    value: 'Operations Command Layer: ~93% LIVE operational spine, Commander cockpit, orders (INT-002), GA4 snapshot, weekly HITL brief and supervised content publishing (INT-011).',
+    value:
+      'Operations Command Layer: ~93% LIVE spine + Marketing Brain shadow (F0–F3) with Telegram HITL — Commander cockpit, orders (INT-002), weekly brief, supervised publish (INT-011). Act/Ads create blocked.',
     ready: true,
   },
   whatsappPilot: {
