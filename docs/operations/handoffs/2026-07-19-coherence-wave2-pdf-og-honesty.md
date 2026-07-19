@@ -1,6 +1,6 @@
 # Handoff — Coherence wave 2: PDF/OG + honesty + home funnel (2026-07-19)
 
-**Repo:** services.flexgrafik.nl · **Build:** `npm run build` ✅ (36 routes) · **Status:** ready to commit (not pushed)
+**Repo:** services.flexgrafik.nl · **Build:** `npm run build` ✅ (36 routes) · **Shipped:** `65a2903` → `master` · Vercel success · prod smoke OK
 
 ## Cel / Goal
 
@@ -67,8 +67,15 @@ rg 'hello@|AI Systems Architect|€99' public/   # 0 matches
 5. OG share preview: `/solutions/sales-funnel/`, `/solutions/managed-automation/`, `/about/`  
 6. Paste LI/FB profile-copy (167) when ready  
 
+## Post-ship verification (2026-07-19)
+
+- GitHub Actions `Deploy to Vercel` run `29678161445` — success  
+- Prod needles cleared: `runs itself`, `Most popular entry`, Managed OG €99, AI Systems Architect  
+- Inbox MD: test-environment proof live (denies production-mailbox claim)  
+
 ## Następny krok / Next steps
 
-- **Commit + push** when Commander asks (`ship`) — do not include LinkedIn media bulk  
-- Commander: paste LI Featured V2 / FB FlexGrafik-only / INSPIRE v3  
-- P2 deferred: research-notes Jadzia % vs ~93% Ops Command; founder OG; About/Footer SR-11 polish; meta `eco-polish-01-meta` merge  
+- Commander: paste LI/FB profile-copy (**167**) · Featured V2 · INSPIRE v3 · Facebook FlexGrafik-only  
+- Do not bulk-commit LinkedIn media (still untracked by design)  
+- P2 optional: founder/trust OG polish; meta `eco-polish-01-meta` merge  
+
