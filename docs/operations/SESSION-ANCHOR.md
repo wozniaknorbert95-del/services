@@ -1,6 +1,7 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-07-19 · **Status:** Jadzia Proof Commander + workflow SHIPPING  
+**Updated:** 2026-07-19 · **Status:** Jadzia Proof Commander + workflow CLOSED  
+**Commit:** `7988d9b`  
 **Canon:** site-map §3 v6.0  
 **Handoff:** [`handoffs/2026-07-19-jadzia-proof-commander.md`](handoffs/2026-07-19-jadzia-proof-commander.md)
 
