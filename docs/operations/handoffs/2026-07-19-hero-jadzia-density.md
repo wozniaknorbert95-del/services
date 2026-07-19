@@ -1,6 +1,6 @@
 # Handoff — Hero Jadzia visual + density (2026-07-19)
 
-**Repo:** quietforge.flexgrafik.nl · **Build:** `npm run build` ✅ (36 routes / sitemap 26) · **Shipped:** pending commit hash below
+**Repo:** quietforge.flexgrafik.nl · **Build:** `npm run build` ✅ (36 routes / sitemap 26) · **Shipped:** `1312301`
 
 ## Cel / Goal
 Align home hero proof with ops-cockpit strip (Jadzia, not Wizard) and shrink Problem/System/Effect into one compact row.
