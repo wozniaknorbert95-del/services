@@ -1,7 +1,8 @@
 # Handoff — Pain router chips + 9 leaks (2026-07-19)
 
 **Repo:** quietforge.flexgrafik.nl (services) · **Build:** `npm run build` ✅  
-**Status:** READY TO SHIP  
+**Status:** CLOSED — prod verified 2026-07-19  
+**Ship:** `9841ab0`  
 **Canon:** `docs/strategy/site-map.md` §3 **v5.1**
 
 ## Cel / Goal
