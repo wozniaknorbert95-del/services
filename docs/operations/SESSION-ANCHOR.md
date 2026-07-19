@@ -1,6 +1,7 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-07-19 · **Status:** Pain filter UX v5.2 SHIPPING  
+**Updated:** 2026-07-19 · **Status:** Pain filter UX v5.2 CLOSED (shipped)  
+**Commit:** `85512cf`  
 **Canon:** [`../strategy/site-map.md`](../strategy/site-map.md) §3 v5.2  
 **Handoff:** [`handoffs/2026-07-19-pain-filter-ux-v52.md`](handoffs/2026-07-19-pain-filter-ux-v52.md)
 
