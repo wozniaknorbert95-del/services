@@ -1,7 +1,6 @@
 // ============================================================================
 // JADZIA COI — portfolio presentation (governed operating intelligence).
-// Source: flexgrafik-meta/docs/core/modules/module-jadzia-core.md
-// Portfolio framing: full COI layer — Sense → Think → Act for the FlexGrafik stack.
+// Portfolio framing: Operations Command Layer — cockpit, operational spine and weekly brief.
 // ============================================================================
 
 import { ROUTES } from '@/lib/constants';
@@ -13,11 +12,12 @@ export const JADZIA_COI_ROUTE = ROUTES.resultsJadziaCoi;
 export const JADZIA_COI = {
   name: 'Jadzia COI',
   fullName: 'Chief Operating Intelligence',
-  tagline: 'The business brain — not a chatbot.',
+  packageName: 'Operations Command Layer',
+  tagline: 'The operations cockpit — not a chatbot.',
   summary:
-    'Jadzia is the Chief Operating Intelligence layer for FlexGrafik: orders, leads, analytics, WordPress operations and sales chat in one governed loop — with human approval on every consequential action. WC order webhook INT-002 LIVE (E2E verified).',
+    'Jadzia is FlexGrafik’s Operations Command Layer: a Commander cockpit, lead/order/analytics spine and weekly owner brief. The operational spine is ~93% LIVE; consequential actions stay behind human approval.',
   oneLiner:
-    'Chief Operating Intelligence for the whole stack — Phase A+B LIVE: orders INT-002, leads, GA4 snapshot, content calendar, WP automation and wizard chat under HITL gates.',
+    'Operations Command Layer for the whole stack — a ~93% LIVE operational spine with a Commander cockpit, weekly brief and supervised content publishing.',
 } as const;
 
 export type JadziaCoiCapabilityStatus = 'LIVE' | 'PARTIAL' | 'PLANNED';
@@ -43,7 +43,7 @@ export const JADZIA_COI_CAPABILITIES: readonly JadziaCoiCapability[] = [
     id: 'orders',
     title: 'Order intelligence',
     detail:
-      'WooCommerce order webhook → jadzia.db operational state and status sync (INT-002 LIVE, prod order #3149 E2E). Checkout on zzpackage is LIVE separately.',
+      'WooCommerce order webhook → operational ledger (INT-002 LIVE). Checkout on zzpackage is a separate live surface.',
     status: 'LIVE',
   },
   {
@@ -60,26 +60,32 @@ export const JADZIA_COI_CAPABILITIES: readonly JadziaCoiCapability[] = [
   },
   {
     id: 'content',
-    title: 'Content calendar (Phase B)',
-    detail: 'Order → case-study content suggestions in operational calendar — verified E2E on prod order #3149.',
+    title: 'Supervised content operations',
+    detail: 'Prepare → approve → publish flow for Facebook text, photo and video posts (INT-011 LIVE with a human publish gate).',
     status: 'LIVE',
   },
   {
-    id: 'chat',
-    title: 'Sales chat widget',
-    detail: 'customer_agent on wizard and portal — Haiku-powered replies, hot-lead Telegram alerts, session TTL (INT-001 LIVE).',
+    id: 'cockpit',
+    title: 'Commander cockpit',
+    detail: 'A live owner-facing view for the operational spine, approvals and next actions.',
     status: 'LIVE',
   },
   {
-    id: 'wp',
-    title: 'WordPress SSH agent',
-    detail: 'Supervised theme edits via Paramiko — diff, HITL approve, write, rollback on Telegram or worker queue.',
+    id: 'brief',
+    title: 'Weekly owner brief',
+    detail: 'A weekly operational synthesis prepared as a HITL draft for owner review and decisions.',
     status: 'LIVE',
+  },
+  {
+    id: 'portal-qualification',
+    title: 'Portal qualification path',
+    detail: 'INT-012 API is LIVE, while the portal experience remains a generic supervised chat rather than an end-to-end qualification agent.',
+    status: 'PARTIAL',
   },
   {
     id: 'worker',
-    title: 'Worker queue + HITL',
-    detail: 'JWT worker tasks, dashboard metrics, token/cost tracking — nothing ships without Dowódca approval.',
+    title: 'Approval queue + HITL',
+    detail: 'Operational actions remain visible and approval-gated; Jadzia is not a fully autonomous business system.',
     status: 'LIVE',
   },
   {

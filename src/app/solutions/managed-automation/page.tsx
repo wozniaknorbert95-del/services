@@ -13,6 +13,7 @@ import {
   managedAutomationSolutionProblem,
   managedAutomationSolutionSystemItems,
   managedAutomationSolutionTitle,
+  managedAutomationTierInclusions,
 } from '@/content/managed-automation-case-study';
 
 export const metadata: Metadata = {
@@ -45,6 +46,49 @@ export default function ManagedAutomationPage() {
         caseStudyHref={managedAutomationCaseStudyHref}
         priceFrom={SOLUTION_DETAIL_PRICES.managedAutomation}
       />
+
+      <Section background="surface" padding="large">
+        <Eyebrow>PLAN INCLUSIONS</Eyebrow>
+        <h2 className="mb-4 text-[var(--qf-fs-2xl)] font-bold tracking-tight">
+          Care for the system — with clear operating boundaries.
+        </h2>
+        <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)]">
+          Higher tiers add supervised operational support. Content publishing always stays human-approved;
+          paid advertising management is not part of Managed Automation.
+        </p>
+        <div className="overflow-x-auto border border-[var(--qf-border)]">
+          <table className="w-full min-w-[680px] border-collapse text-left text-sm">
+            <thead>
+              <tr className="border-b border-[var(--qf-border)] bg-[var(--qf-bg-inset)]">
+                <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+                  Plan
+                </th>
+                <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+                  Includes
+                </th>
+                <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+                  Boundary
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {managedAutomationTierInclusions.map((tier) => (
+                <tr key={tier.tier} className="border-b border-[var(--qf-border)] last:border-0">
+                  <td className="px-4 py-4 font-semibold text-[var(--qf-text)]">{tier.tier}</td>
+                  <td className="px-4 py-4 text-[var(--qf-text-dim)]">
+                    <ul className="m-0 list-disc space-y-1 pl-4">
+                      {tier.includes.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td className="px-4 py-4 text-[var(--qf-text-dim)]">{tier.boundary}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Section>
 
       <Section background="surface" padding="large">
         <Eyebrow>FAQ</Eyebrow>

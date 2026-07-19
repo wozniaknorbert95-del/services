@@ -60,7 +60,7 @@ export default function JadziaCoiCaseStudyPage() {
     detail: cap.detail,
     status: cap.status,
     statusClass: jadziaCoiCapabilityStatusClass(cap.status),
-    highlight: cap.id === 'orders' || cap.id === 'strategy',
+    highlight: cap.id === 'orders' || cap.id === 'cockpit',
   }));
 
   const downloadButtons = (
@@ -127,8 +127,8 @@ export default function JadziaCoiCaseStudyPage() {
       buildModules={buildModules}
       buildDescription={
         <p>
-          Six COI capability pillars — the operational brain behind wizard revenue, game leads and portal
-          trust. Same architecture available for Dutch ZZP and SME deployments via Quietforge.
+          Operations Command Layer — Commander cockpit, operational spine and weekly brief for multi-system
+          owners. Same governed pattern is available for Dutch ZZP and SME deployments via Quietforge.
         </p>
       }
       stack={[...jadziaCoiStack]}
@@ -145,7 +145,7 @@ export default function JadziaCoiCaseStudyPage() {
           {jadziaCoiVerifiedMetrics.map((m) => (
             <li
               key={m.label}
-              className="rounded-full border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-3 py-1 font-mono text-xs text-[var(--qf-text-dim)]"
+              className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] px-3 py-1 font-mono text-xs text-[var(--qf-text-dim)]"
             >
               {m.label}:{' '}
               <span className={jadziaCoiMetricStatusClass(m.status)}>{m.value}</span>

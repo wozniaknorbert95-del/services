@@ -24,9 +24,9 @@ export const salesFunnelWizardBridge = {
   eyebrow: '// live proof',
   title: 'Try the production wizard in two minutes',
   lead:
-    'zzpackage.flexgrafik.nl is the revenue layer I run before selling automation — same stack Quietforge deploys for SMB clients. Wizard-only checkout; no classic shop.',
+    'zzpackage.flexgrafik.nl is the revenue layer I run before selling automation — same stack Quietforge deploys for SMB clients. Wizard-only checkout; no classic shop. Optional Design Intake for complex vehicle jobs (PARTIAL).',
   cta: 'Open zzpackage wizard →',
-  href: EXTERNAL.zzpackageWizard,
+  href: EXTERNAL.zzpackageWizardPath,
 } as const;
 
 export const salesFunnelOwnerEcosystemBridge = {
@@ -116,22 +116,22 @@ export const salesFunnelHubTitle = 'Self-service quote & onboarding';
 // ---------------------------------------------------------------------------
 
 export const salesFunnelSolutionMeta = {
-  title: 'Wizard Cash Engine — quotes & checkout on autopilot',
+  title: 'Wizard Cash Engine — quotes, design intake & checkout',
   description:
-    'Self-service configurator on zzpackage.flexgrafik.nl — 9 UI screens, Mollie checkout from €199, calm form or designer handoff. Same spearhead Quietforge deploys for SMB clients.',
-  openGraphTitle: 'Wizard Cash Engine — quotes & checkout | Quietforge',
+    `Self-service configurator on zzpackage.flexgrafik.nl — ${metrics.wizardSteps} screens, ${metrics.skus} SKUs, Mollie checkout from €199, plus Complex Quote & Design Intake (INSPIRE) as supervised lab proof.`,
+  openGraphTitle: 'Wizard Cash Engine — quotes & design intake | Quietforge',
   openGraphDescription:
-    `${metrics.wizardStepsFootnote} · Mollie checkout · open pricing before pay.`,
+    `${metrics.wizardStepsFootnote} · ${metrics.skus} SKUs · Mollie · optional design intake before price.`,
   twitterDescription:
-    'Live wizard — configure, see price, pay via Mollie. Process proof, not invented conversion rates.',
+    'Live wizard — configure, see price, pay via Mollie. Optional complex quote & visual direction (PARTIAL).',
   ogAlt: 'Wizard Cash Engine — Sales Funnel solution',
 } as const;
 
 export const salesFunnelSolutionTitle =
-  'Wizard Cash Engine — quotes, pricing and checkout without the email chase.';
+  'Wizard Cash Engine — quotes, visual direction and checkout without the email chase.';
 
 export const salesFunnelSolutionProblem =
-  'Manual quoting does not just eat hours — prospects who wanted a number now go cold while you type the same answers again.';
+  'Manual quoting does not just eat hours — prospects who wanted a number (or a design direction) go cold while you type the same answers again.';
 
 export const salesFunnelSolutionSystemItems = [
   {
@@ -140,7 +140,7 @@ export const salesFunnelSolutionSystemItems = [
   },
   {
     title: 'Configuration',
-    body: `${metrics.wizardStepsFootnote} — structured options, dependencies and minimums enforced in-flow.`,
+    body: `${metrics.wizardStepsFootnote} · ${metrics.skus} active SKUs — structured options, dependencies and minimums enforced in-flow.`,
   },
   {
     title: salesFunnelJourneySteps[7].title,
@@ -148,9 +148,50 @@ export const salesFunnelSolutionSystemItems = [
   },
   {
     title: salesFunnelJourneySteps[8].title,
-    body: 'Mollie payment from €199 or book — qualified lead webhook to inbox / CRM / sheet.',
+    body: 'Mollie payment from €199 or book — order sync to the operations ledger (INT-002). Checkout LIVE; Gate D real-paid traction not claimed.',
   },
 ] as const;
+
+/** Complex Quote & Design Intake — INSPIRE extension (PARTIAL). */
+export const salesFunnelInspireExtension = {
+  eyebrow: 'Extension · PARTIAL',
+  title: 'Complex Quote & Design Intake',
+  lead:
+    'For vehicle branding and other custom jobs: prospects describe the job, confirm a structured brief, see Standard/Premium visual direction, then continue into the priced Wizard. Live lab proof on FlexGrafik — Quietforge deploys the same pattern for custom-product quoting.',
+  statusBadge: 'PARTIAL — supervised lab proof',
+  steps: [
+    'Structured intake (vehicle branding request)',
+    'Confirmed DesignBrief',
+    'Standard / Premium inspiration mockups',
+    'Handoff into priced Wizard checkout',
+  ],
+  limitations: [
+    'Inspiration mockups are not print-ready final artwork',
+    'Sales chat persona gate not yet GO — treat as supervised prototype',
+    'No invented conversion uplift claims',
+  ],
+  demoLabel: 'Try Design Intake (live) →',
+  demoHref: EXTERNAL.inspireDesignAgent,
+  wizardLabel: 'Open Wizard checkout →',
+  wizardHref: EXTERNAL.zzpackageWizardPath,
+  evidence: [
+    {
+      src: '/gratka/inspire/intake.png',
+      alt: 'Design Intake — structured vehicle branding request',
+      caption: 'Intake',
+    },
+    {
+      src: '/gratka/inspire/mockups.png',
+      alt: 'Standard and Premium inspiration mockups',
+      caption: 'Direction',
+    },
+    {
+      src: '/gratka/inspire/wizard-handoff.png',
+      alt: 'Handoff into priced Wizard',
+      caption: 'Wizard',
+    },
+  ],
+} as const;
 
 export const salesFunnelSolutionEffectBefore = [...salesFunnelBeforeItems] as const;
 

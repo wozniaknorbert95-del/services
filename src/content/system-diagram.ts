@@ -7,6 +7,7 @@
 import { ROUTES, EXTERNAL, SITE_URL } from '@/lib/constants';
 import { JADZIA_COI_CAPABILITIES } from '@/content/jadzia-coi';
 import { OWNER_FLOW_STEPS } from '@/content/owner-ecosystem';
+import { metrics } from '@/content/proof';
 import layout from '../../docs/design/los-diagram-layout.json';
 
 export type DiagramNodeId =
@@ -230,15 +231,16 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     status: 'LIVE',
     readiness: '~90%',
     northStar: 'The only purchase path — self-service branding packages from configuration to Mollie payment.',
-    hoverLine: '9-screen configurator · 161 SKUs · Mollie checkout LIVE',
+    hoverLine: `9-screen configurator · ${metrics.skus} SKUs · Mollie checkout LIVE`,
     asIs: [
       '9-screen SPA configurator with 7 business decision stages',
-      '161 SKU catalog (product-master-table.json)',
-      'WooCommerce + Mollie checkout from €199',
+      `${metrics.skus} active SKU catalog (product-master-table.json)`,
+      'WooCommerce + Mollie checkout from €199 (Gate D parked)',
       'Customer chat widget API (INT-001)',
-      'Order webhook to Jadzia (INT-002)',
+      'Order webhook to Jadzia (INT-002 ops ledger)',
+      'Design Agent INSPIRE intake→mockups→wizard (PARTIAL)',
     ],
-    toBe: ['Deeper COI revenue analytics', 'Qualification scoring in wizard session'],
+    toBe: ['INSPIRE sales persona GO', 'Deeper COI revenue analytics after Gate D'],
     demoUrl: EXTERNAL.zzpackageWizard,
     proofRoute: ROUTES.resultsSalesFunnel,
     architecturePosition: archPosFor('zzpackage'),
@@ -303,13 +305,14 @@ export const DIAGRAM_NODES: readonly DiagramNode[] = [
     layer: 'think',
     brain: 'operations',
     status: 'LIVE',
-    readiness: '~85%',
+    readiness: '~93% spine',
     northStar:
       'Chief Operating Intelligence — orders, leads, analytics, content and supervised ops in one loop with human gates.',
-    hoverLine: 'Phase A+B LIVE · orders · leads · GA4 · calendar · chat · WP agent',
+    hoverLine: 'Spine LIVE · Commander · brief · publish HITL · chat · WP agent',
     asIs: JADZIA_COI_CAPABILITIES.filter((c) => c.status === 'LIVE').map((c) => c.title),
     toBe: [
-      'Jadzia-Strategist weekly brief',
+      'Strategist auto-act (brief already LIVE)',
+      'Portal qualification UX rollout (API LIVE)',
       'Automated Agent OS spawn (INT-006)',
       'Procurement Brain (Phase C)',
     ],
@@ -552,8 +555,8 @@ export const DIAGRAM_EDGES: readonly DiagramEdge[] = [
     id: 'INT-012',
     from: 'flexgrafik-nl',
     to: 'jadzia-core',
-    label: 'Qualification agent',
-    status: 'LIVE',
+    label: 'Qualification API (portal UX pending)',
+    status: 'PARTIAL',
     architectureVisible: true,
     smbFunnelVisible: false,
   },

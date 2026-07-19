@@ -5,17 +5,17 @@
 
 export const JADZIA_COI_SLUG = 'jadzia-coi' as const;
 
-export const jadziaCoiDisplayName = 'Jadzia COI — Chief Operating Intelligence';
+export const jadziaCoiDisplayName = 'Jadzia COI — Operations Command Layer';
 
 export const jadziaCoiCaseMeta = {
   title: 'Case study — Jadzia COI',
   description:
-    'How a FastAPI Chief Operating Intelligence layer unifies leads, orders, analytics and sales chat — with Telegram HITL and jadzia.db as the operational brain. WC order webhook INT-002 LIVE (prod order #3149).',
+    'How an Operations Command Layer combines a Commander cockpit, operational spine and weekly owner brief — with human approval for consequential actions.',
   openGraphTitle: 'Case study — Jadzia COI',
   openGraphDescription:
-    'Chief Operating Intelligence for a live 8-repo stack — orders, leads, GA4 snapshot, content calendar Phase B LIVE · INT-002 E2E verified.',
+    'Operations Command Layer for a live 8-repo stack — ~93% operational spine, Commander cockpit, weekly brief and supervised content publishing.',
   twitterDescription:
-    'Jadzia COI — business brain with HITL gates. Phase A+B spine LIVE: orders, leads, analytics, content suggestions from orders.',
+    'Jadzia COI — Operations Command Layer with a ~93% LIVE spine, Commander cockpit and HITL gates.',
   ogAlt: 'Case study — Jadzia COI',
 } as const;
 
@@ -27,17 +27,17 @@ export const jadziaCoiBeforeItems = [
 ] as const;
 
 export const jadziaCoiAfterItems = [
-  'One COI layer — jadzia.db holds orders, leads and operational state (INT-002 LIVE)',
-  'WP SSH agent: diff → HITL approve → write → rollback on Telegram',
-  'customer_agent on wizard and portal — scored leads, hot alerts to Telegram',
-  'Phase B: order → content calendar case-study suggestions (order #3149 E2E)',
+  'One operational spine for orders, leads and analytics (INT-002 and INT-009 LIVE)',
+  'Commander cockpit for owner visibility, approval queues and next actions',
+  'Weekly owner brief prepared as an HITL draft for decision support',
+  'Facebook content flow: prepare → approve → publish (INT-011 LIVE)',
 ] as const;
 
 export const jadziaCoiArchitectureAlt =
-  'Jadzia COI architecture: central jadzia.db hub connecting wizard checkouts, game leads, portal chat, WordPress SSH agent and Telegram HITL';
+  'Jadzia Operations Command Layer: Commander cockpit and operational spine connecting orders, leads, analytics, content approvals and owner briefs';
 
 export const jadziaCoiLoopIntro =
-  'Jadzia is the Think layer in the Living Operating System — Sense signals enter, COI proposes, humans approve, then Act executes within bounded permissions.';
+  'Jadzia is the operations layer in the Living Operating System: signals enter the spine, the Commander cockpit prepares a decision, and a human approves consequential action. It is not a fully autonomous COI.';
 
 export type CoiLoopNode = {
   phase: string;
@@ -53,13 +53,13 @@ export const jadziaCoiLoopNodes: readonly CoiLoopNode[] = [
   },
   {
     phase: 'Think',
-    title: 'Jadzia Strategist',
-    detail: 'Interpret context, score leads, plan WP changes and synthesise the weekly brief — propose, never auto-ship.',
+    title: 'Commander review',
+    detail: 'Turn operational context into approval-ready actions and a weekly owner brief — propose, never auto-act.',
   },
   {
     phase: 'Act',
     title: 'Bounded execution',
-    detail: 'SSH writes, chat replies, order ingestion and worker tasks — scoped permissions. WC webhook INT-002 LIVE.',
+    detail: 'Order ingestion and supervised content publishing run within bounded permissions. INT-002 and INT-011 are LIVE.',
   },
   {
     phase: 'Guard',
@@ -70,23 +70,23 @@ export const jadziaCoiLoopNodes: readonly CoiLoopNode[] = [
 
 export const jadziaCoiWorkflowPipelines = [
   {
-    id: 'wp',
-    title: 'WordPress SSH pipeline',
+    id: 'brief',
+    title: 'Weekly owner brief',
     steps: [
-      'Task arrives via Telegram or worker queue',
-      'Jadzia routes intent and generates file diff',
-      'HITL approval — edit, approve or reject',
-      'Paramiko SSH write to theme · rollback on failure',
+      'Orders, leads and analytics enter the operational spine',
+      'Commander cockpit prepares the weekly operational synthesis',
+      'Owner reviews, edits or rejects the HITL draft',
+      'Approved decisions become bounded follow-up actions',
     ],
   },
   {
-    id: 'widget',
-    title: 'Sales chat widget',
+    id: 'content',
+    title: 'Supervised content publishing',
     steps: [
-      'Visitor opens chat on wizard or portal',
-      'POST /api/v1/widget/chat → Jadzia COI',
-      'Claude Haiku reply + lead scoring',
-      'Hot lead alert → Telegram · session TTL cache',
+      'Content is prepared from an approved operational context',
+      'Owner reviews the text, photo or video post',
+      'Approval gates the publishing action',
+      'Facebook content is published only after HITL approval (INT-011 LIVE)',
     ],
   },
 ] as const;
@@ -95,15 +95,15 @@ export const jadziaCoiIntegrations = [
   {
     system: 'zzpackage Wizard',
     direction: 'In / Out',
-    detail: 'Widget chat LIVE · order webhook → jadzia.db LIVE (INT-002)',
+    detail: 'Order webhook → operational spine LIVE (INT-002)',
   },
   { system: 'app.flexgrafik.nl', direction: 'In', detail: 'Lead sync · coupon attribution' },
-  { system: 'flexgrafik.nl', direction: 'In', detail: 'Shared customer_agent chat endpoint' },
-  { system: 'Telegram', direction: 'In / Out', detail: 'Ops commands · HITL · hot lead alerts' },
+  { system: 'flexgrafik.nl', direction: 'In', detail: 'Generic supervised chat LIVE · qualification UX PARTIAL (INT-012 API LIVE)' },
+  { system: 'Facebook', direction: 'Out', detail: 'Supervised text, photo and video publishing LIVE (INT-011)' },
   { system: 'Agent OS', direction: 'Sibling', detail: 'Engineering pipeline — Jadzia does not commit product code' },
 ] as const;
 
-export type JadziaCoiMetricStatus = 'LIVE' | 'PLANNED' | 'INFO';
+export type JadziaCoiMetricStatus = 'LIVE' | 'PARTIAL' | 'PLANNED' | 'INFO';
 
 export type JadziaCoiVerifiedMetric = {
   label: string;
@@ -112,18 +112,19 @@ export type JadziaCoiVerifiedMetric = {
 };
 
 export const jadziaCoiVerifiedMetrics: readonly JadziaCoiVerifiedMetric[] = [
+  { label: 'Operational spine', value: '~93% LIVE', status: 'LIVE' },
   { label: 'API', value: 'FastAPI :8000 EU VPS', status: 'INFO' },
-  { label: 'Widget endpoint', value: 'LIVE (INT-001)', status: 'LIVE' },
-  { label: 'Order sync', value: 'LIVE (INT-002, order #3149)', status: 'LIVE' },
+  { label: 'Commander cockpit', value: 'LIVE', status: 'LIVE' },
+  { label: 'Order sync', value: 'LIVE (INT-002)', status: 'LIVE' },
   { label: 'GA4 snapshot', value: 'LIVE (INT-009)', status: 'LIVE' },
-  { label: 'Content calendar', value: 'LIVE (Phase B)', status: 'LIVE' },
-  { label: 'WP SSH agent', value: 'LIVE', status: 'LIVE' },
-  { label: 'Worker HITL', value: 'LIVE', status: 'LIVE' },
+  { label: 'Weekly owner brief', value: 'LIVE (HITL drafts)', status: 'LIVE' },
+  { label: 'Content publish', value: 'LIVE (INT-011, HITL)', status: 'LIVE' },
+  { label: 'Portal qualification', value: 'PARTIAL (INT-012 API LIVE)', status: 'PARTIAL' },
 ] as const;
 
 export function jadziaCoiMetricStatusClass(status: JadziaCoiMetricStatus | undefined): string {
   if (status === 'LIVE') return 'text-emerald-500';
-  if (status === 'PLANNED') return 'text-amber-500';
+  if (status === 'PARTIAL' || status === 'PLANNED') return 'text-amber-500';
   return 'text-[var(--qf-text)]';
 }
 
@@ -136,4 +137,4 @@ export const jadziaCoiStack = [
 ] as const;
 
 export const jadziaCoiSupervisionNote =
-  'Agent OS handles code commits across repos. Jadzia COI handles business operations — orders, leads, analytics, content calendar, WP SSH, sales chat — not the engineering task queue. WC order webhook INT-002 LIVE on EU VPS. VCMS governs both from outside the runtime.';
+  'Agent OS handles the separate engineering execution workflow. Jadzia handles business operations: the Commander cockpit, orders, leads, analytics, weekly briefs and supervised content publishing. It does not run on LangGraph, does not commit product code, and does not act as a fully autonomous business system. VCMS governs both from outside the runtime.';

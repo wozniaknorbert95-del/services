@@ -32,7 +32,7 @@ export const leadMagnetHero = {
 } as const;
 
 export const leadMagnetSalesOneLiner =
-  'We turned a static lead magnet into a gamified acquisition system for Dutch ZZP — play, progress, reward, then hand off to self-service quoting.';
+  'Selective acquisition for Dutch ZZP: play, progress, reward, then hand off to self-service quoting — when engagement fits, not as a default after every website project.';
 
 export const leadMagnetChallenge = {
   title: 'Challenge',

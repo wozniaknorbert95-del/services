@@ -12,10 +12,10 @@ export const inboxKillerDisplayName = 'Inbox Killer — lead qualification syste
 export const inboxKillerCaseMeta = {
   title: 'Case study — Inbox Killer',
   description:
-    'How a live inbox agent reads mail, classifies intent into lanes, drafts replies, and stops at a human approval gate. Process-proof case study with downloadable flow diagram.',
+    'How an inbox workflow reads mail, classifies intent into lanes, drafts replies, and stops at a human approval gate. Test-environment process proof with a downloadable flow diagram.',
   openGraphTitle: 'Case study — Inbox Killer',
   openGraphDescription:
-    'read → classify → draft → approve → send. Live mailbox proof with human-in-the-loop on every outbound.',
+    'read → classify → draft → approve → send. Test-environment process proof with human-in-the-loop on every outbound.',
   twitterDescription:
     'Inbox classification and reply drafting with human approval gates — B2B product, not auto-send.',
   ogAlt: 'Case study — Inbox Killer classification flow',
@@ -46,7 +46,7 @@ export const inboxKillerBeforeItems = [
 ] as const;
 
 export const inboxKillerAfterItems = [
-  `Mailbox scanned on schedule — ${metrics.msgsPerScan} messages classified per run in production`,
+  `Test-environment process run — ${metrics.msgsPerScan} messages classified per scan`,
   'Lead, client, invoice, and noise lanes with priority surfacing',
   'Draft replies ready for edit and approval before send',
   'Human approval gate on every outbound — architecture, not a toggle',
@@ -96,7 +96,7 @@ export const inboxKillerArchitectureIntro =
   'One page you can forward: what happens from a new email to an approved send. The approval gate is the architecture — not an optional safety setting you might forget to enable.';
 
 export const inboxKillerBuildDescription =
-  'Five steps under the hood — the same flow running in FLEXGRAFIK production mail.';
+  'Five steps under the hood — demonstrated as a test-environment process proof, not a production-mailbox claim.';
 
 export const inboxKillerStack = [
   'Gmail / Microsoft 365 OAuth',

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -18,6 +19,8 @@ interface SolutionLayoutProps {
   caseStudyHref: string;
   priceKey?: keyof typeof pricing;
   priceFrom?: string;
+  /** Optional extension block (e.g. INSPIRE) rendered before final CTA */
+  children?: ReactNode;
 }
 
 export default function SolutionLayout({
@@ -31,6 +34,7 @@ export default function SolutionLayout({
   caseStudyHref,
   priceKey = 'singleSystem',
   priceFrom,
+  children,
 }: SolutionLayoutProps) {
   const screen = screens[screenKey];
   const priceData = priceKey ? pricing[priceKey] : undefined;
@@ -117,6 +121,8 @@ export default function SolutionLayout({
             Read the full case study
           </Button>
         </div>
+
+        {children}
 
         <Card className="p-8 bg-[var(--qf-bg-raised)] border-[var(--qf-border)] text-center">
           <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-2">Ready to implement?</h2>

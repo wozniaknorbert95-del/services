@@ -50,12 +50,14 @@ Feature → Feature → Feature → Contact me
 
 ### Solutions dropdown
 
+> **2026-07-19:** Buyer ladder — Quote & close (Wizard spearhead) first; Inbox is operate, not “Start here”.
+
 | Label | Route | Badge | Price display |
 |---|---|---|---|
-| Inbox Killer | `/solutions/inbox-killer/` | Start here | €1,200–€4,800 |
-| Web Upgrade | `/solutions/web-upgrade/` | Conversion site | €1,800–€5,500 |
-| Sales Funnel / Wizard Cash Engine | `/solutions/sales-funnel/` | Quote + checkout | €2,400–€6,500 |
-| Lead Magnet Game | `/solutions/lead-magnet-game/` | Acquisition | €2,200–€6,500 |
+| Sales Funnel / Wizard Cash Engine | `/solutions/sales-funnel/` | Spearhead | €2,400–€6,500 |
+| Web Upgrade | `/solutions/web-upgrade/` | Capture | €1,800–€5,500 |
+| Lead Magnet Game | `/solutions/lead-magnet-game/` | Selective | €2,200–€6,500 |
+| Inbox Killer | `/solutions/inbox-killer/` | Operate | €1,200–€4,800 |
 | Managed Automation | `/solutions/managed-automation/` | Monthly | €349–€890/mo |
 
 **Important naming fix:**
@@ -260,7 +262,7 @@ Form submit must never say only “Send enquiry” while the page promises payme
 Footer may expose more links than the header, but must preserve hierarchy.
 
 **Company:** Systems & Results · How It Works · Pricing · Trust · Founder · About · Blog  
-**Solutions:** Inbox Killer · Web Upgrade · Sales Funnel · Lead Magnet Game · Managed Automation  
+**Solutions:** Sales Funnel (spearhead) · Web Upgrade · Lead Magnet Game · Inbox Killer · Managed Automation · Ops Command Layer (multi-system)  
 **Artefacts:** Automation Map sample · Data safety playbook · LOS diagram · Handover policy  
 **Legal:** Privacy · Terms · Contact
 

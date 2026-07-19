@@ -125,6 +125,9 @@ export default function PricingPage() {
                 <th className="py-3 pr-4 text-[var(--qf-fs-xs)] uppercase tracking-wider text-[var(--qf-text-dim)]">
                   System
                 </th>
+                <th className="py-3 pr-4 text-[var(--qf-fs-xs)] uppercase tracking-wider text-[var(--qf-text-dim)]">
+                  Example scope
+                </th>
                 <th className="py-3 pr-4 text-[var(--qf-fs-xs)] uppercase tracking-wider text-[var(--qf-text-dim)] text-right">
                   Range
                 </th>
@@ -133,8 +136,15 @@ export default function PricingPage() {
             <tbody>
               {PRODUCT_TIER_RANGES.map((tier) => (
                 <tr key={tier.name} className="border-b border-[var(--qf-border)]">
-                  <td className="py-4 pr-4 font-semibold text-[var(--qf-text)]">{tier.name}</td>
-                  <td className="py-4 pr-4 text-right font-mono text-[var(--qf-text)]">
+                  <td className="py-4 pr-4 font-semibold text-[var(--qf-text)] align-top">{tier.name}</td>
+                  <td className="py-4 pr-4 text-sm text-[var(--qf-text-dim)] align-top">
+                    <ul className="space-y-1">
+                      {tier.examples.map((ex) => (
+                        <li key={ex}>· {ex}</li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td className="py-4 pr-4 text-right font-mono text-[var(--qf-text)] align-top whitespace-nowrap">
                     €{tier.from.toLocaleString('en-NL')}–€{tier.to.toLocaleString('en-NL')}
                     {tier.perMonth ? '/mo' : ''}
                   </td>
@@ -151,11 +161,17 @@ export default function PricingPage() {
                 €{tier.from.toLocaleString('en-NL')}–€{tier.to.toLocaleString('en-NL')}
                 {tier.perMonth ? '/mo' : ''}
               </p>
+              <ul className="mt-3 space-y-1 text-sm text-[var(--qf-text-dim)]">
+                {tier.examples.map((ex) => (
+                  <li key={ex}>· {ex}</li>
+                ))}
+              </ul>
             </Card>
           ))}
         </div>
         <p className="mt-4 text-sm text-[var(--qf-text-faint)] max-w-2xl">
           Final quote fixed after your Automation Map — priced to outcome, not hourly billing.
+          Multi-system builds can include an Operations Command Layer (owner cockpit + lead/order spine).
         </p>
       </Section>
 
@@ -201,7 +217,7 @@ export default function PricingPage() {
             </div>
             <h3 className="text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)] mb-2">Multi-System</h3>
             <p className="text-[var(--qf-text-dim)] text-sm mb-4">
-              {pricing.ecosystem.summary}
+              {pricing.ecosystem.summary} Example: Wizard + Inbox, or Operations Command Layer + two modules.
             </p>
             <div className="text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
               {pricing.ecosystem.from !== null ? `from ${pricing.ecosystem.from}` : 'Quoted after Map'}

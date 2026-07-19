@@ -384,7 +384,9 @@ export default function OwnerEcosystemPage() {
         <p className="mb-8 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)]">
           VCMS is the governance layer behind this ecosystem — not a CMS panel. It scans content,
           repos and agent rules so your operation does not depend on memory, screenshots or one
-          developer&apos;s inbox.
+          developer&apos;s inbox. The registered product map is eight repos; Quietforge (this site)
+          and the INSPIRE Design Agent engine sit as sibling surfaces outside that registry today
+          (GAP-V05) — governance honesty, not a missing product.
         </p>
         <div className="mb-8 grid gap-[var(--qf-sp-4)] md:grid-cols-3">
           {VCMS_WHY.map((item) => (
@@ -416,7 +418,7 @@ export default function OwnerEcosystemPage() {
           ))}
         </ul>
         <Link
-          href={`${ROUTES.home}#governance`}
+          href={`${ROUTES.home}#built-vs-planned`}
           className="text-sm text-[var(--qf-accent)] hover:text-[var(--qf-text)]"
         >
           See governance proof on the homepage →

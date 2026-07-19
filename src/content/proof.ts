@@ -15,12 +15,12 @@ export const metrics = {
   wizardSteps: "9",                                            // [R] kod: "Stap 1 van 9" — UI screens
   wizardBusinessSteps: "7",                                    // [R] business strategy decision stages
   wizardStepsFootnote: "9 UI screens · 7 business decision stages",
-  skus: "161",                                                // [R] product-master-table.json SSoT (validate_product_master.py)
+  skus: "167",                                                // [R] product-master-table.json active=True (175 rows; 2026-07-19 recount)
   gameLevels: "5",                                             // [R] Beginner → Boss: Belastingdienst
   agentNodes: "5",                                             // [R] Planner→Coder→Tester→Reviewer→Summarizer
-  msgsPerScan: "142",                                          // [T] po B1 — test inbox
+  msgsPerScan: "142",                                          // [T] test-environment process run
   integrations: "8",                                           // [T] 5 real + Make/Zapier+Notion+Workspace
-  hosting: "EU VPS · FastAPI + LangGraph",                     // [R] 185.243.54.115 Cyber-Folks
+  hosting: "EU VPS · FastAPI (Jadzia) + LangGraph (Agent OS)", // [R] separate runtime layers
   deployment: "GitHub Actions CI/CD",                          // [R]
 } as const;
 
@@ -198,7 +198,10 @@ export const screens: Record<ScreenKey, ScreenShot> = {
   workflowMap:     { src: "/gratka/workflow-map.svg", alt: "Agent OS LangGraph pipeline", caption: "Planner → Coder → Tester → Reviewer → Summarizer — hybrid pipeline with human gate before ship.", ready: true },
   vcmsDashboard:   { src: "/gratka/vcms-dashboard.svg", alt: "VCMS governance dashboard", caption: "8-repo scan status with Conflicts: 0 target — governance command center (live).", ready: true },
   conflictReport:  { src: "/gratka/conflict-report.svg", alt: "VCMS conflict report (demo fixture)", caption: "Example SSoT mismatch flagged before deploy — DEMO fixture; live scan target is Conflicts: 0.", ready: true },
-  portalAssistant: { src: "/gratka/portal-assistant.png", alt: "Customer-facing portal assistant", caption: "Supervised sales chat (shared with wizard). Dedicated qualification agent planned.", ready: true },
+  portalAssistant: { src: "/gratka/portal-assistant.png", alt: "Customer-facing portal assistant", caption: "Generic supervised sales chat LIVE. Qualification API proven; portal UX rollout PARTIAL.", ready: true },
+  inspireIntake:   { src: "/gratka/inspire/intake.png", alt: "Design Intake — vehicle branding request form", caption: "Complex Quote & Design Intake — structured request (PARTIAL lab proof).", ready: true },
+  inspireMockups:  { src: "/gratka/inspire/mockups.png", alt: "Standard and Premium inspiration mockups", caption: "Visual direction before price — mockups are not print-ready finals.", ready: true },
+  inspireHandoff:  { src: "/gratka/inspire/wizard-handoff.png", alt: "Design Intake handoff into Wizard", caption: "Confirmed brief continues into the priced Wizard path.", ready: true },
   adminDashboard:  { src: "/gratka/agent-os-mission-control.png", alt: "Mission Control dashboard — tasks, queue, history and cost tabs", caption: "Mission Control — tasks, queue, history and cost tabs. LIVE on os.flexgrafik.nl.", ready: true },
 };
 
@@ -207,14 +210,14 @@ export const caseMeasurements: Record<
   CaseMeasurementKey,
   { value: string | null; ready: boolean }
 > = {
-  inboxKiller: { value: "Live mailbox, 142 msgs/scan, human approval on every send.", ready: true },
+  inboxKiller: { value: "Test-environment process proof: 142 messages scanned per run, with human approval on every send.", ready: true },
   agentOs:     { value: "5-node LangGraph · hybrid VPS control plane LIVE · prod E2E handoff · Langfuse cost tracking.", ready: true },
   salesFunnel: { value: "9-step configurator → quote → payment, live.", ready: true },
   leadMagnet:  { value: leadMagnetSalesOneLiner, ready: true },
   advisory:    { value: "6-phase delivery, AVG layer specified · anonymised · in delivery.", ready: true },
-  ownerEcosystem: { value: "8-repo governance + Jadzia COI operations layer live in production.", ready: true },
+  ownerEcosystem: { value: "8-repo governance + Jadzia Operations Command Layer with a ~93% LIVE operational spine.", ready: true },
   jadziaCoi: {
-    value: 'COI Phase A+B LIVE — orders (INT-002), leads, GA4 snapshot, content calendar, WP SSH, sales chat, Telegram HITL on EU VPS.',
+    value: 'Operations Command Layer: ~93% LIVE operational spine, Commander cockpit, orders (INT-002), GA4 snapshot, weekly HITL brief and supervised content publishing (INT-011).',
     ready: true,
   },
   whatsappPilot: {
@@ -238,7 +241,7 @@ export const fieldReports: readonly FieldReport[] = [
   },
   {
     date: 'Inbox run',
-    text: `${metrics.msgsPerScan} messages scanned per pass — drafts queued with human approval before every send.`,
+    text: `Test-environment process run: ${metrics.msgsPerScan} messages scanned per pass — drafts queued with human approval before every send.`,
     verified: true,
   },
   {

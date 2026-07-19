@@ -30,8 +30,8 @@ export const OWNER_FLOW_STEPS: readonly OwnerFlowStep[] = [
     title: 'Entry',
     status: 'PARTIAL',
     detail:
-      'flexgrafik.nl trust portal routes visitors. Sales chat (customer_agent) is LIVE on portal and wizard. Dedicated industry qualification agent is on the product roadmap.',
-    plannedNote: 'Portal qualification agent',
+      'flexgrafik.nl routes visitors into Wizard-first CTAs. Generic supervised sales chat is LIVE; INT-012 qualification API is LIVE, while the portal qualification experience remains partial.',
+    plannedNote: 'Qualification-ready portal UX',
   },
   {
     step: '02',
@@ -71,7 +71,7 @@ export const OWNER_FLOW_STEPS: readonly OwnerFlowStep[] = [
 ] as const;
 
 export const PORTAL_CHAT_DISCLAIMER =
-  'Portal and wizard share the same supervised sales chat (customer_agent). A dedicated industry qualification flow is on the product roadmap — discovery first, checkout in the wizard.';
+  'Portal and wizard share the same generic supervised sales chat. INT-012 exposes a live qualification API, but the portal UI is not an end-to-end qualification agent — discovery first, checkout in the wizard.';
 
 export const JADZIA_ONE_LINER = JADZIA_COI.oneLiner;
 

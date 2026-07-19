@@ -49,12 +49,12 @@ export const READINESS_ROWS: readonly ReadinessRow[] = [
     status: 'LIVE',
   },
   {
-    module: 'Jadzia COI',
+    module: 'Operations Command Layer',
     repoKey: 'jadzia-core',
-    readiness: '~85%',
+    readiness: '~93%',
     capability:
-      'Phase A+B LIVE: orders INT-002, leads, GA4, content calendar, chat, WP agent, worker HITL · Procurement Phase C',
-    homeCapability: 'Orders, leads, analytics and content tracked live — procurement brain on roadmap.',
+      'Commander cockpit, lead/order/GA4 spine, weekly HITL brief and supervised content publish LIVE · full autonomous COI out of scope',
+    homeCapability: 'Commander cockpit, operational spine and weekly brief LIVE — full autonomy is not offered.',
     status: 'LIVE',
   },
   {

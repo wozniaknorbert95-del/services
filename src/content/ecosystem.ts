@@ -23,7 +23,10 @@ export type ScreenKey =
   | 'vcmsDashboard'
   | 'conflictReport'
   | 'portalAssistant'
-  | 'adminDashboard';
+  | 'adminDashboard'
+  | 'inspireIntake'
+  | 'inspireMockups'
+  | 'inspireHandoff';
 
 /** Keys into proof.ts → caseMeasurements */
 export type CaseMeasurementKey =
@@ -266,6 +269,8 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'app.flexgrafik.nl',
     outcomeLabel: 'Turn cold traffic into qualified handoffs',
     role: 'Lead magnet game',
+    statusNote: 'LIVE: PWA · rewards · Wizard bridge · lead sync INT-004 — selective fit, not default after every Web Upgrade',
+    homeStatusNote: 'Selective acquisition — play, reward, Wizard handoff · leads sync LIVE',
     intents: ['money'],
     losLayers: ['sense'],
     screenKey: 'leadMagnet',
@@ -276,9 +281,9 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     number: 3,
     repoKey: 'jadzia-core',
     outcomeLabel: 'Know which leads, orders and ops need action',
-    role: 'Jadzia COI',
-    statusNote: 'LIVE: orders INT-002 · leads · GA4 · content calendar · WP SSH · sales chat · worker HITL',
-    homeStatusNote: 'Orders, leads and content tracked live — procurement brain on roadmap.',
+    role: 'Operations Command Layer',
+    statusNote: 'LIVE (~93% spine): Commander cockpit · orders INT-002 · leads · GA4 · weekly HITL brief · supervised content publish',
+    homeStatusNote: 'Commander cockpit, operational spine and weekly brief LIVE — not full autonomy.',
     intents: ['time', 'calm', 'order', 'efficiency'],
     losLayers: ['think', 'act'],
     screenKey: 'workflowMap',
@@ -314,8 +319,8 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
     repoKey: 'flexgrafik-nl',
     outcomeLabel: 'Give visitors a trustworthy conversion portal',
     role: 'Trust Portal',
-    statusNote: 'LIVE: generic sales chat · PLANNED: qualification agent',
-    homeStatusNote: 'Live sales chat — qualification agent on roadmap.',
+    statusNote: 'LIVE: generic supervised sales chat · PARTIAL: qualification API LIVE, portal UX remains generic (INT-012)',
+    homeStatusNote: 'Generic supervised chat LIVE — qualification-ready architecture is PARTIAL.',
     intents: ['money', 'order'],
     losLayers: ['sense'],
     screenKey: 'portalAssistant',

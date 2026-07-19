@@ -25,19 +25,52 @@ export const managedAutomationSolutionProblem =
 export const managedAutomationSolutionSystemItems = [
   {
     title: 'Care',
-    body: 'Continuous monitoring, minor fixes, monthly health report — peace of mind.',
+    body: 'Health checks, small fixes and a monthly operational note.',
   },
   {
     title: 'Manage',
-    body: 'Active tuning, priority support, small enhancements included.',
+    body: 'Care plus supervised content hygiene and a weekly owner-brief digest.',
   },
   {
     title: 'Partner',
-    body: 'Drift monitoring, new automations, strategic AI ops on call.',
+    body: 'Manage plus operations cockpit hygiene, priority escalation and quarterly review.',
   },
   {
     title: 'Human gate',
     body: 'Nothing sends, publishes or deploys without your approval — every plan.',
+  },
+] as const;
+
+export type ManagedAutomationTierInclusion = {
+  tier: 'Care' | 'Manage' | 'Partner';
+  includes: readonly string[];
+  boundary: string;
+};
+
+export const managedAutomationTierInclusions: readonly ManagedAutomationTierInclusion[] = [
+  {
+    tier: 'Care',
+    includes: ['Health checks', 'Small fixes', 'Monthly operational note'],
+    boundary: 'No supervised content publishing operations.',
+  },
+  {
+    tier: 'Manage',
+    includes: [
+      'Everything in Care',
+      'Supervised content prepare → approve → publish hygiene',
+      'Weekly owner-brief digest',
+    ],
+    boundary: 'Content operations only — not Meta Ads Manager work or media buying.',
+  },
+  {
+    tier: 'Partner',
+    includes: [
+      'Everything in Manage',
+      'Operations cockpit hygiene',
+      'Priority escalation',
+      'Quarterly review',
+    ],
+    boundary: 'No automatic deployment; human approval remains in every consequential flow.',
   },
 ] as const;
 

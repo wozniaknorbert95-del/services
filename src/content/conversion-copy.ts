@@ -74,7 +74,7 @@ export const OBJECTIONS = [
   },
   {
     objection: 'Trust',
-    rebuttal: 'No fake logos or fake clients — see my own ecosystem running in production.',
+    rebuttal: 'Live URLs, artefacts and named limitations — see my own ecosystem running in production.',
   },
   {
     objection: 'Timing',
@@ -97,22 +97,22 @@ export const SITE_GOAL =
 
 export const SPEARHEAD = {
   eyebrow: 'spearhead',
-  headline: 'Wizard Cash Engine — live checkout proof, not a slide deck.',
+  headline: 'Wizard Cash Engine — live checkout, plus complex quote intake.',
   body:
-    'The self-service configurator runs live today — open pricing, human approval on every deploy. This is the revenue layer I run before selling automation.',
+    'The self-service configurator runs live today — open pricing and Mollie checkout. For vehicle branding and custom jobs, a supervised Design Intake (PARTIAL) turns a request into visual direction before price.',
   bullets: [
-    'Live on zzpackage.flexgrafik.nl — try it in two minutes.',
-    'Scored leads, calm order form or designer handoff — no phone tag.',
-    'Same stack Quietforge deploys for SMB clients — governed, not templated.',
+    'Live on zzpackage.flexgrafik.nl — try checkout in two minutes.',
+    'Optional Complex Quote & Design Intake — brief → Standard/Premium direction → Wizard (lab proof).',
+    'Same stack Quietforge deploys for SMB clients — governed, with human approval on critical steps.',
   ],
   primaryCta: 'Try the wizard (2 min)',
-  primaryHref: 'https://zzpackage.flexgrafik.nl/',
-  secondaryCta: 'Inbox Killer — B2B product',
-  secondaryHref: '/solutions/inbox-killer/',
+  primaryHref: 'https://zzpackage.flexgrafik.nl/wizard/',
+  secondaryCta: 'See Design Intake + case',
+  secondaryHref: '/solutions/sales-funnel/',
   screenshot: {
     src: '/gratka/wizard-checkout.png',
     alt: 'Wizard Cash Engine checkout — live configurator with open pricing',
-    caption: 'Configure → see price → pay, no phone call.',
+    caption: 'Configure → see price → pay. Design Intake available as PARTIAL extension.',
   },
 } as const;
 
@@ -188,7 +188,7 @@ export const ABOUT = {
     "I'm Norbert Wozniak — I design conversion systems that qualify leads, automate bookings and reduce admin work, with you in the loop on every critical step. Everything here is proven on a live operation before it reaches a client.",
   storyTitle: 'FLEXGRAFIK is the proof — Quietforge is how I deploy it for you',
   storyBody:
-    `FLEXGRAFIK is my Netherlands-registered print and design company — and the live operating environment where I built and run this entire stack: Jadzia COI, VCMS governance, a ${metrics.skus}-SKU self-service wizard, inbox automation, and a lead-generation game. It is not a demo or a case study mock-up — it is the business where the software runs before it reaches a client. Quietforge is the consulting arm: I deploy the same architecture for Dutch ZZP and SME owners, with human-in-the-loop on every critical step.`,
+    `FLEXGRAFIK is my Netherlands-registered print and design company — and the live operating environment for this stack: an Operations Command Layer (Jadzia), VCMS governance, a ${metrics.skus}-SKU Wizard Cash Engine with optional Complex Quote & Design Intake, inbox automation, and a selective lead-generation game. Quietforge is the consulting arm: I deploy the same architecture for Dutch ZZP and SME owners, with human-in-the-loop on every critical step.`,
   moatTitle: 'What makes this different',
   moatPillars: [
     {

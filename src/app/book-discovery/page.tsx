@@ -61,6 +61,32 @@ export default function BookDiscoveryPage() {
         </p>
       </Section>
 
+      <Section background="surface" padding="large" id="map-sample">
+        <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-4">
+          Sample Automation Map output
+        </h2>
+        <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-6">
+          Sanitized excerpt of what you keep after the session — leaks, ROI logic, and a recommended
+          first build (or an honest no-build). Numbers on the sample are illustrative process proof,
+          not a client case study.
+        </p>
+        <Card className="p-6 max-w-xl">
+          <p className="font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)] mb-2">
+            Artefact
+          </p>
+          <h3 className="font-semibold text-[var(--qf-text)] mb-2">Automation Map — sample PDF</h3>
+          <p className="text-sm text-[var(--qf-text-dim)] mb-4">
+            One-page structure: problem → opportunities → recommended module → next decision.
+          </p>
+          <Link
+            href={ARTEFACTS.automationMapSample}
+            className="text-[var(--qf-accent)] font-semibold hover:underline inline-flex items-center gap-1"
+          >
+            Open sample Map ↓
+          </Link>
+        </Card>
+      </Section>
+
       <Section background="surface" padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">
           What you get for €{PRICING.discovery}
@@ -118,12 +144,37 @@ export default function BookDiscoveryPage() {
 
       <Section background="surface" padding="large">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-6">
-          No risk, no pressure
+          After the Map — what happens next
         </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mb-8">
+          {[
+            {
+              title: 'You keep the written Map',
+              body: 'Leaks, ROI logic, and a recommended first system — yours either way.',
+            },
+            {
+              title: 'Decision point',
+              body: 'Build, wait, or no-build / referral. No pressure to buy in the session.',
+            },
+            {
+              title: 'Fixed-scope proposal',
+              body: 'If we proceed, you get a fixed quote for one module (or a scoped multi-system path) — typically within a few business days.',
+            },
+            {
+              title: 'Honest no-build',
+              body: 'If automation is not worth it, I say so. You still keep the document; nothing further is owed.',
+            },
+          ].map((item) => (
+            <Card key={item.title} className="p-5">
+              <h3 className="font-semibold text-[var(--qf-text)] mb-2">{item.title}</h3>
+              <p className="text-sm text-[var(--qf-text-dim)]">{item.body}</p>
+            </Card>
+          ))}
+        </div>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)]">
-          The €{PRICING.discovery} is credited toward your first project. You keep the written Map
-          either way. And if there&apos;s genuinely nothing worth automating, you owe nothing further
-          — that&apos;s the honest outcome, and I&apos;ll say so.
+          The €{PRICING.discovery} is credited toward your first project. Typical first builds: Wizard
+          Cash Engine, Web Upgrade, Inbox Killer — or an Operations Command Layer when multiple
+          systems need one owner cockpit.
         </p>
       </Section>
 

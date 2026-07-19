@@ -18,22 +18,22 @@ export const MODULE_SHOWCASE: Record<string, ModuleShowcase> = {
     repoKey: 'zzpackage',
     portfolioLabel: 'Wizard Cash Engine',
     effect:
-      `Wizard-only checkout — 7 business stages, 9 UI screens, ${metrics.skus} SKU catalog, Mollie payments from €199 minimum.`,
-    highlights: ['Mollie + WooCommerce', 'Open pricing configurator', 'Game coupon attribution'],
+      `Wizard-only checkout — 7 business stages, 9 UI screens, ${metrics.skus} active SKUs, Mollie from €199 · Complex Quote & Design Intake (INSPIRE) PARTIAL.`,
+    highlights: ['Mollie + WooCommerce', 'Open pricing configurator', 'INSPIRE design intake PARTIAL'],
   },
   'app.flexgrafik.nl': {
     repoKey: 'app.flexgrafik.nl',
     portfolioLabel: 'Lead magnet game',
     effect:
-      'Bouwplaats Chaos — PWA skill platformer with Turnstile gate, 4-tier reward ladder and wizard bridge.',
-    highlights: ['GAME10 → hoodie ladder', 'Season leaderboard', 'GA4 + wizard deep links'],
+      'Bouwplaats Chaos — selective PWA acquisition with Turnstile, 4-tier rewards, Wizard bridge and lead sync to ops (INT-004 LIVE).',
+    highlights: ['INT-004 lead sync LIVE', 'Reward → Wizard bridge', 'Selective vertical fit'],
   },
   'jadzia-core': {
     repoKey: 'jadzia-core',
-    portfolioLabel: 'Jadzia COI',
+    portfolioLabel: 'Operations Command Layer',
     effect:
-      'Chief Operating Intelligence — Phase A+B LIVE: orders INT-002, leads, GA4 snapshot, content calendar, WP SSH and sales chat in one HITL-governed loop.',
-    highlights: ['INT-002 order sync LIVE', 'GA4 + content calendar', 'Telegram + worker queue'],
+      'Operations Command Layer — ~93% LIVE operational spine: Commander cockpit, orders, leads, GA4, weekly owner brief and supervised content publishing. Not a fully autonomous COI.',
+    highlights: ['Commander cockpit LIVE', 'Order/lead spine LIVE', 'Weekly brief + publish HITL'],
   },
   'agent-os': {
     repoKey: 'agent-os',
@@ -46,8 +46,8 @@ export const MODULE_SHOWCASE: Record<string, ModuleShowcase> = {
     repoKey: 'flexgrafik-nl',
     portfolioLabel: 'Trust Portal',
     effect:
-      'flexgrafik.nl brand portal — dark premium trust surface, blog SEO, primary CTA to wizard, secondary to game.',
-    highlights: ['Elementor-free templates', 'Asset sync from wizard', 'Sales chat widget'],
+      'flexgrafik.nl brand portal — Wizard-first trust surface with generic supervised chat; qualification-ready architecture remains PARTIAL.',
+    highlights: ['Wizard-first CTAs', 'Asset sync from wizard', 'Generic supervised chat'],
   },
   'flexgrafik-meta': {
     repoKey: 'flexgrafik-meta',

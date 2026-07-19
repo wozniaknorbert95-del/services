@@ -9,14 +9,14 @@ export const WEB_UPGRADE_SLUG = 'web-upgrade' as const;
 export const webUpgradeDisplayName = 'Conversion Web Upgrade — a site that earns its keep';
 
 export const webUpgradeSolutionMeta = {
-  title: 'Conversion Web Upgrade — lead capture that qualifies',
+  title: 'Conversion Web Upgrade — qualification-ready architecture',
   description:
-    'Mobile-first conversion paths, GA4 tracking, and qualification hooks — not a brochure site. Part of the Quietforge conversion system ladder.',
+    'Mobile-first conversion paths, GA4 tracking and qualification-ready architecture — not a brochure site. Portal chat stays generic and supervised.',
   openGraphTitle: 'Conversion Web Upgrade | Quietforge',
   openGraphDescription:
     'A website wired for enquiries, tracking and next-step clarity — conversion systems architect scope.',
   twitterDescription:
-    'Web upgrade as conversion path: capture, track, qualify — not design-only.',
+    'Web upgrade as a conversion path: capture, track and route into the right next step — not design-only.',
   ogAlt: 'Conversion Web Upgrade solution',
 } as const;
 
@@ -32,8 +32,8 @@ export const webUpgradeSolutionSystemItems = [
     body: 'One primary action per viewport — fast load, thumb-friendly paths for NL SMB traffic.',
   },
   {
-    title: 'Lead capture + qualification hook',
-    body: 'Forms and chat entry wired to your stack — structured data, not free-text chaos.',
+    title: 'Qualification-ready capture',
+    body: 'Forms and generic supervised chat can feed structured data into your stack — without claiming a live portal qualification agent.',
   },
   {
     title: 'GA4 + event clarity',
@@ -54,9 +54,9 @@ export const webUpgradeSolutionEffectBefore = [
 
 export const webUpgradeSolutionEffectAfter = [
   'Clear conversion paths on every key page.',
-  'Structured capture — less manual qualification.',
+  'Structured capture ready for supervised follow-up.',
   'GA4 shows what drives enquiries.',
-  'Foundation for wizard, chat or automation layers.',
+  'Foundation for Wizard-first routing, generic supervised chat or later automation layers.',
 ] as const;
 
 /** Shown on solutions page — marketing-strategy §2 exception handling */
@@ -65,7 +65,7 @@ export const webUpgradeFitException = WEBSITE_ONLY_EXCEPTION;
 export const webUpgradeAdvisoryBridge = {
   eyebrow: '// process proof',
   title: 'Advisory modernisation reference',
-  lead: 'Site modernisation + qualification assistant patterns — anonymised advisory case study in delivery.',
+  lead: 'Site modernisation and supervised qualification patterns — anonymised advisory case study in delivery.',
   cta: 'See advisory case study →',
   href: ROUTES.resultsAdvisoryModernisation,
 } as const;

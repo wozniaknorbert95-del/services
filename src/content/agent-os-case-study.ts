@@ -61,10 +61,10 @@ export const agentOsEcosystemModules: readonly AgentOsEcosystemModule[] = [
     name: 'jadzia-core',
     layer: 'Operations (COI)',
     detail:
-      'Business ops on EU VPS — orders INT-002, leads, GA4 snapshot, content calendar, WP SSH agent, sales chat widget, worker HITL LIVE. Outside the LangGraph pipeline.',
+      'Operations Command Layer on EU VPS — Commander cockpit, orders INT-002, leads, GA4, weekly brief, publish HITL, sales chat. Outside the LangGraph pipeline (not Agent OS).',
     href: ROUTES.resultsJadziaCoi,
-    linkLabel: 'Jadzia COI case study →',
-    status: 'PARTIAL',
+    linkLabel: 'Operations Command Layer proof →',
+    status: 'LIVE',
   },
   {
     id: 'flex-vcms',

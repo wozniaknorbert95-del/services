@@ -32,30 +32,31 @@ export const HEADER_NAV: readonly HeaderNavItem[] = [
   { label: "Founder's System", href: ROUTES.founder },
 ] as const;
 
+/** Order = buyer ladder: Quote & close first, then capture, operate, retain. */
 export const SOLUTIONS_NAV: readonly SolutionNavItem[] = [
   {
-    label: 'Inbox Killer',
-    href: ROUTES.inboxKiller,
-    badge: 'Start here',
-    price: PRICING_MATRIX.inboxKiller.range,
+    label: 'Sales Funnel / Wizard Cash Engine',
+    href: ROUTES.salesFunnel,
+    badge: 'Spearhead',
+    price: PRICING_MATRIX.salesFunnel.range,
   },
   {
     label: 'Web Upgrade',
     href: ROUTES.webUpgrade,
-    badge: 'Conversion site',
+    badge: 'Capture',
     price: PRICING_MATRIX.webUpgrade.range,
-  },
-  {
-    label: 'Sales Funnel / Wizard Cash Engine',
-    href: ROUTES.salesFunnel,
-    badge: 'Quote + checkout',
-    price: PRICING_MATRIX.salesFunnel.range,
   },
   {
     label: 'Lead Magnet Game',
     href: ROUTES.leadMagnetGame,
-    badge: 'Acquisition',
+    badge: 'Selective',
     price: PRICING_MATRIX.leadMagnetGame.range,
+  },
+  {
+    label: 'Inbox Killer',
+    href: ROUTES.inboxKiller,
+    badge: 'Operate',
+    price: PRICING_MATRIX.inboxKiller.range,
   },
   {
     label: 'Managed Automation',

@@ -83,36 +83,70 @@ export const PRICING_MATRIX = {
   },
 } as const;
 
+/** Scope examples under each band — numbers unchanged; packaging clarity only. */
+export const PRICING_SCOPE_EXAMPLES = {
+  salesFunnel: [
+    'Configurator + open pricing + Mollie checkout',
+    'Above + Complex Quote & Design Intake (INSPIRE pattern)',
+  ],
+  webUpgrade: [
+    'Trust site + Wizard-first CTAs',
+    'Above + supervised sales chat widget',
+  ],
+  leadMagnetGame: [
+    'PWA lead magnet + reward bridge to Wizard',
+    'Above + lead sync into operations spine',
+  ],
+  inboxKiller: [
+    'Single mailbox lanes + HITL send gate',
+    'Multi-lane + CRM handoff notes',
+  ],
+  ecosystemBuild: [
+    'Wizard + Inbox Killer',
+    'Operations Command Layer (cockpit + spine + weekly brief) + two modules',
+  ],
+  managedAutomation: [
+    'Care — health checks and small fixes',
+    'Partner — cockpit hygiene + supervised content + weekly brief',
+  ],
+} as const;
+
+/** Display order = buyer ladder (spearhead first). */
 export const PRODUCT_TIER_RANGES = [
   {
-    name: PRICING_MATRIX.inboxKiller.label,
-    from: PRICING_NUMBERS.inboxKiller.from,
-    to: PRICING_NUMBERS.inboxKiller.to,
+    name: PRICING_MATRIX.salesFunnel.label,
+    from: PRICING_NUMBERS.salesFunnel.from,
+    to: PRICING_NUMBERS.salesFunnel.to,
     perMonth: false as const,
+    examples: PRICING_SCOPE_EXAMPLES.salesFunnel,
   },
   {
     name: PRICING_MATRIX.webUpgrade.label,
     from: PRICING_NUMBERS.webUpgrade.from,
     to: PRICING_NUMBERS.webUpgrade.to,
     perMonth: false as const,
-  },
-  {
-    name: PRICING_MATRIX.salesFunnel.label,
-    from: PRICING_NUMBERS.salesFunnel.from,
-    to: PRICING_NUMBERS.salesFunnel.to,
-    perMonth: false as const,
+    examples: PRICING_SCOPE_EXAMPLES.webUpgrade,
   },
   {
     name: PRICING_MATRIX.leadMagnetGame.label,
     from: PRICING_NUMBERS.leadMagnetGame.from,
     to: PRICING_NUMBERS.leadMagnetGame.to,
     perMonth: false as const,
+    examples: PRICING_SCOPE_EXAMPLES.leadMagnetGame,
+  },
+  {
+    name: PRICING_MATRIX.inboxKiller.label,
+    from: PRICING_NUMBERS.inboxKiller.from,
+    to: PRICING_NUMBERS.inboxKiller.to,
+    perMonth: false as const,
+    examples: PRICING_SCOPE_EXAMPLES.inboxKiller,
   },
   {
     name: PRICING_MATRIX.managedAutomation.label,
     from: PRICING_NUMBERS.managedAutomation.from,
     to: PRICING_NUMBERS.managedAutomation.to,
     perMonth: true as const,
+    examples: PRICING_SCOPE_EXAMPLES.managedAutomation,
   },
 ] as const;
 
