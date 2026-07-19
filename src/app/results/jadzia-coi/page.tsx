@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import { ROUTES, SITE_URL } from '@/lib/constants';
 import { GRATKA } from '@/lib/gratka';
 import { getCaseStudyBySlug } from '@/lib/case-studies';
 import CaseStudyLayout from '@/components/casestudy/CaseStudyLayout';
+import JadziaWorkflowDiagram from '@/components/results/JadziaWorkflowDiagram';
+import JadziaProofGallery from '@/components/results/JadziaProofGallery';
 import {
   JADZIA_COI_SLUG,
   jadziaCoiArchitectureAlt,
@@ -19,7 +20,6 @@ import {
   jadziaCoiStack,
   jadziaCoiSupervisionNote,
   jadziaCoiVerifiedMetrics,
-  jadziaCoiWorkflowPipelines,
 } from '@/content/jadzia-coi-case-study';
 import { JADZIA_COI_CAPABILITIES, jadziaCoiCapabilityStatusClass } from '@/content/jadzia-coi';
 
@@ -60,7 +60,7 @@ export default function JadziaCoiCaseStudyPage() {
     detail: cap.detail,
     status: cap.status,
     statusClass: jadziaCoiCapabilityStatusClass(cap.status),
-    highlight: cap.id === 'orders' || cap.id === 'cockpit',
+    highlight: cap.id === 'orders' || cap.id === 'cockpit' || cap.id === 'marketing-brain',
   }));
 
   const downloadButtons = (
@@ -90,35 +90,19 @@ export default function JadziaCoiCaseStudyPage() {
           <p className="mb-6 max-w-[var(--qf-maxw-narrow)] text-[var(--qf-text-dim)] italic">
             {jadziaCoiLoopIntro}
           </p>
-          <h3 className="mb-4 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">COI operating loop</h3>
-          <div className="mb-6 grid gap-[var(--qf-sp-4)] sm:grid-cols-2 lg:grid-cols-4">
-            {jadziaCoiLoopNodes.map((node) => (
-              <Card key={node.phase} className="p-5">
-                <p className="mb-1 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-                  {node.phase}
-                </p>
-                <h4 className="mb-2 font-bold text-[var(--qf-text)]">{node.title}</h4>
-                <p className="max-w-none text-sm text-[var(--qf-text-dim)]">{node.detail}</p>
-              </Card>
-            ))}
-          </div>
-          <div className="mb-6 grid gap-[var(--qf-sp-6)] lg:grid-cols-2">
-            {jadziaCoiWorkflowPipelines.map((pipeline) => (
-              <Card key={pipeline.id} className="p-5">
-                <h4 className="mb-4 font-bold text-[var(--qf-text)]">{pipeline.title}</h4>
-                <ol className="m-0 list-none space-y-2 p-0">
-                  {pipeline.steps.map((step, idx) => (
-                    <li key={step} className="flex gap-3 text-sm text-[var(--qf-text-dim)]">
-                      <span className="shrink-0 font-mono text-[var(--qf-accent)]">
-                        {String(idx + 1).padStart(2, '0')}
-                      </span>
-                      {step}
-                    </li>
-                  ))}
-                </ol>
-              </Card>
-            ))}
-          </div>
+          <h3 className="mb-3 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">COI loop at a glance</h3>
+          <p className="mb-4 max-w-[var(--qf-maxw-narrow)] text-sm text-[var(--qf-text-dim)]">
+            {jadziaCoiLoopNodes.map((n) => n.phase).join(' → ')} — propose in Commander, approve with HITL,
+            bounded Act only.
+          </p>
+          <p className="mb-6">
+            <a
+              href="#proof"
+              className="font-semibold text-[var(--qf-accent)] underline-offset-2 hover:underline"
+            >
+              Explore the interactive workflow in Proof ↓
+            </a>
+          </p>
           <p className="max-w-[var(--qf-maxw-narrow)] text-sm text-[var(--qf-text-dim)]">
             {jadziaCoiSupervisionNote}
           </p>
@@ -127,14 +111,16 @@ export default function JadziaCoiCaseStudyPage() {
       buildModules={buildModules}
       buildDescription={
         <p>
-          Operations Command Layer — Commander cockpit, operational spine and weekly brief for multi-system
-          owners. Same governed pattern is available for Dutch ZZP and SME deployments via Quietforge.
+          Operations Command Layer — Commander cockpit, operational spine, Marketing Brain shadow and weekly
+          brief for multi-system owners. Same governed pattern is available for Dutch ZZP and SME deployments
+          via Quietforge.
         </p>
       }
       stack={[...jadziaCoiStack]}
       manifestKey="jadziaCoi"
-      screenKey="workflowMap"
-      videoKey="inboxKiller"
+      screenKey="jadziaCommander"
+      screenSlot={<JadziaProofGallery />}
+      workflowSlot={<JadziaWorkflowDiagram />}
       downloadButtons={downloadButtons}
     >
       <Card className="mb-6 p-5">
@@ -159,13 +145,13 @@ export default function JadziaCoiCaseStudyPage() {
         <table className="w-full min-w-[560px] border-collapse text-left text-sm">
           <thead>
             <tr className="border-b border-[var(--qf-border)] bg-[var(--qf-bg-inset)]">
-              <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+              <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-text-dim)]">
                 System
               </th>
-              <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-                Flow
+              <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-text-dim)]">
+                Direction
               </th>
-              <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
+              <th className="px-4 py-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-text-dim)]">
                 Detail
               </th>
             </tr>
@@ -174,20 +160,13 @@ export default function JadziaCoiCaseStudyPage() {
             {jadziaCoiIntegrations.map((row) => (
               <tr key={row.system} className="border-b border-[var(--qf-border)] last:border-0">
                 <td className="px-4 py-3 font-semibold text-[var(--qf-text)]">{row.system}</td>
-                <td className="px-4 py-3 font-mono text-xs text-[var(--qf-text-faint)]">{row.direction}</td>
+                <td className="px-4 py-3 font-mono text-xs text-[var(--qf-accent)]">{row.direction}</td>
                 <td className="px-4 py-3 text-[var(--qf-text-dim)]">{row.detail}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-
-      <p className="mt-6 text-sm text-[var(--qf-text-dim)]">
-        Inbox Killer is a separate B2B product built on the same COI patterns —{' '}
-        <Link href={ROUTES.resultsInboxKiller} className="text-[var(--qf-accent)] hover:text-[var(--qf-text)]">
-          see Inbox Killer case study →
-        </Link>
-      </p>
     </CaseStudyLayout>
   );
 }

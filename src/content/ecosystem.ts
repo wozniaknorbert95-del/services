@@ -26,7 +26,9 @@ export type ScreenKey =
   | 'adminDashboard'
   | 'inspireIntake'
   | 'inspireMockups'
-  | 'inspireHandoff';
+  | 'inspireHandoff'
+  | 'jadziaCommander'
+  | 'jadziaDataHealth';
 
 /** Keys into proof.ts → caseMeasurements */
 export type CaseMeasurementKey =
@@ -185,7 +187,7 @@ export const ECOSYSTEM_MODULES: readonly EcosystemModule[] = [
     intents: ['time', 'calm', 'order', 'efficiency'],
     route: JADZIA_COI_ROUTE,
     repoKey: 'jadzia-core',
-    screenKey: 'workflowMap',
+    screenKey: 'jadziaCommander',
   },
   {
     id: 'm4',
@@ -291,7 +293,7 @@ export const ECOSYSTEM_REPOS: readonly EcosystemRepo[] = [
       'Ops cockpit + Marketing Brain shadow (F0–F3) — HITL before Act; autonomy not offered.',
     intents: ['time', 'calm', 'order', 'efficiency'],
     losLayers: ['think', 'act'],
-    screenKey: 'workflowMap',
+    screenKey: 'jadziaCommander',
     proofRoute: JADZIA_COI_ROUTE,
     flagship: true,
     homeVisible: true,

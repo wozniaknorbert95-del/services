@@ -37,7 +37,7 @@ export const jadziaCoiArchitectureAlt =
   'Jadzia Operations Command Layer: Commander cockpit and operational spine connecting orders, leads, analytics, content approvals and owner briefs';
 
 export const jadziaCoiLoopIntro =
-  'Jadzia is the operations layer in the Living Operating System: signals enter the spine, the Commander cockpit prepares a decision, and a human approves consequential action. It is not a fully autonomous COI.';
+  'Jadzia is the operations layer in the Living Operating System: signals enter the spine, the Commander cockpit proposes the next move, and a human approves consequential action. Marketing Brain runs in shadow — Act and auto ad spend are not offered.';
 
 export type CoiLoopNode = {
   phase: string;
@@ -49,47 +49,109 @@ export const jadziaCoiLoopNodes: readonly CoiLoopNode[] = [
   {
     phase: 'Sense',
     title: 'Signals in',
-    detail: 'Wizard checkouts, game registrations, portal visits and operational events feed the COI loop.',
+    detail:
+      'Orders, leads, margin facts and marketing ingest land in Data Truth — not raw vanity dashboards.',
   },
   {
     phase: 'Think',
     title: 'Commander review',
-    detail: 'Turn operational context into approval-ready actions and a weekly owner brief — propose, never auto-act.',
+    detail:
+      'Commander and Marketing Brain propose priorities and a weekly brief — propose only, never auto-decide.',
   },
   {
     phase: 'Act',
     title: 'Bounded execution',
-    detail: 'Order ingestion and supervised content publishing run within bounded permissions. INT-002 and INT-011 are LIVE.',
+    detail:
+      'Order ingest (INT-002) and supervised content publish (INT-011) run inside permissions. External Act stays blocked in shadow.',
   },
   {
     phase: 'Guard',
-    title: 'HITL + Kaizen',
-    detail: 'Telegram approval, rollback path and Kaizen guard — Dowódca approves every consequential action.',
+    title: 'HITL + breakers',
+    detail:
+      'Telegram approve/deny, circuit breakers (CB_SHADOW) and rollback — Dowódca owns every consequential action.',
   },
 ];
 
-export const jadziaCoiWorkflowPipelines = [
-  {
-    id: 'brief',
-    title: 'Weekly owner brief',
-    steps: [
-      'Orders, leads and analytics enter the operational spine',
-      'Commander cockpit prepares the weekly operational synthesis',
-      'Owner reviews, edits or rejects the HITL draft',
-      'Approved decisions become bounded follow-up actions',
-    ],
-  },
-  {
-    id: 'content',
-    title: 'Supervised content publishing',
-    steps: [
-      'Content is prepared from an approved operational context',
-      'Owner reviews the text, photo or video post',
-      'Approval gates the publishing action',
-      'Facebook content is published only after HITL approval (INT-011 LIVE)',
-    ],
-  },
-] as const;
+/** Interactive Proof workflow — SSoT for JadziaWorkflowDiagram (not Architecture cards). */
+export const jadziaCoiInteractiveWorkflow = {
+  eyebrow: '// Workflow',
+  title: 'How Jadzia moves work — with you at the gate',
+  honestyLine:
+    'Interactive workflow — screen recording when the cockpit is final. Humans approve every consequential action.',
+  defaultPhaseId: 'think',
+  defaultPipelineId: 'brief',
+  phases: [
+    {
+      id: 'sense',
+      phase: 'Sense',
+      title: 'Signals in',
+      detail:
+        'Wizard checkouts, leads, GA4 snapshots and marketing facts feed Data Truth. The cockpit reads facts — not noisy raw APIs.',
+      surface: 'Commander · Analityka (Data Health)',
+    },
+    {
+      id: 'think',
+      phase: 'Think',
+      title: 'Commander review',
+      detail:
+        'Priorities and Marketing Brain shadow proposals surface for review. The system suggests — it does not decide alone.',
+      surface: 'Commander · Start',
+    },
+    {
+      id: 'act',
+      phase: 'Act',
+      title: 'Bounded execution',
+      detail:
+        'Approved paths run: order ledger sync and supervised content publish. Ads create and autonomous Act stay off until Commander GO.',
+      surface: 'Commander · Marketing / Telegram',
+    },
+    {
+      id: 'guard',
+      phase: 'Guard',
+      title: 'HITL + breakers',
+      detail:
+        'Telegram HITL, CB_SHADOW and ecosystem breakers pause risky scale when data is stale or the stack is degraded.',
+      surface: 'Telegram · circuit breakers',
+    },
+  ],
+  pipelines: [
+    {
+      id: 'brief',
+      title: 'Weekly owner brief',
+      steps: [
+        'Orders, leads and analytics enter the operational spine',
+        'Commander prepares a weekly synthesis draft',
+        'Owner reviews, edits or rejects in HITL',
+        'Approved notes become bounded follow-ups — not silent automations',
+      ],
+    },
+    {
+      id: 'content',
+      title: 'Content publish',
+      steps: [
+        'Post is prepared from an approved operational context',
+        'Owner reviews text, photo or video in the Marketing queue',
+        'Approval gates the publish action',
+        'Facebook send only after HITL (INT-011 LIVE)',
+      ],
+    },
+    {
+      id: 'marketing-brain-shadow',
+      title: 'Marketing Brain (shadow)',
+      steps: [
+        'Data Truth Layer refreshes margin and engagement facts (F0)',
+        'Decision engine logs a shadow proposal — no side effects (F1)',
+        'Telegram /mb_eval or HITL scores the proposal',
+        'Act and Meta Ads create stay blocked until explicit Commander GO',
+      ],
+    },
+  ],
+} as const;
+
+/** @deprecated Prefer jadziaCoiInteractiveWorkflow.pipelines — kept for any legacy imports */
+export const jadziaCoiWorkflowPipelines = jadziaCoiInteractiveWorkflow.pipelines.filter(
+  (p) => p.id === 'brief' || p.id === 'content'
+);
 
 export const jadziaCoiIntegrations = [
   {

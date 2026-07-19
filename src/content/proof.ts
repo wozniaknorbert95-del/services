@@ -203,6 +203,20 @@ export const screens: Record<ScreenKey, ScreenShot> = {
   inspireMockups:  { src: "/gratka/inspire/mockups.png", alt: "Standard and Premium inspiration mockups", caption: "Visual direction before price — mockups are not print-ready finals.", ready: true },
   inspireHandoff:  { src: "/gratka/inspire/wizard-handoff.png", alt: "Design Intake handoff into Wizard", caption: "Confirmed brief continues into the priced Wizard path.", ready: true },
   adminDashboard:  { src: "/gratka/agent-os-mission-control.png", alt: "Mission Control dashboard — tasks, queue, history and cost tabs", caption: "Mission Control — tasks, queue, history and cost tabs. LIVE on os.flexgrafik.nl.", ready: true },
+  jadziaCommander: {
+    src: '/gratka/jadzia-commander-home.png',
+    alt: 'COI Commander Start — priorities and action queue',
+    caption:
+      'Live Commander chrome on FlexGrafik — pick one priority; humans confirm before consequential action. Portfolio view redacted (no client PII).',
+    ready: true,
+  },
+  jadziaDataHealth: {
+    src: '/gratka/jadzia-commander-data-health.png',
+    alt: 'COI Commander Analityka — Data Health truth layer',
+    caption:
+      'Data Health (DTL): freshness and margin facts the Marketing Brain reads — shadow propose only; Act blocked.',
+    ready: true,
+  },
 };
 
 // Case studies: measurement line (honest reframe)

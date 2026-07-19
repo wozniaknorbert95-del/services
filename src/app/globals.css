@@ -1745,6 +1745,181 @@ a:hover {
   }
 }
 
+/* Jadzia COI Proof — gallery + interactive workflow */
+.qf-coi-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--qf-sp-3);
+}
+
+.qf-coi-gallery-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--qf-sp-2);
+}
+
+.qf-coi-gallery-tab {
+  min-height: 36px;
+  border: var(--qf-border-w) solid var(--qf-border);
+  border-radius: var(--qf-radius);
+  background: var(--qf-bg-raised);
+  padding: 0 var(--qf-sp-3);
+  font-family: var(--qf-mono);
+  font-size: var(--qf-fs-xs);
+  font-weight: 600;
+  color: var(--qf-text-dim);
+  cursor: pointer;
+}
+
+.qf-coi-gallery-tab[aria-selected='true'] {
+  border-color: var(--qf-accent);
+  color: var(--qf-accent);
+}
+
+.qf-coi-gallery-tab:focus-visible {
+  outline: 2px solid var(--qf-accent);
+  outline-offset: 2px;
+}
+
+.qf-coi-gallery-frame {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  border: var(--qf-border-w) solid var(--qf-border);
+  border-radius: var(--qf-radius);
+  background: var(--qf-bg-raised);
+}
+
+.qf-coi-gallery-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.qf-coi-flow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--qf-sp-4);
+  border: var(--qf-border-w) solid var(--qf-border);
+  border-radius: var(--qf-radius);
+  background: var(--qf-bg-raised);
+  padding: var(--qf-sp-5);
+  min-height: 100%;
+}
+
+.qf-coi-flow-title {
+  margin: 0;
+  font-size: var(--qf-fs-base);
+  font-weight: 700;
+  color: var(--qf-text);
+}
+
+.qf-coi-flow-phases,
+.qf-coi-flow-pipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--qf-sp-2);
+}
+
+.qf-coi-flow-phase,
+.qf-coi-flow-pipe {
+  min-height: 40px;
+  border: var(--qf-border-w) solid var(--qf-border);
+  border-left-width: 3px;
+  border-left-color: var(--qf-border-bright);
+  border-radius: var(--qf-radius);
+  background: var(--qf-bg);
+  padding: 0 var(--qf-sp-3);
+  font-family: var(--qf-mono);
+  font-size: var(--qf-fs-xs);
+  font-weight: 600;
+  color: var(--qf-text-dim);
+  cursor: pointer;
+}
+
+.qf-coi-flow-phase[data-phase='sense'] { border-left-color: var(--fx-order); }
+.qf-coi-flow-phase[data-phase='think'] { border-left-color: var(--fx-calm); }
+.qf-coi-flow-phase[data-phase='act'] { border-left-color: var(--fx-money); }
+.qf-coi-flow-phase[data-phase='guard'] { border-left-color: var(--fx-time); }
+
+.qf-coi-flow-phase[aria-selected='true'],
+.qf-coi-flow-pipe[aria-selected='true'] {
+  border-color: var(--qf-accent);
+  color: var(--qf-text);
+}
+
+.qf-coi-flow-phase:focus-visible,
+.qf-coi-flow-pipe:focus-visible {
+  outline: 2px solid var(--qf-accent);
+  outline-offset: 2px;
+}
+
+.qf-coi-flow-panel {
+  border: var(--qf-border-w) solid var(--qf-border);
+  background: var(--qf-bg-inset);
+  padding: var(--qf-sp-4);
+}
+
+.qf-coi-flow-panel-kicker {
+  margin: 0 0 4px;
+  font-family: var(--qf-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--qf-accent);
+}
+
+.qf-coi-flow-panel-title {
+  margin: 0 0 var(--qf-sp-2);
+  font-size: var(--qf-fs-base);
+  font-weight: 700;
+  color: var(--qf-text);
+}
+
+.qf-coi-flow-panel-body {
+  margin: 0 0 var(--qf-sp-2);
+  font-size: var(--qf-fs-sm);
+  color: var(--qf-text-dim);
+}
+
+.qf-coi-flow-panel-surface {
+  margin: 0;
+  font-family: var(--qf-mono);
+  font-size: var(--qf-fs-xs);
+  color: var(--qf-text-faint);
+}
+
+.qf-coi-flow-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--qf-sp-2);
+}
+
+.qf-coi-flow-step {
+  display: flex;
+  gap: var(--qf-sp-3);
+  font-size: var(--qf-fs-sm);
+  color: var(--qf-text-dim);
+}
+
+.qf-coi-flow-step-num {
+  flex-shrink: 0;
+  font-family: var(--qf-mono);
+  font-size: var(--qf-fs-xs);
+  color: var(--qf-accent);
+}
+
+.qf-coi-flow-honesty {
+  margin: 0;
+  font-size: var(--qf-fs-xs);
+  color: var(--qf-text-faint);
+  line-height: var(--qf-lh-snug);
+}
+
 /* CLS reduction: reserve space for animated sections */
 [data-home-section] {
   contain: layout style;

@@ -1,21 +1,20 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-07-19 · **Status:** Home proof truth sync v6.0 CLOSED (shipped)  
-**Commit:** `4ae2554`  
-**Canon:** [`../strategy/site-map.md`](../strategy/site-map.md) §3 v6.0  
-**Handoff:** [`handoffs/2026-07-19-home-v6-proof-truth.md`](handoffs/2026-07-19-home-v6-proof-truth.md)
+**Updated:** 2026-07-19 · **Status:** Jadzia Proof Commander + workflow SHIPPING  
+**Canon:** site-map §3 v6.0  
+**Handoff:** [`handoffs/2026-07-19-jadzia-proof-commander.md`](handoffs/2026-07-19-jadzia-proof-commander.md)
 
 ---
 
 ## CO
 
-Home bez cash/governance/honesty strips. Jadzia = sole deep proof (MB shadow). Design Intake copy = live supervised PARTIAL.
+Jadzia case study Proof = Commander screenshots + interactive workflow (no fake Agent OS / Inbox video).
 
 ---
 
 ## NASTĘPNY KROK (Commander)
 
-Post-deploy smoke z handoffu v6.0.
+Smoke `/results/jadzia-coi/#proof` po Vercel. Opcjonalnie re-capture gdy API priorytetów wróci LIVE.
 
 ---
 

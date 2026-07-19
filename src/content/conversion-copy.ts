@@ -115,9 +115,9 @@ export const JADZIA_SPEARHEAD = {
   secondaryCta: 'Book Automation Map',
   secondaryHref: '/book-discovery/',
   screenshot: {
-    src: '/gratka/jadzia-coi-architecture.svg',
-    alt: 'Jadzia Operations Command Layer — Commander cockpit and operational spine',
-    caption: 'Sense → propose in shadow → you approve — no autonomous Act.',
+    src: '/gratka/jadzia-commander-home.png',
+    alt: 'COI Commander Start — priorities and action queue',
+    caption: 'Live Commander cockpit — pick a priority; humans approve before Act.',
   },
 } as const;
 

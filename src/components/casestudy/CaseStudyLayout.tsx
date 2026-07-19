@@ -38,6 +38,10 @@ interface CaseStudyLayoutProps {
   manifestKey: keyof typeof caseMeasurements;
   videoKey?: keyof typeof videos;
   screenKey: keyof typeof screens;
+  /** Interactive workflow (or other) — replaces Demo video column when set. */
+  workflowSlot?: ReactNode;
+  /** Custom screenshot column (e.g. gallery) — replaces default ProofScreenSlot. */
+  screenSlot?: ReactNode;
   downloadButtons?: ReactNode;
   children?: ReactNode;
 }
@@ -56,6 +60,8 @@ export default function CaseStudyLayout({
   manifestKey,
   videoKey,
   screenKey,
+  workflowSlot,
+  screenSlot,
   downloadButtons,
   children,
   showLosFootnote = true,
@@ -196,12 +202,14 @@ export default function CaseStudyLayout({
         </div>
       </Section>
 
-      <Section padding="large">
+      <Section padding="large" id="proof">
         <h2 className="text-[var(--qf-fs-2xl)] font-bold tracking-tight mb-8">Proof</h2>
         <ProofMediaGrid
           screen={screen}
           screenKey={screenKey}
-          videoKey={videoKey}
+          videoKey={workflowSlot ? undefined : videoKey}
+          workflowSlot={workflowSlot}
+          screenSlot={screenSlot}
           emptyCtaHref={ROUTES.bookDiscovery}
           emptyCtaLabel="Book Automation Map"
         />
