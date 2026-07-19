@@ -389,13 +389,13 @@ export const PAIN_GRID_HEADER = {
 
 export const PAIN_GRID: readonly PainCard[] = [
   {
-    id: 'pain-inbox',
-    title: 'Drowning in email',
+    id: 'pain-quotes',
+    title: 'Quotes by hand',
     description:
-      'Important leads, invoices and customer questions sit in the same pile as noise. The system classifies, drafts and queues replies — you approve every send.',
-    costLine: '~12 hours/week lost to triage and reply drafting',
-    href: ROUTES.inboxKiller,
-    intents: ['time', 'calm'],
+      'You answer the same questions before knowing if the lead is serious. The wizard structures the quote, price logic and next step.',
+    costLine: "3-day email ping-pong before you know if they're serious",
+    href: ROUTES.salesFunnel,
+    intents: ['money', 'efficiency'],
   },
   {
     id: 'pain-site',
@@ -407,15 +407,6 @@ export const PAIN_GRID: readonly PainCard[] = [
     intents: ['money', 'order'],
   },
   {
-    id: 'pain-quotes',
-    title: 'Quotes by hand',
-    description:
-      'You answer the same questions before knowing if the lead is serious. The wizard structures the quote, price logic and next step.',
-    costLine: "3-day email ping-pong before you know if they're serious",
-    href: ROUTES.salesFunnel,
-    intents: ['money', 'efficiency'],
-  },
-  {
     id: 'pain-leads',
     title: 'Traffic, but no leads',
     description:
@@ -423,5 +414,14 @@ export const PAIN_GRID: readonly PainCard[] = [
     costLine: 'Traffic with no capture — paid clicks with nothing in the CRM',
     href: ROUTES.leadMagnetGame,
     intents: ['money'],
+  },
+  {
+    id: 'pain-inbox',
+    title: 'Drowning in email',
+    description:
+      'Important leads, invoices and customer questions sit in the same pile as noise. The system classifies, drafts and queues replies — you approve every send.',
+    costLine: '~12 hours/week lost to triage and reply drafting',
+    href: ROUTES.inboxKiller,
+    intents: ['time', 'calm'],
   },
 ] as const;

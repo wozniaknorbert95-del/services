@@ -56,7 +56,7 @@
 | Automation Map €290 | `src/content/pricing.ts` |
 | Managed Automation €349–€890/mo | `src/content/pricing.ts` |
 | 142 messages/scan | `src/content/proof.ts` |
-| 161 SKUs | `src/content/proof.ts` |
+| 167 SKUs | `src/content/proof.ts` |
 | Profile baseline 16 connections, 2.4/5 B2B | `gtm/audits/linkedin-audit-2026-06-29.md` |
 
 ### profile-copy improvements vs v2.0 txt drafts

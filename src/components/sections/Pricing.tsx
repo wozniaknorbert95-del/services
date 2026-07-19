@@ -28,6 +28,7 @@ export default function PricingSection() {
       timeline: '60–90 min session',
       includes: ['ROI scoring', 'System roadmap', 'Build recommendation'],
       note: pricing.discovery.note,
+      featured: true,
       cta: { label: CTAS.bookAutomationMap, variant: 'primary' },
     },
     {
@@ -38,7 +39,6 @@ export default function PricingSection() {
         pricing.singleSystem.includes !== null
           ? [pricing.singleSystem.includes, 'Setup & integration', 'Handover']
           : ['Custom implementation', 'Setup & integration', 'Handover'],
-      featured: true,
       cta: { label: 'Scoped in your Map', variant: 'secondary' },
     },
     {
@@ -84,7 +84,7 @@ export default function PricingSection() {
           >
             {tier.featured ? (
               <p className="mb-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-                Most popular entry
+                Most popular
               </p>
             ) : null}
             <h3 className="mb-2 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">{tier.name}</h3>

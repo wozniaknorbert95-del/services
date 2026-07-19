@@ -108,4 +108,4 @@ Phase 01 ──gate──► Phase 02 ──gate──► Phase 03 ──gate─
 **Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
-*Norbert — AI Systems Architect · Quietforge · quietforge@flexgrafik.nl*
+*Norbert — Conversion Systems Architect · Quietforge · quietforge@flexgrafik.nl*

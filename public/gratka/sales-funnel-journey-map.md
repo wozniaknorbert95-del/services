@@ -52,4 +52,4 @@ Want a self-service funnel shaped around *your* offer? Book a paid **Automation 
 **Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
-*Norbert — AI Systems Architect · Quietforge · quietforge@flexgrafik.nl*
+*Norbert — Conversion Systems Architect · Quietforge · quietforge@flexgrafik.nl*

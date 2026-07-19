@@ -112,7 +112,7 @@ Founder of FlexGrafik, a Netherlands-based print and design business that also s
 I use FlexGrafik as my self-as-client environment: before I offer a conversion system to clients, I run the pattern inside my own daily operations first.
 
 Systems running or tested through FlexGrafik include:
-- a guided quote and checkout flow for self-service ordering (161 SKUs, LIVE)
+- a guided quote and checkout flow for self-service ordering (167 SKUs, LIVE)
 - inbox classification and drafted replies with human approval (142 messages/scan, LIVE)
 - lead capture flows that move visitors toward qualified next steps
 - approval gates before important sends, changes or deployments
@@ -142,7 +142,7 @@ It is the proof layer showing that the systems I sell through Quietforge are fir
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| SKUs in wizard | 161 | `src/content/proof.ts` |
+| SKUs in wizard | 167 | `src/content/proof.ts` |
 | Inbox messages per scan | 142 | `src/content/proof.ts` |
 | Automation Map | €290, credited toward build | `src/content/pricing.ts` |
 | Managed Automation | €349–€890/mo | `src/content/pricing.ts` |

@@ -14,7 +14,7 @@ Paste-ready copy for the live FlexGrafik page. **Use this file only** — strate
 
 Cross-check before paste: [rules.md](./rules.md) FB-R01, FB-R05, FB-R08, FB-R09 · audit baseline in [README.md](./README.md).
 
-**SSoT metrics:** `src/content/proof.ts` — 161 SKUs · 9 UI screens · 7 business decision stages.
+**SSoT metrics:** `src/content/proof.ts` — 167 SKUs · 9 UI screens · 7 business decision stages.
 
 ---
 
@@ -58,7 +58,7 @@ Wat wij doen:
 • Stickers, voertuigbelettering, bedrijfskleding en signage
 • Professionele Mimaki ecosolvent druk — UV-bestendig en weerbestendig
 • Vakkundige montage door onze professionele montagepartner (geen DIY)
-• 161 producten bestelbaar via onze online wizard — upload, betaal via Mollie, klaar
+• 167 producten bestelbaar via onze online wizard — upload, betaal via Mollie, klaar
 • Live chat op flexgrafik.nl en in de wizard — helpt je kiezen (geen wachten op antwoord)
 
 Oorsprong: Rotterdam — wij werken voor ZZP'ers door heel Nederland.

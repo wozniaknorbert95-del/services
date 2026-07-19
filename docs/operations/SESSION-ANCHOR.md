@@ -1,43 +1,28 @@
 # SESSION-ANCHOR — Live Session Pointer
 
-**Updated:** 2026-07-19 · **Status:** CLOSED ✅ · **Program:** Quietforge System Coherence × Sales Lift  
-**Shipped:** `59d88be` → `master` · Vercel CD **success** · prod smoke OK
+**Updated:** 2026-07-19 · **Status:** SHIPPING WAVE 2 → master  
+**Prior on prod:** `3077669` (Truth×Offer ladder) · **Gap found:** wave 2 was local-only
 
 ---
 
-## WYNIK
-
-Truth × Offer sync CLOSED for implementation (Commander green-light 2026-07-19):
+## WYNIK WERYFIKACJI
 
 | Layer | Status |
 |-------|--------|
-| Dual matrices HITL | ✅ approved |
-| SKU | ✅ 167 active |
-| Ladder + INSPIRE evidence screens | ✅ |
-| Ops Command Layer + case-studies LIVE | ✅ |
-| Managed tiers / GTM deep-links | ✅ |
-| Master §14 sync | ✅ |
+| Wave 1 Truth×Offer (`59d88be`/`3077669`) on origin/master | ✅ |
+| Prod `/solutions/` Wizard spearhead | ✅ |
+| Wave 2 honesty/PDF/OG/home (local) | ⚠️ was uncommitted — shipping now |
+| Prod still had `runs itself`, `Most popular entry`, Managed OG €99 | ❌ until this push |
 
-**Handoff:** [`handoffs/2026-07-19-system-coherence-sales-lift.md`](./handoffs/2026-07-19-system-coherence-sales-lift.md)
+**Handoff:** [`handoffs/2026-07-19-coherence-wave2-pdf-og-honesty.md`](./handoffs/2026-07-19-coherence-wave2-pdf-og-honesty.md)
 
 ---
 
-## NASTĘPNY KROK (Commander)
+## NASTĘPNY KROK
 
-1. Post-deploy smoke (routes in handoff)
-2. LinkedIn Featured V2 paste — [`artefacts/2026-07-gtm-claim-lock.md`](./artefacts/2026-07-gtm-claim-lock.md)
-3. Publish INSPIRE v3 with `#design-intake` landing
-4. Facebook profile — FlexGrafik-only
-
----
-
-## OPEN (non-blocking)
-
-| Item | Owner | Priorytet |
-|------|-------|-----------|
-| Inbox / lead-magnet / ecosystem videos | Commander + Agent | P1 |
-| Marketing OS scorecard → public case | Commander | P2 |
-| PDF email regen | Agent | P2 |
+1. Push wave 2 → Vercel CD  
+2. Post-deploy smoke (needles cleared)  
+3. Commander: paste LI/FB 167 · Featured V2 · INSPIRE v3  
 
 ---
 

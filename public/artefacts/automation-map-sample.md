@@ -52,4 +52,4 @@ Estimated effort: [your estimate] · Indicative range: [€range on request] · 
 This document + the diagram. No obligation to continue.
 
 ---
-*Prepared by Norbert — AI Systems Architect · Quietforge · quietforge@flexgrafik.nl*
+*Prepared by Norbert — Conversion Systems Architect · Quietforge · quietforge@flexgrafik.nl*

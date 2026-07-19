@@ -26,4 +26,4 @@
 - No hostage data, no hidden dependencies.
 
 ---
-*Norbert — AI Systems Architect · Quietforge · quietforge@flexgrafik.nl*
+*Norbert — Conversion Systems Architect · Quietforge · quietforge@flexgrafik.nl*

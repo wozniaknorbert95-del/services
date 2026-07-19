@@ -14,11 +14,11 @@ import { GRATKA } from '@/lib/gratka';
 export const metadata: Metadata = {
   title: 'How it works — three clear steps',
   description:
-    'A calm, transparent process: a paid Automation Map, a fast productized build, and optional monthly care. Live in days, not months. Book an Automation Map.',
+    'A calm, transparent process: a paid Automation Map, a productized build with human approval gates, and optional monthly care. Typical scoped builds aim for weeks, not open-ended IT projects. Book an Automation Map.',
   openGraph: {
     title: 'How it works — three clear steps',
     description:
-      'A calm, transparent process: a paid Automation Map, a fast productized build, and optional monthly care. Live in days, not months.',
+      'A calm, transparent process: a paid Automation Map, a productized build with human approval gates, and optional monthly care.',
     url: `${SITE_URL}/how-it-works`,
     images: [
       {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'How it works — three clear steps',
-    description: 'A calm, transparent process. Live in days, not months.',
+    description: 'A calm, transparent process with human approval gates at every step.',
     images: ['/og/how-it-works.svg'],
   },
 };
@@ -73,8 +73,8 @@ export default function HowItWorksPage() {
           Three clear steps. No surprises.
         </h1>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-8">
-          From first conversation to a system that runs itself — transparent, fast, and with you in
-          control the whole way.
+          From first conversation to a supervised system you can operate — transparent timelines,
+          human approval gates, and you in control the whole way.
         </p>
         <Button href={ROUTES.bookDiscovery} withArrow size="lg">
           {CTAS.bookAutomationMap}
@@ -153,8 +153,8 @@ export default function HowItWorksPage() {
         </h2>
         <p className="text-[var(--qf-text-dim)] text-[var(--qf-fs-lg)] max-w-[var(--qf-maxw-narrow)] mb-6">
           Your system is adapted from modules that already run a live business, not coded from zero.
-          That&apos;s why builds take days, not months. We configure it to your data, your voice and your
-          tools, test it, and hand it over working.
+          Scoped productized builds typically land in days to a few weeks — not open-ended IT projects.
+          We configure it to your data, your voice and your tools, test it, and hand it over working.
         </p>
         <ul className="space-y-2 max-w-2xl">
           {[
@@ -230,7 +230,8 @@ export default function HowItWorksPage() {
           ))}
         </div>
         <p className="text-[var(--qf-text-faint)] text-sm italic max-w-2xl mt-2">
-          Most engagements go live within two weeks. No six-month projects, no IT department required.
+          Many scoped engagements aim for go-live within about two weeks after the Map — timeline
+          depends on access, approvals and scope. No six-month black-box projects, no IT department required.
         </p>
       </Section>
 

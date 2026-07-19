@@ -25,7 +25,7 @@ Paste-ready NL posts in **strategic publish order**. Narrative: *FlexGrafik is t
 |---|-------|--------|-----|-----------------|
 | 1 | Wij zijn terug — en anders | P4 | ZZP partner | — |
 | 2 | Professionele montage — geen DIY | P1 | Mimaki + montage | — |
-| 3 | Bestellen in 3 stappen | P3 | Wizard 161 | — |
+| 3 | Bestellen in 3 stappen | P3 | Wizard 167 | — |
 | 4 | Van sticker tot complete belettering | P1 | Portfolio | — |
 | 5 | Alles op één plek | P2 | One partner | — |
 | 6 | Live chat — geen wachten | P2 | Sales chat LIVE | — |
@@ -54,7 +54,7 @@ Even stil geweest — maar FlexGrafik is terug, en anders dan je gewend bent.
 Wij zijn géén generieke drukkerij. Wij zijn jouw brandingpartner als ZZP'er in Nederland:
 stickers, voertuigbelettering, bedrijfskleding en signage — alles op één plek.
 
-Professionele Mimaki ecosolvent druk. Vakkundige montage via onze partner. Bestellen kan online via onze wizard — 161 producten, zonder eindeloos mailen.
+Professionele Mimaki ecosolvent druk. Vakkundige montage via onze partner. Bestellen kan online via onze wizard — 167 producten, zonder eindeloos mailen.
 
 De komende weken laten we zien hoe dat werkt. Vragen? Stuur een bericht.
 
@@ -92,7 +92,7 @@ Standaard producten? Bestel direct via de wizard.
 | Field | Value |
 |-------|-------|
 | **Pillar** | P3 How-to |
-| **USP** | Wizard 161 SKUs |
+| **USP** | Wizard 167 SKUs |
 | **CTA URL** | `https://zzpackage.flexgrafik.nl/wizard/` |
 | **Media required** | Wizard screenshot — NL UI, product grid or cart visible |
 | **Publish gate** | ⛔ Screenshot must show live wizard — not mockup |
@@ -104,7 +104,7 @@ Bestellen hoeft niet ingewikkeld te zijn.
 2. Upload je bestanden
 3. Betaal via Mollie — wij gaan aan de slag
 
-161 producten — van visitekaartjes tot stickerset. Geen telefoontjes, geen offerte-wachten voor standaard items.
+167 producten — van visitekaartjes tot stickerset. Geen telefoontjes, geen offerte-wachten voor standaard items.
 
 Start hier:
 https://zzpackage.flexgrafik.nl/wizard/
@@ -153,7 +153,7 @@ Stickers bij leverancier A. Kleding bij B. Belettering bij C. En montage… zelf
 
 Als ZZP'er heb je geen tijd voor vijf contactpersonen.
 
-FlexGrafik bundelt het: design, Mimaki-druk, montage en 161 producten in één wizard. Eén partner voor je zichtbare merk.
+FlexGrafik bundelt het: design, Mimaki-druk, montage en 167 producten in één wizard. Eén partner voor je zichtbare merk.
 
 Bestel direct:
 https://zzpackage.flexgrafik.nl/wizard/
@@ -228,7 +228,7 @@ UV-bestendig. Weerbestendig. Bedoeld voor voertuigen, raamstickers en buitenrecl
 
 Daarom werken wij met professionele productie én montage via onze partner. Jouw merk verdient dat.
 
-161 producten in de wizard — bekijk wat past:
+167 producten in de wizard — bekijk wat past:
 https://zzpackage.flexgrafik.nl/wizard/
 ```
 

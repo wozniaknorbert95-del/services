@@ -147,13 +147,16 @@ export default function IntentRouter() {
               : INTENT_ROUTER_HEADER.nextStepDefault}
           </p>
 
-          <div className="flex flex-col justify-center gap-[var(--qf-sp-4)] sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-[var(--qf-sp-3)]">
             <Button href={ROUTES.bookDiscovery} withArrow analyticsEvent="cta_book_map_click" analyticsDetail={{ location: 'intent_router' }}>
               {CTAS.bookAutomationMap}
             </Button>
-            <Button href={ROUTES.results} variant="secondary" withArrow>
-              See the systems
-            </Button>
+            <Link
+              href={ROUTES.results}
+              className="text-sm text-[var(--qf-text-dim)] transition-colors hover:text-[var(--qf-accent)]"
+            >
+              Or browse live systems →
+            </Link>
           </div>
         </motion.div>
       </div>

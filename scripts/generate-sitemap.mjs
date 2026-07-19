@@ -33,6 +33,9 @@ const ROUTES = [
   '/trust/',
   '/legal/',
   '/blog/',
+  '/blog/automation-for-small-business/',
+  '/blog/digital-transformation-without-the-jargon/',
+  '/blog/under-the-hood-how-inbox-killer-works/',
 ];
 
 const HIGH_INTENT = new Set(['/solutions/', '/pricing/', '/book-discovery/']);
@@ -55,7 +58,7 @@ function getSitemapMeta(path) {
   if (path.startsWith('/results/') && path !== '/results/') {
     return { priority: '0.7', changefreq: 'monthly' };
   }
-  if (path === '/blog/') {
+  if (path === '/blog/' || path.startsWith('/blog/')) {
     return { priority: '0.5', changefreq: 'monthly' };
   }
   if (path === '/about/') {

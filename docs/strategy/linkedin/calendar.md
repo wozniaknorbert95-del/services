@@ -116,7 +116,7 @@ I fixed this first in my own print business.
 
 Visitors now go through a guided quote flow: configure, see the logic, upload what is needed, reach checkout — before I touch the inbox.
 
-LIVE proof: 161 SKUs, 9 UI screens, 7 business decision stages, Mollie checkout from €199 minimum — running on FlexGrafik today, not as a slide deck.
+LIVE proof: 167 SKUs, 9 UI screens, 7 business decision stages, Mollie checkout from €199 minimum — running on FlexGrafik today, not as a slide deck.
 
 The business effect:
 less guessing, fewer weak enquiries, faster handling of serious leads.

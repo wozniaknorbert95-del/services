@@ -112,7 +112,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     meta: 'Inbox Killer · B2B · live ops',
     status: 'LIVE',
     context:
-      'Deployed in my own NL print-business ecosystem (2+ years in production). Same architecture I deploy for clients — not theory.',
+      'Built against my own NL print-business stack. Classification and draft flow are demonstrated as a supervised test-environment process proof — same HITL architecture I deploy for clients.',
     system:
       'Reads mail via OAuth, classifies into lanes, drafts replies, and stops at a human approval gate before anything sends.',
     real: caseMeasurements.inboxKiller.value ?? '',

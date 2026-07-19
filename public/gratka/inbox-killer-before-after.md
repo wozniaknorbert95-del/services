@@ -26,7 +26,7 @@ Owner reads everything manually · same replies typed again · follow-ups forgot
 ```
 Inbox Killer agent
         │
-        ├─► Read        → 100+ messages per scan (live system)
+        ├─► Read        → 100+ messages per scan (test-environment proof)
         ├─► Classify    → lead · client · invoice · noise
         ├─► Sort        → clear lanes, noise archived
         ├─► Draft       → reply in your voice, ready to review
@@ -35,7 +35,7 @@ Inbox Killer agent
 classify → plan → diff → approve
 ```
 
-**What's real today:** production mailbox, human-in-the-loop on every outbound message.
+**What's real today:** process proof in a supervised test environment — human-in-the-loop on every outbound message. Not a claim that a client production mailbox is already live.
 
 **Measurement:** estimate ~ a few hours/week saved — confirmed per client after setup (no invented numbers).
 
@@ -57,4 +57,4 @@ Not sure if your inbox is worth automating first? Book a paid **Automation Map**
 **Book:** quietforge.flexgrafik.nl/book-discovery/
 
 ---
-*Norbert — AI Systems Architect · Quietforge · quietforge@flexgrafik.nl*
+*Norbert — Conversion Systems Architect · Quietforge · quietforge@flexgrafik.nl*

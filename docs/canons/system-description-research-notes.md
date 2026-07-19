@@ -46,11 +46,11 @@ classification: "Internal input for system-description-master.md"
 | Source | Count | Verdict |
 |--------|-------|---------|
 | `product-master-table.json` raw array | **175** | PowerShell `ConvertFrom-Json` count 2026-07-08 |
-| `proof.ts` | **161** | Comment: SSoT + `validate_product_master.py` |
+| `proof.ts` | **167** | Comment: SSoT + `validate_product_master.py` |
 | `module-zzpackage-wizard.md` | 77 | **STALE** — ignore for public copy |
-| `profile-copy.md` v3 | 161 | Align with proof.ts |
+| `profile-copy.md` v3 | 167 | Align with proof.ts |
 
-**Master decision:** Public copy uses **161 SKUs** with footnote: *"SSoT `product-master-table.json`; validated catalog per `validate_product_master.py` (raw entries may differ)."*
+**Master decision:** Public copy uses **167 SKUs** with footnote: *"SSoT `product-master-table.json`; validated catalog per `validate_product_master.py` (raw entries may differ)."*
 
 ### 2.3 Jadzia COI readiness
 
@@ -58,10 +58,10 @@ classification: "Internal input for system-description-master.md"
 |--------|---|-------|
 | `as-is-inventory.md` §1 (2026-06-24) | ~35% | Pre COI Phase A deploy |
 | `jadzia charter` §9 | ~10% COI capability | Emotional honesty — operational % higher |
-| `readiness.ts` (portfolio) | **~55% PARTIAL** | Post INT-002/004/009 deploy narrative |
+| `readiness.ts` (portfolio) | **~93% PARTIAL** | Ops Command Layer spine (2026-07-19 Truth×Offer) |
 | `integration-contracts.md` | order, lead, analytics LIVE | Nodes exist in `jadzia-core/agent/nodes/` |
 
-**Master decision:** **~55% PARTIAL** for portfolio table; narrative = Phase A+B LIVE (orders, leads, analytics, content calendar partial), full COI strategist loop PLANNED.
+**Master decision:** **~93% PARTIAL** for portfolio Ops Command spine; full COI strategist / supplier vision remains PARTIAL-PLANNED.
 
 **Evidence nodes LIVE:** `order_node.py`, `lead_node.py`, `analytics_node.py`, `content_calendar_node.py`
 

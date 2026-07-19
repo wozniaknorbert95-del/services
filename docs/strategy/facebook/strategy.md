@@ -69,7 +69,7 @@ Every post in the launch series communicates at least one:
 | # | USP | Proof standard |
 |---|-----|----------------|
 | 1 | **ZZP brandingpartner** | NL copy, ZZP examples — not generic B2C |
-| 2 | **Wizard** | 161 SKUs · 9 UI screens · Mollie checkout — SSoT `proof.ts` |
+| 2 | **Wizard** | 167 SKUs · 9 UI screens · Mollie checkout — SSoT `proof.ts` |
 | 3 | **Lead-magnet game** | 5 speelniveaus · 4-tier reward ladder · monthly season ranking · wizard bridge — `app.flexgrafik.nl` |
 | 4 | **Montagepartner** | Professional install — **never** name erkapremium |
 | 5 | **Mimaki ecosolvent** | UV-bestendig · weerbestendig — operational claim; no invented specs |

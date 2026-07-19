@@ -69,13 +69,13 @@ Each post in [content-themes.md](./content-themes.md) has a **Publish gate** —
 | Must say | Never say |
 |---|---|
 | Real project photos (client permission) | Stock photos as “our work” |
-| Actual product capabilities | “200+ SKUs” if site says 161 — use **161** |
+| Actual product capabilities | “200+ SKUs” if site says 167 — use **167** |
 | Wizard LIVE status | Fake urgency (“2 months left”) |
 | Live sales chat on portal + wizard | “AI adviseur regelt alles” — qualification agent is PLANNED |
 | 5 speelniveaus / season leaderboard (game) | “Logo op podium” — not in SSoT |
 | Consumer “3 stappen” | Implying wizard is only 3 screens — footnote: 9 UI screens internally |
 
-SKU count SSoT: `src/content/proof.ts` (161).  
+SKU count SSoT: `src/content/proof.ts` (167).  
 Game SSoT: `src/content/lead-magnet-case-study.ts` (5 acts, 4-tier ladder, season ranking).  
 Chat SSoT: `src/content/owner-ecosystem.ts` (customer_agent LIVE; qualification agent PLANNED).
 

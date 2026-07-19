@@ -17,6 +17,8 @@ interface CaseStudyLayoutProps {
   study: CaseStudy;
   problemBefore: string[];
   problemAfter: string[];
+  /** Default: "After — Resolution". Use "Target state" when delivery is still in progress. */
+  problemAfterLabel?: string;
   architectureDiagramSvgUrl: string;
   architectureDiagramAlt: string;
   architectureDescription: ReactNode;
@@ -44,6 +46,7 @@ export default function CaseStudyLayout({
   study,
   problemBefore,
   problemAfter,
+  problemAfterLabel = 'After — Resolution',
   architectureDiagramSvgUrl,
   architectureDiagramAlt,
   architectureDescription,
@@ -102,7 +105,7 @@ export default function CaseStudyLayout({
           </Card>
           <Card className="border-[var(--qf-ok)] p-6">
             <p className="mb-4 font-mono text-xs uppercase tracking-wider text-[var(--qf-ok)]">
-              After — Resolution
+              {problemAfterLabel}
             </p>
             <ul className="m-0 list-none space-y-3 p-0">
               {problemAfter.map((item) => (

@@ -81,6 +81,7 @@ export default function AdvisoryModernisationCaseStudyPage() {
       }}
       problemBefore={[...advisoryModernisationBeforeItems]}
       problemAfter={[...advisoryModernisationAfterItems]}
+      problemAfterLabel="Target state — in delivery"
       architectureDiagramSvgUrl={GRATKA.advisoryDeliveryTimelineSvg}
       architectureDiagramAlt={advisoryModernisationArchitectureAlt}
       architectureDescription={

@@ -154,7 +154,7 @@ All public copy must use the same matrix.
 
 Forbidden:
 
-- `from €99/mo` for Managed Automation,
+- `from €99/mo` for Managed Automation (forbidden live fragment — use €349–€890/mo),
 - conflicting monthly maintenance prices,
 - swapped Web Upgrade/Sales Funnel descriptions,
 - hidden “contact for price” for named offers.

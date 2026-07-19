@@ -78,7 +78,7 @@ These must never be swapped on `/solutions/`, cards, pricing or metadata.
 | 1 | Hero | `HeroSection` | 5-second clarity | Who / for whom / outcome / proof strip / L3 CTA — no terminal, no 8-repo |
 | 2 | Dual-brand | `DualBrandBand` | QF sell vs FG proof | Quietforge deploys B2B · FlexGrafik live proof — no print pitch |
 | 3 | Featured paths | `FeaturedStrip` | Mirror LinkedIn Featured | Map €290 · /results/ · /how-it-works/ — 3 equal cards |
-| 4 | Pain router | `PainGrid` | Recognition | "Choose your leak": inbox, website, quotes, traffic |
+| 4 | Pain router | `PainGrid` | Recognition | "Choose your leak" quote-first: quotes → website → traffic → inbox (Wizard spearhead first) |
 | 5 | Live proof — Wizard | `SpearheadSpotlight` + `SystemMetrics` compact | Live system proof #1 | Wizard Cash Engine LIVE — 4–5 bullets + 1 screenshot, **no terminal mock**, no Mollie/SKU details; 4 verified numbers |
 | 6 | Honesty gate | `BuiltVsPlanned` compact | Trust | **4 rows: Wizard, Jadzia COI, Agent OS, Governance** — de-jargonised capabilities, no LangGraph/Paramiko/Langfuse; link to `/results/owner-ecosystem/` |
 | 7 | Pick your module | `IntentRouter` | Self-segmentation | **6 business-relevant cards** (hide `flex-vcms` + `flexgrafik-meta`); outcome-first labels, 1–2 sentence descriptions, StatusBadge LIVE/PARTIAL, no repo keys/diagrams; filter dims only |
@@ -226,7 +226,7 @@ All pages must use the same commercial matrix.
 
 Forbidden live price fragments:
 
-- `from €99/mo` for Managed Automation
+- `from €99/mo` for Managed Automation (live range is €349–€890/mo)
 - `from €290/mo` for Maintenance, unless the whole pricing matrix is changed
 - mismatched Sales Funnel/Web Upgrade ranges
 - “contact for price” on named offers
