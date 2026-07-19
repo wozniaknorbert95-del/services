@@ -2,8 +2,9 @@ import { pricing } from '@/content/proof';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import Eyebrow from '@/components/ui/Eyebrow';
 import { ROUTES } from '@/lib/constants';
-import { CTAS } from '@/content/conversion-copy';
+import { CTAS, PRICING_SECTION } from '@/content/conversion-copy';
 
 type TierCta = {
   label: string;
@@ -63,30 +64,19 @@ export default function PricingSection() {
 
   return (
     <Section background="surface" padding="large" data-home-section="pricing">
-      <div className="mb-[var(--qf-sp-12)] text-center">
-        <h2 className="mb-[var(--qf-sp-4)] text-[var(--qf-fs-2xl)] font-bold tracking-tight">
-          Start with a paid Automation Map.
-        </h2>
-        <p className="mx-auto max-w-2xl text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">
-          Then choose a build that fits the size of the problem — not the size of a retainer.
-        </p>
+      <div className="qf-home-header qf-home-header--center">
+        <Eyebrow>{PRICING_SECTION.eyebrow}</Eyebrow>
+        <h2>{PRICING_SECTION.title}</h2>
+        <p className="qf-lead max-w-2xl">{PRICING_SECTION.lead}</p>
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {tiers.map((tier) => (
           <Card
             key={tier.name}
-            className={`flex h-full flex-col p-6 ${
-              tier.featured
-                ? 'border-[var(--qf-accent)] shadow-[0_0_0_1px_var(--qf-accent-glow)]'
-                : ''
-            }`}
+            className={`flex h-full flex-col p-6 ${tier.featured ? 'qf-pricing-featured' : ''}`}
           >
-            {tier.featured ? (
-              <p className="mb-3 font-mono text-xs uppercase tracking-wider text-[var(--qf-accent)]">
-                Most popular
-              </p>
-            ) : null}
+            {tier.featured ? <p className="qf-pricing-badge">{PRICING_SECTION.mostPopular}</p> : null}
             <h3 className="mb-2 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">{tier.name}</h3>
             <div className="mb-1 text-[var(--qf-fs-2xl)] font-bold text-[var(--qf-accent)]">{tier.price}</div>
             <p className="mb-6 min-h-[1.5rem] font-mono text-xs text-[var(--qf-text-dim)]">{tier.timeline}</p>

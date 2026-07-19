@@ -374,9 +374,9 @@ export interface PainCard {
 }
 
 export const PAIN_GRID_HEADER = {
-  eyebrow: 'Choose your leak',
-  title: 'Where is the business leaking time or money?',
-  lead: 'Tap the pain that costs you most. We start there — quotes first when the leak is ping-pong.',
+  eyebrow: 'your leak',
+  title: 'Where is time or money leaking?',
+  lead: 'Pick the pain that costs you most. We start there — quote ping-pong first when that is the leak.',
 } as const;
 
 export const PAIN_GRID: readonly PainCard[] = [
@@ -384,8 +384,8 @@ export const PAIN_GRID: readonly PainCard[] = [
     id: 'pain-quotes',
     title: 'Quotes by hand',
     description:
-      'You answer the same questions before knowing if the lead is serious. The wizard structures the quote, price logic and next step.',
-    costLine: "3-day email ping-pong before you know if they're serious",
+      'Same questions, same email tennis — before you know if the lead is serious. The wizard structures quote, price and next step.',
+    costLine: '3-day ping-pong before you know if they are serious',
     href: ROUTES.salesFunnel,
     intents: ['money', 'efficiency'],
   },
@@ -393,8 +393,8 @@ export const PAIN_GRID: readonly PainCard[] = [
     id: 'pain-site',
     title: 'An outdated website',
     description:
-      'Visitors arrive, but the page gives them no trust, no clear route and no reason to act. The system turns the site into a conversion path.',
-    costLine: 'Visitors leave without a path — enquiries stay flat',
+      'Visitors arrive with no trust signal, no clear route and no reason to act. Turn the site into a conversion path.',
+    costLine: 'Visitors leave — enquiries stay flat',
     href: ROUTES.webUpgrade,
     intents: ['money', 'order'],
   },
@@ -402,8 +402,8 @@ export const PAIN_GRID: readonly PainCard[] = [
     id: 'pain-leads',
     title: 'Traffic, but no leads',
     description:
-      'People visit and disappear. An interactive lead system earns attention first, then hands qualified users into the funnel.',
-    costLine: 'Traffic with no capture — paid clicks with nothing in the CRM',
+      'People visit and disappear. Earn attention first, then hand qualified contacts into the quoting path.',
+    costLine: 'Paid clicks with nothing in the CRM',
     href: ROUTES.leadMagnetGame,
     intents: ['money'],
   },
@@ -411,8 +411,8 @@ export const PAIN_GRID: readonly PainCard[] = [
     id: 'pain-inbox',
     title: 'Drowning in email',
     description:
-      'Important leads, invoices and customer questions sit in the same pile as noise. The system classifies, drafts and queues replies — you approve every send.',
-    costLine: '~12 hours/week lost to triage and reply drafting',
+      'Leads, invoices and noise in one pile. Classify, draft and queue replies — you approve every send.',
+    costLine: '~12 hours/week lost to triage',
     href: ROUTES.inboxKiller,
     intents: ['time', 'calm'],
   },

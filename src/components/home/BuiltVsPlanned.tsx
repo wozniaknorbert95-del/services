@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
 import StatusBadge from '@/components/ui/StatusBadge';
+import Eyebrow from '@/components/ui/Eyebrow';
 import {
   READINESS_HEADER,
   READINESS_ROWS,
@@ -18,8 +19,7 @@ interface BuiltVsPlannedProps {
 
 /**
  * Built vs Planned readiness table — honest inventory per repo.
- * Compact on home (4 rows per site-map §3 v3.0: Wizard, Jadzia COI, Agent OS, Governance);
- * full 8-row table on owner-ecosystem.
+ * Compact on home (4 rows); full 8-row table on owner-ecosystem.
  */
 export default function BuiltVsPlanned({ variant = 'default' }: BuiltVsPlannedProps) {
   const motionCfg = useMotion();
@@ -31,36 +31,31 @@ export default function BuiltVsPlanned({ variant = 'default' }: BuiltVsPlannedPr
     <section
       id="built-vs-planned"
       data-home-section="built-vs-planned"
-      className={`border-t border-[var(--qf-border)] ${isCompact ? 'py-[var(--qf-sp-16)]' : 'py-[var(--qf-sp-24)]'}`}
+      className="qf-home-section"
       aria-labelledby="built-vs-planned-heading"
     >
-      <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
+      <div className="qf-home-inner">
         <motion.div
           initial={fade.initial}
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
-          className="mb-[var(--qf-sp-8)]"
+          className="qf-home-header"
         >
-          <span className="qf-eyebrow">{READINESS_HEADER.eyebrow}</span>
-          <h2 id="built-vs-planned-heading" className="mt-[var(--qf-sp-4)]">
-            {READINESS_HEADER.title}
-          </h2>
-          <p className="qf-lead mt-[var(--qf-sp-4)] max-w-2xl">{READINESS_HEADER.lead}</p>
+          <Eyebrow>{READINESS_HEADER.eyebrow}</Eyebrow>
+          <h2 id="built-vs-planned-heading">{READINESS_HEADER.title}</h2>
+          <p className="qf-lead max-w-2xl">{READINESS_HEADER.lead}</p>
         </motion.div>
 
         {isCompact ? (
-          <div className="grid grid-cols-1 gap-[var(--qf-sp-3)] sm:grid-cols-2">
+          <div className="qf-honesty-grid">
             {rows.map((row) => (
-              <div
-                key={row.repoKey}
-                className="rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-raised)] p-4"
-              >
-                <div className="mb-2 flex items-center justify-between gap-2">
-                  <p className="font-semibold text-[var(--qf-text)]">{row.module}</p>
+              <div key={row.repoKey} className="qf-honesty-card">
+                <div className="qf-honesty-card-top">
+                  <p className="qf-honesty-card-title">{row.module}</p>
                   <StatusBadge status={row.status as ReadinessStatus} />
                 </div>
-                <p className="text-sm text-[var(--qf-text-dim)]">{row.homeCapability ?? row.capability}</p>
+                <p className="qf-honesty-card-body">{row.homeCapability ?? row.capability}</p>
               </div>
             ))}
           </div>
@@ -109,14 +104,9 @@ export default function BuiltVsPlanned({ variant = 'default' }: BuiltVsPlannedPr
         )}
 
         {isCompact ? (
-          <p className="mt-[var(--qf-sp-6)]">
-            <Link
-              href={ROUTES.resultsOwnerEcosystem}
-              className="text-sm font-semibold text-[var(--qf-accent)] hover:underline"
-            >
-              View full built vs planned map →
-            </Link>
-          </p>
+          <Link href={ROUTES.resultsOwnerEcosystem} className="qf-honesty-link">
+            View full built vs planned map →
+          </Link>
         ) : null}
       </div>
     </section>

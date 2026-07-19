@@ -17,7 +17,7 @@ export const HERO = {
     'Conversion systems that qualify leads, reduce admin and keep humans in control.',
   subline:
     'For Dutch small businesses tired of manual quotes, inbox chaos and websites that do not turn visitors into pipeline.',
-  dualBrandLine: 'Quietforge deploys · FlexGrafik is the live proof.',
+  dualBrandLine: 'Quietforge deploys · FlexGrafik is the live proof',
   beats: {
     problem: {
       label: 'Problem',
@@ -98,14 +98,14 @@ export const SITE_GOAL =
   'Can this person design and deploy a system that improves my business?';
 
 export const SPEARHEAD = {
-  eyebrow: 'spearhead',
-  headline: 'Wizard Cash Engine — live checkout, plus complex quote intake.',
+  eyebrow: 'live proof',
+  headline: 'Wizard Cash Engine — live checkout for real quotes.',
   body:
-    'The self-service configurator runs live today — open pricing and Mollie checkout. For vehicle branding and custom jobs, a supervised Design Intake (PARTIAL) turns a request into visual direction before price.',
+    'Self-service configurator with open pricing and checkout — live today. For custom jobs, a supervised Design Intake (PARTIAL) turns a brief into visual direction before price.',
   bullets: [
     'Live on zzpackage.flexgrafik.nl — try checkout in two minutes.',
-    'Optional Complex Quote & Design Intake — brief → Standard/Premium direction → Wizard (lab proof).',
-    'Same stack Quietforge deploys for SMB clients — governed, with human approval on critical steps.',
+    'Optional Design Intake — brief → Standard/Premium direction → Wizard.',
+    'Same stack Quietforge deploys for SMB clients — human approval on critical steps.',
   ],
   primaryCta: 'Try the wizard (2 min)',
   primaryHref: 'https://zzpackage.flexgrafik.nl/wizard/',
@@ -114,8 +114,38 @@ export const SPEARHEAD = {
   screenshot: {
     src: '/gratka/wizard-checkout.png',
     alt: 'Wizard Cash Engine checkout — live configurator with open pricing',
-    caption: 'Configure → see price → pay. Design Intake available as PARTIAL extension.',
+    caption: 'Configure → see price → pay. Design Intake available as PARTIAL.',
   },
+} as const;
+
+/** Home WhyItWorks — site-map §3 v4.0 #5 (method + safety + objections). */
+export const WHY_IT_WORKS = {
+  eyebrow: 'why it works',
+  title: 'A method, not a magic trick.',
+  lead:
+    'Every project runs through the same workflow I use for my own business — clarity first, safety by design, no lock-in. You always know what happens next and where your approval is required.',
+  dogfoodNote:
+    'The same workflow runs my own business in production — not a process invented for the brochure.',
+  safetyTitle: 'Safe enough to hand your inbox to.',
+  safetyLead:
+    "Built to survive a small business owner's worst week — and a regulator's question.",
+  trustCta: 'See full Trust & Safety details →',
+} as const;
+
+export const FINAL_CTA = {
+  title: 'Start with clarity, not a sales pitch.',
+  lead:
+    'Book a paid Automation Map. In 60–90 minutes we find your two or three biggest time-and-money leaks, show the ROI, and recommend the right first step. The fee is credited toward your project — and if there is nothing worth automating, you owe nothing further and keep the document.',
+  sampleLabel: 'See a sample Automation Map ↓',
+  architectureHint: 'Want the full picture first?',
+  architectureCta: 'See full architecture →',
+} as const;
+
+export const PRICING_SECTION = {
+  eyebrow: 'pricing',
+  title: 'Start with a paid Automation Map.',
+  lead: 'Then choose a build that fits the size of the problem — not the size of a retainer.',
+  mostPopular: 'Most popular',
 } as const;
 
 export const CTAS = {

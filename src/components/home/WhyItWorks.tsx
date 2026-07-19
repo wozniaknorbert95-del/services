@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useMotion } from '@/lib/useMotion';
 import { ARTEFACTS, ROUTES } from '@/lib/constants';
-import { OBJECTIONS } from '@/content/conversion-copy';
+import { OBJECTIONS, WHY_IT_WORKS } from '@/content/conversion-copy';
 import Eyebrow from '@/components/ui/Eyebrow';
 import Card from '@/components/ui/Card';
 
@@ -94,27 +94,22 @@ export default function WhyItWorks() {
       id="why-it-works"
       data-home-section="why-it-works"
       aria-labelledby="why-it-works-title"
-      className="border-t border-[var(--qf-border)] bg-[var(--qf-bg-raised)] py-[var(--qf-sp-24)]"
+      className="qf-why"
     >
-      <div className="mx-auto max-w-[var(--qf-maxw)] px-[var(--qf-sp-6)]">
+      <div className="qf-home-inner">
         <motion.div
           initial={fade.initial}
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={fade.transition}
+          className="qf-home-header"
         >
-          <Eyebrow>why it works</Eyebrow>
-          <h2 id="why-it-works-title" className="mb-[var(--qf-sp-4)]">
-            A method, not a magic trick.
-          </h2>
-          <p className="mb-[var(--qf-sp-12)] max-w-[var(--qf-maxw-narrow)] text-[var(--qf-fs-lg)] text-[var(--qf-text-dim)]">
-            Every project runs through the same workflow I use for my own business — clarity first,
-            safety by design, no lock-in. You always know what&apos;s happening, what comes next,
-            and where your approval is required.
-          </p>
+          <Eyebrow>{WHY_IT_WORKS.eyebrow}</Eyebrow>
+          <h2 id="why-it-works-title">{WHY_IT_WORKS.title}</h2>
+          <p className="qf-lead max-w-[var(--qf-maxw-narrow)]">{WHY_IT_WORKS.lead}</p>
         </motion.div>
 
-        <ol className="m-0 grid list-none gap-[var(--qf-sp-4)] p-0">
+        <ol className="qf-why-phases">
           {PHASES.map((phase, index) => (
             <motion.li
               key={phase.number}
@@ -123,31 +118,23 @@ export default function WhyItWorks() {
               viewport={{ once: true, margin: '-80px' }}
               transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : index * 0.05 }).transition}
             >
-              <Card className="flex flex-col gap-[var(--qf-sp-4)] sm:flex-row sm:items-start overflow-hidden">
-                <span
-                  aria-hidden="true"
-                  className="shrink-0 font-mono text-xl font-bold text-[var(--qf-accent)] sm:pt-1"
-                >
+              <Card className="qf-why-phase">
+                <span aria-hidden="true" className="qf-why-phase-num">
                   {phase.number}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <h3 className="mb-2 text-[var(--qf-fs-lg)] font-bold text-[var(--qf-text)]">
+                  <h3 className="qf-why-phase-title">
                     {phase.title}
                     {phase.tags?.map((tag) => (
-                      <span
-                        key={tag}
-                        className="ml-1 font-mono text-xs font-normal uppercase tracking-wider text-[var(--qf-text-dim)]"
-                      >
+                      <span key={tag} className="qf-why-phase-tag">
                         · {tag}
                       </span>
                     ))}
                   </h3>
-                  <p className="mb-2 max-w-none text-sm text-[var(--qf-text-dim)]">
-                    {phase.description}
-                  </p>
-                  <p className="max-w-none font-mono text-sm text-[var(--qf-accent)]">
+                  <p className="qf-why-phase-body">{phase.description}</p>
+                  <p className="qf-why-phase-deliverable">
                     Deliverable: {phase.deliverable}
-                    {phase.artefactHref && phase.artefactLabel && (
+                    {phase.artefactHref && phase.artefactLabel ? (
                       <>
                         {' '}
                         ·{' '}
@@ -159,7 +146,7 @@ export default function WhyItWorks() {
                           {phase.artefactLabel} ↓
                         </Link>
                       </>
-                    )}
+                    ) : null}
                   </p>
                 </div>
               </Card>
@@ -172,78 +159,66 @@ export default function WhyItWorks() {
           whileInView={fade.animate}
           viewport={{ once: true, margin: '-80px' }}
           transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.2 }).transition}
-          className="mt-[var(--qf-sp-8)] max-w-none border-l-2 border-[var(--qf-border)] pl-4 text-sm text-[var(--qf-text-dim)]"
+          className="qf-why-note"
         >
-          The same workflow runs my own business in production — not a process invented for the
-          brochure. You see how it behaves before you commit to a build.
+          {WHY_IT_WORKS.dogfoodNote}
         </motion.p>
 
-        <motion.div
-          initial={fade.initial}
-          whileInView={fade.animate}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={fade.transition}
-          className="mt-[var(--qf-sp-16)]"
-        >
-          <h3 className="mb-[var(--qf-sp-3)] text-center text-[var(--qf-fs-xl)] font-bold text-[var(--qf-text)]">
-            Safe enough to hand your inbox to.
-          </h3>
-          <p className="mx-auto mb-[var(--qf-sp-8)] max-w-2xl text-center text-[var(--qf-text-dim)]">
-            Every system is built to survive a small business owner&apos;s worst week — and a
-            regulator&apos;s question.
-          </p>
-        </motion.div>
+        <div className="qf-why-safety">
+          <motion.div
+            initial={fade.initial}
+            whileInView={fade.animate}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={fade.transition}
+          >
+            <p className="qf-why-safety-title">{WHY_IT_WORKS.safetyTitle}</p>
+            <p className="qf-why-safety-lead">{WHY_IT_WORKS.safetyLead}</p>
+          </motion.div>
 
-        <motion.div
-          variants={motionCfg.staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: '-80px' }}
-          className="grid gap-[var(--qf-sp-4)] sm:grid-cols-3"
-        >
-          {SAFETY_CARDS.map((card) => (
-            <motion.div key={card.title} variants={motionCfg.childFade}>
-              <Card hover className="h-full">
-                <h3 className="mb-2 text-[var(--qf-fs-base)] font-bold text-[var(--qf-text)]">
-                  {card.title}
-                </h3>
-                <p className="text-sm text-[var(--qf-text-dim)]">{card.description}</p>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+          <motion.div
+            variants={motionCfg.staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: '-80px' }}
+            className="qf-why-safety-grid"
+          >
+            {SAFETY_CARDS.map((card) => (
+              <motion.div key={card.title} variants={motionCfg.childFade}>
+                <Card hover className="h-full">
+                  <h3 className="mb-2 text-[var(--qf-fs-base)] font-bold text-[var(--qf-text)]">
+                    {card.title}
+                  </h3>
+                  <p className="text-sm text-[var(--qf-text-dim)]">{card.description}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
 
-        <motion.div
-          initial={fade.initial}
-          whileInView={fade.animate}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={fade.transition}
-          className="mt-[var(--qf-sp-8)]"
-        >
-          <div className="mx-auto max-w-3xl space-y-2 rounded-[var(--qf-radius)] border border-[var(--qf-border)] bg-[var(--qf-bg-inset)] p-[var(--qf-sp-5)] font-mono text-sm">
+          <motion.div
+            initial={fade.initial}
+            whileInView={fade.animate}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={fade.transition}
+            className="qf-why-objections"
+          >
             {OBJECTIONS.map((item) => (
-              <p key={item.objection} className="m-0 max-w-none text-[var(--qf-text-dim)]">
-                <span className="text-[var(--qf-accent)]">{item.objection.toLowerCase()}:</span>{' '}
+              <p key={item.objection}>
+                <span className="qf-why-objections-key">{item.objection.toLowerCase()}:</span>{' '}
                 {item.rebuttal}
               </p>
             ))}
-          </div>
-        </motion.div>
+          </motion.div>
 
-        <motion.div
-          initial={fade.initial}
-          whileInView={fade.animate}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.15 }).transition}
-          className="mt-[var(--qf-sp-6)] text-center"
-        >
-          <Link
-            href={ROUTES.trust}
-            className="inline-flex items-center gap-[var(--qf-sp-2)] text-sm text-[var(--qf-accent)] transition-colors hover:text-[var(--qf-text)]"
+          <motion.div
+            initial={fade.initial}
+            whileInView={fade.animate}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={motionCfg.fadeIn({ delay: motionCfg.prefersReduced ? 0 : 0.15 }).transition}
+            className="qf-why-trust-link"
           >
-            See full Trust &amp; Safety details →
-          </Link>
-        </motion.div>
+            <Link href={ROUTES.trust}>{WHY_IT_WORKS.trustCta}</Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

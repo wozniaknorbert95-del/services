@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Mail, Monitor, Quote, Users } from 'lucide-react';
 import { useMotion } from '@/lib/useMotion';
-import { PAIN_GRID, PAIN_GRID_HEADER, getIntentMeta } from '@/content/ecosystem';
+import { PAIN_GRID, PAIN_GRID_HEADER } from '@/content/ecosystem';
 import Eyebrow from '@/components/ui/Eyebrow';
 import IntentBadges from '@/components/ui/IntentBadges';
 
@@ -21,7 +21,7 @@ export default function PainGrid() {
   const fade = motionCfg.fadeIn();
 
   return (
-    <section data-home-section="pain-grid" className="qf-pain-section">
+    <section data-home-section="pain-grid" className="qf-pain-section" aria-labelledby="pain-grid-title">
       <div className="qf-pain-inner">
         <motion.div
           initial={fade.initial}
@@ -31,7 +31,9 @@ export default function PainGrid() {
           className="qf-pain-header"
         >
           <Eyebrow>{PAIN_GRID_HEADER.eyebrow}</Eyebrow>
-          <h2 className="qf-pain-title">{PAIN_GRID_HEADER.title}</h2>
+          <h2 id="pain-grid-title" className="qf-pain-title">
+            {PAIN_GRID_HEADER.title}
+          </h2>
           <p className="qf-lead max-w-2xl">{PAIN_GRID_HEADER.lead}</p>
         </motion.div>
 
@@ -45,32 +47,24 @@ export default function PainGrid() {
           {PAIN_GRID.map((pain) => {
             const Icon = PAIN_ICONS[pain.id as keyof typeof PAIN_ICONS] ?? Mail;
             const primaryIntent = pain.intents[0];
-            const accent = getIntentMeta(primaryIntent);
             const isLead = pain.id === 'pain-quotes';
 
             return (
               <motion.div key={pain.id} variants={motionCfg.childFade}>
                 <Link
                   href={pain.href}
+                  data-intent={primaryIntent}
                   className={`qf-pain-card ${isLead ? 'qf-pain-card--lead' : ''}`}
-                  style={{ borderLeftColor: accent.cssVar }}
                 >
                   {isLead ? <span className="qf-pain-card-badge">Quote first</span> : null}
-                  <Icon
-                    className="qf-pain-card-icon"
-                    style={{ color: accent.cssVar }}
-                    strokeWidth={1.5}
-                    aria-hidden
-                  />
+                  <Icon className="qf-pain-card-icon" strokeWidth={1.5} aria-hidden />
                   <div className="qf-pain-card-badges">
                     <IntentBadges intents={[...pain.intents]} />
                   </div>
                   <h3 className="qf-pain-card-title">{pain.title}</h3>
                   <p className="qf-pain-cost">{pain.costLine}</p>
                   <p className="qf-pain-card-body">{pain.description}</p>
-                  <span className="qf-pain-card-cta" style={{ color: accent.cssVar }}>
-                    See the fix →
-                  </span>
+                  <span className="qf-pain-card-cta">See the fix →</span>
                 </Link>
               </motion.div>
             );
